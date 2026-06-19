@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Birdie — PGA DFS Simulator for DraftKings</title>
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <span class="logo">⛳</span>
+      <div>
+        <h1>Birdie</h1>
+        <p class="tag">Play-by-play PGA simulations for DraftKings — built to win.</p>
+      </div>
+    </div>
+    <nav class="tabs">
+      <button class="tab active" data-tab="players">1 · Players</button>
+      <button class="tab" data-tab="build">2 · Build</button>
+      <button class="tab" data-tab="lineups">3 · Review</button>
+      <button class="tab" data-tab="export">4 · Export</button>
+    </nav>
+  </header>
+
+  <main>
+    <!-- ===================== PLAYERS / SIMULATE ===================== -->
+    <section id="players" class="panel active">
+      <div class="toolbar">
+        <div class="control">
+          <label>Simulations</label>
+          <select id="nSims">
+            <option value="2000">2,000 (fast)</option>
+            <option value="5000" selected>5,000</option>
+            <option value="10000">10,000 (sharp)</option>
+            <option value="25000">25,000 (max)</option>
+          </select>
+        </div>
+        <div class="control">
+          <label>Seed</label>
+          <input id="seed" type="number" value="12345" />
+        </div>
+        <button id="runSim" class="primary">▶ Run Simulation</button>
+        <span id="simStatus" class="status"></span>
+        <div class="spacer"></div>
+        <label class="filebtn">⬆ Import DK Salaries CSV
+          <input id="importCsv" type="file" accept=".csv" hidden />
+        </label>
+        <button id="resetSlate" class="ghost">Reset sample slate</button>
+      </div>
+
+      <p class="hint">
+        Edit <b>Salary</b> and <b>Skill</b> inline (skill = strokes gained/round vs. field).
+        Lock 🔒 forces a golfer into every lineup; Ban 🚫 removes them. Then run the sim
+        and head to <b>Build</b>.
+      </p>
+
+      <div class="tablewrap">
+        <table id="playerTable">
+          <thead>
+            <tr>
+              <th>Golfer</th>
+              <th class="num">Salary</th>
+              <th class="num">Skill</th>
+              <th class="num">Proj</th>
+              <th class="num">Floor</th>
+              <th class="num">Ceil</th>
+              <th class="num">Cut%</th>
+              <th class="num">Own%</th>
+              <th class="num">Val</th>
+              <th class="ctr">🔒</th>
+              <th class="ctr">🚫</th>
+            </tr>
+          </thead>
+          <tbody><!-- rows injected --></tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ===================== BUILD ===================== -->
+    <section id="build" class="panel">
+      <div class="toolbar wrap">
+        <div class="control">
+          <label>Lineups to build</label>
+          <input id="nLineups" type="number" value="20" min="1" max="500" />
+        </div>
+        <div class="control">
+          <label>Max exposure %</label>
+          <input id="maxExposure" type="number" value="60" min="1" max="100" />
+        </div>
+        <div class="control">
+          <label>Min salary used</label>
+          <input id="minSalary" type="number" value="49000" min="0" max="50000" step="100" />
+        </div>
+        <div class="control">
+          <label>Optimize for</label>
+          <select id="sortBy">
+            <option value="ceiling" selected>Ceiling (GPP upside)</option>
+            <option value="mean">Mean (cash)</option>
+            <option value="p99">Top-1% spike (Milly Maker)</option>
+          </select>
+        </div>
+        <button id="buildBtn" class="primary">⚙ Build Lineup Pool</button>
+        <span id="buildStatus" class="status"></span>
+      </div>
+      <p class="hint">
+        Each lineup is optimized against a single simulated tournament, so the pool is
+        diverse and correlated the way real tournaments play out — not 20 copies of the
+        same chalk.
+      </p>
+      <div id="buildSummary" class="cards"></div>
+    </section>
+
+    <!-- ===================== REVIEW / LEVERAGE ===================== -->
+    <section id="lineups" class="panel">
+      <div class="split">
+        <div>
+          <h2>Exposure vs. Field <span class="sub">— your edge is in the leverage column</span></h2>
+          <div class="tablewrap">
+            <table id="exposureTable">
+              <thead>
+                <tr>
+                  <th>Golfer</th>
+                  <th class="num">Proj Own%</th>
+                  <th class="num">My Exp%</th>
+                  <th class="num">Leverage</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </div>
+        <div>
+          <h2>Lineup Pool <span class="sub" id="poolCount"></span></h2>
+          <div id="lineupList" class="lineups"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== EXPORT ===================== -->
+    <section id="export" class="panel">
+      <h2>Export</h2>
+      <p class="hint">Download a DraftKings-ready upload file, or a detailed pool with projections.</p>
+      <div class="exportbtns">
+        <button id="exportDK" class="primary">⬇ DraftKings Upload CSV</button>
+        <button id="exportDetailed" class="ghost">⬇ Detailed pool CSV</button>
+      </div>
+      <pre id="exportPreview" class="preview"></pre>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <span>Birdie · client-side, your data never leaves the browser.</span>
+  </footer>
+
+  <script src="assets/js/scoring.js"></script>
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/sim.js"></script>
+  <script src="assets/js/optimizer.js"></script>
+  <script src="assets/js/app.js"></script>
+</body>
+</html>
