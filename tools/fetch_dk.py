@@ -109,7 +109,32 @@ def find_key(obj, key):
     return None
 
 
+def list_groups():
+    """Print the open GOLF draft groups (id + start) and the event name read
+    from each group's first draftable, so we can identify the right slate."""
+    lobby = get_json("https://www.draftkings.com/lobby/getcontests?sport=GOLF", optional=True) or {}
+    dgs = lobby.get("DraftGroups", [])
+    print(f"{len(dgs)} GOLF draft groups open:")
+    for d in sorted(dgs, key=lambda x: str(x.get("StartDate") or x.get("StartDateEst") or "")):
+        dg = d.get("DraftGroupId")
+        start = d.get("StartDate") or d.get("StartDateEst")
+        suffix = d.get("ContestStartTimeSuffix") or ""
+        gt = d.get("GameTypeId")
+        event = ""
+        dd = get_json(
+            f"https://api.draftkings.com/draftgroups/v1/draftgroups/{dg}/draftables?format=json",
+            optional=True,
+        )
+        if dd:
+            comp = find_key(dd, "competition") or {}
+            event = comp.get("name") or comp.get("nameDisplay") or ""
+        print(f"  dg={dg} start={start}{suffix} gameType={gt} event={event!r}")
+
+
 def main():
+    if os.environ.get("DK_LIST", "").strip():
+        list_groups()
+        return 0
     contest = os.environ.get("DK_CONTEST_ID", "").strip()
     tourney = os.environ.get("DK_TOURNAMENT", "").strip()
     date = os.environ.get("DK_DATE", "").strip()

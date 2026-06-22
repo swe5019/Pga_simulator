@@ -19,6 +19,10 @@ on:
         description: Date value for the rows
         required: true
         default: '6/25/26'
+      list:
+        description: List open GOLF draft groups instead of fetching (1 = list)
+        required: false
+        default: ''
 
 permissions:
   contents: write
@@ -41,6 +45,7 @@ jobs:
           DK_DRAFTGROUP_ID: ${{ inputs.draftgroup_id }}
           DK_TOURNAMENT: ${{ inputs.tournament_name }}
           DK_DATE: ${{ inputs.date }}
+          DK_LIST: ${{ inputs.list }}
         run: python tools/fetch_dk.py
 
       - name: Commit CSV
