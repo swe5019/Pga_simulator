@@ -1,0 +1,51 @@
+name: Fetch DK salaries
+
+on:
+  workflow_dispatch:
+    inputs:
+      contest_id:
+        description: DraftKings contest ID
+        required: true
+        default: '5173013489'
+      tournament_name:
+        description: Tournament_Name value for the rows
+        required: true
+        default: 'TRAVELERS_2026'
+      date:
+        description: Date value for the rows
+        required: true
+        default: '6/25/26'
+
+permissions:
+  contents: write
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Fetch DraftKings salaries
+        env:
+          DK_CONTEST_ID: ${{ inputs.contest_id }}
+          DK_TOURNAMENT: ${{ inputs.tournament_name }}
+          DK_DATE: ${{ inputs.date }}
+        run: python tools/fetch_dk.py
+
+      - name: Commit CSV
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          if git diff --quiet -- data/dk_salaries.csv; then
+            echo "No change in data/dk_salaries.csv"
+          else
+            git add data/dk_salaries.csv
+            git commit -m "Fetch DK salaries for ${{ inputs.tournament_name }}"
+            git push
+          fi
