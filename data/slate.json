@@ -1,0 +1,1469 @@
+{
+ "updatedUtc": "2026-06-22T19:27:21Z",
+ "source": "master Sheet1",
+ "count": 150,
+ "golfers": [
+  {
+   "name": "Scottie Scheffler",
+   "salary": 14900,
+   "sgTot": 2.74,
+   "ownership": 23.74,
+   "winOdds": 450.0,
+   "impliedProb": 18.18,
+   "leverage": 0.766,
+   "leverageTier": "NEUTRAL"
+  },
+  {
+   "name": "Rory McIlroy",
+   "salary": 12200,
+   "sgTot": 2.62,
+   "ownership": 25.89,
+   "winOdds": 930.0,
+   "impliedProb": 9.71,
+   "leverage": 0.375,
+   "leverageTier": "CHALK"
+  },
+  {
+   "name": "Jon Rahm",
+   "salary": 11500,
+   "sgTot": 2.16,
+   "ownership": 16.49,
+   "winOdds": 1175.0,
+   "impliedProb": 7.84,
+   "leverage": 0.475,
+   "leverageTier": "CHALK"
+  },
+  {
+   "name": "Bryson DeChambeau",
+   "salary": 11000,
+   "sgTot": 1.11,
+   "ownership": 8.21,
+   "winOdds": 3400.0,
+   "impliedProb": 2.86,
+   "leverage": 0.348,
+   "leverageTier": "CHALK"
+  },
+  {
+   "name": "Cameron Young",
+   "salary": 10500,
+   "sgTot": 0.62,
+   "ownership": 11.9,
+   "winOdds": 1900.0,
+   "impliedProb": 5.0,
+   "leverage": 0.42,
+   "leverageTier": "CHALK"
+  },
+  {
+   "name": "Xander Schauffele",
+   "salary": 10100,
+   "sgTot": 2.0,
+   "ownership": 17.77,
+   "winOdds": 1900.0,
+   "impliedProb": 5.0,
+   "leverage": 0.281,
+   "leverageTier": "CHALK"
+  },
+  {
+   "name": "Tommy Fleetwood",
+   "salary": 9700,
+   "sgTot": 2.37,
+   "ownership": 24.31,
+   "winOdds": 2200.0,
+   "impliedProb": 4.35,
+   "leverage": 0.179,
+   "leverageTier": "CHALK"
+  },
+  {
+   "name": "Brooks Koepka",
+   "salary": 9400,
+   "sgTot": 1.28,
+   "ownership": 8.39,
+   "winOdds": 3600.0,
+   "impliedProb": 2.7,
+   "leverage": 0.322,
+   "leverageTier": "CHALK"
+  },
+  {
+   "name": "Ludvig Aberg",
+   "salary": 9200,
+   "sgTot": 1.62,
+   "ownership": 11.25,
+   "winOdds": 2500.0,
+   "impliedProb": 3.85,
+   "leverage": 0.342,
+   "leverageTier": "CHALK"
+  },
+  {
+   "name": "Matt Fitzpatrick",
+   "salary": 8900,
+   "sgTot": 1.89,
+   "ownership": 12.82,
+   "winOdds": 2300.0,
+   "impliedProb": 4.17,
+   "leverage": 0.325,
+   "leverageTier": "CHALK"
+  },
+  {
+   "name": "Tyrrell Hatton",
+   "salary": 8700,
+   "sgTot": 2.09,
+   "ownership": 13.16,
+   "winOdds": 4400.0,
+   "impliedProb": 2.22,
+   "leverage": 0.169,
+   "leverageTier": "CHALK"
+  },
+  {
+   "name": "Collin Morikawa",
+   "salary": 8500,
+   "sgTot": 1.03,
+   "ownership": 8.96,
+   "winOdds": 4000.0,
+   "impliedProb": 2.44,
+   "leverage": 0.272,
+   "leverageTier": "CHALK"
+  },
+  {
+   "name": "Justin Rose",
+   "salary": 8400,
+   "sgTot": 1.6,
+   "ownership": 5.96,
+   "winOdds": 7200.0,
+   "impliedProb": 1.37,
+   "leverage": 0.23,
+   "leverageTier": "CHALK"
+  },
+  {
+   "name": "Justin Thomas",
+   "salary": 8300,
+   "sgTot": 2.37,
+   "ownership": 8.02,
+   "winOdds": 5900.0,
+   "impliedProb": 1.67,
+   "leverage": 0.208,
+   "leverageTier": "CHALK"
+  },
+  {
+   "name": "Chris Gotterup",
+   "salary": 8200,
+   "sgTot": 2.0,
+   "ownership": 11.55,
+   "winOdds": 4300.0,
+   "impliedProb": 2.27,
+   "leverage": 0.197,
+   "leverageTier": "CHALK"
+  },
+  {
+   "name": "Viktor Hovland",
+   "salary": 8100,
+   "sgTot": 1.56,
+   "ownership": 14.22,
+   "winOdds": 5700.0,
+   "impliedProb": 1.72,
+   "leverage": 0.121,
+   "leverageTier": "CHALK"
+  },
+  {
+   "name": "Russell Henley",
+   "salary": 8000,
+   "sgTot": 1.95,
+   "ownership": 17.7,
+   "winOdds": 4000.0,
+   "impliedProb": 2.44,
+   "leverage": 0.138,
+   "leverageTier": "CHALK"
+  },
+  {
+   "name": "Patrick Reed",
+   "salary": 7900,
+   "sgTot": 2.4,
+   "ownership": 12.31,
+   "winOdds": 4600.0,
+   "impliedProb": 2.13,
+   "leverage": 0.173,
+   "leverageTier": "CHALK"
+  },
+  {
+   "name": "Wyndham Clark",
+   "salary": 7800,
+   "sgTot": 3.12,
+   "ownership": 13.06,
+   "winOdds": 4500.0,
+   "impliedProb": 2.17,
+   "leverage": 0.166,
+   "leverageTier": "CHALK"
+  },
+  {
+   "name": "Sam Burns",
+   "salary": 7700,
+   "sgTot": 2.39,
+   "ownership": 23.15,
+   "winOdds": 3600.0,
+   "impliedProb": 2.7,
+   "leverage": 0.117,
+   "leverageTier": "CHALK"
+  },
+  {
+   "name": "Hideki Matsuyama",
+   "salary": 7600,
+   "sgTot": 1.2,
+   "ownership": 9.09,
+   "winOdds": 7600.0,
+   "impliedProb": 1.3,
+   "leverage": 0.143,
+   "leverageTier": "CHALK"
+  },
+  {
+   "name": "J.J. Spaun",
+   "salary": 7500,
+   "sgTot": 1.95,
+   "ownership": 14.24,
+   "winOdds": 5800.0,
+   "impliedProb": 1.69,
+   "leverage": 0.119,
+   "leverageTier": "CHALK"
+  },
+  {
+   "name": "Joaquin Niemann",
+   "salary": 7400,
+   "sgTot": 1.41,
+   "ownership": 7.76,
+   "winOdds": 8200.0,
+   "impliedProb": 1.2,
+   "leverage": 0.155,
+   "leverageTier": "CHALK"
+  },
+  {
+   "name": "Patrick Cantlay",
+   "salary": 7300,
+   "sgTot": 1.87,
+   "ownership": 12.53,
+   "winOdds": 5100.0,
+   "impliedProb": 1.92,
+   "leverage": 0.153,
+   "leverageTier": "CHALK"
+  },
+  {
+   "name": "Si Woo Kim",
+   "salary": 7200,
+   "sgTot": 2.74,
+   "ownership": 18.66,
+   "winOdds": 3600.0,
+   "impliedProb": 2.7,
+   "leverage": 0.145,
+   "leverageTier": "CHALK"
+  },
+  {
+   "name": "Shane Lowry",
+   "salary": 7100,
+   "sgTot": 1.39,
+   "ownership": 10.15,
+   "winOdds": 9600.0,
+   "impliedProb": 1.03,
+   "leverage": 0.101,
+   "leverageTier": "CHALK"
+  },
+  {
+   "name": "Jordan Spieth",
+   "salary": 7100,
+   "sgTot": 1.06,
+   "ownership": 6.92,
+   "winOdds": 8000.0,
+   "impliedProb": 1.23,
+   "leverage": 0.178,
+   "leverageTier": "CHALK"
+  },
+  {
+   "name": "Ben Griffin",
+   "salary": 7000,
+   "sgTot": 1.8,
+   "ownership": 9.46,
+   "winOdds": 8400.0,
+   "impliedProb": 1.18,
+   "leverage": 0.125,
+   "leverageTier": "CHALK"
+  },
+  {
+   "name": "Robert MacIntyre",
+   "salary": 7000,
+   "sgTot": 0.48,
+   "ownership": 5.13,
+   "winOdds": 7200.0,
+   "impliedProb": 1.37,
+   "leverage": 0.267,
+   "leverageTier": "CHALK"
+  },
+  {
+   "name": "Sepp Straka",
+   "salary": 7000,
+   "sgTot": 0.23,
+   "ownership": 3.41,
+   "winOdds": 11000.0,
+   "impliedProb": 0.9,
+   "leverage": 0.264,
+   "leverageTier": "CHALK"
+  },
+  {
+   "name": "Kristoffer Reitan",
+   "salary": 6900,
+   "sgTot": 1.39,
+   "ownership": 9.73,
+   "winOdds": 10000.0,
+   "impliedProb": 0.99,
+   "leverage": 0.102,
+   "leverageTier": "CHALK"
+  },
+  {
+   "name": "Cameron Smith",
+   "salary": 6900,
+   "sgTot": 1.66,
+   "ownership": 8.4,
+   "winOdds": 12000.0,
+   "impliedProb": 0.83,
+   "leverage": 0.099,
+   "leverageTier": "CHALK"
+  },
+  {
+   "name": "Min Woo Lee",
+   "salary": 6900,
+   "sgTot": 0.77,
+   "ownership": 6.24,
+   "winOdds": 7600.0,
+   "impliedProb": 1.3,
+   "leverage": 0.208,
+   "leverageTier": "CHALK"
+  },
+  {
+   "name": "Maverick McNealy",
+   "salary": 6800,
+   "sgTot": 2.37,
+   "ownership": 13.02,
+   "winOdds": 7400.0,
+   "impliedProb": 1.33,
+   "leverage": 0.102,
+   "leverageTier": "CHALK"
+  },
+  {
+   "name": "Aaron Rai",
+   "salary": 6800,
+   "sgTot": 2.3,
+   "ownership": 9.48,
+   "winOdds": 10500.0,
+   "impliedProb": 0.94,
+   "leverage": 0.099,
+   "leverageTier": "CHALK"
+  },
+  {
+   "name": "Jake Knapp",
+   "salary": 6800,
+   "ownership": 3.88,
+   "winOdds": 10500.0,
+   "impliedProb": 0.94,
+   "leverage": 0.242,
+   "leverageTier": "CHALK"
+  },
+  {
+   "name": "Alex Smalley",
+   "salary": 6800,
+   "sgTot": 1.4,
+   "ownership": 3.98,
+   "winOdds": 13000.0,
+   "impliedProb": 0.76,
+   "leverage": 0.191,
+   "leverageTier": "CHALK"
+  },
+  {
+   "name": "Bud Cauley",
+   "salary": 6700,
+   "sgTot": 2.3,
+   "ownership": 12.27,
+   "winOdds": 10000.0,
+   "impliedProb": 0.99,
+   "leverage": 0.081,
+   "leverageTier": "CHALK"
+  },
+  {
+   "name": "Harris English",
+   "salary": 6700,
+   "sgTot": 2.12,
+   "ownership": 11.54,
+   "winOdds": 8200.0,
+   "impliedProb": 1.2,
+   "leverage": 0.104,
+   "leverageTier": "CHALK"
+  },
+  {
+   "name": "Rickie Fowler",
+   "salary": 6700,
+   "sgTot": -1.77,
+   "ownership": 2.97,
+   "winOdds": 10000.0,
+   "impliedProb": 0.99,
+   "leverage": 0.333,
+   "leverageTier": "CHALK"
+  },
+  {
+   "name": "Nicolai Hojgaard",
+   "salary": 6700,
+   "sgTot": -0.29,
+   "ownership": 1.77,
+   "winOdds": 12500.0,
+   "impliedProb": 0.79,
+   "leverage": 0.446,
+   "leverageTier": "CHALK"
+  },
+  {
+   "name": "Jason Day",
+   "salary": 6700,
+   "sgTot": -0.06,
+   "ownership": 1.9,
+   "winOdds": 19000.0,
+   "impliedProb": 0.52,
+   "leverage": 0.274,
+   "leverageTier": "CHALK"
+  },
+  {
+   "name": "Alex Fitzpatrick",
+   "salary": 6600,
+   "sgTot": 1.55,
+   "ownership": 12.49,
+   "winOdds": 9800.0,
+   "impliedProb": 1.01,
+   "leverage": 0.081,
+   "leverageTier": "CHALK"
+  },
+  {
+   "name": "Ryan Gerard",
+   "salary": 6600,
+   "sgTot": 2.28,
+   "ownership": 10.03,
+   "winOdds": 12500.0,
+   "impliedProb": 0.79,
+   "leverage": 0.079,
+   "leverageTier": "CHALK"
+  },
+  {
+   "name": "Adam Scott",
+   "salary": 6600,
+   "sgTot": 1.18,
+   "ownership": 10.3,
+   "winOdds": 7200.0,
+   "impliedProb": 1.37,
+   "leverage": 0.133,
+   "leverageTier": "CHALK"
+  },
+  {
+   "name": "Gary Woodland",
+   "salary": 6600,
+   "sgTot": 1.15,
+   "ownership": 2.42,
+   "winOdds": 15000.0,
+   "impliedProb": 0.66,
+   "leverage": 0.273,
+   "leverageTier": "CHALK"
+  },
+  {
+   "name": "Akshay Bhatia",
+   "salary": 6600,
+   "sgTot": 0.02,
+   "ownership": 1.96,
+   "winOdds": 17000.0,
+   "impliedProb": 0.58,
+   "leverage": 0.296,
+   "leverageTier": "CHALK"
+  },
+  {
+   "name": "Kurt Kitayama",
+   "salary": 6500,
+   "sgTot": 2.12,
+   "ownership": 11.91,
+   "winOdds": 6800.0,
+   "impliedProb": 1.45,
+   "leverage": 0.122,
+   "leverageTier": "CHALK"
+  },
+  {
+   "name": "David Puig",
+   "salary": 6500,
+   "sgTot": 1.41,
+   "ownership": 5.09,
+   "winOdds": 11000.0,
+   "impliedProb": 0.9,
+   "leverage": 0.177,
+   "leverageTier": "CHALK"
+  },
+  {
+   "name": "Jacob Bridgeman",
+   "salary": 6500,
+   "sgTot": 0.77,
+   "ownership": 4.58,
+   "winOdds": 12500.0,
+   "impliedProb": 0.79,
+   "leverage": 0.172,
+   "leverageTier": "CHALK"
+  },
+  {
+   "name": "Corey Conners",
+   "salary": 6500,
+   "sgTot": -1.0,
+   "ownership": 1.63,
+   "winOdds": 24000.0,
+   "impliedProb": 0.41,
+   "leverage": 0.252,
+   "leverageTier": "CHALK"
+  },
+  {
+   "name": "Daniel Berger",
+   "salary": 6500,
+   "sgTot": 0.27,
+   "ownership": 1.77,
+   "winOdds": 19500.0,
+   "impliedProb": 0.51,
+   "leverage": 0.288,
+   "leverageTier": "CHALK"
+  },
+  {
+   "name": "Keegan Bradley",
+   "salary": 6400,
+   "sgTot": 0.95,
+   "ownership": 4.89,
+   "winOdds": 13500.0,
+   "impliedProb": 0.74,
+   "leverage": 0.151,
+   "leverageTier": "CHALK"
+  },
+  {
+   "name": "Alex Noren",
+   "salary": 6400,
+   "sgTot": 1.2,
+   "ownership": 2.43,
+   "winOdds": 12500.0,
+   "impliedProb": 0.79,
+   "leverage": 0.325,
+   "leverageTier": "CHALK"
+  },
+  {
+   "name": "Sahith Theegala",
+   "salary": 6400,
+   "sgTot": 0.5,
+   "ownership": 2.35,
+   "winOdds": 16500.0,
+   "impliedProb": 0.6,
+   "leverage": 0.255,
+   "leverageTier": "CHALK"
+  },
+  {
+   "name": "Carlos Ortiz",
+   "salary": 6400,
+   "sgTot": -0.83,
+   "ownership": 1.26,
+   "winOdds": 44000.0,
+   "impliedProb": 0.23,
+   "leverage": 0.183,
+   "leverageTier": "CHALK"
+  },
+  {
+   "name": "Sungjae Im",
+   "salary": 6400,
+   "sgTot": 0.35,
+   "ownership": 1.17,
+   "winOdds": 22000.0,
+   "impliedProb": 0.45,
+   "leverage": 0.385,
+   "leverageTier": "CHALK"
+  },
+  {
+   "name": "Ryan Fox",
+   "salary": 6300,
+   "sgTot": 1.72,
+   "ownership": 6.75,
+   "winOdds": 19000.0,
+   "impliedProb": 0.52,
+   "leverage": 0.077,
+   "leverageTier": "CHALK"
+  },
+  {
+   "name": "Dustin Johnson",
+   "salary": 6300,
+   "sgTot": 1.66,
+   "ownership": 2.6,
+   "winOdds": 20000.0,
+   "impliedProb": 0.5,
+   "leverage": 0.192,
+   "leverageTier": "CHALK"
+  },
+  {
+   "name": "Jackson Koivun",
+   "salary": 6300,
+   "ownership": 1.71,
+   "winOdds": 14000.0,
+   "impliedProb": 0.71,
+   "leverage": 0.415,
+   "leverageTier": "CHALK"
+  },
+  {
+   "name": "Lucas Herbert",
+   "salary": 6300,
+   "sgTot": 0.54,
+   "ownership": 1.89,
+   "winOdds": 24000.0,
+   "impliedProb": 0.41,
+   "leverage": 0.217,
+   "leverageTier": "CHALK"
+  },
+  {
+   "name": "Nick Taylor",
+   "salary": 6300,
+   "sgTot": 0.22,
+   "ownership": 1.38,
+   "winOdds": 22000.0,
+   "impliedProb": 0.45,
+   "leverage": 0.326,
+   "leverageTier": "CHALK"
+  },
+  {
+   "name": "Keith Mitchell",
+   "salary": 6200,
+   "sgTot": 1.03,
+   "ownership": 3.23,
+   "winOdds": 13000.0,
+   "impliedProb": 0.76,
+   "leverage": 0.235,
+   "leverageTier": "CHALK"
+  },
+  {
+   "name": "Tom Kim",
+   "salary": 6200,
+   "sgTot": 0.5,
+   "ownership": 2.69,
+   "winOdds": 18000.0,
+   "impliedProb": 0.55,
+   "leverage": 0.204,
+   "leverageTier": "CHALK"
+  },
+  {
+   "name": "Brian Harman",
+   "salary": 6200,
+   "sgTot": 0.7,
+   "ownership": 1.67,
+   "winOdds": 19500.0,
+   "impliedProb": 0.51,
+   "leverage": 0.305,
+   "leverageTier": "CHALK"
+  },
+  {
+   "name": "Davis Thompson",
+   "salary": 6200,
+   "sgTot": -0.2,
+   "ownership": 1.22,
+   "winOdds": 26000.0,
+   "impliedProb": 0.38,
+   "leverage": 0.311,
+   "leverageTier": "CHALK"
+  },
+  {
+   "name": "Harry Hall",
+   "salary": 6200,
+   "sgTot": 0.16,
+   "ownership": 1.01,
+   "winOdds": 20000.0,
+   "impliedProb": 0.5,
+   "leverage": 0.495,
+   "leverageTier": "CHALK"
+  },
+  {
+   "name": "Sam Stevens",
+   "salary": 6200,
+   "sgTot": -0.4,
+   "ownership": 1.22,
+   "winOdds": 24000.0,
+   "impliedProb": 0.41,
+   "leverage": 0.336,
+   "leverageTier": "CHALK"
+  },
+  {
+   "name": "Michael Kim",
+   "salary": 6100,
+   "sgTot": 0.7,
+   "ownership": 2.13,
+   "winOdds": 28000.0,
+   "impliedProb": 0.36,
+   "leverage": 0.169,
+   "leverageTier": "CHALK"
+  },
+  {
+   "name": "Andrew Novak",
+   "salary": 6100,
+   "sgTot": 0.6,
+   "ownership": 1.29,
+   "winOdds": 27500.0,
+   "impliedProb": 0.36,
+   "leverage": 0.279,
+   "leverageTier": "CHALK"
+  },
+  {
+   "name": "John Keefer",
+   "salary": 6100,
+   "sgTot": 0.54,
+   "ownership": 1.52,
+   "winOdds": 50000.0,
+   "impliedProb": 0.2,
+   "leverage": 0.132,
+   "leverageTier": "CHALK"
+  },
+  {
+   "name": "Sudarshan Yellamaraju",
+   "salary": 6100,
+   "sgTot": 0.24,
+   "ownership": 1.15,
+   "winOdds": 17000.0,
+   "impliedProb": 0.58,
+   "leverage": 0.504,
+   "leverageTier": "CHALK"
+  },
+  {
+   "name": "Max Greyserman",
+   "salary": 6100,
+   "sgTot": 0.65,
+   "ownership": 1.49,
+   "winOdds": 27500.0,
+   "impliedProb": 0.36,
+   "leverage": 0.242,
+   "leverageTier": "CHALK"
+  },
+  {
+   "name": "Ryo Hisatsune",
+   "salary": 6100,
+   "sgTot": -0.1,
+   "ownership": 0.44,
+   "winOdds": 27000.0,
+   "impliedProb": 0.37,
+   "leverage": 0.841,
+   "leverageTier": "NEUTRAL"
+  },
+  {
+   "name": "Jayden Trey Schaper",
+   "salary": 6000,
+   "sgTot": 0.07,
+   "ownership": 1.53,
+   "winOdds": 22500.0,
+   "impliedProb": 0.44,
+   "leverage": 0.288,
+   "leverageTier": "CHALK"
+  },
+  {
+   "name": "Matti Schmid",
+   "salary": 6000,
+   "sgTot": 0.95,
+   "ownership": 0.87,
+   "winOdds": 57500.0,
+   "impliedProb": 0.17,
+   "leverage": 0.195,
+   "leverageTier": "CHALK"
+  },
+  {
+   "name": "Michael Brennan",
+   "salary": 6000,
+   "sgTot": -0.08,
+   "ownership": 0.67,
+   "winOdds": 37500.0,
+   "impliedProb": 0.27,
+   "leverage": 0.403,
+   "leverageTier": "CHALK"
+  },
+  {
+   "name": "Pierceson Coody",
+   "salary": 6000,
+   "sgTot": 0.26,
+   "ownership": 0.45,
+   "winOdds": 22000.0,
+   "impliedProb": 0.45,
+   "leverage": 1.0,
+   "leverageTier": "NEUTRAL"
+  },
+  {
+   "name": "Chris Kirk",
+   "salary": 6000,
+   "sgTot": -0.02,
+   "ownership": 0.51,
+   "winOdds": 55000.0,
+   "impliedProb": 0.18,
+   "leverage": 0.353,
+   "leverageTier": "CHALK"
+  },
+  {
+   "name": "Matthew McCarty",
+   "salary": 6000,
+   "sgTot": -0.98,
+   "ownership": 0.38,
+   "winOdds": 35000.0,
+   "impliedProb": 0.28,
+   "leverage": 0.737,
+   "leverageTier": "NEUTRAL"
+  },
+  {
+   "name": "Nicolas Echavarria",
+   "salary": 5900,
+   "sgTot": 0.55,
+   "ownership": 0.99,
+   "winOdds": 67500.0,
+   "impliedProb": 0.15,
+   "leverage": 0.152,
+   "leverageTier": "CHALK"
+  },
+  {
+   "name": "Andrew Putnam",
+   "salary": 5900,
+   "sgTot": 0.61,
+   "ownership": 0.54,
+   "winOdds": 34000.0,
+   "impliedProb": 0.29,
+   "leverage": 0.537,
+   "leverageTier": "CHALK"
+  },
+  {
+   "name": "Billy Horschel",
+   "salary": 5900,
+   "sgTot": 0.05,
+   "ownership": 0.51,
+   "winOdds": 72500.0,
+   "impliedProb": 0.14,
+   "leverage": 0.275,
+   "leverageTier": "CHALK"
+  },
+  {
+   "name": "Patrick Rodgers",
+   "salary": 5900,
+   "sgTot": -0.4,
+   "ownership": 0.39,
+   "winOdds": 41000.0,
+   "impliedProb": 0.24,
+   "leverage": 0.615,
+   "leverageTier": "NEUTRAL"
+  },
+  {
+   "name": "Caleb Surratt",
+   "salary": 5900,
+   "sgTot": -1.72,
+   "ownership": 0.13,
+   "winOdds": 65000.0,
+   "impliedProb": 0.15,
+   "leverage": 1.154,
+   "leverageTier": "NEUTRAL"
+  },
+  {
+   "name": "Matthew Jordan",
+   "salary": 5900,
+   "sgTot": -1.11,
+   "ownership": 0.07,
+   "winOdds": 100000.0,
+   "impliedProb": 0.1,
+   "leverage": 1.429,
+   "leverageTier": "MEDIUM"
+  },
+  {
+   "name": "Emiliano Grillo",
+   "salary": 5800,
+   "sgTot": 0.41,
+   "ownership": 0.79,
+   "winOdds": 47500.0,
+   "impliedProb": 0.21,
+   "leverage": 0.266,
+   "leverageTier": "CHALK"
+  },
+  {
+   "name": "Nathan Kimsey",
+   "salary": 5800,
+   "sgTot": 0.51,
+   "ownership": 0.48,
+   "winOdds": 48000.0,
+   "impliedProb": 0.21,
+   "leverage": 0.438,
+   "leverageTier": "CHALK"
+  },
+  {
+   "name": "Max McGreevy",
+   "salary": 5800,
+   "sgTot": -0.02,
+   "ownership": 0.43,
+   "winOdds": 41000.0,
+   "impliedProb": 0.24,
+   "leverage": 0.558,
+   "leverageTier": "CHALK"
+  },
+  {
+   "name": "Laurie Canter",
+   "salary": 5800,
+   "sgTot": 0.04,
+   "ownership": 0.16,
+   "winOdds": 90000.0,
+   "impliedProb": 0.11,
+   "leverage": 0.688,
+   "leverageTier": "NEUTRAL"
+  },
+  {
+   "name": "Zac Blair",
+   "salary": 5800,
+   "sgTot": -0.17,
+   "ownership": 0.14,
+   "winOdds": 140000.0,
+   "impliedProb": 0.07,
+   "leverage": 0.5,
+   "leverageTier": "CHALK"
+  },
+  {
+   "name": "John Parry",
+   "salary": 5800,
+   "sgTot": -1.19,
+   "ownership": 0.11,
+   "winOdds": 60000.0,
+   "impliedProb": 0.17,
+   "leverage": 1.545,
+   "leverageTier": "MEDIUM"
+  },
+  {
+   "name": "Peter Uihlein",
+   "salary": 5800,
+   "sgTot": -1.21,
+   "ownership": 0.05,
+   "winOdds": 150000.0,
+   "impliedProb": 0.07,
+   "leverage": 1.4,
+   "leverageTier": "MEDIUM"
+  },
+  {
+   "name": "Niklas Norgaard Moller",
+   "salary": 5700,
+   "ownership": 0.86,
+   "leverageTier": "NEUTRAL"
+  },
+  {
+   "name": "Ben Kohles",
+   "salary": 5700,
+   "sgTot": 0.71,
+   "ownership": 0.42,
+   "winOdds": 70000.0,
+   "impliedProb": 0.14,
+   "leverage": 0.333,
+   "leverageTier": "CHALK"
+  },
+  {
+   "name": "Benjamin James",
+   "salary": 5700,
+   "sgTot": -0.09,
+   "ownership": 0.3,
+   "winOdds": 32500.0,
+   "impliedProb": 0.31,
+   "leverage": 1.033,
+   "leverageTier": "NEUTRAL"
+  },
+  {
+   "name": "Kevin Roy",
+   "salary": 5700,
+   "sgTot": -2.2,
+   "ownership": 0.1,
+   "winOdds": 100000.0,
+   "impliedProb": 0.1,
+   "leverage": 1.0,
+   "leverageTier": "NEUTRAL"
+  },
+  {
+   "name": "Graeme McDowell",
+   "salary": 5700,
+   "sgTot": -1.96,
+   "ownership": 0.09,
+   "winOdds": 275000.0,
+   "impliedProb": 0.04,
+   "leverage": 0.444,
+   "leverageTier": "CHALK"
+  },
+  {
+   "name": "Adrien Dumont De Chassart",
+   "salary": 5700,
+   "sgTot": -1.3,
+   "ownership": 0.06,
+   "winOdds": 39000.0,
+   "impliedProb": 0.26,
+   "leverage": 4.333,
+   "leverageTier": "HIGH"
+  },
+  {
+   "name": "Jackson Suber",
+   "salary": 5600,
+   "sgTot": 1.58,
+   "ownership": 3.96,
+   "winOdds": 23000.0,
+   "impliedProb": 0.43,
+   "leverage": 0.109,
+   "leverageTier": "CHALK"
+  },
+  {
+   "name": "Ugo Coussaud",
+   "salary": 5600,
+   "sgTot": -0.21,
+   "ownership": 0.43,
+   "winOdds": 100000.0,
+   "impliedProb": 0.1,
+   "leverage": 0.233,
+   "leverageTier": "CHALK"
+  },
+  {
+   "name": "Ben Silverman",
+   "salary": 5600,
+   "sgTot": 0.7,
+   "ownership": 0.28,
+   "winOdds": 170000.0,
+   "impliedProb": 0.06,
+   "leverage": 0.214,
+   "leverageTier": "CHALK"
+  },
+  {
+   "name": "William Mouw",
+   "salary": 5600,
+   "sgTot": 0.03,
+   "ownership": 0.33,
+   "winOdds": 45000.0,
+   "impliedProb": 0.22,
+   "leverage": 0.667,
+   "leverageTier": "NEUTRAL"
+  },
+  {
+   "name": "Chandler Phillips",
+   "salary": 5600,
+   "sgTot": -0.28,
+   "ownership": 0.3,
+   "winOdds": 57500.0,
+   "impliedProb": 0.17,
+   "leverage": 0.567,
+   "leverageTier": "CHALK"
+  },
+  {
+   "name": "Cole Hammer",
+   "salary": 5600,
+   "sgTot": -0.46,
+   "ownership": 0.06,
+   "winOdds": 180000.0,
+   "impliedProb": 0.06,
+   "leverage": 1.0,
+   "leverageTier": "NEUTRAL"
+  },
+  {
+   "name": "Rocco Repetto Taylor",
+   "salary": 5500,
+   "ownership": 0.32,
+   "leverageTier": "NEUTRAL"
+  },
+  {
+   "name": "Padraig Harrington",
+   "salary": 5500,
+   "sgTot": 0.44,
+   "ownership": 0.37,
+   "winOdds": 145000.0,
+   "impliedProb": 0.07,
+   "leverage": 0.189,
+   "leverageTier": "CHALK"
+  },
+  {
+   "name": "Miles Russell",
+   "salary": 5500,
+   "sgTot": -2.95,
+   "ownership": 0.12,
+   "leverageTier": "NEUTRAL"
+  },
+  {
+   "name": "Nick Hardy",
+   "salary": 5500,
+   "sgTot": -0.67,
+   "ownership": 0.07,
+   "winOdds": 325000.0,
+   "impliedProb": 0.03,
+   "leverage": 0.429,
+   "leverageTier": "CHALK"
+  },
+  {
+   "name": "Jimmy Stanger",
+   "salary": 5500,
+   "sgTot": -0.03,
+   "ownership": 0.1,
+   "winOdds": 85000.0,
+   "impliedProb": 0.12,
+   "leverage": 1.2,
+   "leverageTier": "NEUTRAL"
+  },
+  {
+   "name": "Taylor Montgomery",
+   "salary": 5500,
+   "sgTot": -1.68,
+   "ownership": 0.0,
+   "winOdds": 170000.0,
+   "impliedProb": 0.06,
+   "leverage": Infinity,
+   "leverageTier": "HIGH"
+  },
+  {
+   "name": "Adrien Saddier",
+   "salary": 5400,
+   "sgTot": -0.5,
+   "ownership": 0.26,
+   "winOdds": 97500.0,
+   "impliedProb": 0.1,
+   "leverage": 0.385,
+   "leverageTier": "CHALK"
+  },
+  {
+   "name": "Taihei Sato",
+   "salary": 5400,
+   "sgTot": -0.41,
+   "ownership": 0.08,
+   "winOdds": 400000.0,
+   "impliedProb": 0.02,
+   "leverage": 0.25,
+   "leverageTier": "CHALK"
+  },
+  {
+   "name": "Alejandro Tosti",
+   "salary": 5400,
+   "sgTot": -0.53,
+   "ownership": 0.06,
+   "winOdds": 135000.0,
+   "impliedProb": 0.07,
+   "leverage": 1.167,
+   "leverageTier": "NEUTRAL"
+  },
+  {
+   "name": "Angel Hidalgo",
+   "salary": 5400,
+   "ownership": 0.08,
+   "winOdds": 500000.0,
+   "impliedProb": 0.02,
+   "leverage": 0.25,
+   "leverageTier": "CHALK"
+  },
+  {
+   "name": "Harry Higgs",
+   "salary": 5400,
+   "sgTot": -0.92,
+   "ownership": 0.01,
+   "winOdds": 300000.0,
+   "impliedProb": 0.03,
+   "leverage": 3.0,
+   "leverageTier": "HIGH"
+  },
+  {
+   "name": "James Nicholas",
+   "salary": 5400,
+   "sgTot": -0.54,
+   "ownership": 0.01,
+   "winOdds": 200000.0,
+   "impliedProb": 0.05,
+   "leverage": 5.0,
+   "leverageTier": "HIGH"
+  },
+  {
+   "name": "Carl Yuan",
+   "salary": 5400,
+   "sgTot": -0.15,
+   "ownership": 0.03,
+   "winOdds": 200000.0,
+   "impliedProb": 0.05,
+   "leverage": 1.667,
+   "leverageTier": "MEDIUM"
+  },
+  {
+   "name": "Preston Stout",
+   "salary": 5300,
+   "sgTot": -4.51,
+   "ownership": 0.33,
+   "winOdds": 57500.0,
+   "impliedProb": 0.17,
+   "leverage": 0.515,
+   "leverageTier": "CHALK"
+  },
+  {
+   "name": "T.K. Kim",
+   "salary": 5300,
+   "ownership": 0.32,
+   "winOdds": 18000.0,
+   "impliedProb": 0.55,
+   "leverage": 1.719,
+   "leverageTier": "MEDIUM"
+  },
+  {
+   "name": "Ethan Fang",
+   "salary": 5300,
+   "ownership": 0.1,
+   "winOdds": 400000.0,
+   "impliedProb": 0.02,
+   "leverage": 0.2,
+   "leverageTier": "CHALK"
+  },
+  {
+   "name": "Filippo Celli",
+   "salary": 5300,
+   "sgTot": -0.24,
+   "ownership": 0.17,
+   "winOdds": 450000.0,
+   "impliedProb": 0.02,
+   "leverage": 0.118,
+   "leverageTier": "CHALK"
+  },
+  {
+   "name": "Brandon Wu",
+   "salary": 5300,
+   "sgTot": -0.78,
+   "ownership": 0.07,
+   "winOdds": 500000.0,
+   "impliedProb": 0.02,
+   "leverage": 0.286,
+   "leverageTier": "CHALK"
+  },
+  {
+   "name": "Jackson Herrington",
+   "salary": 5300,
+   "ownership": 0.07,
+   "winOdds": 500000.0,
+   "impliedProb": 0.02,
+   "leverage": 0.286,
+   "leverageTier": "CHALK"
+  },
+  {
+   "name": "Cooper Dossey",
+   "salary": 5200,
+   "sgTot": 0.57,
+   "ownership": 0.39,
+   "winOdds": 62500.0,
+   "impliedProb": 0.16,
+   "leverage": 0.41,
+   "leverageTier": "CHALK"
+  },
+  {
+   "name": "Eric Lee",
+   "salary": 5200,
+   "ownership": 0.1,
+   "winOdds": 450000.0,
+   "impliedProb": 0.02,
+   "leverage": 0.2,
+   "leverageTier": "CHALK"
+  },
+  {
+   "name": "Ryder Cowan",
+   "salary": 5200,
+   "ownership": 0.1,
+   "winOdds": 450000.0,
+   "impliedProb": 0.02,
+   "leverage": 0.2,
+   "leverageTier": "CHALK"
+  },
+  {
+   "name": "Hamilton Coleman",
+   "salary": 5200,
+   "ownership": 0.07,
+   "winOdds": 500000.0,
+   "impliedProb": 0.02,
+   "leverage": 0.286,
+   "leverageTier": "CHALK"
+  },
+  {
+   "name": "Chase Kyes",
+   "salary": 5200,
+   "ownership": 0.06,
+   "winOdds": 500000.0,
+   "impliedProb": 0.02,
+   "leverage": 0.333,
+   "leverageTier": "CHALK"
+  },
+  {
+   "name": "Robbie Higgins",
+   "salary": 5200,
+   "sgTot": -3.13,
+   "ownership": 0.0,
+   "winOdds": 500000.0,
+   "impliedProb": 0.02,
+   "leverage": Infinity,
+   "leverageTier": "HIGH"
+  },
+  {
+   "name": "Jackson Van Paris",
+   "salary": 5200,
+   "sgTot": -2.92,
+   "ownership": 0.0,
+   "winOdds": 500000.0,
+   "impliedProb": 0.02,
+   "leverage": Infinity,
+   "leverageTier": "HIGH"
+  },
+  {
+   "name": "Jake Sollon",
+   "salary": 5100,
+   "sgTot": -0.07,
+   "ownership": 0.07,
+   "winOdds": 500000.0,
+   "impliedProb": 0.02,
+   "leverage": 0.286,
+   "leverageTier": "CHALK"
+  },
+  {
+   "name": "Marek Fleming",
+   "salary": 5100,
+   "ownership": 0.06,
+   "winOdds": 500000.0,
+   "impliedProb": 0.02,
+   "leverage": 0.333,
+   "leverageTier": "CHALK"
+  },
+  {
+   "name": "Mason Howell",
+   "salary": 5100,
+   "sgTot": -2.25,
+   "ownership": 0.04,
+   "winOdds": 450000.0,
+   "impliedProb": 0.02,
+   "leverage": 0.5,
+   "leverageTier": "CHALK"
+  },
+  {
+   "name": "Manav Shah",
+   "salary": 5100,
+   "ownership": 0.06,
+   "winOdds": 500000.0,
+   "impliedProb": 0.02,
+   "leverage": 0.333,
+   "leverageTier": "CHALK"
+  },
+  {
+   "name": "Vaughn Harber",
+   "salary": 5100,
+   "ownership": 0.06,
+   "winOdds": 500000.0,
+   "impliedProb": 0.02,
+   "leverage": 0.333,
+   "leverageTier": "CHALK"
+  },
+  {
+   "name": "Brandon Holtz",
+   "salary": 5100,
+   "ownership": 0.06,
+   "winOdds": 500000.0,
+   "impliedProb": 0.02,
+   "leverage": 0.333,
+   "leverageTier": "CHALK"
+  },
+  {
+   "name": "Kaito Onishi",
+   "salary": 5100,
+   "sgTot": -1.87,
+   "ownership": 0.01,
+   "winOdds": 500000.0,
+   "impliedProb": 0.02,
+   "leverage": 2.0,
+   "leverageTier": "HIGH"
+  },
+  {
+   "name": "Marcelo Rozo",
+   "salary": 5100,
+   "sgTot": -1.14,
+   "ownership": 0.0,
+   "winOdds": 450000.0,
+   "impliedProb": 0.02,
+   "leverage": Infinity,
+   "leverageTier": "HIGH"
+  },
+  {
+   "name": "Giuseppe Puebla",
+   "salary": 5000,
+   "ownership": 0.21,
+   "leverageTier": "NEUTRAL"
+  },
+  {
+   "name": "Yohann Benson",
+   "salary": 5000,
+   "ownership": 0.21,
+   "leverageTier": "NEUTRAL"
+  },
+  {
+   "name": "Logan Reilly",
+   "salary": 5000,
+   "ownership": 0.06,
+   "winOdds": 500000.0,
+   "impliedProb": 0.02,
+   "leverage": 0.333,
+   "leverageTier": "CHALK"
+  },
+  {
+   "name": "Mateo Pulcini",
+   "salary": 5000,
+   "ownership": 0.06,
+   "winOdds": 500000.0,
+   "impliedProb": 0.02,
+   "leverage": 0.333,
+   "leverageTier": "CHALK"
+  },
+  {
+   "name": "Greyson Leach",
+   "salary": 5000,
+   "sgTot": -1.02,
+   "ownership": 0.06,
+   "winOdds": 350000.0,
+   "impliedProb": 0.03,
+   "leverage": 0.5,
+   "leverageTier": "CHALK"
+  },
+  {
+   "name": "Jackson Ormond",
+   "salary": 5000,
+   "sgTot": -6.29,
+   "ownership": 0.06,
+   "winOdds": 500000.0,
+   "impliedProb": 0.02,
+   "leverage": 0.333,
+   "leverageTier": "CHALK"
+  },
+  {
+   "name": "J.B. Holmes",
+   "salary": 5000,
+   "ownership": 0.06,
+   "winOdds": 450000.0,
+   "impliedProb": 0.02,
+   "leverage": 0.333,
+   "leverageTier": "CHALK"
+  },
+  {
+   "name": "Matthew Robles",
+   "salary": 5000,
+   "ownership": 0.06,
+   "winOdds": 500000.0,
+   "impliedProb": 0.02,
+   "leverage": 0.333,
+   "leverageTier": "CHALK"
+  },
+  {
+   "name": "Arni Sveinsson",
+   "salary": 5000,
+   "ownership": 0.07,
+   "winOdds": 500000.0,
+   "impliedProb": 0.02,
+   "leverage": 0.286,
+   "leverageTier": "CHALK"
+  },
+  {
+   "name": "Jake Peacock",
+   "salary": 5000,
+   "sgTot": -0.83,
+   "ownership": 0.02,
+   "winOdds": 450000.0,
+   "impliedProb": 0.02,
+   "leverage": 1.0,
+   "leverageTier": "NEUTRAL"
+  },
+  {
+   "name": "Ryuichi Oiwa",
+   "salary": 5000,
+   "sgTot": -1.15,
+   "ownership": 0.01,
+   "winOdds": 500000.0,
+   "impliedProb": 0.02,
+   "leverage": 2.0,
+   "leverageTier": "HIGH"
+  }
+ ]
+}

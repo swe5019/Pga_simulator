@@ -1,0 +1,55 @@
+name: Sync slate from master spreadsheet
+
+on:
+  # Pull the latest data on a schedule (UTC). Adjust as you like.
+  schedule:
+    - cron: '0 11,15,19,23 * * *'   # 4x/day
+  # Let you trigger it on demand from the Actions tab.
+  workflow_dispatch:
+  # Also rebuild if you commit a workbook or change the converter.
+  push:
+    branches: [main]
+    paths:
+      - 'data/master.xlsx'
+      - 'data/master.ods'
+      - 'tools/build_slate.py'
+      - '.github/workflows/sync-slate.yml'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: sync-slate
+  cancel-in-progress: true
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: pip install pandas openpyxl odfpy requests
+
+      - name: Build slate.json
+        env:
+          SLATE_SOURCE_URL: ${{ secrets.SLATE_SOURCE_URL }}
+        run: python tools/build_slate.py
+
+      - name: Commit updated slate
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          if git diff --quiet -- data/slate.json; then
+            echo "No change in data/slate.json"
+          else
+            git add data/slate.json
+            git commit -m "Auto-update slate.json from master spreadsheet"
+            git push
+          fi

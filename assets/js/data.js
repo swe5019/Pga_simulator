@@ -74,6 +74,54 @@ function buildSlate(rawList) {
 }
 
 /**
+ * Strokes-gained → skill calibration.
+ * The sim was tuned for skill ~0.25–1.6 (strokes/round vs. field), while real
+ * SG_TOT runs higher (elite ~2.7). This scalar keeps the field shape realistic
+ * when feeding raw SG_TOT. Bump it up to spread the field, down to compress it.
+ */
+const SKILL_SCALE = 0.6;
+
+/**
+ * Build the slate from an imported "master" record set (e.g. data/slate.json,
+ * sourced from your spreadsheet's Sheet1). Each record may carry:
+ *   name, salary, sgTot, ownership, winOdds, impliedProb, leverage, leverageTier
+ * skill comes from real SG_TOT (scaled); if SG_TOT is missing we fall back to a
+ * salary-implied estimate. Real ownership is preserved as-is (not re-modeled).
+ * Returns { golfers, hasOwnership }.
+ */
+function buildSlateFromMaster(records) {
+  let hasOwnership = false;
+  const golfers = records
+    .filter((r) => r.name && r.salary)
+    .map((r, i) => {
+      const skill =
+        r.skill != null
+          ? r.skill // explicit (e.g. DK AvgPointsPerGame path)
+          : r.sgTot != null
+          ? r.sgTot * SKILL_SCALE // real strokes-gained, scaled to sim range
+          : Math.max(0.1, (r.salary - 5000) / 5000); // salary-implied fallback
+      if (r.ownership != null) hasOwnership = true;
+      return {
+        id: 'g' + i,
+        name: r.name,
+        salary: r.salary,
+        skill: Math.round(skill * 1000) / 1000,
+        variance: r.variance != null ? r.variance : 0.75,
+        locked: false,
+        banned: false,
+        ownership: r.ownership != null ? r.ownership : undefined,
+        // Extras carried through for display / future use.
+        sgTot: r.sgTot,
+        winOdds: r.winOdds,
+        impliedProb: r.impliedProb,
+        leverage: r.leverage,
+        leverageTier: r.leverageTier,
+      };
+    });
+  return { golfers, hasOwnership };
+}
+
+/**
  * Projected ownership model.
  * The DFS field piles onto perceived value (projected points per $1,000)
  * with extra gravity toward marquee/high-salary names. We turn a "heat"
@@ -111,4 +159,4 @@ function projectOwnership(golfers, simResults) {
   return golfers;
 }
 
-window.Data = { SAMPLE_SLATE, buildSlate, projectOwnership };
+window.Data = { SAMPLE_SLATE, buildSlate, buildSlateFromMaster, projectOwnership };

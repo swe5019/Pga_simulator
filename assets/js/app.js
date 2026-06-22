@@ -9,6 +9,7 @@ const State = {
   golfers: [],          // current player pool
   simResults: null,     // Map<id, stats> from the last sim run
   build: null,          // { lineups, exposure } from the last build
+  hasRealOwnership: false, // true when ownership came from the master file
 };
 
 const $ = (sel) => document.querySelector(sel);
@@ -35,9 +36,41 @@ function loadSampleSlate() {
   State.golfers = window.Data.buildSlate(window.Data.SAMPLE_SLATE);
   State.simResults = null;
   State.build = null;
+  State.hasRealOwnership = false;
   window.Data.projectOwnership(State.golfers, null);
   renderPlayers();
   $('#simStatus').textContent = '';
+}
+
+/**
+ * On boot, try to load the live slate published from your spreadsheet
+ * (data/slate.json, refreshed by the sync workflow). Falls back to the
+ * built-in sample if the file isn't there yet or can't be read.
+ */
+async function loadAutoSlate() {
+  try {
+    const res = await fetch('data/slate.json?t=' + Date.now(), { cache: 'no-store' });
+    if (!res.ok) throw new Error('no slate.json (' + res.status + ')');
+    const doc = await res.json();
+    const records = Array.isArray(doc) ? doc : doc.golfers;
+    if (!records || !records.length) throw new Error('empty slate.json');
+
+    const { golfers, hasOwnership } = window.Data.buildSlateFromMaster(records);
+    State.golfers = golfers;
+    State.simResults = null;
+    State.build = null;
+    State.hasRealOwnership = hasOwnership;
+    // Only model ownership if the file didn't supply real projections.
+    if (!hasOwnership) window.Data.projectOwnership(State.golfers, null);
+    renderPlayers();
+
+    const when = doc.updatedUtc ? new Date(doc.updatedUtc).toLocaleString() : 'now';
+    $('#simStatus').textContent =
+      `Loaded ${golfers.length} golfers from your master file (updated ${when}). Run the sim.`;
+  } catch (e) {
+    // No published slate yet — use the sample so the app still works.
+    loadSampleSlate();
+  }
 }
 
 /* ---------------------- Player table ---------------------- */
@@ -102,7 +135,10 @@ function runSim() {
   setTimeout(() => {
     const t0 = performance.now();
     State.simResults = window.Sim.runSimulation(State.golfers, nSims, seed);
-    window.Data.projectOwnership(State.golfers, State.simResults);
+    // Keep the master file's real ownership; only model it for the sample slate.
+    if (!State.hasRealOwnership) {
+      window.Data.projectOwnership(State.golfers, State.simResults);
+    }
     const ms = Math.round(performance.now() - t0);
     status.textContent = `✓ ${nSims.toLocaleString()} sims in ${ms} ms`;
     renderPlayers();
@@ -216,12 +252,14 @@ function importCsv(file) {
   const reader = new FileReader();
   reader.onload = () => {
     try {
-      const golfers = parseDkSalaries(reader.result);
-      if (!golfers.length) throw new Error('No rows parsed');
+      const records = parseDkSalaries(reader.result);
+      if (!records.length) throw new Error('No rows parsed');
+      const { golfers, hasOwnership } = window.Data.buildSlateFromMaster(records);
       State.golfers = golfers;
       State.simResults = null;
       State.build = null;
-      window.Data.projectOwnership(State.golfers, null);
+      State.hasRealOwnership = hasOwnership;
+      if (!hasOwnership) window.Data.projectOwnership(State.golfers, null);
       renderPlayers();
       $('#simStatus').textContent = `Imported ${golfers.length} golfers — run the sim.`;
     } catch (e) {
@@ -242,24 +280,35 @@ function parseDkSalaries(text) {
   const nameIdx = header.findIndex((h) => h === 'name' || h === 'name + id');
   const salIdx = header.findIndex((h) => h === 'salary');
   const avgIdx = header.findIndex((h) => h.includes('avgpoints'));
+  // Master-file columns (if you import a CSV exported from Sheet1).
+  const sgIdx = header.findIndex((h) => h === 'sg_tot' || h === 'sg_total');
+  const ownIdx = header.findIndex(
+    (h) => h === 'predicted_ownership_pct' || h === 'ownership' || h === 'own%'
+  );
   if (nameIdx < 0 || salIdx < 0) throw new Error('need Name and Salary columns');
 
-  const raw = [];
+  const num = (v) => {
+    const n = parseFloat((v || '').toString().replace(/[^0-9.\-]/g, ''));
+    return Number.isFinite(n) ? n : null;
+  };
+
+  const records = [];
   for (let i = 1; i < lines.length; i++) {
     const c = splitCsvLine(lines[i]);
     const name = (c[nameIdx] || '').replace(/\s*\(\d+\)\s*$/, '').trim();
     const salary = parseInt((c[salIdx] || '').replace(/[^0-9]/g, ''), 10);
     if (!name || !salary) continue;
-    let skill;
-    if (avgIdx >= 0 && c[avgIdx]) {
+    const rec = { name, salary, variance: 0.8 };
+    if (sgIdx >= 0 && num(c[sgIdx]) != null) {
+      rec.sgTot = num(c[sgIdx]); // real strokes-gained drives skill
+    } else if (avgIdx >= 0 && c[avgIdx]) {
       // Map avg DK points (~60-95) to skill roughly centered at 0.6.
-      skill = Math.max(0.1, (parseFloat(c[avgIdx]) - 60) / 25);
-    } else {
-      skill = Math.max(0.1, (salary - 5000) / 5000); // salary-implied skill
-    }
-    raw.push({ name, salary, skill, variance: 0.8 });
+      rec.skill = Math.max(0.1, (parseFloat(c[avgIdx]) - 60) / 25);
+    } // else buildSlateFromMaster falls back to salary-implied skill
+    if (ownIdx >= 0 && num(c[ownIdx]) != null) rec.ownership = num(c[ownIdx]);
+    records.push(rec);
   }
-  return window.Data.buildSlate(raw);
+  return records;
 }
 
 // Minimal CSV splitter that respects quoted fields.
@@ -325,7 +374,7 @@ function download(filename, text) {
 /* ---------------------- Boot ---------------------- */
 function init() {
   initTabs();
-  loadSampleSlate();
+  loadAutoSlate();
   $('#runSim').addEventListener('click', runSim);
   $('#buildBtn').addEventListener('click', buildPool);
   $('#resetSlate').addEventListener('click', loadSampleSlate);
