@@ -42,25 +42,54 @@ def get_json(url, optional=False):
         raise
 
 
-def resolve_draft_group(contest):
-    """Find the draftGroupId for a contest id, via contest detail then the lobby."""
-    cdata = get_json(
-        f"https://api.draftkings.com/contests/v1/contests/{contest}?format=json",
-        optional=True,
-    )
-    dg = find_key(cdata, "draftGroupId") if cdata else None
-    if dg:
-        return dg
+def resolve_draft_group(contest, keyword=""):
+    """Find the draftGroupId via: explicit contest id, then a keyword name match
+    in the public GOLF lobby (salaries live at the draft-group level)."""
+    if contest:
+        cdata = get_json(
+            f"https://api.draftkings.com/contests/v1/contests/{contest}?format=json",
+            optional=True,
+        )
+        dg = find_key(cdata, "draftGroupId") if cdata else None
+        if dg:
+            return dg
 
-    # Fallback: scan the public GOLF lobby, which lists each contest's draft group.
-    print("Contest detail endpoint failed; trying GOLF lobby…")
     lobby = get_json("https://www.draftkings.com/lobby/getcontests?sport=GOLF", optional=True)
-    if lobby:
-        for c in lobby.get("Contests", []):
+    if not lobby:
+        return None
+    contests = lobby.get("Contests", [])
+
+    if contest:
+        for c in contests:
             if str(c.get("id")) == str(contest):
                 return c.get("dg") or c.get("draftGroupId")
-        print(f"  contest {contest} not found among {len(lobby.get('Contests', []))} open GOLF contests")
-    return None
+        print(f"  contest {contest} not found among {len(contests)} open GOLF contests")
+
+    if not keyword:
+        return None
+
+    # Group open contests by draft group, keep those whose name matches the keyword.
+    kw = keyword.lower()
+    groups = {}
+    for c in contests:
+        name = (c.get("n") or "")
+        dg = c.get("dg") or c.get("draftGroupId")
+        if dg and kw in name.lower():
+            g = groups.setdefault(dg, {"example": name, "start": c.get("sdstring") or c.get("sd"), "count": 0})
+            g["count"] += 1
+
+    if not groups:
+        print(f"  no open GOLF contests matched '{keyword}'")
+        return None
+    print(f"Draft groups matching '{keyword}':")
+    for dg, g in sorted(groups.items(), key=lambda kv: -kv[1]["count"]):
+        print(f"  dg={dg}  start={g['start']}  contests={g['count']}  e.g. {g['example']}")
+    if len(groups) == 1:
+        return next(iter(groups))
+    # Pick the draft group backing the most contests (usually the main slate).
+    best = max(groups.items(), key=lambda kv: kv[1]["count"])[0]
+    print(f"Multiple matches — choosing the most-used draft group: {best}")
+    return best
 
 
 def find_key(obj, key):
@@ -85,13 +114,19 @@ def main():
     tourney = os.environ.get("DK_TOURNAMENT", "").strip()
     date = os.environ.get("DK_DATE", "").strip()
     out = os.environ.get("DK_OUT", "data/dk_salaries.csv").strip()
-    if not (contest and tourney and date):
-        raise SystemExit("DK_CONTEST_ID, DK_TOURNAMENT and DK_DATE are all required")
+    dg_override = os.environ.get("DK_DRAFTGROUP_ID", "").strip()
+    # Keyword to find the slate in the lobby, e.g. "TRAVELERS_2026" -> "travelers".
+    keyword = os.environ.get("DK_FIND", "").strip() or tourney.split("_")[0]
+    if not (tourney and date):
+        raise SystemExit("DK_TOURNAMENT and DK_DATE are required")
 
-    dg = resolve_draft_group(contest)
+    if dg_override:
+        dg = dg_override
+    else:
+        dg = resolve_draft_group(contest, keyword)
     if not dg:
-        raise SystemExit(f"Could not find draftGroupId for contest {contest}")
-    print(f"Contest {contest} -> draftGroupId {dg}")
+        raise SystemExit("Could not resolve a draft group (try DK_DRAFTGROUP_ID).")
+    print(f"Using draftGroupId {dg}")
 
     ddata = get_json(
         f"https://api.draftkings.com/draftgroups/v1/draftgroups/{dg}/draftables?format=json"

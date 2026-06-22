@@ -4,9 +4,13 @@ on:
   workflow_dispatch:
     inputs:
       contest_id:
-        description: DraftKings contest ID
-        required: true
-        default: '5173013489'
+        description: DraftKings contest ID (optional if draftgroup_id given)
+        required: false
+        default: ''
+      draftgroup_id:
+        description: DraftKings draft group ID (optional; overrides contest)
+        required: false
+        default: ''
       tournament_name:
         description: Tournament_Name value for the rows
         required: true
@@ -34,6 +38,7 @@ jobs:
       - name: Fetch DraftKings salaries
         env:
           DK_CONTEST_ID: ${{ inputs.contest_id }}
+          DK_DRAFTGROUP_ID: ${{ inputs.draftgroup_id }}
           DK_TOURNAMENT: ${{ inputs.tournament_name }}
           DK_DATE: ${{ inputs.date }}
         run: python tools/fetch_dk.py
