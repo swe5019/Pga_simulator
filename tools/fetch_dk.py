@@ -24,10 +24,43 @@ import urllib.request
 UA = {"User-Agent": "Mozilla/5.0 (compatible; birdie-dfs/1.0)"}
 
 
-def get_json(url):
-    req = urllib.request.Request(url, headers=UA)
-    with urllib.request.urlopen(req, timeout=60) as r:
-        return json.loads(r.read().decode("utf-8"))
+def get_json(url, optional=False):
+    print(f"GET {url}")
+    try:
+        req = urllib.request.Request(url, headers=UA)
+        with urllib.request.urlopen(req, timeout=60) as r:
+            return json.loads(r.read().decode("utf-8"))
+    except urllib.error.HTTPError as e:
+        body = ""
+        try:
+            body = e.read().decode("utf-8", "replace")[:200]
+        except Exception:  # noqa: BLE001
+            pass
+        print(f"  -> HTTP {e.code} {body}")
+        if optional:
+            return None
+        raise
+
+
+def resolve_draft_group(contest):
+    """Find the draftGroupId for a contest id, via contest detail then the lobby."""
+    cdata = get_json(
+        f"https://api.draftkings.com/contests/v1/contests/{contest}?format=json",
+        optional=True,
+    )
+    dg = find_key(cdata, "draftGroupId") if cdata else None
+    if dg:
+        return dg
+
+    # Fallback: scan the public GOLF lobby, which lists each contest's draft group.
+    print("Contest detail endpoint failed; trying GOLF lobby…")
+    lobby = get_json("https://www.draftkings.com/lobby/getcontests?sport=GOLF", optional=True)
+    if lobby:
+        for c in lobby.get("Contests", []):
+            if str(c.get("id")) == str(contest):
+                return c.get("dg") or c.get("draftGroupId")
+        print(f"  contest {contest} not found among {len(lobby.get('Contests', []))} open GOLF contests")
+    return None
 
 
 def find_key(obj, key):
@@ -55,8 +88,7 @@ def main():
     if not (contest and tourney and date):
         raise SystemExit("DK_CONTEST_ID, DK_TOURNAMENT and DK_DATE are all required")
 
-    cdata = get_json(f"https://api.draftkings.com/contests/v1/contests/{contest}?format=json")
-    dg = find_key(cdata, "draftGroupId")
+    dg = resolve_draft_group(contest)
     if not dg:
         raise SystemExit(f"Could not find draftGroupId for contest {contest}")
     print(f"Contest {contest} -> draftGroupId {dg}")
