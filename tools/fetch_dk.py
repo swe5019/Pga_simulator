@@ -167,8 +167,9 @@ def main():
         if not name or salary is None or name in players:
             continue
         status, is_out = player_status(p)
-        # DK upload files use the "Name (ID)" format; this is that ID.
-        dk_id = p.get("playerDkId") or p.get("playerId") or p.get("draftableId")
+        # DK upload files use the "Name (ID)" format; the draftableId is that ID
+        # (matches the DKSalaries "Name + ID" column).
+        dk_id = p.get("draftableId") or p.get("playerDkId") or p.get("playerId")
         players[name] = {"salary": int(salary), "status": status, "out": is_out,
                          "dkId": dk_id}
 
