@@ -95,7 +95,8 @@
         <div class="control">
           <label>Optimize for</label>
           <select id="sortBy">
-            <option value="ceiling" selected>Ceiling (GPP upside)</option>
+            <option value="score" selected>Birdie Score (balanced)</option>
+            <option value="ceiling">Ceiling (GPP upside)</option>
             <option value="mean">Mean (cash)</option>
             <option value="p99">Top-1% spike (Milly Maker)</option>
           </select>
@@ -148,6 +149,17 @@
       <pre id="exportPreview" class="preview"></pre>
     </section>
   </main>
+
+  <!-- ===================== PLAYER DISTRIBUTION MODAL ===================== -->
+  <div id="distModal" class="modal hidden">
+    <div class="modalcard">
+      <div class="modalhead">
+        <h3 id="distTitle">Player</h3>
+        <button id="distClose" class="ghost">✕</button>
+      </div>
+      <div id="distBody"></div>
+    </div>
+  </div>
 
   <footer class="footer">
     <span>Birdie · client-side, your data never leaves the browser.</span>

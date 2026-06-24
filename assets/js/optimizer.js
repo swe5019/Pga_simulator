@@ -177,9 +177,11 @@ function buildPool(golfers, simResults, opts = {}) {
 
   // Score every finished lineup across ALL sims for its true distribution.
   scoreLineups(lineups, simResults, nSims);
+  // Composite "Birdie Score": upside, projection, and ownership-leverage blended.
+  scoreComposite(lineups, golfers);
 
-  // Sort the pool by ceiling (GPP upside) by default.
-  lineups.sort((a, b) => b.ceiling - a.ceiling);
+  // Sort the pool by the composite score by default.
+  lineups.sort((a, b) => b.score - a.score);
 
   const exposure = new Map();
   for (const [id, c] of useCount) {
@@ -205,6 +207,32 @@ function scoreLineups(lineups, simResults, nSims) {
     lu.floor = sorted[Math.floor(0.1 * nSims)];
     lu.p99 = sorted[Math.floor(0.99 * nSims)];
   }
+}
+
+/**
+ * Composite "Birdie Score" — Birdie's answer to SaberSim's saber-score.
+ * Rewards projection and tournament-winning upside (99th pct) while penalizing
+ * total projected ownership, so unique high-ceiling lineups rise to the top.
+ * Sets lu.ownSum (sum of projected ownership) and lu.score on each lineup.
+ */
+function scoreComposite(lineups, golfers) {
+  if (!lineups.length) return;
+  const own = new Map(golfers.map((g) => [g.id, g.ownership || 0]));
+  for (const lu of lineups) {
+    lu.ownSum = lu.players.reduce((s, id) => s + (own.get(id) || 0), 0);
+  }
+  const z = (vals) => {
+    const m = vals.reduce((a, b) => a + b, 0) / vals.length;
+    const sd = Math.sqrt(vals.reduce((a, b) => a + (b - m) ** 2, 0) / vals.length) || 1;
+    return vals.map((v) => (v - m) / sd);
+  };
+  const zMean = z(lineups.map((l) => l.mean));
+  const zUpside = z(lineups.map((l) => l.p99)); // tournament-winning spike
+  const zOwn = z(lineups.map((l) => l.ownSum));
+  lineups.forEach((lu, i) => {
+    // Equal weight on projection and upside, minus ownership; scaled for readability.
+    lu.score = 100 + 10 * (zMean[i] + zUpside[i] - zOwn[i]);
+  });
 }
 
 window.Optimizer = { DK_RULES, buildPool, optimizeOne, lineupKey };

@@ -88,7 +88,7 @@ function renderPlayers() {
     if (g.banned) tr.classList.add('banned');
     if (g.locked) tr.classList.add('locked');
     tr.innerHTML = `
-      <td class="name">${g.name}</td>
+      <td class="name"><button class="pname" data-id="${g.id}" title="View outcome distribution">${g.name}</button></td>
       <td class="num"><input class="cell" data-id="${g.id}" data-f="salary" value="${g.salary}"></td>
       <td class="num"><input class="cell" data-id="${g.id}" data-f="skill" value="${g.skill}"></td>
       <td class="num">${num(proj)}</td>
@@ -113,6 +113,10 @@ function renderPlayers() {
       renderPlayers();
     });
   });
+  // Player name → outcome distribution
+  tbody.querySelectorAll('button.pname').forEach((b) => {
+    b.addEventListener('click', () => openDist(b.dataset.id));
+  });
   // Lock / ban toggles
   tbody.querySelectorAll('button.toggle').forEach((b) => {
     b.addEventListener('click', () => {
@@ -122,6 +126,55 @@ function renderPlayers() {
       renderPlayers();
     });
   });
+}
+
+/* ---------------------- Player outcome distribution ---------------------- */
+function openDist(id) {
+  const g = byId(id);
+  const r = State.simResults && State.simResults.get(id);
+  const body = $('#distBody');
+  $('#distTitle').textContent = g.name;
+
+  if (!r) {
+    body.innerHTML = `<p class="hint">Run a simulation first to see ${g.name}'s range of outcomes.</p>`;
+  } else {
+    const s = r.samples;
+    const n = s.length;
+    let max = 0;
+    for (let i = 0; i < n; i++) if (s[i] > max) max = s[i];
+    const BINS = 28;
+    const width = (max || 1) / BINS;
+    const counts = new Array(BINS).fill(0);
+    for (let i = 0; i < n; i++) counts[Math.min(BINS - 1, Math.floor(s[i] / width))]++;
+    const cmax = Math.max(...counts) || 1;
+    const bars = counts
+      .map((c, i) => {
+        const h = Math.round((c / cmax) * 100);
+        const lo = Math.round(i * width);
+        const hi = Math.round((i + 1) * width);
+        return `<div class="distbar" title="${lo}–${hi} pts: ${((100 * c) / n).toFixed(1)}% of sims">
+          <div class="distfill" style="height:${h}%"></div></div>`;
+      })
+      .join('');
+    body.innerHTML = `
+      <div class="diststats">
+        <span>Proj <b>${num(r.mean)}</b></span>
+        <span>Floor <b class="dim">${num(r.floor)}</b></span>
+        <span>Ceiling <b class="up">${num(r.ceiling)}</b></span>
+        <span>Top-1% <b class="up">${num(r.p99)}</b></span>
+        <span>Make cut <b>${num(r.cutPct)}%</b></span>
+      </div>
+      <div class="distchart">${bars}</div>
+      <div class="distaxis"><span>0</span><span>${Math.round(max)} pts</span></div>
+      <p class="hint">Each bar is the share of ${n.toLocaleString()} simulated tournaments landing in that
+      DK-point range. The left spike is missed-cut outcomes; the right hump is made-cut scoring — the
+      average (${num(r.mean)}) often sits in the valley between, which is exactly why flat projections miss.</p>`;
+  }
+  $('#distModal').classList.remove('hidden');
+}
+
+function closeDist() {
+  $('#distModal').classList.add('hidden');
 }
 
 /* ---------------------- Run simulation ---------------------- */
@@ -185,6 +238,7 @@ function renderBuildSummary() {
   const avg = (f) => lus.reduce((s, l) => s + l[f], 0) / lus.length;
   const cards = [
     ['Lineups', lus.length],
+    ['Avg Birdie Score', num(avg('score'))],
     ['Avg projection', num(avg('mean'))],
     ['Avg ceiling', num(avg('ceiling'))],
     ['Best ceiling', num(Math.max(...lus.map((l) => l.ceiling)))],
@@ -237,8 +291,10 @@ function renderReview() {
       return `<div class="lineup">
         <div class="lhead">
           <span class="lnum">#${i + 1}</span>
+          <span class="lstat">Score <b class="up">${num(lu.score)}</b></span>
           <span class="lstat">Proj <b>${num(lu.mean)}</b></span>
-          <span class="lstat">Ceil <b class="up">${num(lu.ceiling)}</b></span>
+          <span class="lstat">Ceil <b>${num(lu.ceiling)}</b></span>
+          <span class="lstat">Own <b>${lu.ownSum != null ? lu.ownSum.toFixed(0) + '%' : '—'}</b></span>
           <span class="lstat">${money(lu.salary)}</span>
         </div>
         <div class="chips">${names}</div>
@@ -378,6 +434,10 @@ function init() {
   $('#runSim').addEventListener('click', runSim);
   $('#buildBtn').addEventListener('click', buildPool);
   $('#resetSlate').addEventListener('click', loadSampleSlate);
+  $('#distClose').addEventListener('click', closeDist);
+  $('#distModal').addEventListener('click', (e) => {
+    if (e.target.id === 'distModal') closeDist(); // click backdrop to close
+  });
   $('#exportDK').addEventListener('click', exportDk);
   $('#exportDetailed').addEventListener('click', exportDetailed);
   $('#importCsv').addEventListener('change', (e) => {

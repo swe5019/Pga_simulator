@@ -152,3 +152,34 @@ button.toggle.on { filter: none; border-color: var(--green); background: #14241a
 
 /* ---------- Footer ---------- */
 .footer { text-align: center; color: var(--dim); font-size: 11.5px; padding: 22px; border-top: 1px solid var(--line); }
+
+/* ---------- Player name button + outcome distribution modal ---------- */
+.pname {
+  background: none; border: 0; color: var(--text); cursor: pointer;
+  font: inherit; padding: 0; text-align: left; border-bottom: 1px dotted var(--line);
+}
+.pname:hover { color: var(--accent); border-bottom-color: var(--accent); }
+
+.modal {
+  position: fixed; inset: 0; z-index: 50; display: flex; align-items: center; justify-content: center;
+  background: rgba(0, 0, 0, .6); padding: 20px;
+}
+.modal.hidden { display: none; }
+.modalcard {
+  background: var(--panel); border: 1px solid var(--line); border-radius: 12px;
+  width: min(680px, 96vw); max-height: 90vh; overflow: auto; padding: 18px 20px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, .5);
+}
+.modalhead { display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; }
+.modalhead h3 { margin: 0; font-size: 18px; }
+
+.diststats { display: flex; flex-wrap: wrap; gap: 16px; margin: 6px 0 14px; font-size: 13px; color: var(--dim); }
+.diststats b { color: var(--text); font-size: 15px; margin-left: 4px; }
+.distchart {
+  display: flex; align-items: flex-end; gap: 2px; height: 150px;
+  padding: 8px; background: var(--bg); border: 1px solid var(--line); border-radius: 8px;
+}
+.distbar { flex: 1; height: 100%; display: flex; align-items: flex-end; }
+.distfill { width: 100%; background: var(--green2, var(--accent)); border-radius: 2px 2px 0 0; min-height: 1px; }
+.distbar:hover .distfill { background: var(--accent); }
+.distaxis { display: flex; justify-content: space-between; color: var(--dim); font-size: 11px; margin-top: 4px; }
