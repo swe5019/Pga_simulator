@@ -164,4 +164,4 @@ function projectOwnership(golfers, simResults) {
   return golfers;
 }
 
-window.Data = { SAMPLE_SLATE, buildSlate, buildSlateFromMaster, projectOwnership };
+window.Data = { SAMPLE_SLATE, SKILL_SCALE, buildSlate, buildSlateFromMaster, projectOwnership };

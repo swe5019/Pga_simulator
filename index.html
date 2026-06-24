@@ -50,6 +50,25 @@
         <button id="resetSlate" class="ghost">Reset sample slate</button>
       </div>
 
+      <div class="toolbar wrap">
+        <div class="control">
+          <label>Course fit preset</label>
+          <select id="cfPreset">
+            <option value="balanced" selected>Balanced</option>
+            <option value="bomber">Bomber's paradise (OTT)</option>
+            <option value="approach">Approach-heavy</option>
+            <option value="short">Short game / positional</option>
+            <option value="custom">Custom…</option>
+          </select>
+        </div>
+        <div class="control"><label>OTT ×</label><input id="cfOtt" type="number" value="1" step="0.1" min="0" /></div>
+        <div class="control"><label>APP ×</label><input id="cfApp" type="number" value="1" step="0.1" min="0" /></div>
+        <div class="control"><label>ARG ×</label><input id="cfArg" type="number" value="1" step="0.1" min="0" /></div>
+        <div class="control"><label>PUTT ×</label><input id="cfPutt" type="number" value="1" step="0.1" min="0" /></div>
+        <button id="cfApply" class="ghost">Apply course fit</button>
+        <span id="cfStatus" class="status"></span>
+      </div>
+
       <p class="hint">
         Edit <b>Salary</b> and <b>Skill</b> inline (skill = strokes gained/round vs. field).
         Set per-golfer <b>Min</b>/<b>Max</b> exposure % (caps the share of lineups they appear

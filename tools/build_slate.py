@@ -12,6 +12,7 @@ that file is all it takes to update the live slate.
 """
 import base64
 import json
+import math
 import os
 import sys
 import datetime
@@ -79,7 +80,7 @@ def fetch_workbook() -> tuple[bytes, str]:
 def num(v):
     try:
         f = float(str(v).replace(",", "").strip())
-        return f if f == f else None  # drop NaN
+        return f if math.isfinite(f) else None  # drop NaN / Infinity (invalid JSON)
     except (TypeError, ValueError):
         return None
 

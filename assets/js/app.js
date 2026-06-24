@@ -266,6 +266,53 @@ function closeDist() {
   $('#distModal').classList.add('hidden');
 }
 
+/* ---------------------- Course fit (SG weighting) ---------------------- */
+const CF_PRESETS = {
+  balanced: { ott: 1, app: 1, arg: 1, putt: 1 },
+  bomber: { ott: 1.6, app: 1.1, arg: 0.8, putt: 0.8 },
+  approach: { ott: 0.9, app: 1.6, arg: 1.0, putt: 0.9 },
+  short: { ott: 0.8, app: 1.0, arg: 1.4, putt: 1.4 },
+};
+
+function setCfInputs(w) {
+  $('#cfOtt').value = w.ott;
+  $('#cfApp').value = w.app;
+  $('#cfArg').value = w.arg;
+  $('#cfPutt').value = w.putt;
+}
+
+/**
+ * Recompute each golfer's skill by re-weighting their SG components for this
+ * week's course. Neutral weights (all 1) reproduce SG_TOT exactly; raising a
+ * category emphasizes golfers strong in it (and de-emphasizes the rest), with
+ * the overall scale held steady. Golfers without full SG splits are untouched.
+ */
+function applyCourseFit() {
+  const w = {
+    ott: parseFloat($('#cfOtt').value) || 0,
+    app: parseFloat($('#cfApp').value) || 0,
+    arg: parseFloat($('#cfArg').value) || 0,
+    putt: parseFloat($('#cfPutt').value) || 0,
+  };
+  const wsum = w.ott + w.app + w.arg + w.putt;
+  const scale = window.Data.SKILL_SCALE;
+  let n = 0;
+  for (const g of State.golfers) {
+    if ([g.sgOtt, g.sgApp, g.sgArg, g.sgPutt].some((v) => v == null)) continue;
+    const weighted = w.ott * g.sgOtt + w.app * g.sgApp + w.arg * g.sgArg + w.putt * g.sgPutt;
+    // Normalize by mean weight so neutral weights => SG_TOT; emphasis redistributes.
+    const eff = wsum > 0 ? (4 * weighted) / wsum : 0;
+    g.skill = Math.round(eff * scale * 1000) / 1000;
+    n++;
+  }
+  State.simResults = null; // skills changed — invalidate the sim
+  renderPlayers();
+  const isNeutral = wsum === 4 && w.ott === 1 && w.app === 1 && w.arg === 1 && w.putt === 1;
+  $('#cfStatus').textContent = n
+    ? `${isNeutral ? 'Reset to SG total' : 'Course fit applied'} for ${n} golfers — re-run the sim.`
+    : 'No golfers have SG splits to weight (import a slate with SG_OTT/APP/ARG/PUTT).';
+}
+
 /* ---------------------- Run simulation ---------------------- */
 function runSim() {
   const nSims = parseInt($('#nSims').value, 10);
@@ -614,6 +661,14 @@ function init() {
   $('#runSim').addEventListener('click', runSim);
   $('#buildBtn').addEventListener('click', buildPool);
   $('#runContest').addEventListener('click', runContest);
+  $('#cfApply').addEventListener('click', applyCourseFit);
+  $('#cfPreset').addEventListener('change', (e) => {
+    const p = CF_PRESETS[e.target.value];
+    if (p) setCfInputs(p);
+  });
+  ['#cfOtt', '#cfApp', '#cfArg', '#cfPutt'].forEach((id) => {
+    $(id).addEventListener('input', () => { $('#cfPreset').value = 'custom'; });
+  });
   $('#resetSlate').addEventListener('click', loadSampleSlate);
   $('#distClose').addEventListener('click', closeDist);
   $('#distModal').addEventListener('click', (e) => {
