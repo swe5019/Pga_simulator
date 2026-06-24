@@ -19,7 +19,8 @@
       <button class="tab active" data-tab="players">1 · Players</button>
       <button class="tab" data-tab="build">2 · Build</button>
       <button class="tab" data-tab="lineups">3 · Review</button>
-      <button class="tab" data-tab="export">4 · Export</button>
+      <button class="tab" data-tab="contest">4 · Contest</button>
+      <button class="tab" data-tab="export">5 · Export</button>
     </nav>
   </header>
 
@@ -145,6 +146,57 @@
       </div>
     </section>
 
+    <!-- ===================== CONTEST SIM / ROI ===================== -->
+    <section id="contest" class="panel">
+      <div class="toolbar wrap">
+        <div class="control">
+          <label>Contest type</label>
+          <select id="cStructure">
+            <option value="gpp" selected>GPP (top-heavy)</option>
+            <option value="se">Single-entry GPP</option>
+            <option value="dub">Double-up / Cash</option>
+          </select>
+        </div>
+        <div class="control">
+          <label>Field size (entries)</label>
+          <input id="cEntries" type="number" value="5000" min="2" step="100" />
+        </div>
+        <div class="control">
+          <label>Entry fee $</label>
+          <input id="cFee" type="number" value="20" min="0.1" step="1" />
+        </div>
+        <div class="control">
+          <label>Field lineups (sim)</label>
+          <input id="cField" type="number" value="2000" min="200" max="10000" step="100" />
+        </div>
+        <button id="runContest" class="primary">▶ Run Contest Sim</button>
+        <span id="contestStatus" class="status"></span>
+      </div>
+      <p class="hint">
+        Estimates each lineup's expected <b>ROI</b> against an ownership-weighted field and a
+        modeled payout structure, scored across your simulated tournaments. Build a pool first
+        (tab 2). Payouts are modeled approximations for ranking lineups by contest-fit — not
+        exact DraftKings prize tables.
+      </p>
+      <div id="contestSummary" class="cards"></div>
+      <div class="tablewrap">
+        <table id="contestTable">
+          <thead>
+            <tr>
+              <th>Rank</th>
+              <th>Lineup</th>
+              <th class="num">Proj</th>
+              <th class="num">ROI%</th>
+              <th class="num">Cash%</th>
+              <th class="num">Win%</th>
+              <th class="num">Exp $</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </section>
+
     <!-- ===================== EXPORT ===================== -->
     <section id="export" class="panel">
       <h2>Export</h2>
@@ -176,6 +228,7 @@
   <script src="assets/js/data.js"></script>
   <script src="assets/js/sim.js"></script>
   <script src="assets/js/optimizer.js"></script>
+  <script src="assets/js/contest.js"></script>
   <script src="assets/js/app.js"></script>
 </body>
 </html>

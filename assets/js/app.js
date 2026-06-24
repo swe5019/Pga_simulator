@@ -11,6 +11,7 @@ const State = {
   build: null,          // { lineups, exposure } from the last build
   hasRealOwnership: false, // true when ownership came from the master file
   dk: null,                // DraftKings overlay metadata (see overlayDk)
+  contest: null,           // last contest-sim result
 };
 
 /** Normalize a golfer name for cross-source matching (case/punct/accents/suffix). */
@@ -315,6 +316,7 @@ function buildPool() {
   setTimeout(() => {
     const t0 = performance.now();
     State.build = window.Optimizer.buildPool(State.golfers, State.simResults, opts);
+    State.contest = null; // pool changed; previous ROI no longer valid
 
     // Re-sort the pool per the chosen objective.
     const key = $('#sortBy').value;
@@ -354,6 +356,76 @@ function renderBuildSummary() {
   ];
   $('#buildSummary').innerHTML = cards
     .map(([k, v]) => `<div class="card"><div class="cardv">${v}</div><div class="cardk">${k}</div></div>`)
+    .join('');
+}
+
+/* ---------------------- Contest sim / ROI ---------------------- */
+function runContest() {
+  const status = $('#contestStatus');
+  if (!State.build || !State.build.lineups.length) {
+    status.textContent = 'Build a lineup pool first (tab 2).';
+    return;
+  }
+  const fee = parseFloat($('#cFee').value) || 1;
+  const opts = {
+    entries: parseInt($('#cEntries').value, 10) || 1000,
+    fee,
+    structure: $('#cStructure').value,
+    fieldLineups: parseInt($('#cField').value, 10) || 2000,
+    worlds: 4000,
+    exclude: new Set(State.golfers.filter((g) => g.banned || g.out).map((g) => g.id)),
+    rng: window.Sim.makeRng(424242),
+  };
+  status.textContent = 'Simulating contest…';
+  setTimeout(() => {
+    const t0 = performance.now();
+    State.contest = window.Contest.runContestSim(State.build.lineups, State.golfers, State.simResults, opts);
+    State.contest.fee = fee;
+    const ms = Math.round(performance.now() - t0);
+    status.textContent =
+      `✓ ${State.contest.results.length} lineups vs ${State.contest.fieldSize.toLocaleString()}-lineup field in ${ms} ms`;
+    renderContest();
+  }, 30);
+}
+
+function renderContest() {
+  const c = State.contest;
+  if (!c) return;
+  const res = [...c.results].sort((a, b) => b.roi - a.roi);
+  const fee = c.fee || 1;
+  const avgRoi = res.reduce((s, r) => s + r.roi, 0) / res.length;
+  const avgCash = res.reduce((s, r) => s + r.cashPct, 0) / res.length;
+  const totalProfit = res.reduce((s, r) => s + r.expPay, 0) - res.length * fee;
+
+  $('#contestSummary').innerHTML = [
+    ['Avg ROI', avgRoi.toFixed(0) + '%'],
+    ['Best ROI', Math.max(...res.map((r) => r.roi)).toFixed(0) + '%'],
+    ['Avg cash%', avgCash.toFixed(1) + '%'],
+    ['Field sampled', c.fieldSize.toLocaleString()],
+    [`Exp. profit (${res.length}×$${fee})`, '$' + totalProfit.toFixed(0)],
+  ]
+    .map(([k, v]) => `<div class="card"><div class="cardv">${v}</div><div class="cardk">${k}</div></div>`)
+    .join('');
+
+  $('#contestTable tbody').innerHTML = res
+    .map((r, i) => {
+      const names = r.players
+        .map((id) => byId(id))
+        .sort((a, b) => b.salary - a.salary)
+        .map((g) => `<span class="chip">${g.name} <em>${(g.salary / 1000).toFixed(1)}k</em></span>`)
+        .join('');
+      const cls = r.roi >= 0 ? 'up' : 'down';
+      const sign = r.roi >= 0 ? '+' : '';
+      return `<tr>
+        <td>#${i + 1}</td>
+        <td><div class="chips">${names}</div></td>
+        <td class="num">${num(r.avgPts)}</td>
+        <td class="num ${cls}">${sign}${r.roi.toFixed(0)}%</td>
+        <td class="num">${r.cashPct.toFixed(1)}%</td>
+        <td class="num">${r.winPct.toFixed(2)}%</td>
+        <td class="num">$${r.expPay.toFixed(2)}</td>
+      </tr>`;
+    })
     .join('');
 }
 
@@ -541,6 +613,7 @@ function init() {
   loadAutoSlate();
   $('#runSim').addEventListener('click', runSim);
   $('#buildBtn').addEventListener('click', buildPool);
+  $('#runContest').addEventListener('click', runContest);
   $('#resetSlate').addEventListener('click', loadSampleSlate);
   $('#distClose').addEventListener('click', closeDist);
   $('#distModal').addEventListener('click', (e) => {
