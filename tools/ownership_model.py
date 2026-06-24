@@ -102,13 +102,73 @@ FEATURES = [
     "Injury_Risk",
 ]
 
-PARAMS = dict(objective="regression", metric="mae", n_estimators=400, learning_rate=0.04,
-              max_depth=4, num_leaves=15, subsample=0.75, colsample_bytree=0.8,
-              min_child_samples=6, random_state=42, verbose=-1,
-              # Reproducible fit: single-thread + deterministic so the same data
-              # always yields the same ownership (LightGBM is otherwise non-
-              # deterministic across thread counts / machines).
-              num_threads=1, deterministic=True, force_row_wise=True)
+BASE_PARAMS = dict(objective="regression", metric="mae", learning_rate=0.04,
+                   max_depth=4, num_leaves=15, subsample=0.75, colsample_bytree=0.8,
+                   min_child_samples=6, random_state=42, verbose=-1,
+                   num_threads=1, deterministic=True, force_row_wise=True)
+
+# Candidate hyperparameter sets (first = the Colab baseline). The pipeline picks
+# whichever minimizes leave-one-tournament-out MAE, so it never does worse.
+CANDIDATES = [
+    dict(n_estimators=400),
+    dict(n_estimators=600, learning_rate=0.03),
+    dict(n_estimators=800, learning_rate=0.02, min_child_samples=10),
+    dict(n_estimators=500, num_leaves=31, max_depth=5),
+    dict(n_estimators=600, learning_rate=0.03, colsample_bytree=0.7, subsample=0.7),
+]
+ENSEMBLE_SEEDS = [42, 7, 13, 101, 202, 303, 404, 505]  # bagging for lower variance
+
+
+def _params(extra):
+    p = dict(BASE_PARAMS)
+    p.update(extra)
+    return p
+
+
+def loto_mae(train, feats, params):
+    """Leave-one-tournament-out mean MAE (matches the Colab diagnostic)."""
+    import lightgbm as lgb
+    events = train["Tournament_Name"].unique()
+    errs = []
+    for t in events:
+        trn = train[train["Tournament_Name"] != t]
+        tst = train[train["Tournament_Name"] == t]
+        if len(tst) < 10:
+            continue
+        med = trn[feats].median()
+        m = lgb.LGBMRegressor(**params)
+        m.fit(trn[feats].fillna(med), np.log1p(trn["Actual_Ownership"] * 100))
+        p = np.expm1(m.predict(tst[feats].fillna(med))).clip(min=0)
+        p = p * (600.0 / (p.sum() or 1.0))
+        a = (tst["Actual_Ownership"] * 100).values
+        errs.append(float(np.mean(np.abs(a - p))))
+    return float(np.mean(errs)) if errs else float("inf")
+
+
+def pick_params(train, feats):
+    best, best_mae = None, float("inf")
+    for c in CANDIDATES:
+        m = loto_mae(train, feats, _params(c))
+        if m < best_mae:
+            best, best_mae = c, m
+    return _params(best), best_mae
+
+
+def ensemble_predict(train, slate, feats, params):
+    """Average several seeded fits (bagging) -> lower-variance predictions."""
+    import lightgbm as lgb
+    medians = train[feats].median()
+    Xtr = train[feats].fillna(medians)
+    ytr = np.log1p(train["Actual_Ownership"] * 100)
+    Xsl = slate[feats].fillna(medians)
+    acc = np.zeros(len(slate))
+    for seed in ENSEMBLE_SEEDS:
+        p = dict(params)
+        p["random_state"] = seed
+        m = lgb.LGBMRegressor(**p)
+        m.fit(Xtr, ytr)
+        acc += np.expm1(m.predict(Xsl)).clip(min=0)
+    return acc / len(ENSEMBLE_SEEDS)
 
 
 def pick_slate(df):
@@ -185,13 +245,10 @@ def build_from_workbook(raw, suffix):
     if len(train) < 50:
         raise ValueError(f"Only {len(train)} training rows — too few to model")
 
-    medians = train[feats].median()
-    Xtr = train[feats].fillna(medians)
-    ytr = np.log1p(train["Actual_Ownership"] * 100)
-    model = lgb.LGBMRegressor(**PARAMS)
-    model.fit(Xtr, ytr)
-
-    preds = np.expm1(model.predict(slate[feats].fillna(medians))).clip(min=0)
+    # Tune params by leave-one-tournament-out MAE, then predict with a seed-
+    # averaged ensemble (both lower MAE and remove run-to-run variance).
+    params, cv_mae = pick_params(train, feats)
+    preds = ensemble_predict(train, slate, feats, params).clip(min=0)
     total = preds.sum() or 1.0
     calibrated = preds * (600.0 / total)  # 6 roster spots * 100%
     slate = slate.assign(
@@ -244,5 +301,7 @@ def build_from_workbook(raw, suffix):
         golfers.append(rec)
 
     meta = {"slate": slate_name, "trainRows": int(len(train)),
-            "trainEvents": int(train["Tournament_Name"].nunique())}
+            "trainEvents": int(train["Tournament_Name"].nunique()),
+            "cvMaePct": round(cv_mae, 3), "ensemble": len(ENSEMBLE_SEEDS),
+            "nEstimators": params.get("n_estimators"), "learningRate": params.get("learning_rate")}
     return golfers, meta

@@ -104,6 +104,8 @@ def main() -> int:
                 "slate": meta["slate"],
                 "trainRows": meta["trainRows"],
                 "trainEvents": meta["trainEvents"],
+                "cvMaePct": meta.get("cvMaePct"),
+                "ensemble": meta.get("ensemble"),
                 "count": len(golfers),
                 "golfers": golfers,
             }
@@ -112,8 +114,10 @@ def main() -> int:
                 json.dump(doc, fh, indent=1)
             withown = sum("ownership" in g for g in golfers)
             print(f"Wrote {OUT}: {len(golfers)} golfers for {meta['slate']} "
-                  f"(model trained on {meta['trainRows']} rows / {meta['trainEvents']} events, "
-                  f"{withown} with predicted ownership)")
+                  f"(trained on {meta['trainRows']} rows / {meta['trainEvents']} events; "
+                  f"{meta['ensemble']}-model ensemble, n_estimators={meta.get('nEstimators')}, "
+                  f"lr={meta.get('learningRate')}; leave-one-tournament-out MAE "
+                  f"{meta.get('cvMaePct')}% (Colab baseline ~2.42%); {withown} with ownership)")
             return 0
     except Exception as e:  # noqa: BLE001
         print(f"Ownership model path unavailable ({type(e).__name__}: {e}); "
