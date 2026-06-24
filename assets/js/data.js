@@ -70,6 +70,7 @@ function buildSlate(rawList) {
     variance: g.variance != null ? g.variance : 0.75,
     locked: false,
     banned: false,
+    selected: true,
   }));
 }
 
@@ -109,6 +110,7 @@ function buildSlateFromMaster(records) {
         variance: r.variance != null ? r.variance : 0.75,
         locked: false,
         banned: false,
+        selected: true,
         ownership: r.ownership != null ? r.ownership : undefined,
         // Extras carried through for display / filtering / future use.
         sgTot: r.sgTot,
@@ -119,6 +121,9 @@ function buildSlateFromMaster(records) {
         sgOtt: r.sgOtt,
         winOdds: r.winOdds,
         impliedProb: r.impliedProb,
+        winProb: r.winProb,
+        top5Prob: r.top5Prob,
+        top10Prob: r.top10Prob,
         leverage: r.leverage,
         leverageTier: r.leverageTier,
       };

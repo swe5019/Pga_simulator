@@ -137,10 +137,12 @@ def odds_equity(raw, suffix):
         nm = str(g(r, "player", "name") or "").strip()
         if not nm:
             continue
-        out[_norm(nm)] = {
-            "winProb": _r(american_prob(g(r, "win_odds"))),
-            "top5Prob": _r(american_prob(g(r, "top5_odds"))),
-            "top10Prob": _r(american_prob(g(r, "top10_odds"))),
+        wp, t5, t10 = (american_prob(g(r, "win_odds")), american_prob(g(r, "top5_odds")),
+                       american_prob(g(r, "top10_odds")))
+        out[_norm(nm)] = {  # store as percentages to match impliedProb
+            "winProb": _r(wp * 100, 2) if wp is not None else None,
+            "top5Prob": _r(t5 * 100, 1) if t5 is not None else None,
+            "top10Prob": _r(t10 * 100, 1) if t10 is not None else None,
         }
     return out
 

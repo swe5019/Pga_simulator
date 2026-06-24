@@ -16,6 +16,20 @@ const State = {
   dkContests: null,        // real DK contests + payout tiers (dk_contests.json)
 };
 
+/** American odds → implied probability (handles +/-). */
+function impliedFromAmerican(o) {
+  if (o == null || !isFinite(o) || o === 0) return null;
+  return o > 0 ? 100 / (o + 100) : -o / (-o + 100);
+}
+
+/** Win equity % for a golfer: Odds-tab win prob, else implied from win odds. */
+function winEquity(g) {
+  if (g.winProb != null) return g.winProb;
+  if (g.impliedProb != null) return g.impliedProb;
+  const p = impliedFromAmerican(g.winOdds);
+  return p != null ? p * 100 : null;
+}
+
 /** Resolve a golfer to DraftKings upload form "Name (draftableId)", or null. */
 function dkEntryName(g) {
   const p = State.dkPlayers && State.dkPlayers.get(normName(g.name));
@@ -88,6 +102,7 @@ async function overlayDk() {
           variance: 0.8,
           locked: false,
           banned: false,
+          selected: true,
           ownership: undefined,
           dkId: p.dkId,
           dkSalary: p.salary,
@@ -204,11 +219,14 @@ function renderPlayers() {
     const value = proj != null ? proj / (g.salary / 1000) : null;
     const exp = State.build ? (State.build.exposure.get(g.id) || 0) * 100 : null;
 
+    const win = winEquity(g);
     const tr = document.createElement('tr');
     if (g.banned) tr.classList.add('banned');
     if (g.locked) tr.classList.add('locked');
     if (g.out) tr.classList.add('out');
+    if (!g.selected) tr.classList.add('deselected');
     tr.innerHTML = `
+      <td class="ctr"><input type="checkbox" class="selbox" data-id="${g.id}" ${g.selected ? 'checked' : ''}></td>
       <td class="name"><button class="pname" data-id="${g.id}" title="View outcome distribution">${g.name}</button>${g.out ? ' <span class="tag out">OUT</span>' : ''}${g.added ? ' <span class="tag noproj" title="From DK field; no projection in your master yet — using salary-based skill">no proj</span>' : ''}</td>
       <td class="num"><input class="cell" data-id="${g.id}" data-f="salary" value="${g.salary}"></td>
       <td class="num"><input class="cell" data-id="${g.id}" data-f="skill" value="${g.skill}"></td>
@@ -216,6 +234,9 @@ function renderPlayers() {
       <td class="num dim">${r ? num(r.floor) : '—'}</td>
       <td class="num up">${r ? num(r.ceiling) : '—'}</td>
       <td class="num">${r ? num(r.cutPct) : '—'}</td>
+      <td class="num">${pct(win)}</td>
+      <td class="num dim">${pct(g.top5Prob)}</td>
+      <td class="num dim">${pct(g.top10Prob)}</td>
       <td class="num">${pct(g.ownership)}</td>
       <td class="num">${exp != null ? exp.toFixed(0) + '%' : '—'}</td>
       <td class="num">${value != null ? value.toFixed(2) : '—'}</td>
@@ -244,6 +265,14 @@ function renderPlayers() {
       const raw = inp.value.trim();
       const v = parseFloat(raw);
       g[inp.dataset.f] = raw === '' || isNaN(v) ? null : Math.max(0, Math.min(100, v));
+    });
+  });
+  // Player selection (include in the sim/build pool without locking)
+  tbody.querySelectorAll('input.selbox').forEach((cb) => {
+    cb.addEventListener('change', () => {
+      const g = byId(cb.dataset.id);
+      g.selected = cb.checked;
+      cb.closest('tr').classList.toggle('deselected', !cb.checked);
     });
   });
   // Player name → outcome distribution
@@ -401,8 +430,8 @@ function buildPool() {
     minExpById,
     minSalary: parseInt($('#minSalary').value, 10) || 0,
     locks: new Set(State.golfers.filter((g) => g.locked).map((g) => g.id)),
-    // Exclude banned golfers, OUT/WD, and anyone not in this week's DK field.
-    bans: new Set(State.golfers.filter((g) => g.banned || g.out || g.notInSlate).map((g) => g.id)),
+    // Exclude banned, OUT/WD, deselected players, and anyone not in the DK field.
+    bans: new Set(State.golfers.filter((g) => g.banned || g.out || g.notInSlate || !g.selected).map((g) => g.id)),
   };
 
   $('#buildStatus').textContent = 'Building…';
@@ -494,7 +523,7 @@ function runContest() {
     tiers: real ? real.tiers : null, // exact DK payouts when a contest is picked
     fieldLineups: parseInt($('#cField').value, 10) || 2000,
     worlds: 4000,
-    exclude: new Set(State.golfers.filter((g) => g.banned || g.out || g.notInSlate).map((g) => g.id)),
+    exclude: new Set(State.golfers.filter((g) => g.banned || g.out || g.notInSlate || !g.selected).map((g) => g.id)),
     rng: window.Sim.makeRng(424242),
   };
   status.textContent = 'Simulating contest…';
@@ -833,6 +862,11 @@ function init() {
     $(id).addEventListener('input', () => { $('#cfPreset').value = 'custom'; });
   });
   $('#resetSlate').addEventListener('click', loadSampleSlate);
+  $('#selAll').addEventListener('change', (e) => {
+    const on = e.target.checked;
+    State.golfers.forEach((g) => { if (!g.notInSlate) g.selected = on; });
+    renderPlayers();
+  });
   $('#distClose').addEventListener('click', closeDist);
   $('#distModal').addEventListener('click', (e) => {
     if (e.target.id === 'distModal') closeDist(); // click backdrop to close
