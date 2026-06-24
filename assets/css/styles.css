@@ -207,3 +207,4 @@ input.expcell {
 }
 input.expcell:focus { border-color: var(--accent); outline: none; }
 input.expcell::placeholder { color: var(--line); }
+.tag.noproj { background: #2a2113; color: #e3b341; border: 1px solid #4a3a18; }

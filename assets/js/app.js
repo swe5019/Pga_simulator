@@ -57,6 +57,7 @@ async function overlayDk() {
     const rate = matched / (Math.min(players.length, State.golfers.length) || 1);
     const applied = rate >= 0.6;
     let dropped = 0;
+    let added = 0;
     if (applied) {
       for (const g of State.golfers) {
         const p = byName.get(normName(g.name));
@@ -74,8 +75,30 @@ async function overlayDk() {
         g.out = !!p.out;
         g.dkId = p.dkId;
       }
+      // Add DK-field players missing from the master so the whole field is present.
+      const have = new Set(State.golfers.filter((g) => !g.notInSlate).map((g) => normName(g.name)));
+      let idx = State.golfers.length;
+      for (const p of players) {
+        if (have.has(normName(p.name))) continue;
+        State.golfers.push({
+          id: 'dk' + idx++,
+          name: p.name,
+          salary: p.salary,
+          skill: Math.max(0.1, (p.salary - 5000) / 5000), // salary-implied until real SG arrives
+          variance: 0.8,
+          locked: false,
+          banned: false,
+          ownership: undefined,
+          dkId: p.dkId,
+          dkSalary: p.salary,
+          status: p.status || '',
+          out: !!p.out,
+          added: true, // from DK; no master projection yet
+        });
+        added++;
+      }
     }
-    State.dk = { event: dk.event, updatedUtc: dk.updatedUtc, matched, total: players.length, applied, dropped };
+    State.dk = { event: dk.event, updatedUtc: dk.updatedUtc, matched, total: players.length, applied, dropped, added };
   } catch (e) {
     /* no DK file yet — leave the slate as-is */
   }
@@ -95,6 +118,7 @@ function renderDkBanner() {
     const outs = State.golfers.filter((g) => g.out);
     let msg = `✓ DK overlay — official salaries + status applied for ${dk.event || 'this slate'} (matched ${dk.matched} golfers, updated ${when}).`;
     if (dk.dropped) msg += `  ${dk.dropped} golfer(s) not in the DK field were hidden (e.g. LIV/non-entrants).`;
+    if (dk.added) msg += `  ${dk.added} DK-field player(s) added from DK (tagged "no proj" — add them to your master for real projections).`;
     if (outs.length) msg += `  ⚠ ${outs.length} OUT/WD excluded: ${outs.map((g) => g.name).join(', ')}.`;
     el.className = outs.length ? 'banner warn' : 'banner ok';
     el.textContent = msg;
@@ -185,7 +209,7 @@ function renderPlayers() {
     if (g.locked) tr.classList.add('locked');
     if (g.out) tr.classList.add('out');
     tr.innerHTML = `
-      <td class="name"><button class="pname" data-id="${g.id}" title="View outcome distribution">${g.name}</button>${g.out ? ' <span class="tag out">OUT</span>' : ''}</td>
+      <td class="name"><button class="pname" data-id="${g.id}" title="View outcome distribution">${g.name}</button>${g.out ? ' <span class="tag out">OUT</span>' : ''}${g.added ? ' <span class="tag noproj" title="From DK field; no projection in your master yet — using salary-based skill">no proj</span>' : ''}</td>
       <td class="num"><input class="cell" data-id="${g.id}" data-f="salary" value="${g.salary}"></td>
       <td class="num"><input class="cell" data-id="${g.id}" data-f="skill" value="${g.skill}"></td>
       <td class="num">${num(proj)}</td>
