@@ -17,8 +17,10 @@ permissions:
   id-token: write
 
 concurrency:
+  # Only the latest deploy matters; cancel superseded ones so rapid code +
+  # data commits don't collide on the single Pages environment.
   group: pages
-  cancel-in-progress: false
+  cancel-in-progress: true
 
 jobs:
   deploy:
