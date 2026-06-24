@@ -1,5 +1,5 @@
 {
- "updatedUtc": "2026-06-24T20:30:01Z",
+ "updatedUtc": "2026-06-24T23:08:24Z",
  "source": "Data tab + ownership model (TRAVELERS_2026)",
  "slate": "TRAVELERS_2026",
  "trainRows": 2291,
@@ -20,9 +20,9 @@
    "impliedProb": 19.05,
    "leverage": 0.688,
    "leverageTier": "NEUTRAL",
-   "winProb": 0.19,
-   "top5Prob": 0.524,
-   "top10Prob": 0.697
+   "winProb": 19.05,
+   "top5Prob": 52.4,
+   "top10Prob": 69.7
   },
   {
    "name": "Sam Burns",
@@ -38,9 +38,9 @@
    "impliedProb": 5.13,
    "leverage": 0.289,
    "leverageTier": "CHALK",
-   "winProb": 0.051,
-   "top5Prob": 0.227,
-   "top10Prob": 0.385
+   "winProb": 5.13,
+   "top5Prob": 22.7,
+   "top10Prob": 38.5
   },
   {
    "name": "Wyndham Clark",
@@ -56,9 +56,9 @@
    "impliedProb": 4.08,
    "leverage": 0.229,
    "leverageTier": "CHALK",
-   "winProb": 0.041,
-   "top5Prob": 0.196,
-   "top10Prob": 0.342
+   "winProb": 4.08,
+   "top5Prob": 19.6,
+   "top10Prob": 34.2
   },
   {
    "name": "Tommy Fleetwood",
@@ -74,9 +74,9 @@
    "impliedProb": 5.0,
    "leverage": 0.183,
    "leverageTier": "CHALK",
-   "winProb": 0.05,
-   "top5Prob": 0.235,
-   "top10Prob": 0.4
+   "winProb": 5.0,
+   "top5Prob": 23.5,
+   "top10Prob": 40.0
   },
   {
    "name": "J.J. Spaun",
@@ -92,9 +92,9 @@
    "impliedProb": 1.96,
    "leverage": 0.195,
    "leverageTier": "CHALK",
-   "winProb": 0.02,
-   "top5Prob": 0.12,
-   "top10Prob": 0.238
+   "winProb": 1.96,
+   "top5Prob": 12.0,
+   "top10Prob": 23.8
   },
   {
    "name": "Si Woo Kim",
@@ -110,9 +110,9 @@
    "impliedProb": 3.12,
    "leverage": 0.296,
    "leverageTier": "CHALK",
-   "winProb": 0.031,
-   "top5Prob": 0.169,
-   "top10Prob": 0.312
+   "winProb": 3.12,
+   "top5Prob": 16.9,
+   "top10Prob": 31.2
   },
   {
    "name": "Justin Rose",
@@ -128,9 +128,9 @@
    "impliedProb": 1.96,
    "leverage": 0.217,
    "leverageTier": "CHALK",
-   "winProb": 0.02,
-   "top5Prob": 0.119,
-   "top10Prob": 0.235
+   "winProb": 1.96,
+   "top5Prob": 11.9,
+   "top10Prob": 23.5
   },
   {
    "name": "Matt Fitzpatrick",
@@ -146,9 +146,9 @@
    "impliedProb": 4.88,
    "leverage": 0.228,
    "leverageTier": "CHALK",
-   "winProb": 0.049,
-   "top5Prob": 0.23,
-   "top10Prob": 0.391
+   "winProb": 4.88,
+   "top5Prob": 23.0,
+   "top10Prob": 39.1
   },
   {
    "name": "Xander Schauffele",
@@ -164,9 +164,9 @@
    "impliedProb": 6.35,
    "leverage": 0.307,
    "leverageTier": "CHALK",
-   "winProb": 0.063,
-   "top5Prob": 0.27,
-   "top10Prob": 0.435
+   "winProb": 6.35,
+   "top5Prob": 27.0,
+   "top10Prob": 43.5
   },
   {
    "name": "Alex Fitzpatrick",
@@ -182,9 +182,9 @@
    "impliedProb": 1.56,
    "leverage": 0.122,
    "leverageTier": "CHALK",
-   "winProb": 0.016,
-   "top5Prob": 0.101,
-   "top10Prob": 0.208
+   "winProb": 1.56,
+   "top5Prob": 10.1,
+   "top10Prob": 20.8
   },
   {
    "name": "Justin Thomas",
@@ -200,9 +200,9 @@
    "impliedProb": 2.94,
    "leverage": 0.143,
    "leverageTier": "CHALK",
-   "winProb": 0.029,
-   "top5Prob": 0.159,
-   "top10Prob": 0.294
+   "winProb": 2.94,
+   "top5Prob": 15.9,
+   "top10Prob": 29.4
   },
   {
    "name": "Ben Griffin",
@@ -218,9 +218,9 @@
    "impliedProb": 2.33,
    "leverage": 0.157,
    "leverageTier": "CHALK",
-   "winProb": 0.023,
-   "top5Prob": 0.135,
-   "top10Prob": 0.26
+   "winProb": 2.33,
+   "top5Prob": 13.5,
+   "top10Prob": 26.0
   },
   {
    "name": "Aaron Rai",
@@ -236,9 +236,9 @@
    "impliedProb": 1.49,
    "leverage": 0.12,
    "leverageTier": "CHALK",
-   "winProb": 0.015,
-   "top5Prob": 0.1,
-   "top10Prob": 0.208
+   "winProb": 1.49,
+   "top5Prob": 10.0,
+   "top10Prob": 20.8
   },
   {
    "name": "Kurt Kitayama",
@@ -254,9 +254,9 @@
    "impliedProb": 2.13,
    "leverage": 0.233,
    "leverageTier": "CHALK",
-   "winProb": 0.021,
-   "top5Prob": 0.125,
-   "top10Prob": 0.247
+   "winProb": 2.13,
+   "top5Prob": 12.5,
+   "top10Prob": 24.7
   },
   {
    "name": "Shane Lowry",
@@ -272,9 +272,9 @@
    "impliedProb": 1.45,
    "leverage": 0.191,
    "leverageTier": "CHALK",
-   "winProb": 0.014,
-   "top5Prob": 0.095,
-   "top10Prob": 0.198
+   "winProb": 1.45,
+   "top5Prob": 9.5,
+   "top10Prob": 19.8
   },
   {
    "name": "Keith Mitchell",
@@ -302,9 +302,9 @@
    "impliedProb": 3.03,
    "leverage": 0.205,
    "leverageTier": "CHALK",
-   "winProb": 0.03,
-   "top5Prob": 0.164,
-   "top10Prob": 0.303
+   "winProb": 3.03,
+   "top5Prob": 16.4,
+   "top10Prob": 30.3
   },
   {
    "name": "Bud Cauley",
@@ -320,9 +320,9 @@
    "impliedProb": 1.15,
    "leverage": 0.127,
    "leverageTier": "CHALK",
-   "winProb": 0.011,
-   "top5Prob": 0.082,
-   "top10Prob": 0.174
+   "winProb": 1.15,
+   "top5Prob": 8.2,
+   "top10Prob": 17.4
   },
   {
    "name": "J.T. Poston",
@@ -338,9 +338,9 @@
    "impliedProb": 1.43,
    "leverage": 0.108,
    "leverageTier": "CHALK",
-   "winProb": 0.014,
-   "top5Prob": 0.094,
-   "top10Prob": 0.198
+   "winProb": 1.43,
+   "top5Prob": 9.4,
+   "top10Prob": 19.8
   },
   {
    "name": "Viktor Hovland",
@@ -356,9 +356,9 @@
    "impliedProb": 2.17,
    "leverage": 0.117,
    "leverageTier": "CHALK",
-   "winProb": 0.022,
-   "top5Prob": 0.127,
-   "top10Prob": 0.247
+   "winProb": 2.17,
+   "top5Prob": 12.7,
+   "top10Prob": 24.7
   },
   {
    "name": "Kristoffer Reitan",
@@ -374,9 +374,9 @@
    "impliedProb": 1.75,
    "leverage": 0.304,
    "leverageTier": "CHALK",
-   "winProb": 0.018,
-   "top5Prob": 0.108,
-   "top10Prob": 0.215
+   "winProb": 1.75,
+   "top5Prob": 10.8,
+   "top10Prob": 21.5
   },
   {
    "name": "Jackson Suber",
@@ -392,9 +392,9 @@
    "impliedProb": 0.5,
    "leverage": 0.129,
    "leverageTier": "CHALK",
-   "winProb": 0.005,
-   "top5Prob": 0.042,
-   "top10Prob": 0.1
+   "winProb": 0.5,
+   "top5Prob": 4.2,
+   "top10Prob": 10.0
   },
   {
    "name": "Keegan Bradley",
@@ -410,9 +410,9 @@
    "impliedProb": 1.96,
    "leverage": 0.169,
    "leverageTier": "CHALK",
-   "winProb": 0.02,
-   "top5Prob": 0.118,
-   "top10Prob": 0.233
+   "winProb": 1.96,
+   "top5Prob": 11.8,
+   "top10Prob": 23.3
   },
   {
    "name": "Maverick McNealy",
@@ -428,9 +428,9 @@
    "impliedProb": 3.03,
    "leverage": 0.274,
    "leverageTier": "CHALK",
-   "winProb": 0.03,
-   "top5Prob": 0.161,
-   "top10Prob": 0.299
+   "winProb": 3.03,
+   "top5Prob": 16.1,
+   "top10Prob": 29.9
   },
   {
    "name": "Gary Woodland",
@@ -446,9 +446,9 @@
    "impliedProb": 1.72,
    "leverage": 0.182,
    "leverageTier": "CHALK",
-   "winProb": 0.017,
-   "top5Prob": 0.106,
-   "top10Prob": 0.213
+   "winProb": 1.72,
+   "top5Prob": 10.6,
+   "top10Prob": 21.3
   },
   {
    "name": "Sahith Theegala",
@@ -464,9 +464,9 @@
    "impliedProb": 1.41,
    "leverage": 0.147,
    "leverageTier": "CHALK",
-   "winProb": 0.014,
-   "top5Prob": 0.093,
-   "top10Prob": 0.192
+   "winProb": 1.41,
+   "top5Prob": 9.3,
+   "top10Prob": 19.2
   },
   {
    "name": "Sam Stevens",
@@ -482,9 +482,9 @@
    "impliedProb": 1.15,
    "leverage": 0.183,
    "leverageTier": "CHALK",
-   "winProb": 0.011,
-   "top5Prob": 0.08,
-   "top10Prob": 0.171
+   "winProb": 1.15,
+   "top5Prob": 8.0,
+   "top10Prob": 17.1
   },
   {
    "name": "Russell Henley",
@@ -500,9 +500,9 @@
    "impliedProb": 2.44,
    "leverage": 0.219,
    "leverageTier": "CHALK",
-   "winProb": 0.024,
-   "top5Prob": 0.143,
-   "top10Prob": 0.278
+   "winProb": 2.44,
+   "top5Prob": 14.3,
+   "top10Prob": 27.8
   },
   {
    "name": "Tony Finau",
@@ -518,9 +518,9 @@
    "impliedProb": 0.79,
    "leverage": 0.154,
    "leverageTier": "CHALK",
-   "winProb": 0.008,
-   "top5Prob": 0.059,
-   "top10Prob": 0.132
+   "winProb": 0.79,
+   "top5Prob": 5.9,
+   "top10Prob": 13.2
   },
   {
    "name": "Cameron Young",
@@ -536,9 +536,9 @@
    "impliedProb": 5.41,
    "leverage": 0.403,
    "leverageTier": "CHALK",
-   "winProb": 0.054,
-   "top5Prob": 0.238,
-   "top10Prob": 0.4
+   "winProb": 5.41,
+   "top5Prob": 23.8,
+   "top10Prob": 40.0
   },
   {
    "name": "Benjamin James",
@@ -554,9 +554,9 @@
    "impliedProb": 0.41,
    "leverage": 0.154,
    "leverageTier": "CHALK",
-   "winProb": 0.004,
-   "top5Prob": 0.036,
-   "top10Prob": 0.087
+   "winProb": 0.41,
+   "top5Prob": 3.6,
+   "top10Prob": 8.7
   },
   {
    "name": "Brandt Snedeker",
@@ -572,9 +572,9 @@
    "impliedProb": 0.15,
    "leverage": 0.057,
    "leverageTier": "CHALK",
-   "winProb": 0.002,
-   "top5Prob": 0.018,
-   "top10Prob": 0.05
+   "winProb": 0.15,
+   "top5Prob": 1.8,
+   "top10Prob": 5.0
   },
   {
    "name": "Ryan Fox",
@@ -590,9 +590,9 @@
    "impliedProb": 1.05,
    "leverage": 0.121,
    "leverageTier": "CHALK",
-   "winProb": 0.011,
-   "top5Prob": 0.073,
-   "top10Prob": 0.159
+   "winProb": 1.05,
+   "top5Prob": 7.3,
+   "top10Prob": 15.9
   },
   {
    "name": "Chris Gotterup",
@@ -608,9 +608,9 @@
    "impliedProb": 2.7,
    "leverage": 0.295,
    "leverageTier": "CHALK",
-   "winProb": 0.027,
-   "top5Prob": 0.147,
-   "top10Prob": 0.274
+   "winProb": 2.7,
+   "top5Prob": 14.7,
+   "top10Prob": 27.4
   },
   {
    "name": "Lucas Glover",
@@ -626,9 +626,9 @@
    "impliedProb": 0.2,
    "leverage": 0.194,
    "leverageTier": "CHALK",
-   "winProb": 0.002,
-   "top5Prob": 0.021,
-   "top10Prob": 0.057
+   "winProb": 0.2,
+   "top5Prob": 2.1,
+   "top10Prob": 5.7
   },
   {
    "name": "Eric Cole",
@@ -644,9 +644,9 @@
    "impliedProb": 1.01,
    "leverage": 0.146,
    "leverageTier": "CHALK",
-   "winProb": 0.01,
-   "top5Prob": 0.071,
-   "top10Prob": 0.156
+   "winProb": 1.01,
+   "top5Prob": 7.1,
+   "top10Prob": 15.6
   },
   {
    "name": "Ryan Gerard",
@@ -662,9 +662,9 @@
    "impliedProb": 1.3,
    "leverage": 0.149,
    "leverageTier": "CHALK",
-   "winProb": 0.013,
-   "top5Prob": 0.087,
-   "top10Prob": 0.183
+   "winProb": 1.3,
+   "top5Prob": 8.7,
+   "top10Prob": 18.3
   },
   {
    "name": "Mark Hubbard",
@@ -680,9 +680,9 @@
    "impliedProb": 0.19,
    "leverage": 0.151,
    "leverageTier": "CHALK",
-   "winProb": 0.002,
-   "top5Prob": 0.02,
-   "top10Prob": 0.054
+   "winProb": 0.19,
+   "top5Prob": 2.0,
+   "top10Prob": 5.4
   },
   {
    "name": "Jacob Bridgeman",
@@ -698,9 +698,9 @@
    "impliedProb": 1.41,
    "leverage": 0.182,
    "leverageTier": "CHALK",
-   "winProb": 0.014,
-   "top5Prob": 0.093,
-   "top10Prob": 0.194
+   "winProb": 1.41,
+   "top5Prob": 9.3,
+   "top10Prob": 19.4
   },
   {
    "name": "Ludvig Aberg",
@@ -716,9 +716,9 @@
    "impliedProb": 5.0,
    "leverage": 0.356,
    "leverageTier": "CHALK",
-   "winProb": 0.05,
-   "top5Prob": 0.225,
-   "top10Prob": 0.382
+   "winProb": 5.0,
+   "top5Prob": 22.5,
+   "top10Prob": 38.2
   },
   {
    "name": "Adam Scott",
@@ -734,9 +734,9 @@
    "impliedProb": 1.82,
    "leverage": 0.275,
    "leverageTier": "CHALK",
-   "winProb": 0.018,
-   "top5Prob": 0.112,
-   "top10Prob": 0.225
+   "winProb": 1.82,
+   "top5Prob": 11.2,
+   "top10Prob": 22.5
   },
   {
    "name": "Collin Morikawa",
@@ -752,9 +752,9 @@
    "impliedProb": 3.23,
    "leverage": 0.305,
    "leverageTier": "CHALK",
-   "winProb": 0.032,
-   "top5Prob": 0.171,
-   "top10Prob": 0.312
+   "winProb": 3.23,
+   "top5Prob": 17.1,
+   "top10Prob": 31.2
   },
   {
    "name": "Min Woo Lee",
@@ -770,9 +770,9 @@
    "impliedProb": 2.04,
    "leverage": 0.524,
    "leverageTier": "CHALK",
-   "winProb": 0.02,
-   "top5Prob": 0.122,
-   "top10Prob": 0.238
+   "winProb": 2.04,
+   "top5Prob": 12.2,
+   "top10Prob": 23.8
   },
   {
    "name": "Hideki Matsuyama",
@@ -788,9 +788,9 @@
    "impliedProb": 1.15,
    "leverage": 0.178,
    "leverageTier": "CHALK",
-   "winProb": 0.011,
-   "top5Prob": 0.08,
-   "top10Prob": 0.172
+   "winProb": 1.15,
+   "top5Prob": 8.0,
+   "top10Prob": 17.2
   },
   {
    "name": "Mac Meissner",
@@ -806,9 +806,9 @@
    "impliedProb": 0.74,
    "leverage": 0.189,
    "leverageTier": "CHALK",
-   "winProb": 0.007,
-   "top5Prob": 0.059,
-   "top10Prob": 0.135
+   "winProb": 0.74,
+   "top5Prob": 5.9,
+   "top10Prob": 13.5
   },
   {
    "name": "Jordan Spieth",
@@ -824,9 +824,9 @@
    "impliedProb": 2.08,
    "leverage": 0.379,
    "leverageTier": "CHALK",
-   "winProb": 0.021,
-   "top5Prob": 0.122,
-   "top10Prob": 0.241
+   "winProb": 2.08,
+   "top5Prob": 12.2,
+   "top10Prob": 24.1
   },
   {
    "name": "Akshay Bhatia",
@@ -842,9 +842,9 @@
    "impliedProb": 1.56,
    "leverage": 0.153,
    "leverageTier": "CHALK",
-   "winProb": 0.016,
-   "top5Prob": 0.099,
-   "top10Prob": 0.202
+   "winProb": 1.56,
+   "top5Prob": 9.9,
+   "top10Prob": 20.2
   },
   {
    "name": "Brian Harman",
@@ -860,9 +860,9 @@
    "impliedProb": 1.23,
    "leverage": 0.151,
    "leverageTier": "CHALK",
-   "winProb": 0.012,
-   "top5Prob": 0.085,
-   "top10Prob": 0.18
+   "winProb": 1.23,
+   "top5Prob": 8.5,
+   "top10Prob": 18.0
   },
   {
    "name": "Michael Kim",
@@ -878,9 +878,9 @@
    "impliedProb": 0.9,
    "leverage": 0.169,
    "leverageTier": "CHALK",
-   "winProb": 0.009,
-   "top5Prob": 0.066,
-   "top10Prob": 0.145
+   "winProb": 0.9,
+   "top5Prob": 6.6,
+   "top10Prob": 14.5
   },
   {
    "name": "Nicolas Echavarria",
@@ -911,9 +911,9 @@
    "impliedProb": 2.04,
    "leverage": 0.187,
    "leverageTier": "CHALK",
-   "winProb": 0.02,
-   "top5Prob": 0.12,
-   "top10Prob": 0.235
+   "winProb": 2.04,
+   "top5Prob": 12.0,
+   "top10Prob": 23.5
   },
   {
    "name": "Andrew Novak",
@@ -929,9 +929,9 @@
    "impliedProb": 0.74,
    "leverage": 0.387,
    "leverageTier": "CHALK",
-   "winProb": 0.007,
-   "top5Prob": 0.057,
-   "top10Prob": 0.13
+   "winProb": 0.74,
+   "top5Prob": 5.7,
+   "top10Prob": 13.0
   },
   {
    "name": "Taylor Pendrith",
@@ -947,9 +947,9 @@
    "impliedProb": 0.83,
    "leverage": 0.195,
    "leverageTier": "CHALK",
-   "winProb": 0.008,
-   "top5Prob": 0.061,
-   "top10Prob": 0.137
+   "winProb": 0.83,
+   "top5Prob": 6.1,
+   "top10Prob": 13.7
   },
   {
    "name": "Tom Hoge",
@@ -965,9 +965,9 @@
    "impliedProb": 0.17,
    "leverage": 0.115,
    "leverageTier": "CHALK",
-   "winProb": 0.002,
-   "top5Prob": 0.018,
-   "top10Prob": 0.05
+   "winProb": 0.17,
+   "top5Prob": 1.8,
+   "top10Prob": 5.0
   },
   {
    "name": "Ryo Hisatsune",
@@ -983,9 +983,9 @@
    "impliedProb": 0.99,
    "leverage": 0.211,
    "leverageTier": "CHALK",
-   "winProb": 0.01,
-   "top5Prob": 0.07,
-   "top10Prob": 0.156
+   "winProb": 0.99,
+   "top5Prob": 7.0,
+   "top10Prob": 15.6
   },
   {
    "name": "Sepp Straka",
@@ -1001,9 +1001,9 @@
    "impliedProb": 1.01,
    "leverage": 0.244,
    "leverageTier": "CHALK",
-   "winProb": 0.01,
-   "top5Prob": 0.074,
-   "top10Prob": 0.161
+   "winProb": 1.01,
+   "top5Prob": 7.4,
+   "top10Prob": 16.1
   },
   {
    "name": "Corey Conners",
@@ -1019,9 +1019,9 @@
    "impliedProb": 0.94,
    "leverage": 0.188,
    "leverageTier": "CHALK",
-   "winProb": 0.009,
-   "top5Prob": 0.069,
-   "top10Prob": 0.152
+   "winProb": 0.94,
+   "top5Prob": 6.9,
+   "top10Prob": 15.2
   },
   {
    "name": "Sungjae Im",
@@ -1037,9 +1037,9 @@
    "impliedProb": 0.9,
    "leverage": 0.209,
    "leverageTier": "CHALK",
-   "winProb": 0.009,
-   "top5Prob": 0.066,
-   "top10Prob": 0.147
+   "winProb": 0.9,
+   "top5Prob": 6.6,
+   "top10Prob": 14.7
   },
   {
    "name": "Denny McCarthy",
@@ -1055,9 +1055,9 @@
    "impliedProb": 0.54,
    "leverage": 0.176,
    "leverageTier": "CHALK",
-   "winProb": 0.005,
-   "top5Prob": 0.045,
-   "top10Prob": 0.109
+   "winProb": 0.54,
+   "top5Prob": 4.5,
+   "top10Prob": 10.9
   },
   {
    "name": "Alex Noren",
@@ -1073,9 +1073,9 @@
    "impliedProb": 1.3,
    "leverage": 0.302,
    "leverageTier": "CHALK",
-   "winProb": 0.013,
-   "top5Prob": 0.089,
-   "top10Prob": 0.189
+   "winProb": 1.3,
+   "top5Prob": 8.9,
+   "top10Prob": 18.9
   },
   {
    "name": "Jason Day",
@@ -1091,9 +1091,9 @@
    "impliedProb": 0.86,
    "leverage": 0.256,
    "leverageTier": "CHALK",
-   "winProb": 0.009,
-   "top5Prob": 0.066,
-   "top10Prob": 0.147
+   "winProb": 0.86,
+   "top5Prob": 6.6,
+   "top10Prob": 14.7
   },
   {
    "name": "Harry Hall",
@@ -1109,9 +1109,9 @@
    "impliedProb": 0.94,
    "leverage": 0.205,
    "leverageTier": "CHALK",
-   "winProb": 0.009,
-   "top5Prob": 0.068,
-   "top10Prob": 0.149
+   "winProb": 0.94,
+   "top5Prob": 6.8,
+   "top10Prob": 14.9
   },
   {
    "name": "Alex Smalley",
@@ -1127,9 +1127,9 @@
    "impliedProb": 1.1,
    "leverage": 0.25,
    "leverageTier": "CHALK",
-   "winProb": 0.011,
-   "top5Prob": 0.078,
-   "top10Prob": 0.169
+   "winProb": 1.1,
+   "top5Prob": 7.8,
+   "top10Prob": 16.9
   },
   {
    "name": "Harris English",
@@ -1145,9 +1145,9 @@
    "impliedProb": 2.17,
    "leverage": 0.26,
    "leverageTier": "CHALK",
-   "winProb": 0.022,
-   "top5Prob": 0.128,
-   "top10Prob": 0.25
+   "winProb": 2.17,
+   "top5Prob": 12.8,
+   "top10Prob": 25.0
   },
   {
    "name": "Daniel Berger",
@@ -1163,9 +1163,9 @@
    "impliedProb": 0.57,
    "leverage": 0.289,
    "leverageTier": "CHALK",
-   "winProb": 0.006,
-   "top5Prob": 0.048,
-   "top10Prob": 0.114
+   "winProb": 0.57,
+   "top5Prob": 4.8,
+   "top10Prob": 11.4
   },
   {
    "name": "Brian Campbell",
@@ -1181,9 +1181,9 @@
    "impliedProb": 0.08,
    "leverage": 0.136,
    "leverageTier": "CHALK",
-   "winProb": 0.001,
-   "top5Prob": 0.009,
-   "top10Prob": 0.029
+   "winProb": 0.08,
+   "top5Prob": 0.9,
+   "top10Prob": 2.9
   },
   {
    "name": "Nick Taylor",
@@ -1199,9 +1199,9 @@
    "impliedProb": 0.68,
    "leverage": 0.243,
    "leverageTier": "CHALK",
-   "winProb": 0.007,
-   "top5Prob": 0.056,
-   "top10Prob": 0.13
+   "winProb": 0.68,
+   "top5Prob": 5.6,
+   "top10Prob": 13.0
   },
   {
    "name": "Jhonattan Vegas",
@@ -1217,9 +1217,9 @@
    "impliedProb": 0.21,
    "leverage": 0.356,
    "leverageTier": "CHALK",
-   "winProb": 0.002,
-   "top5Prob": 0.021,
-   "top10Prob": 0.057
+   "winProb": 0.21,
+   "top5Prob": 2.1,
+   "top10Prob": 5.7
   },
   {
    "name": "Matthew McCarty",
@@ -1250,9 +1250,9 @@
    "impliedProb": 2.0,
    "leverage": 0.676,
    "leverageTier": "NEUTRAL",
-   "winProb": 0.02,
-   "top5Prob": 0.116,
-   "top10Prob": 0.23
+   "winProb": 2.0,
+   "top5Prob": 11.6,
+   "top10Prob": 23.0
   },
   {
    "name": "Nicolai Hojgaard",
@@ -1268,9 +1268,9 @@
    "impliedProb": 1.59,
    "leverage": 0.66,
    "leverageTier": "NEUTRAL",
-   "winProb": 0.016,
-   "top5Prob": 0.1,
-   "top10Prob": 0.204
+   "winProb": 1.59,
+   "top5Prob": 10.0,
+   "top10Prob": 20.4
   },
   {
    "name": "Rickie Fowler",
@@ -1286,9 +1286,9 @@
    "impliedProb": 0.99,
    "leverage": 0.246,
    "leverageTier": "CHALK",
-   "winProb": 0.01,
-   "top5Prob": 0.071,
-   "top10Prob": 0.156
+   "winProb": 0.99,
+   "top5Prob": 7.1,
+   "top10Prob": 15.6
   }
  ]
 }
