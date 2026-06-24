@@ -35,7 +35,7 @@ jobs:
           python-version: '3.12'
 
       - name: Install dependencies
-        run: pip install pandas openpyxl odfpy requests
+        run: pip install pandas openpyxl odfpy requests lightgbm scikit-learn numpy
 
       - name: Build slate.json
         env:

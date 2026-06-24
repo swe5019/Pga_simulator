@@ -91,6 +91,34 @@ def main() -> int:
         print("No SLATE_SOURCE_URL secret and no data/master.xlsx|.ods — "
               "leaving existing data/slate.json untouched.")
         return 0
+
+    # Preferred path: train the ownership model on the Data tab and predict the
+    # current slate (automates the Colab). Falls back to the simple sheet read.
+    try:
+        import ownership_model
+        golfers, meta = ownership_model.build_from_workbook(raw, suffix)
+        if golfers:
+            doc = {
+                "updatedUtc": datetime.datetime.utcnow().replace(microsecond=0).isoformat() + "Z",
+                "source": f"Data tab + ownership model ({meta['slate']})",
+                "slate": meta["slate"],
+                "trainRows": meta["trainRows"],
+                "trainEvents": meta["trainEvents"],
+                "count": len(golfers),
+                "golfers": golfers,
+            }
+            os.makedirs(DATA_DIR, exist_ok=True)
+            with open(OUT, "w") as fh:
+                json.dump(doc, fh, indent=1)
+            withown = sum("ownership" in g for g in golfers)
+            print(f"Wrote {OUT}: {len(golfers)} golfers for {meta['slate']} "
+                  f"(model trained on {meta['trainRows']} rows / {meta['trainEvents']} events, "
+                  f"{withown} with predicted ownership)")
+            return 0
+    except Exception as e:  # noqa: BLE001
+        print(f"Ownership model path unavailable ({type(e).__name__}: {e}); "
+              f"falling back to sheet read.")
+
     engine = "odf" if suffix == ".ods" else "openpyxl"
     df = pd.read_excel(io.BytesIO(raw), sheet_name=SHEET, engine=engine)
 
