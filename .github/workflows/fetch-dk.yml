@@ -23,6 +23,10 @@ on:
         description: List open GOLF draft groups instead of fetching (1 = list)
         required: false
         default: ''
+      probe_contest:
+        description: Probe a contest ID for payout endpoints (diagnostic only)
+        required: false
+        default: ''
 
 permissions:
   contents: write
@@ -46,6 +50,7 @@ jobs:
           DK_TOURNAMENT: ${{ inputs.tournament_name }}
           DK_DATE: ${{ inputs.date }}
           DK_LIST: ${{ inputs.list }}
+          DK_PROBE_CONTEST: ${{ inputs.probe_contest }}
         run: python tools/fetch_dk.py
 
       - name: Commit CSV

@@ -132,7 +132,31 @@ def list_groups():
         print(f"  dg={dg} start={start}{suffix} gameType={gt} event={event!r}")
 
 
+def probe_contest(cid):
+    """Try several DK endpoints for a contest id and report which expose payouts."""
+    candidates = [
+        f"https://api.draftkings.com/contests/v1/contests/{cid}?format=json",
+        f"https://api.draftkings.com/contests/v1/contests/{cid}",
+        f"https://www.draftkings.com/contest/detailspop?contestId={cid}",
+        f"https://api.draftkings.com/contests/v1/contests/{cid}/payouts?format=json",
+    ]
+    for url in candidates:
+        data = get_json(url, optional=True)
+        if data is None:
+            continue
+        pay = find_key(data, "payoutSummary") or find_key(data, "payoutDescriptions") \
+            or find_key(data, "payouts") or find_key(data, "TotalPayouts")
+        dg = find_key(data, "draftGroupId")
+        keys = list(data.keys()) if isinstance(data, dict) else type(data).__name__
+        print(f"OK {url}\n   top-keys={keys}\n   draftGroupId={dg} payouts_present={pay is not None}")
+        if pay is not None:
+            print("   payout sample:", json.dumps(pay)[:400])
+    return 0
+
+
 def main():
+    if os.environ.get("DK_PROBE_CONTEST", "").strip():
+        return probe_contest(os.environ["DK_PROBE_CONTEST"].strip())
     if os.environ.get("DK_LIST", "").strip():
         list_groups()
         return 0
