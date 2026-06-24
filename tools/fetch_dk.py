@@ -166,8 +166,8 @@ def main():
         salary = p.get("salary")
         if not name or salary is None or name in players:
             continue
-        status, out = player_status(p)
-        players[name] = {"salary": int(salary), "status": status, "out": out}
+        status, is_out = player_status(p)
+        players[name] = {"salary": int(salary), "status": status, "out": is_out}
 
     if not players:
         raise SystemExit("No players parsed from draftables — aborting.")
