@@ -104,7 +104,11 @@ FEATURES = [
 
 PARAMS = dict(objective="regression", metric="mae", n_estimators=400, learning_rate=0.04,
               max_depth=4, num_leaves=15, subsample=0.75, colsample_bytree=0.8,
-              min_child_samples=6, random_state=42, verbose=-1)
+              min_child_samples=6, random_state=42, verbose=-1,
+              # Reproducible fit: single-thread + deterministic so the same data
+              # always yields the same ownership (LightGBM is otherwise non-
+              # deterministic across thread counts / machines).
+              num_threads=1, deterministic=True, force_row_wise=True)
 
 
 def pick_slate(df):
