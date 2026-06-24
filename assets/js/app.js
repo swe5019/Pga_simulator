@@ -13,6 +13,7 @@ const State = {
   dk: null,                // DraftKings overlay metadata (see overlayDk)
   dkPlayers: null,         // Map<normName, {name, dkId, ...}> from dk.json
   contest: null,           // last contest-sim result
+  dkContests: null,        // real DK contests + payout tiers (dk_contests.json)
 };
 
 /** Resolve a golfer to DraftKings upload form "Name (draftableId)", or null. */
@@ -55,10 +56,18 @@ async function overlayDk() {
     for (const g of State.golfers) if (byName.has(normName(g.name))) matched++;
     const rate = matched / (Math.min(players.length, State.golfers.length) || 1);
     const applied = rate >= 0.6;
+    let dropped = 0;
     if (applied) {
       for (const g of State.golfers) {
         const p = byName.get(normName(g.name));
-        if (!p) continue;
+        if (!p) {
+          // Not in this week's DK field (e.g. LIV players left over from a
+          // major in the master slate) — drop from the playable pool.
+          g.notInSlate = true;
+          dropped++;
+          continue;
+        }
+        g.notInSlate = false;
         g.dkSalary = p.salary;
         g.salary = p.salary; // official contest salary wins
         g.status = p.status || '';
@@ -66,7 +75,7 @@ async function overlayDk() {
         g.dkId = p.dkId;
       }
     }
-    State.dk = { event: dk.event, updatedUtc: dk.updatedUtc, matched, total: players.length, applied };
+    State.dk = { event: dk.event, updatedUtc: dk.updatedUtc, matched, total: players.length, applied, dropped };
   } catch (e) {
     /* no DK file yet — leave the slate as-is */
   }
@@ -85,6 +94,7 @@ function renderDkBanner() {
   if (dk.applied) {
     const outs = State.golfers.filter((g) => g.out);
     let msg = `✓ DK overlay — official salaries + status applied for ${dk.event || 'this slate'} (matched ${dk.matched} golfers, updated ${when}).`;
+    if (dk.dropped) msg += `  ${dk.dropped} golfer(s) not in the DK field were hidden (e.g. LIV/non-entrants).`;
     if (outs.length) msg += `  ⚠ ${outs.length} OUT/WD excluded: ${outs.map((g) => g.name).join(', ')}.`;
     el.className = outs.length ? 'banner warn' : 'banner ok';
     el.textContent = msg;
@@ -164,6 +174,7 @@ function renderPlayers() {
   const sorted = [...State.golfers].sort((a, b) => b.salary - a.salary);
 
   for (const g of sorted) {
+    if (g.notInSlate) continue; // not in this week's DK field — hidden from the pool
     const r = State.simResults ? State.simResults.get(g.id) : null;
     const proj = r ? r.mean : null;
     const value = proj != null ? proj / (g.salary / 1000) : null;
@@ -366,8 +377,8 @@ function buildPool() {
     minExpById,
     minSalary: parseInt($('#minSalary').value, 10) || 0,
     locks: new Set(State.golfers.filter((g) => g.locked).map((g) => g.id)),
-    // Exclude banned golfers and anyone DraftKings has flagged OUT/WD.
-    bans: new Set(State.golfers.filter((g) => g.banned || g.out).map((g) => g.id)),
+    // Exclude banned golfers, OUT/WD, and anyone not in this week's DK field.
+    bans: new Set(State.golfers.filter((g) => g.banned || g.out || g.notInSlate).map((g) => g.id)),
   };
 
   $('#buildStatus').textContent = 'Building…';
@@ -418,20 +429,48 @@ function renderBuildSummary() {
 }
 
 /* ---------------------- Contest sim / ROI ---------------------- */
+/** Load real DK contests (with exact payout tiers) into the picker. */
+async function loadDkContests() {
+  try {
+    const res = await fetch('data/dk_contests.json?t=' + Date.now(), { cache: 'no-store' });
+    if (!res.ok) return;
+    const doc = await res.json();
+    State.dkContests = doc.contests || [];
+    const sel = $('#cDkContest');
+    State.dkContests.forEach((c, i) => {
+      const opt = document.createElement('option');
+      opt.value = String(i);
+      const fee = c.fee != null ? `$${c.fee}` : '';
+      opt.textContent = `${c.name} — ${fee}, ${(c.entries || 0).toLocaleString()} entries`;
+      sel.appendChild(opt);
+    });
+  } catch (e) {
+    /* no contests file yet */
+  }
+}
+
+function selectedDkContest() {
+  const v = $('#cDkContest').value;
+  if (v === '' || !State.dkContests) return null;
+  return State.dkContests[parseInt(v, 10)] || null;
+}
+
 function runContest() {
   const status = $('#contestStatus');
   if (!State.build || !State.build.lineups.length) {
     status.textContent = 'Build a lineup pool first (tab 2).';
     return;
   }
-  const fee = parseFloat($('#cFee').value) || 1;
+  const real = selectedDkContest();
+  const fee = real ? real.fee : parseFloat($('#cFee').value) || 1;
   const opts = {
-    entries: parseInt($('#cEntries').value, 10) || 1000,
+    entries: real ? real.entries : parseInt($('#cEntries').value, 10) || 1000,
     fee,
     structure: $('#cStructure').value,
+    tiers: real ? real.tiers : null, // exact DK payouts when a contest is picked
     fieldLineups: parseInt($('#cField').value, 10) || 2000,
     worlds: 4000,
-    exclude: new Set(State.golfers.filter((g) => g.banned || g.out).map((g) => g.id)),
+    exclude: new Set(State.golfers.filter((g) => g.banned || g.out || g.notInSlate).map((g) => g.id)),
     rng: window.Sim.makeRng(424242),
   };
   status.textContent = 'Simulating contest…';
@@ -439,9 +478,10 @@ function runContest() {
     const t0 = performance.now();
     State.contest = window.Contest.runContestSim(State.build.lineups, State.golfers, State.simResults, opts);
     State.contest.fee = fee;
+    State.contest.payoutSource = real ? `exact DK payouts — ${real.name}` : 'modeled payouts';
     const ms = Math.round(performance.now() - t0);
     status.textContent =
-      `✓ ${State.contest.results.length} lineups vs ${State.contest.fieldSize.toLocaleString()}-lineup field in ${ms} ms`;
+      `✓ ${State.contest.results.length} lineups vs ${State.contest.fieldSize.toLocaleString()}-lineup field, ${State.contest.payoutSource} (${ms} ms)`;
     renderContest();
   }, 30);
 }
@@ -743,6 +783,23 @@ function init() {
   $('#runSim').addEventListener('click', runSim);
   $('#buildBtn').addEventListener('click', buildPool);
   $('#runContest').addEventListener('click', runContest);
+  loadDkContests();
+  $('#cDkContest').addEventListener('change', () => {
+    const real = selectedDkContest();
+    const fee = $('#cFee');
+    const entries = $('#cEntries');
+    if (real) {
+      fee.value = real.fee;
+      entries.value = real.entries;
+      fee.disabled = true;
+      entries.disabled = true;
+      $('#cStructure').disabled = true;
+    } else {
+      fee.disabled = false;
+      entries.disabled = false;
+      $('#cStructure').disabled = false;
+    }
+  });
   $('#cfApply').addEventListener('click', applyCourseFit);
   $('#cfPreset').addEventListener('change', (e) => {
     const p = CF_PRESETS[e.target.value];

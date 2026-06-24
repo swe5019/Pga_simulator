@@ -79,6 +79,19 @@ function generateField(golfers, opts) {
   return field;
 }
 
+/** Build an EXACT payout lookup from real DK tiers [{min,max,value}]. */
+function buildPayoutFromTiers(tiers) {
+  const sorted = [...tiers].sort((a, b) => a.min - b.min);
+  const paidSpots = sorted.length ? Math.max(...sorted.map((t) => t.max)) : 0;
+  const prizePool = sorted.reduce((s, t) => s + t.value * (t.max - t.min + 1), 0);
+  const prizeForRank = (r) => {
+    // tiers are contiguous and sorted; linear scan is fine (≤ a few hundred tiers)
+    for (const t of sorted) if (r >= t.min && r <= t.max) return t.value;
+    return 0;
+  };
+  return { prizeForRank, prizePool, paidSpots };
+}
+
 /** Build a modeled payout: returns prizeForRank(rank), prizePool, paidSpots. */
 function buildPayout(structure, entries, fee) {
   const rake = CONTEST_RAKE[structure] != null ? CONTEST_RAKE[structure] : 0.15;
@@ -126,7 +139,10 @@ function runContestSim(myLineups, golfers, simResults, opts = {}) {
 
   const field = generateField(golfers, { ...opts, rng });
   const Ff = field.length;
-  const payout = buildPayout(structure, entries, fee);
+  // Exact DK payout tiers when provided, else the modeled structure.
+  const payout = opts.tiers && opts.tiers.length
+    ? buildPayoutFromTiers(opts.tiers)
+    : buildPayout(structure, entries, fee);
   const sampleOf = (id) => simResults.get(id).samples;
 
   const agg = myLineups.map(() => ({ sumPrize: 0, cash: 0, sumPts: 0, win: 0 }));
@@ -178,4 +194,4 @@ function runContestSim(myLineups, golfers, simResults, opts = {}) {
   return { results, fieldSize: Ff, payout, worlds: W };
 }
 
-window.Contest = { runContestSim, generateField, buildPayout };
+window.Contest = { runContestSim, generateField, buildPayout, buildPayoutFromTiers };

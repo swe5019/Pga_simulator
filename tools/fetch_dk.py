@@ -255,7 +255,97 @@ def main():
         json.dump(doc, fh, indent=1)
 
     print(f"Wrote {out} and {json_path}: {len(rows)} golfers for {tourney} ({date}, event {event!r})")
+
+    # Real DK contests + exact payout tables for this draft group (for Contest Sim).
+    contests = build_contests(dg, tourney, event)
+    cpath = os.path.join(os.path.dirname(out), "dk_contests.json")
+    with open(cpath, "w") as fh:
+        json.dump(contests, fh, indent=1)
+    print(f"Wrote {cpath}: {len(contests['contests'])} contests with exact payouts")
     return 0
+
+
+def extract_tiers(detail):
+    """Pull a rank-by-rank payout table [{min,max,value}] from a DK contest detail."""
+    found = []
+
+    def walk(o):
+        if isinstance(o, list):
+            if o and isinstance(o[0], dict) and "minPosition" in o[0]:
+                found.append(o)
+            for x in o:
+                walk(x)
+        elif isinstance(o, dict):
+            for v in o.values():
+                walk(v)
+
+    walk(detail)
+    if not found:
+        return []
+    arr = max(found, key=len)
+    tiers = []
+    for t in arr:
+        mn = t.get("minPosition")
+        mx = t.get("maxPosition", mn)
+        val = None
+        pd = t.get("payoutDescriptions")
+        if isinstance(pd, list) and pd:
+            val = pd[0].get("value")
+        if val is None:
+            cash = (t.get("tierPayoutDescriptions") or {}).get("Cash")
+            if cash:
+                try:
+                    val = float(str(cash).replace("$", "").replace(",", ""))
+                except ValueError:
+                    val = None
+        if mn is not None and val is not None:
+            tiers.append({"min": int(mn), "max": int(mx), "value": float(val)})
+    return tiers
+
+
+def build_contests(dg, tourney, event):
+    """Discover real open contests for a draft group and capture exact payout tiers.
+    Picks a spread of contest sizes/fees (deduped), up to a sane cap."""
+    lobby = get_json("https://www.draftkings.com/lobby/getcontests?sport=GOLF", optional=True) or {}
+    matches = [c for c in lobby.get("Contests", []) if str(c.get("dg")) == str(dg)]
+    seen = set()
+    picks = []
+    for c in sorted(matches, key=lambda c: -(c.get("m") or 0)):  # biggest fields first
+        key = (c.get("a"), c.get("m"))
+        if key in seen:
+            continue
+        seen.add(key)
+        picks.append(c)
+        if len(picks) >= 14:
+            break
+
+    out = []
+    for c in picks:
+        cid = c.get("id")
+        detail = get_json(f"https://api.draftkings.com/contests/v1/contests/{cid}?format=json", optional=True)
+        if not detail:
+            continue
+        tiers = extract_tiers(detail)
+        if not tiers:
+            continue
+        pool = sum(t["value"] * (t["max"] - t["min"] + 1) for t in tiers)
+        out.append({
+            "id": str(cid),
+            "name": c.get("n"),
+            "fee": c.get("a"),
+            "entries": c.get("m"),
+            "paidSpots": max(t["max"] for t in tiers),
+            "prizePool": round(pool, 2),
+            "tiers": tiers,
+        })
+    out.sort(key=lambda x: -(x["entries"] or 0))
+    return {
+        "updatedUtc": datetime.datetime.utcnow().replace(microsecond=0).isoformat() + "Z",
+        "tournament": tourney,
+        "event": event,
+        "draftGroupId": str(dg),
+        "contests": out,
+    }
 
 
 def player_status(p):
