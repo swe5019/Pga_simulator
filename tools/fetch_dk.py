@@ -160,14 +160,17 @@ def main():
     draftables = ddata.get("draftables", [])
     event = (find_key(ddata, "competition") or {}).get("name", "")
 
-    players = {}  # name -> {salary, status, out}
+    players = {}  # name -> {salary, status, out, dkId}
     for p in draftables:
         name = (p.get("displayName") or "").strip()
         salary = p.get("salary")
         if not name or salary is None or name in players:
             continue
         status, is_out = player_status(p)
-        players[name] = {"salary": int(salary), "status": status, "out": is_out}
+        # DK upload files use the "Name (ID)" format; this is that ID.
+        dk_id = p.get("playerDkId") or p.get("playerId") or p.get("draftableId")
+        players[name] = {"salary": int(salary), "status": status, "out": is_out,
+                         "dkId": dk_id}
 
     if not players:
         raise SystemExit("No players parsed from draftables — aborting.")
@@ -179,6 +182,8 @@ def main():
     print("Sample draftable status fields:",
           {k: sample.get(k) for k in ("status", "newsStatus", "isDisabled", "draftAlerts",
                                       "playerGameAttributes")})
+    print("Sample draftable id fields:",
+          {k: sample.get(k) for k in ("playerDkId", "playerId", "draftableId")})
     outs = [n for n, v in rows if v["out"]]
     print(f"Flagged OUT/WD ({len(outs)}): {outs}")
 
@@ -197,7 +202,8 @@ def main():
         "event": event,
         "draftGroupId": str(dg),
         "count": len(rows),
-        "players": [{"name": n, "salary": v["salary"], "status": v["status"], "out": v["out"]}
+        "players": [{"name": n, "salary": v["salary"], "status": v["status"],
+                     "out": v["out"], "dkId": v["dkId"]}
                     for n, v in rows],
     }
     json_path = os.path.join(os.path.dirname(out), "dk.json")
