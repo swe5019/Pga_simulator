@@ -198,3 +198,12 @@ button.toggle.on { filter: none; border-color: var(--green); background: #14241a
 }
 .tag.out { background: #3d1418; color: var(--down); border: 1px solid #5c1f24; }
 tr.out td.name .pname { text-decoration: line-through; color: var(--dim); }
+
+/* ---------- Per-player exposure target inputs ---------- */
+input.expcell {
+  width: 46px; background: var(--bg); color: var(--text);
+  border: 1px solid var(--line); border-radius: 6px; padding: 4px 5px;
+  text-align: right; font-size: 12px;
+}
+input.expcell:focus { border-color: var(--accent); outline: none; }
+input.expcell::placeholder { color: var(--line); }

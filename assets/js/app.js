@@ -155,6 +155,7 @@ function renderPlayers() {
     const r = State.simResults ? State.simResults.get(g.id) : null;
     const proj = r ? r.mean : null;
     const value = proj != null ? proj / (g.salary / 1000) : null;
+    const exp = State.build ? (State.build.exposure.get(g.id) || 0) * 100 : null;
 
     const tr = document.createElement('tr');
     if (g.banned) tr.classList.add('banned');
@@ -169,7 +170,10 @@ function renderPlayers() {
       <td class="num up">${r ? num(r.ceiling) : '—'}</td>
       <td class="num">${r ? num(r.cutPct) : '—'}</td>
       <td class="num">${pct(g.ownership)}</td>
+      <td class="num">${exp != null ? exp.toFixed(0) + '%' : '—'}</td>
       <td class="num">${value != null ? value.toFixed(2) : '—'}</td>
+      <td class="num"><input class="expcell" data-id="${g.id}" data-f="minExp" value="${g.minExp != null ? g.minExp : ''}" placeholder="–"></td>
+      <td class="num"><input class="expcell" data-id="${g.id}" data-f="maxExp" value="${g.maxExp != null ? g.maxExp : ''}" placeholder="–"></td>
       <td class="ctr"><button class="toggle ${g.locked ? 'on' : ''}" data-id="${g.id}" data-t="locked">🔒</button></td>
       <td class="ctr"><button class="toggle ${g.banned ? 'on' : ''}" data-id="${g.id}" data-t="banned">🚫</button></td>
     `;
@@ -184,6 +188,15 @@ function renderPlayers() {
       if (!isNaN(v)) g[inp.dataset.f] = v;
       State.simResults = null; // edits invalidate the sim
       renderPlayers();
+    });
+  });
+  // Min/Max exposure targets (% of lineups). Blank clears the target.
+  tbody.querySelectorAll('input.expcell').forEach((inp) => {
+    inp.addEventListener('change', () => {
+      const g = byId(inp.dataset.id);
+      const raw = inp.value.trim();
+      const v = parseFloat(raw);
+      g[inp.dataset.f] = raw === '' || isNaN(v) ? null : Math.max(0, Math.min(100, v));
     });
   });
   // Player name → outcome distribution
@@ -279,9 +292,19 @@ function buildPool() {
     $('#buildStatus').textContent = 'Run a simulation first (tab 1).';
     return;
   }
+  // Per-golfer exposure targets (entered as %, stored as 0..1 fractions).
+  const maxExpById = new Map();
+  const minExpById = new Map();
+  for (const g of State.golfers) {
+    if (g.maxExp != null) maxExpById.set(g.id, g.maxExp / 100);
+    if (g.minExp != null) minExpById.set(g.id, g.minExp / 100);
+  }
+
   const opts = {
     nLineups: parseInt($('#nLineups').value, 10) || 20,
     maxExposure: (parseFloat($('#maxExposure').value) || 100) / 100,
+    maxExpById,
+    minExpById,
     minSalary: parseInt($('#minSalary').value, 10) || 0,
     locks: new Set(State.golfers.filter((g) => g.locked).map((g) => g.id)),
     // Exclude banned golfers and anyone DraftKings has flagged OUT/WD.
@@ -298,8 +321,17 @@ function buildPool() {
     State.build.lineups.sort((a, b) => b[key] - a[key]);
 
     const ms = Math.round(performance.now() - t0);
-    $('#buildStatus').textContent =
-      `✓ ${State.build.lineups.length} lineups in ${ms} ms`;
+    const n = State.build.lineups.length;
+    // Best-effort min-exposure: flag any floors we couldn't reach.
+    const miss = State.golfers.filter(
+      (g) => g.minExp != null && (State.build.exposure.get(g.id) || 0) * 100 < g.minExp - 0.5
+    );
+    let msg = `✓ ${n} lineups in ${ms} ms`;
+    if (miss.length) {
+      msg += ` — couldn't reach min exposure for ${miss.map((g) => g.name).join(', ')}`;
+    }
+    $('#buildStatus').textContent = msg;
+    renderPlayers(); // fill the Exp% column
     renderBuildSummary();
     renderReview();
   }, 30);

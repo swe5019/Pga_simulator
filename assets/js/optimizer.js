@@ -117,6 +117,8 @@ function lineupKey(ids) {
  *    locks      - Set of golfer ids to force into every lineup
  *    bans       - Set of golfer ids to exclude
  *    maxExposure- 0..1 cap on the fraction of lineups any golfer appears in
+ *    maxExpById - Map<id, 0..1> per-golfer exposure cap (overrides maxExposure)
+ *    minExpById - Map<id, 0..1> per-golfer exposure floor (best-effort)
  *    minSalary  - minimum total salary to use
  *    randomness - 0..1, how much to jitter each sim's objective for diversity
  * @returns {{lineups:Array, exposure:Map}}
@@ -126,6 +128,8 @@ function buildPool(golfers, simResults, opts = {}) {
   const locks = opts.locks || new Set();
   const bans = opts.bans || new Set();
   const maxExposure = opts.maxExposure != null ? opts.maxExposure : 1;
+  const maxExpById = opts.maxExpById || new Map();
+  const minExpById = opts.minExpById || new Map();
   const minSalary = opts.minSalary || 0;
 
   const pool = golfers.filter((g) => !bans.has(g.id));
@@ -134,7 +138,16 @@ function buildPool(golfers, simResults, opts = {}) {
   const seen = new Set();
   const lineups = [];
   const useCount = new Map(pool.map((g) => [g.id, 0]));
-  const maxUses = Math.ceil(maxExposure * nLineups);
+  // Per-golfer exposure caps (default to the global cap) and floors.
+  const maxUses = new Map(
+    pool.map((g) => {
+      const frac = maxExpById.has(g.id) ? maxExpById.get(g.id) : maxExposure;
+      return [g.id, Math.max(0, Math.round(frac * nLineups))];
+    })
+  );
+  const minUses = new Map(
+    pool.map((g) => [g.id, Math.round((minExpById.get(g.id) || 0) * nLineups)])
+  );
 
   const rng = window.Sim.makeRng(987654321);
 
@@ -146,15 +159,22 @@ function buildPool(golfers, simResults, opts = {}) {
     attempts++;
     const simIndex = Math.floor(rng() * nSims);
 
-    // Objective = this golfer's fantasy points in this one simulated world,
-    // but zero-out anyone already at their exposure cap.
+    // Objective = this golfer's fantasy points in this one simulated world.
+    // Zero-out anyone at their exposure cap; boost anyone below their floor.
     const obj = new Map();
     for (const g of pool) {
-      if (useCount.get(g.id) >= maxUses && !locks.has(g.id)) {
+      const used = useCount.get(g.id);
+      if (used >= maxUses.get(g.id) && !locks.has(g.id)) {
         obj.set(g.id, -1e9);
-      } else {
-        obj.set(g.id, simResults.get(g.id).samples[simIndex]);
+        continue;
       }
+      let v = simResults.get(g.id).samples[simIndex];
+      const floor = minUses.get(g.id);
+      if (floor > 0 && used < floor) {
+        // Strongly prefer under-exposed must-plays (neediest first), best-effort.
+        v += 500 + 500 * ((floor - used) / floor);
+      }
+      obj.set(g.id, v);
     }
 
     const res = optimizeOne(pool, obj, { locks, minSalary });
@@ -163,10 +183,10 @@ function buildPool(golfers, simResults, opts = {}) {
     const key = lineupKey(res.players);
     if (seen.has(key)) continue;
 
-    // Enforce exposure caps on the finished lineup.
+    // Enforce per-golfer exposure caps on the finished lineup.
     let busts = false;
     for (const id of res.players) {
-      if (!locks.has(id) && useCount.get(id) + 1 > maxUses) { busts = true; break; }
+      if (!locks.has(id) && useCount.get(id) + 1 > maxUses.get(id)) { busts = true; break; }
     }
     if (busts) continue;
 

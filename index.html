@@ -51,8 +51,10 @@
 
       <p class="hint">
         Edit <b>Salary</b> and <b>Skill</b> inline (skill = strokes gained/round vs. field).
-        Lock 🔒 forces a golfer into every lineup; Ban 🚫 removes them. Then run the sim
-        and head to <b>Build</b>.
+        Set per-golfer <b>Min</b>/<b>Max</b> exposure % (caps the share of lineups they appear
+        in; overrides the global cap). <b>Exp%</b> fills in after a build. Lock 🔒 forces a
+        golfer in; Ban 🚫 removes them. Run the sim, build, then tweak Min/Max and rebuild
+        until your exposures look right.
       </p>
 
       <div id="dkBanner" class="banner hidden"></div>
@@ -69,7 +71,10 @@
               <th class="num">Ceil</th>
               <th class="num">Cut%</th>
               <th class="num">Own%</th>
+              <th class="num">Exp%</th>
               <th class="num">Val</th>
+              <th class="num" title="Minimum exposure target %">Min</th>
+              <th class="num" title="Maximum exposure cap %">Max</th>
               <th class="ctr">🔒</th>
               <th class="ctr">🚫</th>
             </tr>
