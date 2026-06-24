@@ -30,6 +30,11 @@ COLS = {
     "name": ["name"],
     "salary": ["salary"],
     "sgTot": ["sg_tot", "sg_total", "sgtot"],
+    "sgT2g": ["sg_t2g", "sg_t2_g", "sgt2g"],
+    "sgPutt": ["sg_putt", "sgputt"],
+    "sgArg": ["sg_arg", "sgarg"],
+    "sgApp": ["sg_app", "sgapp"],
+    "sgOtt": ["sg_ott", "sgott"],
     "ownership": ["predicted_ownership_pct", "ownership", "own%", "proj_own"],
     "winOdds": ["win_odds"],
     "impliedProb": ["implied_prob_pct", "implied_prob"],
@@ -105,7 +110,8 @@ def main() -> int:
         if not name or name.lower() == "nan" or not salary:
             continue
         rec = {"name": name, "salary": int(salary)}
-        for field in ("sgTot", "ownership", "winOdds", "impliedProb", "leverage"):
+        for field in ("sgTot", "sgT2g", "sgPutt", "sgArg", "sgApp", "sgOtt",
+                      "ownership", "winOdds", "impliedProb", "leverage"):
             if field in idx:
                 v = num(row[idx[field]])
                 if v is not None:

@@ -10,7 +10,30 @@ const State = {
   simResults: null,     // Map<id, stats> from the last sim run
   build: null,          // { lineups, exposure } from the last build
   hasRealOwnership: false, // true when ownership came from the master file
+  filters: {},             // active pool filters (see passesFilter)
 };
+
+/**
+ * Pool filters. A golfer is "in the pool" when it clears every active threshold.
+ * Locked golfers always stay in (an explicit lock beats a filter). Missing data
+ * (e.g. no SG_T2G) fails a threshold that needs it, so set only filters your
+ * data supports.
+ */
+function passesFilter(g) {
+  const f = State.filters;
+  if (g.locked) return true;
+  if (f.minSalary != null && !(g.salary >= f.minSalary)) return false;
+  if (f.maxSalary != null && !(g.salary <= f.maxSalary)) return false;
+  if (f.minT2G != null && !(g.sgT2g != null && g.sgT2g >= f.minT2G)) return false;
+  if (f.minTot != null && !(g.sgTot != null && g.sgTot >= f.minTot)) return false;
+  if (f.maxOwn != null && !(g.ownership != null && g.ownership <= f.maxOwn)) return false;
+  return true;
+}
+
+/** A golfer is excluded from sim/build if banned or filtered out of the pool. */
+function inPool(g) {
+  return !g.banned && passesFilter(g);
+}
 
 const $ = (sel) => document.querySelector(sel);
 const $$ = (sel) => Array.from(document.querySelectorAll(sel));
@@ -87,6 +110,7 @@ function renderPlayers() {
     const tr = document.createElement('tr');
     if (g.banned) tr.classList.add('banned');
     if (g.locked) tr.classList.add('locked');
+    if (!g.banned && !passesFilter(g)) tr.classList.add('filtered');
     tr.innerHTML = `
       <td class="name">${g.name}</td>
       <td class="num"><input class="cell" data-id="${g.id}" data-f="salary" value="${g.salary}"></td>
@@ -122,6 +146,47 @@ function renderPlayers() {
       renderPlayers();
     });
   });
+
+  updatePoolStat();
+}
+
+/* ---------------------- Pool filters ---------------------- */
+function updatePoolStat() {
+  const total = State.golfers.length;
+  const kept = State.golfers.filter(inPool).length;
+  const el = $('#poolStat');
+  if (!el) return;
+  const active = Object.keys(State.filters).length > 0;
+  el.textContent = total ? `Pool: ${kept} of ${total} golfers${active ? '' : ' (no filters)'}` : '';
+}
+
+function readFilters() {
+  const val = (id) => {
+    const v = parseFloat($(id).value);
+    return Number.isFinite(v) ? v : null;
+  };
+  const f = {
+    minSalary: val('#fMinSalary'),
+    maxSalary: val('#fMaxSalary'),
+    minT2G: val('#fMinT2G'),
+    minTot: val('#fMinTot'),
+    maxOwn: val('#fMaxOwn'),
+  };
+  // Keep only the thresholds actually set, so updatePoolStat can tell if any are active.
+  State.filters = Object.fromEntries(Object.entries(f).filter(([, v]) => v != null));
+}
+
+function applyFilters() {
+  readFilters();
+  renderPlayers();
+}
+
+function clearFilters() {
+  ['#fMinSalary', '#fMaxSalary', '#fMinT2G', '#fMinTot', '#fMaxOwn'].forEach((id) => {
+    $(id).value = '';
+  });
+  State.filters = {};
+  renderPlayers();
 }
 
 /* ---------------------- Run simulation ---------------------- */
@@ -156,7 +221,8 @@ function buildPool() {
     maxExposure: (parseFloat($('#maxExposure').value) || 100) / 100,
     minSalary: parseInt($('#minSalary').value, 10) || 0,
     locks: new Set(State.golfers.filter((g) => g.locked).map((g) => g.id)),
-    bans: new Set(State.golfers.filter((g) => g.banned).map((g) => g.id)),
+    // Exclude banned golfers and anyone filtered out of the pool.
+    bans: new Set(State.golfers.filter((g) => !inPool(g)).map((g) => g.id)),
   };
 
   $('#buildStatus').textContent = 'Building…';
@@ -378,6 +444,11 @@ function init() {
   $('#runSim').addEventListener('click', runSim);
   $('#buildBtn').addEventListener('click', buildPool);
   $('#resetSlate').addEventListener('click', loadSampleSlate);
+  $('#applyFilters').addEventListener('click', applyFilters);
+  $('#clearFilters').addEventListener('click', clearFilters);
+  ['#fMinSalary', '#fMaxSalary', '#fMinT2G', '#fMinTot', '#fMaxOwn'].forEach((id) => {
+    $(id).addEventListener('change', applyFilters);
+  });
   $('#exportDK').addEventListener('click', exportDk);
   $('#exportDetailed').addEventListener('click', exportDetailed);
   $('#importCsv').addEventListener('change', (e) => {

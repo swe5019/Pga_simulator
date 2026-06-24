@@ -60,6 +60,9 @@ h2 .sub { color: var(--dim); font-weight: 400; font-size: 13px; }
   padding: 14px; border-radius: 10px; margin-bottom: 14px;
 }
 .toolbar.wrap { row-gap: 14px; }
+.toolbar.filters { padding: 10px 14px; gap: 10px; }
+.toolbar.filters .control input { width: 84px; }
+.filterlabel { font-size: 11px; color: var(--dim); text-transform: uppercase; letter-spacing: .5px; align-self: center; }
 .control { display: flex; flex-direction: column; gap: 5px; }
 .control label { font-size: 11px; color: var(--dim); text-transform: uppercase; letter-spacing: .5px; }
 .control input, .control select {
@@ -102,6 +105,8 @@ td.dim, .dim { color: var(--dim); }
 .up { color: var(--up); }
 .down { color: var(--down); }
 tr.banned { opacity: .4; }
+tr.filtered { opacity: .32; }
+tr.filtered td.name::after { content: " · out of pool"; color: var(--dim); font-size: 11px; }
 tr.locked td.name::before { content: "🔒 "; }
 
 input.cell {

@@ -110,8 +110,13 @@ function buildSlateFromMaster(records) {
         locked: false,
         banned: false,
         ownership: r.ownership != null ? r.ownership : undefined,
-        // Extras carried through for display / future use.
+        // Extras carried through for display / filtering / future use.
         sgTot: r.sgTot,
+        sgT2g: r.sgT2g,
+        sgPutt: r.sgPutt,
+        sgArg: r.sgArg,
+        sgApp: r.sgApp,
+        sgOtt: r.sgOtt,
         winOdds: r.winOdds,
         impliedProb: r.impliedProb,
         leverage: r.leverage,
