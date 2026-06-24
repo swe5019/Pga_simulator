@@ -49,23 +49,10 @@
         <button id="resetSlate" class="ghost">Reset sample slate</button>
       </div>
 
-      <div class="toolbar filters">
-        <span class="filterlabel">Pool filters</span>
-        <div class="control"><label>Salary ≥</label><input id="fMinSalary" type="number" placeholder="any" step="100" /></div>
-        <div class="control"><label>Salary ≤</label><input id="fMaxSalary" type="number" placeholder="any" step="100" /></div>
-        <div class="control"><label>SG T2G ≥</label><input id="fMinT2G" type="number" placeholder="any" step="0.1" /></div>
-        <div class="control"><label>SG Total ≥</label><input id="fMinTot" type="number" placeholder="any" step="0.1" /></div>
-        <div class="control"><label>Own% ≤</label><input id="fMaxOwn" type="number" placeholder="any" step="1" /></div>
-        <button id="applyFilters" class="ghost">Apply</button>
-        <button id="clearFilters" class="ghost">Clear</button>
-        <span id="poolStat" class="status"></span>
-      </div>
-
       <p class="hint">
         Edit <b>Salary</b> and <b>Skill</b> inline (skill = strokes gained/round vs. field).
-        <b>Pool filters</b> grey out and exclude players outside your thresholds (locked 🔒
-        players are always kept). Ban 🚫 removes a single golfer. Then run the sim and head
-        to <b>Build</b>.
+        Lock 🔒 forces a golfer into every lineup; Ban 🚫 removes them. Then run the sim
+        and head to <b>Build</b>.
       </p>
 
       <div class="tablewrap">
