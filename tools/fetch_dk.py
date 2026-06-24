@@ -16,6 +16,7 @@ DraftKings exposes these without auth:
     draftgroups/v1/draftgroups/{dg}/draftables -> player pool
 """
 import csv
+import datetime
 import json
 import os
 import sys
@@ -157,32 +158,73 @@ def main():
         f"https://api.draftkings.com/draftgroups/v1/draftgroups/{dg}/draftables?format=json"
     )
     draftables = ddata.get("draftables", [])
+    event = (find_key(ddata, "competition") or {}).get("name", "")
 
-    seen = {}
+    players = {}  # name -> {salary, status, out}
     for p in draftables:
         name = (p.get("displayName") or "").strip()
         salary = p.get("salary")
-        if not name or salary is None:
+        if not name or salary is None or name in players:
             continue
-        if name not in seen:  # players can appear multiple times; keep first
-            seen[name] = int(salary)
+        status, out = player_status(p)
+        players[name] = {"salary": int(salary), "status": status, "out": out}
 
-    if not seen:
+    if not players:
         raise SystemExit("No players parsed from draftables — aborting.")
 
-    rows = sorted(seen.items(), key=lambda kv: -kv[1])  # high salary first
+    rows = sorted(players.items(), key=lambda kv: -kv[1]["salary"])  # high salary first
+
+    # Debug: show what status-ish fields DK exposes, plus any flagged-out players.
+    sample = draftables[0] if draftables else {}
+    print("Sample draftable status fields:",
+          {k: sample.get(k) for k in ("status", "newsStatus", "isDisabled", "draftAlerts",
+                                      "playerGameAttributes")})
+    outs = [n for n, v in rows if v["out"]]
+    print(f"Flagged OUT/WD ({len(outs)}): {outs}")
+
     os.makedirs(os.path.dirname(out), exist_ok=True)
     with open(out, "w", newline="") as fh:
         w = csv.writer(fh)
         w.writerow(["Tournament_Name", "Date", "Name", "Salary"])
-        for name, salary in rows:
-            w.writerow([tourney, date, name, salary])
+        for name, v in rows:
+            w.writerow([tourney, date, name, v["salary"]])
 
-    print(f"Wrote {out}: {len(rows)} golfers for {tourney} ({date})")
-    print("Top 5:")
-    for name, salary in rows[:5]:
-        print(f"  {name}: {salary}")
+    # Rich JSON for the live app to overlay onto the master slate (salary + status).
+    doc = {
+        "updatedUtc": datetime.datetime.utcnow().replace(microsecond=0).isoformat() + "Z",
+        "tournament": tourney,
+        "date": date,
+        "event": event,
+        "draftGroupId": str(dg),
+        "count": len(rows),
+        "players": [{"name": n, "salary": v["salary"], "status": v["status"], "out": v["out"]}
+                    for n, v in rows],
+    }
+    json_path = os.path.join(os.path.dirname(out), "dk.json")
+    with open(json_path, "w") as fh:
+        json.dump(doc, fh, indent=1)
+
+    print(f"Wrote {out} and {json_path}: {len(rows)} golfers for {tourney} ({date}, event {event!r})")
     return 0
+
+
+def player_status(p):
+    """Derive (status_string, is_out) for a DK draftable, defensively across schema.
+    Returns ('', False) for an active player; never raises."""
+    if p.get("isDisabled") is True:
+        return ("OUT", True)
+    raw = (p.get("status") or "").strip()
+    if raw and raw.lower() not in ("none", "active", "available"):
+        up = raw.upper()
+        return (up, up in ("O", "OUT", "WD", "W/D", "DISABLED"))
+    news = (p.get("newsStatus") or "").strip()
+    if news and news.lower() in ("out", "wd"):
+        return (news.upper(), True)
+    # draftAlerts / playerGameAttributes sometimes carry WD/Out wording.
+    blob = json.dumps(p.get("draftAlerts") or p.get("playerGameAttributes") or "").lower()
+    if '"wd"' in blob or "withdraw" in blob or '"out"' in blob:
+        return ("OUT", True)
+    return ("", False)
 
 
 if __name__ == "__main__":

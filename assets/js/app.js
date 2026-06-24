@@ -10,7 +10,77 @@ const State = {
   simResults: null,     // Map<id, stats> from the last sim run
   build: null,          // { lineups, exposure } from the last build
   hasRealOwnership: false, // true when ownership came from the master file
+  dk: null,                // DraftKings overlay metadata (see overlayDk)
 };
+
+/** Normalize a golfer name for cross-source matching (case/punct/accents/suffix). */
+function normName(s) {
+  return (s || '')
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/[̀-ͯ]/g, '')
+    .replace(/[^a-z ]/g, ' ')
+    .replace(/\b(jr|sr|ii|iii|iv)\b/g, '')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+/**
+ * Overlay DraftKings data (data/dk.json) onto the loaded slate: official contest
+ * salaries and OUT/WD status, matched by name. Only applied when the DK event
+ * clearly matches the loaded field (≥60% of golfers match), so a stale DK file
+ * for a different tournament never corrupts your slate.
+ */
+async function overlayDk() {
+  State.dk = null;
+  try {
+    const res = await fetch('data/dk.json?t=' + Date.now(), { cache: 'no-store' });
+    if (!res.ok) return;
+    const dk = await res.json();
+    const players = dk.players || [];
+    if (!players.length) return;
+    const byName = new Map(players.map((p) => [normName(p.name), p]));
+    let matched = 0;
+    for (const g of State.golfers) if (byName.has(normName(g.name))) matched++;
+    const rate = matched / (Math.min(players.length, State.golfers.length) || 1);
+    const applied = rate >= 0.6;
+    if (applied) {
+      for (const g of State.golfers) {
+        const p = byName.get(normName(g.name));
+        if (!p) continue;
+        g.dkSalary = p.salary;
+        g.salary = p.salary; // official contest salary wins
+        g.status = p.status || '';
+        g.out = !!p.out;
+      }
+    }
+    State.dk = { event: dk.event, updatedUtc: dk.updatedUtc, matched, total: players.length, applied };
+  } catch (e) {
+    /* no DK file yet — leave the slate as-is */
+  }
+}
+
+function renderDkBanner() {
+  const el = $('#dkBanner');
+  if (!el) return;
+  const dk = State.dk;
+  if (!dk) {
+    el.className = 'banner hidden';
+    el.textContent = '';
+    return;
+  }
+  const when = dk.updatedUtc ? new Date(dk.updatedUtc).toLocaleString() : 'recently';
+  if (dk.applied) {
+    const outs = State.golfers.filter((g) => g.out);
+    let msg = `✓ DK overlay — official salaries + status applied for ${dk.event || 'this slate'} (matched ${dk.matched} golfers, updated ${when}).`;
+    if (outs.length) msg += `  ⚠ ${outs.length} OUT/WD excluded: ${outs.map((g) => g.name).join(', ')}.`;
+    el.className = outs.length ? 'banner warn' : 'banner ok';
+    el.textContent = msg;
+  } else {
+    el.className = 'banner warn';
+    el.textContent = `DK data is for ${dk.event || 'a different event'} and only matched ${dk.matched} of your golfers — not applied. Update your master to this week's field to sync salaries/status.`;
+  }
+}
 
 const $ = (sel) => document.querySelector(sel);
 const $$ = (sel) => Array.from(document.querySelectorAll(sel));
@@ -37,6 +107,7 @@ function loadSampleSlate() {
   State.simResults = null;
   State.build = null;
   State.hasRealOwnership = false;
+  State.dk = null;
   window.Data.projectOwnership(State.golfers, null);
   renderPlayers();
   $('#simStatus').textContent = '';
@@ -62,6 +133,7 @@ async function loadAutoSlate() {
     State.hasRealOwnership = hasOwnership;
     // Only model ownership if the file didn't supply real projections.
     if (!hasOwnership) window.Data.projectOwnership(State.golfers, null);
+    await overlayDk(); // official salaries + OUT/WD status from DraftKings
     renderPlayers();
 
     const when = doc.updatedUtc ? new Date(doc.updatedUtc).toLocaleString() : 'now';
@@ -87,8 +159,9 @@ function renderPlayers() {
     const tr = document.createElement('tr');
     if (g.banned) tr.classList.add('banned');
     if (g.locked) tr.classList.add('locked');
+    if (g.out) tr.classList.add('out');
     tr.innerHTML = `
-      <td class="name"><button class="pname" data-id="${g.id}" title="View outcome distribution">${g.name}</button></td>
+      <td class="name"><button class="pname" data-id="${g.id}" title="View outcome distribution">${g.name}</button>${g.out ? ' <span class="tag out">OUT</span>' : ''}</td>
       <td class="num"><input class="cell" data-id="${g.id}" data-f="salary" value="${g.salary}"></td>
       <td class="num"><input class="cell" data-id="${g.id}" data-f="skill" value="${g.skill}"></td>
       <td class="num">${num(proj)}</td>
@@ -126,6 +199,8 @@ function renderPlayers() {
       renderPlayers();
     });
   });
+
+  renderDkBanner();
 }
 
 /* ---------------------- Player outcome distribution ---------------------- */
@@ -209,7 +284,8 @@ function buildPool() {
     maxExposure: (parseFloat($('#maxExposure').value) || 100) / 100,
     minSalary: parseInt($('#minSalary').value, 10) || 0,
     locks: new Set(State.golfers.filter((g) => g.locked).map((g) => g.id)),
-    bans: new Set(State.golfers.filter((g) => g.banned).map((g) => g.id)),
+    // Exclude banned golfers and anyone DraftKings has flagged OUT/WD.
+    bans: new Set(State.golfers.filter((g) => g.banned || g.out).map((g) => g.id)),
   };
 
   $('#buildStatus').textContent = 'Building…';

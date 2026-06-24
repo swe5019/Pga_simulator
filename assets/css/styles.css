@@ -183,3 +183,18 @@ button.toggle.on { filter: none; border-color: var(--green); background: #14241a
 .distfill { width: 100%; background: var(--green2, var(--accent)); border-radius: 2px 2px 0 0; min-height: 1px; }
 .distbar:hover .distfill { background: var(--accent); }
 .distaxis { display: flex; justify-content: space-between; color: var(--dim); font-size: 11px; margin-top: 4px; }
+
+/* ---------- DK overlay banner + OUT tag ---------- */
+.banner {
+  border-radius: 8px; padding: 9px 12px; font-size: 12.5px; margin: 0 0 14px;
+  border: 1px solid var(--line);
+}
+.banner.hidden { display: none; }
+.banner.ok { background: #11241a; border-color: #1c3b29; color: var(--green2); }
+.banner.warn { background: #2a2113; border-color: #4a3a18; color: #e3b341; }
+.tag {
+  display: inline-block; font-size: 10px; font-weight: 700; letter-spacing: .5px;
+  padding: 1px 5px; border-radius: 4px; vertical-align: middle;
+}
+.tag.out { background: #3d1418; color: var(--down); border: 1px solid #5c1f24; }
+tr.out td.name .pname { text-decoration: line-through; color: var(--dim); }
