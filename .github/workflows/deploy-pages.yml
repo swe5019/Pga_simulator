@@ -4,6 +4,12 @@ on:
   push:
     branches: [main]
   workflow_dispatch:
+  # Re-deploy after the data workflows commit fresh slate.json / dk.json.
+  # (Their bot pushes use GITHUB_TOKEN, which can't trigger 'push', but
+  # workflow_run fires regardless — so auto-synced data reaches the live site.)
+  workflow_run:
+    workflows: ["Sync slate from master spreadsheet", "Fetch DK salaries"]
+    types: [completed]
 
 permissions:
   contents: read
