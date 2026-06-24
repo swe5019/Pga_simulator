@@ -219,9 +219,17 @@
     <!-- ===================== EXPORT ===================== -->
     <section id="export" class="panel">
       <h2>Export</h2>
-      <p class="hint">Download a DraftKings-ready upload file, or a detailed pool with projections.</p>
+      <p class="hint">
+        Download a DraftKings upload file, or fill your reserved <b>entries template</b> — each
+        entry gets a unique best lineup (ranked by contest ROI if you ran a Contest Sim, else
+        Birdie Score), in DraftKings' <b>Name (ID)</b> format. Run the DK sync first so names map
+        to upload IDs.
+      </p>
       <div class="exportbtns">
         <button id="exportDK" class="primary">⬇ DraftKings Upload CSV</button>
+        <label class="filebtn">⬆ Fill DK entries template
+          <input id="entriesFile" type="file" accept=".csv" hidden />
+        </label>
         <button id="exportDetailed" class="ghost">⬇ Detailed pool CSV</button>
       </div>
       <pre id="exportPreview" class="preview"></pre>

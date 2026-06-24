@@ -11,8 +11,17 @@ const State = {
   build: null,          // { lineups, exposure } from the last build
   hasRealOwnership: false, // true when ownership came from the master file
   dk: null,                // DraftKings overlay metadata (see overlayDk)
+  dkPlayers: null,         // Map<normName, {name, dkId, ...}> from dk.json
   contest: null,           // last contest-sim result
 };
+
+/** Resolve a golfer to DraftKings upload form "Name (draftableId)", or null. */
+function dkEntryName(g) {
+  const p = State.dkPlayers && State.dkPlayers.get(normName(g.name));
+  if (p && p.dkId != null) return `${p.name} (${p.dkId})`;
+  if (g.dkId != null) return `${g.name} (${g.dkId})`;
+  return null;
+}
 
 /** Normalize a golfer name for cross-source matching (case/punct/accents/suffix). */
 function normName(s) {
@@ -41,6 +50,7 @@ async function overlayDk() {
     const players = dk.players || [];
     if (!players.length) return;
     const byName = new Map(players.map((p) => [normName(p.name), p]));
+    State.dkPlayers = byName; // name -> DK player (for upload id resolution)
     let matched = 0;
     for (const g of State.golfers) if (byName.has(normName(g.name))) matched++;
     const rate = matched / (Math.min(players.length, State.golfers.length) || 1);
@@ -53,6 +63,7 @@ async function overlayDk() {
         g.salary = p.salary; // official contest salary wins
         g.status = p.status || '';
         g.out = !!p.out;
+        g.dkId = p.dkId;
       }
     }
     State.dk = { event: dk.event, updatedUtc: dk.updatedUtc, matched, total: players.length, applied };
@@ -609,23 +620,94 @@ function splitCsvLine(line) {
 }
 
 /* ---------------------- CSV export ---------------------- */
+/** Lineups ordered for assignment: by contest ROI if available, else Birdie Score. */
+function orderedLineups() {
+  const lus = State.build.lineups;
+  if (State.contest && State.contest.results) {
+    const roi = new Map(State.contest.results.map((r) => [r.players.join('|'), r.roi]));
+    return [...lus].sort((a, b) => (roi.get(b.players.join('|')) || 0) - (roi.get(a.players.join('|')) || 0));
+  }
+  return [...lus].sort((a, b) => b.score - a.score);
+}
+
 function exportDk() {
   if (!State.build || !State.build.lineups.length) {
     $('#exportPreview').textContent = 'Build a pool first.';
     return;
   }
-  // DraftKings PGA upload header: 6 generic golfer slots.
+  // DraftKings PGA upload: 6 golfer slots as "Name (ID)".
   const header = ['G', 'G', 'G', 'G', 'G', 'G'];
+  let missing = 0;
   const rows = State.build.lineups.map((lu) =>
     lu.players
       .map((id) => byId(id))
       .sort((a, b) => b.salary - a.salary)
-      .map((g) => g.name)
+      .map((g) => {
+        const e = dkEntryName(g);
+        if (!e) missing++;
+        return e || g.name;
+      })
   );
   const csv = [header.join(','), ...rows.map((r) => r.join(','))].join('\n');
   download('draftkings_pga_upload.csv', csv);
-  $('#exportPreview').textContent = csv.split('\n').slice(0, 8).join('\n') +
-    (rows.length > 7 ? `\n… (${rows.length} lineups)` : '');
+  const note = missing
+    ? `\n⚠ ${missing} slot(s) lack a DK ID — run the DK sync so names map to IDs.`
+    : '\n✓ All golfers resolved to DK IDs.';
+  $('#exportPreview').textContent =
+    csv.split('\n').slice(0, 8).join('\n') +
+    (rows.length > 7 ? `\n… (${rows.length} lineups)` : '') + note;
+}
+
+/**
+ * Fill a DraftKings entries template: assign a unique best lineup to each entry
+ * row (by contest ROI if a contest sim was run, else Birdie Score) and write the
+ * 6 golfer columns as "Name (ID)". Keeps every other column untouched.
+ */
+function fillEntries(file) {
+  if (!State.build || !State.build.lineups.length) {
+    $('#exportPreview').textContent = 'Build a pool first.';
+    return;
+  }
+  const reader = new FileReader();
+  reader.onload = () => {
+    try {
+      const lines = reader.result.split(/\r?\n/).filter((l) => l.trim().length);
+      const header = splitCsvLine(lines[0]);
+      const gCols = [];
+      header.forEach((h, i) => { if (h.trim().toUpperCase() === 'G') gCols.push(i); });
+      if (gCols.length < 6) throw new Error('template needs 6 "G" columns (found ' + gCols.length + ')');
+
+      const lus = orderedLineups();
+      const toSlots = (lu) =>
+        lu.players
+          .map((id) => byId(id))
+          .sort((a, b) => b.salary - a.salary)
+          .map((g) => dkEntryName(g) || g.name);
+
+      let assigned = 0;
+      let reused = 0;
+      const out = [header.join(',')];
+      for (let r = 1; r < lines.length; r++) {
+        const cells = splitCsvLine(lines[r]);
+        while (cells.length < header.length) cells.push('');
+        const lu = lus[assigned % lus.length];
+        if (assigned >= lus.length) reused++;
+        const slots = toSlots(lu);
+        gCols.forEach((ci, k) => { cells[ci] = slots[k] != null ? slots[k] : ''; });
+        out.push(cells.map((c) => (/[",]/.test(c) ? `"${c.replace(/"/g, '""')}"` : c)).join(','));
+        assigned++;
+      }
+
+      download('draftkings_entries_filled.csv', out.join('\n'));
+      let note = `✓ Filled ${assigned} entries from ${lus.length} lineups`;
+      note += State.contest ? ' (ranked by contest ROI).' : ' (ranked by Birdie Score).';
+      if (reused) note += ` ⚠ ${reused} entries reused lineups (more entries than unique lineups — build more).`;
+      $('#exportPreview').textContent = note + '\n' + out.slice(0, 6).join('\n');
+    } catch (e) {
+      $('#exportPreview').textContent = 'Entries fill failed: ' + e.message;
+    }
+  };
+  reader.readAsText(file);
 }
 
 function exportDetailed() {
@@ -676,6 +758,9 @@ function init() {
   });
   $('#exportDK').addEventListener('click', exportDk);
   $('#exportDetailed').addEventListener('click', exportDetailed);
+  $('#entriesFile').addEventListener('change', (e) => {
+    if (e.target.files[0]) fillEntries(e.target.files[0]);
+  });
   $('#importCsv').addEventListener('change', (e) => {
     if (e.target.files[0]) importCsv(e.target.files[0]);
   });
