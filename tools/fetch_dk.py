@@ -154,7 +154,26 @@ def probe_contest(cid):
     return 0
 
 
+def probe_draftgroup_payouts(dg):
+    """Find real open contests for a draft group in the lobby and probe payouts."""
+    lobby = get_json("https://www.draftkings.com/lobby/getcontests?sport=GOLF", optional=True) or {}
+    matches = [c for c in lobby.get("Contests", []) if str(c.get("dg")) == str(dg)]
+    print(f"{len(matches)} open contests for draft group {dg}")
+    for c in matches[:4]:
+        cid = c.get("id")
+        print(f"--- contest {cid} | {c.get('n')} | fee={c.get('a')} | entries={c.get('m')} ---")
+        data = get_json(f"https://api.draftkings.com/contests/v1/contests/{cid}?format=json", optional=True)
+        if not data:
+            continue
+        pay = find_key(data, "payoutSummary") or find_key(data, "payoutDescriptions") \
+            or find_key(data, "payouts")
+        print("   payouts_present=", pay is not None, "| sample:", json.dumps(pay)[:300] if pay else "")
+    return 0
+
+
 def main():
+    if os.environ.get("DK_PROBE_DG", "").strip():
+        return probe_draftgroup_payouts(os.environ["DK_PROBE_DG"].strip())
     if os.environ.get("DK_PROBE_CONTEST", "").strip():
         return probe_contest(os.environ["DK_PROBE_CONTEST"].strip())
     if os.environ.get("DK_LIST", "").strip():

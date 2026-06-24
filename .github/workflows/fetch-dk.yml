@@ -27,6 +27,10 @@ on:
         description: Probe a contest ID for payout endpoints (diagnostic only)
         required: false
         default: ''
+      probe_dg:
+        description: Probe payouts for real contests of a draft group (diagnostic)
+        required: false
+        default: ''
 
 permissions:
   contents: write
@@ -51,6 +55,7 @@ jobs:
           DK_DATE: ${{ inputs.date }}
           DK_LIST: ${{ inputs.list }}
           DK_PROBE_CONTEST: ${{ inputs.probe_contest }}
+          DK_PROBE_DG: ${{ inputs.probe_dg }}
         run: python tools/fetch_dk.py
 
       - name: Commit CSV
