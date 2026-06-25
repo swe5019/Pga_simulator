@@ -1,8 +1,17 @@
 name: Fetch DK salaries
 
 on:
+  # Auto-discover the current main PGA slate a few times a day. DK posts the
+  # next event's contests Mon/Tue, so this picks up salaries on its own with no
+  # manual contest id. Runs that find no new slate exit cleanly (no commit).
+  schedule:
+    - cron: '0 13,17,21 * * *'   # 3x/day (UTC)
   workflow_dispatch:
     inputs:
+      auto:
+        description: Auto-discover the current main PGA slate (1 = on; ignores ids/name)
+        required: false
+        default: ''
       contest_id:
         description: DraftKings contest ID (optional if draftgroup_id given)
         required: false
@@ -12,13 +21,13 @@ on:
         required: false
         default: ''
       tournament_name:
-        description: Tournament_Name value for the rows
-        required: true
-        default: 'TRAVELERS_2026'
+        description: Tournament_Name value (optional in auto mode)
+        required: false
+        default: ''
       date:
-        description: Date value for the rows
-        required: true
-        default: '6/25/26'
+        description: Date value (optional in auto mode)
+        required: false
+        default: ''
       list:
         description: List open GOLF draft groups instead of fetching (1 = list)
         required: false
@@ -35,6 +44,10 @@ on:
 permissions:
   contents: write
 
+concurrency:
+  group: fetch-dk
+  cancel-in-progress: true
+
 jobs:
   fetch:
     runs-on: ubuntu-latest
@@ -49,6 +62,8 @@ jobs:
 
       - name: Fetch DraftKings salaries
         env:
+          # Schedule runs are always auto; manual runs use the 'auto' input.
+          DK_AUTO: ${{ github.event_name == 'schedule' && '1' || inputs.auto }}
           DK_CONTEST_ID: ${{ inputs.contest_id }}
           DK_DRAFTGROUP_ID: ${{ inputs.draftgroup_id }}
           DK_TOURNAMENT: ${{ inputs.tournament_name }}
@@ -66,6 +81,6 @@ jobs:
           if git diff --cached --quiet; then
             echo "No change in DK data"
           else
-            git commit -m "Fetch DK salaries + status for ${{ inputs.tournament_name }}"
+            git commit -m "Fetch DK salaries + status (auto slate)"
             git push
           fi

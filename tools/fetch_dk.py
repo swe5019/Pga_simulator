@@ -19,6 +19,7 @@ import csv
 import datetime
 import json
 import os
+import re
 import sys
 import urllib.request
 
@@ -110,6 +111,81 @@ def find_key(obj, key):
     return None
 
 
+def _fmt_date(raw):
+    """DK ISO/epoch start -> 'M/D/YY'. Falls back to today on parse failure."""
+    s = str(raw or "")
+    dt = None
+    m = re.search(r"/Date\((\d+)", s)  # legacy "/Date(1719316800000)/"
+    if m:
+        dt = datetime.datetime.utcfromtimestamp(int(m.group(1)) / 1000)
+    else:
+        iso = s.replace("Z", "").split(".")[0]
+        try:
+            dt = datetime.datetime.fromisoformat(iso)
+        except ValueError:
+            dt = None
+    dt = dt or datetime.datetime.utcnow()
+    return f"{dt.month}/{dt.day}/{dt.strftime('%y')}"
+
+
+def _derive_tourney(event, date_str):
+    """'Travelers Championship' + '6/25/26' -> 'TRAVELERS_2026'."""
+    yr = date_str.split("/")[-1]
+    full_yr = ("20" + yr) if len(yr) == 2 else (yr or "")
+    drop = {"the", "championship", "open", "invitational", "classic",
+            "tournament", "of", "at", "presented", "by", "golf"}
+    words = [w for w in re.sub(r"[^A-Za-z ]", " ", event or "").split()
+             if w.lower() not in drop]
+    base = "_".join(words).upper() if words else "EVENT"
+    return f"{base}_{full_yr}" if full_yr else base
+
+
+def auto_discover():
+    """Pick the main open PGA slate automatically, with no contest id needed:
+    the GOLF draft group backing the most open contests (the main slate always
+    dominates), then read its event name + start date. Returns
+    (draftGroupId, event, tournament_name, date) or None if nothing is posted."""
+    lobby = get_json("https://www.draftkings.com/lobby/getcontests?sport=GOLF",
+                     optional=True) or {}
+    groups = {}
+    for c in lobby.get("Contests", []):
+        dg = c.get("dg") or c.get("draftGroupId")
+        if not dg:
+            continue
+        g = groups.setdefault(dg, {"count": 0, "entries": 0})
+        g["count"] += 1
+        g["entries"] += (c.get("m") or 0)
+    if not groups:
+        print("auto-discover: no open GOLF contests (DK hasn't posted a slate yet)")
+        return None
+
+    dg_meta = {d.get("DraftGroupId"): d for d in lobby.get("DraftGroups", [])}
+    print("Open GOLF draft groups by contest volume:")
+    for dg, g in sorted(groups.items(), key=lambda kv: -kv[1]["count"])[:6]:
+        m = dg_meta.get(dg, {})
+        print(f"  dg={dg} contests={g['count']} entries={g['entries']} "
+              f"start={m.get('StartDate') or m.get('StartDateEst')}")
+
+    # Main slate = most contests, tie-break on total entries.
+    best = max(groups.items(), key=lambda kv: (kv[1]["count"], kv[1]["entries"]))[0]
+    meta = dg_meta.get(best, {})
+    start = meta.get("StartDate") or meta.get("StartDateEst")
+
+    ddata = get_json(
+        f"https://api.draftkings.com/draftgroups/v1/draftgroups/{best}/draftables?format=json",
+        optional=True,
+    )
+    event = ""
+    if ddata:
+        comp = find_key(ddata, "competition") or {}
+        event = comp.get("name") or comp.get("nameDisplay") or ""
+        start = start or comp.get("startTime") or comp.get("startDate")
+    date_str = _fmt_date(start)
+    tourney = _derive_tourney(event, date_str)
+    print(f"auto-discover picked dg={best} event={event!r} -> {tourney} {date_str}")
+    return str(best), event, tourney, date_str
+
+
 def list_groups():
     """Print the open GOLF draft groups (id + start) and the event name read
     from each group's first draftable, so we can identify the right slate."""
@@ -184,10 +260,24 @@ def main():
     date = os.environ.get("DK_DATE", "").strip()
     out = os.environ.get("DK_OUT", "data/dk_salaries.csv").strip()
     dg_override = os.environ.get("DK_DRAFTGROUP_ID", "").strip()
+    auto = os.environ.get("DK_AUTO", "").strip()
+
+    # Fully automatic mode: discover the current main PGA slate (no contest id,
+    # no tournament name needed). Used by the schedule trigger so salaries land
+    # on their own as soon as DK posts the next event.
+    if auto and not (dg_override or contest):
+        disc = auto_discover()
+        if not disc:
+            print("Nothing to fetch yet — exiting cleanly.")
+            return 0
+        dg_override, event_auto, tourney_auto, date_auto = disc
+        tourney = tourney or tourney_auto
+        date = date or date_auto
+
     # Keyword to find the slate in the lobby, e.g. "TRAVELERS_2026" -> "travelers".
-    keyword = os.environ.get("DK_FIND", "").strip() or tourney.split("_")[0]
+    keyword = os.environ.get("DK_FIND", "").strip() or (tourney.split("_")[0] if tourney else "")
     if not (tourney and date):
-        raise SystemExit("DK_TOURNAMENT and DK_DATE are required")
+        raise SystemExit("DK_TOURNAMENT and DK_DATE are required (or set DK_AUTO=1)")
 
     if dg_override:
         dg = dg_override

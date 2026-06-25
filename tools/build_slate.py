@@ -85,6 +85,120 @@ def num(v):
         return None
 
 
+HIST_DIR = os.path.join(DATA_DIR, "history")
+
+
+def _safe(name):
+    return "".join(c if c.isalnum() else "_" for c in str(name)).strip("_") or "event"
+
+
+def _load_json(path):
+    try:
+        with open(path) as fh:
+            return json.load(fh)
+    except (OSError, ValueError):
+        return None
+
+
+def _save_json(path, doc):
+    with open(path, "w") as fh:
+        json.dump(doc, fh, indent=1)
+
+
+def archive_history(golfers, meta, raw, suffix):
+    """Preserve every tournament's predictions + (when present) actual ownership/
+    FPTS to data/history/, so the full history lives in the repo independent of
+    the OneDrive sheet. Builds a predicted-vs-actual record (and per-event MAE)
+    that grows automatically as you fill in results. Never raises — archiving
+    must not jeopardize the live slate write."""
+    try:
+        os.makedirs(HIST_DIR, exist_ok=True)
+        now = datetime.datetime.utcnow().replace(microsecond=0).isoformat() + "Z"
+        slate = meta["slate"]
+
+        # 1) Snapshot the current slate's predicted ownership (merge, keep actuals).
+        cur = os.path.join(HIST_DIR, _safe(slate) + ".json")
+        doc = _load_json(cur) or {"tournament": slate}
+        doc["tournament"] = slate
+        doc["updatedUtc"] = now
+        doc["cvMaePct"] = meta.get("cvMaePct")
+        doc["predicted"] = {
+            g["name"]: g["ownership"] for g in golfers if g.get("ownership") is not None
+        }
+        _save_json(cur, doc)
+
+        # 2) Actual ownership / FPTS for every event in the Data tab. Update each
+        #    event's file and compute MAE wherever we have both predicted + actual.
+        sheet = os.environ.get("SLATE_SHEET_DATA", "Data")
+        engine = "odf" if suffix == ".ods" else "openpyxl"
+        df = pd.read_excel(io.BytesIO(raw), sheet_name=sheet, engine=engine)
+        cols = {str(c).strip().lower(): c for c in df.columns}
+        c_tour = cols.get("tournament_name")
+        c_name = cols.get("name")
+        c_own = cols.get("actual_ownership")
+        c_fpts = cols.get("fpts") or cols.get("actual_fpts")
+        if c_tour and c_name and c_own:
+            for ev, grp in df.groupby(c_tour):
+                ev = str(ev).strip()
+                if not ev or ev.lower() == "nan":
+                    continue
+                own_raw = grp[c_own].dropna()
+                if own_raw.empty:
+                    continue
+                # Sheet stores ownership as a fraction (0.286); scale to % if so.
+                scale = 100.0 if float(own_raw.max()) <= 1.5 else 1.0
+                actual, actual_fpts = {}, {}
+                for _, row in grp.iterrows():
+                    nm = str(row[c_name]).strip()
+                    if not nm or nm.lower() == "nan":
+                        continue
+                    ov = num(row[c_own])
+                    if ov is not None:
+                        actual[nm] = round(ov * scale, 2)
+                    if c_fpts:
+                        fv = num(row[c_fpts])
+                        if fv is not None:
+                            actual_fpts[nm] = round(fv, 1)
+                if not actual:
+                    continue
+                p = os.path.join(HIST_DIR, _safe(ev) + ".json")
+                d = _load_json(p) or {"tournament": ev}
+                d["tournament"] = ev
+                d["actual"] = actual
+                if actual_fpts:
+                    d["actualFpts"] = actual_fpts
+                pred = d.get("predicted") or {}
+                common = [n for n in actual if n in pred and pred[n] is not None]
+                if common:
+                    d["maePct"] = round(
+                        sum(abs(pred[n] - actual[n]) for n in common) / len(common), 3)
+                    d["comparedPlayers"] = len(common)
+                d.setdefault("updatedUtc", now)
+                _save_json(p, d)
+
+        # 3) Rebuild the index of all archived events.
+        events = []
+        for fn in sorted(os.listdir(HIST_DIR)):
+            if not fn.endswith(".json") or fn == "index.json":
+                continue
+            d = _load_json(os.path.join(HIST_DIR, fn)) or {}
+            events.append({
+                "tournament": d.get("tournament", fn[:-5]),
+                "file": "history/" + fn,
+                "hasPredicted": bool(d.get("predicted")),
+                "hasActual": bool(d.get("actual")),
+                "maePct": d.get("maePct"),
+                "updatedUtc": d.get("updatedUtc"),
+            })
+        _save_json(os.path.join(HIST_DIR, "index.json"),
+                   {"updatedUtc": now, "count": len(events), "events": events})
+        withmae = sum(1 for e in events if e.get("maePct") is not None)
+        print(f"Archived history: {len(events)} events "
+              f"({withmae} with predicted-vs-actual MAE) -> data/history/")
+    except Exception as e:  # noqa: BLE001
+        print(f"History archive skipped ({type(e).__name__}: {e})")
+
+
 def main() -> int:
     raw, suffix = fetch_workbook()
     if raw is None:
@@ -119,6 +233,7 @@ def main() -> int:
             os.makedirs(DATA_DIR, exist_ok=True)
             with open(OUT, "w") as fh:
                 json.dump(doc, fh, indent=1)
+            archive_history(golfers, meta, raw, suffix)  # accumulate per-event history
             withown = sum("ownership" in g for g in golfers)
             print(f"Wrote {OUT}: {len(golfers)} golfers for {meta['slate']} "
                   f"(trained on {meta['trainRows']} rows / {meta['trainEvents']} events; "
