@@ -75,27 +75,30 @@ function buildSlate(rawList) {
 }
 
 /**
- * Strokes-gained → skill calibration.
+ * Skill calibration — blend of betting-market odds and strokes-gained.
  *
  * The sim is tuned for skill ~0.0–1.5 (strokes/round vs. the simulated field).
- * A raw SG_TOT column varies wildly week to week — one sheet's SG might span
- * ±1, another ±4 — so a flat multiply over-/under-spreads the field depending
- * on the source. Instead we STANDARDIZE: convert each golfer's SG to a z-score
- * within the slate, then map that onto a fixed, realistic skill band. This
- * keeps projections stable no matter how wide the input SG column is.
+ * Rather than feed raw SG (which varies wildly week to week and is a noisier
+ * signal of who will actually score), we STANDARDIZE each input to a z-score
+ * within the slate and BLEND them, weighting the sharper market signal more:
  *
- *   skill = SKILL_CENTER + SKILL_Z * z   (clamped to [SKILL_MIN, SKILL_MAX])
+ *   marketZ  = avg of z(win odds), z(top-5 odds), z(top-10 odds)
+ *   skillZ   = MARKET_WEIGHT * marketZ + (1 - MARKET_WEIGHT) * z(SG_TOT)
+ *   skill    = SKILL_CENTER + SKILL_Z * skillZ   (clamped to [SKILL_MIN, SKILL_MAX])
  *
- * Calibrated so the best player in a full field projects to a ~88 mean (an
- * elite DK average), the median to ~60, and value plays to the mid-40s — and
- * only ~6 golfers carry a 100+ ceiling, matching real tournaments.
+ * This is why a golfer with elite win/top-5/top-10 odds (e.g. Scheffler)
+ * outprojects one with a flashier SG number but weak odds (e.g. Clark),
+ * regardless of the SG profile. Falls back gracefully to whichever signal is
+ * present. Calibrated so the best player projects to a ~88 mean (an elite DK
+ * average), the median ~60, value plays mid-40s — only ~6 carry a 100+ ceiling.
  */
 const SKILL_CENTER = 0.45;
 const SKILL_Z = 0.35;
 const SKILL_MIN = -0.25;
 const SKILL_MAX = 1.5;
+const MARKET_WEIGHT = 0.65; // odds vs. SG_TOT in the skill blend
 // Flat fallback multiplier used only when we can't standardize (e.g. a DK CSV
-// import that has no SG column for the field, or a single golfer).
+// import that has no SG/odds for the field, or a single golfer).
 const SKILL_SCALE = 0.6;
 
 /** Mean & std of a numeric array (population std). */
@@ -118,26 +121,45 @@ function buildSlateFromMaster(records) {
   let hasOwnership = false;
   const valid = records.filter((r) => r.name && r.salary);
 
-  // Standardize SG_TOT across the slate so the field shape is stable no matter
-  // how wide/narrow the source SG column is (see SKILL_CENTER notes above).
-  const sgVals = valid.filter((r) => r.sgTot != null).map((r) => r.sgTot);
-  const canStandardize = sgVals.length >= 5;
-  const sgStats = canStandardize ? meanStd(sgVals) : null;
-  const skillFromSg = (sg) => {
-    const z = (sg - sgStats.mean) / sgStats.sd;
-    return Math.max(SKILL_MIN, Math.min(SKILL_MAX, SKILL_CENTER + SKILL_Z * z));
+  // Field z-score functions for each signal. Need ≥5 values to standardize;
+  // otherwise the function returns null and that signal is skipped.
+  const zfun = (vals) => {
+    const v = vals.filter((x) => x != null);
+    if (v.length < 5) return () => null;
+    const { mean, sd } = meanStd(v);
+    return (x) => (x == null ? null : (x - mean) / sd);
   };
+  const winVal = (r) => (r.winProb != null ? r.winProb : r.impliedProb);
+  const zSg = zfun(valid.map((r) => r.sgTot));
+  const zWin = zfun(valid.map(winVal));
+  const zT5 = zfun(valid.map((r) => r.top5Prob));
+  const zT10 = zfun(valid.map((r) => r.top10Prob));
+  // Betting-market finish strength: average of the available odds z-scores.
+  const marketZ = (r) => {
+    const zs = [zWin(winVal(r)), zT5(r.top5Prob), zT10(r.top10Prob)].filter((x) => x != null);
+    return zs.length ? zs.reduce((a, b) => a + b, 0) / zs.length : null;
+  };
+  const clampSkill = (z) =>
+    Math.max(SKILL_MIN, Math.min(SKILL_MAX, SKILL_CENTER + SKILL_Z * z));
 
   const golfers = valid
     .map((r, i) => {
-      const skill =
-        r.skill != null
-          ? r.skill // explicit (e.g. DK AvgPointsPerGame path)
-          : r.sgTot != null && canStandardize
-          ? skillFromSg(r.sgTot) // standardized strokes-gained → realistic band
-          : r.sgTot != null
-          ? r.sgTot * SKILL_SCALE // flat fallback (too few golfers to standardize)
-          : Math.max(0.1, (r.salary - 5000) / 5000); // salary-implied fallback
+      const mz = marketZ(r); // odds-implied z (null if no odds in the slate)
+      const sz = zSg(r.sgTot); // SG_TOT z (null if no/too-few SG values)
+      let skill;
+      if (r.skill != null) {
+        skill = r.skill; // explicit (e.g. DK AvgPointsPerGame path)
+      } else if (mz != null && sz != null) {
+        skill = clampSkill(MARKET_WEIGHT * mz + (1 - MARKET_WEIGHT) * sz); // blend
+      } else if (mz != null) {
+        skill = clampSkill(mz); // odds only
+      } else if (sz != null) {
+        skill = clampSkill(sz); // SG only
+      } else if (r.sgTot != null) {
+        skill = r.sgTot * SKILL_SCALE; // flat fallback (too few to standardize)
+      } else {
+        skill = Math.max(0.1, (r.salary - 5000) / 5000); // salary-implied fallback
+      }
       if (r.ownership != null) hasOwnership = true;
       return {
         id: 'g' + i,
