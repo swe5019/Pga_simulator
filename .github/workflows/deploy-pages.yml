@@ -31,6 +31,15 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+      - name: Cache-bust assets
+        # Append ?v=<commit sha> to every local JS/CSS reference so browsers and
+        # the Pages CDN always fetch the just-deployed code instead of a stale
+        # cached copy. Runs only on the artifact we upload (repo stays clean).
+        run: |
+          V="${GITHUB_SHA::8}"
+          sed -i -E "s#(href=\"assets/[^\"?]+\.css)\"#\1?v=$V\"#g; s#(src=\"assets/[^\"?]+\.js)\"#\1?v=$V\"#g" index.html
+          echo "Cache-busted assets with v=$V:"
+          grep -nE 'assets/.*\?v=' index.html || true
       - name: Configure Pages
         uses: actions/configure-pages@v5
       - name: Upload site artifact
