@@ -116,12 +116,32 @@ def archive_history(golfers, meta, raw, suffix):
         now = datetime.datetime.utcnow().replace(microsecond=0).isoformat() + "Z"
         slate = meta["slate"]
 
+        # Read the Data tab once; build an event -> date map so the archive (and
+        # the accuracy page) can order events chronologically.
+        sheet = os.environ.get("SLATE_SHEET_DATA", "Data")
+        engine = "odf" if suffix == ".ods" else "openpyxl"
+        date_by_event = {}
+        df = None
+        try:
+            df = pd.read_excel(io.BytesIO(raw), sheet_name=sheet, engine=engine)
+            cols0 = {str(c).strip().lower(): c for c in df.columns}
+            ct, cd = cols0.get("tournament_name"), cols0.get("date")
+            if ct and cd:
+                for ev, grp in df.groupby(ct):
+                    ds = grp[cd].dropna()
+                    if not ds.empty:
+                        date_by_event[str(ev).strip()] = str(ds.iloc[0]).strip()
+        except Exception:  # noqa: BLE001
+            df = None
+
         # 1) Snapshot the current slate's predicted ownership (merge, keep actuals).
         cur = os.path.join(HIST_DIR, _safe(slate) + ".json")
         doc = _load_json(cur) or {"tournament": slate}
         doc["tournament"] = slate
         doc["updatedUtc"] = now
         doc["cvMaePct"] = meta.get("cvMaePct")
+        if date_by_event.get(slate):
+            doc["date"] = date_by_event[slate]
         doc["predicted"] = {
             g["name"]: g["ownership"] for g in golfers if g.get("ownership") is not None
         }
@@ -129,10 +149,7 @@ def archive_history(golfers, meta, raw, suffix):
 
         # 2) Actual ownership / FPTS for every event in the Data tab. Update each
         #    event's file and compute MAE wherever we have both predicted + actual.
-        sheet = os.environ.get("SLATE_SHEET_DATA", "Data")
-        engine = "odf" if suffix == ".ods" else "openpyxl"
-        df = pd.read_excel(io.BytesIO(raw), sheet_name=sheet, engine=engine)
-        cols = {str(c).strip().lower(): c for c in df.columns}
+        cols = {str(c).strip().lower(): c for c in df.columns} if df is not None else {}
         c_tour = cols.get("tournament_name")
         c_name = cols.get("name")
         c_own = cols.get("actual_ownership")
@@ -164,6 +181,8 @@ def archive_history(golfers, meta, raw, suffix):
                 p = os.path.join(HIST_DIR, _safe(ev) + ".json")
                 d = _load_json(p) or {"tournament": ev}
                 d["tournament"] = ev
+                if date_by_event.get(ev):
+                    d["date"] = date_by_event[ev]
                 d["actual"] = actual
                 if actual_fpts:
                     d["actualFpts"] = actual_fpts
@@ -185,9 +204,11 @@ def archive_history(golfers, meta, raw, suffix):
             events.append({
                 "tournament": d.get("tournament", fn[:-5]),
                 "file": "history/" + fn,
+                "date": d.get("date"),
                 "hasPredicted": bool(d.get("predicted")),
                 "hasActual": bool(d.get("actual")),
                 "maePct": d.get("maePct"),
+                "comparedPlayers": d.get("comparedPlayers"),
                 "updatedUtc": d.get("updatedUtc"),
             })
         _save_json(os.path.join(HIST_DIR, "index.json"),

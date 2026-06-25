@@ -172,6 +172,8 @@ function initTabs() {
       if (btn.dataset.tab === 'handbuild') {
         renderHandBuild();
         renderSaved();
+      } else if (btn.dataset.tab === 'accuracy') {
+        renderAccuracy();
       }
     });
   });
@@ -890,6 +892,91 @@ function exportSaved() {
       .join(',')
   );
   download('birdie_saved_lineups.csv', [header, ...lines].join('\n'));
+}
+
+/* ---------------------- Accuracy page (predicted vs. actual ownership) ---------------------- */
+let _accLoaded = false;
+
+/** Parse a 'M/D/YY' date for sorting; returns a comparable number (or 0). */
+function parseEventDate(s) {
+  const m = /^(\d{1,2})\/(\d{1,2})\/(\d{2,4})$/.exec((s || '').trim());
+  if (!m) return 0;
+  let [, mo, d, y] = m;
+  y = y.length === 2 ? '20' + y : y;
+  return new Date(+y, +mo - 1, +d).getTime() || 0;
+}
+
+/** Fetch data/history/index.json once and render the MAE trend + table. */
+async function renderAccuracy() {
+  if (_accLoaded) return; // single fetch; cheap and avoids re-hitting on every tab open
+  _accLoaded = true;
+  const chart = $('#accChart');
+  const axis = $('#accAxis');
+  const tbody = $('#accTable tbody');
+  const summary = $('#accSummary');
+  try {
+    const res = await fetch('data/history/index.json?t=' + Date.now(), { cache: 'no-store' });
+    if (!res.ok) throw new Error('no history yet (' + res.status + ')');
+    const doc = await res.json();
+    const events = (doc.events || []).slice().sort(
+      (a, b) => parseEventDate(a.date) - parseEventDate(b.date)
+    );
+    const scored = events.filter((e) => e.maePct != null);
+
+    // Summary cards
+    const avg = scored.length
+      ? scored.reduce((s, e) => s + e.maePct, 0) / scored.length
+      : null;
+    const best = scored.length ? Math.min(...scored.map((e) => e.maePct)) : null;
+    summary.innerHTML = [
+      [events.length, 'Events archived'],
+      [scored.length, 'With results'],
+      [avg != null ? avg.toFixed(2) : '—', 'Avg MAE (pts)'],
+      [best != null ? best.toFixed(2) : '—', 'Best MAE (pts)'],
+    ]
+      .map(([v, k]) => `<div class="card"><div class="cardv">${v}</div><div class="cardk">${k}</div></div>`)
+      .join('');
+
+    // Bar chart of MAE per scored event (shorter bar = sharper). We invert the
+    // height so a LOWER MAE shows as a TALLER (better) bar.
+    if (scored.length) {
+      const maxMae = Math.max(...scored.map((e) => e.maePct), 0.1);
+      chart.innerHTML = scored
+        .map((e) => {
+          const h = Math.max(4, (1 - e.maePct / (maxMae * 1.15)) * 100);
+          return `<div class="distbar" title="${e.tournament}: ${e.maePct.toFixed(2)} pts MAE">
+            <div class="distfill" style="height:${h}%"></div></div>`;
+        })
+        .join('');
+      axis.innerHTML = `<span>← earlier</span><span>taller = sharper (lower MAE)</span><span>latest →</span>`;
+    } else {
+      chart.innerHTML = `<div class="hint" style="margin:auto">No results yet — add Actual_Ownership to your Data tab and the chart fills in after the next sync.</div>`;
+      axis.innerHTML = '';
+    }
+
+    // Table (newest first)
+    tbody.innerHTML = events
+      .slice()
+      .reverse()
+      .map((e) => {
+        const status = e.hasActual
+          ? '<span class="tag" style="background:#11241a;color:var(--green2);border:1px solid #1c3b29">scored</span>'
+          : '<span class="tag noproj">pending</span>';
+        return `<tr>
+          <td class="name">${e.tournament}</td>
+          <td class="num dim">${e.date || '—'}</td>
+          <td class="num">${e.maePct != null ? e.maePct.toFixed(2) : '—'}</td>
+          <td class="num dim">${e.comparedPlayers || '—'}</td>
+          <td class="num">${status}</td>
+        </tr>`;
+      })
+      .join('');
+  } catch (e) {
+    summary.innerHTML = '';
+    chart.innerHTML = '';
+    axis.innerHTML = '';
+    tbody.innerHTML = `<tr><td colspan="5" class="dim">No history archived yet — it builds automatically after each sync. (${e.message})</td></tr>`;
+  }
 }
 
 /* ---------------------- CSV import (DraftKings salaries) ---------------------- */

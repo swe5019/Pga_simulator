@@ -22,6 +22,7 @@
       <button class="tab" data-tab="contest">4 · Contest</button>
       <button class="tab" data-tab="export">5 · Export</button>
       <button class="tab" data-tab="handbuild">✋ Hand Build</button>
+      <button class="tab" data-tab="accuracy">📈 Accuracy</button>
     </nav>
   </header>
 
@@ -294,6 +295,36 @@
             </table>
           </div>
         </div>
+      </div>
+    </section>
+
+    <!-- ===================== ACCURACY ===================== -->
+    <section id="accuracy" class="panel">
+      <h2>Ownership Accuracy <span class="sub">— our predicted ownership vs. what actually happened</span></h2>
+      <p class="hint">
+        This is the whole edge: <b>MAE</b> (mean absolute error) is the average gap, in
+        ownership points, between our projection and the field's real ownership — <b>lower is
+        sharper</b>. Each bar is one tournament. Fill in <code>Actual_Ownership</code> in your
+        Data tab after an event and it shows up here automatically.
+      </p>
+      <div id="accSummary" class="cards"></div>
+      <div id="accChartWrap" style="margin-top:16px">
+        <div id="accChart" class="distchart"></div>
+        <div id="accAxis" class="distaxis"></div>
+      </div>
+      <div class="tablewrap" style="margin-top:16px">
+        <table id="accTable">
+          <thead>
+            <tr>
+              <th>Tournament</th>
+              <th class="num">Date</th>
+              <th class="num">MAE (pts)</th>
+              <th class="num">Players</th>
+              <th class="num">Status</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
       </div>
     </section>
   </main>
