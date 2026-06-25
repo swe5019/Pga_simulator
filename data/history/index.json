@@ -1,14 +1,174 @@
 {
- "updatedUtc": "2026-06-25T15:50:47Z",
- "count": 1,
+ "updatedUtc": "2026-06-25T15:52:16Z",
+ "count": 21,
  "events": [
+  {
+   "tournament": "3M_OPEN_2025",
+   "file": "history/3M_OPEN_2025.json",
+   "hasPredicted": false,
+   "hasActual": true,
+   "maePct": null,
+   "updatedUtc": "2026-06-25T15:52:16Z"
+  },
+  {
+   "tournament": "CADILLAC_2026",
+   "file": "history/CADILLAC_2026.json",
+   "hasPredicted": false,
+   "hasActual": true,
+   "maePct": null,
+   "updatedUtc": "2026-06-25T15:52:16Z"
+  },
+  {
+   "tournament": "CHARLES_SCHWAB_2026",
+   "file": "history/CHARLES_SCHWAB_2026.json",
+   "hasPredicted": false,
+   "hasActual": true,
+   "maePct": null,
+   "updatedUtc": "2026-06-25T15:52:16Z"
+  },
+  {
+   "tournament": "JDC_2025",
+   "file": "history/JDC_2025.json",
+   "hasPredicted": false,
+   "hasActual": true,
+   "maePct": null,
+   "updatedUtc": "2026-06-25T15:52:16Z"
+  },
+  {
+   "tournament": "MASTERS_2026",
+   "file": "history/MASTERS_2026.json",
+   "hasPredicted": false,
+   "hasActual": true,
+   "maePct": null,
+   "updatedUtc": "2026-06-25T15:52:16Z"
+  },
+  {
+   "tournament": "MBC_2026",
+   "file": "history/MBC_2026.json",
+   "hasPredicted": false,
+   "hasActual": true,
+   "maePct": null,
+   "updatedUtc": "2026-06-25T15:52:16Z"
+  },
+  {
+   "tournament": "MEMORIAL_2026",
+   "file": "history/MEMORIAL_2026.json",
+   "hasPredicted": false,
+   "hasActual": true,
+   "maePct": null,
+   "updatedUtc": "2026-06-25T15:52:16Z"
+  },
+  {
+   "tournament": "OPEN_CHAMPIONSHIP_2025",
+   "file": "history/OPEN_CHAMPIONSHIP_2025.json",
+   "hasPredicted": false,
+   "hasActual": true,
+   "maePct": null,
+   "updatedUtc": "2026-06-25T15:52:16Z"
+  },
+  {
+   "tournament": "PGA_2026",
+   "file": "history/PGA_2026.json",
+   "hasPredicted": false,
+   "hasActual": true,
+   "maePct": null,
+   "updatedUtc": "2026-06-25T15:52:16Z"
+  },
+  {
+   "tournament": "RBC_2025",
+   "file": "history/RBC_2025.json",
+   "hasPredicted": false,
+   "hasActual": true,
+   "maePct": null,
+   "updatedUtc": "2026-06-25T15:52:16Z"
+  },
+  {
+   "tournament": "RBC_2026",
+   "file": "history/RBC_2026.json",
+   "hasPredicted": false,
+   "hasActual": true,
+   "maePct": null,
+   "updatedUtc": "2026-06-25T15:52:16Z"
+  },
+  {
+   "tournament": "RBC_Canadian_2026",
+   "file": "history/RBC_Canadian_2026.json",
+   "hasPredicted": false,
+   "hasActual": true,
+   "maePct": null,
+   "updatedUtc": "2026-06-25T15:52:16Z"
+  },
+  {
+   "tournament": "ROCKET_2025",
+   "file": "history/ROCKET_2025.json",
+   "hasPredicted": false,
+   "hasActual": true,
+   "maePct": null,
+   "updatedUtc": "2026-06-25T15:52:16Z"
+  },
+  {
+   "tournament": "Scottish_Open_2025",
+   "file": "history/Scottish_Open_2025.json",
+   "hasPredicted": false,
+   "hasActual": true,
+   "maePct": null,
+   "updatedUtc": "2026-06-25T15:52:16Z"
+  },
+  {
+   "tournament": "TRAVELERS_2025",
+   "file": "history/TRAVELERS_2025.json",
+   "hasPredicted": false,
+   "hasActual": true,
+   "maePct": null,
+   "updatedUtc": "2026-06-25T15:52:16Z"
+  },
   {
    "tournament": "TRAVELERS_2026",
    "file": "history/TRAVELERS_2026.json",
    "hasPredicted": true,
    "hasActual": false,
    "maePct": null,
-   "updatedUtc": "2026-06-25T15:50:47Z"
+   "updatedUtc": "2026-06-25T15:52:16Z"
+  },
+  {
+   "tournament": "TRUIST_2026",
+   "file": "history/TRUIST_2026.json",
+   "hasPredicted": false,
+   "hasActual": true,
+   "maePct": null,
+   "updatedUtc": "2026-06-25T15:52:16Z"
+  },
+  {
+   "tournament": "US_OPEN_2025",
+   "file": "history/US_OPEN_2025.json",
+   "hasPredicted": false,
+   "hasActual": true,
+   "maePct": null,
+   "updatedUtc": "2026-06-25T15:52:16Z"
+  },
+  {
+   "tournament": "US_OPEN_2026",
+   "file": "history/US_OPEN_2026.json",
+   "hasPredicted": false,
+   "hasActual": true,
+   "maePct": null,
+   "updatedUtc": "2026-06-25T15:52:16Z"
+  },
+  {
+   "tournament": "VALERO_2026",
+   "file": "history/VALERO_2026.json",
+   "hasPredicted": false,
+   "hasActual": true,
+   "maePct": null,
+   "updatedUtc": "2026-06-25T15:52:16Z"
+  },
+  {
+   "tournament": "WYNDHAM_2025",
+   "file": "history/WYNDHAM_2025.json",
+   "hasPredicted": false,
+   "hasActual": true,
+   "maePct": null,
+   "updatedUtc": "2026-06-25T15:52:16Z"
   }
  ]
 }
