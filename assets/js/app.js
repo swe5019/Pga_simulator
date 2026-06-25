@@ -658,7 +658,7 @@ function renderReview() {
           if (fp != null) totProj += fp;
           return `<tr>
             <td class="hn">${g.name}</td>
-            <td class="num">${(g.salary / 1000).toFixed(1)}k</td>
+            <td class="num">${money(g.salary)}</td>
             <td class="num dim">${g.ownership != null ? g.ownership.toFixed(1) : '—'}</td>
             <td class="num">${fp != null ? fp.toFixed(1) : '—'}</td>
           </tr>`;
@@ -676,7 +676,7 @@ function renderReview() {
           <tbody>${rows}</tbody>
           <tfoot><tr>
             <td>Total</td>
-            <td class="num">${(lu.salary / 1000).toFixed(1)}k</td>
+            <td class="num">${money(lu.salary)}</td>
             <td class="num">${totOwn.toFixed(0)}%</td>
             <td class="num">${totProj ? totProj.toFixed(1) : num(lu.mean)}</td>
           </tr></tfoot>
