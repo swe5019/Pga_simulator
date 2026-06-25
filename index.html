@@ -21,6 +21,7 @@
       <button class="tab" data-tab="lineups">3 · Review</button>
       <button class="tab" data-tab="contest">4 · Contest</button>
       <button class="tab" data-tab="export">5 · Export</button>
+      <button class="tab" data-tab="handbuild">✋ Hand Build</button>
     </nav>
   </header>
 
@@ -243,6 +244,53 @@
         <button id="exportDetailed" class="ghost">⬇ Detailed pool CSV</button>
       </div>
       <pre id="exportPreview" class="preview"></pre>
+    </section>
+
+    <!-- ===================== HAND BUILD ===================== -->
+    <section id="handbuild" class="panel">
+      <h2>Hand Build <span class="sub">— build one lineup yourself, see your salary as you go</span></h2>
+      <p class="hint">
+        For single-entry and small-stakes play: tap <b>Add</b> to drop a golfer in, watch your
+        <b>salary remaining</b> update, and <b>Save</b> the lineup when you've got 6. Run the sim
+        first (tab 1) to see each golfer's projected fantasy points here.
+      </p>
+
+      <div class="split">
+        <div>
+          <div id="handSummary" class="cards"></div>
+          <h2 class="hbh">Your Lineup <span class="sub" id="handSpots">— 0 / 6</span></h2>
+          <div id="handLineup" class="handlu"></div>
+          <div class="exportbtns" style="margin-top:12px">
+            <button id="handSave" class="primary" disabled>＋ Save Lineup</button>
+            <button id="handClear" class="ghost">Clear</button>
+          </div>
+
+          <h2 class="hbh">Saved Lineups <span class="sub" id="savedCount"></span></h2>
+          <div id="savedList" class="handlu"></div>
+          <div class="exportbtns" style="margin-top:8px">
+            <button id="savedExport" class="ghost">⬇ Export saved → DK CSV</button>
+            <button id="savedClear" class="ghost">Clear all saved</button>
+          </div>
+        </div>
+
+        <div>
+          <h2 class="hbh">Add Golfers <span class="sub">— click Add to roster a player</span></h2>
+          <div class="tablewrap">
+            <table id="handPool">
+              <thead>
+                <tr>
+                  <th>Golfer</th>
+                  <th class="num">Sal</th>
+                  <th class="num">Own%</th>
+                  <th class="num">Fpts</th>
+                  <th class="ctr"></th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
     </section>
   </main>
 

@@ -18,6 +18,17 @@ being yet another optimizer.
 
 ## 2. Competitive landscape (public pricing, verify)
 
+> **Important — apples vs. oranges on price (read this first).** SaberSim and
+> Stokastic's headline prices below are **multi-sport, all-access** subscriptions
+> (NFL/NBA/MLB/PGA in one bill). They are **not** golf-only prices. Birdie is
+> launching **PGA-only**, so the honest like-for-like comparison is **Data Golf
+> (~$30/mo, golf-only)** — that's the real anchor for our price band, not the
+> $97–$400 multi-sport bundles. We can still *position against* the incumbents
+> ("you're paying $200 for a bundle; get sharper golf ownership for less"), but
+> we should not pretend $59 is "60% off SaberSim" when SaberSim's $97 also buys
+> five other sports. A PGA-only buyer compares us to Data Golf and to the
+> golf-only slice of those bundles (most don't sell one).
+
 | Product | What it is | Monthly price | Notes |
 |---|---|---|---|
 | **SaberSim** | Sims + optimizer + contest sims, multi-sport | **$97 / $197 / $297** (Starter/Standard/Ultimate) | Most polished optimizer; Ultimate adds contest sims. Priciest *optimizer*. |
@@ -67,19 +78,28 @@ Differentiators (in priority order):
 
 **Anchor below the incumbents, monetize accuracy, expand to a pro tier.**
 
+**These tiers are sized for a PGA-only product** — anchored to the golf-only band
+(Data Golf ~$30), not the multi-sport bundles. A weekly golf grinder will balk at
+$97 for "just golf," so we stay in a believable golf-only range.
+
 | Tier | Target | Launch price | Includes |
 |---|---|---|---|
 | **Free trial** | Acquisition | **14 days, full access, no card OR card-required** (test both) | Everything in Pro for one event cycle. |
-| **Core** | Mid-stakes | **$29/mo** (or $19 intro) | Ownership projections + win/top-5/top-10 equity, sim projections, basic optimizer, DK upload. |
-| **Pro** | Grinders | **$59/mo** | Everything: contest ROI (exact payouts), exposure tools, entries-file automation, course-fit, larger lineup builds. |
-| **Edge / BYO-model** | Sharps | **$99–$149/mo** | Bring-your-own SG/odds/projections, model auto-retrain, API/export, priority. |
+| **Core** | Mid-stakes | **$25/mo** (or $15 intro) | Ownership projections + win/top-5/top-10 equity, sim projections, basic optimizer, DK upload. |
+| **Pro** | Grinders | **$45/mo** | Everything: contest ROI (exact payouts), exposure tools, entries-file automation, course-fit, larger lineup builds. |
+| **Edge / BYO-model** | Sharps | **$79–$99/mo** | Bring-your-own SG/odds/projections, model auto-retrain, API/export, priority. |
 | **Annual** | Retention | **2 months free (~17% off)** | Smooths seasonal churn. |
+| **Weekly pass** | Casual / majors | **$9.99/week** | Single-event access — captures the casual who only plays a major. |
 
-**Rationale:**
-- **Undercut hard at the top of funnel.** Pro at **$59** sits *below* SaberSim Starter ($97) and
-  *well below* Stokastic ($200+). That's the "switch and save" wedge while still a healthy SaaS price.
-- **Core at $29** matches the Data Golf model-first band and converts price-sensitive players who'd
-  never pay $97.
+**Rationale (PGA-only framing):**
+- **Anchor to Data Golf (~$30 golf-only), not the bundles.** **Pro at $45** is a small
+  premium over Data Golf, justified by the full sim/optimizer/contest-ROI stack and our
+  ownership accuracy. **Core at $25** sits just under Data Golf to win price-sensitive players.
+- **Position against the bundles without faking the math.** Messaging is "sharper *golf*
+  ownership without a $200 multi-sport bundle you don't need" — true and compelling — rather
+  than a misleading "60% off SaberSim."
+- **A weekly pass** monetizes the huge casual spike around majors/Signature events, where most
+  golf-DFS interest actually lives, and feeds the trial→sub funnel.
 - **Edge tier** captures the high-WTP sharps and protects margin — our true differentiator.
 - **Intro pricing** ($19 Core / first-month discount) to seed reviews and testimonials; raise to
   standard after the first ~100 paying users.
@@ -119,7 +139,8 @@ SaaS price so the brand reads "premium model, fair price," not "free tool."
    category playbook (creator code → 15% off, rev-share).
 5. **Proof-of-accuracy marketing** — publish back-tested MAE and post-slate "we said X%, actual was
    Y%" recaps. Nobody else does this; it's credible and differentiating.
-6. **Head-to-head "switch" campaign** — "Paying $200 for ownership? Ours is more accurate at $59."
+6. **Head-to-head "switch" campaign** — "Paying $200 for a multi-sport bundle you barely use?
+   Get sharper *golf* ownership for $45 — golf-only, and more accurate."
 
 ---
 
@@ -141,7 +162,7 @@ SaaS price so the brand reads "premium model, fair price," not "free tool."
 
 - **Infra cost is ~$0** (GitHub Pages + Actions, client-side compute). Near-100% gross margin →
   pricing freedom and runway to undercut.
-- **Illustrative:** 200 Pro @ $59 = ~$11.8k MRR; 500 mixed (Core/Pro/Edge) ≈ $20–25k MRR.
+- **Illustrative:** 200 Pro @ $45 = ~$9k MRR; 500 mixed (Core/Pro/Edge) ≈ $15–20k MRR.
 - **Watch:** trial→paid conversion (target 20–30% card-required, 5–10% no-card), monthly churn
   (DFS is seasonal — target <8% in-season; expect summer/major spikes), CAC (mostly content/affiliate
   → low).

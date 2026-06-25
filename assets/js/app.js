@@ -14,7 +14,13 @@ const State = {
   dkPlayers: null,         // Map<normName, {name, dkId, ...}> from dk.json
   contest: null,           // last contest-sim result
   dkContests: null,        // real DK contests + payout tiers (dk_contests.json)
+  hand: { ids: [] },       // hand-build lineup in progress (golfer ids)
 };
+
+// DraftKings PGA Classic roster rules.
+const ROSTER_SIZE = 6;
+const SALARY_CAP = 50000;
+const SAVED_KEY = 'birdie_saved_lineups';
 
 /** American odds → implied probability (handles +/-). */
 function impliedFromAmerican(o) {
@@ -149,6 +155,11 @@ const byId = (id) => State.golfers.find((g) => g.id === id);
 const money = (n) => '$' + Math.round(n).toLocaleString();
 const pct = (n) => (n == null ? '—' : n.toFixed(1) + '%');
 const num = (n) => (n == null ? '—' : n.toFixed(1));
+/** Projected fantasy points for a golfer (mean of the sim), or null if unrun. */
+const projOf = (g) => {
+  const r = State.simResults && State.simResults.get(g.id);
+  return r ? r.mean : null;
+};
 
 /* ---------------------- Tabs ---------------------- */
 function initTabs() {
@@ -158,6 +169,10 @@ function initTabs() {
       $$('.panel').forEach((p) => p.classList.remove('active'));
       btn.classList.add('active');
       $('#' + btn.dataset.tab).classList.add('active');
+      if (btn.dataset.tab === 'handbuild') {
+        renderHandBuild();
+        renderSaved();
+      }
     });
   });
 }
@@ -165,6 +180,7 @@ function initTabs() {
 /* ---------------------- Slate setup ---------------------- */
 function loadSampleSlate() {
   State.golfers = window.Data.buildSlate(window.Data.SAMPLE_SLATE);
+  State.hand.ids = []; // new slate — clear any in-progress hand lineup
   State.simResults = null;
   State.build = null;
   State.hasRealOwnership = false;
@@ -189,6 +205,7 @@ async function loadAutoSlate() {
 
     const { golfers, hasOwnership } = window.Data.buildSlateFromMaster(records);
     State.golfers = golfers;
+    State.hand.ids = []; // new slate — clear any in-progress hand lineup
     State.simResults = null;
     State.build = null;
     State.hasRealOwnership = hasOwnership;
@@ -406,6 +423,7 @@ function runSim() {
     const ms = Math.round(performance.now() - t0);
     status.textContent = `✓ ${nSims.toLocaleString()} sims in ${ms} ms`;
     renderPlayers();
+    renderHandBuild(); // surface fresh projected points in the hand builder
   }, 30);
 }
 
@@ -609,29 +627,254 @@ function renderReview() {
     })
     .join('');
 
-  // Lineup cards
+  // Lineup cards — vertical: each golfer stacked with salary / ownership / fpts,
+  // totals in the footer, plus a one-tap Save button.
   $('#poolCount').textContent = `— ${State.build.lineups.length} lineups`;
   const list = $('#lineupList');
   list.innerHTML = State.build.lineups
     .map((lu, i) => {
-      const names = lu.players
-        .map((id) => byId(id))
-        .sort((a, b) => b.salary - a.salary)
-        .map((g) => `<span class="chip">${g.name} <em>${(g.salary / 1000).toFixed(1)}k</em></span>`)
+      const players = lu.players.map(byId).sort((a, b) => b.salary - a.salary);
+      let totOwn = 0;
+      let totProj = 0;
+      const rows = players
+        .map((g) => {
+          const fp = projOf(g);
+          totOwn += g.ownership || 0;
+          if (fp != null) totProj += fp;
+          return `<tr>
+            <td class="hn">${g.name}</td>
+            <td class="num">${(g.salary / 1000).toFixed(1)}k</td>
+            <td class="num dim">${g.ownership != null ? g.ownership.toFixed(1) : '—'}</td>
+            <td class="num">${fp != null ? fp.toFixed(1) : '—'}</td>
+          </tr>`;
+        })
         .join('');
       return `<div class="lineup">
         <div class="lhead">
           <span class="lnum">#${i + 1}</span>
           <span class="lstat">Score <b class="up">${num(lu.score)}</b></span>
-          <span class="lstat">Proj <b>${num(lu.mean)}</b></span>
           <span class="lstat">Ceil <b>${num(lu.ceiling)}</b></span>
-          <span class="lstat">Own <b>${lu.ownSum != null ? lu.ownSum.toFixed(0) + '%' : '—'}</b></span>
-          <span class="lstat">${money(lu.salary)}</span>
+          <button class="savelu" data-lu="${i}" title="Save to your saved lineups">＋ Save</button>
         </div>
-        <div class="chips">${names}</div>
+        <table class="lut">
+          <thead><tr><th>Golfer</th><th class="num">Sal</th><th class="num">Own</th><th class="num">Fpts</th></tr></thead>
+          <tbody>${rows}</tbody>
+          <tfoot><tr>
+            <td>Total</td>
+            <td class="num">${(lu.salary / 1000).toFixed(1)}k</td>
+            <td class="num">${totOwn.toFixed(0)}%</td>
+            <td class="num">${totProj ? totProj.toFixed(1) : num(lu.mean)}</td>
+          </tr></tfoot>
+        </table>
       </div>`;
     })
     .join('');
+
+  $$('#lineupList .savelu').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const lu = State.build.lineups[+btn.dataset.lu];
+      saveLineup(lu.players.map(byId), 'pool');
+      btn.textContent = '✓ Saved';
+      btn.classList.add('saved');
+    });
+  });
+}
+
+/* ---------------------- Hand build (manual single lineup) ---------------------- */
+/** Golfers available to roster: in this week's field and not OUT/WD. */
+function rosterableGolfers() {
+  return State.golfers
+    .filter((g) => !g.notInSlate && !g.out)
+    .sort((a, b) => b.salary - a.salary);
+}
+
+function handPlayers() {
+  return State.hand.ids.map(byId).filter(Boolean);
+}
+
+function addToHand(id) {
+  const h = State.hand;
+  if (h.ids.includes(id) || h.ids.length >= ROSTER_SIZE) return;
+  const g = byId(id);
+  const used = handPlayers().reduce((s, x) => s + x.salary, 0);
+  if (used + g.salary > SALARY_CAP) return; // would blow the cap
+  h.ids.push(id);
+  renderHandBuild();
+}
+
+function removeFromHand(id) {
+  State.hand.ids = State.hand.ids.filter((x) => x !== id);
+  renderHandBuild();
+}
+
+function clearHand() {
+  State.hand.ids = [];
+  renderHandBuild();
+}
+
+/** Re-draw the hand-build summary, current lineup, and the add-pool table. */
+function renderHandBuild() {
+  if (!$('#handLineup')) return; // tab not in DOM
+  const players = handPlayers();
+  const used = players.reduce((s, g) => s + g.salary, 0);
+  const remaining = SALARY_CAP - used;
+  const spotsLeft = ROSTER_SIZE - players.length;
+  const totProj = players.reduce((s, g) => s + (projOf(g) || 0), 0);
+  const totOwn = players.reduce((s, g) => s + (g.ownership || 0), 0);
+  const perRemain = spotsLeft > 0 ? Math.floor(remaining / spotsLeft) : 0;
+
+  // Summary cards
+  $('#handSummary').innerHTML = [
+    [`${players.length} / ${ROSTER_SIZE}`, 'Golfers'],
+    [money(remaining), 'Salary left'],
+    [spotsLeft > 0 ? money(perRemain) : '—', 'Avg / spot left'],
+    [totProj ? totProj.toFixed(1) : '—', 'Proj pts'],
+    [totOwn ? totOwn.toFixed(0) + '%' : '—', 'Total own'],
+  ]
+    .map(([v, k]) => `<div class="card"><div class="cardv">${v}</div><div class="cardk">${k}</div></div>`)
+    .join('');
+  $('#handSpots').textContent = `— ${players.length} / ${ROSTER_SIZE} · ${money(remaining)} left`;
+
+  // Current lineup (filled + empty slots)
+  const slots = players
+    .sort((a, b) => b.salary - a.salary)
+    .map((g) => {
+      const fp = projOf(g);
+      return `<div class="hbslot">
+        <span>${g.name}</span>
+        <span class="hbsal">${money(g.salary)}</span>
+        <span class="hbsal">${fp != null ? fp.toFixed(1) + ' pts' : '—'}</span>
+        <button class="rm" data-id="${g.id}">Remove</button>
+      </div>`;
+    });
+  for (let i = players.length; i < ROSTER_SIZE; i++) {
+    slots.push(`<div class="hbslot empty"><span>Empty slot ${i + 1}</span><span></span><span></span><span></span></div>`);
+  }
+  $('#handLineup').innerHTML = slots.join('');
+
+  // Save button enabled only with a legal full lineup.
+  const saveBtn = $('#handSave');
+  saveBtn.disabled = !(players.length === ROSTER_SIZE && used <= SALARY_CAP);
+
+  // Add-pool table
+  const inLineup = new Set(State.hand.ids);
+  $('#handPool tbody').innerHTML = rosterableGolfers()
+    .map((g) => {
+      const fp = projOf(g);
+      const full = players.length >= ROSTER_SIZE;
+      const overCap = used + g.salary > SALARY_CAP;
+      const has = inLineup.has(g.id);
+      const disabled = has || full || overCap;
+      const label = has ? 'Added' : overCap ? 'Over cap' : 'Add';
+      return `<tr class="${has ? 'inlineup' : ''}">
+        <td class="name">${g.name}${g.out ? ' <span class="tag out">OUT</span>' : ''}</td>
+        <td class="num">${money(g.salary)}</td>
+        <td class="num dim">${g.ownership != null ? g.ownership.toFixed(1) : '—'}</td>
+        <td class="num">${fp != null ? fp.toFixed(1) : '—'}</td>
+        <td class="ctr"><button class="addbtn" data-id="${g.id}" ${disabled ? 'disabled' : ''}>${label}</button></td>
+      </tr>`;
+    })
+    .join('');
+
+  $$('#handPool .addbtn').forEach((b) =>
+    b.addEventListener('click', () => addToHand(b.dataset.id))
+  );
+  $$('#handLineup .rm').forEach((b) =>
+    b.addEventListener('click', () => removeFromHand(b.dataset.id))
+  );
+}
+
+/* ---------------------- Saved lineups (localStorage) ---------------------- */
+function loadSaved() {
+  try {
+    return JSON.parse(localStorage.getItem(SAVED_KEY)) || [];
+  } catch (e) {
+    return [];
+  }
+}
+
+function persistSaved(arr) {
+  try {
+    localStorage.setItem(SAVED_KEY, JSON.stringify(arr));
+  } catch (e) {
+    /* storage full / disabled — non-fatal */
+  }
+}
+
+/** Save a lineup (array of golfer objects) to localStorage. */
+function saveLineup(golfers, source) {
+  const arr = loadSaved();
+  arr.unshift({
+    ts: Date.now(),
+    source: source || 'hand',
+    salary: golfers.reduce((s, g) => s + g.salary, 0),
+    players: golfers
+      .slice()
+      .sort((a, b) => b.salary - a.salary)
+      .map((g) => ({ id: g.id, name: g.name, salary: g.salary })),
+  });
+  persistSaved(arr);
+  renderSaved();
+}
+
+function removeSaved(ts) {
+  persistSaved(loadSaved().filter((l) => l.ts !== ts));
+  renderSaved();
+}
+
+function clearSaved() {
+  if (!loadSaved().length) return;
+  if (!window.confirm('Delete all saved lineups?')) return;
+  persistSaved([]);
+  renderSaved();
+}
+
+function renderSaved() {
+  const wrap = $('#savedList');
+  if (!wrap) return;
+  const saved = loadSaved();
+  $('#savedCount').textContent = saved.length ? `— ${saved.length}` : '';
+  if (!saved.length) {
+    wrap.innerHTML = `<div class="hbslot empty"><span>No saved lineups yet — build one and hit Save.</span></div>`;
+    return;
+  }
+  wrap.innerHTML = saved
+    .map((l) => {
+      const when = new Date(l.ts).toLocaleString();
+      const names = l.players.map((p) => p.name).join(', ');
+      return `<div class="hbslot savedcard">
+        <div class="savedmeta">
+          <span>${money(l.salary)}</span>
+          <span>${l.source === 'pool' ? 'from pool' : 'hand built'}</span>
+          <span>${when}</span>
+          <button class="rm" data-ts="${l.ts}">✕</button>
+        </div>
+        <div class="savednames">${names}</div>
+      </div>`;
+    })
+    .join('');
+  $$('#savedList .rm').forEach((b) =>
+    b.addEventListener('click', () => removeSaved(+b.dataset.ts))
+  );
+}
+
+/** Export all saved lineups as a DraftKings upload CSV. */
+function exportSaved() {
+  const saved = loadSaved();
+  if (!saved.length) {
+    $('#exportPreview').textContent = 'No saved lineups to export.';
+    return;
+  }
+  const header = 'G,G,G,G,G,G';
+  const lines = saved.map((l) =>
+    l.players
+      .map((p) => {
+        const g = byId(p.id);
+        return (g && dkEntryName(g)) || p.name;
+      })
+      .join(',')
+  );
+  download('birdie_saved_lineups.csv', [header, ...lines].join('\n'));
 }
 
 /* ---------------------- CSV import (DraftKings salaries) ---------------------- */
@@ -643,6 +886,7 @@ function importCsv(file) {
       if (!records.length) throw new Error('No rows parsed');
       const { golfers, hasOwnership } = window.Data.buildSlateFromMaster(records);
       State.golfers = golfers;
+      State.hand.ids = []; // new slate — clear any in-progress hand lineup
       State.simResults = null;
       State.build = null;
       State.hasRealOwnership = hasOwnership;
@@ -879,6 +1123,17 @@ function init() {
   $('#importCsv').addEventListener('change', (e) => {
     if (e.target.files[0]) importCsv(e.target.files[0]);
   });
+  // Hand build + saved lineups
+  $('#handSave').addEventListener('click', () => {
+    const players = handPlayers();
+    if (players.length !== ROSTER_SIZE) return;
+    saveLineup(players, 'hand');
+    clearHand();
+  });
+  $('#handClear').addEventListener('click', clearHand);
+  $('#savedExport').addEventListener('click', exportSaved);
+  $('#savedClear').addEventListener('click', clearSaved);
+  renderSaved();
 }
 
 document.addEventListener('DOMContentLoaded', init);

@@ -76,11 +76,35 @@ function buildSlate(rawList) {
 
 /**
  * Strokes-gained → skill calibration.
- * The sim was tuned for skill ~0.25–1.6 (strokes/round vs. field), while real
- * SG_TOT runs higher (elite ~2.7). This scalar keeps the field shape realistic
- * when feeding raw SG_TOT. Bump it up to spread the field, down to compress it.
+ *
+ * The sim is tuned for skill ~0.0–1.5 (strokes/round vs. the simulated field).
+ * A raw SG_TOT column varies wildly week to week — one sheet's SG might span
+ * ±1, another ±4 — so a flat multiply over-/under-spreads the field depending
+ * on the source. Instead we STANDARDIZE: convert each golfer's SG to a z-score
+ * within the slate, then map that onto a fixed, realistic skill band. This
+ * keeps projections stable no matter how wide the input SG column is.
+ *
+ *   skill = SKILL_CENTER + SKILL_Z * z   (clamped to [SKILL_MIN, SKILL_MAX])
+ *
+ * Calibrated so the best player in a full field projects to a ~88 mean (an
+ * elite DK average), the median to ~60, and value plays to the mid-40s — and
+ * only ~6 golfers carry a 100+ ceiling, matching real tournaments.
  */
+const SKILL_CENTER = 0.45;
+const SKILL_Z = 0.35;
+const SKILL_MIN = -0.25;
+const SKILL_MAX = 1.5;
+// Flat fallback multiplier used only when we can't standardize (e.g. a DK CSV
+// import that has no SG column for the field, or a single golfer).
 const SKILL_SCALE = 0.6;
+
+/** Mean & std of a numeric array (population std). */
+function meanStd(arr) {
+  const mean = arr.reduce((a, b) => a + b, 0) / arr.length;
+  const sd =
+    Math.sqrt(arr.reduce((a, b) => a + (b - mean) ** 2, 0) / arr.length) || 1;
+  return { mean, sd };
+}
 
 /**
  * Build the slate from an imported "master" record set (e.g. data/slate.json,
@@ -92,14 +116,27 @@ const SKILL_SCALE = 0.6;
  */
 function buildSlateFromMaster(records) {
   let hasOwnership = false;
-  const golfers = records
-    .filter((r) => r.name && r.salary)
+  const valid = records.filter((r) => r.name && r.salary);
+
+  // Standardize SG_TOT across the slate so the field shape is stable no matter
+  // how wide/narrow the source SG column is (see SKILL_CENTER notes above).
+  const sgVals = valid.filter((r) => r.sgTot != null).map((r) => r.sgTot);
+  const canStandardize = sgVals.length >= 5;
+  const sgStats = canStandardize ? meanStd(sgVals) : null;
+  const skillFromSg = (sg) => {
+    const z = (sg - sgStats.mean) / sgStats.sd;
+    return Math.max(SKILL_MIN, Math.min(SKILL_MAX, SKILL_CENTER + SKILL_Z * z));
+  };
+
+  const golfers = valid
     .map((r, i) => {
       const skill =
         r.skill != null
           ? r.skill // explicit (e.g. DK AvgPointsPerGame path)
+          : r.sgTot != null && canStandardize
+          ? skillFromSg(r.sgTot) // standardized strokes-gained → realistic band
           : r.sgTot != null
-          ? r.sgTot * SKILL_SCALE // real strokes-gained, scaled to sim range
+          ? r.sgTot * SKILL_SCALE // flat fallback (too few golfers to standardize)
           : Math.max(0.1, (r.salary - 5000) / 5000); // salary-implied fallback
       if (r.ownership != null) hasOwnership = true;
       return {
