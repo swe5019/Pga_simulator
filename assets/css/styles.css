@@ -185,6 +185,14 @@ button.addbtn:hover:not(:disabled) { border-color: var(--green); color: var(--gr
 button.addbtn:disabled { opacity: .35; cursor: default; }
 tr.inlineup { background: #11241a; }
 
+/* Cut toggle */
+label.cutbox {
+  display: flex; align-items: center; gap: 6px; cursor: pointer;
+  font-size: 13px; color: var(--text); text-transform: none; letter-spacing: 0;
+  padding: 5px 0;
+}
+label.cutbox input { cursor: pointer; }
+
 /* ---------- Export ---------- */
 .exportbtns { display: flex; gap: 12px; margin-bottom: 16px; }
 .preview {

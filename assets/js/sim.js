@@ -127,8 +127,10 @@ function simRound(rng, daySkill) {
  *
  * Cut logic: after 36 holes we compare the golfer's strokes vs. par to a
  * rough cut line. Worse than the line => missed cut => no weekend points.
+ * For no-cut events (Signature events like the Travelers, limited fields)
+ * pass hasCut=false and every golfer plays all 4 rounds.
  */
-function simOneTournament(rng, golfer) {
+function simOneTournament(rng, golfer, hasCut) {
   const skill = golfer.skill;
   // Per-golfer consistency: stars swing less round-to-round than journeymen.
   const formSigma = golfer.variance != null ? golfer.variance : 0.7;
@@ -144,8 +146,8 @@ function simOneTournament(rng, golfer) {
     if (rd < 2) {
       for (const h of holes) strokesVsPar36 += h.rel;
     }
-    // Apply the cut after 2 rounds.
-    if (rd === 1) {
+    // Apply the cut after 2 rounds (skipped entirely for no-cut events).
+    if (hasCut && rd === 1) {
       // Cut line ~ +0.5 over par for a 72 course; add noise for field strength.
       const cutLine = 0.5 + gauss(rng) * 2;
       if (strokesVsPar36 > cutLine) {
@@ -165,9 +167,11 @@ function simOneTournament(rng, golfer) {
  * @param {number} nSims  - number of simulated tournaments
  * @param {number} seed   - RNG seed for reproducibility
  * @param {function} onProgress - optional callback(fractionDone)
+ * @param {object} opts   - { hasCut: boolean } — false for no-cut Signature events
  * @returns {Map<id, {samples:Float32Array, mean, ceiling, floor, cutPct, ...}>}
  */
-function runSimulation(golfers, nSims, seed, onProgress) {
+function runSimulation(golfers, nSims, seed, onProgress, opts) {
+  const hasCut = !opts || opts.hasCut !== false; // default: there is a cut
   const rng = makeRng(seed || 12345);
   const results = new Map();
 
@@ -180,7 +184,7 @@ function runSimulation(golfers, nSims, seed, onProgress) {
 
   for (let i = 0; i < nSims; i++) {
     for (const g of golfers) {
-      const r = simOneTournament(rng, g);
+      const r = simOneTournament(rng, g, hasCut);
       const slot = results.get(g.id);
       slot.samples[i] = r.points;
       if (r.madeCut) slot.madeCutCount++;

@@ -212,6 +212,7 @@ async function loadAutoSlate() {
     // Only model ownership if the file didn't supply real projections.
     if (!hasOwnership) window.Data.projectOwnership(State.golfers, null);
     await overlayDk(); // official salaries + OUT/WD status from DraftKings
+    autoDetectCut();
     renderPlayers();
 
     const when = doc.updatedUtc ? new Date(doc.updatedUtc).toLocaleString() : 'now';
@@ -405,6 +406,19 @@ function applyCourseFit() {
     : 'No golfers have SG splits to weight (import a slate with SG_OTT/APP/ARG/PUTT).';
 }
 
+/**
+ * Auto-set the cut toggle from field size. Signature / limited-field events
+ * (e.g. the Travelers) have ~70-78 players and NO cut; full-field events run
+ * 132-156 with a 36-hole cut. We flip the checkbox so the default is right,
+ * but the user can always override it.
+ */
+function autoDetectCut() {
+  const field = State.golfers.filter((g) => !g.notInSlate).length;
+  const cutBox = $('#hasCut');
+  if (!cutBox) return;
+  cutBox.checked = field >= 100; // <100 golfers ⇒ no-cut Signature/limited field
+}
+
 /* ---------------------- Run simulation ---------------------- */
 function runSim() {
   const nSims = parseInt($('#nSims').value, 10);
@@ -413,9 +427,10 @@ function runSim() {
   status.textContent = 'Simulating…';
 
   // Defer so the status text paints before the heavy loop.
+  const hasCut = $('#hasCut').checked;
   setTimeout(() => {
     const t0 = performance.now();
-    State.simResults = window.Sim.runSimulation(State.golfers, nSims, seed);
+    State.simResults = window.Sim.runSimulation(State.golfers, nSims, seed, null, { hasCut });
     // Keep the master file's real ownership; only model it for the sample slate.
     if (!State.hasRealOwnership) {
       window.Data.projectOwnership(State.golfers, State.simResults);
