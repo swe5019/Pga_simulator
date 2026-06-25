@@ -6,6 +6,11 @@ on:
     - cron: '0 11,15,19,23 * * *'   # 4x/day
   # Let you trigger it on demand from the Actions tab.
   workflow_dispatch:
+    inputs:
+      tune:
+        description: Run a one-off Optuna hyperparameter search (1) instead of syncing
+        required: false
+        default: ''
   # Also rebuild if you commit a workbook or change the converter.
   push:
     branches: [main]
@@ -35,11 +40,12 @@ jobs:
           python-version: '3.12'
 
       - name: Install dependencies
-        run: pip install pandas openpyxl odfpy requests lightgbm scikit-learn numpy
+        run: pip install pandas openpyxl odfpy requests lightgbm scikit-learn numpy optuna
 
       - name: Build slate.json
         env:
           SLATE_SOURCE_URL: ${{ secrets.SLATE_SOURCE_URL }}
+          OWNERSHIP_TUNE: ${{ inputs.tune }}
         run: python tools/build_slate.py
 
       - name: Commit updated slate

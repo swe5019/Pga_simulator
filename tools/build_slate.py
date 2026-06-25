@@ -92,6 +92,13 @@ def main() -> int:
               "leaving existing data/slate.json untouched.")
         return 0
 
+    # One-off broad hyperparameter search (manual): prints best params, no write.
+    if os.environ.get("OWNERSHIP_TUNE", "").strip():
+        import ownership_model
+        ownership_model.optuna_search(raw, suffix,
+                                      n_trials=int(os.environ.get("TUNE_TRIALS", "60")))
+        return 0
+
     # Preferred path: train the ownership model on the Data tab and predict the
     # current slate (automates the Colab). Falls back to the simple sheet read.
     try:

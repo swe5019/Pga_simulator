@@ -171,6 +171,42 @@ def ensemble_predict(train, slate, feats, params):
     return acc / len(ENSEMBLE_SEEDS)
 
 
+def optuna_search(raw, suffix, n_trials=60):
+    """One-off broad hyperparameter search (Optuna) minimizing leave-one-
+    tournament-out MAE. Prints the best params to paste into CANDIDATES."""
+    import optuna
+
+    engine = "odf" if suffix == ".ods" else "openpyxl"
+    df = engineer_features(pd.read_excel(io.BytesIO(raw), sheet_name="Data", engine=engine))
+    slate_name = pick_slate(df)
+    feats = [f for f in FEATURES if f in df.columns]
+    train = df[df["Actual_Ownership"].notna() & (df["Tournament_Name"] != slate_name)].copy()
+    base = loto_mae(train, feats, _params(dict(n_estimators=400)))
+    print(f"Baseline (Colab params) LOTO MAE: {base:.4f}%  | slate={slate_name} rows={len(train)}")
+
+    def objective(trial):
+        p = _params(dict(
+            n_estimators=trial.suggest_int("n_estimators", 300, 1200, step=50),
+            learning_rate=trial.suggest_float("learning_rate", 0.01, 0.08, log=True),
+            max_depth=trial.suggest_int("max_depth", 3, 7),
+            num_leaves=trial.suggest_int("num_leaves", 7, 63),
+            min_child_samples=trial.suggest_int("min_child_samples", 4, 30),
+            subsample=trial.suggest_float("subsample", 0.6, 1.0),
+            colsample_bytree=trial.suggest_float("colsample_bytree", 0.6, 1.0),
+            reg_alpha=trial.suggest_float("reg_alpha", 1e-3, 5.0, log=True),
+            reg_lambda=trial.suggest_float("reg_lambda", 1e-3, 5.0, log=True),
+        ))
+        return loto_mae(train, feats, p)
+
+    study = optuna.create_study(direction="minimize",
+                                sampler=optuna.samplers.TPESampler(seed=42))
+    study.optimize(objective, n_trials=n_trials, show_progress_bar=False)
+    print(f"\nBest LOTO MAE: {study.best_value:.4f}%  (baseline {base:.4f}%, "
+          f"improvement {base - study.best_value:.4f} pts)")
+    print("Best params:", study.best_params)
+    return study.best_params, study.best_value
+
+
 def pick_slate(df):
     name = os.environ.get("SLATE_NAME", "").strip()
     if name:
