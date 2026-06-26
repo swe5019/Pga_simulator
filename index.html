@@ -3,352 +3,343 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Birdie — PGA DFS Simulator for DraftKings</title>
-  <link rel="stylesheet" href="assets/css/styles.css" />
+  <title>Birdie — The sharpest ownership projections in DFS golf</title>
+  <meta name="description" content="Birdie is a PGA DFS platform for DraftKings: accuracy-first ownership projections, hole-by-hole simulations, an optimizer, contest ROI, and full automation. Built to beat the field." />
+  <meta property="og:title" content="Birdie — DFS golf, with the sharpest ownership projections" />
+  <meta property="og:description" content="Accuracy-first ownership, sims, optimizer, and contest ROI for DraftKings PGA. Start a free trial." />
+  <meta property="og:type" content="website" />
+  <link rel="stylesheet" href="assets/css/landing.css" />
 </head>
 <body>
-  <header class="topbar">
-    <div class="brand">
-      <span class="logo">⛳</span>
-      <div>
-        <h1>Birdie</h1>
-        <p class="tag">Play-by-play PGA simulations for DraftKings — built to win.</p>
-      </div>
-    </div>
-    <nav class="tabs">
-      <button class="tab active" data-tab="players">1 · Players</button>
-      <button class="tab" data-tab="build">2 · Build</button>
-      <button class="tab" data-tab="lineups">3 · Review</button>
-      <button class="tab" data-tab="contest">4 · Contest</button>
-      <button class="tab" data-tab="export">5 · Export</button>
-      <button class="tab" data-tab="handbuild">✋ Hand Build</button>
-      <button class="tab" data-tab="accuracy">📈 Accuracy</button>
+  <!-- ===================== NAV ===================== -->
+  <header class="nav">
+    <a class="brand" href="#top">
+      <span class="logo">⛳</span><span class="bname">Birdie</span>
+    </a>
+    <nav class="navlinks">
+      <a href="#why">Why Birdie</a>
+      <a href="#features">Features</a>
+      <a href="#accuracy">Accuracy</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#contact">Contact</a>
     </nav>
+    <div class="navcta">
+      <a class="btn ghost" href="app.html">Launch app</a>
+      <a class="btn primary" href="#signup">Start free trial</a>
+    </div>
   </header>
 
-  <main>
-    <!-- ===================== PLAYERS / SIMULATE ===================== -->
-    <section id="players" class="panel active">
-      <div class="toolbar">
-        <div class="control">
-          <label>Simulations</label>
-          <select id="nSims">
-            <option value="2000">2,000 (fast)</option>
-            <option value="5000" selected>5,000</option>
-            <option value="10000">10,000 (sharp)</option>
-            <option value="25000">25,000 (max)</option>
-          </select>
+  <main id="top">
+    <!-- ===================== HERO ===================== -->
+    <section class="hero">
+      <div class="herotext">
+        <div class="eyebrow">PGA DFS · DraftKings</div>
+        <h1>The sharpest ownership projections in DFS golf — and the tools to leverage them.</h1>
+        <p class="sub">
+          Birdie pairs a purpose-built, continuously back-tested ownership model with hole-by-hole
+          simulations, an optimizer, and exact contest-ROI math. One platform, fully automated,
+          at a fraction of the price of the multi-sport incumbents.
+        </p>
+        <div class="herobtns">
+          <a class="btn primary big" href="#signup">Start your 14-day free trial</a>
+          <a class="btn ghost big" href="app.html">See the live app →</a>
         </div>
-        <div class="control">
-          <label>Seed</label>
-          <input id="seed" type="number" value="12345" />
-        </div>
-        <div class="control">
-          <label>Cut</label>
-          <label class="cutbox"><input type="checkbox" id="hasCut" checked /> 36-hole cut</label>
-        </div>
-        <button id="runSim" class="primary">▶ Run Simulation</button>
-        <span id="simStatus" class="status"></span>
-        <div class="spacer"></div>
-        <label class="filebtn">⬆ Import DK Salaries CSV
-          <input id="importCsv" type="file" accept=".csv" hidden />
-        </label>
-        <button id="resetSlate" class="ghost">Reset sample slate</button>
+        <p class="microcopy">No credit card to start · Cancel anytime · Built for DraftKings PGA</p>
       </div>
-
-      <div class="toolbar wrap">
-        <div class="control">
-          <label>Course fit preset</label>
-          <select id="cfPreset">
-            <option value="balanced" selected>Balanced</option>
-            <option value="bomber">Bomber's paradise (OTT)</option>
-            <option value="approach">Approach-heavy</option>
-            <option value="short">Short game / positional</option>
-            <option value="custom">Custom…</option>
-          </select>
+      <div class="herostats">
+        <div class="statcard">
+          <div class="statv">~2.4<span>%</span></div>
+          <div class="statk">Back-tested ownership MAE<br /><em>(leave-one-tournament-out)</em></div>
         </div>
-        <div class="control"><label>OTT ×</label><input id="cfOtt" type="number" value="1" step="0.1" min="0" /></div>
-        <div class="control"><label>APP ×</label><input id="cfApp" type="number" value="1" step="0.1" min="0" /></div>
-        <div class="control"><label>ARG ×</label><input id="cfArg" type="number" value="1" step="0.1" min="0" /></div>
-        <div class="control"><label>PUTT ×</label><input id="cfPutt" type="number" value="1" step="0.1" min="0" /></div>
-        <button id="cfApply" class="ghost">Apply course fit</button>
-        <span id="cfStatus" class="status"></span>
-      </div>
-
-      <p class="hint">
-        Edit <b>Salary</b> and <b>Skill</b> inline (skill = strokes gained/round vs. field).
-        Set per-golfer <b>Min</b>/<b>Max</b> exposure % (caps the share of lineups they appear
-        in; overrides the global cap). <b>Exp%</b> fills in after a build. Lock 🔒 forces a
-        golfer in; Ban 🚫 removes them. Run the sim, build, then tweak Min/Max and rebuild
-        until your exposures look right.
-      </p>
-
-      <div id="dkBanner" class="banner hidden"></div>
-
-      <div class="tablewrap">
-        <table id="playerTable">
-          <thead>
-            <tr>
-              <th class="ctr"><input type="checkbox" id="selAll" checked title="Select / deselect all"></th>
-              <th data-sort="name">Golfer</th>
-              <th class="num" data-sort="salary">Salary</th>
-              <th class="num" data-sort="skill">Skill</th>
-              <th class="num" data-sort="proj">Proj</th>
-              <th class="num" data-sort="floor">Floor</th>
-              <th class="num" data-sort="ceil">Ceil</th>
-              <th class="num" data-sort="cut">Cut%</th>
-              <th class="num" data-sort="win" title="Win equity from win odds">Win%</th>
-              <th class="num" data-sort="t5" title="Top-5 equity from odds">T5%</th>
-              <th class="num" data-sort="t10" title="Top-10 equity from odds">T10%</th>
-              <th class="num" data-sort="own">Own%</th>
-              <th class="num" data-sort="exp">Exp%</th>
-              <th class="num" data-sort="val">Val</th>
-              <th class="num" title="Minimum exposure target %">Min</th>
-              <th class="num" title="Maximum exposure cap %">Max</th>
-              <th class="ctr">🔒</th>
-              <th class="ctr">🚫</th>
-            </tr>
-          </thead>
-          <tbody><!-- rows injected --></tbody>
-        </table>
+        <div class="statcard">
+          <div class="statv">100<span>%</span></div>
+          <div class="statk">Automated weekly<br /><em>salaries, status, payouts, model</em></div>
+        </div>
+        <div class="statcard">
+          <div class="statv">1</div>
+          <div class="statk">Platform, end to end<br /><em>projections → sim → optimize → ROI</em></div>
+        </div>
       </div>
     </section>
 
-    <!-- ===================== BUILD ===================== -->
-    <section id="build" class="panel">
-      <div class="toolbar wrap">
-        <div class="control">
-          <label>Lineups to build</label>
-          <input id="nLineups" type="number" value="20" min="1" max="500" />
+    <div class="trust">
+      <span>Projections</span><i>·</i><span>Hole-by-hole sims</span><i>·</i><span>Optimizer</span>
+      <i>·</i><span>Contest ROI</span><i>·</i><span>Exact DK payouts</span><i>·</i><span>One-click upload</span>
+    </div>
+
+    <!-- ===================== WHY BIRDIE ===================== -->
+    <section id="why" class="section">
+      <h2 class="h2">Why Birdie wins</h2>
+      <p class="lead">In DFS golf, edge comes from <b>leverage</b> — being over or under the field on
+        the right players. Leverage is only as good as the ownership number it's measured against.
+        That number is what we obsess over.</p>
+      <div class="grid4">
+        <div class="feat">
+          <div class="ficon">🎯</div>
+          <h3>Accuracy-first ownership</h3>
+          <p>A LightGBM model, ensembled and back-tested every week. We publish our error (MAE) and
+            show our work — nobody else in the space does.</p>
         </div>
-        <div class="control">
-          <label>Max exposure %</label>
-          <input id="maxExposure" type="number" value="60" min="1" max="100" />
+        <div class="feat">
+          <div class="ficon">⚙️</div>
+          <h3>Fully automated</h3>
+          <p>DraftKings salaries, player IDs, OUT/WD status, and exact payouts pull themselves. The
+            model retrains on its own. No weekly CSV grind.</p>
         </div>
-        <div class="control">
-          <label>Min salary used</label>
-          <input id="minSalary" type="number" value="49000" min="0" max="50000" step="100" />
+        <div class="feat">
+          <div class="ficon">🧮</div>
+          <h3>The whole stack</h3>
+          <p>Projections → hole-by-hole sim → optimizer (Birdie Score) → contest ROI on exact DK
+            payout tables → entries-file upload. SaberSim-grade, one tab.</p>
         </div>
-        <div class="control">
-          <label>Optimize for</label>
-          <select id="sortBy">
-            <option value="score" selected>Birdie Score (balanced)</option>
-            <option value="ceiling">Ceiling (GPP upside)</option>
-            <option value="mean">Mean (cash)</option>
-            <option value="p99">Top-1% spike (Milly Maker)</option>
-          </select>
+        <div class="feat">
+          <div class="ficon">🔑</div>
+          <h3>Bring your own edge</h3>
+          <p>Power users feed their own SG, odds, or projections and the model and sims run on
+            <em>their</em> numbers. No competitor offers this.</p>
         </div>
-        <button id="buildBtn" class="primary">⚙ Build Lineup Pool</button>
-        <span id="buildStatus" class="status"></span>
       </div>
-      <p class="hint">
-        Each lineup is optimized against a single simulated tournament, so the pool is
-        diverse and correlated the way real tournaments play out — not 20 copies of the
-        same chalk.
-      </p>
-      <div id="buildSummary" class="cards"></div>
     </section>
 
-    <!-- ===================== REVIEW / LEVERAGE ===================== -->
-    <section id="lineups" class="panel">
-      <div class="split">
+    <!-- ===================== FEATURES ===================== -->
+    <section id="features" class="section alt">
+      <h2 class="h2">Everything you need to attack a slate</h2>
+      <div class="grid3">
+        <div class="card2">
+          <h3>🎲 Hole-by-hole simulations</h3>
+          <p>Every golfer's tournament simulated thousands of times — birdie streaks, bogey-free
+            rounds, eagles, the missed cut. Real boom/bust shape, not a flat projection with a
+            guessed standard deviation.</p>
+        </div>
+        <div class="card2">
+          <h3>🏆 Optimizer + Birdie Score</h3>
+          <p>Build hundreds of lineups ranked by a leverage-aware score that blends projection,
+            ceiling, and ownership. Per-player min/max exposure, locks, and bans.</p>
+        </div>
+        <div class="card2">
+          <h3>💰 Contest ROI</h3>
+          <p>Score every lineup against an ownership-weighted field on the <em>exact</em> DraftKings
+            payout table — expected ROI, cash %, and win % before you enter.</p>
+        </div>
+        <div class="card2">
+          <h3>✋ Hand Build</h3>
+          <p>For single-entry players: drop golfers in one at a time and watch your salary remaining
+            update live. Save lineups and export straight to DK.</p>
+        </div>
+        <div class="card2">
+          <h3>📈 Published accuracy</h3>
+          <p>A live page tracks our ownership MAE vs. actual results, event over event. Proof, not
+            promises — and your reason to trust the leverage.</p>
+        </div>
+        <div class="card2">
+          <h3>⬆️ One-click DraftKings</h3>
+          <p>Import salaries, then export an upload-ready CSV or fill your reserved entries template
+            in DK's <em>Name (ID)</em> format. Names map to upload IDs automatically.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== ACCURACY PROOF ===================== -->
+    <section id="accuracy" class="section">
+      <div class="split2">
         <div>
-          <h2>Exposure vs. Field <span class="sub">— your edge is in the leverage column</span></h2>
-          <div class="tablewrap">
-            <table id="exposureTable">
-              <thead>
-                <tr>
-                  <th>Golfer</th>
-                  <th class="num">Proj Own%</th>
-                  <th class="num">My Exp%</th>
-                  <th class="num">Leverage</th>
-                </tr>
-              </thead>
-              <tbody></tbody>
-            </table>
-          </div>
+          <h2 class="h2 left">We show our work</h2>
+          <p class="lead left">Every other tool asks you to trust their ownership. We publish ours.
+            After each event, Birdie scores its projection against the real DraftKings ownership and
+            posts the error — head to head, even against your own model.</p>
+          <ul class="checklist">
+            <li>Back-tested <b>~2.4% MAE</b> across 20+ tournaments (leave-one-tournament-out).</li>
+            <li>Per-event predicted-vs-actual archive that grows automatically.</li>
+            <li>Bring your own projections and we'll score them side by side.</li>
+          </ul>
+          <a class="btn primary" href="app.html#accuracy">See the live accuracy page →</a>
         </div>
-        <div>
-          <h2>Lineup Pool <span class="sub" id="poolCount"></span></h2>
-          <div id="lineupList" class="lineups"></div>
+        <div class="proofcard">
+          <div class="proofhead">Ownership accuracy — recent event</div>
+          <table class="prooftable">
+            <thead><tr><th>Model</th><th class="num">MAE (pts)</th></tr></thead>
+            <tbody>
+              <tr><td>Birdie</td><td class="num">3.05</td></tr>
+              <tr><td>Field-average tools</td><td class="num dim">typically higher</td></tr>
+            </tbody>
+          </table>
+          <p class="proofnote">Lower is sharper. We post this every week — the only ownership tool
+            that does.</p>
         </div>
       </div>
     </section>
 
-    <!-- ===================== CONTEST SIM / ROI ===================== -->
-    <section id="contest" class="panel">
-      <div class="toolbar wrap">
-        <div class="control">
-          <label>DK contest (exact payouts)</label>
-          <select id="cDkContest">
-            <option value="" selected>— modeled payouts —</option>
+    <!-- ===================== PRICING ===================== -->
+    <section id="pricing" class="section alt">
+      <h2 class="h2">Simple, golf-only pricing</h2>
+      <p class="lead">No $200 multi-sport bundle you don't need. Birdie is PGA-focused and priced
+        for it. Every plan starts with a <b>14-day free trial</b>.</p>
+
+      <div class="pricegrid">
+        <div class="plan">
+          <div class="planname">Weekly Pass</div>
+          <div class="price">$9.99<span>/week</span></div>
+          <p class="plandesc">For the casual who plays a major or a one-off.</p>
+          <ul>
+            <li>Single-event access</li>
+            <li>Ownership + projections</li>
+            <li>Optimizer + hand build</li>
+          </ul>
+          <a class="btn ghost" href="#signup" data-plan="Weekly Pass">Start free</a>
+        </div>
+
+        <div class="plan">
+          <div class="planname">Core</div>
+          <div class="price">$25<span>/mo</span></div>
+          <p class="plandesc">For mid-stakes players who want a real edge.</p>
+          <ul>
+            <li>Accuracy-first ownership</li>
+            <li>Win / top-5 / top-10 equity</li>
+            <li>Sim projections + basic optimizer</li>
+            <li>DraftKings upload</li>
+          </ul>
+          <a class="btn ghost" href="#signup" data-plan="Core">Start free trial</a>
+        </div>
+
+        <div class="plan featured">
+          <div class="badge">Most popular</div>
+          <div class="planname">Pro</div>
+          <div class="price">$45<span>/mo</span></div>
+          <p class="plandesc">For grinders running multi-entry every week.</p>
+          <ul>
+            <li>Everything in Core</li>
+            <li>Contest ROI on exact DK payouts</li>
+            <li>Exposure tools + entries automation</li>
+            <li>Course-fit weighting + large builds</li>
+          </ul>
+          <a class="btn primary" href="#signup" data-plan="Pro">Start free trial</a>
+        </div>
+
+        <div class="plan">
+          <div class="planname">Edge</div>
+          <div class="price">$79<span>/mo</span></div>
+          <p class="plandesc">For sharps who run their own models.</p>
+          <ul>
+            <li>Everything in Pro</li>
+            <li>Bring-your-own SG / odds / projections</li>
+            <li>Model auto-retrain on your data</li>
+            <li>API / export + priority support</li>
+          </ul>
+          <a class="btn ghost" href="#signup" data-plan="Edge">Start free trial</a>
+        </div>
+      </div>
+      <p class="microcopy center">Founding members lock their rate for life. Annual plans get 2 months free.
+        Prices in USD. <a href="#signup">Start free</a> — no card required.</p>
+    </section>
+
+    <!-- ===================== HOW IT WORKS ===================== -->
+    <section class="section">
+      <h2 class="h2">From slate to lineups in three steps</h2>
+      <div class="steps">
+        <div class="step"><div class="stepn">1</div><h3>Load the slate</h3>
+          <p>Salaries, status, odds, and SG pull in automatically — or import your own. The
+            ownership model runs the moment it loads.</p></div>
+        <div class="step"><div class="stepn">2</div><h3>Simulate &amp; build</h3>
+          <p>Run thousands of tournament sims, set your exposures, and build a pool ranked by
+            leverage — or hand-build a single lineup.</p></div>
+        <div class="step"><div class="stepn">3</div><h3>Check ROI &amp; upload</h3>
+          <p>Score your lineups against the real contest payouts, then export an upload-ready
+            DraftKings file. Done.</p></div>
+      </div>
+    </section>
+
+    <!-- ===================== SIGNUP / FREE TRIAL ===================== -->
+    <section id="signup" class="section alt">
+      <div class="signupwrap">
+        <h2 class="h2">Start your free trial</h2>
+        <p class="lead">14 days, full access, no credit card. Get the current slate, the ownership
+          edge, and the whole toolkit — and feel the difference before you pay a cent.</p>
+        <form id="signupForm" class="leadform">
+          <input type="email" name="email" required placeholder="you@email.com" autocomplete="email" />
+          <input type="hidden" name="plan" id="signupPlan" value="Pro" />
+          <select name="entries" aria-label="How much do you play?">
+            <option value="">How much do you play?</option>
+            <option>Single-entry / small stakes</option>
+            <option>Multi-entry grinder</option>
+            <option>I run my own models</option>
+            <option>Just getting started</option>
           </select>
-        </div>
-        <div class="control">
-          <label>Contest type</label>
-          <select id="cStructure">
-            <option value="gpp" selected>GPP (top-heavy)</option>
-            <option value="se">Single-entry GPP</option>
-            <option value="dub">Double-up / Cash</option>
-          </select>
-        </div>
-        <div class="control">
-          <label>Field size (entries)</label>
-          <input id="cEntries" type="number" value="5000" min="2" step="100" />
-        </div>
-        <div class="control">
-          <label>Entry fee $</label>
-          <input id="cFee" type="number" value="20" min="0.1" step="1" />
-        </div>
-        <div class="control">
-          <label>Field lineups (sim)</label>
-          <input id="cField" type="number" value="2000" min="200" max="10000" step="100" />
-        </div>
-        <button id="runContest" class="primary">▶ Run Contest Sim</button>
-        <span id="contestStatus" class="status"></span>
-      </div>
-      <p class="hint">
-        Estimates each lineup's expected <b>ROI</b> against an ownership-weighted field and a
-        modeled payout structure, scored across your simulated tournaments. Build a pool first
-        (tab 2). Payouts are modeled approximations for ranking lineups by contest-fit — not
-        exact DraftKings prize tables.
-      </p>
-      <div id="contestSummary" class="cards"></div>
-      <div class="tablewrap">
-        <table id="contestTable">
-          <thead>
-            <tr>
-              <th>Rank</th>
-              <th>Lineup</th>
-              <th class="num">Proj</th>
-              <th class="num">ROI%</th>
-              <th class="num">Cash%</th>
-              <th class="num">Win%</th>
-              <th class="num">Exp $</th>
-            </tr>
-          </thead>
-          <tbody></tbody>
-        </table>
+          <button class="btn primary big" type="submit">Get my free trial</button>
+          <p class="formnote" id="signupNote">We'll email your access link. No spam, ever.</p>
+        </form>
       </div>
     </section>
 
-    <!-- ===================== EXPORT ===================== -->
-    <section id="export" class="panel">
-      <h2>Export</h2>
-      <p class="hint">
-        Download a DraftKings upload file, or fill your reserved <b>entries template</b> — each
-        entry gets a unique best lineup (ranked by contest ROI if you ran a Contest Sim, else
-        Birdie Score), in DraftKings' <b>Name (ID)</b> format. Run the DK sync first so names map
-        to upload IDs.
-      </p>
-      <div class="exportbtns">
-        <button id="exportDK" class="primary">⬇ DraftKings Upload CSV</button>
-        <label class="filebtn">⬆ Fill DK entries template
-          <input id="entriesFile" type="file" accept=".csv" hidden />
-        </label>
-        <button id="exportDetailed" class="ghost">⬇ Detailed pool CSV</button>
-      </div>
-      <pre id="exportPreview" class="preview"></pre>
-    </section>
-
-    <!-- ===================== HAND BUILD ===================== -->
-    <section id="handbuild" class="panel">
-      <h2>Hand Build <span class="sub">— build one lineup yourself, see your salary as you go</span></h2>
-      <p class="hint">
-        For single-entry and small-stakes play: tap <b>Add</b> to drop a golfer in, watch your
-        <b>salary remaining</b> update, and <b>Save</b> the lineup when you've got 6. Run the sim
-        first (tab 1) to see each golfer's projected fantasy points here.
-      </p>
-
-      <div class="split">
-        <div>
-          <div id="handSummary" class="cards"></div>
-          <h2 class="hbh">Your Lineup <span class="sub" id="handSpots">— 0 / 6</span></h2>
-          <div id="handLineup" class="handlu"></div>
-          <div class="exportbtns" style="margin-top:12px">
-            <button id="handSave" class="primary" disabled>＋ Save Lineup</button>
-            <button id="handClear" class="ghost">Clear</button>
-          </div>
-
-          <h2 class="hbh">Saved Lineups <span class="sub" id="savedCount"></span></h2>
-          <div id="savedList" class="handlu"></div>
-          <div class="exportbtns" style="margin-top:8px">
-            <button id="savedExport" class="ghost">⬇ Export saved → DK CSV</button>
-            <button id="savedClear" class="ghost">Clear all saved</button>
-          </div>
+    <!-- ===================== FEEDBACK + CONTACT ===================== -->
+    <section id="contact" class="section">
+      <div class="split2">
+        <div class="panelbox">
+          <h2 class="h2 left">Share feedback</h2>
+          <p class="lead left">Birdie is built with grinders, not just for them. Tell us what would
+            make it your daily driver.</p>
+          <form id="feedbackForm" class="leadform col">
+            <input type="text" name="name" placeholder="Name (optional)" autocomplete="name" />
+            <input type="email" name="email" placeholder="Email (optional, if you want a reply)" autocomplete="email" />
+            <textarea name="message" required rows="4" placeholder="What's working, what's missing, what you'd pay for…"></textarea>
+            <button class="btn primary" type="submit">Send feedback</button>
+            <p class="formnote" id="feedbackNote"></p>
+          </form>
         </div>
-
-        <div>
-          <h2 class="hbh">Add Golfers <span class="sub">— click Add to roster a player</span></h2>
-          <div class="tablewrap">
-            <table id="handPool">
-              <thead>
-                <tr>
-                  <th>Golfer</th>
-                  <th class="num">Sal</th>
-                  <th class="num">Own%</th>
-                  <th class="num">Fpts</th>
-                  <th class="ctr"></th>
-                </tr>
-              </thead>
-              <tbody></tbody>
-            </table>
-          </div>
+        <div class="panelbox">
+          <h2 class="h2 left">Contact us</h2>
+          <p class="lead left">Questions about plans, a custom/syndicate setup, or partnerships?
+            We answer fast.</p>
+          <div class="contactrow"><span class="ci">✉️</span>
+            <div><div class="cl">Email</div><a id="contactEmail" href="mailto:ebeck2317@gmail.com">ebeck2317@gmail.com</a></div></div>
+          <div class="contactrow"><span class="ci">𝕏</span>
+            <div><div class="cl">DFS golf community</div><span class="dim">Weekly free ownership board (coming soon)</span></div></div>
+          <div class="contactrow"><span class="ci">⚡</span>
+            <div><div class="cl">Founding members</div><span class="dim">Lock your rate for life — mention "founding" in your trial.</span></div></div>
+          <a class="btn ghost" href="app.html">Open the app</a>
         </div>
       </div>
     </section>
 
-    <!-- ===================== ACCURACY ===================== -->
-    <section id="accuracy" class="panel">
-      <h2>Ownership Accuracy <span class="sub">— our predicted ownership vs. what actually happened</span></h2>
-      <p class="hint">
-        This is the whole edge: <b>MAE</b> (mean absolute error) is the average gap, in
-        ownership points, between our projection and the field's real ownership — <b>lower is
-        sharper</b>. Each bar is one tournament. Fill in <code>Actual_Ownership</code> in your
-        Data tab after an event and it shows up here automatically.
-      </p>
-      <div id="accSummary" class="cards"></div>
-      <div id="accChartWrap" style="margin-top:16px">
-        <div id="accChart" class="distchart"></div>
-        <div id="accAxis" class="distaxis"></div>
-      </div>
-      <div class="tablewrap" style="margin-top:16px">
-        <table id="accTable">
-          <thead>
-            <tr>
-              <th>Tournament</th>
-              <th class="num">Date</th>
-              <th class="num" title="Website model MAE vs actual">Website MAE</th>
-              <th class="num" title="Your Colab model MAE vs actual (add a colab_ownership column to enable)">Colab MAE</th>
-              <th class="num">Winner</th>
-            </tr>
-          </thead>
-          <tbody></tbody>
-        </table>
+    <!-- ===================== FAQ ===================== -->
+    <section class="section alt">
+      <h2 class="h2">FAQ</h2>
+      <div class="faq">
+        <details><summary>Is this just another optimizer?</summary>
+          <p>No. The optimizer is table stakes. Birdie's edge is the <b>ownership model</b> — the
+            sharpest, most-tested number in the space — wired into a full sim and contest-ROI stack.</p></details>
+        <details><summary>Which site do you support?</summary>
+          <p>DraftKings PGA today: salaries, IDs, status, exact payouts, and upload files. More
+            sites and slate types are on the roadmap.</p></details>
+        <details><summary>Do I need my own data?</summary>
+          <p>No — everything pulls automatically. But if you <em>have</em> an edge (your own SG,
+            odds, or projections), the Edge plan runs the model and sims on your numbers.</p></details>
+        <details><summary>How does the free trial work?</summary>
+          <p>14 days, full access, no card required. You'll get a full slate cycle — Tuesday
+            projections through Sunday results — so you can see a real outcome before paying.</p></details>
+        <details><summary>Can I cancel anytime?</summary>
+          <p>Yes. Monthly, cancel whenever. Annual plans get two months free, and founding members
+            keep their rate for life.</p></details>
       </div>
     </section>
   </main>
 
-  <!-- ===================== PLAYER DISTRIBUTION MODAL ===================== -->
-  <div id="distModal" class="modal hidden">
-    <div class="modalcard">
-      <div class="modalhead">
-        <h3 id="distTitle">Player</h3>
-        <button id="distClose" class="ghost">✕</button>
-      </div>
-      <div id="distBody"></div>
-    </div>
-  </div>
-
+  <!-- ===================== FOOTER ===================== -->
   <footer class="footer">
-    <span>Birdie · client-side, your data never leaves the browser.</span>
+    <div class="footgrid">
+      <div>
+        <div class="brand"><span class="logo">⛳</span><span class="bname">Birdie</span></div>
+        <p class="dim small">The sharpest ownership projections in DFS golf.</p>
+      </div>
+      <div class="footlinks">
+        <a href="#why">Why Birdie</a><a href="#features">Features</a>
+        <a href="#pricing">Pricing</a><a href="app.html">Launch app</a><a href="#contact">Contact</a>
+      </div>
+    </div>
+    <div class="footbottom">
+      <span>© <span id="yr"></span> Birdie. For entertainment. Play responsibly; 21+ where applicable.</span>
+    </div>
   </footer>
 
-  <script src="assets/js/scoring.js"></script>
-  <script src="assets/js/data.js"></script>
-  <script src="assets/js/sim.js"></script>
-  <script src="assets/js/optimizer.js"></script>
-  <script src="assets/js/contest.js"></script>
-  <script src="assets/js/app.js"></script>
+  <script src="assets/js/landing.js"></script>
 </body>
 </html>

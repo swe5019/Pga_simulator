@@ -29,7 +29,8 @@ body {
   background: linear-gradient(180deg, #11161f, #0e1116);
   position: sticky; top: 0; z-index: 10;
 }
-.brand { display: flex; align-items: center; gap: 12px; }
+.brand { display: flex; align-items: center; gap: 12px; text-decoration: none; color: inherit; }
+.brand:hover h1 { color: var(--green2); }
 .logo { font-size: 30px; }
 .brand h1 { margin: 0; font-size: 22px; letter-spacing: .5px; }
 .tag { margin: 0; color: var(--dim); font-size: 12px; }

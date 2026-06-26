@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Birdie — PGA DFS Simulator for DraftKings</title>
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="index.html" title="Birdie home">
+      <span class="logo">⛳</span>
+      <div>
+        <h1>Birdie</h1>
+        <p class="tag">Play-by-play PGA simulations for DraftKings — built to win.</p>
+      </div>
+    </a>
+    <nav class="tabs">
+      <button class="tab active" data-tab="players">1 · Players</button>
+      <button class="tab" data-tab="build">2 · Build</button>
+      <button class="tab" data-tab="lineups">3 · Review</button>
+      <button class="tab" data-tab="contest">4 · Contest</button>
+      <button class="tab" data-tab="export">5 · Export</button>
+      <button class="tab" data-tab="handbuild">✋ Hand Build</button>
+      <button class="tab" data-tab="accuracy">📈 Accuracy</button>
+    </nav>
+  </header>
+
+  <main>
+    <!-- ===================== PLAYERS / SIMULATE ===================== -->
+    <section id="players" class="panel active">
+      <div class="toolbar">
+        <div class="control">
+          <label>Simulations</label>
+          <select id="nSims">
+            <option value="2000">2,000 (fast)</option>
+            <option value="5000" selected>5,000</option>
+            <option value="10000">10,000 (sharp)</option>
+            <option value="25000">25,000 (max)</option>
+          </select>
+        </div>
+        <div class="control">
+          <label>Seed</label>
+          <input id="seed" type="number" value="12345" />
+        </div>
+        <div class="control">
+          <label>Cut</label>
+          <label class="cutbox"><input type="checkbox" id="hasCut" checked /> 36-hole cut</label>
+        </div>
+        <button id="runSim" class="primary">▶ Run Simulation</button>
+        <span id="simStatus" class="status"></span>
+        <div class="spacer"></div>
+        <label class="filebtn">⬆ Import DK Salaries CSV
+          <input id="importCsv" type="file" accept=".csv" hidden />
+        </label>
+        <button id="resetSlate" class="ghost">Reset sample slate</button>
+      </div>
+
+      <div class="toolbar wrap">
+        <div class="control">
+          <label>Course fit preset</label>
+          <select id="cfPreset">
+            <option value="balanced" selected>Balanced</option>
+            <option value="bomber">Bomber's paradise (OTT)</option>
+            <option value="approach">Approach-heavy</option>
+            <option value="short">Short game / positional</option>
+            <option value="custom">Custom…</option>
+          </select>
+        </div>
+        <div class="control"><label>OTT ×</label><input id="cfOtt" type="number" value="1" step="0.1" min="0" /></div>
+        <div class="control"><label>APP ×</label><input id="cfApp" type="number" value="1" step="0.1" min="0" /></div>
+        <div class="control"><label>ARG ×</label><input id="cfArg" type="number" value="1" step="0.1" min="0" /></div>
+        <div class="control"><label>PUTT ×</label><input id="cfPutt" type="number" value="1" step="0.1" min="0" /></div>
+        <button id="cfApply" class="ghost">Apply course fit</button>
+        <span id="cfStatus" class="status"></span>
+      </div>
+
+      <p class="hint">
+        Edit <b>Salary</b> and <b>Skill</b> inline (skill = strokes gained/round vs. field).
+        Set per-golfer <b>Min</b>/<b>Max</b> exposure % (caps the share of lineups they appear
+        in; overrides the global cap). <b>Exp%</b> fills in after a build. Lock 🔒 forces a
+        golfer in; Ban 🚫 removes them. Run the sim, build, then tweak Min/Max and rebuild
+        until your exposures look right.
+      </p>
+
+      <div id="dkBanner" class="banner hidden"></div>
+
+      <div class="tablewrap">
+        <table id="playerTable">
+          <thead>
+            <tr>
+              <th class="ctr"><input type="checkbox" id="selAll" checked title="Select / deselect all"></th>
+              <th data-sort="name">Golfer</th>
+              <th class="num" data-sort="salary">Salary</th>
+              <th class="num" data-sort="skill">Skill</th>
+              <th class="num" data-sort="proj">Proj</th>
+              <th class="num" data-sort="floor">Floor</th>
+              <th class="num" data-sort="ceil">Ceil</th>
+              <th class="num" data-sort="cut">Cut%</th>
+              <th class="num" data-sort="win" title="Win equity from win odds">Win%</th>
+              <th class="num" data-sort="t5" title="Top-5 equity from odds">T5%</th>
+              <th class="num" data-sort="t10" title="Top-10 equity from odds">T10%</th>
+              <th class="num" data-sort="own">Own%</th>
+              <th class="num" data-sort="exp">Exp%</th>
+              <th class="num" data-sort="val">Val</th>
+              <th class="num" title="Minimum exposure target %">Min</th>
+              <th class="num" title="Maximum exposure cap %">Max</th>
+              <th class="ctr">🔒</th>
+              <th class="ctr">🚫</th>
+            </tr>
+          </thead>
+          <tbody><!-- rows injected --></tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ===================== BUILD ===================== -->
+    <section id="build" class="panel">
+      <div class="toolbar wrap">
+        <div class="control">
+          <label>Lineups to build</label>
+          <input id="nLineups" type="number" value="20" min="1" max="500" />
+        </div>
+        <div class="control">
+          <label>Max exposure %</label>
+          <input id="maxExposure" type="number" value="60" min="1" max="100" />
+        </div>
+        <div class="control">
+          <label>Min salary used</label>
+          <input id="minSalary" type="number" value="49000" min="0" max="50000" step="100" />
+        </div>
+        <div class="control">
+          <label>Optimize for</label>
+          <select id="sortBy">
+            <option value="score" selected>Birdie Score (balanced)</option>
+            <option value="ceiling">Ceiling (GPP upside)</option>
+            <option value="mean">Mean (cash)</option>
+            <option value="p99">Top-1% spike (Milly Maker)</option>
+          </select>
+        </div>
+        <button id="buildBtn" class="primary">⚙ Build Lineup Pool</button>
+        <span id="buildStatus" class="status"></span>
+      </div>
+      <p class="hint">
+        Each lineup is optimized against a single simulated tournament, so the pool is
+        diverse and correlated the way real tournaments play out — not 20 copies of the
+        same chalk.
+      </p>
+      <div id="buildSummary" class="cards"></div>
+    </section>
+
+    <!-- ===================== REVIEW / LEVERAGE ===================== -->
+    <section id="lineups" class="panel">
+      <div class="split">
+        <div>
+          <h2>Exposure vs. Field <span class="sub">— your edge is in the leverage column</span></h2>
+          <div class="tablewrap">
+            <table id="exposureTable">
+              <thead>
+                <tr>
+                  <th>Golfer</th>
+                  <th class="num">Proj Own%</th>
+                  <th class="num">My Exp%</th>
+                  <th class="num">Leverage</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </div>
+        <div>
+          <h2>Lineup Pool <span class="sub" id="poolCount"></span></h2>
+          <div id="lineupList" class="lineups"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== CONTEST SIM / ROI ===================== -->
+    <section id="contest" class="panel">
+      <div class="toolbar wrap">
+        <div class="control">
+          <label>DK contest (exact payouts)</label>
+          <select id="cDkContest">
+            <option value="" selected>— modeled payouts —</option>
+          </select>
+        </div>
+        <div class="control">
+          <label>Contest type</label>
+          <select id="cStructure">
+            <option value="gpp" selected>GPP (top-heavy)</option>
+            <option value="se">Single-entry GPP</option>
+            <option value="dub">Double-up / Cash</option>
+          </select>
+        </div>
+        <div class="control">
+          <label>Field size (entries)</label>
+          <input id="cEntries" type="number" value="5000" min="2" step="100" />
+        </div>
+        <div class="control">
+          <label>Entry fee $</label>
+          <input id="cFee" type="number" value="20" min="0.1" step="1" />
+        </div>
+        <div class="control">
+          <label>Field lineups (sim)</label>
+          <input id="cField" type="number" value="2000" min="200" max="10000" step="100" />
+        </div>
+        <button id="runContest" class="primary">▶ Run Contest Sim</button>
+        <span id="contestStatus" class="status"></span>
+      </div>
+      <p class="hint">
+        Estimates each lineup's expected <b>ROI</b> against an ownership-weighted field and a
+        modeled payout structure, scored across your simulated tournaments. Build a pool first
+        (tab 2). Payouts are modeled approximations for ranking lineups by contest-fit — not
+        exact DraftKings prize tables.
+      </p>
+      <div id="contestSummary" class="cards"></div>
+      <div class="tablewrap">
+        <table id="contestTable">
+          <thead>
+            <tr>
+              <th>Rank</th>
+              <th>Lineup</th>
+              <th class="num">Proj</th>
+              <th class="num">ROI%</th>
+              <th class="num">Cash%</th>
+              <th class="num">Win%</th>
+              <th class="num">Exp $</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ===================== EXPORT ===================== -->
+    <section id="export" class="panel">
+      <h2>Export</h2>
+      <p class="hint">
+        Download a DraftKings upload file, or fill your reserved <b>entries template</b> — each
+        entry gets a unique best lineup (ranked by contest ROI if you ran a Contest Sim, else
+        Birdie Score), in DraftKings' <b>Name (ID)</b> format. Run the DK sync first so names map
+        to upload IDs.
+      </p>
+      <div class="exportbtns">
+        <button id="exportDK" class="primary">⬇ DraftKings Upload CSV</button>
+        <label class="filebtn">⬆ Fill DK entries template
+          <input id="entriesFile" type="file" accept=".csv" hidden />
+        </label>
+        <button id="exportDetailed" class="ghost">⬇ Detailed pool CSV</button>
+      </div>
+      <pre id="exportPreview" class="preview"></pre>
+    </section>
+
+    <!-- ===================== HAND BUILD ===================== -->
+    <section id="handbuild" class="panel">
+      <h2>Hand Build <span class="sub">— build one lineup yourself, see your salary as you go</span></h2>
+      <p class="hint">
+        For single-entry and small-stakes play: tap <b>Add</b> to drop a golfer in, watch your
+        <b>salary remaining</b> update, and <b>Save</b> the lineup when you've got 6. Run the sim
+        first (tab 1) to see each golfer's projected fantasy points here.
+      </p>
+
+      <div class="split">
+        <div>
+          <div id="handSummary" class="cards"></div>
+          <h2 class="hbh">Your Lineup <span class="sub" id="handSpots">— 0 / 6</span></h2>
+          <div id="handLineup" class="handlu"></div>
+          <div class="exportbtns" style="margin-top:12px">
+            <button id="handSave" class="primary" disabled>＋ Save Lineup</button>
+            <button id="handClear" class="ghost">Clear</button>
+          </div>
+
+          <h2 class="hbh">Saved Lineups <span class="sub" id="savedCount"></span></h2>
+          <div id="savedList" class="handlu"></div>
+          <div class="exportbtns" style="margin-top:8px">
+            <button id="savedExport" class="ghost">⬇ Export saved → DK CSV</button>
+            <button id="savedClear" class="ghost">Clear all saved</button>
+          </div>
+        </div>
+
+        <div>
+          <h2 class="hbh">Add Golfers <span class="sub">— click Add to roster a player</span></h2>
+          <div class="tablewrap">
+            <table id="handPool">
+              <thead>
+                <tr>
+                  <th>Golfer</th>
+                  <th class="num">Sal</th>
+                  <th class="num">Own%</th>
+                  <th class="num">Fpts</th>
+                  <th class="ctr"></th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== ACCURACY ===================== -->
+    <section id="accuracy" class="panel">
+      <h2>Ownership Accuracy <span class="sub">— our predicted ownership vs. what actually happened</span></h2>
+      <p class="hint">
+        This is the whole edge: <b>MAE</b> (mean absolute error) is the average gap, in
+        ownership points, between our projection and the field's real ownership — <b>lower is
+        sharper</b>. Each bar is one tournament. Fill in <code>Actual_Ownership</code> in your
+        Data tab after an event and it shows up here automatically.
+      </p>
+      <div id="accSummary" class="cards"></div>
+      <div id="accChartWrap" style="margin-top:16px">
+        <div id="accChart" class="distchart"></div>
+        <div id="accAxis" class="distaxis"></div>
+      </div>
+      <div class="tablewrap" style="margin-top:16px">
+        <table id="accTable">
+          <thead>
+            <tr>
+              <th>Tournament</th>
+              <th class="num">Date</th>
+              <th class="num" title="Website model MAE vs actual">Website MAE</th>
+              <th class="num" title="Your Colab model MAE vs actual (add a colab_ownership column to enable)">Colab MAE</th>
+              <th class="num">Winner</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===================== PLAYER DISTRIBUTION MODAL ===================== -->
+  <div id="distModal" class="modal hidden">
+    <div class="modalcard">
+      <div class="modalhead">
+        <h3 id="distTitle">Player</h3>
+        <button id="distClose" class="ghost">✕</button>
+      </div>
+      <div id="distBody"></div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <span>Birdie · client-side, your data never leaves the browser.</span>
+  </footer>
+
+  <script src="assets/js/scoring.js"></script>
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/sim.js"></script>
+  <script src="assets/js/optimizer.js"></script>
+  <script src="assets/js/contest.js"></script>
+  <script src="assets/js/app.js"></script>
+</body>
+</html>
