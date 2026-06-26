@@ -17,6 +17,7 @@ DraftKings exposes these without auth:
 """
 import csv
 import datetime
+import io
 import json
 import os
 import re
@@ -140,6 +141,115 @@ def _derive_tourney(event, date_str):
     return f"{base}_{full_yr}" if full_yr else base
 
 
+def parse_standings_ownership(text):
+    """Parse a DraftKings 'contest standings' CSV -> {player_name: %drafted}.
+    The export interleaves entry columns (left) with a player/ownership block
+    (right): columns include 'Player', 'Roster Position', '%Drafted', 'FPTS'."""
+    rows = list(csv.reader(io.StringIO(text)))
+    if not rows:
+        return {}, {}
+    header = [h.strip().lower() for h in rows[0]]
+    try:
+        pi = header.index("player")
+        oi = header.index("%drafted")
+    except ValueError:
+        return {}, {}
+    fi = header.index("fpts") if "fpts" in header else None
+    own, fpts = {}, {}
+    for row in rows[1:]:
+        if len(row) <= max(pi, oi):
+            continue
+        name = (row[pi] or "").strip()
+        if not name:
+            continue
+        val = (row[oi] or "").replace("%", "").strip()
+        try:
+            own[name] = round(float(val), 2)
+        except ValueError:
+            continue
+        if fi is not None and len(row) > fi:
+            try:
+                fpts[name] = round(float(row[fi]), 1)
+            except ValueError:
+                pass
+    return own, fpts
+
+
+def find_results_contest():
+    """Resolve the completed contest id to pull ownership from: explicit id, or a
+    keyword matched against data/dk_contests.json (e.g. 'Caddie')."""
+    cid = os.environ.get("DK_RESULTS_CONTEST", "").strip()
+    if cid:
+        return cid
+    kw = os.environ.get("DK_RESULTS_FIND", "").strip().lower()
+    try:
+        with open(os.path.join("data", "dk_contests.json")) as fh:
+            doc = json.load(fh)
+    except (OSError, ValueError):
+        return None
+    contests = doc.get("contests", [])
+    if kw:
+        for c in contests:
+            if kw in str(c.get("name", "")).lower():
+                return str(c.get("id"))
+    # Otherwise the biggest-field contest we know about.
+    if contests:
+        return str(max(contests, key=lambda c: c.get("entries") or 0).get("id"))
+    return None
+
+
+def fetch_ownership():
+    """Pull real post-contest ownership from a completed DK contest's standings
+    CSV (needs DK_COOKIE — your logged-in session). Writes/merges
+    data/actual_ownership.json so the history archive can score models vs reality."""
+    cid = find_results_contest()
+    if not cid:
+        raise SystemExit("No results contest id (set DK_RESULTS_CONTEST or DK_RESULTS_FIND).")
+    cookie = os.environ.get("DK_COOKIE", "").strip()
+    if not cookie:
+        raise SystemExit("DK_COOKIE secret required to export contest standings "
+                         "(your logged-in DraftKings session cookie).")
+    tourney = os.environ.get("DK_TOURNAMENT", "").strip()
+    if not tourney:
+        disc = auto_discover()
+        tourney = disc[2] if disc else "UNKNOWN"
+
+    url = f"https://www.draftkings.com/contest/exportfullstandingscsv/{cid}"
+    print(f"GET {url} (authenticated)")
+    req = urllib.request.Request(url, headers={**UA, "Cookie": cookie})
+    with urllib.request.urlopen(req, timeout=120) as r:
+        text = r.read().decode("utf-8", "replace")
+    if "<html" in text[:200].lower():
+        raise SystemExit("Got an HTML page, not a CSV — cookie likely expired or "
+                         "you didn't enter this contest.")
+    own, fpts = parse_standings_ownership(text)
+    if not own:
+        raise SystemExit("No ownership parsed — standings CSV format unexpected.")
+
+    path = os.path.join("data", "actual_ownership.json")
+    doc = {}
+    if os.path.exists(path):
+        try:
+            with open(path) as fh:
+                doc = json.load(fh)
+        except ValueError:
+            doc = {}
+    now = datetime.datetime.utcnow().replace(microsecond=0).isoformat() + "Z"
+    doc.setdefault("tournaments", {})
+    doc["tournaments"][tourney] = {
+        "contestId": str(cid), "updatedUtc": now,
+        "count": len(own), "ownership": own, "fpts": fpts or None,
+    }
+    doc["updatedUtc"] = now
+    os.makedirs("data", exist_ok=True)
+    with open(path, "w") as fh:
+        json.dump(doc, fh, indent=1)
+    top = sorted(own.items(), key=lambda kv: -kv[1])[:5]
+    print(f"Pulled ownership for {len(own)} players from contest {cid} -> {tourney}")
+    print("  top owned:", ", ".join(f"{n} {v}%" for n, v in top))
+    return 0
+
+
 def auto_discover():
     """Pick the main open PGA slate automatically, with no contest id needed:
     the GOLF draft group backing the most open contests (the main slate always
@@ -255,6 +365,10 @@ def main():
     if os.environ.get("DK_LIST", "").strip():
         list_groups()
         return 0
+    # Pull real post-contest ownership from a completed contest's standings CSV.
+    if (os.environ.get("DK_RESULTS_CONTEST", "").strip()
+            or os.environ.get("DK_RESULTS_FIND", "").strip()):
+        return fetch_ownership()
     contest = os.environ.get("DK_CONTEST_ID", "").strip()
     tourney = os.environ.get("DK_TOURNAMENT", "").strip()
     date = os.environ.get("DK_DATE", "").strip()

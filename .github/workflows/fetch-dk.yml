@@ -28,6 +28,14 @@ on:
         description: Date value (optional in auto mode)
         required: false
         default: ''
+      results_contest_id:
+        description: Pull real ownership from this COMPLETED contest id (needs DK_COOKIE secret)
+        required: false
+        default: ''
+      results_find:
+        description: 'Or match a completed contest by name, e.g. "Caddie" (uses dk_contests.json)'
+        required: false
+        default: ''
       list:
         description: List open GOLF draft groups instead of fetching (1 = list)
         required: false
@@ -71,16 +79,20 @@ jobs:
           DK_LIST: ${{ inputs.list }}
           DK_PROBE_CONTEST: ${{ inputs.probe_contest }}
           DK_PROBE_DG: ${{ inputs.probe_dg }}
+          # Post-contest ownership (results mode) — needs the DK_COOKIE secret.
+          DK_RESULTS_CONTEST: ${{ inputs.results_contest_id }}
+          DK_RESULTS_FIND: ${{ inputs.results_find }}
+          DK_COOKIE: ${{ secrets.DK_COOKIE }}
         run: python tools/fetch_dk.py
 
       - name: Commit CSV
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add data/dk_salaries.csv data/dk.json data/dk_contests.json
+          git add data/dk_salaries.csv data/dk.json data/dk_contests.json data/actual_ownership.json
           if git diff --cached --quiet; then
             echo "No change in DK data"
           else
-            git commit -m "Fetch DK salaries + status (auto slate)"
+            git commit -m "Fetch DK data (salaries / status / results ownership)"
             git push
           fi

@@ -221,6 +221,43 @@ def archive_history(golfers, meta, raw, suffix):
                 d.setdefault("updatedUtc", now)
                 _save_json(p, d)
 
+        # 2b) Merge real post-contest ownership pulled from DraftKings
+        #     (data/actual_ownership.json, written by fetch_dk.py). This is the
+        #     true contest number, so it becomes the 'actual' and we (re)score
+        #     both the website and Colab predictions against it.
+        dk_doc = _load_json(os.path.join(DATA_DIR, "actual_ownership.json")) or {}
+        for ev, info in (dk_doc.get("tournaments") or {}).items():
+            own = info.get("ownership") or {}
+            if not own:
+                continue
+            p = os.path.join(HIST_DIR, _safe(ev) + ".json")
+            d = _load_json(p) or {"tournament": ev}
+            d["tournament"] = ev
+            if date_by_event.get(ev):
+                d["date"] = date_by_event[ev]
+            merged = dict(d.get("actual") or {})
+            merged.update({k: round(float(v), 2) for k, v in own.items()})
+            d["actual"] = merged
+            d["actualSource"] = "DK contest " + str(info.get("contestId"))
+            if info.get("fpts"):
+                d["actualFpts"] = {**(d.get("actualFpts") or {}), **info["fpts"]}
+
+            def _mae_vs(predmap):
+                common = [n for n in merged if predmap.get(n) is not None]
+                if not common:
+                    return None, 0
+                return (round(sum(abs(predmap[n] - merged[n]) for n in common)
+                              / len(common), 3), len(common))
+
+            mae, ncommon = _mae_vs(d.get("predicted") or {})
+            if mae is not None:
+                d["maePct"], d["comparedPlayers"] = mae, ncommon
+            cmae, _ = _mae_vs(d.get("colab") or {})
+            if cmae is not None:
+                d["colabMaePct"] = cmae
+            d["updatedUtc"] = now
+            _save_json(p, d)
+
         # 3) Rebuild the index of all archived events.
         events = []
         for fn in sorted(os.listdir(HIST_DIR)):
