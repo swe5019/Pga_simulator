@@ -154,6 +154,11 @@ def archive_history(golfers, meta, raw, suffix):
         c_name = cols.get("name")
         c_own = cols.get("actual_ownership")
         c_fpts = cols.get("fpts") or cols.get("actual_fpts")
+        # Optional: your Colab/own ownership projection, for a head-to-head MAE vs
+        # the website model. Add any of these columns to the Data tab to enable it.
+        c_colab = (cols.get("colab_ownership") or cols.get("colab_predicted")
+                   or cols.get("predicted_ownership") or cols.get("predicted_ownership_pct")
+                   or cols.get("colab_own"))
         if c_tour and c_name and c_own:
             for ev, grp in df.groupby(c_tour):
                 ev = str(ev).strip()
@@ -164,7 +169,12 @@ def archive_history(golfers, meta, raw, suffix):
                     continue
                 # Sheet stores ownership as a fraction (0.286); scale to % if so.
                 scale = 100.0 if float(own_raw.max()) <= 1.5 else 1.0
-                actual, actual_fpts = {}, {}
+                colab_scale = 1.0
+                if c_colab is not None:
+                    cr = grp[c_colab].dropna()
+                    if not cr.empty:
+                        colab_scale = 100.0 if float(cr.max()) <= 1.5 else 1.0
+                actual, actual_fpts, colab = {}, {}, {}
                 for _, row in grp.iterrows():
                     nm = str(row[c_name]).strip()
                     if not nm or nm.lower() == "nan":
@@ -176,6 +186,10 @@ def archive_history(golfers, meta, raw, suffix):
                         fv = num(row[c_fpts])
                         if fv is not None:
                             actual_fpts[nm] = round(fv, 1)
+                    if c_colab is not None:
+                        cv = num(row[c_colab])
+                        if cv is not None:
+                            colab[nm] = round(cv * colab_scale, 2)
                 if not actual:
                     continue
                 p = os.path.join(HIST_DIR, _safe(ev) + ".json")
@@ -186,12 +200,24 @@ def archive_history(golfers, meta, raw, suffix):
                 d["actual"] = actual
                 if actual_fpts:
                     d["actualFpts"] = actual_fpts
+                if colab:
+                    d["colab"] = colab
+
+                def _mae(predmap):
+                    common = [n for n in actual if predmap.get(n) is not None]
+                    if not common:
+                        return None, 0
+                    return (round(sum(abs(predmap[n] - actual[n]) for n in common)
+                                  / len(common), 3), len(common))
+
                 pred = d.get("predicted") or {}
-                common = [n for n in actual if n in pred and pred[n] is not None]
-                if common:
-                    d["maePct"] = round(
-                        sum(abs(pred[n] - actual[n]) for n in common) / len(common), 3)
-                    d["comparedPlayers"] = len(common)
+                mae, ncommon = _mae(pred)
+                if mae is not None:
+                    d["maePct"] = mae
+                    d["comparedPlayers"] = ncommon
+                cmae, _ = _mae(colab)
+                if cmae is not None:
+                    d["colabMaePct"] = cmae  # head-to-head: your Colab vs website
                 d.setdefault("updatedUtc", now)
                 _save_json(p, d)
 
@@ -208,6 +234,7 @@ def archive_history(golfers, meta, raw, suffix):
                 "hasPredicted": bool(d.get("predicted")),
                 "hasActual": bool(d.get("actual")),
                 "maePct": d.get("maePct"),
+                "colabMaePct": d.get("colabMaePct"),
                 "comparedPlayers": d.get("comparedPlayers"),
                 "updatedUtc": d.get("updatedUtc"),
             })

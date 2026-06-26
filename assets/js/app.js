@@ -955,18 +955,26 @@ async function renderAccuracy() {
       (a, b) => parseEventDate(a.date) - parseEventDate(b.date)
     );
     const scored = events.filter((e) => e.maePct != null);
+    const headToHead = scored.filter((e) => e.colabMaePct != null);
 
     // Summary cards
-    const avg = scored.length
-      ? scored.reduce((s, e) => s + e.maePct, 0) / scored.length
-      : null;
-    const best = scored.length ? Math.min(...scored.map((e) => e.maePct)) : null;
-    summary.innerHTML = [
+    const avgOf = (arr, f) => (arr.length ? arr.reduce((s, e) => s + f(e), 0) / arr.length : null);
+    const avg = avgOf(scored, (e) => e.maePct);
+    const avgColab = avgOf(headToHead, (e) => e.colabMaePct);
+    const webWins = headToHead.filter((e) => e.maePct < e.colabMaePct).length;
+    const cards = [
       [events.length, 'Events archived'],
       [scored.length, 'With results'],
-      [avg != null ? avg.toFixed(2) : '—', 'Avg MAE (pts)'],
-      [best != null ? best.toFixed(2) : '—', 'Best MAE (pts)'],
-    ]
+      [avg != null ? avg.toFixed(2) : '—', 'Website avg MAE'],
+    ];
+    if (headToHead.length) {
+      cards.push([avgColab != null ? avgColab.toFixed(2) : '—', 'Your Colab avg MAE']);
+      cards.push([`${webWins}–${headToHead.length - webWins}`, 'Website–Colab record']);
+    } else {
+      const best = scored.length ? Math.min(...scored.map((e) => e.maePct)) : null;
+      cards.push([best != null ? best.toFixed(2) : '—', 'Best MAE (pts)']);
+    }
+    summary.innerHTML = cards
       .map(([v, k]) => `<div class="card"><div class="cardv">${v}</div><div class="cardk">${k}</div></div>`)
       .join('');
 
@@ -987,20 +995,32 @@ async function renderAccuracy() {
       axis.innerHTML = '';
     }
 
-    // Table (newest first)
+    // Table (newest first) — website MAE vs your Colab MAE, head to head.
     tbody.innerHTML = events
       .slice()
       .reverse()
       .map((e) => {
-        const status = e.hasActual
-          ? '<span class="tag" style="background:#11241a;color:var(--green2);border:1px solid #1c3b29">scored</span>'
-          : '<span class="tag noproj">pending</span>';
+        let winner;
+        if (!e.hasActual) {
+          winner = '<span class="tag noproj">pending</span>';
+        } else if (e.maePct != null && e.colabMaePct != null) {
+          const webBetter = e.maePct < e.colabMaePct;
+          const tie = e.maePct === e.colabMaePct;
+          winner = tie
+            ? '<span class="dim">tie</span>'
+            : `<span class="up">${webBetter ? 'Website' : 'Colab'}</span>`;
+        } else {
+          winner = '<span class="tag" style="background:#11241a;color:var(--green2);border:1px solid #1c3b29">scored</span>';
+        }
+        const lower = e.maePct != null && e.colabMaePct != null;
+        const webCls = lower && e.maePct < e.colabMaePct ? 'up' : '';
+        const colCls = lower && e.colabMaePct < e.maePct ? 'up' : '';
         return `<tr>
           <td class="name">${e.tournament}</td>
           <td class="num dim">${e.date || '—'}</td>
-          <td class="num">${e.maePct != null ? e.maePct.toFixed(2) : '—'}</td>
-          <td class="num dim">${e.comparedPlayers || '—'}</td>
-          <td class="num">${status}</td>
+          <td class="num ${webCls}">${e.maePct != null ? e.maePct.toFixed(2) : '—'}</td>
+          <td class="num ${colCls}">${e.colabMaePct != null ? e.colabMaePct.toFixed(2) : '—'}</td>
+          <td class="num">${winner}</td>
         </tr>`;
       })
       .join('');
