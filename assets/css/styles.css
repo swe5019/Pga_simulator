@@ -193,6 +193,13 @@ label.cutbox {
 }
 label.cutbox input { cursor: pointer; }
 
+/* Sortable table headers */
+th.sortable { cursor: pointer; user-select: none; white-space: nowrap; }
+th.sortable:hover { color: var(--text); }
+th.sort-asc, th.sort-desc { color: var(--green2); }
+th.sort-asc::after { content: ' ▲'; font-size: 9px; }
+th.sort-desc::after { content: ' ▼'; font-size: 9px; }
+
 /* ---------- Export ---------- */
 .exportbtns { display: flex; gap: 12px; margin-bottom: 16px; }
 .preview {

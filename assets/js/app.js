@@ -15,7 +15,29 @@ const State = {
   contest: null,           // last contest-sim result
   dkContests: null,        // real DK contests + payout tiers (dk_contests.json)
   hand: { ids: [] },       // hand-build lineup in progress (golfer ids)
+  sort: { key: 'salary', dir: -1 }, // player table sort (dir: 1 asc, -1 desc)
 };
+
+/** Sort value for a golfer in the player table, by column key. */
+function playerSortVal(g, key) {
+  const r = State.simResults ? State.simResults.get(g.id) : null;
+  switch (key) {
+    case 'name': return g.name.toLowerCase();
+    case 'salary': return g.salary;
+    case 'skill': return g.skill;
+    case 'proj': return r ? r.mean : -Infinity;
+    case 'floor': return r ? r.floor : -Infinity;
+    case 'ceil': return r ? r.ceiling : -Infinity;
+    case 'cut': return r ? r.cutPct : -Infinity;
+    case 'win': { const w = winEquity(g); return w != null ? w : -Infinity; }
+    case 't5': return g.top5Prob != null ? g.top5Prob : -Infinity;
+    case 't10': return g.top10Prob != null ? g.top10Prob : -Infinity;
+    case 'own': return g.ownership != null ? g.ownership : -Infinity;
+    case 'exp': return State.build ? (State.build.exposure.get(g.id) || 0) * 100 : -Infinity;
+    case 'val': return r ? r.mean / (g.salary / 1000) : -Infinity;
+    default: return g.salary;
+  }
+}
 
 // DraftKings PGA Classic roster rules.
 const ROSTER_SIZE = 6;
@@ -230,7 +252,18 @@ async function loadAutoSlate() {
 function renderPlayers() {
   const tbody = $('#playerTable tbody');
   tbody.innerHTML = '';
-  const sorted = [...State.golfers].sort((a, b) => b.salary - a.salary);
+  const { key, dir } = State.sort;
+  const sorted = [...State.golfers].sort((a, b) => {
+    const va = playerSortVal(a, key);
+    const vb = playerSortVal(b, key);
+    if (typeof va === 'string') return dir * va.localeCompare(vb);
+    return dir * (va - vb);
+  });
+  // Reflect the active sort on the header arrows.
+  $$('#playerTable thead th[data-sort]').forEach((th) => {
+    th.classList.remove('sort-asc', 'sort-desc');
+    if (th.dataset.sort === key) th.classList.add(dir === 1 ? 'sort-asc' : 'sort-desc');
+  });
 
   for (const g of sorted) {
     if (g.notInSlate) continue; // not in this week's DK field — hidden from the pool
@@ -1224,6 +1257,16 @@ function init() {
   });
   $('#importCsv').addEventListener('change', (e) => {
     if (e.target.files[0]) importCsv(e.target.files[0]);
+  });
+  // Sortable player-table headers: click to sort, click again to reverse.
+  $$('#playerTable thead th[data-sort]').forEach((th) => {
+    th.classList.add('sortable');
+    th.addEventListener('click', () => {
+      const key = th.dataset.sort;
+      if (State.sort.key === key) State.sort.dir *= -1;
+      else State.sort = { key, dir: key === 'name' ? 1 : -1 };
+      renderPlayers();
+    });
   });
   // Hand build + saved lineups
   $('#handSave').addEventListener('click', () => {
