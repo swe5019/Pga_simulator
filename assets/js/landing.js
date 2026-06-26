@@ -9,7 +9,7 @@
  * (https://formspree.io) and paste its endpoint into FORMSPREE_*
  * below — submissions then POST straight to your inbox/dashboard.
  * ============================================================ */
-const CONTACT_EMAIL = 'ebeck2317@gmail.com';
+const CONTACT_EMAIL = 'steve@slatesims.com';
 
 // Optional: paste a Formspree (or similar) endpoint to auto-collect leads.
 // e.g. 'https://formspree.io/f/abcdwxyz'. Leave '' to use the mailto fallback.
