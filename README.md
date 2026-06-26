@@ -1,4 +1,4 @@
-# ⛳ Birdie — PGA DFS Simulator for DraftKings
+# ⛳ SlateSims — PGA DFS Simulator for DraftKings
 
 A play-by-play golf simulator and lineup builder for **DraftKings PGA** contests.
 Think SaberSim, but focused on one sport, and built to be faster and easier to use.
@@ -9,7 +9,7 @@ never leaves your machine. Open `index.html` and it works immediately with a sam
 ## Why it's different
 
 Most tools project a flat average for each golfer and bolt on a guessed standard
-deviation. Golf doesn't behave like that. Birdie simulates **every golfer's full
+deviation. Golf doesn't behave like that. SlateSims simulates **every golfer's full
 72-hole tournament, hole by hole, thousands of times**. That naturally reproduces the
 things that actually decide DFS golf:
 
@@ -40,7 +40,7 @@ and ceilings are the real fantasy-point distributions — not a guess.
 ## Using your own slate
 
 Click **Import DK Salaries CSV** on the Players tab and select the `DKSalaries.csv`
-DraftKings gives you on the contest page. Birdie reads the `Name` and `Salary` columns
+DraftKings gives you on the contest page. SlateSims reads the `Name` and `Salary` columns
 (and `AvgPointsPerGame` if present) to seed each golfer. Tune any **Skill** value inline
 — skill is *strokes gained per round vs. the field* (higher = better) — then re-run the
 sim. This is where your own research becomes your edge.

@@ -1,5 +1,5 @@
 /* ============================================================
- * landing.js — Birdie landing page interactions
+ * landing.js — SlateSims landing page interactions
  * ------------------------------------------------------------
  * Form handling for sign-up / free-trial, feedback, and contact.
  *
@@ -75,7 +75,7 @@ function wireForm(formSel, noteSel, endpoint, subject, kind) {
       const ok = await postForm(endpoint, fd);
       if (ok) {
         form.reset();
-        setNote(note, "✓ You're in — we'll be in touch shortly. Welcome to Birdie!", 'ok');
+        setNote(note, "✓ You're in — we'll be in touch shortly. Welcome to SlateSims!", 'ok');
         return;
       }
       setNote(note, 'Network hiccup — opening your email app instead…', 'err');
@@ -100,7 +100,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   wireForm('#signupForm', '#signupNote', FORMSPREE_SIGNUP,
-    'Birdie free trial request', 'signup');
+    'SlateSims free trial request', 'signup');
   wireForm('#feedbackForm', '#feedbackNote', FORMSPREE_FEEDBACK,
-    'Birdie feedback', 'feedback');
+    'SlateSims feedback', 'feedback');
 });

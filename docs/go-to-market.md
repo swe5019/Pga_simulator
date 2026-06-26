@@ -1,4 +1,4 @@
-# Birdie — Go-to-Market & Pricing Strategy
+# SlateSims — Go-to-Market & Pricing Strategy
 
 > Working strategy doc. Numbers on competitors are from public pricing pages (June 2026);
 > verify before publishing. This is a starting framework, not a final plan.
@@ -9,7 +9,7 @@
 
 **Whoever has the most accurate ownership projections wins.** In DFS golf, edge comes from
 *leverage* — being over/under the field on the right players. Leverage is only as good as the
-ownership number it's measured against. Birdie's wedge is a **purpose-built, automated,
+ownership number it's measured against. SlateSims' wedge is a **purpose-built, automated,
 continuously-validated ownership model (LightGBM, ~2.4% MAE LOTO)** that plugs directly into a
 full sim/optimizer/contest-ROI stack. We compete on **accuracy + automation + price**, not on
 being yet another optimizer.
@@ -20,7 +20,7 @@ being yet another optimizer.
 
 > **Important — apples vs. oranges on price (read this first).** SaberSim and
 > Stokastic's headline prices below are **multi-sport, all-access** subscriptions
-> (NFL/NBA/MLB/PGA in one bill). They are **not** golf-only prices. Birdie is
+> (NFL/NBA/MLB/PGA in one bill). They are **not** golf-only prices. SlateSims is
 > launching **PGA-only**, so the honest like-for-like comparison is **Data Golf
 > (~$30/mo, golf-only)** — that's the real anchor for our price band, not the
 > $97–$400 multi-sport bundles. We can still *position against* the incumbents
@@ -55,7 +55,7 @@ Differentiators (in priority order):
    Competitors don't publish accuracy. Make it our headline and our proof.
 2. **Automation** — DK salaries/IDs/status/payouts pulled automatically; model retrains itself; no
    weekly Colab/CSV grind.
-3. **Full stack in one** — projections → sim → optimizer (Birdie Score) → contest ROI (exact DK
+3. **Full stack in one** — projections → sim → optimizer (Sim Score) → contest ROI (exact DK
    payouts) → entries-file upload. SaberSim-parity features at a fraction of the price.
 4. **Bring-your-own-edge (pro tier)** — power users can feed their own SG/odds/projections; the
    model and sims run on *their* numbers. No competitor offers this.

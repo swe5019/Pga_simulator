@@ -197,7 +197,7 @@ function buildPool(golfers, simResults, opts = {}) {
 
   // Score every finished lineup across ALL sims for its true distribution.
   scoreLineups(lineups, simResults, nSims);
-  // Composite "Birdie Score": upside, projection, and ownership-leverage blended.
+  // Composite "Sim Score": upside, projection, and ownership-leverage blended.
   scoreComposite(lineups, golfers);
 
   // Sort the pool by the composite score by default.
@@ -230,7 +230,7 @@ function scoreLineups(lineups, simResults, nSims) {
 }
 
 /**
- * Composite "Birdie Score" — Birdie's answer to SaberSim's saber-score.
+ * Composite "Sim Score" — SlateSims' answer to SaberSim's saber-score.
  * Rewards projection and tournament-winning upside (99th pct) while penalizing
  * total projected ownership, so unique high-ceiling lineups rise to the top.
  * Sets lu.ownSum (sum of projected ownership) and lu.score on each lineup.

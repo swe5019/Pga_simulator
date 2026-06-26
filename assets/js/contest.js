@@ -1,7 +1,7 @@
 /* ============================================================
  * contest.js — Contest simulation (ROI per lineup)
  * ------------------------------------------------------------
- * Birdie's answer to SaberSim's "Contest Sims". For each of your
+ * SlateSims' answer to SaberSim's "Contest Sims". For each of your
  * lineups we estimate expected ROI in a specific contest by:
  *   1. generating an ownership-weighted FIELD of opponent lineups,
  *   2. scoring your lineups and the field across the simulated

@@ -538,7 +538,7 @@ function renderBuildSummary() {
   const avg = (f) => lus.reduce((s, l) => s + l[f], 0) / lus.length;
   const cards = [
     ['Lineups', lus.length],
-    ['Avg Birdie Score', num(avg('score'))],
+    ['Avg Sim Score', num(avg('score'))],
     ['Avg projection', num(avg('mean'))],
     ['Avg ceiling', num(avg('ceiling'))],
     ['Best ceiling', num(Math.max(...lus.map((l) => l.ceiling)))],
@@ -1112,7 +1112,7 @@ function splitCsvLine(line) {
 }
 
 /* ---------------------- CSV export ---------------------- */
-/** Lineups ordered for assignment: by contest ROI if available, else Birdie Score. */
+/** Lineups ordered for assignment: by contest ROI if available, else Sim Score. */
 function orderedLineups() {
   const lus = State.build.lineups;
   if (State.contest && State.contest.results) {
@@ -1152,7 +1152,7 @@ function exportDk() {
 
 /**
  * Fill a DraftKings entries template: assign a unique best lineup to each entry
- * row (by contest ROI if a contest sim was run, else Birdie Score) and write the
+ * row (by contest ROI if a contest sim was run, else Sim Score) and write the
  * 6 golfer columns as "Name (ID)". Keeps every other column untouched.
  */
 function fillEntries(file) {
@@ -1192,7 +1192,7 @@ function fillEntries(file) {
 
       download('draftkings_entries_filled.csv', out.join('\n'));
       let note = `✓ Filled ${assigned} entries from ${lus.length} lineups`;
-      note += State.contest ? ' (ranked by contest ROI).' : ' (ranked by Birdie Score).';
+      note += State.contest ? ' (ranked by contest ROI).' : ' (ranked by Sim Score).';
       if (reused) note += ` ⚠ ${reused} entries reused lineups (more entries than unique lineups — build more).`;
       $('#exportPreview').textContent = note + '\n' + out.slice(0, 6).join('\n');
     } catch (e) {
