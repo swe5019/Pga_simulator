@@ -1,5 +1,5 @@
 {
- "updatedUtc": "2026-06-26T00:26:58Z",
+ "updatedUtc": "2026-06-26T00:47:53Z",
  "count": 21,
  "events": [
   {
@@ -172,11 +172,11 @@
    "file": "history/TRAVELERS_2026.json",
    "date": "2026-06-25 00:00:00",
    "hasPredicted": true,
-   "hasActual": false,
-   "maePct": null,
+   "hasActual": true,
+   "maePct": 3.046,
    "colabMaePct": null,
-   "comparedPlayers": null,
-   "updatedUtc": "2026-06-26T00:26:58Z"
+   "comparedPlayers": 72,
+   "updatedUtc": "2026-06-26T00:47:53Z"
   },
   {
    "tournament": "TRUIST_2026",

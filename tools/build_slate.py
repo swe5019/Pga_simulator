@@ -92,6 +92,28 @@ def _safe(name):
     return "".join(c if c.isalnum() else "_" for c in str(name)).strip("_") or "event"
 
 
+def _nrm(s):
+    """Normalize a player name for cross-source matching (DK vs sheet)."""
+    import re
+    s = str(s).lower()
+    for a, b in [("é", "e"), ("ö", "o"), ("ø", "o"), ("í", "i"), ("á", "a")]:
+        s = s.replace(a, b)
+    s = re.sub(r"[^a-z ]", " ", s)
+    s = re.sub(r"\b(jr|sr|ii|iii|iv)\b", "", s)
+    return re.sub(r"\s+", " ", s).strip()
+
+
+def _mae_vs(actual, predmap):
+    """Mean absolute error between a prediction map and actuals, matching names
+    by normalized form. Returns (mae, n_compared) or (None, 0)."""
+    pm = {_nrm(k): v for k, v in (predmap or {}).items() if v is not None}
+    pairs = [(predmap_v, actual[n]) for n in actual
+             for predmap_v in [pm.get(_nrm(n))] if predmap_v is not None]
+    if not pairs:
+        return None, 0
+    return round(sum(abs(p - a) for p, a in pairs) / len(pairs), 3), len(pairs)
+
+
 def _load_json(path):
     try:
         with open(path) as fh:
@@ -203,19 +225,11 @@ def archive_history(golfers, meta, raw, suffix):
                 if colab:
                     d["colab"] = colab
 
-                def _mae(predmap):
-                    common = [n for n in actual if predmap.get(n) is not None]
-                    if not common:
-                        return None, 0
-                    return (round(sum(abs(predmap[n] - actual[n]) for n in common)
-                                  / len(common), 3), len(common))
-
-                pred = d.get("predicted") or {}
-                mae, ncommon = _mae(pred)
+                mae, ncommon = _mae_vs(actual, d.get("predicted") or {})
                 if mae is not None:
                     d["maePct"] = mae
                     d["comparedPlayers"] = ncommon
-                cmae, _ = _mae(colab)
+                cmae, _ = _mae_vs(actual, colab)
                 if cmae is not None:
                     d["colabMaePct"] = cmae  # head-to-head: your Colab vs website
                 d.setdefault("updatedUtc", now)
@@ -242,17 +256,10 @@ def archive_history(golfers, meta, raw, suffix):
             if info.get("fpts"):
                 d["actualFpts"] = {**(d.get("actualFpts") or {}), **info["fpts"]}
 
-            def _mae_vs(predmap):
-                common = [n for n in merged if predmap.get(n) is not None]
-                if not common:
-                    return None, 0
-                return (round(sum(abs(predmap[n] - merged[n]) for n in common)
-                              / len(common), 3), len(common))
-
-            mae, ncommon = _mae_vs(d.get("predicted") or {})
+            mae, ncommon = _mae_vs(merged, d.get("predicted") or {})
             if mae is not None:
                 d["maePct"], d["comparedPlayers"] = mae, ncommon
-            cmae, _ = _mae_vs(d.get("colab") or {})
+            cmae, _ = _mae_vs(merged, d.get("colab") or {})
             if cmae is not None:
                 d["colabMaePct"] = cmae
             d["updatedUtc"] = now
