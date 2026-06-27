@@ -10,9 +10,9 @@
  *      form's endpoint, e.g. 'https://formspree.io/f/abcdwxyz'.
  *   3. Paste the endpoints into FORMSPREE_SIGNUP / FORMSPREE_FEEDBACK
  *      below.
- * Formspree then emails CONTACT_EMAIL on every submission, AND
- * auto-emails the visitor a welcome reply (the message is set via
- * the hidden _autoresponse field on each <form> in index.html).
+ * Formspree then emails CONTACT_EMAIL on every submission. There is
+ * no auto-reply to the visitor — Formspree's autoresponse feature is
+ * a paid-plan add-on, so the app link is shown on-screen instead.
  * Until an endpoint is set, submissions fall back to opening the
  * visitor's email client (mailto) — still captured, just manual.
  * ============================================================ */
@@ -72,7 +72,7 @@ function setNote(el, msg, cls) {
 }
 
 /** Generic submit handler: try Formspree, else mailto. */
-function wireForm(formSel, noteSel, endpoint, subject, kind) {
+function wireForm(formSel, noteSel, endpoint, subject, kind, successMsg) {
   const form = $(formSel);
   const note = $(noteSel);
   if (!form) return;
@@ -86,7 +86,7 @@ function wireForm(formSel, noteSel, endpoint, subject, kind) {
       const ok = await postForm(endpoint, fd);
       if (ok) {
         form.reset();
-        setNote(note, "✓ You're in — we'll be in touch shortly. Welcome to SlateSims!", 'ok');
+        setNote(note, successMsg, 'ok');
         return;
       }
       setNote(note, 'Network hiccup — opening your email app instead…', 'err');
@@ -111,7 +111,9 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   wireForm('#signupForm', '#signupNote', FORMSPREE_SIGNUP,
-    'SlateSims free trial request', 'signup');
+    'SlateSims free trial request', 'signup',
+    "✓ You're in — head to slatesims.com/app.html any time, no login needed!");
   wireForm('#feedbackForm', '#feedbackNote', FORMSPREE_FEEDBACK,
-    'SlateSims feedback', 'feedback');
+    'SlateSims feedback', 'feedback',
+    "✓ Thanks for the feedback — we'll be in touch shortly. Welcome to SlateSims!");
 });
