@@ -251,14 +251,25 @@ def fetch_ownership():
 
 
 def auto_discover():
-    """Pick the main open PGA slate automatically, with no contest id needed:
-    the GOLF draft group backing the most open contests (the main slate always
-    dominates), then read its event name + start date. Returns
-    (draftGroupId, event, tournament_name, date) or None if nothing is posted."""
+    """Pick the main open 4-day Classic PGA slate automatically, with no contest
+    id needed: the GOLF draft group backing the most open Classic contests, then
+    read its event name + start date. Returns (draftGroupId, event,
+    tournament_name, date) or None if nothing is posted.
+
+    Excludes "Showdown"-branded contests: DK posts a new Showdown slate (smaller
+    field, single-round scoring) every day once the main Classic contests lock at
+    Thursday tee time, and those out-open the original Classic contests by entry
+    count for the rest of the week. Ranking by raw open-contest volume would drift
+    onto that day's Showdown draft group instead of the Classic one — this app's
+    roster rules (6 golfers / $50K cap, full-tournament scoring) only match the
+    Classic format.
+    """
     lobby = get_json("https://www.draftkings.com/lobby/getcontests?sport=GOLF",
                      optional=True) or {}
     groups = {}
     for c in lobby.get("Contests", []):
+        if "showdown" in (c.get("n") or "").lower():
+            continue
         dg = c.get("dg") or c.get("draftGroupId")
         if not dg:
             continue
@@ -266,7 +277,8 @@ def auto_discover():
         g["count"] += 1
         g["entries"] += (c.get("m") or 0)
     if not groups:
-        print("auto-discover: no open GOLF contests (DK hasn't posted a slate yet)")
+        print("auto-discover: no open non-Showdown GOLF contests (DK hasn't posted "
+              "the Classic slate yet, or only Showdown contests are open this week)")
         return None
 
     dg_meta = {d.get("DraftGroupId"): d for d in lobby.get("DraftGroups", [])}
