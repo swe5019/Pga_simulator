@@ -300,6 +300,30 @@ tr.out td.name .pname { text-decoration: line-through; color: var(--dim); }
 .tour-skip { background: none; border: none; color: var(--dim); cursor: pointer; font-size: 12px; padding: 4px; }
 .tour-skip:hover { color: var(--text); }
 
+/* ---------- Access gate (free signup) ---------- */
+.gate {
+  position: fixed; inset: 0; z-index: 500; display: flex; align-items: center; justify-content: center;
+  background: rgba(0, 0, 0, .82); padding: 20px;
+}
+.gatecard {
+  background: var(--panel); border: 1px solid var(--line); border-radius: 14px;
+  width: min(420px, 96vw); padding: 28px 26px; text-align: center;
+  box-shadow: 0 24px 70px rgba(0, 0, 0, .55);
+}
+.gatecard h2 { font-size: 20px; margin: 0 0 8px; }
+.gatecard p { color: var(--dim); font-size: 13.5px; margin: 0 0 18px; line-height: 1.5; }
+.gatecard form { display: flex; flex-direction: column; gap: 10px; }
+.gatecard input {
+  background: var(--bg); color: var(--text); border: 1px solid var(--line);
+  border-radius: 8px; padding: 11px 13px; font-size: 14px; text-align: center;
+}
+.gatecard input:focus { border-color: var(--accent); outline: none; }
+.gatecard button.primary { padding: 11px 16px; font-size: 14px; }
+.gatenote { margin: 12px 0 0; font-size: 12.5px; color: var(--dim); }
+.gatenote.ok { color: var(--green2); }
+.gatenote.err { color: var(--down); }
+.gatemicro { margin: 14px 0 0 !important; font-size: 11.5px !important; color: var(--dim); }
+
 /* ---------- Per-player exposure target inputs ---------- */
 input.expcell {
   width: 46px; background: var(--bg); color: var(--text);
