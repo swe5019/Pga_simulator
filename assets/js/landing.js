@@ -1,18 +1,26 @@
 /* ============================================================
  * landing.js — SlateSims landing page interactions
  * ------------------------------------------------------------
- * Form handling for sign-up / free-trial, feedback, and contact.
+ * Form handling for sign-up (beta access) and feedback.
  *
- * Lead delivery works out of the box via a mailto fallback (opens
- * the visitor's email client to CONTACT_EMAIL). To collect leads
- * automatically with no email client, create a free Formspree form
- * (https://formspree.io) and paste its endpoint into FORMSPREE_*
- * below — submissions then POST straight to your inbox/dashboard.
+ * Setup (one-time, ~2 min):
+ *   1. Create a free account at https://formspree.io (verify with
+ *      steve@slatesims.com or whatever inbox should get the leads).
+ *   2. Create two forms (or one, reused for both) and copy each
+ *      form's endpoint, e.g. 'https://formspree.io/f/abcdwxyz'.
+ *   3. Paste the endpoints into FORMSPREE_SIGNUP / FORMSPREE_FEEDBACK
+ *      below.
+ * Formspree then emails CONTACT_EMAIL on every submission, AND
+ * auto-emails the visitor a welcome reply (the message is set via
+ * the hidden _autoresponse field on each <form> in index.html).
+ * Until an endpoint is set, submissions fall back to opening the
+ * visitor's email client (mailto) — still captured, just manual.
  * ============================================================ */
 const CONTACT_EMAIL = 'steve@slatesims.com';
 
-// Optional: paste a Formspree (or similar) endpoint to auto-collect leads.
-// e.g. 'https://formspree.io/f/abcdwxyz'. Leave '' to use the mailto fallback.
+// Paste your Formspree (or similar) endpoints here to go live with
+// auto-collected leads + auto-reply emails. Leave '' to use the
+// mailto fallback in the meantime.
 const FORMSPREE_SIGNUP = '';
 const FORMSPREE_FEEDBACK = '';
 
@@ -35,7 +43,7 @@ async function postForm(endpoint, data) {
 /** Build + open a mailto with the form contents (no-backend fallback). */
 function mailtoFallback(subject, fields) {
   const body = Object.entries(fields)
-    .filter(([, v]) => v)
+    .filter(([k, v]) => v && !k.startsWith('_'))
     .map(([k, v]) => `${k}: ${v}`)
     .join('\n');
   window.location.href =
@@ -95,7 +103,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const plan = $('#signupPlan');
       if (plan) plan.value = btn.dataset.plan;
       const note = $('#signupNote');
-      if (note) setNote(note, `Great pick — starting your ${btn.dataset.plan} free trial. Drop your email below.`, 'ok');
+      if (note) setNote(note, `Great pick — ${btn.dataset.plan} noted for when the beta wraps. Drop your email below for beta access.`, 'ok');
     });
   });
 

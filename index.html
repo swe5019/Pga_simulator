@@ -259,15 +259,17 @@
       </div>
     </section>
 
-    <!-- ===================== SIGNUP / FREE TRIAL ===================== -->
+    <!-- ===================== SIGNUP / BETA ===================== -->
     <section id="signup" class="section alt">
       <div class="signupwrap">
-        <h2 class="h2">Start your free trial</h2>
-        <p class="lead">14 days, full access, no credit card. Get the current slate, the ownership
-          edge, and the whole toolkit — and feel the difference before you pay a cent.</p>
+        <h2 class="h2">Join the beta</h2>
+        <p class="lead">Free during the beta — get the current slate, the ownership edge, and the
+          whole toolkit ahead of this week's tournament. A few spots, no credit card.</p>
         <form id="signupForm" class="leadform">
           <input type="email" name="email" required placeholder="you@email.com" autocomplete="email" />
           <input type="hidden" name="plan" id="signupPlan" value="Starter" />
+          <input type="hidden" name="_subject" value="New SlateSims beta signup" />
+          <input type="hidden" name="_autoresponse" value="Thanks for signing up for the SlateSims beta! You're in — head to https://slatesims.com/app.html any time, no login needed (your data stays in your browser). We'd love your feedback after this week's tournament; just reply to this email. — Steve, SlateSims" />
           <select name="entries" aria-label="How much do you play?">
             <option value="">How much do you play?</option>
             <option>$1-10/week, single entry</option>
@@ -275,8 +277,8 @@
             <option>Multi-entry grinder</option>
             <option>I run my own models</option>
           </select>
-          <button class="btn primary big" type="submit">Get my free trial</button>
-          <p class="formnote" id="signupNote">We'll email your access link. No spam, ever.</p>
+          <button class="btn primary big" type="submit">Get beta access</button>
+          <p class="formnote" id="signupNote">We'll email you the app link within minutes. No spam, ever.</p>
         </form>
       </div>
     </section>
@@ -291,6 +293,7 @@
           <form id="feedbackForm" class="leadform col">
             <input type="text" name="name" placeholder="Name (optional)" autocomplete="name" />
             <input type="email" name="email" placeholder="Email (optional, if you want a reply)" autocomplete="email" />
+            <input type="hidden" name="_subject" value="SlateSims feedback" />
             <textarea name="message" required rows="4" placeholder="What's working, what's missing, what you'd pay for…"></textarea>
             <button class="btn primary" type="submit">Send feedback</button>
             <p class="formnote" id="feedbackNote"></p>
