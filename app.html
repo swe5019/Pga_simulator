@@ -5,8 +5,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>SlateSims — PGA DFS Simulator for DraftKings</title>
   <link rel="stylesheet" href="assets/css/styles.css" />
+  <script>
+    // Runs inline (can't be ad-blocked like an external file) so the app
+    // stays hidden by default until a visitor has signed up in this browser.
+    try {
+      if (!localStorage.getItem('slatesims_access_granted')) {
+        document.documentElement.classList.add('locked');
+      }
+    } catch (e) { /* ignore */ }
+  </script>
 </head>
 <body>
+  <div id="appShell">
   <header class="topbar">
     <a class="brand" href="index.html" title="SlateSims home">
       <svg class="logo" viewBox="0 0 100 100" aria-hidden="true">
@@ -325,6 +335,28 @@
   <footer class="footer">
     <span>SlateSims · client-side, your data never leaves the browser.</span>
   </footer>
+  </div>
+
+  <!-- ===================== FREE-ACCESS ENTRY PANEL ===================== -->
+  <!-- Visible only when <html> has the "locked" class (set inline above,
+       before any external script runs, so it can't be skipped by a blocked
+       or slow-loading script). Static markup, not JS-injected, so it shows
+       up even if onboard.js itself fails to load. -->
+  <div id="entryPanel" class="entrypanel">
+    <div class="entrypanel-card">
+      <h2>Free beta access</h2>
+      <p>SlateSims is free during the beta. Drop your email and you're straight in — no
+        credit card, no cost.</p>
+      <form id="entryForm">
+        <input type="email" name="email" required placeholder="you@email.com" autocomplete="email" />
+        <input type="hidden" name="_subject" value="New SlateSims app access signup" />
+        <input type="hidden" name="_autoresponse" value="Thanks for signing up for the SlateSims beta! Your access is unlocked — jump back in any time at https://slatesims.com/app.html, no login needed (your data stays in your browser). We'd love your feedback after this week's tournament; just reply to this email. — Steve, SlateSims" />
+        <button type="submit" class="primary">Get free access →</button>
+      </form>
+      <p class="entrynote" id="entryNote"></p>
+      <p class="entrymicro">No credit card · No spam · Unlocks this browser instantly</p>
+    </div>
+  </div>
 
   <script src="assets/js/scoring.js"></script>
   <script src="assets/js/data.js"></script>
@@ -332,7 +364,7 @@
   <script src="assets/js/optimizer.js"></script>
   <script src="assets/js/contest.js"></script>
   <script src="assets/js/app.js"></script>
-  <script src="assets/js/gate.js"></script>
+  <script src="assets/js/onboard.js"></script>
   <script src="assets/js/tour.js"></script>
 </body>
 </html>
