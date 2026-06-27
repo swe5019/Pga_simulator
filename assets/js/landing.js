@@ -100,18 +100,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const yr = $('#yr');
   if (yr) yr.textContent = new Date().getFullYear();
 
-  // Pricing CTA → preselect plan and jump to the form.
-  document.querySelectorAll('[data-plan]').forEach((btn) => {
-    btn.addEventListener('click', () => {
-      const plan = $('#signupPlan');
-      if (plan) plan.value = btn.dataset.plan;
-      const note = $('#signupNote');
-      if (note) setNote(note, `Great pick — ${btn.dataset.plan} noted for when the beta wraps. Drop your email below for beta access.`, 'ok');
-    });
-  });
-
   wireForm('#signupForm', '#signupNote', FORMSPREE_SIGNUP,
-    'SlateSims free trial request', 'signup',
+    'SlateSims beta signup', 'signup',
     "✓ You're in — head to slatesims.com/app.html any time, no login needed!");
   wireForm('#feedbackForm', '#feedbackNote', FORMSPREE_FEEDBACK,
     'SlateSims feedback', 'feedback',

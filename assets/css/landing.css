@@ -120,28 +120,6 @@ a { color: inherit; text-decoration: none; }
 .prooftable .dim { color: var(--dim); font-weight: 500; font-size: 14px; }
 .proofnote { color: var(--dim); font-size: 13px; margin: 14px 0 0; }
 
-/* ---------- Pricing ---------- */
-.pricegrid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; align-items: stretch; }
-.plan {
-  background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius);
-  padding: 26px 22px; display: flex; flex-direction: column; position: relative;
-}
-.plan.featured { border-color: var(--green); box-shadow: 0 0 0 1px var(--green) inset, 0 14px 40px rgba(46,160,67,.12); }
-.badge {
-  position: absolute; top: -11px; left: 50%; transform: translateX(-50%);
-  background: var(--green); color: #fff; font-size: 11px; font-weight: 700; letter-spacing: .5px;
-  padding: 4px 12px; border-radius: 999px;
-}
-.planname { font-size: 14px; font-weight: 700; color: var(--dim); text-transform: uppercase; letter-spacing: 1px; }
-.price { font-size: 34px; font-weight: 800; margin: 6px 0 4px; letter-spacing: -1px; }
-.price span { font-size: 15px; color: var(--dim); font-weight: 500; }
-.plandesc { color: var(--dim); font-size: 13.5px; min-height: 40px; margin: 0 0 14px; }
-.plan ul { list-style: none; padding: 0; margin: 0 0 22px; flex: 1; }
-.plan ul li { padding: 7px 0 7px 24px; position: relative; font-size: 14px; color: var(--text); border-top: 1px solid var(--line); }
-.plan ul li:first-child { border-top: none; }
-.plan ul li::before { content: "✓"; position: absolute; left: 0; color: var(--green2); }
-.plan .btn { width: 100%; }
-
 /* ---------- Steps ---------- */
 .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
 .step { background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius); padding: 24px; }
@@ -200,12 +178,12 @@ a { color: inherit; text-decoration: none; }
   .hero h1 { font-size: 36px; }
   .herostats { flex-direction: row; flex-wrap: wrap; }
   .statcard { flex: 1; min-width: 150px; }
-  .grid4, .grid3, .pricegrid, .steps { grid-template-columns: 1fr 1fr; }
+  .grid4, .grid3, .steps { grid-template-columns: 1fr 1fr; }
   .split2 { grid-template-columns: 1fr; }
   .navlinks { display: none; }
 }
 @media (max-width: 560px) {
-  .grid4, .grid3, .pricegrid, .steps { grid-template-columns: 1fr; }
+  .grid4, .grid3, .steps { grid-template-columns: 1fr; }
   .hero h1 { font-size: 30px; }
   .navcta .ghost { display: none; }
   .section { padding: 48px 20px; }
