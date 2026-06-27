@@ -21,8 +21,11 @@ const CONTACT_EMAIL = 'steve@slatesims.com';
 // Paste your Formspree (or similar) endpoints here to go live with
 // auto-collected leads + auto-reply emails. Leave '' to use the
 // mailto fallback in the meantime.
-const FORMSPREE_SIGNUP = '';
-const FORMSPREE_FEEDBACK = '';
+const FORMSPREE_SIGNUP = 'https://formspree.io/f/mvzjronw';
+// Reusing the same form for feedback for now (submissions land in the
+// same Formspree inbox, distinguished by the _subject field). Create a
+// second Formspree form and paste its endpoint here to split them out.
+const FORMSPREE_FEEDBACK = 'https://formspree.io/f/mvzjronw';
 
 const $ = (s) => document.querySelector(s);
 
