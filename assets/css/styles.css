@@ -31,7 +31,7 @@ body {
 }
 .brand { display: flex; align-items: center; gap: 12px; text-decoration: none; color: inherit; }
 .brand:hover h1 { color: var(--green2); }
-.logo { font-size: 30px; }
+.logo { width: 34px; height: 34px; flex-shrink: 0; display: block; }
 .brand h1 { margin: 0; font-size: 22px; letter-spacing: .5px; }
 .tag { margin: 0; color: var(--dim); font-size: 12px; }
 

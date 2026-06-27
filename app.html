@@ -9,7 +9,18 @@
 <body>
   <header class="topbar">
     <a class="brand" href="index.html" title="SlateSims home">
-      <span class="logo">⛳</span>
+      <svg class="logo" viewBox="0 0 32 32" aria-hidden="true">
+        <rect width="32" height="32" rx="9" fill="url(#logoGradApp)"/>
+        <path d="M12 6.5v19" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+        <path d="M12 7l9 3.2-9 3.2z" fill="#fff"/>
+        <ellipse cx="12" cy="26.5" rx="6" ry="1.7" fill="#06210d" opacity=".35"/>
+        <defs>
+          <linearGradient id="logoGradApp" x1="0" y1="0" x2="32" y2="32" gradientUnits="userSpaceOnUse">
+            <stop stop-color="#2ea043"/>
+            <stop offset="1" stop-color="#1b6b2c"/>
+          </linearGradient>
+        </defs>
+      </svg>
       <div>
         <h1>SlateSims</h1>
         <p class="tag">Play-by-play PGA simulations for DraftKings — built to win.</p>
