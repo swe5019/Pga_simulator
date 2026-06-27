@@ -284,7 +284,7 @@ function renderPlayers() {
     tr.innerHTML = `
       <td class="ctr"><input type="checkbox" class="selbox" data-id="${g.id}" ${g.selected ? 'checked' : ''}></td>
       <td class="name"><button class="pname" data-id="${g.id}" title="View outcome distribution">${g.name}</button>${g.out ? ' <span class="tag out">OUT</span>' : ''}${g.added ? ' <span class="tag noproj" title="From DK field; no projection in your master yet — using salary-based skill">no proj</span>' : ''}</td>
-      <td class="num"><input class="cell" data-id="${g.id}" data-f="salary" value="${g.salary}"></td>
+      <td class="num">${money(g.salary)}</td>
       <td class="num"><input class="cell" data-id="${g.id}" data-f="skill" value="${g.skill}"></td>
       <td class="num"><input class="projcell${g.projLocked ? ' overridden' : ''}" data-id="${g.id}" value="${proj != null ? proj.toFixed(1) : ''}" placeholder="—" title="Manual projection override — leave blank to use the sim"></td>
       <td class="num dim">${r ? num(r.floor) : '—'}</td>
