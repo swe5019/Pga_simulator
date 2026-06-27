@@ -96,7 +96,12 @@ async function overlayDk() {
     State.dkPlayers = byName; // name -> DK player (for upload id resolution)
     let matched = 0;
     for (const g of State.golfers) if (byName.has(normName(g.name))) matched++;
-    const rate = matched / (Math.min(players.length, State.golfers.length) || 1);
+    // Use the LARGER pool as the denominator: a small DK slate (e.g. a
+    // weekend single-round/Showdown slate posted after the main 4-day
+    // Classic contest has locked) can match 100% of ITSELF while covering
+    // only a fraction of our full-field slate. Math.min would wrongly pass
+    // that as a confident match; Math.max requires real field coverage.
+    const rate = matched / (Math.max(players.length, State.golfers.length) || 1);
     const applied = rate >= 0.6;
     let dropped = 0;
     let added = 0;
@@ -283,14 +288,14 @@ function renderPlayers() {
       <td class="name"><button class="pname" data-id="${g.id}" title="View outcome distribution">${g.name}</button>${g.out ? ' <span class="tag out">OUT</span>' : ''}${g.added ? ' <span class="tag noproj" title="From DK field; no projection in your master yet — using salary-based skill">no proj</span>' : ''}</td>
       <td class="num"><input class="cell" data-id="${g.id}" data-f="salary" value="${g.salary}"></td>
       <td class="num"><input class="cell" data-id="${g.id}" data-f="skill" value="${g.skill}"></td>
-      <td class="num">${num(proj)}</td>
+      <td class="num"><input class="projcell${g.projLocked ? ' overridden' : ''}" data-id="${g.id}" value="${proj != null ? proj.toFixed(1) : ''}" placeholder="—" title="Manual projection override — leave blank to use the sim"></td>
       <td class="num dim">${r ? num(r.floor) : '—'}</td>
       <td class="num up">${r ? num(r.ceiling) : '—'}</td>
       <td class="num">${r ? num(r.cutPct) : '—'}</td>
       <td class="num">${pct(win)}</td>
       <td class="num dim">${pct(g.top5Prob)}</td>
       <td class="num dim">${pct(g.top10Prob)}</td>
-      <td class="num">${pct(g.ownership)}</td>
+      <td class="num"><input class="owncell${g.ownershipLocked ? ' overridden' : ''}" data-id="${g.id}" value="${g.ownership != null ? g.ownership.toFixed(1) : ''}" placeholder="—" title="Manual ownership override — leave blank to use the model"></td>
       <td class="num">${exp != null ? exp.toFixed(0) + '%' : '—'}</td>
       <td class="num">${value != null ? value.toFixed(2) : '—'}</td>
       <td class="num"><input class="expcell" data-id="${g.id}" data-f="minExp" value="${g.minExp != null ? g.minExp : ''}" placeholder="–"></td>
@@ -326,6 +331,50 @@ function renderPlayers() {
       const g = byId(cb.dataset.id);
       g.selected = cb.checked;
       cb.closest('tr').classList.toggle('deselected', !cb.checked);
+    });
+  });
+  // Manual Proj override. Blank clears it and reverts to the sim's number.
+  tbody.querySelectorAll('input.projcell').forEach((inp) => {
+    inp.addEventListener('change', () => {
+      const g = byId(inp.dataset.id);
+      const raw = inp.value.trim();
+      const v = parseFloat(raw);
+      if (raw === '' || isNaN(v)) {
+        g.projLocked = false;
+        g.projOverride = null;
+        if (g._projOrig && State.simResults && State.simResults.get(g.id)) {
+          const r = State.simResults.get(g.id);
+          r.mean = g._projOrig.mean;
+          r.floor = g._projOrig.floor;
+          r.ceiling = g._projOrig.ceiling;
+        }
+      } else {
+        g.projLocked = true;
+        g.projOverride = v;
+        applyProjOverrideToGolfer(g);
+      }
+      renderPlayers();
+    });
+  });
+  // Manual ownership override. Blank clears it and reverts to the model.
+  tbody.querySelectorAll('input.owncell').forEach((inp) => {
+    inp.addEventListener('change', () => {
+      const g = byId(inp.dataset.id);
+      const raw = inp.value.trim();
+      const v = parseFloat(raw);
+      if (raw === '' || isNaN(v)) {
+        g.ownershipLocked = false;
+        if (State.hasRealOwnership) {
+          if (g._ownOrig != null) g.ownership = g._ownOrig;
+        } else {
+          window.Data.projectOwnership(State.golfers, State.simResults);
+        }
+      } else {
+        if (g._ownOrig == null) g._ownOrig = g.ownership; // remember the pre-override value once
+        g.ownershipLocked = true;
+        g.ownership = Math.max(0, Math.min(100, v));
+      }
+      renderPlayers();
     });
   });
   // Player name → outcome distribution
@@ -454,6 +503,32 @@ function autoDetectCut() {
   cutBox.checked = field >= 100; // <100 golfers ⇒ no-cut Signature/limited field
 }
 
+/**
+ * Shift one golfer's sim result (mean/floor/ceiling) to match a manual Proj
+ * override, preserving the floor/ceiling spread. Uses the fresh snapshot
+ * (g._projOrig, captured at sim-run time before any override) as the
+ * baseline so repeated edits don't compound on top of a prior override.
+ */
+function applyProjOverrideToGolfer(g) {
+  const r = State.simResults && State.simResults.get(g.id);
+  if (!r || !g._projOrig) return;
+  const delta = g.projOverride - g._projOrig.mean;
+  r.mean = g.projOverride;
+  r.floor = g._projOrig.floor + delta;
+  r.ceiling = g._projOrig.ceiling + delta;
+}
+
+/** Snapshot fresh sim results, then re-apply any locked Proj overrides on top. */
+function applyProjOverrides() {
+  if (!State.simResults) return;
+  for (const g of State.golfers) {
+    const r = State.simResults.get(g.id);
+    if (!r) continue;
+    g._projOrig = { mean: r.mean, floor: r.floor, ceiling: r.ceiling };
+    if (g.projLocked && g.projOverride != null) applyProjOverrideToGolfer(g);
+  }
+}
+
 /* ---------------------- Run simulation ---------------------- */
 function runSim() {
   const nSims = parseInt($('#nSims').value, 10);
@@ -466,6 +541,7 @@ function runSim() {
   setTimeout(() => {
     const t0 = performance.now();
     State.simResults = window.Sim.runSimulation(State.golfers, nSims, seed, null, { hasCut });
+    applyProjOverrides(); // re-apply any manual Proj overrides on top of the fresh sim
     // Keep the master file's real ownership; only model it for the sample slate.
     if (!State.hasRealOwnership) {
       window.Data.projectOwnership(State.golfers, State.simResults);

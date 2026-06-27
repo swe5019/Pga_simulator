@@ -112,6 +112,17 @@ input.cell {
 }
 input.cell:focus { border-color: var(--accent); outline: none; }
 
+input.projcell, input.owncell {
+  width: 56px; background: var(--bg); color: var(--text);
+  border: 1px solid var(--line); border-radius: 6px; padding: 4px 6px;
+  text-align: right; font-size: 12.5px;
+}
+input.projcell::placeholder, input.owncell::placeholder { color: var(--dim); }
+input.projcell:focus, input.owncell:focus { border-color: var(--accent); outline: none; }
+input.projcell.overridden, input.owncell.overridden {
+  border-color: var(--accent); background: #112233; color: var(--accent);
+}
+
 button.toggle {
   background: transparent; border: 1px solid var(--line); border-radius: 6px;
   cursor: pointer; font-size: 13px; padding: 3px 7px; filter: grayscale(1) opacity(.5);

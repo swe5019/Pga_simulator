@@ -222,6 +222,7 @@ function projectOwnership(golfers, simResults) {
 
   const targetTotal = 6 * 100; // 6 roster spots * 100%
   golfers.forEach((g, i) => {
+    if (g.ownershipLocked) return; // manual override — leave the user's number alone
     // Cap any single golfer's projected ownership at a believable ceiling.
     g.ownership = Math.min(55, (heat[i] / sum) * targetTotal);
   });
