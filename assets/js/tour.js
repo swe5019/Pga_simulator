@@ -21,7 +21,7 @@ const TOUR_STEPS = [
   {
     tab: 'players', target: '#playerTable',
     title: 'Your player pool',
-    body: 'Edit Salary or Skill inline, set per-golfer Min/Max exposure, lock 🔒 a must-play, or ban 🚫 someone out of the player pool.',
+    body: 'Salary comes straight from the DK slate. Edit Skill inline, set per-golfer Min/Max exposure, lock 🔒 a must-play, or ban 🚫 someone out of the player pool.',
   },
   {
     tab: 'players', target: '#runSim',
