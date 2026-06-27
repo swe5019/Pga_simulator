@@ -59,58 +59,62 @@ Differentiators (in priority order):
    payouts) → entries-file upload. SaberSim-parity features at a fraction of the price.
 4. **Bring-your-own-edge (pro tier)** — power users can feed their own SG/odds/projections; the
    model and sims run on *their* numbers. No competitor offers this.
-5. **Price** — golf-focused, undercutting the multi-sport incumbents.
+5. **Price built for the actual bankroll** — priced relative to a $1–$10/week DK player, not a
+   $200/mo multi-sport grinder. A real edge shouldn't cost more than the entries it's used on.
 
 ---
 
 ## 4. Target segments
 
-- **Primary: serious golf DFS grinders** — play weekly, multi-entry, have a bankroll, currently
-  pay SaberSim/Stokastic. Pitch: same edge, better ownership, lower price.
-- **Secondary: model-curious mid-stakes players** — want good ownership + an optimizer without a
-  $200–$400 multi-sport bundle. Pitch: golf-only, affordable, accurate.
-- **Tertiary (moat): sharps/syndicates** — want to run *their own* models with automation. Pitch:
-  the only platform that runs your edge end-to-end. Highest willingness-to-pay.
+- **Primary: small-stakes DK players ($1–$10/week)** — the largest pool of golf-DFS entrants by
+  far; currently priced out of every "sims + optimizer" tool on the market (all $25+/mo minimum).
+  Pitch: a real edge for less than the cost of one extra lineup.
+- **Secondary: mid-stakes players scaling up** — graduate from the entry tier as their bankroll
+  grows; want ownership + optimizer without a $200–$400 multi-sport bundle.
+- **Tertiary: serious grinders** — multi-entry, currently pay SaberSim/Stokastic. Pitch: same edge,
+  better ownership, lower price.
+- **Quaternary (moat): sharps/syndicates** — want to run *their own* models with automation. Pitch:
+  the only platform that runs your edge end-to-end. Highest willingness-to-pay, lowest volume.
 
 ---
 
 ## 5. Pricing strategy
 
-**Anchor below the incumbents, monetize accuracy, expand to a pro tier.**
-
-**These tiers are sized for a PGA-only product** — anchored to the golf-only band
-(Data Golf ~$30), not the multi-sport bundles. A weekly golf grinder will balk at
-$97 for "just golf," so we stay in a believable golf-only range.
+**Anchor to the small-stakes bankroll, not the incumbent's price list.** Someone playing
+$1–$10/week on DraftKings will not pay $25–$97/mo for a tool — that's 3–10x their weekly action.
+The tiers below price relative to *their* spend, with a true single-event micro-pass as the
+funnel-opener, and let players graduate to richer tiers as their bankroll grows.
 
 | Tier | Target | Launch price | Includes |
 |---|---|---|---|
-| **Free trial** | Acquisition | **14 days, full access, no card OR card-required** (test both) | Everything in Pro for one event cycle. |
-| **Core** | Mid-stakes | **$25/mo** (or $15 intro) | Ownership projections + win/top-5/top-10 equity, sim projections, basic optimizer, DK upload. |
-| **Pro** | Grinders | **$45/mo** | Everything: contest ROI (exact payouts), exposure tools, entries-file automation, course-fit, larger lineup builds. |
-| **Edge / BYO-model** | Sharps | **$79–$99/mo** | Bring-your-own SG/odds/projections, model auto-retrain, API/export, priority. |
+| **Free trial** | Acquisition | **14 days, full access, no card required** | Everything in Plus for one event cycle. |
+| **Single Slate** | Impulse buy / first-timers | **$2.99 / event** | One tournament — ownership + projections + optimizer. No subscription. |
+| **Starter** | Small-stakes ($1–$10/wk) | **$7.99/mo** | Ownership projections + win/top-5/top-10 equity, sim projections, basic optimizer, DK upload. |
+| **Plus** | Players scaling up | **$19.99/mo** | Everything in Starter: contest ROI (exact payouts), exposure tools, entries-file automation, course-fit, larger lineup builds. |
+| **Edge / BYO-model** | Sharps | **$39–$49/mo** | Bring-your-own SG/odds/projections, model auto-retrain, API/export, priority. |
 | **Annual** | Retention | **2 months free (~17% off)** | Smooths seasonal churn. |
-| **Weekly pass** | Casual / majors | **$9.99/week** | Single-event access — captures the casual who only plays a major. |
 
-**Rationale (PGA-only framing):**
-- **Anchor to Data Golf (~$30 golf-only), not the bundles.** **Pro at $45** is a small
-  premium over Data Golf, justified by the full sim/optimizer/contest-ROI stack and our
-  ownership accuracy. **Core at $25** sits just under Data Golf to win price-sensitive players.
-- **Position against the bundles without faking the math.** Messaging is "sharper *golf*
-  ownership without a $200 multi-sport bundle you don't need" — true and compelling — rather
-  than a misleading "60% off SaberSim."
-- **A weekly pass** monetizes the huge casual spike around majors/Signature events, where most
-  golf-DFS interest actually lives, and feeds the trial→sub funnel.
-- **Edge tier** captures the high-WTP sharps and protects margin — our true differentiator.
-- **Intro pricing** ($19 Core / first-month discount) to seed reviews and testimonials; raise to
-  standard after the first ~100 paying users.
-- **Event promos** (15–25% off around majors/Signature events) to match category norms and spike
-  trials when DFS interest peaks.
-- **Founding-member lifetime/locked-rate** offer for the first 50–100 users → early cash, loyalty,
-  and word-of-mouth advocates.
+**Rationale (small-stakes-first framing):**
+- **Single Slate at $2.99** is the real entry point — cheaper than a single rebuy, no commitment,
+  no card-on-file anxiety. It's the natural next step after the free trial for someone who isn't
+  ready to subscribe, and it converts casual/one-off majors traffic that a weekly pass priced at
+  $9.99 would have priced out.
+- **Starter at $7.99/mo** is the headline tier: roughly the cost of one extra DK entry per month,
+  positioned explicitly as "less than what you'd spend chasing the rake without an edge."
+- **Plus at $19.99/mo** is still well under Data Golf-plus-an-optimizer money, and is where players
+  land once they're multi-entry or want contest ROI.
+- **Edge** stays a high-margin tail tier for sharps/syndicates — it protects margin without being
+  the product's main pitch anymore.
+- **Messaging shift:** lead with "what does your DK budget actually support?" instead of "60%
+  cheaper than SaberSim." The small-stakes player doesn't benchmark against SaberSim at all.
+- **Founding-member lifetime/locked-rate** offer for the first 50–100 Starter users → early cash,
+  loyalty, and word-of-mouth advocates.
+- **Event promos** (15–25% off Single Slate around majors/Signature events) to spike trials when
+  casual DFS interest peaks.
 
-**Avoid:** racing to the absolute bottom. Too-cheap signals "low quality" in a market where the
-product *is* the edge. Undercut the incumbents meaningfully (~40–70% cheaper) but stay a real
-SaaS price so the brand reads "premium model, fair price," not "free tool."
+**Avoid:** assuming small-stakes means low LTV. Volume at $2.99–$7.99 with near-zero infra cost
+can out-earn a small base of $45–$79 grinders, and it builds the funnel the higher tiers convert
+from.
 
 ---
 
@@ -139,8 +143,10 @@ SaaS price so the brand reads "premium model, fair price," not "free tool."
    category playbook (creator code → 15% off, rev-share).
 5. **Proof-of-accuracy marketing** — publish back-tested MAE and post-slate "we said X%, actual was
    Y%" recaps. Nobody else does this; it's credible and differentiating.
-6. **Head-to-head "switch" campaign** — "Paying $200 for a multi-sport bundle you barely use?
-   Get sharper *golf* ownership for $45 — golf-only, and more accurate."
+6. **"Beat the rake" campaign** — aimed at the $1–$10/week player: "You're playing $5 GPPs without
+   knowing real ownership. A real edge costs $2.99 for the week." Run on r/dfsports, casual DFS
+   Discords, and TikTok/Shorts — channels the $97–$400 incumbents don't bother with because their
+   price floor doesn't fit a casual audience.
 
 ---
 
@@ -161,11 +167,14 @@ SaaS price so the brand reads "premium model, fair price," not "free tool."
 ## 9. Unit economics & targets (rough)
 
 - **Infra cost is ~$0** (GitHub Pages + Actions, client-side compute). Near-100% gross margin →
-  pricing freedom and runway to undercut.
-- **Illustrative:** 200 Pro @ $45 = ~$9k MRR; 500 mixed (Core/Pro/Edge) ≈ $15–20k MRR.
-- **Watch:** trial→paid conversion (target 20–30% card-required, 5–10% no-card), monthly churn
-  (DFS is seasonal — target <8% in-season; expect summer/major spikes), CAC (mostly content/affiliate
-  → low).
+  pricing freedom and runway to win on volume at low price points.
+- **Illustrative:** 1,000 Starter @ $7.99 ≈ $8k MRR; 2,000 mixed (Single Slate/Starter/Plus/Edge)
+  ≈ $15–20k MRR. Volume requirement is higher than the grinder-priced model, but the addressable
+  audience (small-stakes players) is an order of magnitude bigger.
+- **Watch:** Single Slate → Starter conversion (the real funnel metric now, not just trial→paid),
+  trial→paid conversion (target 20–30% card-required, 5–10% no-card), monthly churn (DFS is
+  seasonal — target <8% in-season; expect summer/major spikes), CAC (mostly content/affiliate →
+  low, should be lower still given casual channels are underpriced by competitors).
 - **Seasonality:** golf DFS peaks Thu–Sun and around majors/Signatures; revenue is lumpy. Annual
   plans + multi-sport expansion later smooth it.
 
