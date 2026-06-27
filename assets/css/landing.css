@@ -44,7 +44,8 @@ a { color: inherit; text-decoration: none; }
 }
 .brand { display: flex; align-items: center; gap: 9px; }
 .logo { width: 26px; height: 26px; flex-shrink: 0; display: block; }
-.bname { font-size: 20px; font-weight: 800; letter-spacing: -.3px; }
+.bname { font-size: 21px; font-weight: 900; letter-spacing: -.4px; }
+.bname .accent { color: var(--green2); }
 .navlinks { display: flex; gap: 22px; margin-left: 18px; }
 .navlinks a { color: var(--dim); font-size: 14px; }
 .navlinks a:hover { color: var(--text); }
