@@ -37,6 +37,7 @@ body {
 .tag { margin: 0; color: var(--dim); font-size: 12px; }
 
 .tabs { display: flex; gap: 6px; }
+.tourbtn { margin-left: 10px; flex-shrink: 0; white-space: nowrap; }
 .tab {
   background: transparent; color: var(--dim); border: 1px solid transparent;
   padding: 8px 14px; border-radius: 8px; cursor: pointer; font-size: 13px; font-weight: 600;
@@ -269,6 +270,35 @@ th.sort-desc::after { content: ' ▼'; font-size: 9px; }
 }
 .tag.out { background: #3d1418; color: var(--down); border: 1px solid #5c1f24; }
 tr.out td.name .pname { text-decoration: line-through; color: var(--dim); }
+
+/* ---------- Guided tour ---------- */
+.tour-backdrop {
+  position: fixed; inset: 0; z-index: 200; background: transparent;
+}
+.tour-spot {
+  position: fixed; z-index: 201; border-radius: 10px;
+  border: 2px solid var(--accent); box-shadow: 0 0 0 9999px rgba(0, 0, 0, .72);
+  pointer-events: none; transition: top .25s ease, left .25s ease, width .25s ease, height .25s ease;
+}
+.tour-spot.center {
+  position: fixed; top: 50%; left: 50%; width: 0; height: 0;
+  box-shadow: 0 0 0 9999px rgba(0, 0, 0, .72); border: none;
+}
+.tour-card {
+  position: fixed; z-index: 202; width: 320px; max-width: calc(100vw - 24px);
+  background: var(--panel); border: 1px solid var(--line); border-radius: 12px;
+  padding: 16px 18px; box-shadow: 0 20px 60px rgba(0, 0, 0, .5);
+  transition: top .25s ease, left .25s ease;
+}
+.tour-card.center { position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); }
+.tour-step { color: var(--dim); font-size: 11px; text-transform: uppercase; letter-spacing: .5px; margin-bottom: 6px; }
+.tour-card h3 { margin: 0 0 8px; font-size: 16px; }
+.tour-card p { margin: 0 0 14px; font-size: 13px; color: var(--text); line-height: 1.5; }
+.tour-actions { display: flex; align-items: center; gap: 8px; }
+.tour-actions .spacer { flex: 1; }
+.tour-actions button { font-size: 12.5px; }
+.tour-skip { background: none; border: none; color: var(--dim); cursor: pointer; font-size: 12px; padding: 4px; }
+.tour-skip:hover { color: var(--text); }
 
 /* ---------- Per-player exposure target inputs ---------- */
 input.expcell {
