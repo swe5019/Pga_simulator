@@ -1,807 +1,97 @@
 {
- "updatedUtc": "2026-06-26T22:07:06Z",
+ "updatedUtc": "2026-06-27T14:24:59Z",
  "tournament": "TRAVELERS_2026",
  "event": "Travelers Championship",
- "draftGroupId": "149491",
+ "draftGroupId": "149494",
  "contests": [
   {
-   "id": "191720974",
-   "name": "PGA TOUR Showdown $40K Drive the Green (Round 3 TOUR)",
+   "id": "191751666",
+   "name": "PGA TOUR Showdown $5K Drive the Green [$1K to 1st] (Late Round 3 TOUR)",
    "fee": 5,
-   "entries": 9512,
-   "paidSpots": 2430,
-   "prizePool": 40000.0,
-   "tiers": [
-    {
-     "min": 1,
-     "max": 1,
-     "value": 5000.0
-    },
-    {
-     "min": 2,
-     "max": 2,
-     "value": 2500.0
-    },
-    {
-     "min": 3,
-     "max": 3,
-     "value": 1500.0
-    },
-    {
-     "min": 4,
-     "max": 4,
-     "value": 1000.0
-    },
-    {
-     "min": 5,
-     "max": 5,
-     "value": 750.0
-    },
-    {
-     "min": 6,
-     "max": 6,
-     "value": 500.0
-    },
-    {
-     "min": 7,
-     "max": 8,
-     "value": 350.0
-    },
-    {
-     "min": 9,
-     "max": 10,
-     "value": 250.0
-    },
-    {
-     "min": 11,
-     "max": 15,
-     "value": 200.0
-    },
-    {
-     "min": 16,
-     "max": 20,
-     "value": 150.0
-    },
-    {
-     "min": 21,
-     "max": 30,
-     "value": 100.0
-    },
-    {
-     "min": 31,
-     "max": 40,
-     "value": 75.0
-    },
-    {
-     "min": 41,
-     "max": 50,
-     "value": 50.0
-    },
-    {
-     "min": 51,
-     "max": 75,
-     "value": 35.0
-    },
-    {
-     "min": 76,
-     "max": 100,
-     "value": 25.0
-    },
-    {
-     "min": 101,
-     "max": 150,
-     "value": 20.0
-    },
-    {
-     "min": 151,
-     "max": 250,
-     "value": 15.0
-    },
-    {
-     "min": 251,
-     "max": 450,
-     "value": 12.0
-    },
-    {
-     "min": 451,
-     "max": 775,
-     "value": 10.0
-    },
-    {
-     "min": 776,
-     "max": 1435,
-     "value": 9.0
-    },
-    {
-     "min": 1436,
-     "max": 2430,
-     "value": 8.0
-    }
-   ]
-  },
-  {
-   "id": "191720929",
-   "name": "PGA TOUR Showdown $3K mini-MAX [150 Entry Max] (Round 3 TOUR)",
-   "fee": 0.5,
-   "entries": 7134,
-   "paidSpots": 1480,
-   "prizePool": 3000.0,
-   "tiers": [
-    {
-     "min": 1,
-     "max": 1,
-     "value": 500.0
-    },
-    {
-     "min": 2,
-     "max": 2,
-     "value": 200.0
-    },
-    {
-     "min": 3,
-     "max": 3,
-     "value": 100.0
-    },
-    {
-     "min": 4,
-     "max": 4,
-     "value": 50.0
-    },
-    {
-     "min": 5,
-     "max": 5,
-     "value": 30.0
-    },
-    {
-     "min": 6,
-     "max": 6,
-     "value": 25.0
-    },
-    {
-     "min": 7,
-     "max": 8,
-     "value": 20.0
-    },
-    {
-     "min": 9,
-     "max": 10,
-     "value": 15.0
-    },
-    {
-     "min": 11,
-     "max": 15,
-     "value": 10.0
-    },
-    {
-     "min": 16,
-     "max": 20,
-     "value": 8.0
-    },
-    {
-     "min": 21,
-     "max": 25,
-     "value": 6.0
-    },
-    {
-     "min": 26,
-     "max": 35,
-     "value": 5.0
-    },
-    {
-     "min": 36,
-     "max": 55,
-     "value": 4.0
-    },
-    {
-     "min": 56,
-     "max": 100,
-     "value": 3.0
-    },
-    {
-     "min": 101,
-     "max": 225,
-     "value": 2.0
-    },
-    {
-     "min": 226,
-     "max": 495,
-     "value": 1.5
-    },
-    {
-     "min": 496,
-     "max": 1480,
-     "value": 1.0
-    }
-   ]
-  },
-  {
-   "id": "191720911",
-   "name": "PGA TOUR Showdown $5K Short Game [20 Entry Max] (Round 3 TOUR)",
-   "fee": 1,
-   "entries": 5945,
-   "paidSpots": 1543,
+   "entries": 1189,
+   "paidSpots": 241,
    "prizePool": 5000.0,
    "tiers": [
     {
      "min": 1,
      "max": 1,
-     "value": 500.0
-    },
-    {
-     "min": 2,
-     "max": 2,
-     "value": 250.0
-    },
-    {
-     "min": 3,
-     "max": 3,
-     "value": 150.0
-    },
-    {
-     "min": 4,
-     "max": 4,
-     "value": 100.0
-    },
-    {
-     "min": 5,
-     "max": 5,
-     "value": 75.0
-    },
-    {
-     "min": 6,
-     "max": 7,
-     "value": 60.0
-    },
-    {
-     "min": 8,
-     "max": 10,
-     "value": 50.0
-    },
-    {
-     "min": 11,
-     "max": 13,
-     "value": 40.0
-    },
-    {
-     "min": 14,
-     "max": 16,
-     "value": 30.0
-    },
-    {
-     "min": 17,
-     "max": 20,
-     "value": 25.0
-    },
-    {
-     "min": 21,
-     "max": 25,
-     "value": 20.0
-    },
-    {
-     "min": 26,
-     "max": 30,
-     "value": 15.0
-    },
-    {
-     "min": 31,
-     "max": 40,
-     "value": 10.0
-    },
-    {
-     "min": 41,
-     "max": 55,
-     "value": 8.0
-    },
-    {
-     "min": 56,
-     "max": 70,
-     "value": 6.0
-    },
-    {
-     "min": 71,
-     "max": 105,
-     "value": 5.0
-    },
-    {
-     "min": 106,
-     "max": 170,
-     "value": 4.0
-    },
-    {
-     "min": 171,
-     "max": 310,
-     "value": 3.0
-    },
-    {
-     "min": 311,
-     "max": 621,
-     "value": 2.0
-    },
-    {
-     "min": 622,
-     "max": 1543,
-     "value": 1.5
-    }
-   ]
-  },
-  {
-   "id": "191720928",
-   "name": "PGA TOUR Showdown $125K Sand Trap [$25K to 1st] (Round 3 TOUR)",
-   "fee": 25,
-   "entries": 5882,
-   "paidSpots": 1235,
-   "prizePool": 125000.0,
-   "tiers": [
-    {
-     "min": 1,
-     "max": 1,
-     "value": 25000.0
-    },
-    {
-     "min": 2,
-     "max": 2,
-     "value": 10000.0
-    },
-    {
-     "min": 3,
-     "max": 3,
-     "value": 5000.0
-    },
-    {
-     "min": 4,
-     "max": 4,
-     "value": 3000.0
-    },
-    {
-     "min": 5,
-     "max": 5,
-     "value": 2500.0
-    },
-    {
-     "min": 6,
-     "max": 6,
-     "value": 2000.0
-    },
-    {
-     "min": 7,
-     "max": 8,
-     "value": 1500.0
-    },
-    {
-     "min": 9,
-     "max": 10,
      "value": 1000.0
     },
     {
-     "min": 11,
-     "max": 13,
-     "value": 750.0
-    },
-    {
-     "min": 14,
-     "max": 16,
+     "min": 2,
+     "max": 2,
      "value": 600.0
     },
     {
-     "min": 17,
-     "max": 20,
-     "value": 500.0
-    },
-    {
-     "min": 21,
-     "max": 25,
-     "value": 400.0
-    },
-    {
-     "min": 26,
-     "max": 35,
+     "min": 3,
+     "max": 3,
      "value": 300.0
     },
     {
-     "min": 36,
-     "max": 45,
-     "value": 250.0
-    },
-    {
-     "min": 46,
-     "max": 60,
+     "min": 4,
+     "max": 4,
      "value": 200.0
     },
     {
-     "min": 61,
-     "max": 75,
+     "min": 5,
+     "max": 5,
      "value": 150.0
     },
     {
-     "min": 76,
-     "max": 105,
+     "min": 6,
+     "max": 6,
      "value": 100.0
     },
     {
-     "min": 106,
-     "max": 155,
-     "value": 75.0
-    },
-    {
-     "min": 156,
-     "max": 250,
-     "value": 60.0
-    },
-    {
-     "min": 251,
-     "max": 435,
+     "min": 7,
+     "max": 8,
      "value": 50.0
     },
     {
-     "min": 436,
-     "max": 1235,
+     "min": 9,
+     "max": 10,
      "value": 40.0
-    }
-   ]
-  },
-  {
-   "id": "191720921",
-   "name": "PGA TOUR Showdown $250 Dime Time [Just $0.10!] (Round 3 TOUR)",
-   "fee": 0.1,
-   "entries": 2972,
-   "paidSpots": 698,
-   "prizePool": 250.0,
-   "tiers": [
-    {
-     "min": 1,
-     "max": 1,
-     "value": 25.0
-    },
-    {
-     "min": 2,
-     "max": 2,
-     "value": 15.0
-    },
-    {
-     "min": 3,
-     "max": 3,
-     "value": 8.0
-    },
-    {
-     "min": 4,
-     "max": 4,
-     "value": 5.0
-    },
-    {
-     "min": 5,
-     "max": 5,
-     "value": 4.0
-    },
-    {
-     "min": 6,
-     "max": 6,
-     "value": 3.0
-    },
-    {
-     "min": 7,
-     "max": 8,
-     "value": 2.0
-    },
-    {
-     "min": 9,
-     "max": 10,
-     "value": 1.5
-    },
-    {
-     "min": 11,
-     "max": 13,
-     "value": 1.0
-    },
-    {
-     "min": 14,
-     "max": 23,
-     "value": 0.75
-    },
-    {
-     "min": 24,
-     "max": 48,
-     "value": 0.5
-    },
-    {
-     "min": 49,
-     "max": 113,
-     "value": 0.4
-    },
-    {
-     "min": 114,
-     "max": 283,
-     "value": 0.3
-    },
-    {
-     "min": 284,
-     "max": 698,
-     "value": 0.2
-    }
-   ]
-  },
-  {
-   "id": "191720919",
-   "name": "PGA TOUR Showdown $500 Quarter Jukebox [Just $0.25!] (Round 3 TOUR)",
-   "fee": 0.25,
-   "entries": 2378,
-   "paidSpots": 536,
-   "prizePool": 500.0,
-   "tiers": [
-    {
-     "min": 1,
-     "max": 1,
-     "value": 50.0
-    },
-    {
-     "min": 2,
-     "max": 2,
-     "value": 25.0
-    },
-    {
-     "min": 3,
-     "max": 3,
-     "value": 15.0
-    },
-    {
-     "min": 4,
-     "max": 4,
-     "value": 10.0
-    },
-    {
-     "min": 5,
-     "max": 5,
-     "value": 8.0
-    },
-    {
-     "min": 6,
-     "max": 6,
-     "value": 6.0
-    },
-    {
-     "min": 7,
-     "max": 8,
-     "value": 5.0
-    },
-    {
-     "min": 9,
-     "max": 10,
-     "value": 4.0
     },
     {
      "min": 11,
      "max": 15,
-     "value": 3.0
-    },
-    {
-     "min": 16,
-     "max": 25,
-     "value": 2.0
-    },
-    {
-     "min": 26,
-     "max": 45,
-     "value": 1.5
-    },
-    {
-     "min": 46,
-     "max": 95,
-     "value": 1.0
-    },
-    {
-     "min": 96,
-     "max": 225,
-     "value": 0.75
-    },
-    {
-     "min": 226,
-     "max": 536,
-     "value": 0.5
-    }
-   ]
-  },
-  {
-   "id": "191720927",
-   "name": "PGA TOUR Showdown $8K Full Round Special [18 Entry Max] (Round 3 TOUR)",
-   "fee": 10,
-   "entries": 941,
-   "paidSpots": 194,
-   "prizePool": 8000.0,
-   "tiers": [
-    {
-     "min": 1,
-     "max": 1,
-     "value": 2000.0
-    },
-    {
-     "min": 2,
-     "max": 2,
-     "value": 1000.0
-    },
-    {
-     "min": 3,
-     "max": 3,
-     "value": 500.0
-    },
-    {
-     "min": 4,
-     "max": 4,
-     "value": 250.0
-    },
-    {
-     "min": 5,
-     "max": 5,
-     "value": 150.0
-    },
-    {
-     "min": 6,
-     "max": 7,
-     "value": 100.0
-    },
-    {
-     "min": 8,
-     "max": 9,
-     "value": 75.0
-    },
-    {
-     "min": 10,
-     "max": 14,
-     "value": 50.0
-    },
-    {
-     "min": 15,
-     "max": 24,
-     "value": 40.0
-    },
-    {
-     "min": 25,
-     "max": 44,
-     "value": 30.0
-    },
-    {
-     "min": 45,
-     "max": 94,
-     "value": 20.0
-    },
-    {
-     "min": 95,
-     "max": 194,
-     "value": 15.0
-    }
-   ]
-  },
-  {
-   "id": "191720906",
-   "name": "PGA TOUR Showdown $3K Caddie [Single Entry] (Round 3 TOUR)",
-   "fee": 5,
-   "entries": 713,
-   "paidSpots": 164,
-   "prizePool": 3000.0,
-   "tiers": [
-    {
-     "min": 1,
-     "max": 1,
-     "value": 400.0
-    },
-    {
-     "min": 2,
-     "max": 2,
-     "value": 200.0
-    },
-    {
-     "min": 3,
-     "max": 3,
-     "value": 100.0
-    },
-    {
-     "min": 4,
-     "max": 4,
-     "value": 80.0
-    },
-    {
-     "min": 5,
-     "max": 5,
-     "value": 70.0
-    },
-    {
-     "min": 6,
-     "max": 6,
-     "value": 60.0
-    },
-    {
-     "min": 7,
-     "max": 7,
-     "value": 50.0
-    },
-    {
-     "min": 8,
-     "max": 8,
-     "value": 40.0
-    },
-    {
-     "min": 9,
-     "max": 10,
      "value": 35.0
     },
     {
-     "min": 11,
-     "max": 13,
-     "value": 30.0
-    },
-    {
-     "min": 14,
-     "max": 18,
-     "value": 25.0
-    },
-    {
-     "min": 19,
-     "max": 27,
-     "value": 20.0
-    },
-    {
-     "min": 28,
-     "max": 60,
-     "value": 15.0
-    },
-    {
-     "min": 61,
-     "max": 164,
-     "value": 10.0
-    }
-   ]
-  },
-  {
-   "id": "191720995",
-   "name": "PGA TOUR Showdown 2026 $200K Golf Pocket Cup Qualifier #112 (Round 3 TOUR)",
-   "fee": 3,
-   "entries": 673,
-   "paidSpots": 69,
-   "prizePool": 1700.0,
-   "tiers": [
-    {
-     "min": 1,
-     "max": 1,
-     "value": 1000.0
-    },
-    {
-     "min": 2,
-     "max": 2,
-     "value": 100.0
-    },
-    {
-     "min": 3,
-     "max": 3,
-     "value": 75.0
-    },
-    {
-     "min": 4,
-     "max": 4,
-     "value": 50.0
-    },
-    {
-     "min": 5,
-     "max": 5,
-     "value": 30.0
-    },
-    {
-     "min": 6,
-     "max": 10,
-     "value": 20.0
-    },
-    {
-     "min": 11,
+     "min": 16,
      "max": 20,
-     "value": 10.0
+     "value": 30.0
     },
     {
      "min": 21,
-     "max": 69,
-     "value": 5.0
+     "max": 25,
+     "value": 25.0
+    },
+    {
+     "min": 26,
+     "max": 30,
+     "value": 20.0
+    },
+    {
+     "min": 31,
+     "max": 50,
+     "value": 15.0
+    },
+    {
+     "min": 51,
+     "max": 96,
+     "value": 10.0
+    },
+    {
+     "min": 97,
+     "max": 241,
+     "value": 8.0
     }
    ]
   },
   {
-   "id": "191720903",
-   "name": "PGA TOUR Showdown $500 Divot [Single Entry] (Round 3 TOUR)",
+   "id": "191752251",
+   "name": "PGA TOUR Showdown $500 Short Game (Late Round 3 TOUR)",
    "fee": 1,
    "entries": 594,
    "paidSpots": 136,
@@ -870,27 +160,187 @@
    ]
   },
   {
-   "id": "191721196",
-   "name": "PGA TOUR Showdown Micro Booster [Top 10 Win $10] (Round 3 TOUR)",
-   "fee": 0.25,
-   "entries": 475,
-   "paidSpots": 10,
-   "prizePool": 100.0,
+   "id": "191724511",
+   "name": "PGA TOUR Showdown $150 Divot [Single Entry] (Late Round 3 TOUR)",
+   "fee": 1,
+   "entries": 178,
+   "paidSpots": 42,
+   "prizePool": 150.0,
    "tiers": [
     {
      "min": 1,
-     "max": 10,
+     "max": 1,
+     "value": 30.0
+    },
+    {
+     "min": 2,
+     "max": 2,
+     "value": 20.0
+    },
+    {
+     "min": 3,
+     "max": 4,
+     "value": 10.0
+    },
+    {
+     "min": 5,
+     "max": 6,
+     "value": 5.0
+    },
+    {
+     "min": 7,
+     "max": 13,
+     "value": 3.0
+    },
+    {
+     "min": 14,
+     "max": 24,
+     "value": 2.0
+    },
+    {
+     "min": 25,
+     "max": 42,
+     "value": 1.5
+    }
+   ]
+  },
+  {
+   "id": "191752083",
+   "name": "PGA TOUR Showdown $500 Caddie [Single Entry] (Late Round 3 TOUR)",
+   "fee": 5,
+   "entries": 118,
+   "paidSpots": 28,
+   "prizePool": 500.0,
+   "tiers": [
+    {
+     "min": 1,
+     "max": 1,
+     "value": 80.0
+    },
+    {
+     "min": 2,
+     "max": 2,
+     "value": 61.0
+    },
+    {
+     "min": 3,
+     "max": 3,
+     "value": 40.0
+    },
+    {
+     "min": 4,
+     "max": 4,
+     "value": 30.0
+    },
+    {
+     "min": 5,
+     "max": 6,
+     "value": 20.0
+    },
+    {
+     "min": 7,
+     "max": 9,
+     "value": 15.0
+    },
+    {
+     "min": 10,
+     "max": 16,
+     "value": 12.0
+    },
+    {
+     "min": 17,
+     "max": 28,
      "value": 10.0
     }
    ]
   },
   {
-   "id": "191720930",
-   "name": "PGA TOUR Showdown $1K Hybrid [5 Entry Max] (Round 3 TOUR)",
-   "fee": 3,
-   "entries": 396,
-   "paidSpots": 90,
-   "prizePool": 1000.0,
+   "id": "191739997",
+   "name": "PGA TOUR Showdown Satellite to 7-16 $25 Golf Millionaire (Late Round 3 TOUR)",
+   "fee": 0.25,
+   "entries": 118,
+   "paidSpots": 1,
+   "prizePool": 25.0,
+   "tiers": [
+    {
+     "min": 1,
+     "max": 1,
+     "value": 25.0
+    }
+   ]
+  },
+  {
+   "id": "191751685",
+   "name": "PGA TOUR Showdown $20 Quarter Jukebox [Just $0.25!] (Late Round 3 TOUR)",
+   "fee": 0.25,
+   "entries": 95,
+   "paidSpots": 21,
+   "prizePool": 20.0,
+   "tiers": [
+    {
+     "min": 1,
+     "max": 1,
+     "value": 5.0
+    },
+    {
+     "min": 2,
+     "max": 2,
+     "value": 3.0
+    },
+    {
+     "min": 3,
+     "max": 3,
+     "value": 2.0
+    },
+    {
+     "min": 4,
+     "max": 4,
+     "value": 1.4
+    },
+    {
+     "min": 5,
+     "max": 6,
+     "value": 0.8
+    },
+    {
+     "min": 7,
+     "max": 9,
+     "value": 0.6
+    },
+    {
+     "min": 10,
+     "max": 13,
+     "value": 0.5
+    },
+    {
+     "min": 14,
+     "max": 21,
+     "value": 0.4
+    }
+   ]
+  },
+  {
+   "id": "191724518",
+   "name": "PGA TOUR Showdown Single Entry $5 Double Up (Late Round 3 TOUR)",
+   "fee": 5,
+   "entries": 45,
+   "paidSpots": 20,
+   "prizePool": 200.0,
+   "tiers": [
+    {
+     "min": 1,
+     "max": 20,
+     "value": 10.0
+    }
+   ]
+  },
+  {
+   "id": "191724503",
+   "name": "PGA TOUR Showdown $400 Albatross [Single Entry] (Late Round 3 TOUR)",
+   "fee": 12,
+   "entries": 39,
+   "paidSpots": 9,
+   "prizePool": 400.0,
    "tiers": [
     {
      "min": 1,
@@ -910,55 +360,110 @@
     {
      "min": 4,
      "max": 4,
-     "value": 50.0
-    },
-    {
-     "min": 5,
-     "max": 5,
      "value": 40.0
     },
     {
-     "min": 6,
+     "min": 5,
      "max": 6,
      "value": 30.0
     },
     {
      "min": 7,
-     "max": 7,
-     "value": 25.0
-    },
-    {
-     "min": 8,
-     "max": 8,
+     "max": 9,
      "value": 20.0
-    },
-    {
-     "min": 9,
-     "max": 11,
-     "value": 15.0
-    },
-    {
-     "min": 12,
-     "max": 20,
-     "value": 10.0
-    },
-    {
-     "min": 21,
-     "max": 40,
-     "value": 8.0
-    },
-    {
-     "min": 41,
-     "max": 90,
-     "value": 6.0
     }
    ]
   },
   {
-   "id": "191721255",
-   "name": "PGA TOUR Showdown Satellite to 7-16 $25 Golf Millionaire (Round 3 TOUR)",
-   "fee": 0.1,
-   "entries": 297,
+   "id": "191754136",
+   "name": "PGA TOUR Showdown $30 Divot [Single Entry] (Late Round 3 TOUR)",
+   "fee": 1,
+   "entries": 35,
+   "paidSpots": 9,
+   "prizePool": 30.0,
+   "tiers": [
+    {
+     "min": 1,
+     "max": 1,
+     "value": 7.5
+    },
+    {
+     "min": 2,
+     "max": 2,
+     "value": 5.0
+    },
+    {
+     "min": 3,
+     "max": 3,
+     "value": 3.5
+    },
+    {
+     "min": 4,
+     "max": 4,
+     "value": 3.0
+    },
+    {
+     "min": 5,
+     "max": 6,
+     "value": 2.5
+    },
+    {
+     "min": 7,
+     "max": 9,
+     "value": 2.0
+    }
+   ]
+  },
+  {
+   "id": "191739986",
+   "name": "PGA TOUR Showdown 10x Booster [Top 3 Win $20] (Late Round 3 TOUR)",
+   "fee": 2,
+   "entries": 35,
+   "paidSpots": 3,
+   "prizePool": 60.0,
+   "tiers": [
+    {
+     "min": 1,
+     "max": 3,
+     "value": 20.0
+    }
+   ]
+  },
+  {
+   "id": "191739983",
+   "name": "PGA TOUR Showdown $5 Triple Up [Top 9 Win $15] (Late Round 3 TOUR)",
+   "fee": 5,
+   "entries": 31,
+   "paidSpots": 9,
+   "prizePool": 135.0,
+   "tiers": [
+    {
+     "min": 1,
+     "max": 9,
+     "value": 15.0
+    }
+   ]
+  },
+  {
+   "id": "191739982",
+   "name": "PGA TOUR Showdown $1 Triple Up [Top 9 Win $3] (Late Round 3 TOUR)",
+   "fee": 1,
+   "entries": 31,
+   "paidSpots": 9,
+   "prizePool": 27.0,
+   "tiers": [
+    {
+     "min": 1,
+     "max": 9,
+     "value": 3.0
+    }
+   ]
+  },
+  {
+   "id": "191739998",
+   "name": "PGA TOUR Showdown Satellite to 7-16 $25 Golf Millionaire (Late Round 3 TOUR)",
+   "fee": 1,
+   "entries": 29,
    "paidSpots": 1,
    "prizePool": 25.0,
    "tiers": [
@@ -970,17 +475,17 @@
    ]
   },
   {
-   "id": "191721223",
-   "name": "PGA TOUR Showdown $0.25 Winner Take All [$50 to 1st] (Round 3 TOUR)",
-   "fee": 0.25,
-   "entries": 237,
-   "paidSpots": 1,
-   "prizePool": 50.0,
+   "id": "191739985",
+   "name": "PGA TOUR Showdown $5 Quintuple Up [Top 5 Win $25] (Late Round 3 TOUR)",
+   "fee": 5,
+   "entries": 28,
+   "paidSpots": 5,
+   "prizePool": 125.0,
    "tiers": [
     {
      "min": 1,
-     "max": 1,
-     "value": 50.0
+     "max": 5,
+     "value": 25.0
     }
    ]
   }
