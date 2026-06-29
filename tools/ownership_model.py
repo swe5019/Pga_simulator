@@ -43,7 +43,7 @@ def engineer_features(df):
 
     num = lambda c: pd.to_numeric(d[c], errors="coerce")
     for c in ["Win_Odds", "Win_Odds_Monday", "Salary", "Actual_Ownership",
-              "1W", "2W", "3W", "CH_Finish_1", "CH_Finish_2", "CH_Finish_3",
+              "1W", "2W", "3W", "4W", "CH_Finish_1", "CH_Finish_2", "CH_Finish_3",
               "CH_Events", "CH_Made_Cuts", "NO_CUT", "Is_Major", "Entries"] + SG_COLS:
         if c in d.columns:
             d[c] = num(c)
@@ -56,14 +56,14 @@ def engineer_features(df):
     d["Salary_Pct"] = d.groupby("Tournament_Name")["Salary"].transform(
         lambda x: (x - x.min()) / (x.max() - x.min()) if x.max() > x.min() else 0.0)
 
-    for w in ["1W", "2W", "3W"]:
+    for w in ["1W", "2W", "3W", "4W"]:
         if w in d.columns:
             d[f"Top5_{w}"] = (d[w] <= 5).astype(float)
             d[f"Top10_{w}"] = (d[w] <= 10).astype(float)
             d[f"Top20_{w}"] = (d[w] <= 20).astype(float)
             d[f"MC_{w}"] = (d[w] == 80).astype(float)
-    d["Trend_Avg"] = d[["1W", "2W", "3W"]].mean(axis=1)
-    d["Form_Slope"] = d["1W"] - d["3W"]
+    d["Trend_Avg"] = d[["1W", "2W", "3W", "4W"]].mean(axis=1)
+    d["Form_Slope"] = d["1W"] - d["4W"]
 
     ch = ["CH_Finish_1", "CH_Finish_2", "CH_Finish_3"]
     d["CH_Best"] = d[ch].min(axis=1)
@@ -94,6 +94,7 @@ FEATURES = [
     "log_IP", "Implied_Prob", "Salary_Pct", "Salary_Rank",
     "Top5_1W", "Top10_1W", "Top20_1W", "MC_1W",
     "Top5_2W", "Top10_2W", "MC_2W", "Top5_3W", "Top10_3W", "MC_3W",
+    "Top5_4W", "Top10_4W", "MC_4W",
     "Trend_Avg", "Form_Slope",
     "CH_Win", "CH_Top5", "CH_Top10", "CH_Avg_Finish", "Has_CH", "CH_Made_Cuts", "CH_Events",
     "SG_PUTT_filled", "SG_ARG_filled", "SG_APP_filled", "SG_OTT_filled", "SG_T2G_filled", "SG_TOT_filled",
