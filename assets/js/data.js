@@ -96,7 +96,7 @@ const SKILL_CENTER = 0.45;
 const SKILL_Z = 0.35;
 const SKILL_MIN = -0.25;
 const SKILL_MAX = 1.5;
-const MARKET_WEIGHT = 0.65; // odds vs. SG_TOT in the skill blend
+const MARKET_WEIGHT = 0.80; // odds vs. SG_TOT in the skill blend
 // Flat fallback multiplier used only when we can't standardize (e.g. a DK CSV
 // import that has no SG/odds for the field, or a single golfer).
 const SKILL_SCALE = 0.6;
