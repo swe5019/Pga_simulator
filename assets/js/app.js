@@ -458,9 +458,12 @@ function setCfInputs(w) {
 
 /**
  * Recompute each golfer's skill by re-weighting their SG components for this
- * week's course. Neutral weights (all 1) reproduce SG_TOT exactly; raising a
- * category emphasizes golfers strong in it (and de-emphasizes the rest), with
- * the overall scale held steady. Golfers without full SG splits are untouched.
+ * week's course, then re-blend with the betting-market signal at the same
+ * MARKET_WEIGHT used for the initial slate build — course fit reshapes which
+ * SG categories matter, it doesn't throw away the odds-to-win signal.
+ * Neutral weights (all 1) reproduce SG_TOT, so a Balanced apply reproduces
+ * the slate's original market+SG blend. Golfers without full SG splits, or
+ * without enough field data to standardize, are untouched.
  */
 function applyCourseFit() {
   const w = {
@@ -470,21 +473,37 @@ function applyCourseFit() {
     putt: parseFloat($('#cfPutt').value) || 0,
   };
   const wsum = w.ott + w.app + w.arg + w.putt;
-  const scale = window.Data.SKILL_SCALE;
+
+  const withSg = State.golfers.filter((g) =>
+    [g.sgOtt, g.sgApp, g.sgArg, g.sgPutt].every((v) => v != null));
+  // Course-weighted SG combo, normalized so neutral weights => SG_TOT.
+  const cfVal = (g) => (wsum > 0
+    ? (4 * (w.ott * g.sgOtt + w.app * g.sgApp + w.arg * g.sgArg + w.putt * g.sgPutt)) / wsum
+    : null);
+  const zCf = window.Data.zfun(withSg.map(cfVal));
+  const marketZ = window.Data.computeMarketZ(State.golfers);
+  const mw = window.Data.MARKET_WEIGHT;
+
   let n = 0;
   for (const g of State.golfers) {
     if ([g.sgOtt, g.sgApp, g.sgArg, g.sgPutt].some((v) => v == null)) continue;
-    const weighted = w.ott * g.sgOtt + w.app * g.sgApp + w.arg * g.sgArg + w.putt * g.sgPutt;
-    // Normalize by mean weight so neutral weights => SG_TOT; emphasis redistributes.
-    const eff = wsum > 0 ? (4 * weighted) / wsum : 0;
-    g.skill = Math.round(eff * scale * 1000) / 1000;
+    const mz = marketZ(g);
+    const cz = zCf(cfVal(g));
+    let skillZ;
+    if (mz != null && cz != null) skillZ = mw * mz + (1 - mw) * cz; // blend
+    else if (mz != null) skillZ = mz; // odds only
+    else if (cz != null) skillZ = cz; // course-fit SG only
+    else continue; // can't standardize either signal — leave skill as-is
+    g.skill = Math.round(window.Data.clampSkill(skillZ) * 1000) / 1000;
     n++;
   }
   State.simResults = null; // skills changed — invalidate the sim
   renderPlayers();
   const isNeutral = wsum === 4 && w.ott === 1 && w.app === 1 && w.arg === 1 && w.putt === 1;
+  const pct = Math.round(mw * 100);
   $('#cfStatus').textContent = n
-    ? `${isNeutral ? 'Reset to SG total' : 'Course fit applied'} for ${n} golfers — re-run the sim.`
+    ? `${isNeutral ? 'Reset to default blend' : 'Course fit applied'} for ${n} golfers ` +
+      `(${pct}% odds-to-win / ${100 - pct}% course-weighted SG) — re-run the sim.`
     : 'No golfers have SG splits to weight (import a slate with SG_OTT/APP/ARG/PUTT).';
 }
 

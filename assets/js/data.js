@@ -96,7 +96,7 @@ const SKILL_CENTER = 0.45;
 const SKILL_Z = 0.35;
 const SKILL_MIN = -0.25;
 const SKILL_MAX = 1.5;
-const MARKET_WEIGHT = 0.65; // odds vs. SG_TOT in the skill blend
+const MARKET_WEIGHT = 0.80; // odds vs. SG_TOT in the skill blend
 // Flat fallback multiplier used only when we can't standardize (e.g. a DK CSV
 // import that has no SG/odds for the field, or a single golfer).
 const SKILL_SCALE = 0.6;
@@ -110,6 +110,37 @@ function meanStd(arr) {
 }
 
 /**
+ * Field z-score function for a signal. Need ≥5 values to standardize;
+ * otherwise returns a function that always answers null (signal skipped).
+ */
+function zfun(vals) {
+  const v = vals.filter((x) => x != null);
+  if (v.length < 5) return () => null;
+  const { mean, sd } = meanStd(v);
+  return (x) => (x == null ? null : (x - mean) / sd);
+}
+
+/**
+ * Betting-market z-score function: avg of z(win prob), z(top-5 prob),
+ * z(top-10 prob) — whichever are present — for each record in the given
+ * field. Shared by the initial slate build and course-fit re-weighting so
+ * both use the exact same market signal.
+ */
+function computeMarketZ(records) {
+  const winVal = (r) => (r.winProb != null ? r.winProb : r.impliedProb);
+  const zWin = zfun(records.map(winVal));
+  const zT5 = zfun(records.map((r) => r.top5Prob));
+  const zT10 = zfun(records.map((r) => r.top10Prob));
+  return (r) => {
+    const zs = [zWin(winVal(r)), zT5(r.top5Prob), zT10(r.top10Prob)].filter((x) => x != null);
+    return zs.length ? zs.reduce((a, b) => a + b, 0) / zs.length : null;
+  };
+}
+
+const clampSkill = (z) =>
+  Math.max(SKILL_MIN, Math.min(SKILL_MAX, SKILL_CENTER + SKILL_Z * z));
+
+/**
  * Build the slate from an imported "master" record set (e.g. data/slate.json,
  * sourced from your spreadsheet's Sheet1). Each record may carry:
  *   name, salary, sgTot, ownership, winOdds, impliedProb, leverage, leverageTier
@@ -121,26 +152,8 @@ function buildSlateFromMaster(records) {
   let hasOwnership = false;
   const valid = records.filter((r) => r.name && r.salary);
 
-  // Field z-score functions for each signal. Need ≥5 values to standardize;
-  // otherwise the function returns null and that signal is skipped.
-  const zfun = (vals) => {
-    const v = vals.filter((x) => x != null);
-    if (v.length < 5) return () => null;
-    const { mean, sd } = meanStd(v);
-    return (x) => (x == null ? null : (x - mean) / sd);
-  };
-  const winVal = (r) => (r.winProb != null ? r.winProb : r.impliedProb);
   const zSg = zfun(valid.map((r) => r.sgTot));
-  const zWin = zfun(valid.map(winVal));
-  const zT5 = zfun(valid.map((r) => r.top5Prob));
-  const zT10 = zfun(valid.map((r) => r.top10Prob));
-  // Betting-market finish strength: average of the available odds z-scores.
-  const marketZ = (r) => {
-    const zs = [zWin(winVal(r)), zT5(r.top5Prob), zT10(r.top10Prob)].filter((x) => x != null);
-    return zs.length ? zs.reduce((a, b) => a + b, 0) / zs.length : null;
-  };
-  const clampSkill = (z) =>
-    Math.max(SKILL_MIN, Math.min(SKILL_MAX, SKILL_CENTER + SKILL_Z * z));
+  const marketZ = computeMarketZ(valid);
 
   const golfers = valid
     .map((r, i) => {
@@ -229,4 +242,8 @@ function projectOwnership(golfers, simResults) {
   return golfers;
 }
 
-window.Data = { SAMPLE_SLATE, SKILL_SCALE, buildSlate, buildSlateFromMaster, projectOwnership };
+window.Data = {
+  SAMPLE_SLATE, SKILL_SCALE, MARKET_WEIGHT,
+  buildSlate, buildSlateFromMaster, projectOwnership,
+  zfun, computeMarketZ, clampSkill,
+};
