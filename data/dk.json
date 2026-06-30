@@ -1,10 +1,10 @@
 {
- "updatedUtc": "2026-06-30T15:23:51Z",
+ "updatedUtc": "2026-06-30T18:52:51Z",
  "tournament": "JOHN_DEERE_2026",
  "date": "7/2/26",
  "event": "John Deere Classic",
  "draftGroupId": "149501",
- "count": 140,
+ "count": 146,
  "players": [
   {
    "name": "Chris Gotterup",
@@ -693,6 +693,13 @@
    "dkId": 43451839
   },
   {
+   "name": "Cameron Champ",
+   "salary": 6600,
+   "status": "",
+   "out": false,
+   "dkId": 43460425
+  },
+  {
    "name": "Chandler Phillips",
    "salary": 6500,
    "status": "",
@@ -740,6 +747,13 @@
    "status": "",
    "out": false,
    "dkId": 43451846
+  },
+  {
+   "name": "Noah Goodwin",
+   "salary": 6500,
+   "status": "",
+   "out": false,
+   "dkId": 43460427
   },
   {
    "name": "John VanDerLaan",
@@ -889,6 +903,13 @@
    "dkId": 43451867
   },
   {
+   "name": "Michael Feagles",
+   "salary": 6200,
+   "status": "",
+   "out": false,
+   "dkId": 43460426
+  },
+  {
    "name": "Nicholas Lindheim",
    "salary": 6100,
    "status": "",
@@ -938,6 +959,20 @@
    "dkId": 43451874
   },
   {
+   "name": "Luke Gutschewski",
+   "salary": 6100,
+   "status": "",
+   "out": false,
+   "dkId": 43460428
+  },
+  {
+   "name": "Augusto Nunez",
+   "salary": 6100,
+   "status": "",
+   "out": false,
+   "dkId": 43460429
+  },
+  {
    "name": "Brendon Todd",
    "salary": 6000,
    "status": "",
@@ -985,6 +1020,13 @@
    "status": "",
    "out": false,
    "dkId": 43451881
+  },
+  {
+   "name": "Patrick Adler",
+   "salary": 6000,
+   "status": "",
+   "out": false,
+   "dkId": 43460424
   }
  ]
 }
