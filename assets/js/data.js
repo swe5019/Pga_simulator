@@ -230,11 +230,14 @@ function projectOwnership(golfers, simResults) {
   // The field chases projection harder than pure value, and concentrates
   // ownership exponentially on the top of both. These coefficients produce a
   // realistic shape: studs 25-40%, mid-tier 8-18%, punts low single digits.
-  const heat = golfers.map((_, i) => Math.exp(1.25 * zProj[i] + 0.85 * zValue[i]));
+  // OUT/WD players get zero heat so their weight redistributes to the active field.
+  const heat = golfers.map((g, i) =>
+    (g.out || g.notInSlate) ? 0 : Math.exp(1.25 * zProj[i] + 0.85 * zValue[i]));
   const sum = heat.reduce((a, b) => a + b, 0);
 
   const targetTotal = 6 * 100; // 6 roster spots * 100%
   golfers.forEach((g, i) => {
+    if (g.out || g.notInSlate) { g.ownership = 0; return; }
     if (g.ownershipLocked) return; // manual override — leave the user's number alone
     // Cap any single golfer's projected ownership at a believable ceiling.
     g.ownership = Math.min(55, (heat[i] / sum) * targetTotal);

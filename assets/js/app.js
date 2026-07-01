@@ -146,6 +146,8 @@ async function overlayDk() {
         added++;
       }
     }
+    // Clear any model-predicted ownership for OUT/WD players — they're not in the field.
+    if (applied) State.golfers.forEach((g) => { if (g.out) g.ownership = 0; });
     State.dk = { event: dk.event, updatedUtc: dk.updatedUtc, matched, total: players.length, applied, dropped, added };
   } catch (e) {
     /* no DK file yet — leave the slate as-is */
