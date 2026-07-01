@@ -716,7 +716,7 @@ function renderContest() {
     ['Best ROI', Math.max(...res.map((r) => r.roi)).toFixed(0) + '%'],
     ['Avg cash%', avgCash.toFixed(1) + '%'],
     ['Field sampled', c.fieldSize.toLocaleString()],
-    [`Exp. profit (${res.length}×$${fee})`, '$' + totalProfit.toFixed(0)],
+    [`Exp. profit (${res.length}×$${fee})`, '$' + totalProfit.toFixed(2)],
   ]
     .map(([k, v]) => `<div class="card"><div class="cardv">${v}</div><div class="cardk">${k}</div></div>`)
     .join('');
