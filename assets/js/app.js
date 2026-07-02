@@ -190,6 +190,11 @@ const projOf = (g) => {
   return r ? r.mean : null;
 };
 
+/* ---------------------- Analytics ---------------------- */
+function track(eventName, params) {
+  if (typeof gtag === 'function') gtag('event', eventName, params || {});
+}
+
 /* ---------------------- Tabs ---------------------- */
 function initTabs() {
   $$('.tab').forEach((btn) => {
@@ -198,6 +203,7 @@ function initTabs() {
       $$('.panel').forEach((p) => p.classList.remove('active'));
       btn.classList.add('active');
       $('#' + btn.dataset.tab).classList.add('active');
+      track('tab_view', { tab: btn.dataset.tab });
       if (btn.dataset.tab === 'handbuild') {
         renderHandBuild();
         renderSaved();
@@ -1254,8 +1260,8 @@ function download(filename, text) {
 function init() {
   initTabs();
   loadAutoSlate();
-  $('#runSim').addEventListener('click', runSim);
-  $('#buildBtn').addEventListener('click', buildPool);
+  $('#runSim').addEventListener('click', () => { track('run_simulation', { n_sims: $('#nSims').value }); runSim(); });
+  $('#buildBtn').addEventListener('click', () => { track('build_lineups', { n_lineups: $('#nLineups').value }); buildPool(); });
 
   // Advanced settings: variety buttons toggle
   document.querySelectorAll('.variety-btn').forEach((btn) => {
@@ -1273,7 +1279,7 @@ function init() {
       v >= 2 ? '⚠ Build time may increase' : '';
   });
 
-  $('#runContest').addEventListener('click', runContest);
+  $('#runContest').addEventListener('click', () => { track('run_contest_sim'); runContest(); });
   loadDkContests();
   $('#cDkContest').addEventListener('change', () => {
     const real = selectedDkContest();
@@ -1291,7 +1297,7 @@ function init() {
       $('#cStructure').disabled = false;
     }
   });
-  $('#cfApply').addEventListener('click', applyCourseFit);
+  $('#cfApply').addEventListener('click', () => { track('apply_course_fit', { preset: $('#cfPreset').value }); applyCourseFit(); });
   $('#cfPreset').addEventListener('change', (e) => {
     const p = CF_PRESETS[e.target.value];
     if (p) setCfInputs(p);
@@ -1309,13 +1315,13 @@ function init() {
   $('#distModal').addEventListener('click', (e) => {
     if (e.target.id === 'distModal') closeDist(); // click backdrop to close
   });
-  $('#exportDK').addEventListener('click', exportDk);
-  $('#exportDetailed').addEventListener('click', exportDetailed);
+  $('#exportDK').addEventListener('click', () => { track('export_csv', { type: 'dk_upload' }); exportDk(); });
+  $('#exportDetailed').addEventListener('click', () => { track('export_csv', { type: 'detailed' }); exportDetailed(); });
   $('#entriesFile').addEventListener('change', (e) => {
     if (e.target.files[0]) fillEntries(e.target.files[0]);
   });
   $('#importCsv').addEventListener('change', (e) => {
-    if (e.target.files[0]) importCsv(e.target.files[0]);
+    if (e.target.files[0]) { track('import_dk_csv'); importCsv(e.target.files[0]); }
   });
   // Sortable player-table headers: click to sort, click again to reverse.
   $$('#playerTable thead th[data-sort]').forEach((th) => {
