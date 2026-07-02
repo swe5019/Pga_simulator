@@ -586,6 +586,34 @@ function buildPool() {
     if (g.minExp != null) minExpById.set(g.id, g.minExp / 100);
   }
 
+  // Advanced settings: lineup variety (randomness)
+  const activeVariety = document.querySelector('#varietyBtns .variety-btn.active');
+  const randomness = activeVariety ? parseFloat(activeVariety.dataset.val) : 0;
+
+  // Advanced settings: min unique players between lineups
+  const minUniquePlayers = Math.min(3, Math.max(0, parseInt($('#minUniquePlayers').value, 10) || 0));
+
+  // Advanced settings: ownership bracket constraints
+  const bracketedOwnership = [];
+  document.querySelectorAll('.own-min').forEach((minEl) => {
+    const thr = parseFloat(minEl.dataset.thr);
+    const maxEl = document.querySelector(`.own-max[data-thr="${thr}"]`);
+    const min = minEl.value !== '' ? parseInt(minEl.value, 10) : null;
+    const max = maxEl && maxEl.value !== '' ? parseInt(maxEl.value, 10) : null;
+    if (min != null || max != null) bracketedOwnership.push({ threshold: thr, min, max });
+  });
+
+  // Advanced settings: salary tier constraints
+  const salaryTiers = [];
+  document.querySelectorAll('.tier-min').forEach((minEl) => {
+    const salMin = parseInt(minEl.dataset.salmin, 10);
+    const salMax = parseInt(minEl.dataset.salmax, 10);
+    const maxEl = document.querySelector(`.tier-max[data-salmin="${salMin}"]`);
+    const minCount = minEl.value !== '' ? parseInt(minEl.value, 10) : null;
+    const maxCount = maxEl && maxEl.value !== '' ? parseInt(maxEl.value, 10) : null;
+    if (minCount != null || maxCount != null) salaryTiers.push({ salMin, salMax, minCount, maxCount });
+  });
+
   const opts = {
     nLineups: parseInt($('#nLineups').value, 10) || 20,
     maxExposure: (parseFloat($('#maxExposure').value) || 100) / 100,
@@ -595,6 +623,10 @@ function buildPool() {
     locks: new Set(State.golfers.filter((g) => g.locked).map((g) => g.id)),
     // Exclude banned, OUT/WD, deselected players, and anyone not in the DK field.
     bans: new Set(State.golfers.filter((g) => g.banned || g.out || g.notInSlate || !g.selected).map((g) => g.id)),
+    randomness,
+    minUniquePlayers,
+    bracketedOwnership,
+    salaryTiers,
   };
 
   $('#buildStatus').textContent = 'Building…';
@@ -1224,6 +1256,23 @@ function init() {
   loadAutoSlate();
   $('#runSim').addEventListener('click', runSim);
   $('#buildBtn').addEventListener('click', buildPool);
+
+  // Advanced settings: variety buttons toggle
+  document.querySelectorAll('.variety-btn').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.variety-btn').forEach((b) => b.classList.remove('active'));
+      btn.classList.add('active');
+    });
+  });
+
+  // Advanced settings: min unique players warning
+  $('#minUniquePlayers').addEventListener('input', () => {
+    const v = parseInt($('#minUniquePlayers').value, 10) || 0;
+    $('#uniqueHint').textContent =
+      v >= 3 ? '⚠ Build time increases significantly' :
+      v >= 2 ? '⚠ Build time may increase' : '';
+  });
+
   $('#runContest').addEventListener('click', runContest);
   loadDkContests();
   $('#cDkContest').addEventListener('change', () => {

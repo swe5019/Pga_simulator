@@ -113,14 +113,17 @@ function lineupKey(ids) {
  * @param {Array} golfers - full pool with {id, salary}
  * @param {Map} simResults - output of Sim.runSimulation (has .samples per id)
  * @param {object} opts:
- *    nLineups   - target number of unique lineups
- *    locks      - Set of golfer ids to force into every lineup
- *    bans       - Set of golfer ids to exclude
- *    maxExposure- 0..1 cap on the fraction of lineups any golfer appears in
- *    maxExpById - Map<id, 0..1> per-golfer exposure cap (overrides maxExposure)
- *    minExpById - Map<id, 0..1> per-golfer exposure floor (best-effort)
- *    minSalary  - minimum total salary to use
- *    randomness - 0..1, how much to jitter each sim's objective for diversity
+ *    nLineups          - target number of unique lineups
+ *    locks             - Set of golfer ids to force into every lineup
+ *    bans              - Set of golfer ids to exclude
+ *    maxExposure       - 0..1 cap on the fraction of lineups any golfer appears in
+ *    maxExpById        - Map<id, 0..1> per-golfer exposure cap (overrides maxExposure)
+ *    minExpById        - Map<id, 0..1> per-golfer exposure floor (best-effort)
+ *    minSalary         - minimum total salary to use
+ *    randomness        - 0..1, adds ±jitter to projected points for lineup diversity
+ *    bracketedOwnership- [{threshold, min, max}] players per lineup with own < threshold
+ *    salaryTiers       - [{salMin, salMax, minCount, maxCount}] players per salary tier
+ *    minUniquePlayers  - each lineup must differ from all others by at least this many
  * @returns {{lineups:Array, exposure:Map}}
  */
 function buildPool(golfers, simResults, opts = {}) {
@@ -131,6 +134,14 @@ function buildPool(golfers, simResults, opts = {}) {
   const maxExpById = opts.maxExpById || new Map();
   const minExpById = opts.minExpById || new Map();
   const minSalary = opts.minSalary || 0;
+  const randomness = opts.randomness || 0;
+  const bracketedOwnership = opts.bracketedOwnership || [];
+  const salaryTiers = opts.salaryTiers || [];
+  const minUniquePlayers = opts.minUniquePlayers || 0;
+
+  // Pre-build lookup maps for constraint checks (avoids per-lineup array scans).
+  const ownMap = new Map(golfers.map((g) => [g.id, g.ownership || 0]));
+  const salMap = new Map(golfers.map((g) => [g.id, g.salary]));
 
   const pool = golfers.filter((g) => !bans.has(g.id));
   const nSims = pool.length ? simResults.get(pool[0].id).samples.length : 0;
@@ -151,9 +162,10 @@ function buildPool(golfers, simResults, opts = {}) {
 
   const rng = window.Sim.makeRng(987654321);
 
-  // Try far more sims than needed; skip duplicates and exposure-busting builds.
+  // Increase attempt budget when extra constraints are active.
+  const hasConstraints = bracketedOwnership.length > 0 || salaryTiers.length > 0 || minUniquePlayers > 0;
   let attempts = 0;
-  const maxAttempts = nLineups * 40 + 500;
+  const maxAttempts = nLineups * (hasConstraints ? 120 : 40) + 500;
 
   while (lineups.length < nLineups && attempts < maxAttempts) {
     attempts++;
@@ -161,6 +173,7 @@ function buildPool(golfers, simResults, opts = {}) {
 
     // Objective = this golfer's fantasy points in this one simulated world.
     // Zero-out anyone at their exposure cap; boost anyone below their floor.
+    // Randomness adds ±noise to diversify the lineup pool.
     const obj = new Map();
     for (const g of pool) {
       const used = useCount.get(g.id);
@@ -169,6 +182,7 @@ function buildPool(golfers, simResults, opts = {}) {
         continue;
       }
       let v = simResults.get(g.id).samples[simIndex];
+      if (randomness > 0) v += (rng() - 0.5) * 2 * randomness * 30;
       const floor = minUses.get(g.id);
       if (floor > 0 && used < floor) {
         // Strongly prefer under-exposed must-plays (neediest first), best-effort.
@@ -189,6 +203,42 @@ function buildPool(golfers, simResults, opts = {}) {
       if (!locks.has(id) && useCount.get(id) + 1 > maxUses.get(id)) { busts = true; break; }
     }
     if (busts) continue;
+
+    // Ownership bracket constraints: each {threshold, min, max} must be satisfied.
+    if (bracketedOwnership.length) {
+      let pass = true;
+      for (const b of bracketedOwnership) {
+        const cnt = res.players.filter((id) => ownMap.get(id) < b.threshold).length;
+        if (b.min != null && cnt < b.min) { pass = false; break; }
+        if (b.max != null && cnt > b.max) { pass = false; break; }
+      }
+      if (!pass) continue;
+    }
+
+    // Salary tier constraints: each {salMin, salMax, minCount, maxCount} must be satisfied.
+    if (salaryTiers.length) {
+      let pass = true;
+      for (const t of salaryTiers) {
+        const cnt = res.players.filter((id) => {
+          const s = salMap.get(id);
+          return s >= t.salMin && s < t.salMax;
+        }).length;
+        if (t.minCount != null && cnt < t.minCount) { pass = false; break; }
+        if (t.maxCount != null && cnt > t.maxCount) { pass = false; break; }
+      }
+      if (!pass) continue;
+    }
+
+    // Min unique players: this lineup must differ from every existing lineup by ≥ N players.
+    if (minUniquePlayers > 0) {
+      const candidateSet = new Set(res.players);
+      let pass = true;
+      for (const lu of lineups) {
+        const shared = lu.players.filter((id) => candidateSet.has(id)).length;
+        if (DK_RULES.rosterSize - shared < minUniquePlayers) { pass = false; break; }
+      }
+      if (!pass) continue;
+    }
 
     seen.add(key);
     for (const id of res.players) useCount.set(id, useCount.get(id) + 1);

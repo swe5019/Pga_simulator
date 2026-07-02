@@ -163,6 +163,93 @@
         <button id="buildBtn" class="primary">⚙ Build Lineup Pool</button>
         <span id="buildStatus" class="status"></span>
       </div>
+
+      <!-- Advanced Build Settings (collapsible) -->
+      <details id="advancedBuild" class="adv-wrap">
+        <summary class="adv-toggle">Advanced Settings</summary>
+        <div class="adv-body">
+
+          <!-- Row 1: Lineup Variety + Min Unique Players -->
+          <div class="adv-row">
+            <div class="adv-section">
+              <div class="adv-label">Lineup Variety</div>
+              <div class="variety-btns" id="varietyBtns">
+                <button class="variety-btn active" data-val="0">None</button>
+                <button class="variety-btn" data-val="0.25">Low</button>
+                <button class="variety-btn" data-val="0.5">Med</button>
+                <button class="variety-btn" data-val="1">High</button>
+              </div>
+              <p class="adv-hint">Adds noise to projections so each lineup draws from a slightly different view of the field — more diversity across your pool.</p>
+            </div>
+
+            <div class="adv-section">
+              <div class="adv-label">Min Unique Players Between Lineups</div>
+              <div style="display:flex;align-items:center;gap:10px;margin-top:6px;">
+                <input id="minUniquePlayers" type="number" value="0" min="0" max="3" step="1" style="width:58px;" />
+                <span id="uniqueHint" class="adv-hint" style="margin:0;color:var(--down);"></span>
+              </div>
+              <p class="adv-hint">Each lineup must differ from every other by at least this many players. Max 3 — build time increases significantly at 3.</p>
+            </div>
+          </div>
+
+          <!-- Row 2: Ownership Brackets + Salary Tiers -->
+          <div class="adv-row">
+            <div class="adv-section">
+              <div class="adv-label">Ownership Brackets <span class="adv-sublabel">— # of players per lineup with ownership under threshold</span></div>
+              <div class="bracket-table">
+                <div class="bt-head">Threshold</div><div class="bt-head">Min</div><div class="bt-head">Max</div>
+
+                <div class="bt-cell">Under 2.5%</div>
+                <input type="number" class="own-min" data-thr="2.5" min="0" max="6" placeholder="—" />
+                <input type="number" class="own-max" data-thr="2.5" min="0" max="6" placeholder="—" />
+
+                <div class="bt-cell">Under 5%</div>
+                <input type="number" class="own-min" data-thr="5" min="0" max="6" placeholder="—" />
+                <input type="number" class="own-max" data-thr="5" min="0" max="6" placeholder="—" />
+
+                <div class="bt-cell">Under 10%</div>
+                <input type="number" class="own-min" data-thr="10" min="0" max="6" placeholder="—" />
+                <input type="number" class="own-max" data-thr="10" min="0" max="6" placeholder="—" />
+
+                <div class="bt-cell">Under 18%</div>
+                <input type="number" class="own-min" data-thr="18" min="0" max="6" placeholder="—" />
+                <input type="number" class="own-max" data-thr="18" min="0" max="6" placeholder="—" />
+
+                <div class="bt-cell">Under 25%</div>
+                <input type="number" class="own-min" data-thr="25" min="0" max="6" placeholder="—" />
+                <input type="number" class="own-max" data-thr="25" min="0" max="6" placeholder="—" />
+              </div>
+              <p class="adv-hint">Leave blank to apply no constraint for that threshold.</p>
+            </div>
+
+            <div class="adv-section">
+              <div class="adv-label">Salary Tiers <span class="adv-sublabel">— # of players per lineup in each salary range</span></div>
+              <div class="bracket-table">
+                <div class="bt-head">Tier</div><div class="bt-head">Min</div><div class="bt-head">Max</div>
+
+                <div class="bt-cell">Punt (&lt;$6.5k)</div>
+                <input type="number" class="tier-min" data-salmin="0" data-salmax="6500" min="0" max="6" placeholder="—" />
+                <input type="number" class="tier-max" data-salmin="0" data-salmax="6500" min="0" max="6" placeholder="—" />
+
+                <div class="bt-cell">Value ($6.5k–$7.5k)</div>
+                <input type="number" class="tier-min" data-salmin="6500" data-salmax="7500" min="0" max="6" placeholder="—" />
+                <input type="number" class="tier-max" data-salmin="6500" data-salmax="7500" min="0" max="6" placeholder="—" />
+
+                <div class="bt-cell">Mid ($7.5k–$8.5k)</div>
+                <input type="number" class="tier-min" data-salmin="7500" data-salmax="8500" min="0" max="6" placeholder="—" />
+                <input type="number" class="tier-max" data-salmin="7500" data-salmax="8500" min="0" max="6" placeholder="—" />
+
+                <div class="bt-cell">Stud ($8.5k+)</div>
+                <input type="number" class="tier-min" data-salmin="8500" data-salmax="999999" min="0" max="6" placeholder="—" />
+                <input type="number" class="tier-max" data-salmin="8500" data-salmax="999999" min="0" max="6" placeholder="—" />
+              </div>
+              <p class="adv-hint">Example: Max 1 Punt keeps you off the cheap-stack meta. Leave blank for no constraint.</p>
+            </div>
+          </div>
+
+        </div><!-- /.adv-body -->
+      </details>
+
       <p class="hint">
         Each lineup is optimized against a single simulated tournament, so the pool is
         diverse and correlated the way real tournaments play out — not 20 copies of the

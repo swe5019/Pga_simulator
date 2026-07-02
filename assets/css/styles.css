@@ -340,4 +340,50 @@ input.expcell::placeholder { color: var(--line); }
 .tag.noproj { background: #2a2113; color: #e3b341; border: 1px solid #4a3a18; }
 tr.deselected { opacity: .42; }
 tr.deselected td.name .pname { color: var(--dim); }
+
+/* ---------- Advanced Build Settings ---------- */
+.adv-wrap {
+  border: 1px solid var(--line); border-radius: 10px;
+  margin: 0 0 14px; background: var(--panel);
+}
+.adv-wrap:hover { border-color: #3a4560; }
+.adv-toggle {
+  list-style: none; cursor: pointer; user-select: none;
+  display: flex; align-items: center; gap: 7px;
+  padding: 10px 14px; font-size: 12.5px; font-weight: 600; color: var(--accent);
+}
+.adv-toggle::-webkit-details-marker { display: none; }
+.adv-toggle::before { content: '▶'; font-size: 10px; display: inline-block; transition: transform .18s; }
+details[open] > .adv-toggle::before { transform: rotate(90deg); }
+.adv-body {
+  padding: 14px 16px 16px; border-top: 1px solid var(--line);
+}
+.adv-row { display: flex; gap: 24px; flex-wrap: wrap; margin-bottom: 18px; }
+.adv-row:last-child { margin-bottom: 0; }
+.adv-section { flex: 1; min-width: 230px; }
+.adv-label {
+  font-size: 11px; font-weight: 700; color: var(--dim);
+  text-transform: uppercase; letter-spacing: .5px; margin-bottom: 8px;
+}
+.adv-sublabel { font-weight: 400; text-transform: none; letter-spacing: 0; color: var(--dim); font-size: 11px; }
+.adv-hint { color: var(--dim); font-size: 11.5px; margin: 6px 0 0; }
+.variety-btns { display: flex; gap: 5px; }
+.variety-btn {
+  padding: 5px 13px; border-radius: 6px; border: 1px solid var(--line);
+  background: var(--chip); color: var(--dim); font-size: 12.5px; cursor: pointer; font-weight: 600;
+}
+.variety-btn:hover { color: var(--text); border-color: var(--dim); }
+.variety-btn.active { background: var(--green); color: #fff; border-color: var(--green); }
+.bracket-table {
+  display: grid; grid-template-columns: 1fr 52px 52px; gap: 5px 8px; align-items: center;
+}
+.bt-head { font-size: 10.5px; font-weight: 700; color: var(--dim); text-transform: uppercase; letter-spacing: .3px; }
+.bt-cell { font-size: 12.5px; color: var(--text); }
+.bracket-table input[type=number] {
+  width: 52px; padding: 5px 6px; font-size: 12px;
+  background: var(--bg); border: 1px solid var(--line); border-radius: 5px;
+  color: var(--text); text-align: center;
+}
+.bracket-table input[type=number]:focus { border-color: var(--accent); outline: none; }
+.bracket-table input[type=number]::placeholder { color: var(--line); }
 input.selbox { cursor: pointer; }
