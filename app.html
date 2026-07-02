@@ -197,6 +197,17 @@
               </div>
               <p class="adv-hint">Each lineup must differ from every other by at least this many players. Max 3 — build time increases significantly at 3.</p>
             </div>
+
+            <div class="adv-section">
+              <div class="adv-label">Total Lineup Ownership% <span class="adv-sublabel">— sum of all 6 players</span></div>
+              <div class="bracket-table" style="grid-template-columns:60px 52px 52px;margin-top:6px;">
+                <div class="bt-head"></div><div class="bt-head">Min</div><div class="bt-head">Max</div>
+                <div class="bt-cell">Own%</div>
+                <input type="number" id="minTotalOwn" min="0" max="600" placeholder="—" />
+                <input type="number" id="maxTotalOwn" min="0" max="600" placeholder="—" />
+              </div>
+              <p class="adv-hint">Example: Max 180% limits chalk stacking. Typical range is 80–350%.</p>
+            </div>
           </div>
 
           <!-- Row 2: Ownership Brackets + Salary Tiers -->
@@ -234,23 +245,27 @@
               <div class="bracket-table">
                 <div class="bt-head">Tier</div><div class="bt-head">Min</div><div class="bt-head">Max</div>
 
-                <div class="bt-cell">Punt (&lt;$6.5k)</div>
-                <input type="number" class="tier-min" data-salmin="0" data-salmax="6500" min="0" max="6" placeholder="—" />
-                <input type="number" class="tier-max" data-salmin="0" data-salmax="6500" min="0" max="6" placeholder="—" />
+                <div class="bt-cell">&lt;$7k</div>
+                <input type="number" class="tier-min" data-salmin="0" data-salmax="7000" min="0" max="6" placeholder="—" />
+                <input type="number" class="tier-max" data-salmin="0" data-salmax="7000" min="0" max="6" placeholder="—" />
 
-                <div class="bt-cell">Value ($6.5k–$7.5k)</div>
-                <input type="number" class="tier-min" data-salmin="6500" data-salmax="7500" min="0" max="6" placeholder="—" />
-                <input type="number" class="tier-max" data-salmin="6500" data-salmax="7500" min="0" max="6" placeholder="—" />
+                <div class="bt-cell">$7k–$7.9k</div>
+                <input type="number" class="tier-min" data-salmin="7000" data-salmax="8000" min="0" max="6" placeholder="—" />
+                <input type="number" class="tier-max" data-salmin="7000" data-salmax="8000" min="0" max="6" placeholder="—" />
 
-                <div class="bt-cell">Mid ($7.5k–$8.5k)</div>
-                <input type="number" class="tier-min" data-salmin="7500" data-salmax="8500" min="0" max="6" placeholder="—" />
-                <input type="number" class="tier-max" data-salmin="7500" data-salmax="8500" min="0" max="6" placeholder="—" />
+                <div class="bt-cell">$8k–$8.9k</div>
+                <input type="number" class="tier-min" data-salmin="8000" data-salmax="9000" min="0" max="6" placeholder="—" />
+                <input type="number" class="tier-max" data-salmin="8000" data-salmax="9000" min="0" max="6" placeholder="—" />
 
-                <div class="bt-cell">Stud ($8.5k+)</div>
-                <input type="number" class="tier-min" data-salmin="8500" data-salmax="999999" min="0" max="6" placeholder="—" />
-                <input type="number" class="tier-max" data-salmin="8500" data-salmax="999999" min="0" max="6" placeholder="—" />
+                <div class="bt-cell">$9k–$9.9k</div>
+                <input type="number" class="tier-min" data-salmin="9000" data-salmax="10000" min="0" max="6" placeholder="—" />
+                <input type="number" class="tier-max" data-salmin="9000" data-salmax="10000" min="0" max="6" placeholder="—" />
+
+                <div class="bt-cell">$10k+</div>
+                <input type="number" class="tier-min" data-salmin="10000" data-salmax="999999" min="0" max="6" placeholder="—" />
+                <input type="number" class="tier-max" data-salmin="10000" data-salmax="999999" min="0" max="6" placeholder="—" />
               </div>
-              <p class="adv-hint">Example: Max 1 Punt keeps you off the cheap-stack meta. Leave blank for no constraint.</p>
+              <p class="adv-hint">Leave blank for no constraint.</p>
             </div>
           </div>
 

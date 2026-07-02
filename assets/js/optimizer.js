@@ -124,6 +124,8 @@ function lineupKey(ids) {
  *    bracketedOwnership- [{threshold, min, max}] players per lineup with own < threshold
  *    salaryTiers       - [{salMin, salMax, minCount, maxCount}] players per salary tier
  *    minUniquePlayers  - each lineup must differ from all others by at least this many
+ *    minTotalOwn       - minimum sum of projected ownership% across all 6 players
+ *    maxTotalOwn       - maximum sum of projected ownership% across all 6 players
  * @returns {{lineups:Array, exposure:Map}}
  */
 function buildPool(golfers, simResults, opts = {}) {
@@ -138,6 +140,8 @@ function buildPool(golfers, simResults, opts = {}) {
   const bracketedOwnership = opts.bracketedOwnership || [];
   const salaryTiers = opts.salaryTiers || [];
   const minUniquePlayers = opts.minUniquePlayers || 0;
+  const minTotalOwn = opts.minTotalOwn != null ? opts.minTotalOwn : null;
+  const maxTotalOwn = opts.maxTotalOwn != null ? opts.maxTotalOwn : null;
 
   // Pre-build lookup maps for constraint checks (avoids per-lineup array scans).
   const ownMap = new Map(golfers.map((g) => [g.id, g.ownership || 0]));
@@ -163,7 +167,7 @@ function buildPool(golfers, simResults, opts = {}) {
   const rng = window.Sim.makeRng(987654321);
 
   // Increase attempt budget when extra constraints are active.
-  const hasConstraints = bracketedOwnership.length > 0 || salaryTiers.length > 0 || minUniquePlayers > 0;
+  const hasConstraints = bracketedOwnership.length > 0 || salaryTiers.length > 0 || minUniquePlayers > 0 || minTotalOwn != null || maxTotalOwn != null;
   let attempts = 0;
   const maxAttempts = nLineups * (hasConstraints ? 120 : 40) + 500;
 
@@ -227,6 +231,13 @@ function buildPool(golfers, simResults, opts = {}) {
         if (t.maxCount != null && cnt > t.maxCount) { pass = false; break; }
       }
       if (!pass) continue;
+    }
+
+    // Total ownership constraint: sum of all 6 players' projected ownership must be in range.
+    if (minTotalOwn != null || maxTotalOwn != null) {
+      const ownSum = res.players.reduce((s, id) => s + (ownMap.get(id) || 0), 0);
+      if (minTotalOwn != null && ownSum < minTotalOwn) continue;
+      if (maxTotalOwn != null && ownSum > maxTotalOwn) continue;
     }
 
     // Min unique players: this lineup must differ from every existing lineup by ≥ N players.

@@ -620,6 +620,9 @@ function buildPool() {
     if (minCount != null || maxCount != null) salaryTiers.push({ salMin, salMax, minCount, maxCount });
   });
 
+  const minTotalOwn = $('#minTotalOwn').value !== '' ? parseFloat($('#minTotalOwn').value) : null;
+  const maxTotalOwn = $('#maxTotalOwn').value !== '' ? parseFloat($('#maxTotalOwn').value) : null;
+
   const opts = {
     nLineups: parseInt($('#nLineups').value, 10) || 20,
     maxExposure: (parseFloat($('#maxExposure').value) || 100) / 100,
@@ -633,6 +636,8 @@ function buildPool() {
     minUniquePlayers,
     bracketedOwnership,
     salaryTiers,
+    minTotalOwn,
+    maxTotalOwn,
   };
 
   $('#buildStatus').textContent = 'Building…';
