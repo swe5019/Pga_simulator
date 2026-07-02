@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SlateSims Admin</title>
+  <style>
+    :root {
+      --bg: #0e1116; --panel: #161b22; --panel2: #1c2230;
+      --line: #2a3140; --text: #e6edf3; --dim: #8b97a7;
+      --green: #2ea043; --green2: #3fb950; --accent: #58a6ff;
+      --up: #3fb950; --down: #f85149; --warn: #e3b341;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: var(--bg); color: var(--text); font: 14px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+
+    /* ---- Auth screen ---- */
+    #authScreen {
+      display: flex; align-items: center; justify-content: center;
+      min-height: 100vh;
+    }
+    .auth-box {
+      background: var(--panel); border: 1px solid var(--line); border-radius: 14px;
+      padding: 40px 44px; width: 360px; text-align: center;
+    }
+    .auth-box h1 { font-size: 22px; margin-bottom: 6px; }
+    .auth-box p { color: var(--dim); font-size: 13px; margin-bottom: 24px; }
+    .auth-box input {
+      width: 100%; padding: 10px 14px; background: var(--bg); color: var(--text);
+      border: 1px solid var(--line); border-radius: 8px; font-size: 14px; margin-bottom: 12px;
+    }
+    .auth-box input:focus { border-color: var(--accent); outline: none; }
+    .auth-box button {
+      width: 100%; padding: 10px; background: var(--green); color: #fff;
+      border: none; border-radius: 8px; font-weight: 700; font-size: 14px; cursor: pointer;
+    }
+    .auth-box button:hover { background: var(--green2); }
+    #authError { color: var(--down); font-size: 12.5px; margin-top: 10px; min-height: 18px; }
+
+    /* ---- Admin layout ---- */
+    #adminPanel { display: none; }
+    .topbar {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 14px 24px; border-bottom: 1px solid var(--line);
+      background: linear-gradient(180deg, #11161f, #0e1116);
+      position: sticky; top: 0; z-index: 10;
+    }
+    .topbar h1 { font-size: 18px; font-weight: 800; }
+    .topbar h1 span { color: var(--green2); }
+    .topbar .meta { color: var(--dim); font-size: 12px; margin-left: 14px; }
+    .logout {
+      background: transparent; color: var(--dim); border: 1px solid var(--line);
+      border-radius: 7px; padding: 6px 12px; cursor: pointer; font-size: 12px;
+    }
+    .logout:hover { color: var(--text); border-color: var(--dim); }
+    main { max-width: 1180px; margin: 0 auto; padding: 28px 24px 60px; }
+    section { margin-bottom: 40px; }
+    h2 { font-size: 15px; font-weight: 700; margin-bottom: 4px; }
+    .sub { color: var(--dim); font-weight: 400; font-size: 12.5px; margin-left: 8px; }
+    .hint { color: var(--dim); font-size: 12px; margin: 4px 0 14px; }
+
+    /* ---- Stat cards ---- */
+    .cards { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 20px; }
+    .card {
+      background: var(--panel); border: 1px solid var(--line); border-radius: 10px;
+      padding: 16px 20px; min-width: 140px; flex: 1;
+    }
+    .card .label { color: var(--dim); font-size: 11px; text-transform: uppercase; letter-spacing: .5px; margin-bottom: 6px; }
+    .card .val { font-size: 26px; font-weight: 800; }
+    .card .sub2 { color: var(--dim); font-size: 11.5px; margin-top: 2px; }
+    .good { color: var(--up); }
+    .ok { color: var(--warn); }
+    .bad { color: var(--down); }
+
+    /* ---- Bar chart ---- */
+    .bar-chart { display: flex; flex-direction: column; gap: 7px; }
+    .bar-row { display: flex; align-items: center; gap: 10px; }
+    .bar-label { width: 190px; font-size: 12px; color: var(--dim); text-align: right; flex-shrink: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .bar-track { flex: 1; background: var(--panel2); border-radius: 4px; height: 22px; position: relative; }
+    .bar-fill { height: 100%; border-radius: 4px; transition: width .4s ease; display: flex; align-items: center; padding-left: 8px; }
+    .bar-fill span { font-size: 11.5px; font-weight: 700; color: #fff; }
+    .bar-fill.good { background: #1a3a22; border-left: 3px solid var(--up); }
+    .bar-fill.ok   { background: #2d2510; border-left: 3px solid var(--warn); }
+    .bar-fill.bad  { background: #3a1a1a; border-left: 3px solid var(--down); }
+
+    /* ---- Scatter plot ---- */
+    .scatter-wrap { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 20px; }
+    svg.scatter { display: block; width: 100%; max-width: 540px; }
+    .scatter-legend { display: flex; gap: 18px; margin-top: 10px; font-size: 12px; color: var(--dim); }
+    .scatter-legend span { display: flex; align-items: center; gap: 5px; }
+
+    /* ---- Table ---- */
+    .tablewrap { overflow-x: auto; border: 1px solid var(--line); border-radius: 10px; }
+    table { width: 100%; border-collapse: collapse; font-size: 13px; }
+    thead th {
+      background: var(--panel2); color: var(--dim); text-align: left;
+      padding: 9px 12px; font-size: 11px; text-transform: uppercase; letter-spacing: .4px;
+    }
+    th.num, td.num { text-align: right; }
+    tbody td { padding: 8px 12px; border-top: 1px solid var(--line); }
+    tbody tr:hover { background: var(--panel); }
+    .pill {
+      display: inline-block; padding: 2px 8px; border-radius: 20px; font-size: 11px; font-weight: 700;
+    }
+    .pill.good { background: #1a3a22; color: var(--up); }
+    .pill.ok   { background: #2d2510; color: var(--warn); }
+    .pill.bad  { background: #3a1a1a; color: var(--down); }
+    .pill.none { background: var(--panel2); color: var(--dim); }
+
+    /* ---- GA4 section ---- */
+    .ga-box {
+      background: var(--panel); border: 1px solid var(--line); border-radius: 10px;
+      padding: 20px 24px; display: flex; align-items: center; justify-content: space-between; gap: 20px;
+    }
+    .ga-box p { color: var(--dim); font-size: 13px; max-width: 500px; }
+    .ga-box a {
+      background: #1a73e8; color: #fff; text-decoration: none;
+      padding: 9px 18px; border-radius: 8px; font-weight: 700; font-size: 13px;
+      white-space: nowrap; flex-shrink: 0;
+    }
+    .ga-box a:hover { background: #1557b0; }
+  </style>
+</head>
+<body>
+
+<!-- ============================================================ AUTH ============================================================ -->
+<div id="authScreen">
+  <div class="auth-box">
+    <h1>SlateSims Admin</h1>
+    <p>Owner-only access. Enter your password to continue.</p>
+    <input type="password" id="pwInput" placeholder="Password" autocomplete="current-password" />
+    <button id="pwBtn">Unlock</button>
+    <div id="authError"></div>
+  </div>
+</div>
+
+<!-- ============================================================ ADMIN ============================================================ -->
+<div id="adminPanel">
+  <header class="topbar">
+    <div style="display:flex;align-items:center;gap:8px;">
+      <h1>Slate<span>Sims</span> Admin</h1>
+      <span class="meta" id="indexUpdated"></span>
+    </div>
+    <button class="logout" id="logoutBtn">Log out</button>
+  </header>
+
+  <main>
+
+    <!-- GA4 -->
+    <section>
+      <h2>Traffic Analytics <span class="sub">— Google Analytics 4</span></h2>
+      <p class="hint">Sessions, users, acquisition sources, and custom events (Run Sim, Build Lineups, etc.)</p>
+      <div class="ga-box">
+        <p>View real-time traffic, engagement by tab, and event funnel in the GA4 dashboard. Custom events fire on: tab_view, run_simulation, build_lineups, run_contest_sim, apply_course_fit, export_csv, import_dk_csv.</p>
+        <a href="https://analytics.google.com" target="_blank" rel="noopener">Open GA4 Dashboard ↗</a>
+      </div>
+    </section>
+
+    <!-- Summary cards -->
+    <section>
+      <h2>Ownership Model Accuracy <span class="sub">— colabMaePct = mean absolute error in ownership % points</span></h2>
+      <p class="hint">Lower is better. &lt;2% = excellent, 2–3% = good, 3–4% = fair, &gt;4% = needs work.</p>
+      <div class="cards" id="summaryCards"></div>
+    </section>
+
+    <!-- Bar chart -->
+    <section>
+      <h2>MAE by Tournament <span class="sub">— sorted by date</span></h2>
+      <div class="bar-chart" id="barChart"></div>
+    </section>
+
+    <!-- Scatter (Travelers detail) -->
+    <section id="scatterSection" style="display:none;">
+      <h2>Predicted vs Actual Ownership <span class="sub" id="scatterTitle"></span></h2>
+      <p class="hint">Each dot is one golfer. Perfect predictions lie on the diagonal. Above = underestimated; below = overestimated.</p>
+      <div class="scatter-wrap">
+        <svg class="scatter" id="scatterSvg" viewBox="0 0 480 380"></svg>
+        <div class="scatter-legend">
+          <span><svg width="10" height="10"><circle cx="5" cy="5" r="4" fill="#58a6ff" opacity=".8"/></svg> Golfer</span>
+          <span><svg width="20" height="10"><line x1="0" y1="5" x2="20" y2="5" stroke="#3fb950" stroke-width="1.5" stroke-dasharray="4,3"/></svg> Perfect prediction</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Full table -->
+    <section>
+      <h2>All Tournaments</h2>
+      <div class="tablewrap">
+        <table id="tournTable">
+          <thead>
+            <tr>
+              <th>Tournament</th>
+              <th>Date</th>
+              <th class="num">Ownership MAE%</th>
+              <th class="num">Website MAE%</th>
+              <th class="num">Players</th>
+              <th>Has Actuals</th>
+            </tr>
+          </thead>
+          <tbody id="tournTbody"></tbody>
+        </table>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<script>
+/* ============================================================ Auth ============================================================ */
+const HASH = '0c2344b1386fdf2c91acfe49ad9cba5eae53bca35b3230471348f1049412509e';
+const STORE_KEY = 'slatesims_admin_v1';
+
+async function sha256(str) {
+  const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(str));
+  return Array.from(new Uint8Array(buf)).map(b => b.toString(16).padStart(2, '0')).join('');
+}
+
+function showAdmin() {
+  document.getElementById('authScreen').style.display = 'none';
+  document.getElementById('adminPanel').style.display = 'block';
+  loadAdmin();
+}
+
+if (localStorage.getItem(STORE_KEY) === HASH) showAdmin();
+
+document.getElementById('pwBtn').addEventListener('click', async () => {
+  const val = document.getElementById('pwInput').value;
+  const h = await sha256(val);
+  if (h === HASH) {
+    localStorage.setItem(STORE_KEY, HASH);
+    showAdmin();
+  } else {
+    document.getElementById('authError').textContent = 'Incorrect password.';
+  }
+});
+document.getElementById('pwInput').addEventListener('keydown', (e) => {
+  if (e.key === 'Enter') document.getElementById('pwBtn').click();
+});
+document.getElementById('logoutBtn').addEventListener('click', () => {
+  localStorage.removeItem(STORE_KEY);
+  location.reload();
+});
+
+/* ============================================================ Admin data ============================================================ */
+async function loadAdmin() {
+  const idx = await fetch('data/history/index.json?t=' + Date.now(), { cache: 'no-store' }).then(r => r.json());
+  const events = [...idx.events].sort((a, b) => a.date.localeCompare(b.date));
+
+  document.getElementById('indexUpdated').textContent = 'Updated ' + new Date(idx.updatedUtc).toLocaleString();
+
+  const withMae = events.filter(e => e.colabMaePct != null);
+  const avg = withMae.length ? withMae.reduce((s, e) => s + e.colabMaePct, 0) / withMae.length : null;
+  const best = withMae.length ? withMae.reduce((b, e) => e.colabMaePct < b.colabMaePct ? e : b) : null;
+  const worst = withMae.length ? withMae.reduce((w, e) => e.colabMaePct > w.colabMaePct ? e : w) : null;
+
+  renderCards(withMae.length, avg, best, worst, idx.count);
+  renderBarChart(withMae);
+  renderTable(events);
+
+  // Load detail for the tournament with both predicted + actual (TRAVELERS_2026 currently)
+  const detail = events.find(e => e.hasPredicted && e.hasActual);
+  if (detail) {
+    const d = await fetch('data/' + detail.file + '?t=' + Date.now(), { cache: 'no-store' }).then(r => r.json());
+    if (d.predicted && d.actual) renderScatter(d, detail.tournament);
+  }
+}
+
+function maeClass(v) {
+  if (v == null) return 'none';
+  if (v < 2) return 'good';
+  if (v < 3.5) return 'ok';
+  return 'bad';
+}
+
+function fmt(v, dec = 2) { return v != null ? v.toFixed(dec) + '%' : '—'; }
+
+function prettyName(t) {
+  return t.replace(/_/g, ' ').replace(/\b(\w)/g, c => c.toUpperCase()).replace(/\d{4}$/, y => ' ' + y).trim();
+}
+
+/* ---- Summary cards ---- */
+function renderCards(n, avg, best, worst, total) {
+  const el = document.getElementById('summaryCards');
+  el.innerHTML = `
+    <div class="card">
+      <div class="label">Tournaments tracked</div>
+      <div class="val">${n}</div>
+      <div class="sub2">of ${total} in history</div>
+    </div>
+    <div class="card">
+      <div class="label">Avg Ownership MAE</div>
+      <div class="val ${maeClass(avg)}">${fmt(avg)}</div>
+      <div class="sub2">across ${n} tournaments</div>
+    </div>
+    <div class="card">
+      <div class="label">Best Tournament</div>
+      <div class="val good">${fmt(best?.colabMaePct)}</div>
+      <div class="sub2">${best ? prettyName(best.tournament) : '—'}</div>
+    </div>
+    <div class="card">
+      <div class="label">Worst Tournament</div>
+      <div class="val bad">${fmt(worst?.colabMaePct)}</div>
+      <div class="sub2">${worst ? prettyName(worst.tournament) : '—'}</div>
+    </div>
+  `;
+}
+
+/* ---- Bar chart ---- */
+function renderBarChart(events) {
+  const max = Math.max(...events.map(e => e.colabMaePct), 6);
+  const el = document.getElementById('barChart');
+  el.innerHTML = events.map(e => {
+    const pct = (e.colabMaePct / max * 100).toFixed(1);
+    const cls = maeClass(e.colabMaePct);
+    const label = prettyName(e.tournament);
+    return `
+      <div class="bar-row">
+        <div class="bar-label" title="${label}">${label}</div>
+        <div class="bar-track">
+          <div class="bar-fill ${cls}" style="width:${pct}%">
+            <span>${e.colabMaePct.toFixed(2)}%</span>
+          </div>
+        </div>
+      </div>`;
+  }).join('');
+}
+
+/* ---- Scatter ---- */
+function renderScatter(d, tournName) {
+  const section = document.getElementById('scatterSection');
+  section.style.display = '';
+  document.getElementById('scatterTitle').textContent = '— ' + prettyName(tournName);
+
+  const pred = d.predicted, actual = d.actual;
+  const players = Object.keys(pred).filter(p => actual[p] != null);
+  const allVals = players.flatMap(p => [pred[p], actual[p]]);
+  const maxVal = Math.max(...allVals, 5);
+
+  const W = 480, H = 380;
+  const pad = { t: 20, r: 20, b: 50, l: 55 };
+  const chartW = W - pad.l - pad.r;
+  const chartH = H - pad.t - pad.b;
+  const scale = v => v / maxVal;
+  const cx = v => pad.l + scale(v) * chartW;
+  const cy = v => pad.t + (1 - scale(v)) * chartH;
+
+  // Axis ticks
+  const ticks = [0, 5, 10, 15, 20, 25, 30].filter(t => t <= maxVal + 2);
+
+  const xTicks = ticks.map(t => `
+    <line x1="${cx(t)}" y1="${pad.t}" x2="${cx(t)}" y2="${pad.t + chartH}" stroke="#2a3140" stroke-width="1"/>
+    <text x="${cx(t)}" y="${pad.t + chartH + 18}" text-anchor="middle" fill="#8b97a7" font-size="11">${t}%</text>`).join('');
+  const yTicks = ticks.map(t => `
+    <line x1="${pad.l}" y1="${cy(t)}" x2="${pad.l + chartW}" y2="${cy(t)}" stroke="#2a3140" stroke-width="1"/>
+    <text x="${pad.l - 8}" y="${cy(t) + 4}" text-anchor="end" fill="#8b97a7" font-size="11">${t}%</text>`).join('');
+
+  // Diagonal
+  const diag = `<line x1="${cx(0)}" y1="${cy(0)}" x2="${cx(maxVal)}" y2="${cy(maxVal)}" stroke="#3fb950" stroke-width="1.5" stroke-dasharray="5,4" opacity=".7"/>`;
+
+  // Dots with tooltips
+  const dots = players.map(p => {
+    const px = cx(pred[p]), py = cy(actual[p]);
+    const err = (actual[p] - pred[p]).toFixed(1);
+    const sign = err > 0 ? '+' : '';
+    return `<circle cx="${px.toFixed(1)}" cy="${py.toFixed(1)}" r="4.5" fill="#58a6ff" opacity=".75" stroke="#0e1116" stroke-width="1">
+      <title>${p}\nPredicted: ${pred[p].toFixed(1)}%\nActual: ${actual[p].toFixed(1)}%\nError: ${sign}${err}%</title>
+    </circle>`;
+  }).join('');
+
+  // Axis labels
+  const xLabel = `<text x="${pad.l + chartW / 2}" y="${H - 4}" text-anchor="middle" fill="#8b97a7" font-size="12">Predicted Own%</text>`;
+  const yLabel = `<text transform="rotate(-90)" x="${-(pad.t + chartH / 2)}" y="14" text-anchor="middle" fill="#8b97a7" font-size="12">Actual Own%</text>`;
+
+  document.getElementById('scatterSvg').innerHTML = xTicks + yTicks + diag + dots + xLabel + yLabel;
+}
+
+/* ---- Tournament table ---- */
+function renderTable(events) {
+  const tbody = document.getElementById('tournTbody');
+  const sorted = [...events].sort((a, b) => b.date.localeCompare(a.date));
+  tbody.innerHTML = sorted.map(e => {
+    const cls = maeClass(e.colabMaePct);
+    return `<tr>
+      <td style="font-weight:600">${prettyName(e.tournament)}</td>
+      <td style="color:var(--dim)">${e.date ? e.date.slice(0, 10) : '—'}</td>
+      <td class="num"><span class="pill ${cls}">${e.colabMaePct != null ? e.colabMaePct.toFixed(2) + '%' : '—'}</span></td>
+      <td class="num">${e.maePct != null ? e.maePct.toFixed(2) + '%' : '<span style="color:var(--dim)">—</span>'}</td>
+      <td class="num" style="color:var(--dim)">${e.comparedPlayers ?? '—'}</td>
+      <td>${e.hasActual ? '<span style="color:var(--up)">✓ Yes</span>' : '<span style="color:var(--dim)">—</span>'}</td>
+    </tr>`;
+  }).join('');
+}
+</script>
+</body>
+</html>
