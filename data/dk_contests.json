@@ -1,5 +1,5 @@
 {
- "updatedUtc": "2026-07-03T18:09:06Z",
+ "updatedUtc": "2026-07-03T22:00:50Z",
  "tournament": "JOHN_DEERE_2026",
  "event": "John Deere Classic",
  "draftGroupId": "149514",
@@ -475,6 +475,21 @@
    ]
   },
   {
+   "id": "191960352",
+   "name": "Weekend PGA TOUR FREE 15-Player",
+   "fee": 0,
+   "entries": 15,
+   "paidSpots": 1,
+   "prizePool": 0.0,
+   "tiers": [
+    {
+     "min": 1,
+     "max": 1,
+     "value": 0.0
+    }
+   ]
+  },
+  {
    "id": "191946131",
    "name": "Weekend PGA TOUR $1K Long Drive [Single Entry]",
    "fee": 100,
@@ -536,6 +551,26 @@
      "min": 1,
      "max": 1,
      "value": 1350.0
+    }
+   ]
+  },
+  {
+   "id": "191958860",
+   "name": "Weekend PGA TOUR $1 5-Player (Top 2 Win)",
+   "fee": 1,
+   "entries": 5,
+   "paidSpots": 2,
+   "prizePool": 4.5,
+   "tiers": [
+    {
+     "min": 1,
+     "max": 1,
+     "value": 3.15
+    },
+    {
+     "min": 2,
+     "max": 2,
+     "value": 1.35
     }
    ]
   }
