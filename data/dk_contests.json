@@ -1,1401 +1,526 @@
 {
- "updatedUtc": "2026-07-01T22:14:45Z",
+ "updatedUtc": "2026-07-03T15:05:32Z",
  "tournament": "JOHN_DEERE_2026",
  "event": "John Deere Classic",
- "draftGroupId": "149501",
+ "draftGroupId": "149514",
  "contests": [
   {
-   "id": "191483364",
-   "name": "$5K PGA Stars and Stripes Free Contest (PGA TOUR)",
-   "fee": 0,
-   "entries": 999999999,
-   "paidSpots": 1000,
-   "prizePool": 5000.0,
+   "id": "191946132",
+   "name": "Weekend PGA TOUR $500 Short Game",
+   "fee": 1,
+   "entries": 594,
+   "paidSpots": 136,
+   "prizePool": 500.0,
    "tiers": [
     {
      "min": 1,
      "max": 1,
-     "value": 500.0
-    },
-    {
-     "min": 2,
-     "max": 5,
-     "value": 250.0
-    },
-    {
-     "min": 6,
-     "max": 50,
-     "value": 25.0
-    },
-    {
-     "min": 51,
-     "max": 1000,
-     "value": 2.5
-    }
-   ]
-  },
-  {
-   "id": "191703052",
-   "name": "PGA TOUR $250K Drive the Green [$30K to 1st]",
-   "fee": 5,
-   "entries": 59453,
-   "paidSpots": 14525,
-   "prizePool": 250000.0,
-   "tiers": [
-    {
-     "min": 1,
-     "max": 1,
-     "value": 30000.0
+     "value": 50.0
     },
     {
      "min": 2,
      "max": 2,
-     "value": 15000.0
+     "value": 40.0
     },
     {
      "min": 3,
      "max": 3,
-     "value": 10000.0
+     "value": 30.0
     },
     {
      "min": 4,
      "max": 4,
-     "value": 5000.0
+     "value": 22.0
     },
     {
      "min": 5,
      "max": 5,
-     "value": 3000.0
+     "value": 16.0
     },
     {
      "min": 6,
-     "max": 6,
-     "value": 2000.0
+     "max": 7,
+     "value": 12.0
     },
     {
-     "min": 7,
-     "max": 8,
-     "value": 1500.0
-    },
-    {
-     "min": 9,
+     "min": 8,
      "max": 10,
-     "value": 1000.0
+     "value": 9.0
     },
     {
      "min": 11,
      "max": 15,
-     "value": 750.0
+     "value": 6.5
     },
     {
      "min": 16,
-     "max": 20,
-     "value": 600.0
-    },
-    {
-     "min": 21,
      "max": 25,
-     "value": 500.0
+     "value": 4.5
     },
     {
      "min": 26,
-     "max": 35,
-     "value": 300.0
-    },
-    {
-     "min": 36,
      "max": 45,
-     "value": 200.0
+     "value": 3.0
     },
     {
      "min": 46,
-     "max": 60,
-     "value": 150.0
+     "max": 79,
+     "value": 2.0
     },
     {
-     "min": 61,
-     "max": 80,
-     "value": 100.0
-    },
-    {
-     "min": 81,
-     "max": 100,
-     "value": 75.0
-    },
-    {
-     "min": 101,
-     "max": 150,
-     "value": 50.0
-    },
-    {
-     "min": 151,
-     "max": 200,
-     "value": 40.0
-    },
-    {
-     "min": 201,
-     "max": 300,
-     "value": 35.0
-    },
-    {
-     "min": 301,
-     "max": 450,
-     "value": 30.0
-    },
-    {
-     "min": 451,
-     "max": 700,
-     "value": 25.0
-    },
-    {
-     "min": 701,
-     "max": 1300,
-     "value": 20.0
-    },
-    {
-     "min": 1301,
-     "max": 2500,
-     "value": 15.0
-    },
-    {
-     "min": 2501,
-     "max": 4500,
-     "value": 12.0
-    },
-    {
-     "min": 4501,
-     "max": 8025,
-     "value": 10.0
-    },
-    {
-     "min": 8026,
-     "max": 14525,
-     "value": 8.0
+     "min": 80,
+     "max": 136,
+     "value": 1.5
     }
    ]
   },
   {
-   "id": "191818140",
-   "name": "PGA TOUR $25K mini-MAX [150 Entry Max]",
-   "fee": 0.5,
-   "entries": 59453,
-   "paidSpots": 12467,
-   "prizePool": 25000.0,
+   "id": "191946136",
+   "name": "Weekend PGA TOUR $125 Quarter Jukebox [Just $0.25!]",
+   "fee": 0.25,
+   "entries": 594,
+   "paidSpots": 137,
+   "prizePool": 125.0,
    "tiers": [
     {
      "min": 1,
      "max": 1,
-     "value": 2500.0
+     "value": 12.5
     },
     {
      "min": 2,
      "max": 2,
-     "value": 1000.0
+     "value": 7.5
     },
     {
      "min": 3,
      "max": 3,
-     "value": 600.0
+     "value": 5.0
     },
     {
      "min": 4,
      "max": 4,
-     "value": 400.0
+     "value": 4.0
+    },
+    {
+     "min": 5,
+     "max": 6,
+     "value": 3.0
+    },
+    {
+     "min": 7,
+     "max": 9,
+     "value": 2.0
+    },
+    {
+     "min": 10,
+     "max": 14,
+     "value": 1.5
+    },
+    {
+     "min": 15,
+     "max": 29,
+     "value": 1.0
+    },
+    {
+     "min": 30,
+     "max": 59,
+     "value": 0.75
+    },
+    {
+     "min": 60,
+     "max": 137,
+     "value": 0.5
+    }
+   ]
+  },
+  {
+   "id": "191946140",
+   "name": "Weekend PGA TOUR $1.5K Drive the Green",
+   "fee": 5,
+   "entries": 356,
+   "paidSpots": 82,
+   "prizePool": 1500.0,
+   "tiers": [
+    {
+     "min": 1,
+     "max": 1,
+     "value": 200.0
+    },
+    {
+     "min": 2,
+     "max": 2,
+     "value": 150.0
+    },
+    {
+     "min": 3,
+     "max": 3,
+     "value": 106.0
+    },
+    {
+     "min": 4,
+     "max": 4,
+     "value": 80.0
     },
     {
      "min": 5,
      "max": 5,
-     "value": 250.0
+     "value": 60.0
     },
     {
      "min": 6,
      "max": 6,
-     "value": 200.0
+     "value": 50.0
     },
     {
      "min": 7,
+     "max": 7,
+     "value": 40.0
+    },
+    {
+     "min": 8,
      "max": 8,
-     "value": 150.0
+     "value": 30.0
     },
     {
      "min": 9,
      "max": 10,
-     "value": 100.0
+     "value": 25.0
     },
     {
      "min": 11,
      "max": 14,
-     "value": 75.0
+     "value": 20.0
     },
     {
      "min": 15,
-     "max": 19,
-     "value": 60.0
-    },
-    {
-     "min": 20,
-     "max": 25,
-     "value": 50.0
-    },
-    {
-     "min": 26,
-     "max": 35,
-     "value": 40.0
-    },
-    {
-     "min": 36,
-     "max": 45,
-     "value": 30.0
-    },
-    {
-     "min": 46,
-     "max": 55,
-     "value": 25.0
-    },
-    {
-     "min": 56,
-     "max": 70,
-     "value": 20.0
-    },
-    {
-     "min": 71,
-     "max": 90,
+     "max": 24,
      "value": 15.0
     },
     {
-     "min": 91,
-     "max": 120,
+     "min": 25,
+     "max": 44,
      "value": 10.0
     },
     {
-     "min": 121,
-     "max": 160,
+     "min": 45,
+     "max": 82,
      "value": 8.0
-    },
-    {
-     "min": 161,
-     "max": 210,
-     "value": 6.0
-    },
-    {
-     "min": 211,
-     "max": 290,
-     "value": 5.0
-    },
-    {
-     "min": 291,
-     "max": 460,
-     "value": 4.0
-    },
-    {
-     "min": 461,
-     "max": 880,
-     "value": 3.0
-    },
-    {
-     "min": 881,
-     "max": 1990,
-     "value": 2.0
-    },
-    {
-     "min": 1991,
-     "max": 4276,
-     "value": 1.5
-    },
-    {
-     "min": 4277,
-     "max": 12467,
-     "value": 1.0
     }
    ]
   },
   {
-   "id": "191703053",
-   "name": "PGA TOUR $600K Sand Trap [$200K to 1st]",
-   "fee": 25,
-   "entries": 28235,
-   "paidSpots": 5660,
-   "prizePool": 600000.0,
-   "tiers": [
-    {
-     "min": 1,
-     "max": 1,
-     "value": 200000.0
-    },
-    {
-     "min": 2,
-     "max": 2,
-     "value": 70000.0
-    },
-    {
-     "min": 3,
-     "max": 3,
-     "value": 30000.0
-    },
-    {
-     "min": 4,
-     "max": 4,
-     "value": 15000.0
-    },
-    {
-     "min": 5,
-     "max": 5,
-     "value": 10000.0
-    },
-    {
-     "min": 6,
-     "max": 6,
-     "value": 5000.0
-    },
-    {
-     "min": 7,
-     "max": 8,
-     "value": 3000.0
-    },
-    {
-     "min": 9,
-     "max": 10,
-     "value": 2000.0
-    },
-    {
-     "min": 11,
-     "max": 12,
-     "value": 1500.0
-    },
-    {
-     "min": 13,
-     "max": 15,
-     "value": 1000.0
-    },
-    {
-     "min": 16,
-     "max": 20,
-     "value": 750.0
-    },
-    {
-     "min": 21,
-     "max": 25,
-     "value": 500.0
-    },
-    {
-     "min": 26,
-     "max": 35,
-     "value": 300.0
-    },
-    {
-     "min": 36,
-     "max": 50,
-     "value": 200.0
-    },
-    {
-     "min": 51,
-     "max": 80,
-     "value": 150.0
-    },
-    {
-     "min": 81,
-     "max": 150,
-     "value": 100.0
-    },
-    {
-     "min": 151,
-     "max": 300,
-     "value": 75.0
-    },
-    {
-     "min": 301,
-     "max": 760,
-     "value": 50.0
-    },
-    {
-     "min": 761,
-     "max": 5660,
-     "value": 40.0
-    }
-   ]
-  },
-  {
-   "id": "191818137",
-   "name": "PGA TOUR $50K Birdie [20 Entry Max]",
-   "fee": 3,
-   "entries": 19817,
-   "paidSpots": 5028,
-   "prizePool": 50000.0,
-   "tiers": [
-    {
-     "min": 1,
-     "max": 1,
-     "value": 5000.0
-    },
-    {
-     "min": 2,
-     "max": 2,
-     "value": 2500.0
-    },
-    {
-     "min": 3,
-     "max": 3,
-     "value": 1500.0
-    },
-    {
-     "min": 4,
-     "max": 4,
-     "value": 1000.0
-    },
-    {
-     "min": 5,
-     "max": 5,
-     "value": 750.0
-    },
-    {
-     "min": 6,
-     "max": 7,
-     "value": 600.0
-    },
-    {
-     "min": 8,
-     "max": 10,
-     "value": 500.0
-    },
-    {
-     "min": 11,
-     "max": 13,
-     "value": 400.0
-    },
-    {
-     "min": 14,
-     "max": 16,
-     "value": 300.0
-    },
-    {
-     "min": 17,
-     "max": 19,
-     "value": 250.0
-    },
-    {
-     "min": 20,
-     "max": 22,
-     "value": 200.0
-    },
-    {
-     "min": 23,
-     "max": 25,
-     "value": 150.0
-    },
-    {
-     "min": 26,
-     "max": 30,
-     "value": 100.0
-    },
-    {
-     "min": 31,
-     "max": 35,
-     "value": 75.0
-    },
-    {
-     "min": 36,
-     "max": 45,
-     "value": 60.0
-    },
-    {
-     "min": 46,
-     "max": 55,
-     "value": 50.0
-    },
-    {
-     "min": 56,
-     "max": 70,
-     "value": 40.0
-    },
-    {
-     "min": 71,
-     "max": 85,
-     "value": 30.0
-    },
-    {
-     "min": 86,
-     "max": 105,
-     "value": 25.0
-    },
-    {
-     "min": 106,
-     "max": 135,
-     "value": 20.0
-    },
-    {
-     "min": 136,
-     "max": 200,
-     "value": 15.0
-    },
-    {
-     "min": 201,
-     "max": 400,
-     "value": 10.0
-    },
-    {
-     "min": 401,
-     "max": 870,
-     "value": 8.0
-    },
-    {
-     "min": 871,
-     "max": 1870,
-     "value": 6.0
-    },
-    {
-     "min": 1871,
-     "max": 5028,
-     "value": 5.0
-    }
-   ]
-  },
-  {
-   "id": "191818125",
-   "name": "PGA TOUR $15K Short Game [20 Entry Max]",
-   "fee": 1,
-   "entries": 17835,
-   "paidSpots": 4636,
-   "prizePool": 15000.0,
-   "tiers": [
-    {
-     "min": 1,
-     "max": 1,
-     "value": 1000.0
-    },
-    {
-     "min": 2,
-     "max": 2,
-     "value": 600.0
-    },
-    {
-     "min": 3,
-     "max": 3,
-     "value": 400.0
-    },
-    {
-     "min": 4,
-     "max": 4,
-     "value": 300.0
-    },
-    {
-     "min": 5,
-     "max": 5,
-     "value": 250.0
-    },
-    {
-     "min": 6,
-     "max": 6,
-     "value": 200.0
-    },
-    {
-     "min": 7,
-     "max": 8,
-     "value": 150.0
-    },
-    {
-     "min": 9,
-     "max": 10,
-     "value": 100.0
-    },
-    {
-     "min": 11,
-     "max": 13,
-     "value": 75.0
-    },
-    {
-     "min": 14,
-     "max": 16,
-     "value": 60.0
-    },
-    {
-     "min": 17,
-     "max": 20,
-     "value": 50.0
-    },
-    {
-     "min": 21,
-     "max": 25,
-     "value": 40.0
-    },
-    {
-     "min": 26,
-     "max": 30,
-     "value": 30.0
-    },
-    {
-     "min": 31,
-     "max": 40,
-     "value": 25.0
-    },
-    {
-     "min": 41,
-     "max": 50,
-     "value": 20.0
-    },
-    {
-     "min": 51,
-     "max": 65,
-     "value": 15.0
-    },
-    {
-     "min": 66,
-     "max": 85,
-     "value": 10.0
-    },
-    {
-     "min": 86,
-     "max": 110,
-     "value": 8.0
-    },
-    {
-     "min": 111,
-     "max": 180,
-     "value": 6.0
-    },
-    {
-     "min": 181,
-     "max": 320,
-     "value": 5.0
-    },
-    {
-     "min": 321,
-     "max": 590,
-     "value": 4.0
-    },
-    {
-     "min": 591,
-     "max": 1155,
-     "value": 3.0
-    },
-    {
-     "min": 1156,
-     "max": 2362,
-     "value": 2.0
-    },
-    {
-     "min": 2363,
-     "max": 4636,
-     "value": 1.5
-    }
-   ]
-  },
-  {
-   "id": "191818175",
-   "name": "PGA TOUR 2026 $200K Golf Pocket Cup mini-MAX Qualifier #119 [150 Entry Max]",
+   "id": "191946139",
+   "name": "Weekend PGA TOUR $20 Dime Time [Just $0.10!]",
    "fee": 0.1,
-   "entries": 14268,
-   "paidSpots": 162,
-   "prizePool": 1200.0,
+   "entries": 237,
+   "paidSpots": 55,
+   "prizePool": 20.0,
    "tiers": [
     {
      "min": 1,
      "max": 1,
-     "value": 1000.0
+     "value": 2.0
     },
     {
      "min": 2,
      "max": 2,
-     "value": 15.0
-    },
-    {
-     "min": 3,
-     "max": 3,
-     "value": 10.0
-    },
-    {
-     "min": 4,
-     "max": 4,
-     "value": 5.0
-    },
-    {
-     "min": 5,
-     "max": 10,
-     "value": 4.0
-    },
-    {
-     "min": 11,
-     "max": 20,
-     "value": 3.0
-    },
-    {
-     "min": 21,
-     "max": 40,
-     "value": 2.0
-    },
-    {
-     "min": 41,
-     "max": 70,
-     "value": 1.0
-    },
-    {
-     "min": 71,
-     "max": 162,
-     "value": 0.5
-    }
-   ]
-  },
-  {
-   "id": "191818136",
-   "name": "PGA TOUR $2.5K Quarter Jukebox [Just $0.25!]",
-   "fee": 0.25,
-   "entries": 11890,
-   "paidSpots": 2846,
-   "prizePool": 2500.0,
-   "tiers": [
-    {
-     "min": 1,
-     "max": 1,
-     "value": 125.0
-    },
-    {
-     "min": 2,
-     "max": 2,
-     "value": 80.0
-    },
-    {
-     "min": 3,
-     "max": 3,
-     "value": 50.0
-    },
-    {
-     "min": 4,
-     "max": 4,
-     "value": 35.0
-    },
-    {
-     "min": 5,
-     "max": 5,
-     "value": 25.0
-    },
-    {
-     "min": 6,
-     "max": 6,
-     "value": 20.0
-    },
-    {
-     "min": 7,
-     "max": 8,
-     "value": 15.0
-    },
-    {
-     "min": 9,
-     "max": 10,
-     "value": 10.0
-    },
-    {
-     "min": 11,
-     "max": 13,
-     "value": 8.0
-    },
-    {
-     "min": 14,
-     "max": 16,
-     "value": 6.0
-    },
-    {
-     "min": 17,
-     "max": 20,
-     "value": 5.0
-    },
-    {
-     "min": 21,
-     "max": 25,
-     "value": 4.0
-    },
-    {
-     "min": 26,
-     "max": 45,
-     "value": 3.0
-    },
-    {
-     "min": 46,
-     "max": 105,
-     "value": 2.0
-    },
-    {
-     "min": 106,
-     "max": 230,
      "value": 1.5
     },
     {
-     "min": 231,
-     "max": 555,
+     "min": 3,
+     "max": 3,
+     "value": 1.25
+    },
+    {
+     "min": 4,
+     "max": 4,
      "value": 1.0
     },
     {
-     "min": 556,
-     "max": 1335,
+     "min": 5,
+     "max": 6,
      "value": 0.75
     },
     {
-     "min": 1336,
-     "max": 2846,
+     "min": 7,
+     "max": 9,
      "value": 0.5
-    }
-   ]
-  },
-  {
-   "id": "191818133",
-   "name": "PGA TOUR $1K Dime Time [Just $0.10!]",
-   "fee": 0.1,
-   "entries": 11890,
-   "paidSpots": 2560,
-   "prizePool": 1000.0,
-   "tiers": [
-    {
-     "min": 1,
-     "max": 1,
-     "value": 100.0
     },
     {
-     "min": 2,
-     "max": 2,
-     "value": 50.0
-    },
-    {
-     "min": 3,
-     "max": 3,
-     "value": 30.0
-    },
-    {
-     "min": 4,
-     "max": 4,
-     "value": 20.0
-    },
-    {
-     "min": 5,
-     "max": 5,
-     "value": 15.0
-    },
-    {
-     "min": 6,
-     "max": 7,
-     "value": 10.0
-    },
-    {
-     "min": 8,
-     "max": 10,
-     "value": 8.0
-    },
-    {
-     "min": 11,
+     "min": 10,
      "max": 13,
-     "value": 6.0
-    },
-    {
-     "min": 14,
-     "max": 16,
-     "value": 5.0
-    },
-    {
-     "min": 17,
-     "max": 20,
-     "value": 4.0
-    },
-    {
-     "min": 21,
-     "max": 25,
-     "value": 3.0
-    },
-    {
-     "min": 26,
-     "max": 35,
-     "value": 2.0
-    },
-    {
-     "min": 36,
-     "max": 45,
-     "value": 1.5
-    },
-    {
-     "min": 46,
-     "max": 55,
-     "value": 1.0
-    },
-    {
-     "min": 56,
-     "max": 85,
-     "value": 0.75
-    },
-    {
-     "min": 86,
-     "max": 155,
-     "value": 0.5
-    },
-    {
-     "min": 156,
-     "max": 345,
      "value": 0.4
     },
     {
-     "min": 346,
-     "max": 900,
+     "min": 14,
+     "max": 20,
      "value": 0.3
     },
     {
-     "min": 901,
-     "max": 2560,
+     "min": 21,
+     "max": 31,
+     "value": 0.25
+    },
+    {
+     "min": 32,
+     "max": 55,
      "value": 0.2
     }
    ]
   },
   {
-   "id": "191818144",
-   "name": "PGA TOUR $50K Full Round Special [18 Entry Max]",
-   "fee": 10,
-   "entries": 5882,
-   "paidSpots": 1351,
-   "prizePool": 50000.0,
+   "id": "191946137",
+   "name": "Weekend PGA TOUR $1.5K Flop Shot",
+   "fee": 15,
+   "entries": 117,
+   "paidSpots": 27,
+   "prizePool": 1500.0,
    "tiers": [
     {
      "min": 1,
      "max": 1,
-     "value": 5000.0
+     "value": 300.0
     },
     {
      "min": 2,
      "max": 2,
-     "value": 2500.0
+     "value": 160.0
     },
     {
      "min": 3,
      "max": 3,
-     "value": 1500.0
+     "value": 100.0
     },
     {
      "min": 4,
      "max": 4,
-     "value": 1000.0
+     "value": 80.0
     },
     {
      "min": 5,
      "max": 5,
-     "value": 750.0
+     "value": 70.0
     },
     {
      "min": 6,
      "max": 7,
-     "value": 600.0
+     "value": 60.0
     },
     {
      "min": 8,
      "max": 10,
-     "value": 500.0
+     "value": 50.0
     },
     {
      "min": 11,
      "max": 13,
-     "value": 400.0
+     "value": 40.0
     },
     {
      "min": 14,
      "max": 16,
-     "value": 300.0
+     "value": 35.0
     },
     {
      "min": 17,
      "max": 20,
-     "value": 250.0
-    },
-    {
-     "min": 21,
-     "max": 25,
-     "value": 200.0
-    },
-    {
-     "min": 26,
-     "max": 30,
-     "value": 150.0
-    },
-    {
-     "min": 31,
-     "max": 40,
-     "value": 100.0
-    },
-    {
-     "min": 41,
-     "max": 50,
-     "value": 75.0
-    },
-    {
-     "min": 51,
-     "max": 60,
-     "value": 60.0
-    },
-    {
-     "min": 61,
-     "max": 80,
-     "value": 50.0
-    },
-    {
-     "min": 81,
-     "max": 120,
-     "value": 40.0
-    },
-    {
-     "min": 121,
-     "max": 220,
      "value": 30.0
     },
     {
-     "min": 221,
-     "max": 446,
+     "min": 21,
+     "max": 27,
      "value": 25.0
-    },
-    {
-     "min": 447,
-     "max": 1351,
-     "value": 20.0
     }
    ]
   },
   {
-   "id": "191818176",
-   "name": "PGA TOUR 2026 $200K Golf Pocket Cup mini-MAX Qualifier #118 [150 Entry Max]",
-   "fee": 0.25,
-   "entries": 5707,
-   "paidSpots": 170,
-   "prizePool": 1200.0,
-   "tiers": [
-    {
-     "min": 1,
-     "max": 1,
-     "value": 1000.0
-    },
-    {
-     "min": 2,
-     "max": 2,
-     "value": 25.0
-    },
-    {
-     "min": 3,
-     "max": 3,
-     "value": 20.0
-    },
-    {
-     "min": 4,
-     "max": 4,
-     "value": 15.0
-    },
-    {
-     "min": 5,
-     "max": 5,
-     "value": 10.0
-    },
-    {
-     "min": 6,
-     "max": 10,
-     "value": 5.0
-    },
-    {
-     "min": 11,
-     "max": 60,
-     "value": 1.0
-    },
-    {
-     "min": 61,
-     "max": 170,
-     "value": 0.5
-    }
-   ]
-  },
-  {
-   "id": "191818141",
-   "name": "PGA TOUR $20K Caddie [Single Entry]",
+   "id": "191946130",
+   "name": "Weekend PGA TOUR $400 Caddie [Single Entry]",
    "fee": 5,
-   "entries": 4756,
-   "paidSpots": 997,
-   "prizePool": 20000.0,
+   "entries": 95,
+   "paidSpots": 20,
+   "prizePool": 400.0,
    "tiers": [
     {
      "min": 1,
      "max": 1,
-     "value": 2000.0
+     "value": 88.0
     },
     {
      "min": 2,
      "max": 2,
-     "value": 1000.0
+     "value": 60.0
     },
     {
      "min": 3,
      "max": 3,
-     "value": 500.0
+     "value": 40.0
     },
     {
      "min": 4,
      "max": 4,
-     "value": 400.0
+     "value": 30.0
     },
     {
      "min": 5,
      "max": 5,
-     "value": 300.0
+     "value": 22.0
     },
     {
      "min": 6,
-     "max": 7,
-     "value": 250.0
-    },
-    {
-     "min": 8,
      "max": 10,
-     "value": 200.0
+     "value": 16.0
     },
     {
      "min": 11,
-     "max": 13,
-     "value": 150.0
-    },
-    {
-     "min": 14,
-     "max": 16,
-     "value": 100.0
-    },
-    {
-     "min": 17,
      "max": 20,
-     "value": 75.0
-    },
-    {
-     "min": 21,
-     "max": 25,
-     "value": 60.0
-    },
-    {
-     "min": 26,
-     "max": 30,
-     "value": 50.0
-    },
-    {
-     "min": 31,
-     "max": 40,
-     "value": 40.0
-    },
-    {
-     "min": 41,
-     "max": 65,
-     "value": 30.0
-    },
-    {
-     "min": 66,
-     "max": 110,
-     "value": 25.0
-    },
-    {
-     "min": 111,
-     "max": 205,
-     "value": 20.0
-    },
-    {
-     "min": 206,
-     "max": 406,
-     "value": 15.0
-    },
-    {
-     "min": 407,
-     "max": 997,
-     "value": 10.0
-    }
-   ]
-  },
-  {
-   "id": "191818120",
-   "name": "PGA TOUR $30K Albatross [Single Entry]",
-   "fee": 12,
-   "entries": 2941,
-   "paidSpots": 676,
-   "prizePool": 30000.0,
-   "tiers": [
-    {
-     "min": 1,
-     "max": 1,
-     "value": 3000.0
-    },
-    {
-     "min": 2,
-     "max": 2,
-     "value": 1500.0
-    },
-    {
-     "min": 3,
-     "max": 3,
-     "value": 750.0
-    },
-    {
-     "min": 4,
-     "max": 4,
-     "value": 500.0
-    },
-    {
-     "min": 5,
-     "max": 5,
-     "value": 400.0
-    },
-    {
-     "min": 6,
-     "max": 7,
-     "value": 350.0
-    },
-    {
-     "min": 8,
-     "max": 10,
-     "value": 300.0
-    },
-    {
-     "min": 11,
-     "max": 13,
-     "value": 250.0
-    },
-    {
-     "min": 14,
-     "max": 16,
-     "value": 200.0
-    },
-    {
-     "min": 17,
-     "max": 19,
-     "value": 150.0
-    },
-    {
-     "min": 20,
-     "max": 24,
-     "value": 100.0
-    },
-    {
-     "min": 25,
-     "max": 30,
-     "value": 75.0
-    },
-    {
-     "min": 31,
-     "max": 40,
-     "value": 60.0
-    },
-    {
-     "min": 41,
-     "max": 65,
-     "value": 50.0
-    },
-    {
-     "min": 66,
-     "max": 115,
-     "value": 40.0
-    },
-    {
-     "min": 116,
-     "max": 200,
-     "value": 35.0
-    },
-    {
-     "min": 201,
-     "max": 355,
-     "value": 30.0
-    },
-    {
-     "min": 356,
-     "max": 676,
-     "value": 25.0
-    }
-   ]
-  },
-  {
-   "id": "191818150",
-   "name": "PGA TOUR $6K Hybrid [5 Entry Max]",
-   "fee": 3,
-   "entries": 2378,
-   "paidSpots": 618,
-   "prizePool": 6000.0,
-   "tiers": [
-    {
-     "min": 1,
-     "max": 1,
-     "value": 600.0
-    },
-    {
-     "min": 2,
-     "max": 2,
-     "value": 300.0
-    },
-    {
-     "min": 3,
-     "max": 3,
-     "value": 200.0
-    },
-    {
-     "min": 4,
-     "max": 4,
-     "value": 150.0
-    },
-    {
-     "min": 5,
-     "max": 5,
-     "value": 100.0
-    },
-    {
-     "min": 6,
-     "max": 7,
-     "value": 75.0
-    },
-    {
-     "min": 8,
-     "max": 10,
-     "value": 60.0
-    },
-    {
-     "min": 11,
-     "max": 13,
-     "value": 50.0
-    },
-    {
-     "min": 14,
-     "max": 16,
-     "value": 40.0
-    },
-    {
-     "min": 17,
-     "max": 20,
-     "value": 35.0
-    },
-    {
-     "min": 21,
-     "max": 25,
-     "value": 30.0
-    },
-    {
-     "min": 26,
-     "max": 30,
-     "value": 25.0
-    },
-    {
-     "min": 31,
-     "max": 35,
-     "value": 20.0
-    },
-    {
-     "min": 36,
-     "max": 45,
-     "value": 15.0
-    },
-    {
-     "min": 46,
-     "max": 75,
-     "value": 10.0
-    },
-    {
-     "min": 76,
-     "max": 145,
      "value": 8.0
+    }
+   ]
+  },
+  {
+   "id": "191946138",
+   "name": "Weekend PGA TOUR $75 Divot [Single Entry]",
+   "fee": 1,
+   "entries": 89,
+   "paidSpots": 15,
+   "prizePool": 75.0,
+   "tiers": [
+    {
+     "min": 1,
+     "max": 1,
+     "value": 15.0
     },
     {
-     "min": 146,
-     "max": 305,
-     "value": 6.0
+     "min": 2,
+     "max": 2,
+     "value": 9.75
     },
     {
-     "min": 306,
-     "max": 618,
-     "value": 5.0
+     "min": 3,
+     "max": 3,
+     "value": 6.75
+    },
+    {
+     "min": 4,
+     "max": 4,
+     "value": 5.25
+    },
+    {
+     "min": 5,
+     "max": 5,
+     "value": 4.5
+    },
+    {
+     "min": 6,
+     "max": 10,
+     "value": 3.75
+    },
+    {
+     "min": 11,
+     "max": 15,
+     "value": 3.0
+    }
+   ]
+  },
+  {
+   "id": "191946133",
+   "name": "Weekend PGA TOUR $300 Albatross [Single Entry]",
+   "fee": 12,
+   "entries": 29,
+   "paidSpots": 7,
+   "prizePool": 300.0,
+   "tiers": [
+    {
+     "min": 1,
+     "max": 1,
+     "value": 100.0
+    },
+    {
+     "min": 2,
+     "max": 2,
+     "value": 60.0
+    },
+    {
+     "min": 3,
+     "max": 3,
+     "value": 40.0
+    },
+    {
+     "min": 4,
+     "max": 5,
+     "value": 30.0
+    },
+    {
+     "min": 6,
+     "max": 7,
+     "value": 20.0
+    }
+   ]
+  },
+  {
+   "id": "191946131",
+   "name": "Weekend PGA TOUR $1K Long Drive [Single Entry]",
+   "fee": 100,
+   "entries": 11,
+   "paidSpots": 3,
+   "prizePool": 1000.0,
+   "tiers": [
+    {
+     "min": 1,
+     "max": 1,
+     "value": 500.0
+    },
+    {
+     "min": 2,
+     "max": 2,
+     "value": 300.0
+    },
+    {
+     "min": 3,
+     "max": 3,
+     "value": 200.0
+    }
+   ]
+  },
+  {
+   "id": "191946134",
+   "name": "Weekend PGA TOUR $285 Dogleg",
+   "fee": 33,
+   "entries": 10,
+   "paidSpots": 3,
+   "prizePool": 285.0,
+   "tiers": [
+    {
+     "min": 1,
+     "max": 1,
+     "value": 135.0
+    },
+    {
+     "min": 2,
+     "max": 2,
+     "value": 90.0
+    },
+    {
+     "min": 3,
+     "max": 3,
+     "value": 60.0
+    }
+   ]
+  },
+  {
+   "id": "191946135",
+   "name": "Weekend PGA TOUR $1.35K 3-Wood [Single Entry]",
+   "fee": 300,
+   "entries": 5,
+   "paidSpots": 1,
+   "prizePool": 1350.0,
+   "tiers": [
+    {
+     "min": 1,
+     "max": 1,
+     "value": 1350.0
     }
    ]
   }
