@@ -1,5 +1,5 @@
 {
- "updatedUtc": "2026-07-03T15:05:32Z",
+ "updatedUtc": "2026-07-03T18:09:06Z",
  "tournament": "JOHN_DEERE_2026",
  "event": "John Deere Classic",
  "draftGroupId": "149514",
@@ -456,6 +456,21 @@
      "min": 6,
      "max": 7,
      "value": 20.0
+    }
+   ]
+  },
+  {
+   "id": "191953769",
+   "name": "Weekend PGA TOUR $5 50-50 ",
+   "fee": 5,
+   "entries": 20,
+   "paidSpots": 10,
+   "prizePool": 90.0,
+   "tiers": [
+    {
+     "min": 1,
+     "max": 10,
+     "value": 9.0
     }
    ]
   },
