@@ -12,6 +12,8 @@ const State = {
   hasRealOwnership: false, // true when ownership came from the master file
   dk: null,                // DraftKings overlay metadata (see overlayDk)
   dkPlayers: null,         // Map<normName, {name, dkId, ...}> from dk.json
+  dkShowdownRaw: null,     // raw dk_showdown.json data when available
+  slateType: 'classic',    // 'classic' | 'showdown'
   contest: null,           // last contest-sim result
   dkContests: null,        // real DK contests + payout tiers (dk_contests.json)
   hand: { ids: [] },       // hand-build lineup in progress (golfer ids)
@@ -86,9 +88,12 @@ function normName(s) {
  */
 async function overlayDk() {
   State.dk = null;
+  State.dkShowdownRaw = null;
+  // Always load the classic slate first.
+  const dkFile = 'data/dk.json?t=' + Date.now();
   try {
-    const res = await fetch('data/dk.json?t=' + Date.now(), { cache: 'no-store' });
-    if (!res.ok) return;
+    const res = await fetch(dkFile, { cache: 'no-store' });
+    if (!res.ok) { await _tryLoadShowdown(); renderSlateToggle(); return; }
     const dk = await res.json();
     const players = dk.players || [];
     if (!players.length) return;
@@ -151,6 +156,65 @@ async function overlayDk() {
     State.dk = { event: dk.event, updatedUtc: dk.updatedUtc, matched, total: players.length, applied, dropped, added };
   } catch (e) {
     /* no DK file yet — leave the slate as-is */
+  }
+  await _tryLoadShowdown();
+  renderSlateToggle();
+}
+
+/** Fetch dk_showdown.json and stash it in State.dkShowdownRaw (no-op on 404). */
+async function _tryLoadShowdown() {
+  try {
+    const res = await fetch('data/dk_showdown.json?t=' + Date.now(), { cache: 'no-store' });
+    if (!res.ok) return;
+    const sd = await res.json();
+    if ((sd.players || []).length > 0) State.dkShowdownRaw = sd;
+  } catch (e) { /* no showdown file */ }
+}
+
+/** Apply a showdown DK overlay (salary view only — optimizer stays in classic mode). */
+function _applyShowdownOverlay() {
+  const sd = State.dkShowdownRaw;
+  if (!sd) return;
+  const byName = new Map((sd.players || []).map((p) => [normName(p.name), p]));
+  State.dkPlayers = byName;
+  for (const g of State.golfers) {
+    const p = byName.get(normName(g.name));
+    if (!p) continue;
+    g.salary = p.salary;
+    g.dkSalary = p.salary;
+    g.status = p.status || '';
+    g.out = !!p.out;
+    g.dkId = p.dkId;
+  }
+}
+
+/** Restore classic DK salaries from State.dk overlay. */
+function _applyClassicOverlay() {
+  if (!State.dk || !State.dk.applied) return;
+  // Re-run full overlayDk to restore clean state.
+  // We reload the page state rather than re-fetching — apply from dkPlayers cache.
+  for (const g of State.golfers) {
+    const p = State.dkPlayers && State.dkPlayers.get(normName(g.name));
+    if (p) {
+      g.salary = p.salary;
+      g.dkSalary = p.salary;
+      g.status = p.status || '';
+      g.out = !!p.out;
+      g.dkId = p.dkId;
+    }
+  }
+}
+
+/** Show/hide the slate toggle and wire its state. */
+function renderSlateToggle() {
+  const wrap = $('#slateToggle');
+  if (!wrap) return;
+  const hasShowdown = !!State.dkShowdownRaw;
+  if (!hasShowdown) { wrap.classList.add('hidden'); return; }
+  wrap.classList.remove('hidden');
+  const note = $('#slateToggleNote');
+  if (note && State.dkShowdownRaw) {
+    note.textContent = `Showdown: ${State.dkShowdownRaw.event || ''} (${State.dkShowdownRaw.count || ''} players, single-round scoring)`;
   }
 }
 
@@ -1267,6 +1331,31 @@ function init() {
   loadAutoSlate();
   $('#runSim').addEventListener('click', () => { track('run_simulation', { n_sims: $('#nSims').value }); runSim(); });
   $('#buildBtn').addEventListener('click', () => { track('build_lineups', { n_lineups: $('#nLineups').value }); buildPool(); });
+
+  // Slate toggle: Classic vs Showdown
+  document.querySelectorAll('.slate-btn').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const type = btn.dataset.slate;
+      if (type === State.slateType) return;
+      State.slateType = type;
+      document.querySelectorAll('.slate-btn').forEach((b) => b.classList.remove('active'));
+      btn.classList.add('active');
+      if (type === 'showdown') {
+        _applyShowdownOverlay();
+      } else {
+        _applyClassicOverlay();
+      }
+      renderPlayers();
+      renderDkBanner();
+      const note = $('#slateToggleNote');
+      if (note && type === 'showdown' && State.dkShowdownRaw) {
+        note.textContent = `${State.dkShowdownRaw.event || ''} · ${State.dkShowdownRaw.count || ''} players · single-round scoring · optimizer uses Classic rules`;
+      } else if (note) {
+        note.textContent = State.dkShowdownRaw
+          ? `Showdown also available: ${State.dkShowdownRaw.event || ''}` : '';
+      }
+    });
+  });
 
   // Advanced settings: variety buttons toggle
   document.querySelectorAll('.variety-btn').forEach((btn) => {

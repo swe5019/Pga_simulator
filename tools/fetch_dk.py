@@ -266,30 +266,36 @@ def auto_discover():
     """
     lobby = get_json("https://www.draftkings.com/lobby/getcontests?sport=GOLF",
                      optional=True) or {}
-    groups = {}
+    classic_groups = {}
+    showdown_groups = {}
     for c in lobby.get("Contests", []):
-        if "showdown" in (c.get("n") or "").lower():
-            continue
+        name_lower = (c.get("n") or "").lower()
         dg = c.get("dg") or c.get("draftGroupId")
         if not dg:
             continue
-        g = groups.setdefault(dg, {"count": 0, "entries": 0})
+        # Identify showdown/captain's-mode contests by common DK naming patterns.
+        is_sd = any(kw in name_lower for kw in ("showdown", "captain", "single game", "sgp"))
+        if is_sd:
+            g = showdown_groups.setdefault(dg, {"count": 0, "entries": 0, "example": c.get("n", "")})
+        else:
+            g = classic_groups.setdefault(dg, {"count": 0, "entries": 0})
         g["count"] += 1
         g["entries"] += (c.get("m") or 0)
-    if not groups:
+
+    if not classic_groups:
         print("auto-discover: no open non-Showdown GOLF contests (DK hasn't posted "
               "the Classic slate yet, or only Showdown contests are open this week)")
-        return None
+        return None, _pick_showdown_dg(showdown_groups, lobby)
 
     dg_meta = {d.get("DraftGroupId"): d for d in lobby.get("DraftGroups", [])}
     print("Open GOLF draft groups by contest volume:")
-    for dg, g in sorted(groups.items(), key=lambda kv: -kv[1]["count"])[:6]:
+    for dg, g in sorted(classic_groups.items(), key=lambda kv: -kv[1]["count"])[:6]:
         m = dg_meta.get(dg, {})
         print(f"  dg={dg} contests={g['count']} entries={g['entries']} "
               f"start={m.get('StartDate') or m.get('StartDateEst')}")
 
     # Main slate = most contests, tie-break on total entries.
-    best = max(groups.items(), key=lambda kv: (kv[1]["count"], kv[1]["entries"]))[0]
+    best = max(classic_groups.items(), key=lambda kv: (kv[1]["count"], kv[1]["entries"]))[0]
     meta = dg_meta.get(best, {})
     start = meta.get("StartDate") or meta.get("StartDateEst")
 
@@ -305,7 +311,30 @@ def auto_discover():
     date_str = _fmt_date(start)
     tourney = _derive_tourney(event, date_str)
     print(f"auto-discover picked dg={best} event={event!r} -> {tourney} {date_str}")
-    return str(best), event, tourney, date_str
+    return (str(best), event, tourney, date_str), _pick_showdown_dg(showdown_groups, lobby)
+
+
+def _pick_showdown_dg(showdown_groups, lobby):
+    """Return (dg, event, tourney, date) for the most-used showdown draft group, or None."""
+    if not showdown_groups:
+        return None
+    best_dg = max(showdown_groups.items(), key=lambda kv: (kv[1]["count"], kv[1]["entries"]))[0]
+    dg_meta = {d.get("DraftGroupId"): d for d in lobby.get("DraftGroups", [])}
+    meta = dg_meta.get(best_dg, {})
+    start = meta.get("StartDate") or meta.get("StartDateEst")
+    ddata = get_json(
+        f"https://api.draftkings.com/draftgroups/v1/draftgroups/{best_dg}/draftables?format=json",
+        optional=True,
+    )
+    event = ""
+    if ddata:
+        comp = find_key(ddata, "competition") or {}
+        event = comp.get("name") or comp.get("nameDisplay") or ""
+        start = start or comp.get("startTime") or comp.get("startDate")
+    date_str = _fmt_date(start)
+    tourney = _derive_tourney(event, date_str)
+    print(f"auto-discover showdown dg={best_dg} event={event!r} -> {tourney} {date_str}")
+    return str(best_dg), event, tourney, date_str
 
 
 def list_groups():
@@ -391,12 +420,13 @@ def main():
     # Fully automatic mode: discover the current main PGA slate (no contest id,
     # no tournament name needed). Used by the schedule trigger so salaries land
     # on their own as soon as DK posts the next event.
+    showdown_disc = None
     if auto and not (dg_override or contest):
-        disc = auto_discover()
-        if not disc:
+        classic_disc, showdown_disc = auto_discover()
+        if not classic_disc:
             print("Nothing to fetch yet — exiting cleanly.")
             return 0
-        dg_override, event_auto, tourney_auto, date_auto = disc
+        dg_override, event_auto, tourney_auto, date_auto = classic_disc
         tourney = tourney or tourney_auto
         date = date or date_auto
 
@@ -448,11 +478,10 @@ def main():
     print(f"Flagged OUT/WD ({len(outs)}): {outs}")
 
     os.makedirs(os.path.dirname(out), exist_ok=True)
-    with open(out, "w", newline="") as fh:
-        w = csv.writer(fh)
-        w.writerow(["Tournament_Name", "Date", "Name", "Salary"])
-        for name, v in rows:
-            w.writerow([tourney, date, name, v["salary"]])
+
+    # Detect showdown by duplicate player names (CPT+FLEX = same name appears twice).
+    raw_names = [p.get("displayName", "").strip() for p in draftables if p.get("displayName")]
+    is_showdown = len(raw_names) > len(set(raw_names)) or len(set(raw_names)) < 80
 
     # Rich JSON for the live app to overlay onto the master slate (salary + status).
     doc = {
@@ -461,24 +490,90 @@ def main():
         "date": date,
         "event": event,
         "draftGroupId": str(dg),
+        "isShowdown": is_showdown,
         "count": len(rows),
         "players": [{"name": n, "salary": v["salary"], "status": v["status"],
                      "out": v["out"], "dkId": v["dkId"]}
                     for n, v in rows],
     }
-    json_path = os.path.join(os.path.dirname(out), "dk.json")
+    # If this slate is actually showdown (mis-identified as classic), write it to
+    # dk_showdown.json and leave dk.json untouched to preserve the classic slate.
+    if is_showdown:
+        json_path = os.path.join(os.path.dirname(out), "dk_showdown.json")
+        print(f"Detected showdown slate (unique players: {len(set(raw_names))}) — "
+              f"writing to dk_showdown.json instead of dk.json")
+    else:
+        json_path = os.path.join(os.path.dirname(out), "dk.json")
+        with open(out, "w", newline="") as fh:
+            w = csv.writer(fh)
+            w.writerow(["Tournament_Name", "Date", "Name", "Salary"])
+            for name, v in rows:
+                w.writerow([tourney, date, name, v["salary"]])
+
     with open(json_path, "w") as fh:
         json.dump(doc, fh, indent=1)
 
-    print(f"Wrote {out} and {json_path}: {len(rows)} golfers for {tourney} ({date}, event {event!r})")
+    print(f"Wrote {json_path}: {len(rows)} golfers for {tourney} ({date}, event {event!r})")
+
+    # Fetch the showdown slate too if we discovered one (auto mode only).
+    if showdown_disc:
+        _fetch_and_write_showdown(showdown_disc, os.path.dirname(out))
 
     # Real DK contests + exact payout tables for this draft group (for Contest Sim).
-    contests = build_contests(dg, tourney, event)
-    cpath = os.path.join(os.path.dirname(out), "dk_contests.json")
-    with open(cpath, "w") as fh:
-        json.dump(contests, fh, indent=1)
-    print(f"Wrote {cpath}: {len(contests['contests'])} contests with exact payouts")
+    if not is_showdown:
+        contests = build_contests(dg, tourney, event)
+        cpath = os.path.join(os.path.dirname(out), "dk_contests.json")
+        with open(cpath, "w") as fh:
+            json.dump(contests, fh, indent=1)
+        print(f"Wrote {cpath}: {len(contests['contests'])} contests with exact payouts")
     return 0
+
+
+def _fetch_and_write_showdown(disc, data_dir):
+    """Fetch a showdown draft group and write dk_showdown.json."""
+    sd_dg, sd_event, sd_tourney, sd_date = disc
+    print(f"\n--- Fetching showdown slate dg={sd_dg} ---")
+    ddata = get_json(
+        f"https://api.draftkings.com/draftgroups/v1/draftgroups/{sd_dg}/draftables?format=json",
+        optional=True,
+    )
+    if not ddata:
+        print("  showdown draftables fetch failed — skipping dk_showdown.json")
+        return
+    draftables = ddata.get("draftables", [])
+    event = (find_key(ddata, "competition") or {}).get("name", "") or sd_event
+
+    players = {}
+    for p in draftables:
+        name = (p.get("displayName") or "").strip()
+        salary = p.get("salary")
+        if not name or salary is None or name in players:
+            continue
+        status, is_out = player_status(p)
+        dk_id = p.get("draftableId") or p.get("playerDkId") or p.get("playerId")
+        players[name] = {"salary": int(salary), "status": status, "out": is_out, "dkId": dk_id}
+
+    if not players:
+        print("  no showdown players parsed — skipping dk_showdown.json")
+        return
+
+    rows = sorted(players.items(), key=lambda kv: -kv[1]["salary"])
+    doc = {
+        "updatedUtc": datetime.datetime.utcnow().replace(microsecond=0).isoformat() + "Z",
+        "tournament": sd_tourney,
+        "date": sd_date,
+        "event": event,
+        "draftGroupId": str(sd_dg),
+        "isShowdown": True,
+        "count": len(rows),
+        "players": [{"name": n, "salary": v["salary"], "status": v["status"],
+                     "out": v["out"], "dkId": v["dkId"]}
+                    for n, v in rows],
+    }
+    path = os.path.join(data_dir, "dk_showdown.json")
+    with open(path, "w") as fh:
+        json.dump(doc, fh, indent=1)
+    print(f"  Wrote {path}: {len(rows)} showdown players for {sd_tourney}")
 
 
 def extract_tiers(detail):
