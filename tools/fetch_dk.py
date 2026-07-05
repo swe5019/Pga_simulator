@@ -112,6 +112,15 @@ def find_key(obj, key):
     return None
 
 
+def _load_json_safe(path):
+    """Return parsed JSON from path, or None if missing or invalid."""
+    try:
+        with open(path) as f:
+            return json.load(f)
+    except (FileNotFoundError, json.JSONDecodeError):
+        return None
+
+
 def _fmt_date(raw):
     """DK ISO/epoch start -> 'M/D/YY'. Falls back to today on parse failure."""
     s = str(raw or "")
@@ -421,14 +430,38 @@ def main():
     # no tournament name needed). Used by the schedule trigger so salaries land
     # on their own as soon as DK posts the next event.
     showdown_disc = None
+    is_new_tournament = False  # track whether to update dk_contests.json
     if auto and not (dg_override or contest):
+        # Load the current dk.json so we can compare tournament names.
+        existing_dk = _load_json_safe(os.path.join(os.path.dirname(out), "dk.json"))
+
         classic_disc, showdown_disc = auto_discover()
-        if not classic_disc:
+
+        if classic_disc:
+            disc_dg, event_auto, tourney_auto, date_auto = classic_disc
+            if existing_dk and existing_dk.get("tournament") == tourney_auto:
+                # Same tournament is already stored — re-use the ORIGINAL draft group
+                # so weekend/post-cut groups never overwrite the classic salaries.
+                dg_override = existing_dk["draftGroupId"]
+                print(f"Same tournament {tourney_auto} already in dk.json — "
+                      f"locking onto original dg={dg_override} (ignoring dg={disc_dg})")
+            else:
+                # New tournament or first run — use the freshly discovered group.
+                dg_override = disc_dg
+                is_new_tournament = True
+            tourney = tourney or tourney_auto
+            date = date or date_auto
+        elif existing_dk and existing_dk.get("tournament"):
+            # No new classic in the lobby yet (e.g. between events).
+            # Refresh out/wd status from the known draft group so the app stays current.
+            dg_override = existing_dk["draftGroupId"]
+            tourney = existing_dk["tournament"]
+            date = existing_dk["date"]
+            print(f"No new classic in lobby — refreshing status for "
+                  f"{tourney} dg={dg_override}")
+        else:
             print("Nothing to fetch yet — exiting cleanly.")
             return 0
-        dg_override, event_auto, tourney_auto, date_auto = classic_disc
-        tourney = tourney or tourney_auto
-        date = date or date_auto
 
     # Keyword to find the slate in the lobby, e.g. "TRAVELERS_2026" -> "travelers".
     keyword = os.environ.get("DK_FIND", "").strip() or (tourney.split("_")[0] if tourney else "")
@@ -520,12 +553,18 @@ def main():
         _fetch_and_write_showdown(showdown_disc, os.path.dirname(out))
 
     # Real DK contests + exact payout tables for this draft group (for Contest Sim).
-    if not is_showdown:
+    # Only refresh when it's a new tournament; mid-week runs preserve the original
+    # big-field classic contest list so weekend "Short Game" slots don't replace it.
+    existing_contests = _load_json_safe(os.path.join(os.path.dirname(out), "dk_contests.json"))
+    contests_tournament_matches = (existing_contests or {}).get("tournament") == tourney
+    if not is_showdown and (not contests_tournament_matches or is_new_tournament):
         contests = build_contests(dg, tourney, event)
         cpath = os.path.join(os.path.dirname(out), "dk_contests.json")
         with open(cpath, "w") as fh:
             json.dump(contests, fh, indent=1)
         print(f"Wrote {cpath}: {len(contests['contests'])} contests with exact payouts")
+    elif not is_showdown:
+        print(f"Keeping existing dk_contests.json for {tourney} (not a new tournament)")
     return 0
 
 
