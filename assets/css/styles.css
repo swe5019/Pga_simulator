@@ -94,7 +94,7 @@ table { width: 100%; border-collapse: collapse; font-size: 13px; }
 thead th {
   background: var(--panel2); color: var(--dim); text-align: left;
   padding: 9px 10px; font-size: 11px; text-transform: uppercase; letter-spacing: .4px;
-  position: sticky; top: 0;
+  position: sticky; top: 63px; z-index: 5;
 }
 th.num, td.num { text-align: right; }
 th.ctr, td.ctr { text-align: center; }
