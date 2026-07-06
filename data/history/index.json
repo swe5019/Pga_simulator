@@ -1,5 +1,5 @@
 {
- "updatedUtc": "2026-07-05T20:08:46Z",
+ "updatedUtc": "2026-07-06T00:00:55Z",
  "count": 22,
  "events": [
   {
@@ -51,11 +51,11 @@
    "file": "history/JDC_2026.json",
    "date": "2026-07-02 00:00:00",
    "hasPredicted": true,
-   "hasActual": false,
-   "maePct": null,
-   "colabMaePct": null,
-   "comparedPlayers": null,
-   "updatedUtc": "2026-07-05T20:08:46Z"
+   "hasActual": true,
+   "maePct": 2.052,
+   "colabMaePct": 1.99,
+   "comparedPlayers": 143,
+   "updatedUtc": "2026-07-06T00:00:55Z"
   },
   {
    "tournament": "MASTERS_2026",
@@ -141,7 +141,7 @@
    "hasPredicted": false,
    "hasActual": true,
    "maePct": null,
-   "colabMaePct": 4.753,
+   "colabMaePct": 2.247,
    "comparedPlayers": null,
    "updatedUtc": "2026-06-25T15:52:16Z"
   },
@@ -187,7 +187,7 @@
    "maePct": 2.958,
    "colabMaePct": 2.928,
    "comparedPlayers": 72,
-   "updatedUtc": "2026-07-05T20:08:46Z"
+   "updatedUtc": "2026-07-06T00:00:55Z"
   },
   {
    "tournament": "TRUIST_2026",
