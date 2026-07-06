@@ -18,6 +18,7 @@ const State = {
   dkContests: null,        // real DK contests + payout tiers (dk_contests.json)
   hand: { ids: [] },       // hand-build lineup in progress (golfer ids)
   sort: { key: 'salary', dir: -1 }, // player table sort (dir: 1 asc, -1 desc)
+  filter: { name: '', salMin: '', salMax: '', t2gMin: '', t2gMax: '', totMin: '', ownMax: '' },
 };
 
 /** Sort value for a golfer in the player table, by column key. */
@@ -323,6 +324,27 @@ async function loadAutoSlate() {
   }
 }
 
+/* ---------------------- Player filter ---------------------- */
+function golferMatchesFilter(g) {
+  const f = State.filter;
+  if (f.name) {
+    if (!g.name.toLowerCase().includes(f.name.toLowerCase())) return false;
+  }
+  if (f.salMin !== '' && g.salary < +f.salMin) return false;
+  if (f.salMax !== '' && g.salary > +f.salMax) return false;
+  if (f.t2gMin !== '' && (g.sgT2g == null || g.sgT2g < +f.t2gMin)) return false;
+  if (f.t2gMax !== '' && (g.sgT2g == null || g.sgT2g > +f.t2gMax)) return false;
+  if (f.totMin !== '' && (g.sgTot == null || g.sgTot < +f.totMin)) return false;
+  if (f.ownMax !== '' && g.ownership != null && g.ownership > +f.ownMax) return false;
+  return true;
+}
+
+function filterIsActive() {
+  const f = State.filter;
+  return f.name || f.salMin !== '' || f.salMax !== '' ||
+    f.t2gMin !== '' || f.t2gMax !== '' || f.totMin !== '' || f.ownMax !== '';
+}
+
 /* ---------------------- Player table ---------------------- */
 function renderPlayers() {
   const tbody = $('#playerTable tbody');
@@ -340,8 +362,10 @@ function renderPlayers() {
     if (th.dataset.sort === key) th.classList.add(dir === 1 ? 'sort-asc' : 'sort-desc');
   });
 
+  let visibleCount = 0;
   for (const g of sorted) {
     if (g.notInSlate) continue; // not in this week's DK field — hidden from the pool
+    if (!golferMatchesFilter(g)) continue;
     const r = State.simResults ? State.simResults.get(g.id) : null;
     const proj = r ? r.mean : null;
     const value = proj != null ? proj / (g.salary / 1000) : null;
@@ -374,6 +398,14 @@ function renderPlayers() {
       <td class="ctr"><button class="toggle ${g.banned ? 'on' : ''}" data-id="${g.id}" data-t="banned">🚫</button></td>
     `;
     tbody.appendChild(tr);
+    visibleCount++;
+  }
+
+  // Update filter count badge
+  const countEl = $('#filterCount');
+  if (countEl) {
+    const total = State.golfers.filter((g) => !g.notInSlate).length;
+    countEl.textContent = filterIsActive() ? `${visibleCount} of ${total} shown` : `${total} players`;
   }
 
   // Inline edits
@@ -1363,6 +1395,35 @@ function init() {
       document.querySelectorAll('.variety-btn').forEach((b) => b.classList.remove('active'));
       btn.classList.add('active');
     });
+  });
+
+  // Player filter bar
+  const filterIds = ['fName', 'fSalMin', 'fSalMax', 'fT2gMin', 'fT2gMax', 'fTotMin', 'fOwnMax'];
+  const filterKeys = ['name', 'salMin', 'salMax', 't2gMin', 't2gMax', 'totMin', 'ownMax'];
+  filterIds.forEach((id, i) => {
+    const el = $('#' + id);
+    if (!el) return;
+    el.addEventListener('input', () => {
+      State.filter[filterKeys[i]] = el.value;
+      renderPlayers();
+    });
+  });
+  $('#filterSelectBtn').addEventListener('click', () => {
+    State.golfers.forEach((g) => {
+      if (!g.notInSlate && golferMatchesFilter(g)) g.selected = true;
+    });
+    renderPlayers();
+  });
+  $('#filterDeselectBtn').addEventListener('click', () => {
+    State.golfers.forEach((g) => {
+      if (!g.notInSlate && golferMatchesFilter(g) && !g.locked) g.selected = false;
+    });
+    renderPlayers();
+  });
+  $('#filterClearBtn').addEventListener('click', () => {
+    State.filter = { name: '', salMin: '', salMax: '', t2gMin: '', t2gMax: '', totMin: '', ownMax: '' };
+    filterIds.forEach((id) => { const el = $('#' + id); if (el) el.value = ''; });
+    renderPlayers();
   });
 
   // Advanced settings: min unique players warning

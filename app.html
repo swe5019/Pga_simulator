@@ -120,6 +120,26 @@
       </div>
       <div id="dkBanner" class="banner hidden"></div>
 
+      <div class="filter-bar">
+        <input id="fName" type="text" placeholder="Search player…" class="filter-text" />
+        <span class="filter-sep">Salary</span>
+        <input id="fSalMin" type="number" placeholder="min" class="filter-num" step="100" />
+        <span class="filter-sep">–</span>
+        <input id="fSalMax" type="number" placeholder="max" class="filter-num" step="100" />
+        <span class="filter-sep">SG T2G</span>
+        <input id="fT2gMin" type="number" placeholder="min" class="filter-num" step="0.05" />
+        <span class="filter-sep">–</span>
+        <input id="fT2gMax" type="number" placeholder="max" class="filter-num" step="0.05" />
+        <span class="filter-sep">SG Tot ≥</span>
+        <input id="fTotMin" type="number" placeholder="min" class="filter-num" step="0.1" />
+        <span class="filter-sep">Own% ≤</span>
+        <input id="fOwnMax" type="number" placeholder="max" class="filter-num" step="1" />
+        <button id="filterSelectBtn" class="ghost small">Select shown</button>
+        <button id="filterDeselectBtn" class="ghost small">Deselect shown</button>
+        <button id="filterClearBtn" class="ghost small">✕ Clear</button>
+        <span id="filterCount" class="filter-count"></span>
+      </div>
+
       <div class="tablewrap">
         <table id="playerTable">
           <thead>
