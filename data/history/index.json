@@ -1,6 +1,6 @@
 {
- "updatedUtc": "2026-07-06T14:22:56Z",
- "count": 22,
+ "updatedUtc": "2026-07-06T17:37:26Z",
+ "count": 23,
  "events": [
   {
    "tournament": "3M_OPEN_2025",
@@ -34,6 +34,17 @@
    "colabMaePct": 1.823,
    "comparedPlayers": null,
    "updatedUtc": "2026-06-25T15:52:16Z"
+  },
+  {
+   "tournament": "GENESIS_2026",
+   "file": "history/GENESIS_2026.json",
+   "date": "2026-07-07 00:00:00",
+   "hasPredicted": true,
+   "hasActual": false,
+   "maePct": null,
+   "colabMaePct": null,
+   "comparedPlayers": null,
+   "updatedUtc": "2026-07-06T17:37:26Z"
   },
   {
    "tournament": "JDC_2025",
@@ -187,7 +198,7 @@
    "maePct": 2.958,
    "colabMaePct": 2.928,
    "comparedPlayers": 72,
-   "updatedUtc": "2026-07-06T14:22:56Z"
+   "updatedUtc": "2026-07-06T17:37:26Z"
   },
   {
    "tournament": "TRUIST_2026",
