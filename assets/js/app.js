@@ -18,7 +18,15 @@ const State = {
   dkContests: null,        // real DK contests + payout tiers (dk_contests.json)
   hand: { ids: [] },       // hand-build lineup in progress (golfer ids)
   sort: { key: 'salary', dir: -1 }, // player table sort (dir: 1 asc, -1 desc)
-  filter: { name: '', salMin: '', salMax: '', t2gMin: '', t2gMax: '', totMin: '', ownMax: '' },
+  filter: {
+    name: '', salMin: '', salMax: '', ownMax: '',
+    totMin: '', totMax: '',
+    t2gMin: '', t2gMax: '',
+    ottMin: '', ottMax: '',
+    appMin: '', appMax: '',
+    argMin: '', argMax: '',
+    puttMin: '', puttMax: '',
+  },
 };
 
 /** Sort value for a golfer in the player table, by column key. */
@@ -327,22 +335,27 @@ async function loadAutoSlate() {
 /* ---------------------- Player filter ---------------------- */
 function golferMatchesFilter(g) {
   const f = State.filter;
-  if (f.name) {
-    if (!g.name.toLowerCase().includes(f.name.toLowerCase())) return false;
-  }
+  if (f.name && !g.name.toLowerCase().includes(f.name.toLowerCase())) return false;
   if (f.salMin !== '' && g.salary < +f.salMin) return false;
   if (f.salMax !== '' && g.salary > +f.salMax) return false;
-  if (f.t2gMin !== '' && (g.sgT2g == null || g.sgT2g < +f.t2gMin)) return false;
-  if (f.t2gMax !== '' && (g.sgT2g == null || g.sgT2g > +f.t2gMax)) return false;
-  if (f.totMin !== '' && (g.sgTot == null || g.sgTot < +f.totMin)) return false;
   if (f.ownMax !== '' && g.ownership != null && g.ownership > +f.ownMax) return false;
+  const sg = [
+    ['totMin', 'totMax', g.sgTot],
+    ['t2gMin', 't2gMax', g.sgT2g],
+    ['ottMin', 'ottMax', g.sgOtt],
+    ['appMin', 'appMax', g.sgApp],
+    ['argMin', 'argMax', g.sgArg],
+    ['puttMin', 'puttMax', g.sgPutt],
+  ];
+  for (const [minK, maxK, val] of sg) {
+    if (f[minK] !== '' && (val == null || val < +f[minK])) return false;
+    if (f[maxK] !== '' && (val == null || val > +f[maxK])) return false;
+  }
   return true;
 }
 
 function filterIsActive() {
-  const f = State.filter;
-  return f.name || f.salMin !== '' || f.salMax !== '' ||
-    f.t2gMin !== '' || f.t2gMax !== '' || f.totMin !== '' || f.ownMax !== '';
+  return Object.values(State.filter).some((v) => v !== '');
 }
 
 /* ---------------------- Player table ---------------------- */
@@ -1397,16 +1410,20 @@ function init() {
     });
   });
 
-  // Player filter bar
-  const filterIds = ['fName', 'fSalMin', 'fSalMax', 'fT2gMin', 'fT2gMax', 'fTotMin', 'fOwnMax'];
-  const filterKeys = ['name', 'salMin', 'salMax', 't2gMin', 't2gMax', 'totMin', 'ownMax'];
-  filterIds.forEach((id, i) => {
+  // Player filter bar — map element id -> State.filter key
+  const filterMap = {
+    fName: 'name', fSalMin: 'salMin', fSalMax: 'salMax', fOwnMax: 'ownMax',
+    fTotMin: 'totMin', fTotMax: 'totMax',
+    fT2gMin: 't2gMin', fT2gMax: 't2gMax',
+    fOttMin: 'ottMin', fOttMax: 'ottMax',
+    fAppMin: 'appMin', fAppMax: 'appMax',
+    fArgMin: 'argMin', fArgMax: 'argMax',
+    fPuttMin: 'puttMin', fPuttMax: 'puttMax',
+  };
+  Object.entries(filterMap).forEach(([id, key]) => {
     const el = $('#' + id);
     if (!el) return;
-    el.addEventListener('input', () => {
-      State.filter[filterKeys[i]] = el.value;
-      renderPlayers();
-    });
+    el.addEventListener('input', () => { State.filter[key] = el.value; renderPlayers(); });
   });
   $('#filterSelectBtn').addEventListener('click', () => {
     State.golfers.forEach((g) => {
@@ -1421,8 +1438,8 @@ function init() {
     renderPlayers();
   });
   $('#filterClearBtn').addEventListener('click', () => {
-    State.filter = { name: '', salMin: '', salMax: '', t2gMin: '', t2gMax: '', totMin: '', ownMax: '' };
-    filterIds.forEach((id) => { const el = $('#' + id); if (el) el.value = ''; });
+    Object.keys(State.filter).forEach((k) => { State.filter[k] = ''; });
+    Object.keys(filterMap).forEach((id) => { const el = $('#' + id); if (el) el.value = ''; });
     renderPlayers();
   });
 
