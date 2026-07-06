@@ -19,7 +19,7 @@ const State = {
   hand: { ids: [] },       // hand-build lineup in progress (golfer ids)
   sort: { key: 'salary', dir: -1 }, // player table sort (dir: 1 asc, -1 desc)
   filter: {
-    name: '', salMin: '', salMax: '', ownMax: '',
+    name: '', salMin: '', salMax: '', ownMin: '', ownMax: '',
     totMin: '', totMax: '',
     t2gMin: '', t2gMax: '',
     ottMin: '', ottMax: '',
@@ -338,6 +338,7 @@ function golferMatchesFilter(g) {
   if (f.name && !g.name.toLowerCase().includes(f.name.toLowerCase())) return false;
   if (f.salMin !== '' && g.salary < +f.salMin) return false;
   if (f.salMax !== '' && g.salary > +f.salMax) return false;
+  if (f.ownMin !== '' && (g.ownership == null || g.ownership < +f.ownMin)) return false;
   if (f.ownMax !== '' && g.ownership != null && g.ownership > +f.ownMax) return false;
   const sg = [
     ['totMin', 'totMax', g.sgTot],
@@ -376,9 +377,10 @@ function renderPlayers() {
   });
 
   let visibleCount = 0;
+  const filterActive = filterIsActive();
   for (const g of sorted) {
     if (g.notInSlate) continue; // not in this week's DK field — hidden from the pool
-    if (!golferMatchesFilter(g)) continue;
+    const matchesFilter = !filterActive || golferMatchesFilter(g);
     const r = State.simResults ? State.simResults.get(g.id) : null;
     const proj = r ? r.mean : null;
     const value = proj != null ? proj / (g.salary / 1000) : null;
@@ -390,6 +392,7 @@ function renderPlayers() {
     if (g.locked) tr.classList.add('locked');
     if (g.out) tr.classList.add('out');
     if (!g.selected) tr.classList.add('deselected');
+    if (!matchesFilter) tr.classList.add('filter-dim');
     tr.innerHTML = `
       <td class="ctr"><input type="checkbox" class="selbox" data-id="${g.id}" ${g.selected ? 'checked' : ''}></td>
       <td class="name"><button class="pname" data-id="${g.id}" title="View outcome distribution">${g.name}</button>${g.out ? ' <span class="tag out">OUT</span>' : ''}${g.added ? ' <span class="tag noproj" title="From DK field; no projection in your master yet — using salary-based skill">no proj</span>' : ''}</td>
@@ -411,14 +414,14 @@ function renderPlayers() {
       <td class="ctr"><button class="toggle ${g.banned ? 'on' : ''}" data-id="${g.id}" data-t="banned">🚫</button></td>
     `;
     tbody.appendChild(tr);
-    visibleCount++;
+    if (matchesFilter) visibleCount++;
   }
 
   // Update filter count badge
   const countEl = $('#filterCount');
   if (countEl) {
     const total = State.golfers.filter((g) => !g.notInSlate).length;
-    countEl.textContent = filterIsActive() ? `${visibleCount} of ${total} shown` : `${total} players`;
+    countEl.textContent = filterActive ? `${visibleCount} of ${total} match` : `${total} players`;
   }
 
   // Inline edits
@@ -1412,7 +1415,7 @@ function init() {
 
   // Player filter bar — map element id -> State.filter key
   const filterMap = {
-    fName: 'name', fSalMin: 'salMin', fSalMax: 'salMax', fOwnMax: 'ownMax',
+    fName: 'name', fSalMin: 'salMin', fSalMax: 'salMax', fOwnMin: 'ownMin', fOwnMax: 'ownMax',
     fTotMin: 'totMin', fTotMax: 'totMax',
     fT2gMin: 't2gMin', fT2gMax: 't2gMax',
     fOttMin: 'ottMin', fOttMax: 'ottMax',
