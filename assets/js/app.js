@@ -277,7 +277,6 @@ function initTabs() {
       btn.classList.add('active');
       $('#' + btn.dataset.tab).classList.add('active');
       track('tab_view', { tab: btn.dataset.tab });
-      if (btn.dataset.tab === 'players') fitPlayerTable();
       if (btn.dataset.tab === 'handbuild') {
         renderHandBuild();
         renderSaved();
@@ -1374,25 +1373,9 @@ function download(filename, text) {
   URL.revokeObjectURL(a.href);
 }
 
-/* ---------------------- Player table height ---------------------- */
-function fitPlayerTable() {
-  requestAnimationFrame(() => {
-    const wrap = document.getElementById('playerTableWrap');
-    if (!wrap) return;
-    wrap.style.maxHeight = '';
-    const top = wrap.getBoundingClientRect().top;
-    // Only apply if the wrapper is actually visible in the viewport
-    if (top > 0 && top < window.innerHeight - 100) {
-      wrap.style.maxHeight = (window.innerHeight - top - 20) + 'px';
-    }
-  });
-}
-
 /* ---------------------- Boot ---------------------- */
 function init() {
   initTabs();
-  window.addEventListener('resize', fitPlayerTable);
-  window.addEventListener('load', fitPlayerTable);
   loadAutoSlate();
   $('#runSim').addEventListener('click', () => { track('run_simulation', { n_sims: $('#nSims').value }); runSim(); });
   $('#buildBtn').addEventListener('click', () => { track('build_lineups', { n_lineups: $('#nLineups').value }); buildPool(); });

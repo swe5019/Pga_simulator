@@ -90,13 +90,11 @@ button.ghost:hover { color: var(--text); border-color: var(--dim); }
 
 /* ---------- Tables ---------- */
 .tablewrap { overflow-x: auto; border: 1px solid var(--line); border-radius: 10px; }
-/* Player table: bounded scroll area; max-height set by JS so header can stick at top:0 */
-#playerTableWrap { overflow-y: auto; min-height: 200px; }
-#playerTableWrap thead th { position: sticky; top: 0; z-index: 5; }
 table { width: 100%; border-collapse: collapse; font-size: 13px; }
 thead th {
   background: var(--panel2); color: var(--dim); text-align: left;
   padding: 9px 10px; font-size: 11px; text-transform: uppercase; letter-spacing: .4px;
+  position: sticky; top: 0;
 }
 th.num, td.num { text-align: right; }
 th.ctr, td.ctr { text-align: center; }
