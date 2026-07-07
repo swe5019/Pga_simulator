@@ -50,6 +50,11 @@ main { padding: 20px 22px 60px; max-width: 1280px; margin: 0 auto; }
 .panel { display: none; }
 .panel.active { display: block; animation: fade .2s ease; }
 @keyframes fade { from { opacity: 0; transform: translateY(4px);} to {opacity:1;transform:none;} }
+/* Players panel fills the viewport below the topbar so the table can scroll internally */
+#players.active {
+  display: flex; flex-direction: column;
+  height: calc(100vh - var(--topbar-h, 63px) - 80px); /* 80px = main padding top+bottom */
+}
 
 h2 { font-size: 17px; margin: 0 0 12px; }
 h2 .sub { color: var(--dim); font-weight: 400; font-size: 13px; }
@@ -90,8 +95,8 @@ button.ghost:hover { color: var(--text); border-color: var(--dim); }
 
 /* ---------- Tables ---------- */
 .tablewrap { overflow-x: auto; border: 1px solid var(--line); border-radius: 10px; }
-/* Player table: bounded scroll area so the header can stick inside it */
-#playerTableWrap { overflow-y: auto; /* max-height set by JS (fitPlayerTable) */ }
+/* Player table: fills remaining flex space; header sticks at top of its scroll container */
+#playerTableWrap { flex: 1; overflow-y: auto; min-height: 150px; }
 #playerTableWrap thead th { position: sticky; top: 0; z-index: 5; }
 table { width: 100%; border-collapse: collapse; font-size: 13px; }
 thead th {

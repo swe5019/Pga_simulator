@@ -268,15 +268,6 @@ function track(eventName, params) {
   if (typeof gtag === 'function') gtag('event', eventName, params || {});
 }
 
-/* ---------------------- Player table height ---------------------- */
-function fitPlayerTable() {
-  const wrap = document.getElementById('playerTableWrap');
-  if (!wrap) return;
-  wrap.style.maxHeight = '';
-  const top = wrap.getBoundingClientRect().top;
-  if (top > 0) wrap.style.maxHeight = (window.innerHeight - top - 12) + 'px';
-}
-
 /* ---------------------- Tabs ---------------------- */
 function initTabs() {
   $$('.tab').forEach((btn) => {
@@ -286,9 +277,6 @@ function initTabs() {
       btn.classList.add('active');
       $('#' + btn.dataset.tab).classList.add('active');
       track('tab_view', { tab: btn.dataset.tab });
-      if (btn.dataset.tab === 'players') {
-        fitPlayerTable();
-      }
       if (btn.dataset.tab === 'handbuild') {
         renderHandBuild();
         renderSaved();
@@ -307,7 +295,6 @@ function loadSampleSlate() {
   State.dk = null;
   window.Data.projectOwnership(State.golfers, null);
   renderPlayers();
-  fitPlayerTable();
   $('#simStatus').textContent = '';
 }
 
@@ -335,7 +322,6 @@ async function loadAutoSlate() {
     await overlayDk(); // official salaries + OUT/WD status from DraftKings
     autoDetectCut();
     renderPlayers();
-    fitPlayerTable();
 
     const when = doc.updatedUtc ? new Date(doc.updatedUtc).toLocaleString() : 'now';
     $('#simStatus').textContent =
@@ -1390,7 +1376,14 @@ function download(filename, text) {
 /* ---------------------- Boot ---------------------- */
 function init() {
   initTabs();
-  window.addEventListener('resize', fitPlayerTable);
+  // Keep --topbar-h in sync so the player table fills the viewport correctly.
+  const topbarEl = document.querySelector('.topbar');
+  if (topbarEl) {
+    const setTopbarH = () =>
+      document.documentElement.style.setProperty('--topbar-h', topbarEl.offsetHeight + 'px');
+    setTopbarH();
+    window.addEventListener('resize', setTopbarH);
+  }
   loadAutoSlate();
   $('#runSim').addEventListener('click', () => { track('run_simulation', { n_sims: $('#nSims').value }); runSim(); });
   $('#buildBtn').addEventListener('click', () => { track('build_lineups', { n_lineups: $('#nLineups').value }); buildPool(); });
