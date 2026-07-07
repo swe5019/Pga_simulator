@@ -359,6 +359,13 @@ function filterIsActive() {
   return Object.values(State.filter).some((v) => v !== '');
 }
 
+function applyFilterUncheck() {
+  if (!filterIsActive()) return;
+  State.golfers.forEach((g) => {
+    if (!g.notInSlate && !g.locked && !golferMatchesFilter(g)) g.selected = false;
+  });
+}
+
 /* ---------------------- Player table ---------------------- */
 function renderPlayers() {
   const tbody = $('#playerTable tbody');
@@ -392,7 +399,6 @@ function renderPlayers() {
     if (g.locked) tr.classList.add('locked');
     if (g.out) tr.classList.add('out');
     if (!g.selected) tr.classList.add('deselected');
-    if (!matchesFilter) tr.classList.add('filter-dim');
     tr.innerHTML = `
       <td class="ctr"><input type="checkbox" class="selbox" data-id="${g.id}" ${g.selected ? 'checked' : ''}></td>
       <td class="name"><button class="pname" data-id="${g.id}" title="View outcome distribution">${g.name}</button>${g.out ? ' <span class="tag out">OUT</span>' : ''}${g.added ? ' <span class="tag noproj" title="From DK field; no projection in your master yet — using salary-based skill">no proj</span>' : ''}</td>
@@ -1426,7 +1432,7 @@ function init() {
   Object.entries(filterMap).forEach(([id, key]) => {
     const el = $('#' + id);
     if (!el) return;
-    el.addEventListener('input', () => { State.filter[key] = el.value; renderPlayers(); });
+    el.addEventListener('input', () => { State.filter[key] = el.value; applyFilterUncheck(); renderPlayers(); });
   });
   $('#filterSelectBtn').addEventListener('click', () => {
     State.golfers.forEach((g) => {
