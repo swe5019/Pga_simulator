@@ -207,12 +207,17 @@
           <input id="minSalary" type="number" value="49000" min="0" max="50000" step="100" />
         </div>
         <div class="control">
+          <label>Min Win Equity %</label>
+          <input id="minWinEquity" type="number" value="" min="0" max="100" step="0.5" placeholder="—" title="Minimum total win equity % for each lineup (sum of all 6 players)" />
+        </div>
+        <div class="control">
           <label>Optimize for</label>
           <select id="sortBy">
             <option value="score" selected>Sim Score (balanced)</option>
             <option value="ceiling">Ceiling (GPP upside)</option>
             <option value="mean">Mean (cash)</option>
             <option value="p99">Top-1% spike (Milly Maker)</option>
+            <option value="winEquity">Win Equity %</option>
           </select>
         </div>
         <button id="buildBtn" class="primary">⚙ Build Lineup Pool</button>
@@ -467,6 +472,7 @@
                   <th class="num">Sal</th>
                   <th class="num">Own%</th>
                   <th class="num">Fpts</th>
+                  <th class="num">Win Eq</th>
                   <th class="ctr"></th>
                 </tr>
               </thead>

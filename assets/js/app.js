@@ -70,6 +70,15 @@ function winEquity(g) {
   return p != null ? p * 100 : null;
 }
 
+/** Total win equity % for a lineup (sum of each golfer's win equity). */
+function lineupWinEquity(lu) {
+  return lu.players.reduce((s, id) => {
+    const g = byId(id);
+    const w = g ? winEquity(g) : null;
+    return s + (w != null ? w : 0);
+  }, 0);
+}
+
 /** Resolve a golfer to DraftKings upload form "Name (draftableId)", or null. */
 function dkEntryName(g) {
   const p = State.dkPlayers && State.dkPlayers.get(normName(g.name));
@@ -766,6 +775,15 @@ function buildPool() {
     State.build = window.Optimizer.buildPool(State.golfers, State.simResults, opts);
     State.contest = null; // pool changed; previous ROI no longer valid
 
+    // Compute total win equity for every lineup.
+    State.build.lineups.forEach((lu) => { lu.winEquity = lineupWinEquity(lu); });
+
+    // Filter by min win equity if set.
+    const minWinEq = parseFloat($('#minWinEquity').value) || 0;
+    if (minWinEq > 0) {
+      State.build.lineups = State.build.lineups.filter((lu) => lu.winEquity >= minWinEq);
+    }
+
     // Re-sort the pool per the chosen objective.
     const key = $('#sortBy').value;
     State.build.lineups.sort((a, b) => b[key] - a[key]);
@@ -794,6 +812,7 @@ function renderBuildSummary() {
     return;
   }
   const avg = (f) => lus.reduce((s, l) => s + l[f], 0) / lus.length;
+  const avgWinEq = lus.reduce((s, l) => s + (l.winEquity || 0), 0) / lus.length;
   const cards = [
     ['Lineups', lus.length],
     ['Avg Sim Score', num(avg('score'))],
@@ -801,6 +820,7 @@ function renderBuildSummary() {
     ['Avg ceiling', num(avg('ceiling'))],
     ['Best ceiling', num(Math.max(...lus.map((l) => l.ceiling)))],
     ['Avg salary', money(avg('salary'))],
+    ['Avg Win Equity', avgWinEq ? avgWinEq.toFixed(1) + '%' : '—'],
   ];
   $('#buildSummary').innerHTML = cards
     .map(([k, v]) => `<div class="card"><div class="cardv">${v}</div><div class="cardk">${k}</div></div>`)
@@ -962,6 +982,7 @@ function renderReview() {
           <span class="lnum">#${i + 1}</span>
           <span class="lstat">Score <b class="up">${num(lu.score)}</b></span>
           <span class="lstat">Ceil <b>${num(lu.ceiling)}</b></span>
+          <span class="lstat">Win Eq <b class="up">${lu.winEquity != null ? lu.winEquity.toFixed(1) + '%' : '—'}</b></span>
           <button class="savelu" data-lu="${i}" title="Save to your saved lineups">＋ Save</button>
         </div>
         <table class="lut">
@@ -1029,6 +1050,7 @@ function renderHandBuild() {
   const spotsLeft = ROSTER_SIZE - players.length;
   const totProj = players.reduce((s, g) => s + (projOf(g) || 0), 0);
   const totOwn = players.reduce((s, g) => s + (g.ownership || 0), 0);
+  const totWinEq = players.reduce((s, g) => { const w = winEquity(g); return s + (w != null ? w : 0); }, 0);
   const perRemain = spotsLeft > 0 ? Math.floor(remaining / spotsLeft) : 0;
 
   // Summary cards
@@ -1038,6 +1060,7 @@ function renderHandBuild() {
     [spotsLeft > 0 ? money(perRemain) : '—', 'Avg / spot left'],
     [totProj ? totProj.toFixed(1) : '—', 'Proj pts'],
     [totOwn ? totOwn.toFixed(0) + '%' : '—', 'Total own'],
+    [players.length > 0 && totWinEq ? totWinEq.toFixed(1) + '%' : '—', 'Win Equity'],
   ]
     .map(([v, k]) => `<div class="card"><div class="cardv">${v}</div><div class="cardk">${k}</div></div>`)
     .join('');
@@ -1048,10 +1071,12 @@ function renderHandBuild() {
     .sort((a, b) => b.salary - a.salary)
     .map((g) => {
       const fp = projOf(g);
+      const we = winEquity(g);
       return `<div class="hbslot">
         <span>${g.name}</span>
         <span class="hbsal">${money(g.salary)}</span>
         <span class="hbsal">${fp != null ? fp.toFixed(1) + ' pts' : '—'}</span>
+        <span class="hbsal dim">${we != null ? we.toFixed(1) + '% win' : '—'}</span>
         <button class="rm" data-id="${g.id}">Remove</button>
       </div>`;
     });
@@ -1074,11 +1099,13 @@ function renderHandBuild() {
       const has = inLineup.has(g.id);
       const disabled = has || full || overCap;
       const label = has ? 'Added' : overCap ? 'Over cap' : 'Add';
+      const we = winEquity(g);
       return `<tr class="${has ? 'inlineup' : ''}">
         <td class="name">${g.name}${g.out ? ' <span class="tag out">OUT</span>' : ''}</td>
         <td class="num">${money(g.salary)}</td>
         <td class="num dim">${g.ownership != null ? g.ownership.toFixed(1) : '—'}</td>
         <td class="num">${fp != null ? fp.toFixed(1) : '—'}</td>
+        <td class="num">${we != null ? we.toFixed(1) + '%' : '—'}</td>
         <td class="ctr"><button class="addbtn" data-id="${g.id}" ${disabled ? 'disabled' : ''}>${label}</button></td>
       </tr>`;
     })
