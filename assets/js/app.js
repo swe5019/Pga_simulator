@@ -12,6 +12,7 @@ const State = {
   hasRealOwnership: false, // true when ownership came from the master file
   dk: null,                // DraftKings overlay metadata (see overlayDk)
   dkPlayers: null,         // Map<normName, {name, dkId, ...}> from dk.json
+  dkPlayersClassic: null,  // preserved classic player map (never overwritten by showdown)
   dkShowdownRaw: null,     // raw dk_showdown.json data when available
   slateType: 'classic',    // 'classic' | 'showdown'
   contest: null,           // last contest-sim result
@@ -107,7 +108,8 @@ async function overlayDk() {
     const players = dk.players || [];
     if (!players.length) return;
     const byName = new Map(players.map((p) => [normName(p.name), p]));
-    State.dkPlayers = byName; // name -> DK player (for upload id resolution)
+    State.dkPlayers = byName;         // name -> DK player (for upload id resolution)
+    State.dkPlayersClassic = byName;  // preserved so switching back from showdown restores classic salaries
     let matched = 0;
     for (const g of State.golfers) if (byName.has(normName(g.name))) matched++;
     // Use the LARGER pool as the denominator: a small DK slate (e.g. a
@@ -200,10 +202,10 @@ function _applyShowdownOverlay() {
 /** Restore classic DK salaries from State.dk overlay. */
 function _applyClassicOverlay() {
   if (!State.dk || !State.dk.applied) return;
-  // Re-run full overlayDk to restore clean state.
-  // We reload the page state rather than re-fetching — apply from dkPlayers cache.
+  const classic = State.dkPlayersClassic;
+  State.dkPlayers = classic; // restore so dkEntryName uses classic dkIds
   for (const g of State.golfers) {
-    const p = State.dkPlayers && State.dkPlayers.get(normName(g.name));
+    const p = classic && classic.get(normName(g.name));
     if (p) {
       g.salary = p.salary;
       g.dkSalary = p.salary;
