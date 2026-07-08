@@ -318,6 +318,16 @@ def build_from_workbook(raw, suffix):
             v = _r(r.get(col))
             if v is not None:
                 rec[key] = v
+        for key, col in [("form1W", "1W"), ("form2W", "2W"), ("form3W", "3W"), ("form4W", "4W")]:
+            v = r.get(col)
+            if v is not None and pd.notna(v):
+                rec[key] = int(v)
+        for key, col in [("chFinish1", "CH_Finish_1"), ("chFinish2", "CH_Finish_2"),
+                         ("chFinish3", "CH_Finish_3"), ("chEvents", "CH_Events"),
+                         ("chMadeCuts", "CH_Made_Cuts")]:
+            v = r.get(col)
+            if v is not None and pd.notna(v):
+                rec[key] = int(v)
         rec["ownership"] = float(r["_own"]) if np.isfinite(r["_own"]) else None
         if rec["ownership"] is None:
             del rec["ownership"]
