@@ -201,11 +201,11 @@ function _applyShowdownOverlay() {
 
 /** Restore classic DK salaries from State.dk overlay. */
 function _applyClassicOverlay() {
-  if (!State.dk || !State.dk.applied) return;
   const classic = State.dkPlayersClassic;
+  if (!classic) return;
   State.dkPlayers = classic; // restore so dkEntryName uses classic dkIds
   for (const g of State.golfers) {
-    const p = classic && classic.get(normName(g.name));
+    const p = classic.get(normName(g.name));
     if (p) {
       g.salary = p.salary;
       g.dkSalary = p.salary;
