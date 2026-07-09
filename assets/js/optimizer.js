@@ -126,6 +126,8 @@ function lineupKey(ids) {
  *    minUniquePlayers  - each lineup must differ from all others by at least this many
  *    minTotalOwn       - minimum sum of projected ownership% across all 6 players
  *    maxTotalOwn       - maximum sum of projected ownership% across all 6 players
+ *    minWinEquity      - minimum sum of win equity % across all 6 players
+ *    winEquityById     - Map<id, number> win equity % per golfer
  * @returns {{lineups:Array, exposure:Map}}
  */
 function buildPool(golfers, simResults, opts = {}) {
@@ -142,6 +144,8 @@ function buildPool(golfers, simResults, opts = {}) {
   const minUniquePlayers = opts.minUniquePlayers || 0;
   const minTotalOwn = opts.minTotalOwn != null ? opts.minTotalOwn : null;
   const maxTotalOwn = opts.maxTotalOwn != null ? opts.maxTotalOwn : null;
+  const minWinEquity = opts.minWinEquity || 0;
+  const winEquityById = opts.winEquityById || new Map();
 
   // Pre-build lookup maps for constraint checks (avoids per-lineup array scans).
   const ownMap = new Map(golfers.map((g) => [g.id, g.ownership || 0]));
@@ -167,7 +171,7 @@ function buildPool(golfers, simResults, opts = {}) {
   const rng = window.Sim.makeRng(987654321);
 
   // Increase attempt budget when extra constraints are active.
-  const hasConstraints = bracketedOwnership.length > 0 || salaryTiers.length > 0 || minUniquePlayers > 0 || minTotalOwn != null || maxTotalOwn != null;
+  const hasConstraints = bracketedOwnership.length > 0 || salaryTiers.length > 0 || minUniquePlayers > 0 || minTotalOwn != null || maxTotalOwn != null || minWinEquity > 0;
   let attempts = 0;
   const maxAttempts = nLineups * (hasConstraints ? 120 : 40) + 500;
 
@@ -249,6 +253,12 @@ function buildPool(golfers, simResults, opts = {}) {
         if (DK_RULES.rosterSize - shared < minUniquePlayers) { pass = false; break; }
       }
       if (!pass) continue;
+    }
+
+    // Min win equity: sum of all 6 players' win equity % must meet the threshold.
+    if (minWinEquity > 0) {
+      const weSum = res.players.reduce((s, id) => s + (winEquityById.get(id) || 0), 0);
+      if (weSum < minWinEquity) continue;
     }
 
     seen.add(key);

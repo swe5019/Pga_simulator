@@ -751,6 +751,14 @@ function buildPool() {
 
   const minTotalOwn = $('#minTotalOwn').value !== '' ? parseFloat($('#minTotalOwn').value) : null;
   const maxTotalOwn = $('#maxTotalOwn').value !== '' ? parseFloat($('#maxTotalOwn').value) : null;
+  const minWinEquity = parseFloat($('#minWinEquity').value) || 0;
+
+  // Build per-golfer win equity map for the optimizer.
+  const winEquityById = new Map();
+  for (const g of State.golfers) {
+    const w = winEquity(g);
+    if (w != null) winEquityById.set(g.id, w);
+  }
 
   const opts = {
     nLineups: parseInt($('#nLineups').value, 10) || 20,
@@ -767,6 +775,8 @@ function buildPool() {
     salaryTiers,
     minTotalOwn,
     maxTotalOwn,
+    minWinEquity,
+    winEquityById,
   };
 
   $('#buildStatus').textContent = 'Building…';
@@ -775,14 +785,8 @@ function buildPool() {
     State.build = window.Optimizer.buildPool(State.golfers, State.simResults, opts);
     State.contest = null; // pool changed; previous ROI no longer valid
 
-    // Compute total win equity for every lineup.
-    State.build.lineups.forEach((lu) => { lu.winEquity = lineupWinEquity(lu); });
-
-    // Filter by min win equity if set.
-    const minWinEq = parseFloat($('#minWinEquity').value) || 0;
-    if (minWinEq > 0) {
-      State.build.lineups = State.build.lineups.filter((lu) => lu.winEquity >= minWinEq);
-    }
+    // Compute total win equity for every lineup (for display).
+    State.build.lineups.forEach((lu) => { lu.winEquity = lineupWinEquity(lu); })
 
     // Re-sort the pool per the chosen objective.
     const key = $('#sortBy').value;
