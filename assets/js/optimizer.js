@@ -171,7 +171,7 @@ function buildPool(golfers, simResults, opts = {}) {
   const rng = window.Sim.makeRng(987654321);
 
   // Increase attempt budget when extra constraints are active.
-  const hasConstraints = bracketedOwnership.length > 0 || salaryTiers.length > 0 || minUniquePlayers > 0 || minTotalOwn != null || maxTotalOwn != null || minWinEquity > 0;
+  const hasConstraints = bracketedOwnership.length > 0 || salaryTiers.length > 0 || minUniquePlayers > 0 || minTotalOwn != null || maxTotalOwn != null || minWinEquity > 0 || minSalary > 0;
   let attempts = 0;
   const maxAttempts = nLineups * (hasConstraints ? 120 : 40) + 500;
 
@@ -201,6 +201,7 @@ function buildPool(golfers, simResults, opts = {}) {
 
     const res = optimizeOne(pool, obj, { locks, minSalary });
     if (!res) continue;
+    if (minSalary > 0 && res.salary < minSalary) continue;
 
     const key = lineupKey(res.players);
     if (seen.has(key)) continue;
