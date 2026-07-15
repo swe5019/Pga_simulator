@@ -79,16 +79,20 @@ function optimizeOne(pool, obj, opts = {}) {
   }
 
   if (salary < minSalary) {
-    // Try to upgrade the cheapest non-locked golfer to use more salary.
-    for (let i = 0; i < lineup.length && salary < minSalary; i++) {
-      const out = lineup[i];
-      if (locks.has(out.id)) continue;
+    // Upgrade cheapest non-locked players first (most room for salary gain),
+    // picking the highest-salary valid replacement each time.
+    const upgradeable = lineup
+      .map((g, i) => ({ g, i }))
+      .filter(({ g }) => !locks.has(g.id))
+      .sort((a, b) => a.g.salary - b.g.salary);
+    for (const { g: out, i } of upgradeable) {
+      if (salary >= minSalary) break;
       let best = null;
       for (const cand of remaining) {
         if (inLineup.has(cand.id)) continue;
         const newSalary = salary - out.salary + cand.salary;
         if (newSalary <= cap && cand.salary > out.salary) {
-          if (!best || obj.get(cand.id) > obj.get(best.id)) best = cand;
+          if (!best || cand.salary > best.salary) best = cand;
         }
       }
       if (best) {
