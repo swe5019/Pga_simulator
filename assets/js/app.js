@@ -88,8 +88,18 @@ function dkEntryName(g) {
 }
 
 /** Normalize a golfer name for cross-source matching (case/punct/accents/suffix). */
+const NICKNAMES = {
+  johnny: 'john', jonny: 'john', jon: 'john',
+  billy: 'bill', willie: 'will', robby: 'rob', bobby: 'bob',
+  tommy: 'tom', danny: 'dan', andy: 'andrew', paddy: 'patrick',
+  ricky: 'rick', rickie: 'rick', nicky: 'nick',
+  tony: 'anthony', mikey: 'mike', stevie: 'steve',
+  benny: 'ben', sammy: 'sam', matty: 'matt', timmy: 'tim',
+  jimmy: 'jim', kenny: 'ken', ronnie: 'ron', donnie: 'don',
+};
+
 function normName(s) {
-  return (s || '')
+  const base = (s || '')
     .toLowerCase()
     .normalize('NFD')
     .replace(/[̀-ͯ]/g, '')
@@ -97,6 +107,10 @@ function normName(s) {
     .replace(/\b(jr|sr|ii|iii|iv)\b/g, '')
     .replace(/\s+/g, ' ')
     .trim();
+  // Normalize first-name nicknames so e.g. "Johnny Keefer" == "John Keefer".
+  const parts = base.split(' ');
+  if (parts.length > 1 && NICKNAMES[parts[0]]) parts[0] = NICKNAMES[parts[0]];
+  return parts.join(' ');
 }
 
 /**

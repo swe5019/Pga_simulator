@@ -92,6 +92,17 @@ def _safe(name):
     return "".join(c if c.isalnum() else "_" for c in str(name)).strip("_") or "event"
 
 
+_NICKNAMES = {
+    "johnny": "john", "jonny": "john", "jon": "john",
+    "billy": "bill", "willie": "will", "robby": "rob", "bobby": "bob",
+    "tommy": "tom", "danny": "dan", "andy": "andrew", "paddy": "patrick",
+    "ricky": "rick", "rickie": "rick", "nicky": "nick",
+    "tony": "anthony", "mikey": "mike", "stevie": "steve",
+    "benny": "ben", "sammy": "sam", "matty": "matt", "timmy": "tim",
+    "jimmy": "jim", "kenny": "ken", "ronnie": "ron", "donnie": "don",
+}
+
+
 def _nrm(s):
     """Normalize a player name for cross-source matching (DK vs sheet)."""
     import re
@@ -100,7 +111,11 @@ def _nrm(s):
         s = s.replace(a, b)
     s = re.sub(r"[^a-z ]", " ", s)
     s = re.sub(r"\b(jr|sr|ii|iii|iv)\b", "", s)
-    return re.sub(r"\s+", " ", s).strip()
+    s = re.sub(r"\s+", " ", s).strip()
+    parts = s.split(" ")
+    if len(parts) > 1 and parts[0] in _NICKNAMES:
+        parts[0] = _NICKNAMES[parts[0]]
+    return " ".join(parts)
 
 
 def _mae_vs(actual, predmap):
