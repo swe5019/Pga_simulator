@@ -377,6 +377,68 @@ function applyFilterUncheck() {
   });
 }
 
+/* ---------------------- Player CSV export / import ---------------------- */
+function exportPlayersCSV() {
+  const r = (v, d = '') => (v != null ? v : d);
+  const rows = [['Name', 'Salary', 'Skill', 'Proj', 'Own%', 'MinExp', 'MaxExp']];
+  for (const g of State.golfers) {
+    if (g.notInSlate) continue;
+    const sim = State.simResults ? State.simResults.get(g.id) : null;
+    rows.push([
+      g.name,
+      g.salary,
+      g.skill,
+      r(g.projOverride ?? (sim ? sim.mean.toFixed(1) : null)),
+      r(g.ownership != null ? g.ownership.toFixed(1) : null),
+      r(g.minExp),
+      r(g.maxExp),
+    ]);
+  }
+  const csv = rows.map((r) => r.map((v) => `"${String(v).replace(/"/g, '""')}"`).join(',')).join('\r\n');
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(new Blob([csv], { type: 'text/csv' }));
+  a.download = 'slatesims_players.csv';
+  a.click();
+}
+
+function importPlayersCSV(file) {
+  const reader = new FileReader();
+  reader.onload = (e) => {
+    const lines = e.target.result.split(/\r?\n/).filter(Boolean);
+    if (lines.length < 2) return;
+    const headers = lines[0].split(',').map((h) => h.replace(/^"|"$/g, '').trim().toLowerCase());
+    const col = (name) => headers.indexOf(name);
+    const iName = col('name'), iSkill = col('skill'), iProj = col('proj');
+    const iOwn = col('own%'), iMin = col('minexp'), iMax = col('maxexp');
+    if (iName < 0) { $('#importStatus').textContent = 'Error: no Name column found'; return; }
+
+    const byNorm = new Map(State.golfers.map((g) => [normName(g.name), g]));
+    let matched = 0, skipped = 0;
+    for (let i = 1; i < lines.length; i++) {
+      const cells = lines[i].split(',').map((c) => c.replace(/^"|"$/g, '').trim());
+      const g = byNorm.get(normName(cells[iName] || ''));
+      if (!g) { skipped++; continue; }
+      matched++;
+      if (iSkill >= 0 && cells[iSkill] !== '') { const v = parseFloat(cells[iSkill]); if (!isNaN(v)) g.skill = v; }
+      if (iProj >= 0 && cells[iProj] !== '') {
+        const v = parseFloat(cells[iProj]);
+        if (!isNaN(v)) { g.projLocked = true; g.projOverride = v; applyProjOverrideToGolfer(g); }
+      }
+      if (iOwn >= 0 && cells[iOwn] !== '') {
+        const v = parseFloat(cells[iOwn]);
+        if (!isNaN(v)) { g.ownershipLocked = true; g.ownership = Math.max(0, Math.min(100, v)); }
+      }
+      if (iMin >= 0 && cells[iMin] !== '') { const v = parseFloat(cells[iMin]); if (!isNaN(v)) g.minExp = v; }
+      if (iMax >= 0 && cells[iMax] !== '') { const v = parseFloat(cells[iMax]); if (!isNaN(v)) g.maxExp = v; }
+    }
+    State.simResults = null;
+    renderPlayers();
+    $('#importStatus').textContent = `Imported ${matched} players${skipped ? ` (${skipped} unmatched)` : ''}`;
+    setTimeout(() => { $('#importStatus').textContent = ''; }, 5000);
+  };
+  reader.readAsText(file);
+}
+
 /* ---------------------- Player table ---------------------- */
 function renderPlayers() {
   const tbody = $('#playerTable tbody');
@@ -1418,6 +1480,8 @@ function init() {
   loadAutoSlate();
   $('#runSim').addEventListener('click', () => { track('run_simulation', { n_sims: $('#nSims').value }); runSim(); });
   $('#buildBtn').addEventListener('click', () => { track('build_lineups', { n_lineups: $('#nLineups').value }); buildPool(); });
+  $('#exportPlayersBtn').addEventListener('click', exportPlayersCSV);
+  $('#importPlayersCsv').addEventListener('change', (e) => { if (e.target.files[0]) { importPlayersCSV(e.target.files[0]); e.target.value = ''; } });
 
   // Slate toggle: Classic vs Showdown
   document.querySelectorAll('.slate-btn').forEach((btn) => {
