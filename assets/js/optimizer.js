@@ -182,7 +182,7 @@ function buildPool(golfers, simResults, opts = {}) {
   let attempts = 0;
   let noProgress = 0;
 
-  while (lineups.length < nLineups && noProgress < maxNoProgress && attempts < 200000) {
+  while (noProgress < maxNoProgress && attempts < 200000) {
     attempts++;
     // Assume this attempt will fail; reset below if it succeeds.
     if (lineups.length > 0) noProgress++;
@@ -282,8 +282,9 @@ function buildPool(golfers, simResults, opts = {}) {
   // Composite "Sim Score": upside, projection, and ownership-leverage blended.
   scoreComposite(lineups, golfers);
 
-  // Sort the pool by the composite score by default.
+  // Sort by composite score, then keep only the top N requested.
   lineups.sort((a, b) => b.score - a.score);
+  if (lineups.length > nLineups) lineups.splice(nLineups);
 
   const exposure = new Map();
   for (const [id, c] of useCount) {
