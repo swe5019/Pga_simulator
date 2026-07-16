@@ -159,15 +159,9 @@ function buildPool(golfers, simResults, opts = {}) {
   const nSims = pool.length ? simResults.get(pool[0].id).samples.length : 0;
 
   const seen = new Set();
-  const lineups = [];
+  const allLineups = []; // full candidate pool before exposure post-selection
+  // useCount tracks only floor (minExp) progress during the build phase.
   const useCount = new Map(pool.map((g) => [g.id, 0]));
-  // Per-golfer exposure caps (default to the global cap) and floors.
-  const maxUses = new Map(
-    pool.map((g) => {
-      const frac = maxExpById.has(g.id) ? maxExpById.get(g.id) : maxExposure;
-      return [g.id, Math.max(0, Math.round(frac * nLineups))];
-    })
-  );
   const minUses = new Map(
     pool.map((g) => [g.id, Math.round((minExpById.get(g.id) || 0) * nLineups)])
   );
@@ -175,34 +169,28 @@ function buildPool(golfers, simResults, opts = {}) {
   const rng = window.Sim.makeRng(987654321);
 
   const hasConstraints = bracketedOwnership.length > 0 || salaryTiers.length > 0 || minUniquePlayers > 0 || minTotalOwn != null || maxTotalOwn != null || minWinEquity > 0 || minSalary > 0;
-  // Stop when we go this many consecutive attempts without finding a new lineup —
-  // that means the valid lineup space is genuinely exhausted, not just budget-limited.
-  // This makes the result consistent regardless of how many lineups were requested.
+  // Stop when 1500 consecutive attempts find nothing new — space is genuinely exhausted.
+  // This is independent of nLineups so requesting 10 vs 150 explores the same space.
   const maxNoProgress = hasConstraints ? 1500 : 600;
+  // Hard ceiling: never build more candidates than we'll ever need.
+  const buildCap = Math.max(nLineups * 20, 500);
   let attempts = 0;
   let noProgress = 0;
 
-  while (noProgress < maxNoProgress && attempts < 200000) {
+  while (noProgress < maxNoProgress && attempts < 200000 && allLineups.length < buildCap) {
     attempts++;
-    // Assume this attempt will fail; reset below if it succeeds.
-    if (lineups.length > 0) noProgress++;
+    if (allLineups.length > 0) noProgress++;
     const simIndex = Math.floor(rng() * nSims);
 
-    // Objective = this golfer's fantasy points in this one simulated world.
-    // Zero-out anyone at their exposure cap; boost anyone below their floor.
-    // Randomness adds ±noise to diversify the lineup pool.
+    // Objective = sim points for this world. Boost players below their minExp floor.
+    // No exposure cap during building — exposure is enforced in post-selection below.
     const obj = new Map();
     for (const g of pool) {
-      const used = useCount.get(g.id);
-      if (used >= maxUses.get(g.id) && !locks.has(g.id)) {
-        obj.set(g.id, -1e9);
-        continue;
-      }
       let v = simResults.get(g.id).samples[simIndex];
       if (randomness > 0) v += (rng() - 0.5) * 2 * randomness * 30;
       const floor = minUses.get(g.id);
+      const used = useCount.get(g.id);
       if (floor > 0 && used < floor) {
-        // Strongly prefer under-exposed must-plays (neediest first), best-effort.
         v += 500 + 500 * ((floor - used) / floor);
       }
       obj.set(g.id, v);
@@ -214,13 +202,6 @@ function buildPool(golfers, simResults, opts = {}) {
 
     const key = lineupKey(res.players);
     if (seen.has(key)) continue;
-
-    // Enforce per-golfer exposure caps on the finished lineup.
-    let busts = false;
-    for (const id of res.players) {
-      if (!locks.has(id) && useCount.get(id) + 1 > maxUses.get(id)) { busts = true; break; }
-    }
-    if (busts) continue;
 
     // Ownership bracket constraints: each {threshold, min, max} must be satisfied.
     if (bracketedOwnership.length) {
@@ -247,7 +228,7 @@ function buildPool(golfers, simResults, opts = {}) {
       if (!pass) continue;
     }
 
-    // Total ownership constraint: sum of all 6 players' projected ownership must be in range.
+    // Total ownership constraint.
     if (minTotalOwn != null || maxTotalOwn != null) {
       const ownSum = res.players.reduce((s, id) => s + (ownMap.get(id) || 0), 0);
       if (minTotalOwn != null && ownSum < minTotalOwn) continue;
@@ -258,14 +239,14 @@ function buildPool(golfers, simResults, opts = {}) {
     if (minUniquePlayers > 0) {
       const candidateSet = new Set(res.players);
       let pass = true;
-      for (const lu of lineups) {
+      for (const lu of allLineups) {
         const shared = lu.players.filter((id) => candidateSet.has(id)).length;
         if (DK_RULES.rosterSize - shared < minUniquePlayers) { pass = false; break; }
       }
       if (!pass) continue;
     }
 
-    // Min win equity: sum of all 6 players' win equity % must meet the threshold.
+    // Min win equity.
     if (minWinEquity > 0) {
       const weSum = res.players.reduce((s, id) => s + (winEquityById.get(id) || 0), 0);
       if (weSum < minWinEquity) continue;
@@ -273,22 +254,42 @@ function buildPool(golfers, simResults, opts = {}) {
 
     seen.add(key);
     for (const id of res.players) useCount.set(id, useCount.get(id) + 1);
-    lineups.push({ ...res, simIndex });
-    noProgress = 0; // found one — reset the stall counter
+    allLineups.push({ ...res, simIndex });
+    noProgress = 0;
   }
 
-  // Score every finished lineup across ALL sims for its true distribution.
-  scoreLineups(lineups, simResults, nSims);
-  // Composite "Sim Score": upside, projection, and ownership-leverage blended.
-  scoreComposite(lineups, golfers);
+  // Score every candidate lineup across ALL sims for its true distribution.
+  scoreLineups(allLineups, simResults, nSims);
+  scoreComposite(allLineups, golfers);
 
-  // Sort by composite score, then keep only the top N requested.
-  lineups.sort((a, b) => b.score - a.score);
-  if (lineups.length > nLineups) lineups.splice(nLineups);
+  // Sort all candidates by composite score descending.
+  allLineups.sort((a, b) => b.score - a.score);
+
+  // Post-select top N while enforcing per-golfer exposure caps on the final pool.
+  const postMaxUses = new Map(
+    pool.map((g) => {
+      const frac = maxExpById.has(g.id) ? maxExpById.get(g.id) : maxExposure;
+      return [g.id, Math.max(1, Math.round(frac * nLineups))];
+    })
+  );
+  const postUseCount = new Map(pool.map((g) => [g.id, 0]));
+  const lineups = [];
+  for (const lu of allLineups) {
+    if (lineups.length >= nLineups) break;
+    let ok = true;
+    for (const id of lu.players) {
+      if (!locks.has(id) && (postUseCount.get(id) || 0) + 1 > (postMaxUses.get(id) || 999999)) {
+        ok = false; break;
+      }
+    }
+    if (!ok) continue;
+    lineups.push(lu);
+    for (const id of lu.players) postUseCount.set(id, (postUseCount.get(id) || 0) + 1);
+  }
 
   const exposure = new Map();
-  for (const [id, c] of useCount) {
-    if (c > 0) exposure.set(id, c / lineups.length);
+  for (const [id, c] of postUseCount) {
+    if (c > 0) exposure.set(id, c / Math.max(lineups.length, 1));
   }
 
   return { lineups, exposure, attempts };
