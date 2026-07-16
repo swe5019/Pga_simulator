@@ -174,13 +174,18 @@ function buildPool(golfers, simResults, opts = {}) {
 
   const rng = window.Sim.makeRng(987654321);
 
-  // Increase attempt budget when extra constraints are active.
   const hasConstraints = bracketedOwnership.length > 0 || salaryTiers.length > 0 || minUniquePlayers > 0 || minTotalOwn != null || maxTotalOwn != null || minWinEquity > 0 || minSalary > 0;
+  // Stop when we go this many consecutive attempts without finding a new lineup —
+  // that means the valid lineup space is genuinely exhausted, not just budget-limited.
+  // This makes the result consistent regardless of how many lineups were requested.
+  const maxNoProgress = hasConstraints ? 1500 : 600;
   let attempts = 0;
-  const maxAttempts = nLineups * (hasConstraints ? 120 : 40) + 500;
+  let noProgress = 0;
 
-  while (lineups.length < nLineups && attempts < maxAttempts) {
+  while (lineups.length < nLineups && noProgress < maxNoProgress && attempts < 200000) {
     attempts++;
+    // Assume this attempt will fail; reset below if it succeeds.
+    if (lineups.length > 0) noProgress++;
     const simIndex = Math.floor(rng() * nSims);
 
     // Objective = this golfer's fantasy points in this one simulated world.
@@ -269,6 +274,7 @@ function buildPool(golfers, simResults, opts = {}) {
     seen.add(key);
     for (const id of res.players) useCount.set(id, useCount.get(id) + 1);
     lineups.push({ ...res, simIndex });
+    noProgress = 0; // found one — reset the stall counter
   }
 
   // Score every finished lineup across ALL sims for its true distribution.
