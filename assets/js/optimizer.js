@@ -195,13 +195,17 @@ function buildPool(golfers, simResults, opts = {}) {
       obj.set(g.id, v);
     }
 
-    // Hard cap: physically exclude any non-locked player whose current share in
-    // allLineups already meets or exceeds their cap fraction.  This guarantees the
-    // build pool itself respects exposure limits, so post-selection can honour them.
-    const iterPool = allLineups.length === 0 ? pool : pool.filter((g) => {
+    // Diversity cap: limit each player's BUILD appearances to an ABSOLUTE ceiling
+    // of floor(cap * nLineups). This stops one dominant player from crowding the
+    // candidate pool (so post-selection has enough non-chalk lineups to choose from)
+    // WITHOUT starving early iterations — the ceiling is a fixed count, not a running
+    // ratio, so a 50%-of-150 player stays available for their first 75 appearances.
+    const iterPool = pool.filter((g) => {
       if (locks.has(g.id)) return true;
       const capFrac = maxExpById.has(g.id) ? maxExpById.get(g.id) : maxExposure;
-      return capFrac >= 1 || useCount.get(g.id) / allLineups.length < capFrac;
+      if (capFrac >= 1) return true;
+      const buildLimit = Math.max(1, Math.floor(capFrac * nLineups));
+      return (useCount.get(g.id) || 0) < buildLimit;
     });
 
     const res = optimizeOne(iterPool, obj, { locks, minSalary });
@@ -273,47 +277,29 @@ function buildPool(golfers, simResults, opts = {}) {
   // Sort all candidates by composite score descending.
   allLineups.sort((a, b) => b.score - a.score);
 
-  // Post-select top N while enforcing per-golfer exposure caps on the final pool.
-  // Helper: run a selection pass over candidates using a given denominator for cap math.
-  function selectPass(candidates, capN) {
-    const maxUses = new Map(
-      pool.map((g) => {
-        const frac = maxExpById.has(g.id) ? maxExpById.get(g.id) : maxExposure;
-        // Floor (not round) so a cap never rounds UP past the stated max:
-        // e.g. 50% of 39 lineups = 19.5 must allow 19, not 20 (which is 51.3%).
-        return [g.id, Math.max(1, Math.floor(frac * capN))];
-      })
-    );
-    const useCount = new Map(pool.map((g) => [g.id, 0]));
-    const out = [];
-    for (const lu of candidates) {
-      if (out.length >= nLineups) break;
-      let ok = true;
-      for (const id of lu.players) {
-        if (!locks.has(id) && (useCount.get(id) || 0) + 1 > (maxUses.get(id) || 999999)) {
-          ok = false; break;
-        }
-      }
-      if (!ok) continue;
-      out.push(lu);
-      for (const id of lu.players) useCount.set(id, (useCount.get(id) || 0) + 1);
+  // Post-select the top-scoring lineups, enforcing per-golfer exposure caps against
+  // the ACTUAL selected size at each step. A player is only added to a lineup while
+  // count + 1 <= floor(cap * newSize). Because floor(cap * size) never decreases as
+  // size grows, every player's final count <= floor(cap * finalSize), so
+  // count / finalSize <= cap for ALL players — no matter how many lineups we end up
+  // with. This is a hard mathematical guarantee: no player can exceed their cap,
+  // whether we return the full nLineups or fewer.
+  const capFor = (id) => (maxExpById.has(id) ? maxExpById.get(id) : maxExposure);
+  const postUseCount = new Map(pool.map((g) => [g.id, 0]));
+  const lineups = [];
+  for (const lu of allLineups) {
+    if (lineups.length >= nLineups) break;
+    const newSize = lineups.length + 1;
+    let ok = true;
+    for (const id of lu.players) {
+      if (locks.has(id)) continue;
+      const cap = capFor(id);
+      if (cap >= 1) continue;
+      if ((postUseCount.get(id) || 0) + 1 > Math.floor(cap * newSize)) { ok = false; break; }
     }
-    return { selected: out, useCount };
-  }
-
-  // First pass: cap math uses the requested nLineups.
-  let { selected: lineups, useCount: postUseCount } = selectPass(allLineups, nLineups);
-
-  // If fewer lineups were returned than requested, the denominator for exposure % is
-  // the actual count — re-run with that so per-golfer caps are respected relative to
-  // the pool we actually have.
-  if (lineups.length > 0 && lineups.length < nLineups) {
-    const actualN = lineups.length;
-    const { selected: clipped, useCount: clippedCount } = selectPass(allLineups, actualN);
-    if (clipped.length <= lineups.length) {
-      lineups = clipped;
-      postUseCount = clippedCount;
-    }
+    if (!ok) continue;
+    lineups.push(lu);
+    for (const id of lu.players) postUseCount.set(id, (postUseCount.get(id) || 0) + 1);
   }
 
   const exposure = new Map();
