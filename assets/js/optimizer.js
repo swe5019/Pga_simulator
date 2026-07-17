@@ -266,25 +266,44 @@ function buildPool(golfers, simResults, opts = {}) {
   allLineups.sort((a, b) => b.score - a.score);
 
   // Post-select top N while enforcing per-golfer exposure caps on the final pool.
-  const postMaxUses = new Map(
-    pool.map((g) => {
-      const frac = maxExpById.has(g.id) ? maxExpById.get(g.id) : maxExposure;
-      return [g.id, Math.max(1, Math.round(frac * nLineups))];
-    })
-  );
-  const postUseCount = new Map(pool.map((g) => [g.id, 0]));
-  const lineups = [];
-  for (const lu of allLineups) {
-    if (lineups.length >= nLineups) break;
-    let ok = true;
-    for (const id of lu.players) {
-      if (!locks.has(id) && (postUseCount.get(id) || 0) + 1 > (postMaxUses.get(id) || 999999)) {
-        ok = false; break;
+  // Helper: run a selection pass over candidates using a given denominator for cap math.
+  function selectPass(candidates, capN) {
+    const maxUses = new Map(
+      pool.map((g) => {
+        const frac = maxExpById.has(g.id) ? maxExpById.get(g.id) : maxExposure;
+        return [g.id, Math.max(1, Math.round(frac * capN))];
+      })
+    );
+    const useCount = new Map(pool.map((g) => [g.id, 0]));
+    const out = [];
+    for (const lu of candidates) {
+      if (out.length >= nLineups) break;
+      let ok = true;
+      for (const id of lu.players) {
+        if (!locks.has(id) && (useCount.get(id) || 0) + 1 > (maxUses.get(id) || 999999)) {
+          ok = false; break;
+        }
       }
+      if (!ok) continue;
+      out.push(lu);
+      for (const id of lu.players) useCount.set(id, (useCount.get(id) || 0) + 1);
     }
-    if (!ok) continue;
-    lineups.push(lu);
-    for (const id of lu.players) postUseCount.set(id, (postUseCount.get(id) || 0) + 1);
+    return { selected: out, useCount };
+  }
+
+  // First pass: cap math uses the requested nLineups.
+  let { selected: lineups, useCount: postUseCount } = selectPass(allLineups, nLineups);
+
+  // If fewer lineups were returned than requested, the denominator for exposure % is
+  // the actual count — re-run with that so per-golfer caps are respected relative to
+  // the pool we actually have.
+  if (lineups.length > 0 && lineups.length < nLineups) {
+    const actualN = lineups.length;
+    const { selected: clipped, useCount: clippedCount } = selectPass(allLineups, actualN);
+    if (clipped.length <= lineups.length) {
+      lineups = clipped;
+      postUseCount = clippedCount;
+    }
   }
 
   const exposure = new Map();
