@@ -201,7 +201,7 @@ function buildPool(golfers, simResults, opts = {}) {
     const iterPool = allLineups.length === 0 ? pool : pool.filter((g) => {
       if (locks.has(g.id)) return true;
       const capFrac = maxExpById.has(g.id) ? maxExpById.get(g.id) : maxExposure;
-      return capFrac >= 1 || useCount.get(g.id) / allLineups.length <= capFrac;
+      return capFrac >= 1 || useCount.get(g.id) / allLineups.length < capFrac;
     });
 
     const res = optimizeOne(iterPool, obj, { locks, minSalary });
@@ -279,7 +279,9 @@ function buildPool(golfers, simResults, opts = {}) {
     const maxUses = new Map(
       pool.map((g) => {
         const frac = maxExpById.has(g.id) ? maxExpById.get(g.id) : maxExposure;
-        return [g.id, Math.max(1, Math.round(frac * capN))];
+        // Floor (not round) so a cap never rounds UP past the stated max:
+        // e.g. 50% of 39 lineups = 19.5 must allow 19, not 20 (which is 51.3%).
+        return [g.id, Math.max(1, Math.floor(frac * capN))];
       })
     );
     const useCount = new Map(pool.map((g) => [g.id, 0]));
