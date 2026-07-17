@@ -182,8 +182,9 @@ function buildPool(golfers, simResults, opts = {}) {
     if (allLineups.length > 0) noProgress++;
     const simIndex = Math.floor(rng() * nSims);
 
-    // Objective = sim points for this world. Boost players below their minExp floor.
-    // No exposure cap during building — exposure is enforced in post-selection below.
+    // Objective = sim points for this world.
+    // Boost players below their minExp floor; penalize players over their cap in
+    // the current candidate pool so the build explores diverse, cap-balanced lineups.
     const obj = new Map();
     for (const g of pool) {
       let v = simResults.get(g.id).samples[simIndex];
@@ -192,6 +193,12 @@ function buildPool(golfers, simResults, opts = {}) {
       const used = useCount.get(g.id);
       if (floor > 0 && used < floor) {
         v += 500 + 500 * ((floor - used) / floor);
+      }
+      if (allLineups.length > 0) {
+        const capFrac = maxExpById.has(g.id) ? maxExpById.get(g.id) : maxExposure;
+        if (capFrac < 1 && used / allLineups.length > capFrac) {
+          v -= 1000;
+        }
       }
       obj.set(g.id, v);
     }
