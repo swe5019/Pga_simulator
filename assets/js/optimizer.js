@@ -182,9 +182,7 @@ function buildPool(golfers, simResults, opts = {}) {
     if (allLineups.length > 0) noProgress++;
     const simIndex = Math.floor(rng() * nSims);
 
-    // Objective = sim points for this world.
-    // Boost players below their minExp floor; penalize players over their cap in
-    // the current candidate pool so the build explores diverse, cap-balanced lineups.
+    // Objective = sim points for this world. Boost players below their minExp floor.
     const obj = new Map();
     for (const g of pool) {
       let v = simResults.get(g.id).samples[simIndex];
@@ -194,16 +192,19 @@ function buildPool(golfers, simResults, opts = {}) {
       if (floor > 0 && used < floor) {
         v += 500 + 500 * ((floor - used) / floor);
       }
-      if (allLineups.length > 0) {
-        const capFrac = maxExpById.has(g.id) ? maxExpById.get(g.id) : maxExposure;
-        if (capFrac < 1 && used / allLineups.length > capFrac) {
-          v -= 1000;
-        }
-      }
       obj.set(g.id, v);
     }
 
-    const res = optimizeOne(pool, obj, { locks, minSalary });
+    // Hard cap: physically exclude any non-locked player whose current share in
+    // allLineups already meets or exceeds their cap fraction.  This guarantees the
+    // build pool itself respects exposure limits, so post-selection can honour them.
+    const iterPool = allLineups.length === 0 ? pool : pool.filter((g) => {
+      if (locks.has(g.id)) return true;
+      const capFrac = maxExpById.has(g.id) ? maxExpById.get(g.id) : maxExposure;
+      return capFrac >= 1 || useCount.get(g.id) / allLineups.length <= capFrac;
+    });
+
+    const res = optimizeOne(iterPool, obj, { locks, minSalary });
     if (!res) continue;
     if (minSalary > 0 && res.salary < minSalary) continue;
 
