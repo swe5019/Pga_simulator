@@ -277,37 +277,69 @@ function buildPool(golfers, simResults, opts = {}) {
   // Sort all candidates by composite score descending.
   allLineups.sort((a, b) => b.score - a.score);
 
-  // Post-select the top-scoring lineups, enforcing per-golfer exposure caps against
-  // the ACTUAL selected size at each step. A player is only added to a lineup while
-  // count + 1 <= floor(cap * newSize). Because floor(cap * size) never decreases as
-  // size grows, every player's final count <= floor(cap * finalSize), so
-  // count / finalSize <= cap for ALL players — no matter how many lineups we end up
-  // with. This is a hard mathematical guarantee: no player can exceed their cap,
-  // whether we return the full nLineups or fewer.
   const capFor = (id) => (maxExpById.has(id) ? maxExpById.get(id) : maxExposure);
-  const postUseCount = new Map(pool.map((g) => [g.id, 0]));
-  const lineups = [];
-  for (const lu of allLineups) {
-    if (lineups.length >= nLineups) break;
-    const newSize = lineups.length + 1;
-    let ok = true;
-    for (const id of lu.players) {
-      if (locks.has(id)) continue;
-      const cap = capFor(id);
-      if (cap >= 1) continue;
-      if ((postUseCount.get(id) || 0) + 1 > Math.floor(cap * newSize)) { ok = false; break; }
+
+  // Greedy top-down selection honoring per-golfer caps against a FIXED denominator T:
+  // a lineup is added only while each capped player's count stays <= floor(cap * T).
+  function selectWithTarget(T) {
+    const count = new Map();
+    const out = [];
+    for (const lu of allLineups) {
+      if (out.length >= nLineups) break;
+      let ok = true;
+      for (const id of lu.players) {
+        if (locks.has(id)) continue;
+        const cap = capFor(id);
+        if (cap >= 1) continue;
+        if ((count.get(id) || 0) + 1 > Math.floor(cap * T)) { ok = false; break; }
+      }
+      if (!ok) continue;
+      out.push(lu);
+      for (const id of lu.players) count.set(id, (count.get(id) || 0) + 1);
     }
-    if (!ok) continue;
-    lineups.push(lu);
+    return out;
+  }
+
+  // Find the largest pool whose exposures actually honor the caps. Start with the
+  // requested count as the denominator — this gives generous limits (e.g. 50% of 150
+  // = 75) so there's no small-size starvation where floor(cap * 1) = 0 blocks the
+  // very first lineup. Then descend: if we returned fewer than the denominator we
+  // assumed, the true denominator is smaller, so tighten and re-select until the size
+  // stabilizes. At the fixpoint size == denominator, so every count <= floor(cap*size)
+  // => count/size <= cap for every player. No player can exceed their cap.
+  let lineups = selectWithTarget(nLineups);
+  let guard = 0;
+  while (lineups.length > 0 && lineups.length < nLineups && guard++ < 200) {
+    const next = selectWithTarget(lineups.length);
+    if (next.length >= lineups.length) { lineups = next; break; }
+    lineups = next;
+  }
+
+  // Safety net: never return an empty pool when valid lineups exist. If a capped
+  // player is effectively mandatory (present in ~every lineup that satisfies the
+  // other constraints), honoring their cap is impossible — fall back to the top
+  // scoring lineups so the user still gets a pool. capExceeded (below) reports which
+  // caps could not be met so the UI can explain why.
+  if (lineups.length === 0 && allLineups.length > 0) {
+    lineups = allLineups.slice(0, nLineups);
+  }
+
+  const postUseCount = new Map(pool.map((g) => [g.id, 0]));
+  for (const lu of lineups) {
     for (const id of lu.players) postUseCount.set(id, (postUseCount.get(id) || 0) + 1);
   }
-
   const exposure = new Map();
+  const capExceeded = [];
   for (const [id, c] of postUseCount) {
-    if (c > 0) exposure.set(id, c / Math.max(lineups.length, 1));
+    if (c > 0) {
+      const frac = c / lineups.length;
+      exposure.set(id, frac);
+      const cap = capFor(id);
+      if (cap < 1 && frac > cap + 1e-9) capExceeded.push({ id, exposure: frac, cap });
+    }
   }
 
-  return { lineups, exposure, attempts };
+  return { lineups, exposure, attempts, capExceeded, requested: nLineups };
 }
 
 /** Compute mean / ceiling / floor of each lineup over the full sim set. */

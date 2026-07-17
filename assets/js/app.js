@@ -870,11 +870,24 @@ function buildPool() {
 
     const ms = Math.round(performance.now() - t0);
     const n = State.build.lineups.length;
+    const requested = State.build.requested || opts.nLineups;
+    const nameById = new Map(State.golfers.map((g) => [g.id, g.name]));
     // Best-effort min-exposure: flag any floors we couldn't reach.
     const miss = State.golfers.filter(
       (g) => g.minExp != null && (State.build.exposure.get(g.id) || 0) * 100 < g.minExp - 0.5
     );
     let msg = `✓ ${n} lineups in ${ms} ms`;
+    // A player whose MAX cap couldn't be honored is effectively required by the other
+    // constraints (locks, ownership brackets, salary). Explain rather than fail silently.
+    const capExceeded = State.build.capExceeded || [];
+    if (capExceeded.length) {
+      const who = capExceeded
+        .map((c) => `${nameById.get(c.id) || c.id} ${Math.round(c.exposure * 100)}% (cap ${Math.round(c.cap * 100)}%)`)
+        .join(', ');
+      msg += ` — ${who} exceeds max: they're required by your other settings, so their cap can't be met. Loosen a lock, ownership bracket, or min salary to fix.`;
+    } else if (n < requested) {
+      msg += ` — capped at ${n} of ${requested}: your exposure limits leave no more unique lineups. Raise a max exposure, add variety, or loosen constraints for more.`;
+    }
     if (miss.length) {
       msg += ` — couldn't reach min exposure for ${miss.map((g) => g.name).join(', ')}`;
     }
