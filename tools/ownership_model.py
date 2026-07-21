@@ -248,6 +248,19 @@ def odds_equity(raw, suffix):
     return out
 
 
+# Nickname canonicalization for cross-tab name matching. Mirror of
+# build_slate._NICKNAMES and the NICKNAMES map in assets/js/app.js.
+_NICKNAMES = {
+    "johnny": "john", "jonny": "john", "jon": "john",
+    "billy": "bill", "willie": "will", "robby": "rob", "bobby": "bob",
+    "tommy": "tom", "danny": "dan", "andy": "andrew", "paddy": "patrick",
+    "ricky": "rick", "rickie": "rick", "nicky": "nick",
+    "tony": "anthony", "mikey": "mike", "stevie": "steve",
+    "benny": "ben", "sammy": "sam", "matty": "matt", "timmy": "tim",
+    "jimmy": "jim", "kenny": "ken", "ronnie": "ron", "donnie": "don",
+}
+
+
 def _norm(s):
     import re
     s = str(s).lower()
@@ -255,7 +268,14 @@ def _norm(s):
         s = s.replace(a, b)
     s = re.sub(r"[^a-z ]", " ", s)
     s = re.sub(r"\b(jr|sr|ii|iii|iv)\b", "", s)
-    return re.sub(r"\s+", " ", s).strip()
+    s = re.sub(r"\s+", " ", s).strip()
+    # Canonicalize common nicknames so the Odds tab matches the Data tab even when
+    # a source spells a name differently (e.g. "Johnny Keefer" vs "John Keefer").
+    # Keep this map in sync with build_slate._NICKNAMES and app.js NICKNAMES.
+    parts = s.split(" ")
+    if len(parts) > 1 and parts[0] in _NICKNAMES:
+        parts[0] = _NICKNAMES[parts[0]]
+    return " ".join(parts)
 
 
 def _r(v, n=3):
