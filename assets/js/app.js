@@ -96,6 +96,7 @@ const NICKNAMES = {
   tony: 'anthony', mikey: 'mike', stevie: 'steve',
   benny: 'ben', sammy: 'sam', matty: 'matt', timmy: 'tim',
   jimmy: 'jim', kenny: 'ken', ronnie: 'ron', donnie: 'don',
+  matti: 'matthias',
 };
 
 function normName(s) {
