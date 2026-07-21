@@ -1,11 +1,11 @@
 {
- "updatedUtc": "2026-07-20T21:56:46Z",
+ "updatedUtc": "2026-07-21T15:00:01Z",
  "tournament": "M_2026",
  "date": "7/23/26",
  "event": "3M Open",
  "draftGroupId": "151000",
  "isShowdown": false,
- "count": 140,
+ "count": 145,
  "players": [
   {
    "name": "Scottie Scheffler",
@@ -890,6 +890,13 @@
    "dkId": 43650599
   },
   {
+   "name": "Ryan Brehm",
+   "salary": 6200,
+   "status": "",
+   "out": false,
+   "dkId": 43654948
+  },
+  {
    "name": "Nicholas Lindheim",
    "salary": 6100,
    "status": "",
@@ -939,6 +946,20 @@
    "dkId": 43650606
   },
   {
+   "name": "Brannon Fahrny",
+   "salary": 6100,
+   "status": "",
+   "out": false,
+   "dkId": 43654949
+  },
+  {
+   "name": "Cooper Schultz",
+   "salary": 6100,
+   "status": "",
+   "out": false,
+   "dkId": 43654950
+  },
+  {
    "name": "Patton Kizzire",
    "salary": 6000,
    "status": "",
@@ -986,6 +1007,20 @@
    "status": "",
    "out": false,
    "dkId": 43650613
+  },
+  {
+   "name": "Jeevan Sihota",
+   "salary": 6000,
+   "status": "",
+   "out": false,
+   "dkId": 43654951
+  },
+  {
+   "name": "Griffin Wood",
+   "salary": 6000,
+   "status": "",
+   "out": false,
+   "dkId": 43654952
   }
  ]
 }
