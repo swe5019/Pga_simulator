@@ -1,11 +1,11 @@
 {
- "updatedUtc": "2026-07-21T21:59:44Z",
+ "updatedUtc": "2026-07-22T15:00:10Z",
  "tournament": "M_2026",
  "date": "7/23/26",
  "event": "3M Open",
  "draftGroupId": "151004",
  "isShowdown": true,
- "count": 144,
+ "count": 145,
  "players": [
   {
    "name": "Scottie Scheffler",
@@ -192,8 +192,8 @@
   {
    "name": "Jason Day",
    "salary": 7600,
-   "status": "",
-   "out": false,
+   "status": "OUT",
+   "out": true,
    "dkId": 43655095
   },
   {
@@ -902,6 +902,13 @@
    "status": "",
    "out": false,
    "dkId": 43655195
+  },
+  {
+   "name": "Charley Hoffman",
+   "salary": 6200,
+   "status": "",
+   "out": false,
+   "dkId": 43667172
   },
   {
    "name": "Nicholas Lindheim",
