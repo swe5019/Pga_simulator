@@ -121,20 +121,22 @@ def _load_json_safe(path):
         return None
 
 
-def _fmt_date(raw):
-    """DK ISO/epoch start -> 'M/D/YY'. Falls back to today on parse failure."""
+def _parse_dk_dt(raw):
+    """DK ISO/epoch start -> naive UTC datetime, or None if unparseable."""
     s = str(raw or "")
-    dt = None
     m = re.search(r"/Date\((\d+)", s)  # legacy "/Date(1719316800000)/"
     if m:
-        dt = datetime.datetime.utcfromtimestamp(int(m.group(1)) / 1000)
-    else:
-        iso = s.replace("Z", "").split(".")[0]
-        try:
-            dt = datetime.datetime.fromisoformat(iso)
-        except ValueError:
-            dt = None
-    dt = dt or datetime.datetime.utcnow()
+        return datetime.datetime.utcfromtimestamp(int(m.group(1)) / 1000)
+    iso = s.replace("Z", "").split(".")[0]
+    try:
+        return datetime.datetime.fromisoformat(iso)
+    except ValueError:
+        return None
+
+
+def _fmt_date(raw):
+    """DK ISO/epoch start -> 'M/D/YY'. Falls back to today on parse failure."""
+    dt = _parse_dk_dt(raw) or datetime.datetime.utcnow()
     return f"{dt.month}/{dt.day}/{dt.strftime('%y')}"
 
 
@@ -324,11 +326,35 @@ def auto_discover():
 
 
 def _pick_showdown_dg(showdown_groups, lobby):
-    """Return (dg, event, tourney, date) for the most-used showdown draft group, or None."""
+    """Return (dg, event, tourney, date) for the CURRENT round's showdown, or None.
+
+    Showdown is single-round scoring, so DK posts a fresh draft group for each
+    round (R1..R4). Ranking by contest volume drifts onto an earlier round that
+    has been open longer and piled up more contests, which gives stale salaries
+    (e.g. Round 4 showing Round 2's prices). Instead pick by start time: the
+    soonest lock still in the future is the round about to be played. If every
+    group has already locked, take the most recent one; only if no start times
+    parse do we fall back to contest volume.
+    """
     if not showdown_groups:
         return None
-    best_dg = max(showdown_groups.items(), key=lambda kv: (kv[1]["count"], kv[1]["entries"]))[0]
     dg_meta = {d.get("DraftGroupId"): d for d in lobby.get("DraftGroups", [])}
+    now = datetime.datetime.utcnow()
+    starts = {}
+    for dg in showdown_groups:
+        m = dg_meta.get(dg, {})
+        t = _parse_dk_dt(m.get("StartDate") or m.get("StartDateEst"))
+        if t is not None:
+            starts[dg] = t
+    best_dg = None
+    if starts:
+        upcoming = {dg: t for dg, t in starts.items() if t >= now}
+        if upcoming:
+            best_dg = min(upcoming.items(), key=lambda kv: kv[1])[0]  # next lock = current round
+        else:
+            best_dg = max(starts.items(), key=lambda kv: kv[1])[0]    # all locked: newest round
+    if best_dg is None:
+        best_dg = max(showdown_groups.items(), key=lambda kv: (kv[1]["count"], kv[1]["entries"]))[0]
     meta = dg_meta.get(best_dg, {})
     start = meta.get("StartDate") or meta.get("StartDateEst")
     ddata = get_json(
