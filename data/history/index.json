@@ -1,5 +1,5 @@
 {
- "updatedUtc": "2026-07-26T20:05:46Z",
+ "updatedUtc": "2026-07-26T23:54:45Z",
  "count": 25,
  "events": [
   {
@@ -18,11 +18,11 @@
    "file": "history/3M_OPEN_2026.json",
    "date": "2026-07-21 00:00:00",
    "hasPredicted": true,
-   "hasActual": false,
-   "maePct": null,
-   "colabMaePct": null,
-   "comparedPlayers": null,
-   "updatedUtc": "2026-07-26T20:05:46Z"
+   "hasActual": true,
+   "maePct": 1.775,
+   "colabMaePct": 1.641,
+   "comparedPlayers": 142,
+   "updatedUtc": "2026-07-26T23:54:45Z"
   },
   {
    "tournament": "CADILLAC_2026",
@@ -174,7 +174,7 @@
    "hasPredicted": false,
    "hasActual": true,
    "maePct": null,
-   "colabMaePct": 6.992,
+   "colabMaePct": 2.301,
    "comparedPlayers": null,
    "updatedUtc": "2026-06-25T15:52:16Z"
   },
@@ -220,7 +220,7 @@
    "maePct": 2.958,
    "colabMaePct": 2.928,
    "comparedPlayers": 72,
-   "updatedUtc": "2026-07-26T20:05:46Z"
+   "updatedUtc": "2026-07-26T23:54:45Z"
   },
   {
    "tournament": "TRUIST_2026",
