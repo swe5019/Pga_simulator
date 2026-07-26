@@ -522,7 +522,17 @@ def main():
                          "dkId": dk_id}
 
     if not players:
-        raise SystemExit("No players parsed from draftables — aborting.")
+        # The discovered classic group has no draftables yet. This is normal late in
+        # a tournament week: this week's classic has already locked (Thursday tee) and
+        # the only open classic group is next week's event, which DK has not populated.
+        # Don't abort the whole run — preserve the existing dk.json classic salaries and
+        # still refresh the current showdown slate if we discovered one.
+        print(f"No players parsed from classic draftables for dg={dg} — "
+              f"skipping classic write, keeping existing dk.json.")
+        if showdown_disc:
+            _fetch_and_write_showdown(showdown_disc, os.path.dirname(out))
+            return 0
+        raise SystemExit("No players parsed and no showdown discovered — nothing to do.")
 
     rows = sorted(players.items(), key=lambda kv: -kv[1]["salary"])  # high salary first
 
