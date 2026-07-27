@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>SlateSims — PGA DFS Simulator for DraftKings</title>
   <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml" />
-  <link rel="stylesheet" href="assets/css/styles.css?v=20260717e" />
+  <link rel="stylesheet" href="assets/css/styles.css?v=20260717f" />
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-13J1816EN4"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -362,6 +362,12 @@
         </div>
         <div>
           <h2>Lineup Pool <span class="sub" id="poolCount"></span></h2>
+          <div class="trim-bar">
+            <label class="trim-label">Trim to top</label>
+            <input id="trimN" type="number" min="1" step="1" placeholder="20" class="filter-num" />
+            <button id="trimBtn" class="ghost">Trim pool</button>
+            <span class="trim-hint">Keeps your best lineups by the “Optimize for” metric with exposure caps re-enforced. Build wide, then trim to the number you'll enter. Rebuild on tab 2 to restore the full pool.</span>
+          </div>
           <div id="lineupList" class="lineups"></div>
         </div>
       </div>
@@ -529,13 +535,13 @@
     </div>
   </div>
 
-  <script src="assets/js/scoring.js?v=20260717e"></script>
-  <script src="assets/js/data.js?v=20260717e"></script>
-  <script src="assets/js/sim.js?v=20260717e"></script>
-  <script src="assets/js/optimizer.js?v=20260717e"></script>
-  <script src="assets/js/contest.js?v=20260717e"></script>
-  <script src="assets/js/app.js?v=20260717e"></script>
-  <script src="assets/js/onboard.js?v=20260717e"></script>
-  <script src="assets/js/tour.js?v=20260717e"></script>
+  <script src="assets/js/scoring.js?v=20260717f"></script>
+  <script src="assets/js/data.js?v=20260717f"></script>
+  <script src="assets/js/sim.js?v=20260717f"></script>
+  <script src="assets/js/optimizer.js?v=20260717f"></script>
+  <script src="assets/js/contest.js?v=20260717f"></script>
+  <script src="assets/js/app.js?v=20260717f"></script>
+  <script src="assets/js/onboard.js?v=20260717f"></script>
+  <script src="assets/js/tour.js?v=20260717f"></script>
 </body>
 </html>

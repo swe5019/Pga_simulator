@@ -277,6 +277,28 @@ function buildPool(golfers, simResults, opts = {}) {
   // Sort all candidates by composite score descending.
   allLineups.sort((a, b) => b.score - a.score);
 
+  const { lineups, exposure, capExceeded } =
+    selectByExposure(allLineups, nLineups, { maxExposure, maxExpById, locks });
+
+  return { lineups, exposure, attempts, capExceeded, requested: nLineups };
+}
+
+/**
+ * Select the top-scoring subset (up to nTarget) of an already score-sorted lineup
+ * list while guaranteeing every golfer's exposure stays within their cap. This is
+ * the "cast a wide net, then trim to your entry count with exposures intact" step:
+ * buildPool uses it on its full candidate pool, and the Review tab uses it to trim
+ * a large pool down to the number you actually plan to enter.
+ *
+ * @param {Array} sortedLineups - candidates, best first (each has .players: [id])
+ * @param {number} nTarget - how many lineups to keep
+ * @param {object} opts - { maxExposure, maxExpById:Map<id,0..1>, locks:Set }
+ * @returns {{lineups:Array, exposure:Map, capExceeded:Array}}
+ */
+function selectByExposure(sortedLineups, nTarget, opts = {}) {
+  const maxExposure = opts.maxExposure != null ? opts.maxExposure : 1;
+  const maxExpById = opts.maxExpById || new Map();
+  const locks = opts.locks || new Set();
   const capFor = (id) => (maxExpById.has(id) ? maxExpById.get(id) : maxExposure);
 
   // Greedy top-down selection honoring per-golfer caps against a FIXED denominator T:
@@ -284,8 +306,8 @@ function buildPool(golfers, simResults, opts = {}) {
   function selectWithTarget(T) {
     const count = new Map();
     const out = [];
-    for (const lu of allLineups) {
-      if (out.length >= nLineups) break;
+    for (const lu of sortedLineups) {
+      if (out.length >= nTarget) break;
       let ok = true;
       for (const id of lu.players) {
         if (locks.has(id)) continue;
@@ -307,9 +329,9 @@ function buildPool(golfers, simResults, opts = {}) {
   // assumed, the true denominator is smaller, so tighten and re-select until the size
   // stabilizes. At the fixpoint size == denominator, so every count <= floor(cap*size)
   // => count/size <= cap for every player. No player can exceed their cap.
-  let lineups = selectWithTarget(nLineups);
+  let lineups = selectWithTarget(nTarget);
   let guard = 0;
-  while (lineups.length > 0 && lineups.length < nLineups && guard++ < 200) {
+  while (lineups.length > 0 && lineups.length < nTarget && guard++ < 200) {
     const next = selectWithTarget(lineups.length);
     if (next.length >= lineups.length) { lineups = next; break; }
     lineups = next;
@@ -320,17 +342,17 @@ function buildPool(golfers, simResults, opts = {}) {
   // other constraints), honoring their cap is impossible — fall back to the top
   // scoring lineups so the user still gets a pool. capExceeded (below) reports which
   // caps could not be met so the UI can explain why.
-  if (lineups.length === 0 && allLineups.length > 0) {
-    lineups = allLineups.slice(0, nLineups);
+  if (lineups.length === 0 && sortedLineups.length > 0) {
+    lineups = sortedLineups.slice(0, nTarget);
   }
 
-  const postUseCount = new Map(pool.map((g) => [g.id, 0]));
+  const useCount = new Map();
   for (const lu of lineups) {
-    for (const id of lu.players) postUseCount.set(id, (postUseCount.get(id) || 0) + 1);
+    for (const id of lu.players) useCount.set(id, (useCount.get(id) || 0) + 1);
   }
   const exposure = new Map();
   const capExceeded = [];
-  for (const [id, c] of postUseCount) {
+  for (const [id, c] of useCount) {
     if (c > 0) {
       const frac = c / lineups.length;
       exposure.set(id, frac);
@@ -339,7 +361,7 @@ function buildPool(golfers, simResults, opts = {}) {
     }
   }
 
-  return { lineups, exposure, attempts, capExceeded, requested: nLineups };
+  return { lineups, exposure, capExceeded };
 }
 
 /** Compute mean / ceiling / floor of each lineup over the full sim set. */
@@ -386,4 +408,4 @@ function scoreComposite(lineups, golfers) {
   });
 }
 
-window.Optimizer = { DK_RULES, buildPool, optimizeOne, lineupKey };
+window.Optimizer = { DK_RULES, buildPool, optimizeOne, lineupKey, selectByExposure };
