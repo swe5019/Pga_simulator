@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>SlateSims — PGA DFS Simulator for DraftKings</title>
   <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml" />
-  <link rel="stylesheet" href="assets/css/styles.css?v=20260717g" />
+  <link rel="stylesheet" href="assets/css/styles.css?v=20260717h" />
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-13J1816EN4"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -175,23 +175,23 @@
           <thead>
             <tr>
               <th class="ctr"><input type="checkbox" id="selAll" checked title="Select / deselect all"></th>
-              <th data-sort="name">Golfer</th>
-              <th class="num" data-sort="salary">Salary</th>
-              <th class="num" data-sort="skill">Skill</th>
-              <th class="num" data-sort="proj">Proj</th>
-              <th class="num" data-sort="floor">Floor</th>
-              <th class="num" data-sort="ceil">Ceil</th>
-              <th class="num" data-sort="cut">Cut%</th>
+              <th data-sort="name" title="Click a golfer's name to see their simulated outcome distribution.">Golfer</th>
+              <th class="num" data-sort="salary" title="DraftKings salary for this slate. Comes from the DK feed and can't be edited here.">Salary</th>
+              <th class="num" data-sort="skill" title="Strokes gained per round vs. the field, blended from betting odds and strokes-gained data. Drives every simulated round — higher skill means more birdies, fewer bogeys. Editable.">Skill</th>
+              <th class="num" data-sort="proj" title="Mean fantasy points across every simulated tournament. Editable as a manual override — leave blank to use the sim.">Proj</th>
+              <th class="num" data-sort="floor" title="10th percentile simulated score — a bad-but-realistic day. The golfer scores at or above this in 90% of simulated tournaments.">Floor</th>
+              <th class="num" data-sort="ceil" title="90th percentile simulated score — a strong day. The golfer reaches this in the top 10% of simulated tournaments.">Ceil</th>
+              <th class="num" data-sort="cut" title="% of simulated tournaments this golfer makes the 36-hole cut (or plays all 4 rounds in a no-cut event).">Cut%</th>
               <th class="num" data-sort="win" title="Win equity from win odds">Win%</th>
               <th class="num" data-sort="t5" title="Top-5 equity from odds">T5%</th>
               <th class="num" data-sort="t10" title="Top-10 equity from odds">T10%</th>
-              <th class="num" data-sort="own">Own%</th>
-              <th class="num" data-sort="exp">Exp%</th>
-              <th class="num" data-sort="val">Val</th>
+              <th class="num" data-sort="own" title="Projected % of DraftKings entries rostering this golfer. Editable as a manual override.">Own%</th>
+              <th class="num" data-sort="exp" title="Your % of built lineups that include this golfer, after the most recent Build. Compare to Own% to spot leverage.">Exp%</th>
+              <th class="num" data-sort="val" title="Value: projected points per $1,000 of salary. Higher means more projection for the price.">Val</th>
               <th class="num" title="Minimum exposure target %">Min</th>
               <th class="num" title="Maximum exposure cap %">Max</th>
-              <th class="ctr">🔒</th>
-              <th class="ctr">🚫</th>
+              <th class="ctr" title="Lock: force this golfer into every built lineup.">🔒</th>
+              <th class="ctr" title="Ban: exclude this golfer from every built lineup.">🚫</th>
             </tr>
           </thead>
           <tbody><!-- rows injected --></tbody>
@@ -361,12 +361,22 @@
           </div>
         </div>
         <div>
-          <h2>Lineup Pool <span class="sub" id="poolCount"></span></h2>
+          <h2>Lineup Pool <span class="sub" id="poolCount"></span>
+            <button id="exportReviewBtn" class="ghost small" title="Export every lineup in the current pool, with salary, ownership, and sim stats, to CSV.">⬇ Export CSV</button>
+          </h2>
           <div class="trim-bar">
             <label class="trim-label">Trim to top</label>
             <input id="trimN" type="number" min="1" step="1" placeholder="20" class="filter-num" />
+            <label class="trim-label">by</label>
+            <select id="trimBy" title="Which stat to rank lineups by before trimming.">
+              <option value="score" selected>Sim Score (balanced)</option>
+              <option value="ceiling">Ceiling (GPP upside)</option>
+              <option value="mean">Proj (cash)</option>
+              <option value="p99">Top-1% spike (Milly Maker)</option>
+              <option value="winEquity">Win Equity %</option>
+            </select>
             <button id="trimBtn" class="ghost">Trim pool</button>
-            <span class="trim-hint">Keeps your best lineups by the “Optimize for” metric with exposure caps re-enforced. Build wide, then trim to the number you'll enter. Rebuild on tab 2 to restore the full pool.</span>
+            <span class="trim-hint">Keeps your best lineups by the metric above, with exposure caps re-enforced. Build wide, then trim to the number you'll enter. Rebuild on tab 2 to restore the full pool.</span>
           </div>
           <div id="lineupList" class="lineups"></div>
         </div>
@@ -535,13 +545,13 @@
     </div>
   </div>
 
-  <script src="assets/js/scoring.js?v=20260717g"></script>
-  <script src="assets/js/data.js?v=20260717g"></script>
-  <script src="assets/js/sim.js?v=20260717g"></script>
-  <script src="assets/js/optimizer.js?v=20260717g"></script>
-  <script src="assets/js/contest.js?v=20260717g"></script>
-  <script src="assets/js/app.js?v=20260717g"></script>
-  <script src="assets/js/onboard.js?v=20260717g"></script>
-  <script src="assets/js/tour.js?v=20260717g"></script>
+  <script src="assets/js/scoring.js?v=20260717h"></script>
+  <script src="assets/js/data.js?v=20260717h"></script>
+  <script src="assets/js/sim.js?v=20260717h"></script>
+  <script src="assets/js/optimizer.js?v=20260717h"></script>
+  <script src="assets/js/contest.js?v=20260717h"></script>
+  <script src="assets/js/app.js?v=20260717h"></script>
+  <script src="assets/js/onboard.js?v=20260717h"></script>
+  <script src="assets/js/tour.js?v=20260717h"></script>
 </body>
 </html>

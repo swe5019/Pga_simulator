@@ -404,16 +404,25 @@ function applyFilterUncheck() {
 /* ---------------------- Player CSV export / import ---------------------- */
 function exportPlayersCSV() {
   const r = (v, d = '') => (v != null ? v : d);
-  const rows = [['Name', 'Salary', 'Skill', 'Proj', 'Own%', 'MinExp', 'MaxExp']];
+  const rows = [['Name', 'Salary', 'Skill', 'Proj', 'Floor', 'Ceil', 'Cut%', 'Win%', 'T5%', 'T10%', 'Own%', 'Val', 'MinExp', 'MaxExp']];
   for (const g of State.golfers) {
     if (g.notInSlate) continue;
     const sim = State.simResults ? State.simResults.get(g.id) : null;
+    const proj = g.projLocked && g.projOverride != null ? g.projOverride : (sim ? sim.mean : null);
+    const val = proj != null ? proj / (g.salary / 1000) : null;
     rows.push([
       g.name,
       g.salary,
       g.skill,
-      r(g.projOverride ?? (sim ? sim.mean.toFixed(1) : null)),
+      r(proj != null ? (+proj).toFixed(1) : null),
+      r(sim ? num(sim.floor) : null),
+      r(sim ? num(sim.ceiling) : null),
+      r(sim ? num(sim.cutPct) : null),
+      r(winEquity(g) != null ? winEquity(g).toFixed(1) : null),
+      r(g.top5Prob != null ? g.top5Prob.toFixed(1) : null),
+      r(g.top10Prob != null ? g.top10Prob.toFixed(1) : null),
       r(g.ownership != null ? g.ownership.toFixed(1) : null),
+      r(val != null ? val.toFixed(2) : null),
       r(g.minExp),
       r(g.maxExp),
     ]);
@@ -946,8 +955,8 @@ function trimPool() {
     $('#buildStatus').textContent = `Pool already has ${State.build.lineups.length} lineups — nothing to trim. Build a larger pool first.`;
     return;
   }
-  const key = $('#sortBy').value;
-  const sorted = [...State.build.lineups].sort((a, b) => b[key] - a[key]);
+  const key = $('#trimBy').value;
+  const sorted = [...State.build.lineups].sort((a, b) => (b[key] || 0) - (a[key] || 0));
   const maxExpById = new Map();
   for (const g of State.golfers) if (g.maxExp != null) maxExpById.set(g.id, g.maxExp / 100);
   const locks = new Set(State.golfers.filter((g) => g.locked).map((g) => g.id));
@@ -958,7 +967,8 @@ function trimPool() {
   State.build.capExceeded = res.capExceeded;
   State.contest = null; // pool changed — any prior contest ROI is stale
   const nameById = new Map(State.golfers.map((g) => [g.id, g.name]));
-  let msg = `✓ Trimmed to ${res.lineups.length} lineups (best by ${key}, exposures re-enforced)`;
+  const keyLabel = $('#trimBy option:checked').textContent;
+  let msg = `✓ Trimmed to ${res.lineups.length} lineups (best by ${keyLabel}, exposures re-enforced)`;
   if (res.capExceeded && res.capExceeded.length) {
     const who = res.capExceeded
       .map((c) => `${nameById.get(c.id) || c.id} ${Math.round(c.exposure * 100)}%`)
@@ -969,6 +979,37 @@ function trimPool() {
   renderPlayers();
   renderBuildSummary();
   renderReview();
+}
+
+/** Export every lineup in the current pool (as ordered on the Review tab) to CSV. */
+function exportReviewCSV() {
+  if (!State.build || !State.build.lineups.length) {
+    $('#buildStatus').textContent = 'Build a pool first.';
+    return;
+  }
+  const header = ['Lineup', 'Golfers', 'Salary', 'Own Sum', 'Sum T10%', 'Sim Score',
+                   'Proj', 'Floor', 'Ceiling', 'Top-1% Spike', 'Win Equity%'];
+  const rows = State.build.lineups.map((lu, i) => {
+    const players = lu.players.map(byId);
+    const names = players.map((g) => g.name).join('; ');
+    const sumT10 = players.reduce((s, g) => s + (g.top10Prob || 0), 0);
+    return [
+      i + 1,
+      `"${names}"`,
+      lu.salary,
+      num(lu.ownSum),
+      num(sumT10),
+      num(lu.score),
+      num(lu.mean),
+      num(lu.floor),
+      num(lu.ceiling),
+      num(lu.p99),
+      lu.winEquity != null ? num(lu.winEquity) : '',
+    ].join(',');
+  });
+  const csv = [header.join(','), ...rows].join('\n');
+  download('slatesims_review_pool.csv', csv);
+  $('#buildStatus').textContent = `✓ Exported ${State.build.lineups.length} lineups.`;
 }
 
 /* ---------------------- Contest sim / ROI ---------------------- */
@@ -1559,6 +1600,7 @@ function init() {
   $('#runSim').addEventListener('click', () => { track('run_simulation', { n_sims: $('#nSims').value }); runSim(); });
   $('#buildBtn').addEventListener('click', () => { track('build_lineups', { n_lineups: $('#nLineups').value }); buildPool(); });
   $('#trimBtn').addEventListener('click', () => { track('trim_pool', { n: $('#trimN').value }); trimPool(); });
+  $('#exportReviewBtn').addEventListener('click', () => { track('export_review_csv'); exportReviewCSV(); });
   $('#exportPlayersBtn').addEventListener('click', exportPlayersCSV);
   $('#importPlayersCsv').addEventListener('change', (e) => { if (e.target.files[0]) { importPlayersCSV(e.target.files[0]); e.target.value = ''; } });
 
