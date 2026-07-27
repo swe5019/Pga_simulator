@@ -477,7 +477,9 @@ function renderPlayers() {
     if (g.notInSlate) continue; // not in this week's DK field — hidden from the pool
     const matchesFilter = !filterActive || golferMatchesFilter(g);
     const r = State.simResults ? State.simResults.get(g.id) : null;
-    const proj = r ? r.mean : null;
+    // A locked/imported projection override shows immediately, even before a sim has
+    // run (the sim results it would otherwise read from don't exist yet).
+    const proj = (g.projLocked && g.projOverride != null) ? g.projOverride : (r ? r.mean : null);
     const value = proj != null ? proj / (g.salary / 1000) : null;
     const exp = State.build ? (State.build.exposure.get(g.id) || 0) * 100 : null;
 
