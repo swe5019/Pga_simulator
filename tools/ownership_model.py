@@ -265,7 +265,8 @@ _NICKNAMES = {
 def _norm(s):
     import re
     s = str(s).lower()
-    for a, b in [("é", "e"), ("ö", "o"), ("ø", "o"), ("í", "i"), ("á", "a")]:
+    for a, b in [("é", "e"), ("ö", "o"), ("ø", "o"), ("í", "i"), ("á", "a"),
+                 ("æ", "ae"), ("ð", "d"), ("þ", "th"), ("ł", "l")]:
         s = s.replace(a, b)
     s = re.sub(r"[^a-z ]", " ", s)
     s = re.sub(r"\b(jr|sr|ii|iii|iv)\b", "", s)

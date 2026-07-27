@@ -99,9 +99,18 @@ const NICKNAMES = {
   matti: 'matthias',
 };
 
+// Characters that NFD decomposition does NOT split into base + combining mark
+// (they're atomic Unicode letters, not precomposed accents) — e.g. ø is "o with
+// stroke", not "o" + a diacritic, so it survives NFD untouched and then gets
+// stripped by the a-z filter below, silently deleting a letter (Hojgaard vs
+// Højgaard would go to "hojgaard" vs "h jgaard" and never match). Map these
+// by hand first. Mirror of the accent map in build_slate._nrm / ownership_model._norm.
+const ACCENT_MAP = { 'ø': 'o', 'æ': 'ae', 'ð': 'd', 'þ': 'th', 'ł': 'l' };
+
 function normName(s) {
-  const base = (s || '')
-    .toLowerCase()
+  let pre = (s || '').toLowerCase();
+  for (const [a, b] of Object.entries(ACCENT_MAP)) pre = pre.split(a).join(b);
+  const base = pre
     .normalize('NFD')
     .replace(/[̀-ͯ]/g, '')
     .replace(/[^a-z ]/g, ' ')
