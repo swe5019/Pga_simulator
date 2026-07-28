@@ -1,11 +1,483 @@
 {
- "updatedUtc": "2026-07-28T14:57:38Z",
- "slate": "",
- "event": "",
+ "updatedUtc": "2026-07-28T15:00:27Z",
+ "slate": "ROCKET_2026",
+ "event": "Rocket Classic",
  "counts": {
-  "items": 0,
-  "golfersMentioned": 0
+  "items": 32,
+  "golfersMentioned": 20
  },
- "mentions": [],
- "items": []
+ "mentions": [
+  {
+   "name": "Jackson Koivun",
+   "news": 7,
+   "chatter": 0,
+   "total": 7
+  },
+  {
+   "name": "Lucas Glover",
+   "news": 5,
+   "chatter": 0,
+   "total": 5
+  },
+  {
+   "name": "Chris Gotterup",
+   "news": 2,
+   "chatter": 0,
+   "total": 2
+  },
+  {
+   "name": "Brooks Koepka",
+   "news": 2,
+   "chatter": 0,
+   "total": 2
+  },
+  {
+   "name": "Seamus Power",
+   "news": 2,
+   "chatter": 0,
+   "total": 2
+  },
+  {
+   "name": "Denny McCarthy",
+   "news": 2,
+   "chatter": 0,
+   "total": 2
+  },
+  {
+   "name": "Chandler Phillips",
+   "news": 2,
+   "chatter": 0,
+   "total": 2
+  },
+  {
+   "name": "Taylor Moore",
+   "news": 1,
+   "chatter": 0,
+   "total": 1
+  },
+  {
+   "name": "Brad Dalke",
+   "news": 1,
+   "chatter": 0,
+   "total": 1
+  },
+  {
+   "name": "Brandt Snedeker",
+   "news": 1,
+   "chatter": 0,
+   "total": 1
+  },
+  {
+   "name": "Ryan Gerard",
+   "news": 1,
+   "chatter": 0,
+   "total": 1
+  },
+  {
+   "name": "Rickie Fowler",
+   "news": 1,
+   "chatter": 0,
+   "total": 1
+  },
+  {
+   "name": "Cameron Young",
+   "news": 1,
+   "chatter": 0,
+   "total": 1
+  },
+  {
+   "name": "Jordan L. Smith",
+   "news": 1,
+   "chatter": 0,
+   "total": 1
+  },
+  {
+   "name": "Harris English",
+   "news": 1,
+   "chatter": 0,
+   "total": 1
+  },
+  {
+   "name": "Benjamin James",
+   "news": 1,
+   "chatter": 0,
+   "total": 1
+  },
+  {
+   "name": "Jason Day",
+   "news": 1,
+   "chatter": 0,
+   "total": 1
+  },
+  {
+   "name": "Daniel Brown",
+   "news": 1,
+   "chatter": 0,
+   "total": 1
+  },
+  {
+   "name": "Michael Kim",
+   "news": 1,
+   "chatter": 0,
+   "total": 1
+  },
+  {
+   "name": "Hideki Matsuyama",
+   "news": 1,
+   "chatter": 0,
+   "total": 1
+  }
+ ],
+ "items": [
+  {
+   "title": "Blades Brown Takes the Tough Decision to Exit $10M Event for a Chance at PGA Tour Career",
+   "link": "https://sports.yahoo.com/articles/blades-brown-takes-tough-decision-193755393.html",
+   "summary": "Blades Brown could compete for a share of the $10 million prize pool at the Rocket Classic this week. However, the 19-year-old, who earned his Special Temporary Membership on the PGA Tour in June, made the difficult decision to withdraw from the event.",
+   "published": "Mon, 27 Jul 2026 19:37:55 +0000",
+   "source": "Yahoo Golf",
+   "kind": "news",
+   "golfers": [
+    "Daniel Brown"
+   ]
+  },
+  {
+   "title": "Lucas Glover ripped his shoes off on the green at the 3M Open after a complaint about his spike marks in apparent protest",
+   "link": "https://sports.yahoo.com/golf/article/lucas-glover-ripped-his-shoes-off-on-the-green-at-the-3m-open-after-a-complaint-about-his-spike-marks-in-apparent-protest-194058545.html",
+   "summary": "\"I wasn't breaking any rules.\"",
+   "published": "Mon, 27 Jul 2026 19:40:58 +0000",
+   "source": "Yahoo Golf",
+   "kind": "news",
+   "golfers": [
+    "Lucas Glover"
+   ]
+  },
+  {
+   "title": "The Rocket Classic is leaving Detroit. Does Michigan's PGA Tour future have hope?",
+   "link": "https://sports.yahoo.com/articles/rocket-classic-leaving-detroit-does-200017771.html",
+   "summary": "The PGA Tour's Rocket Classic hosts its final tournament July 30-Aug. 2 at Detroit Golf Club as organizers cite uncertainty over scheduling and value.",
+   "published": "Mon, 27 Jul 2026 20:00:17 +0000",
+   "source": "Yahoo Golf",
+   "kind": "news",
+   "golfers": []
+  },
+  {
+   "title": "Jason Day withdraws from 2026 Rocket Classic, second straight WD with injury",
+   "link": "https://sports.yahoo.com/articles/jason-day-withdraws-2026-rocket-200723251.html",
+   "summary": "Jason Day withdraws from the Rocket Classic as his back injury threatens his chances of making the PGA Tour playoffs.",
+   "published": "Mon, 27 Jul 2026 20:07:23 +0000",
+   "source": "Yahoo Golf",
+   "kind": "news",
+   "golfers": [
+    "Jason Day"
+   ]
+  },
+  {
+   "title": "First-time Tour winner's unique fishing celebration goes viral",
+   "link": "https://sports.yahoo.com/articles/first-time-tour-winners-unique-204236260.html",
+   "summary": "Jackson Koivun captured his first PGA Tour win at the 2026 3M Open, then celebrated in a unique way...",
+   "published": "Mon, 27 Jul 2026 20:42:36 +0000",
+   "source": "Yahoo Golf",
+   "kind": "news",
+   "golfers": [
+    "Jackson Koivun"
+   ]
+  },
+  {
+   "title": "Why golf may have quietly influenced LeBron James' decision to join the 76ers",
+   "link": "https://sports.yahoo.com/articles/why-golf-may-quietly-influenced-205000634.html",
+   "summary": "LeBron said golf would not play a factor in his decision, but he ended up picking one of the top golf cities in the U.S.",
+   "published": "Mon, 27 Jul 2026 20:50:00 +0000",
+   "source": "Yahoo Golf",
+   "kind": "news",
+   "golfers": [
+    "Benjamin James"
+   ]
+  },
+  {
+   "title": "They Weren't in the Field This Weekend, Now They're Playing the AIG Women's Open",
+   "link": "https://sports.yahoo.com/articles/werent-field-weekend-now-theyre-205218782.html",
+   "summary": "Meet the four English golfers who secured their places in the AIG Women's Open field after advancing through a dramatic Final Qualifying on Monday.",
+   "published": "Mon, 27 Jul 2026 20:52:18 +0000",
+   "source": "Yahoo Golf",
+   "kind": "news",
+   "golfers": [
+    "Harris English"
+   ]
+  },
+  {
+   "title": "2026 Rocket Classic payout, purse: How much does each golfer get?",
+   "link": "https://sports.yahoo.com/articles/2026-rocket-classic-payout-purse-210037100.html",
+   "summary": "Here's a look at the purse and prize money payouts for the 2026 Rocket Classic, where $10 million is up for grabs.",
+   "published": "Mon, 27 Jul 2026 21:00:37 +0000",
+   "source": "Yahoo Golf",
+   "kind": "news",
+   "golfers": []
+  },
+  {
+   "title": "Jackson Koivun's 3M win? Scottie Scheffler's praise and Ted Scott's statement told the story",
+   "link": "https://sports.yahoo.com/articles/jackson-koivuns-3m-win-scottie-212548312.html",
+   "summary": "Want to understand the importance of Jackson Koivun's 3M win?",
+   "published": "Mon, 27 Jul 2026 21:25:48 +0000",
+   "source": "Yahoo Golf",
+   "kind": "news",
+   "golfers": [
+    "Jackson Koivun"
+   ]
+  },
+  {
+   "title": "Nick Faldo speculates how Brooks Koepka is feeling now after rejoining the PGA Tour from LIV Golf",
+   "link": "https://sports.yahoo.com/articles/nick-faldo-speculates-brooks-koepka-213000534.html",
+   "summary": "Nick Faldo has been a fierce critic of LIV Golf since its inception way back in June 2022. Faldo has made no secret of the fact that he doesn\u2019t agree with LIV Golf, and everything that it represents.",
+   "published": "Mon, 27 Jul 2026 21:30:00 +0000",
+   "source": "Yahoo Golf",
+   "kind": "news",
+   "golfers": [
+    "Brooks Koepka"
+   ]
+  },
+  {
+   "title": "Lucas Glover removes shoes at 3M after complaints about spike marks on the greens",
+   "link": "https://sports.yahoo.com/articles/lucas-glover-removes-shoes-3m-215137453.html",
+   "summary": "When Lucas Glover removed his shoes to retrieve his ball from the hole in the final round of the 3M Open, TV commentators speculated it was in protest of the AimPoint green-reading system used by many PGA Tour players. Turns out, he went shoeless for another reason: to prevent his metal spikes from making marks on the greens following a complaint by a rules official. \u201cAlright, let\u2019s clear this up,",
+   "published": "Mon, 27 Jul 2026 21:51:37 +0000",
+   "source": "Yahoo Golf",
+   "kind": "news",
+   "golfers": [
+    "Lucas Glover"
+   ]
+  },
+  {
+   "title": "Detroit Golf Club Revamps North Course; Royal Lytham Integrates Robotic Mowers",
+   "link": "https://sports.yahoo.com/articles/detroit-golf-club-revamps-north-233754608.html",
+   "summary": "Before the Rocket Classic gets its first competitive look at Detroit Golf Club\u2019s rebuilt North Course, Sam Moynihan and his crew must make a substantially renovated golf course feel like an old Donald Ross one. Across the Atlantic, Paul Smith\u2019s team is preparing Royal Lytham & St Annes for the 50th AIG Women\u2019s Open while integrating autonomous mowers into a course famous for 174 pot bunkers.",
+   "published": "Mon, 27 Jul 2026 23:37:54 +0000",
+   "source": "Yahoo Golf",
+   "kind": "news",
+   "golfers": [
+    "Jordan L. Smith"
+   ]
+  },
+  {
+   "title": "Hideki Matsuyama: Tied for third at 3M Open",
+   "link": "https://www.rotowire.com//golf/player/hideki-matsuyama-743",
+   "summary": "Matsuyama posted a seven-under 64 in the final round of the 3M Open to finish tied with Brian Harman, Chandler Phillips and Denny McCarthy for third. Visit RotoWire.com for more analysis on this update.",
+   "published": "Sun, 26 Jul 2026 3:17:00 PM PDT",
+   "source": "RotoWire Golf",
+   "kind": "news",
+   "golfers": [
+    "Hideki Matsuyama",
+    "Denny McCarthy",
+    "Chandler Phillips"
+   ]
+  },
+  {
+   "title": "Michael Kim: Drops to T10 despite Friday 59",
+   "link": "https://www.rotowire.com//golf/player/michael-kim-953",
+   "summary": "Kim posted a 17-under cumulative score at the 3M Open to finish tied with Gary Woodland and Seamus Power for 10th. Visit RotoWire.com for more analysis on this update.",
+   "published": "Sun, 26 Jul 2026 3:25:00 PM PDT",
+   "source": "RotoWire Golf",
+   "kind": "news",
+   "golfers": [
+    "Seamus Power",
+    "Michael Kim"
+   ]
+  },
+  {
+   "title": "Chandler Phillips: Best finish of 2026",
+   "link": "https://www.rotowire.com//golf/player/chandler-phillips-1769",
+   "summary": "Phillips finished in a four-way tie for third at the 3M Open following his four-under 67 final round. Visit RotoWire.com for more analysis on this update.",
+   "published": "Sun, 26 Jul 2026 3:43:00 PM PDT",
+   "source": "RotoWire Golf",
+   "kind": "news",
+   "golfers": [
+    "Chandler Phillips"
+   ]
+  },
+  {
+   "title": "Denny McCarthy: Share of third at TPC Twin Cities",
+   "link": "https://www.rotowire.com//golf/player/denny-mccarthy-960",
+   "summary": "McCarthy carded a five-under 66 in the final round of the 3M Open to finish in a four-way share of third. Visit RotoWire.com for more analysis on this update.",
+   "published": "Sun, 26 Jul 2026 4:06:00 PM PDT",
+   "source": "RotoWire Golf",
+   "kind": "news",
+   "golfers": [
+    "Denny McCarthy"
+   ]
+  },
+  {
+   "title": "Golf Shoes at 3M Open Cause Unusual Tournament Controversy",
+   "link": "https://sports.yahoo.com/articles/golf-shoes-3m-open-cause-020019684.html",
+   "summary": "During the 3M Open on Sunday, PGA Tour veteran Lucas Glover was involved in an unusual controversy involving his spiked golf shoes. He removed his shoes mid round creating conversation on the broadcast and social media. At first, people assumed he was protesting the AimPoint process used prevalently throughout the PGA Tour. However, Glover cleared [\u2026] The post Golf Shoes at 3M Open Cause Unusual T",
+   "published": "Tue, 28 Jul 2026 02:00:19 +0000",
+   "source": "Yahoo Golf",
+   "kind": "news",
+   "golfers": [
+    "Lucas Glover"
+   ]
+  },
+  {
+   "title": "Jackson Koivun\u2019s Swing Called \u2018A Breath of Fresh Air\u2019 On PGA Tour",
+   "link": "https://sports.yahoo.com/articles/jackson-koivun-swing-called-breath-023635175.html",
+   "summary": "After Jackson Koivun\u2019s first PGA Tour victory at the 3M Open, golf experts cannot stop raving about the young star especially when it comes to his unique swing. While definitely an unconventional approach, the specific motion he creates produces significant ball-speed per Zephy Melton of Golf.com.He wrote, \u201cIf you slow Koivun\u2019s swing down, you\u2019ll notice [\u2026] The post Jackson Koivun\u2019s Swing Called \u2018",
+   "published": "Tue, 28 Jul 2026 02:36:35 +0000",
+   "source": "Yahoo Golf",
+   "kind": "news",
+   "golfers": [
+    "Jackson Koivun",
+    "Cameron Young"
+   ]
+  },
+  {
+   "title": "Rocket Classic Field 2026: Full Player List, Withdrawals",
+   "link": "https://sports.yahoo.com/articles/rocket-classic-field-2026-full-023816467.html",
+   "summary": "The PGA Tour heads to Detroit Golf Club for the Rocket Classic. Check out the full field, top contenders and withdrawals. The post Rocket Classic Field 2026: Full Player List, Withdrawals appeared first on HEAVY.",
+   "published": "Tue, 28 Jul 2026 02:38:16 +0000",
+   "source": "Yahoo Golf",
+   "kind": "news",
+   "golfers": []
+  },
+  {
+   "title": "Why Jackson Koivun's unorthodox swing is so effective",
+   "link": "https://sports.yahoo.com/articles/why-jackson-koivuns-unorthodox-swing-025441526.html",
+   "summary": "Jackson Koivun, the rookie winner of the 3M Open, has a unique move in his swing that helps him generate tremendous power.",
+   "published": "Tue, 28 Jul 2026 02:54:41 +0000",
+   "source": "Yahoo Golf",
+   "kind": "news",
+   "golfers": [
+    "Seamus Power",
+    "Jackson Koivun"
+   ]
+  },
+  {
+   "title": "\u2018Shoeless' Lucas Glover sets the record straight on 3M footwear stunt",
+   "link": "https://sports.yahoo.com/articles/shoeless-lucas-glover-sets-record-025804381.html",
+   "summary": "Lucas Glover didn't try to walk back what he did.",
+   "published": "Tue, 28 Jul 2026 02:58:04 +0000",
+   "source": "Yahoo Golf",
+   "kind": "news",
+   "golfers": [
+    "Lucas Glover"
+   ]
+  },
+  {
+   "title": "Major Champion Pulls Out of Rocket Classic Amid Ongoing Injury Battle",
+   "link": "https://sports.yahoo.com/articles/major-champion-pulls-rocket-classic-030217133.html",
+   "summary": "The Rocket Classic loses one of its biggest names after another withdrawal due to a back injury with the FedExCup Playoffs approaching. The post Major Champion Pulls Out of Rocket Classic Amid Ongoing Injury Battle appeared first on HEAVY.",
+   "published": "Tue, 28 Jul 2026 03:02:17 +0000",
+   "source": "Yahoo Golf",
+   "kind": "news",
+   "golfers": []
+  },
+  {
+   "title": "Top PGA DFS Picks for the 2026 Rocket Classic: Key Golfers to Watch",
+   "link": "https://sports.yahoo.com/articles/top-pga-dfs-picks-2026-034032817.html",
+   "summary": "Build your Rocket Classic DFS lineup around Chris Gotterup, Ryan Gerard and Rickie Fowler for maximum birdie upside this week.",
+   "published": "Tue, 28 Jul 2026 03:40:32 +0000",
+   "source": "Yahoo Golf",
+   "kind": "news",
+   "golfers": [
+    "Chris Gotterup",
+    "Ryan Gerard",
+    "Rickie Fowler"
+   ]
+  },
+  {
+   "title": "PGA Tour Stars to Hit Rooftop Tee Shots in Rocket Classic\u2019s \u2018Par 3 in the D\u2019",
+   "link": "https://sports.yahoo.com/articles/pga-tour-stars-hit-rooftop-042206665.html",
+   "summary": "The Rocket Classic debuts its unique Par 3 in the D rooftop challenge while preparing for its final PGA Tour event at Detroit Golf Club. The post PGA Tour Stars to Hit Rooftop Tee Shots in Rocket Classic\u2019s \u2018Par 3 in the D\u2019 appeared first on HEAVY.",
+   "published": "Tue, 28 Jul 2026 04:22:06 +0000",
+   "source": "Yahoo Golf",
+   "kind": "news",
+   "golfers": []
+  },
+  {
+   "title": "PGA Tour golfer explains why he took off his shoes in bizarre incident at 3M Open",
+   "link": "https://sports.yahoo.com/articles/pga-tour-golfer-explains-why-053135436.html",
+   "summary": "Lucas Glover removed his footwear to make a point after complaints over spike marks on the green",
+   "published": "Tue, 28 Jul 2026 05:31:35 +0000",
+   "source": "Yahoo Golf",
+   "kind": "news",
+   "golfers": [
+    "Lucas Glover"
+   ]
+  },
+  {
+   "title": "The decision Jackson Koivun made before turning professional shows exactly why he\u2019s golf\u2019s next superstar",
+   "link": "https://sports.yahoo.com/articles/decision-jackson-koivun-made-turning-093000017.html",
+   "summary": "Jackson Koivun looked poised beyond his years at the 3M Open. He led by three shots going into Sunday, but was hunted down by world number one and four-time major winner Scottie Scheffler on the final day.",
+   "published": "Tue, 28 Jul 2026 09:30:00 +0000",
+   "source": "Yahoo Golf",
+   "kind": "news",
+   "golfers": [
+    "Jackson Koivun"
+   ]
+  },
+  {
+   "title": "'Thanks to a phenomenal coach' - Dubois splits from McGuigan ahead of defence",
+   "link": "https://www.skysports.com/boxing/news/12040/13567672/caroline-dubois-splits-from-trainer-shane-mcguigan-ahead-of-lightweight-title-defence-vs-amelia-moore",
+   "summary": "Caroline Dubois has parted ways with trainer Shane McGuigan before she bids to defend her WBC and WBO lightweight titles against Amelia Moore in Birmingham on August 29, live on Sky Sports .",
+   "published": "Tue, 28 Jul 2026 09:46:00 BST",
+   "source": "Sky Sports Golf",
+   "kind": "news",
+   "golfers": [
+    "Taylor Moore"
+   ]
+  },
+  {
+   "title": "Why Brooks Koepka should feel disappointed about PGA Tour return six months after leaving LIV Golf",
+   "link": "https://sports.yahoo.com/articles/why-brooks-koepka-feel-disappointed-103000479.html",
+   "summary": "Brooks Koepka caused shockwaves throughout the professional golf scene when he left LIV Golf in December and rejoined the PGA Tour just a few weeks later. Koepka left the PGA Tour in 2022 to join LIV Golf, and he achieved huge success on the Saudi-backed league, winning five times in total.",
+   "published": "Tue, 28 Jul 2026 10:30:00 +0000",
+   "source": "Yahoo Golf",
+   "kind": "news",
+   "golfers": [
+    "Brooks Koepka"
+   ]
+  },
+  {
+   "title": "Rocket Classic Predictions & Top Picks 2026: Gotterup Eying Fourth Win",
+   "link": "https://sports.yahoo.com/articles/rocket-classic-predictions-picks-top-155500676.html",
+   "summary": "Free 2026 Rocket Classic predictions, with our best picks and all you need to know about the field at Detroit Golf Club from July 30-August 2.",
+   "published": "Tue, 28 Jul 2026 11:20:00 +0000",
+   "source": "Yahoo Golf",
+   "kind": "news",
+   "golfers": [
+    "Chris Gotterup"
+   ]
+  },
+  {
+   "title": "Jackson Koivun suggests whether he now expects a Presidents Cup pick after winning the 3M Open",
+   "link": "https://sports.yahoo.com/articles/jackson-koivun-suggests-whether-now-113000803.html",
+   "summary": "Jackson Koivun believes that he has got even more to prove if he hopes to earn a place on Brandt Snedeker\u2019s Presidents Cup team despite winning the 3M Open this past week. The golfing world is talking all about Koivun right now.",
+   "published": "Tue, 28 Jul 2026 11:30:00 +0000",
+   "source": "Yahoo Golf",
+   "kind": "news",
+   "golfers": [
+    "Brandt Snedeker",
+    "Jackson Koivun"
+   ]
+  },
+  {
+   "title": "Jackson Koivun's coach on 3M win: 'Nothing that he does surprises me'",
+   "link": "https://sports.yahoo.com/articles/jackson-koivuns-coach-3m-win-120131659.html",
+   "summary": "Jackson Koivun won his first PGA Tour title in his third pro start. His coach reveals the mindset behind his rapid rise.",
+   "published": "Tue, 28 Jul 2026 12:01:31 +0000",
+   "source": "Yahoo Golf",
+   "kind": "news",
+   "golfers": [
+    "Jackson Koivun"
+   ]
+  },
+  {
+   "title": "What happened in Brad Dalke\u2019s last PGA Tour appearance as he gets ready to return at the Rocket Classic",
+   "link": "https://sports.yahoo.com/articles/happened-brad-dalke-last-pga-133000592.html",
+   "summary": "Brad Dalke is set to make a highly anticipated appearance on the PGA Tour at the Rocket Classic. Dalke is a YouTube golfer by profession, but he had an immensely promising amateur career that saw him play at The Masters and the US Open.",
+   "published": "Tue, 28 Jul 2026 13:30:00 +0000",
+   "source": "Yahoo Golf",
+   "kind": "news",
+   "golfers": [
+    "Brad Dalke"
+   ]
+  }
+ ]
 }
