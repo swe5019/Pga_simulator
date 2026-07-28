@@ -238,6 +238,30 @@ table.lut tfoot td:first-child { color: var(--text); }
 .newsitem .chips { margin-top: 7px; }
 .newsitem .chip { font-size: 11px; padding: 2px 8px; }
 button.newsfil.active { color: var(--text); border-color: var(--green); background: #14241a; }
+
+/* Roster status alerts — withdrawals/injuries for THIS event */
+.newsalert {
+  display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+  padding: 9px 12px; border-radius: 8px; margin-bottom: 8px;
+  font-size: 12.5px; border: 1px solid;
+}
+.newsalert.wd { background: #2a1215; border-color: #5c1f26; }
+.newsalert.inj { background: #2a2312; border-color: #5c4a1f; }
+.newsalert .alerttag {
+  font-weight: 800; font-size: 10px; letter-spacing: .6px; padding: 2px 7px;
+  border-radius: 4px; text-transform: uppercase;
+}
+.newsalert.wd .alerttag { background: var(--down); color: #fff; }
+.newsalert.inj .alerttag { background: #d29922; color: #1b1200; }
+.newsalert .alerthead { color: var(--dim); flex: 1 1 240px; min-width: 180px; }
+.newsalert .alertconfirm { color: var(--text); font-weight: 600; font-size: 11.5px; }
+tr.hasalert td.name { color: var(--down); }
+.rowtag {
+  font-size: 9.5px; font-weight: 800; letter-spacing: .4px; padding: 1px 5px;
+  border-radius: 3px; vertical-align: middle;
+}
+.rowtag.wd { background: var(--down); color: #fff; }
+.rowtag.inj { background: #d29922; color: #1b1200; }
 button.savecl { padding: 2px 9px; font-size: 13px; line-height: 1.3; }
 button.addbtn {
   background: var(--panel2); color: var(--text); border: 1px solid var(--line);

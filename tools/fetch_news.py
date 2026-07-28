@@ -103,6 +103,37 @@ ROSTER_TERMS = [
 ]
 
 
+# Headline phrases that mean a golfer's status changed. Split by severity: a
+# withdrawal is settled, an injury note is a risk flag that still needs watching.
+WD_TERMS = ["withdraw", "withdrew", "withdrawal", " wd ", "pulls out", "pulled out",
+            "out of the tournament", "out of the field", "out of the event",
+            "disqualified", "replaces"]
+INJURY_TERMS = ["injury", "injured", "illness", "back spasms", "wrist", "ailing",
+                "injury scare", "doubtful", "questionable"]
+
+
+def roster_alert(title, matchers):
+    """
+    Detect a status change from a HEADLINE and say which golfers it applies to.
+
+    Deliberately title-only. Withdrawal stories name the affected player in the
+    headline, whereas body text routinely name-drops a dozen others — flagging on
+    the summary would mark a whole leaderboard round-up as withdrawn.
+    """
+    t = " " + (title or "").lower() + " "
+    kind = None
+    if any(k in t for k in WD_TERMS):
+        kind = "wd"
+    elif any(k in t for k in INJURY_TERMS):
+        kind = "injury"
+    if not kind:
+        return None
+    named = golfers_in_text(strip_publisher(title), matchers)
+    if not named:
+        return None
+    return {"kind": kind, "golfers": named}
+
+
 def strip_publisher(title):
     """
     Drop Google News' trailing " - Publisher" before keyword matching.
@@ -142,6 +173,12 @@ def is_dfs_relevant(text, about_this_week):
 SUBREDDITS = ["dfsports", "DraftKings", "golf"]
 
 MAX_ITEMS = 120  # cap what we publish so news.json stays small
+
+# Tournament news is perishable. Google News topic queries happily return matches
+# from months back — "Koepka withdraws from RBC Canadian Open" is 6 weeks stale and
+# reads as current if you don't check the date, which is actively dangerous when the
+# whole point is deciding who to roster this week.
+MAX_AGE_DAYS = 10
 
 
 # ---------------------------------------------------------------- name matching
@@ -435,6 +472,7 @@ def main():
     raw = rss_items + red_items
 
     # Keep an item if it mentions the event or anyone in this week's field.
+    now_ts = datetime.datetime.utcnow().timestamp()
     seen_links, items = set(), []
     mentions = {}
     for it in raw:
@@ -450,16 +488,42 @@ def main():
         relevance_blob = f"{strip_publisher(it['title'])} {it.get('summary','')}"
         if not is_dfs_relevant(relevance_blob, bool(names) or hits_event):
             continue
+        # Drop stale coverage. Without this the feed mixes last month's withdrawals
+        # in with this week's and they're indistinguishable at a glance.
+        ts = parse_when(it.get("published"))
+        if ts and (now_ts - ts) > MAX_AGE_DAYS * 86400:
+            continue
         link = it.get("link") or it["title"]
         if link in seen_links:
             continue
         seen_links.add(link)
         it["golfers"] = names
+        # Flag roster-status news (withdrawal / injury) so the buzz table can say WHY
+        # a golfer is being talked about. High buzz from a WD is the opposite signal
+        # to high buzz from hype, and the raw count can't tell them apart.
+        # Only treat a status change as current if the story is about THIS event.
+        # "Koepka withdraws from RBC Canadian Open" names a golfer in our field and
+        # says "withdraws", but he is playing this week — flagging him would be worse
+        # than showing nothing.
+        alert = roster_alert(it["title"], matchers) if hits_event else None
+        if alert:
+            it["alert"] = alert["kind"]
         items.append(it)
         # One item counts once per golfer, so a single long article can't dominate.
         for n in names:
             m = mentions.setdefault(n, {"name": n, "news": 0, "chatter": 0})
             m["news" if it["kind"] == "news" else "chatter"] += 1
+        # Attribute the alert only to golfers named in the HEADLINE. A round-up that
+        # mentions ten players while reporting one withdrawal must not mark all ten
+        # as out; WD stories name the affected player in the title.
+        if alert:
+            for n in alert["golfers"]:
+                m = mentions.setdefault(n, {"name": n, "news": 0, "chatter": 0})
+                # A withdrawal outranks an injury note — it's already decided.
+                if m.get("alert") != "wd":
+                    m["alert"] = alert["kind"]
+                    m["alertHeadline"] = it["title"][:160]
+                    m["alertLink"] = it.get("link") or ""
 
     # Newest first, across both kinds. Sorting news ahead of chatter and then
     # truncating would starve chatter out of the list entirely once it's flowing,

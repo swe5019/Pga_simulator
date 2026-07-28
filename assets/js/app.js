@@ -1476,13 +1476,41 @@ function renderNews() {
   );
   const rows = (n.mentions || []).slice(0, 40);
   $('#buzzCount').textContent = rows.length ? `— top ${rows.length}` : '';
+
+  // Status alerts first and loudest. A high buzz count from a withdrawal means the
+  // opposite of a high buzz count from hype, and the number alone can't say which.
+  const alerted = (n.mentions || []).filter((m) => m.alert);
+  $('#newsAlerts').innerHTML = alerted.length
+    ? alerted
+        .map((m) => {
+          const g = ownByName.get(normName(m.name));
+          const dkOut = g && g.out;
+          const wd = m.alert === 'wd';
+          // News usually breaks before DraftKings flips a player's status, so say
+          // explicitly whether DK has caught up — that gap is the actionable part.
+          const confirm = wd
+            ? (dkOut ? 'confirmed OUT on DraftKings' : 'DraftKings has not flagged this yet — verify before lock')
+            : (dkOut ? 'flagged OUT on DraftKings' : 'still active on DraftKings');
+          return `<div class="newsalert ${wd ? 'wd' : 'inj'}">
+            <span class="alerttag">${wd ? 'WD' : 'INJURY'}</span>
+            <b>${escapeHtml(m.name)}</b>
+            <span class="alerthead">${escapeHtml(m.alertHeadline || '')}</span>
+            <span class="alertconfirm">${escapeHtml(confirm)}</span>
+          </div>`;
+        })
+        .join('')
+    : '';
+
   $('#buzzTable tbody').innerHTML = rows.length
     ? rows
         .map((m) => {
           const g = ownByName.get(normName(m.name));
           const own = g && g.ownership != null ? g.ownership.toFixed(1) + '%' : '—';
-          return `<tr>
-            <td class="name">${escapeHtml(m.name)}</td>
+          const badge = m.alert
+            ? ` <span class="rowtag ${m.alert === 'wd' ? 'wd' : 'inj'}" title="${escapeHtml(m.alertHeadline || '')}">${m.alert === 'wd' ? 'WD' : 'INJ'}</span>`
+            : '';
+          return `<tr class="${m.alert ? 'hasalert' : ''}">
+            <td class="name">${escapeHtml(m.name)}${badge}</td>
             <td class="num">${m.news}</td>
             <td class="num">${m.chatter}</td>
             <td class="num"><b>${m.total}</b></td>
