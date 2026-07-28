@@ -52,20 +52,72 @@ def google_news_feeds(event, slate_id):
     This is the backbone of the tab rather than a nice-to-have: querying by topic
     pulls the same story from many outlets through one dependable endpoint, instead
     of depending on a pile of individual publisher feeds that break or block us.
-    It also means "everything related to the current tournament" actually tracks the
-    tournament, since the query is rebuilt from the live event name each run.
+    It also means the feed actually tracks the current tournament, since the query
+    is rebuilt from the live event name each run.
+
+    Queries are deliberately DFS-shaped, not general golf. A broad "PGA Tour news"
+    query drags in schedule announcements and celebrity filler, which is noise to
+    someone building DraftKings lineups.
     """
     base = "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US:en&q="
     queries = []
     if event:
-        queries.append((f"Google News: {event}", f'"{event}" golf'))
-        queries.append((f"Google News: {event} DFS", f'"{event}" DFS OR fantasy OR DraftKings'))
+        queries.append((f"Google News: {event} DFS",
+                        f'"{event}" DraftKings OR DFS OR "daily fantasy"'))
+        queries.append((f"Google News: {event} picks",
+                        f'"{event}" picks OR lineup OR ownership OR sleepers'))
+        queries.append((f"Google News: {event} WD",
+                        f'"{event}" withdraws OR withdrawal OR injury'))
     queries += [
-        ("Google News: PGA Tour", "PGA Tour golf news"),
-        ("Google News: PGA DFS", "PGA DFS DraftKings fantasy golf picks"),
-        ("Google News: withdrawals", "PGA Tour withdraws OR injury golfer"),
+        ("Google News: PGA DFS", "PGA DraftKings DFS daily fantasy golf picks"),
+        ("Google News: PGA WD", "PGA Tour golfer withdraws OR injury OR replaces"),
     ]
     return [(label, base + urllib.parse.quote(q)) for label, q in queries]
+
+
+# --- Relevance: is this actually useful to someone building DK PGA lineups? ---
+
+# Explicit DFS / betting vocabulary. Any hit qualifies an item on its own.
+DFS_TERMS = [
+    "draftkings", "draft kings", " dk ", "dfs", "daily fantasy", "fantasy golf",
+    "fantasy", "fanduel", "lineup", "lineups", "ownership", "gpp", "showdown",
+    "milly maker", "sleeper", "sleepers", "chalk", "leverage", "value play",
+    "one and done", "optimizer", "projections", "salary", "salaries", "punt",
+    "betting", "odds", "outright", "prop", "parlay", "picks", "preview",
+    "fades", "fade", "best bets", "expert picks", "core plays",
+]
+
+# Roster-impacting news. A withdrawal isn't "DFS content" in the literal sense, but
+# it's the single most actionable thing for a lineup, so it qualifies on its own when
+# the item is about this week (a field golfer or the event itself). "tee times" is
+# deliberately absent — it mostly matches broadcast/TV-schedule filler.
+ROSTER_TERMS = [
+    "withdraw", "withdrew", "withdrawal", "withdrawals", " wd ", "injury",
+    "injured", "out of the", "pulls out", "pulled out", "replaces",
+    "replacement", "disqualified", "suspended play", "illness", "field 2026",
+    "player list", "commits", "commitment",
+]
+
+
+def is_dfs_relevant(text, about_this_week):
+    """
+    Keep only what a DraftKings PGA DFS player needs.
+
+    Two ways in: explicit DFS/betting content, or roster-impacting news about this
+    week's tournament. General golf coverage — schedule announcements, equipment
+    reviews, prize money, tour politics — is dropped even when it names a golfer.
+
+    `about_this_week` is true when the item mentions a golfer in the field OR the
+    event itself. Requiring a matched golfer was too strict: withdrawal round-ups
+    like "Field 2026: Full Player List, Withdrawals" name nobody in the headline
+    yet are exactly what a lineup builder needs to see.
+    """
+    t = " " + (text or "").lower() + " "
+    if any(k in t for k in DFS_TERMS):
+        return True
+    if about_this_week and any(k in t for k in ROSTER_TERMS):
+        return True
+    return False
 
 
 # Community chatter — the ownership leading indicator. Reddit blocks the .json API
@@ -374,7 +426,12 @@ def main():
         names = golfers_in_text(blob, matchers)
         norm_blob = _nrm(blob)
         hits_event = bool(event_words) and any(w in norm_blob for w in event_words)
+        # Must be about this week (the event or someone in the field) AND be useful
+        # to a DK lineup builder. The second test is what keeps general golf
+        # coverage — schedule news, equipment, tour politics — out of the tab.
         if not names and not hits_event:
+            continue
+        if not is_dfs_relevant(blob, bool(names) or hits_event):
             continue
         link = it.get("link") or it["title"]
         if link in seen_links:
