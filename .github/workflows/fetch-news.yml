@@ -34,7 +34,13 @@ jobs:
           python-version: '3.12'
 
       # No third-party deps: stdlib urllib + ElementTree only.
+      # Reddit chatter needs app-only OAuth because Reddit blocks anonymous
+      # requests from datacenter IPs. Optional: without these secrets the news
+      # half still works and chatter is reported as unavailable.
       - name: Fetch news
+        env:
+          REDDIT_CLIENT_ID: ${{ secrets.REDDIT_CLIENT_ID }}
+          REDDIT_CLIENT_SECRET: ${{ secrets.REDDIT_CLIENT_SECRET }}
         run: python tools/fetch_news.py
 
       - name: Commit news.json

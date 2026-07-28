@@ -148,10 +148,63 @@ def golfers_in_text(text, matchers):
 
 # ---------------------------------------------------------------- fetching
 
-def get(url, timeout=25):
-    req = urllib.request.Request(url, headers={"User-Agent": UA, "Accept": "*/*"})
+def get(url, timeout=25, headers=None):
+    h = {"User-Agent": UA, "Accept": "*/*"}
+    if headers:
+        h.update(headers)
+    req = urllib.request.Request(url, headers=h)
     with urllib.request.urlopen(req, timeout=timeout) as r:
         return r.read()
+
+
+def err_label(e):
+    """Readable error for diagnostics — HTTP status matters (403 blocked vs 404 moved)."""
+    if isinstance(e, urllib.error.HTTPError):
+        return f"HTTP {e.code}"
+    if isinstance(e, urllib.error.URLError):
+        return f"URLError ({e.reason})"
+    return type(e).__name__
+
+
+def reddit_token():
+    """
+    App-only OAuth token, if Reddit credentials are configured.
+
+    Reddit blocks anonymous .json AND .rss requests from datacenter IPs, which is
+    what a CI runner is — that's why chatter came back empty. An app-only token
+    (free, no user account access) is served normally from those same IPs. Without
+    credentials we simply report chatter as unavailable rather than faking it.
+    """
+    cid = os.environ.get("REDDIT_CLIENT_ID", "").strip()
+    secret = os.environ.get("REDDIT_CLIENT_SECRET", "").strip()
+    if not cid or not secret:
+        return None
+    import base64
+    basic = base64.b64encode(f"{cid}:{secret}".encode()).decode()
+    req = urllib.request.Request(
+        "https://www.reddit.com/api/v1/access_token",
+        data=b"grant_type=client_credentials",
+        headers={"Authorization": "Basic " + basic, "User-Agent": UA,
+                 "Content-Type": "application/x-www-form-urlencoded"},
+    )
+    with urllib.request.urlopen(req, timeout=25) as r:
+        return json.loads(r.read()).get("access_token")
+
+
+def parse_when(s):
+    """Publish date -> epoch seconds. Feeds mix RFC-822 (RSS) and ISO-8601 (Atom)."""
+    s = (s or "").strip()
+    if not s:
+        return 0.0
+    try:
+        from email.utils import parsedate_to_datetime
+        return parsedate_to_datetime(s).timestamp()
+    except Exception:  # noqa: BLE001
+        pass
+    try:
+        return datetime.datetime.fromisoformat(s.replace("Z", "+00:00")).timestamp()
+    except Exception:  # noqa: BLE001
+        return 0.0
 
 
 def strip_html(s):
@@ -211,7 +264,7 @@ def fetch_rss(feeds):
                          "error": None if got else "no items"})
         except Exception as e:  # noqa: BLE001
             diag.append({"source": source, "ok": False, "items": 0,
-                         "error": type(e).__name__})
+                         "error": err_label(e)})
     ok = sum(1 for d in diag if d["ok"])
     print(f"RSS: {ok}/{len(feeds)} feeds returned items, {len(items)} items")
     for d in diag:
@@ -229,14 +282,29 @@ def fetch_reddit():
     like CI runners, which is why chatter came back empty on the first live run.
     """
     items, diag = [], []
+    token, tok_err = None, None
+    try:
+        token = reddit_token()
+    except Exception as e:  # noqa: BLE001
+        tok_err = err_label(e)
+    if token:
+        print("Reddit: using app-only OAuth")
+    elif tok_err:
+        print(f"Reddit: OAuth failed ({tok_err}); falling back to anonymous")
+
     for sub in SUBREDDITS:
         got, err = [], None
-        for url in (f"https://www.reddit.com/r/{sub}/new/.rss?limit=100",
-                    f"https://old.reddit.com/r/{sub}/new/.rss?limit=100",
-                    f"https://www.reddit.com/r/{sub}/new.json?limit=100"):
+        urls = []
+        if token:
+            urls.append((f"https://oauth.reddit.com/r/{sub}/new?limit=100",
+                         {"Authorization": "bearer " + token}))
+        urls += [(f"https://www.reddit.com/r/{sub}/new/.rss?limit=100", None),
+                 (f"https://old.reddit.com/r/{sub}/new/.rss?limit=100", None),
+                 (f"https://www.reddit.com/r/{sub}/new.json?limit=100", None)]
+        for url, hdrs in urls:
             try:
-                raw = get(url)
-                if url.endswith(".json?limit=100"):
+                raw = get(url, headers=hdrs)
+                if ".rss" not in url:
                     data = json.loads(raw)
                     for child in data.get("data", {}).get("children", []):
                         d = child.get("data", {})
@@ -258,10 +326,12 @@ def fetch_reddit():
                     break
                 err = "no items"
             except Exception as e:  # noqa: BLE001
-                err = type(e).__name__
+                err = err_label(e)
         items.extend(got)
         diag.append({"source": "r/" + sub, "ok": bool(got), "items": len(got),
-                     "error": None if got else err})
+                     "error": None if got else (
+                         f"{err} — set REDDIT_CLIENT_ID/SECRET to enable chatter"
+                         if not token else err)})
         if not got:
             print(f"  reddit r/{sub} failed: {err}")
     print(f"Reddit: {len(items)} posts")
@@ -317,7 +387,10 @@ def main():
             m = mentions.setdefault(n, {"name": n, "news": 0, "chatter": 0})
             m["news" if it["kind"] == "news" else "chatter"] += 1
 
-    items.sort(key=lambda x: (x["kind"] != "news", x.get("published") or ""), reverse=False)
+    # Newest first, across both kinds. Sorting news ahead of chatter and then
+    # truncating would starve chatter out of the list entirely once it's flowing,
+    # and "Latest" has to actually mean latest.
+    items.sort(key=lambda x: parse_when(x.get("published")), reverse=True)
     items = items[:MAX_ITEMS]
 
     table = sorted(mentions.values(), key=lambda m: -(m["news"] + m["chatter"]))
