@@ -392,6 +392,39 @@ function filterIsActive() {
   return Object.values(State.filter).some((v) => v !== '');
 }
 
+/**
+ * Does this golfer match the POOL-defining filters — everything except the name box?
+ *
+ * The name search and the numeric ranges do different jobs. Salary / ownership / SG
+ * ranges are how you carve out the pool you want to build with, so they drive
+ * selection. The name box is a lookup: typing "rose" to check on one golfer must not
+ * be read as "my pool is now only Justin Rose", which is what wiped whole selections
+ * before.
+ */
+function golferMatchesPoolFilter(g) {
+  const saved = State.filter.name;
+  State.filter.name = '';
+  const ok = golferMatchesFilter(g);
+  State.filter.name = saved;
+  return ok;
+}
+
+/** Is any pool-defining (non-name) filter set? */
+function poolFilterIsActive() {
+  return Object.entries(State.filter).some(([k, v]) => k !== 'name' && v !== '');
+}
+
+/**
+ * Deselect golfers outside the pool-defining filters. Rows stay visible so you can
+ * always click a golfer back in by hand. Typing in the name box never reaches here.
+ */
+function applyFilterUncheck() {
+  if (!poolFilterIsActive()) return;
+  State.golfers.forEach((g) => {
+    if (!g.notInSlate && !g.locked && !golferMatchesPoolFilter(g)) g.selected = false;
+  });
+}
+
 /* ---------------------- Player CSV export / import ---------------------- */
 function exportPlayersCSV() {
   const r = (v, d = '') => (v != null ? v : d);
@@ -1844,7 +1877,12 @@ function init() {
   Object.entries(filterMap).forEach(([id, key]) => {
     const el = $('#' + id);
     if (!el) return;
-    el.addEventListener('input', () => { State.filter[key] = el.value; renderPlayers(); });
+    el.addEventListener('input', () => {
+      State.filter[key] = el.value;
+      // Name box is a lookup only — it never changes which golfers are selected.
+      if (key !== 'name') applyFilterUncheck();
+      renderPlayers();
+    });
   });
   $('#filterSelectBtn').addEventListener('click', () => {
     State.golfers.forEach((g) => {
