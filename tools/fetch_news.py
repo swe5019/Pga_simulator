@@ -445,6 +445,53 @@ def fetch_reddit():
 
 # ---------------------------------------------------------------- main
 
+def extract_names_from_body(url, matchers, timeout=6):
+    """
+    Fetch an article and pull golfer names out of its text.
+
+    Needed because Google News RSS carries no real summary — its description is the
+    headline repeated plus the publisher — and DFS articles ("Best Bets and Odds",
+    "experts share their picks") name players in the body, never the headline. Without
+    this, buzz counts only see the handful of golfers big enough to headline a story.
+
+    Only names are extracted; no article text is stored or republished.
+    """
+    try:
+        raw = get(url, timeout=timeout)
+    except Exception:  # noqa: BLE001
+        return []
+    try:
+        html = raw.decode("utf-8", "ignore")
+    except Exception:  # noqa: BLE001
+        return []
+    # Drop script/style blocks before stripping tags, or JS identifiers leak in.
+    html = re.sub(r"(?is)<(script|style)[^>]*>.*?</\1>", " ", html)
+    text = strip_html(html)[:60000]
+    return golfers_in_text(text, matchers)
+
+
+def enrich_mentions(items, matchers, limit=45, workers=8):
+    """
+    Second pass: for items whose headline named nobody, look inside the article.
+    Bounded and parallel so a 3-hourly job stays quick, and entirely best-effort —
+    sites that block or time out are simply skipped.
+    """
+    targets = [it for it in items if not it.get("golfers")][:limit]
+    if not targets:
+        return 0
+    from concurrent.futures import ThreadPoolExecutor
+    found = 0
+    with ThreadPoolExecutor(max_workers=workers) as ex:
+        results = ex.map(lambda it: extract_names_from_body(it.get("link") or "", matchers),
+                         targets)
+        for it, names in zip(targets, results):
+            if names:
+                it["golfers"] = names
+                found += 1
+    print(f"Body scan: {found}/{len(targets)} articles yielded golfer names")
+    return found
+
+
 def load_json(path):
     try:
         with open(path) as fh:
@@ -508,28 +555,37 @@ def main():
         alert = roster_alert(it["title"], matchers) if hits_event else None
         if alert:
             it["alert"] = alert["kind"]
+            # Kept separate from it["golfers"]: alerts must stay headline-derived even
+            # after the body scan below widens who counts as "mentioned".
+            it["_alertGolfers"] = alert["golfers"]
         items.append(it)
-        # One item counts once per golfer, so a single long article can't dominate.
-        for n in names:
-            m = mentions.setdefault(n, {"name": n, "news": 0, "chatter": 0})
-            m["news" if it["kind"] == "news" else "chatter"] += 1
-        # Attribute the alert only to golfers named in the HEADLINE. A round-up that
-        # mentions ten players while reporting one withdrawal must not mark all ten
-        # as out; WD stories name the affected player in the title.
-        if alert:
-            for n in alert["golfers"]:
-                m = mentions.setdefault(n, {"name": n, "news": 0, "chatter": 0})
-                # A withdrawal outranks an injury note — it's already decided.
-                if m.get("alert") != "wd":
-                    m["alert"] = alert["kind"]
-                    m["alertHeadline"] = it["title"][:160]
-                    m["alertLink"] = it.get("link") or ""
 
     # Newest first, across both kinds. Sorting news ahead of chatter and then
     # truncating would starve chatter out of the list entirely once it's flowing,
     # and "Latest" has to actually mean latest.
     items.sort(key=lambda x: parse_when(x.get("published")), reverse=True)
     items = items[:MAX_ITEMS]
+
+    # Widen mention coverage by reading the articles that named nobody in the
+    # headline, then tally. Counting has to happen after this pass, not during the
+    # loop above, or the newly-found names would be missed.
+    enrich_mentions(items, matchers)
+
+    for it in items:
+        # One item counts once per golfer, so a single long article can't dominate.
+        for n in it.get("golfers") or []:
+            m = mentions.setdefault(n, {"name": n, "news": 0, "chatter": 0})
+            m["news" if it["kind"] == "news" else "chatter"] += 1
+        # Attribute the alert only to golfers named in the HEADLINE. A round-up that
+        # mentions ten players while reporting one withdrawal must not mark all ten
+        # as out; WD stories name the affected player in the title.
+        for n in it.pop("_alertGolfers", []) or []:
+            m = mentions.setdefault(n, {"name": n, "news": 0, "chatter": 0})
+            # A withdrawal outranks an injury note — it's already decided.
+            if m.get("alert") != "wd":
+                m["alert"] = it["alert"]
+                m["alertHeadline"] = it["title"][:160]
+                m["alertLink"] = it.get("link") or ""
 
     table = sorted(mentions.values(), key=lambda m: -(m["news"] + m["chatter"]))
     for m in table:
