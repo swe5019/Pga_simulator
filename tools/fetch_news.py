@@ -84,7 +84,9 @@ DFS_TERMS = [
     "milly maker", "sleeper", "sleepers", "chalk", "leverage", "value play",
     "one and done", "optimizer", "projections", "salary", "salaries", "punt",
     "betting", "odds", "outright", "prop", "parlay", "picks", "preview",
-    "fades", "fade", "best bets", "expert picks", "core plays",
+    "best bets", "expert picks", "core plays",
+    # "fade"/"fades" deliberately omitted: in golf writing a fade is a shot shape,
+    # so it fires on ordinary coverage. Real fade articles also say picks/ownership.
 ]
 
 # Roster-impacting news. A withdrawal isn't "DFS content" in the literal sense, but
@@ -93,10 +95,24 @@ DFS_TERMS = [
 # deliberately absent — it mostly matches broadcast/TV-schedule filler.
 ROSTER_TERMS = [
     "withdraw", "withdrew", "withdrawal", "withdrawals", " wd ", "injury",
-    "injured", "out of the", "pulls out", "pulled out", "replaces",
-    "replacement", "disqualified", "suspended play", "illness", "field 2026",
-    "player list", "commits", "commitment",
+    "injured", "pulls out", "pulled out", "replaces", "replacement",
+    "disqualified", "suspended play", "illness", "player list",
+    # Anchored rather than a bare "out of the", which fired on ordinary prose like
+    # "picking his ball up out of the hole".
+    "out of the tournament", "out of the field", "out of the event",
 ]
+
+
+def strip_publisher(title):
+    """
+    Drop Google News' trailing " - Publisher" before keyword matching.
+
+    Without this, anything published BY a DFS outlet matches on the outlet's own
+    name: "Who won the playoff at the 2025 Rocket Classic - DraftKings Network" is
+    trivia, not DFS content, but the byline made it look like a DraftKings article.
+    Only used for relevance testing; the displayed title keeps its attribution.
+    """
+    return re.sub(r"\s+-\s+[^-]{2,40}$", "", title or "")
 
 
 def is_dfs_relevant(text, about_this_week):
@@ -431,7 +447,8 @@ def main():
         # coverage — schedule news, equipment, tour politics — out of the tab.
         if not names and not hits_event:
             continue
-        if not is_dfs_relevant(blob, bool(names) or hits_event):
+        relevance_blob = f"{strip_publisher(it['title'])} {it.get('summary','')}"
+        if not is_dfs_relevant(relevance_blob, bool(names) or hits_event):
             continue
         link = it.get("link") or it["title"]
         if link in seen_links:
