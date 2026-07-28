@@ -312,10 +312,8 @@ function initTabs() {
       btn.classList.add('active');
       $('#' + btn.dataset.tab).classList.add('active');
       track('tab_view', { tab: btn.dataset.tab });
-      if (btn.dataset.tab === 'handbuild') {
-        renderHandBuild();
-        renderSaved();
-      }
+      if (btn.dataset.tab === 'handbuild') renderHandBuild();
+      if (btn.dataset.tab === 'saved') renderSaved();
     });
   });
 }
@@ -1169,9 +1167,37 @@ function renderContest() {
         <td class="num">${r.cashPct.toFixed(1)}%</td>
         <td class="num">${r.winPct.toFixed(2)}%</td>
         <td class="num">$${r.expPay.toFixed(2)}</td>
+        <td class="ctr"><button class="savelu savecl" data-idx="${r.idx}" title="Save to the ⭐ Saved tab under this contest">＋</button></td>
       </tr>`;
     })
     .join('');
+
+  const label = contestLabel();
+  $$('#contestTable .savecl').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const lu = State.build.lineups[+btn.dataset.idx];
+      if (!lu) return;
+      const r = c.results.find((x) => x.idx === +btn.dataset.idx);
+      const ok = saveLineup(lu.players.map(byId), 'contest', {
+        contest: label,
+        stats: lineupStats(lu),
+        contestStats: r ? { roi: r.roi, cashPct: r.cashPct, winPct: r.winPct, expPay: r.expPay } : null,
+      });
+      btn.textContent = ok ? '✓' : '✓';
+      btn.classList.add('saved');
+      btn.title = ok ? 'Saved to the ⭐ Saved tab' : 'Already saved for this contest';
+    });
+  });
+}
+
+/** Name for the contest currently simulated — used to group saved lineups. */
+function contestLabel() {
+  const real = selectedDkContest();
+  if (real && real.name) return real.name;
+  const entries = parseInt($('#cEntries').value, 10) || 0;
+  const fee = parseFloat($('#cFee').value) || 0;
+  const struct = $('#cStructure').options[$('#cStructure').selectedIndex].text;
+  return `Custom ${struct}${entries ? ` — ${entries.toLocaleString()} entries` : ''}${fee ? ` @ $${fee}` : ''}`;
 }
 
 /* ---------------------- Review: leverage + lineups ---------------------- */
@@ -1257,7 +1283,7 @@ function renderReview() {
   $$('#lineupList .savelu').forEach((btn) => {
     btn.addEventListener('click', () => {
       const lu = State.build.lineups[+btn.dataset.lu];
-      saveLineup(lu.players.map(byId), 'pool');
+      saveLineup(lu.players.map(byId), 'pool', { stats: lineupStats(lu) });
       btn.textContent = '✓ Saved';
       btn.classList.add('saved');
     });
@@ -1374,6 +1400,15 @@ function renderHandBuild() {
   );
 }
 
+/** Snapshot the sim stats worth keeping alongside a saved lineup. */
+function lineupStats(lu) {
+  if (!lu) return null;
+  return {
+    score: lu.score, mean: lu.mean, floor: lu.floor, ceiling: lu.ceiling,
+    p99: lu.p99, allCutPct: lu.allCutPct, winEquity: lu.winEquity, ownSum: lu.ownSum,
+  };
+}
+
 /* ---------------------- Saved lineups (localStorage) ---------------------- */
 function loadSaved() {
   try {
@@ -1391,20 +1426,44 @@ function persistSaved(arr) {
   }
 }
 
-/** Save a lineup (array of golfer objects) to localStorage. */
-function saveLineup(golfers, source) {
+/**
+ * Save a lineup (array of golfer objects) to localStorage.
+ * @param {Array} golfers - the six golfer objects
+ * @param {string} source - 'hand' | 'pool' (Review tab) | 'contest'
+ * @param {object} extra - optional { contest, stats, contestStats } captured at save
+ *   time. Stats are snapshotted rather than recomputed later because the pool they
+ *   came from gets rebuilt and re-trimmed constantly — the whole point of saving.
+ */
+function saveLineup(golfers, source, extra = {}) {
   const arr = loadSaved();
+  const players = golfers
+    .slice()
+    .sort((a, b) => b.salary - a.salary)
+    .map((g) => ({ id: g.id, name: g.name, salary: g.salary }));
+  // Don't stack duplicates within the same group, but the same six golfers CAN be
+  // saved once per group (e.g. kept for two different contests). Dedup therefore has
+  // to key on the same label the UI groups by — contest alone isn't enough, since
+  // Review-saved and hand-built lineups both have no contest yet live in separate groups.
+  const key = players.map((p) => p.id).sort().join('|');
+  const contest = extra.contest || null;
+  const candidate = { contest, source: source || 'hand' };
+  const label = savedGroupLabel(candidate);
+  if (arr.some((l) => savedGroupLabel(l) === label &&
+      l.players.map((p) => p.id).sort().join('|') === key)) {
+    return false; // already saved in this group
+  }
   arr.unshift({
     ts: Date.now(),
     source: source || 'hand',
+    contest,
     salary: golfers.reduce((s, g) => s + g.salary, 0),
-    players: golfers
-      .slice()
-      .sort((a, b) => b.salary - a.salary)
-      .map((g) => ({ id: g.id, name: g.name, salary: g.salary })),
+    players,
+    stats: extra.stats || null,
+    contestStats: extra.contestStats || null,
   });
   persistSaved(arr);
   renderSaved();
+  return true;
 }
 
 function removeSaved(ts) {
@@ -1419,33 +1478,99 @@ function clearSaved() {
   renderSaved();
 }
 
+/** Group label for a saved lineup: contest name, or where it was saved from. */
+function savedGroupLabel(l) {
+  if (l.contest) return l.contest;
+  if (l.source === 'pool') return 'Lineup Pool (Review)';
+  return 'Hand Built';
+}
+
 function renderSaved() {
-  const wrap = $('#savedList');
+  const wrap = $('#savedGroups');
   if (!wrap) return;
   const saved = loadSaved();
   $('#savedCount').textContent = saved.length ? `— ${saved.length}` : '';
   if (!saved.length) {
-    wrap.innerHTML = `<div class="hbslot empty"><span>No saved lineups yet — build one and hit Save.</span></div>`;
+    wrap.innerHTML = `<div class="hbslot empty"><span>No saved lineups yet — hit Save on a lineup in the Review or Contest tab.</span></div>`;
     return;
   }
-  wrap.innerHTML = saved
-    .map((l) => {
-      const when = new Date(l.ts).toLocaleString();
-      const names = l.players.map((p) => p.name).join(', ');
-      return `<div class="hbslot savedcard">
-        <div class="savedmeta">
-          <span>${money(l.salary)}</span>
-          <span>${l.source === 'pool' ? 'from pool' : 'hand built'}</span>
-          <span>${when}</span>
-          <button class="rm" data-ts="${l.ts}">✕</button>
-        </div>
-        <div class="savednames">${names}</div>
+
+  // Group, keeping contest groups first (they're the ones you're entering).
+  const groups = new Map();
+  for (const l of saved) {
+    const label = savedGroupLabel(l);
+    if (!groups.has(label)) groups.set(label, []);
+    groups.get(label).push(l);
+  }
+  const ordered = [...groups.entries()].sort((a, b) => {
+    const ac = a[1][0].contest ? 0 : 1;
+    const bc = b[1][0].contest ? 0 : 1;
+    return ac - bc || a[0].localeCompare(b[0]);
+  });
+
+  wrap.innerHTML = ordered
+    .map(([label, list]) => {
+      const isContest = !!list[0].contest;
+      const cards = list
+        .map((l) => {
+          const when = new Date(l.ts).toLocaleString();
+          const names = l.players.map((p) => p.name).join(', ');
+          const s = l.stats || {};
+          const cs = l.contestStats || null;
+          const bits = [];
+          if (cs && cs.roi != null) {
+            const cls = cs.roi >= 0 ? 'up' : 'down';
+            bits.push(`<span class="${cls}">ROI ${cs.roi >= 0 ? '+' : ''}${cs.roi.toFixed(0)}%</span>`);
+            if (cs.cashPct != null) bits.push(`<span>Cash ${cs.cashPct.toFixed(1)}%</span>`);
+          }
+          if (s.score != null) bits.push(`<span>Score ${num(s.score)}</span>`);
+          if (s.ceiling != null) bits.push(`<span>Ceil ${num(s.ceiling)}</span>`);
+          if (s.allCutPct != null) bits.push(`<span>6/6 ${s.allCutPct.toFixed(1)}%</span>`);
+          return `<div class="hbslot savedcard">
+            <div class="savedmeta">
+              <span>${money(l.salary)}</span>
+              ${bits.join('')}
+              <span class="dim">${when}</span>
+              <button class="rm" data-ts="${l.ts}" title="Remove this lineup">✕</button>
+            </div>
+            <div class="savednames">${names}</div>
+          </div>`;
+        })
+        .join('');
+      return `<div class="savedgroup">
+        <h3 class="savedgh">
+          ${isContest ? '🏆 ' : ''}${label}
+          <span class="sub">— ${list.length} lineup${list.length === 1 ? '' : 's'}</span>
+          <button class="ghost small expgrp" data-group="${encodeURIComponent(label)}" title="Export just this group as a DraftKings upload CSV">⬇ Export group</button>
+        </h3>
+        <div class="handlu">${cards}</div>
       </div>`;
     })
     .join('');
-  $$('#savedList .rm').forEach((b) =>
+
+  $$('#savedGroups .rm').forEach((b) =>
     b.addEventListener('click', () => removeSaved(+b.dataset.ts))
   );
+  $$('#savedGroups .expgrp').forEach((b) =>
+    b.addEventListener('click', () => exportSavedGroup(decodeURIComponent(b.dataset.group)))
+  );
+}
+
+/** Export one saved group (a contest, or the Review/Hand pile) as a DK upload CSV. */
+function exportSavedGroup(label) {
+  const list = loadSaved().filter((l) => savedGroupLabel(l) === label);
+  if (!list.length) return;
+  const header = 'G,G,G,G,G,G';
+  const lines = list.map((l) =>
+    l.players
+      .map((p) => {
+        const g = byId(p.id);
+        return (g && dkEntryName(g)) || p.name;
+      })
+      .join(',')
+  );
+  const safe = label.replace(/[^a-z0-9]+/gi, '_').replace(/^_+|_+$/g, '').toLowerCase();
+  download(`slatesims_saved_${safe || 'group'}.csv`, [header, ...lines].join('\n'));
 }
 
 /** Export all saved lineups as a DraftKings upload CSV. */

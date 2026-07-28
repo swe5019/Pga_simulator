@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>SlateSims — PGA DFS Simulator for DraftKings</title>
   <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml" />
-  <link rel="stylesheet" href="assets/css/styles.css?v=20260717j" />
+  <link rel="stylesheet" href="assets/css/styles.css?v=20260717k" />
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-13J1816EN4"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -49,6 +49,7 @@
       <button class="tab" data-tab="lineups">3 · Review</button>
       <button class="tab" data-tab="contest">4 · Contest</button>
       <button class="tab" data-tab="export">5 · Export</button>
+      <button class="tab" data-tab="saved">⭐ Saved</button>
       <button class="tab" data-tab="handbuild">✋ Hand Build</button>
     </nav>
     <button id="startTour" class="ghost tourbtn" title="See how SlateSims works">🎓 Take the tour</button>
@@ -439,6 +440,7 @@
               <th class="num">Cash%</th>
               <th class="num">Win%</th>
               <th class="num">Exp $</th>
+              <th class="ctr" title="Save this lineup to the ⭐ Saved tab, grouped under this contest">Save</th>
             </tr>
           </thead>
           <tbody></tbody>
@@ -466,6 +468,21 @@
     </section>
 
     <!-- ===================== HAND BUILD ===================== -->
+    <!-- ===================== SAVED LINEUPS ===================== -->
+    <section id="saved" class="panel">
+      <h2>Saved Lineups <span class="sub" id="savedCount"></span>
+        <button id="savedExport" class="ghost small">⬇ Export all → DK CSV</button>
+        <button id="savedClear" class="ghost small">Clear all</button>
+      </h2>
+      <p class="hint">
+        Your keep pile. Hit <b>Save</b> on any lineup in the <b>Review</b> or <b>Contest</b>
+        tab and it lands here, so you can rebuild and re-trim as many times as you like
+        without losing the ones you already liked. Lineups saved from the Contest tab are
+        grouped by the contest they were simulated against, and each group exports on its own.
+      </p>
+      <div id="savedGroups"></div>
+    </section>
+
     <section id="handbuild" class="panel">
       <h2>Hand Build <span class="sub">— build one lineup yourself, see your salary as you go</span></h2>
       <p class="hint">
@@ -484,12 +501,10 @@
             <button id="handClear" class="ghost">Clear</button>
           </div>
 
-          <h2 class="hbh">Saved Lineups <span class="sub" id="savedCount"></span></h2>
-          <div id="savedList" class="handlu"></div>
-          <div class="exportbtns" style="margin-top:8px">
-            <button id="savedExport" class="ghost">⬇ Export saved → DK CSV</button>
-            <button id="savedClear" class="ghost">Clear all saved</button>
-          </div>
+          <p class="hint" style="margin-top:14px">
+            Saved lineups now live on the <b>⭐ Saved</b> tab, alongside everything you
+            keep from the Review and Contest tabs.
+          </p>
         </div>
 
         <div>
@@ -551,13 +566,13 @@
     </div>
   </div>
 
-  <script src="assets/js/scoring.js?v=20260717j"></script>
-  <script src="assets/js/data.js?v=20260717j"></script>
-  <script src="assets/js/sim.js?v=20260717j"></script>
-  <script src="assets/js/optimizer.js?v=20260717j"></script>
-  <script src="assets/js/contest.js?v=20260717j"></script>
-  <script src="assets/js/app.js?v=20260717j"></script>
-  <script src="assets/js/onboard.js?v=20260717j"></script>
-  <script src="assets/js/tour.js?v=20260717j"></script>
+  <script src="assets/js/scoring.js?v=20260717k"></script>
+  <script src="assets/js/data.js?v=20260717k"></script>
+  <script src="assets/js/sim.js?v=20260717k"></script>
+  <script src="assets/js/optimizer.js?v=20260717k"></script>
+  <script src="assets/js/contest.js?v=20260717k"></script>
+  <script src="assets/js/app.js?v=20260717k"></script>
+  <script src="assets/js/onboard.js?v=20260717k"></script>
+  <script src="assets/js/tour.js?v=20260717k"></script>
 </body>
 </html>

@@ -199,6 +199,20 @@ table.lut tfoot td:first-child { color: var(--text); }
 .savedcard .savedmeta { color: var(--dim); font-size: 11.5px; display: flex; gap: 12px; align-items: center; }
 .savedcard .savedmeta button.rm { margin-left: auto; }
 .savedcard .savednames { font-size: 12.5px; }
+.savedcard .savedmeta .up { color: var(--up, #3fb950); }
+.savedcard .savedmeta .down { color: var(--down, #f85149); }
+.savedcard .savedmeta .dim { color: var(--line); }
+
+/* Saved tab — one block per contest / source */
+.savedgroup { margin-bottom: 22px; }
+.savedgh {
+  font-size: 14px; margin: 0 0 8px; display: flex; align-items: center;
+  gap: 10px; flex-wrap: wrap; padding-bottom: 6px;
+  border-bottom: 1px solid var(--line);
+}
+.savedgh .sub { color: var(--dim); font-weight: 400; font-size: 12px; }
+.savedgh .expgrp { margin-left: auto; }
+button.savecl { padding: 2px 9px; font-size: 13px; line-height: 1.3; }
 button.addbtn {
   background: var(--panel2); color: var(--text); border: 1px solid var(--line);
   border-radius: 6px; cursor: pointer; font-size: 12px; padding: 3px 12px;
