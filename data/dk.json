@@ -1,11 +1,11 @@
 {
- "updatedUtc": "2026-07-27T22:00:20Z",
+ "updatedUtc": "2026-07-28T15:15:00Z",
  "tournament": "ROCKET_2026",
  "date": "7/30/26",
  "event": "Rocket Classic",
  "draftGroupId": "151024",
  "isShowdown": false,
- "count": 141,
+ "count": 149,
  "players": [
   {
    "name": "Cameron Young",
@@ -582,6 +582,13 @@
    "dkId": 43697477
   },
   {
+   "name": "Zac Blair",
+   "salary": 6800,
+   "status": "",
+   "out": false,
+   "dkId": 43703019
+  },
+  {
    "name": "Austin Smotherman",
    "salary": 6700,
    "status": "",
@@ -743,6 +750,13 @@
    "dkId": 43697500
   },
   {
+   "name": "Hayden Springer",
+   "salary": 6500,
+   "status": "",
+   "out": false,
+   "dkId": 43703025
+  },
+  {
    "name": "Matt Kuchar",
    "salary": 6400,
    "status": "",
@@ -848,6 +862,13 @@
    "dkId": 43697515
   },
   {
+   "name": "Lanto Griffin",
+   "salary": 6300,
+   "status": "",
+   "out": false,
+   "dkId": 43703021
+  },
+  {
    "name": "Jeffrey Kang",
    "salary": 6200,
    "status": "",
@@ -895,6 +916,13 @@
    "status": "",
    "out": false,
    "dkId": 43697522
+  },
+  {
+   "name": "Justin Lower",
+   "salary": 6200,
+   "status": "",
+   "out": false,
+   "dkId": 43703023
   },
   {
    "name": "Dylan Wu",
@@ -946,6 +974,20 @@
    "dkId": 43697529
   },
   {
+   "name": "Ryan Celano",
+   "salary": 6100,
+   "status": "",
+   "out": false,
+   "dkId": 43703020
+  },
+  {
+   "name": "Keenan Huskey",
+   "salary": 6100,
+   "status": "",
+   "out": false,
+   "dkId": 43703022
+  },
+  {
    "name": "Adam Schenk",
    "salary": 6000,
    "status": "",
@@ -993,6 +1035,20 @@
    "status": "",
    "out": false,
    "dkId": 43697536
+  },
+  {
+   "name": "Daniel Azallion",
+   "salary": 6000,
+   "status": "",
+   "out": false,
+   "dkId": 43703018
+  },
+  {
+   "name": "Justin Quiban",
+   "salary": 6000,
+   "status": "",
+   "out": false,
+   "dkId": 43703024
   }
  ]
 }
