@@ -292,16 +292,6 @@ const byId = (id) => State.golfers.find((g) => g.id === id);
 const money = (n) => '$' + Math.round(n).toLocaleString();
 const pct = (n) => (n == null ? '—' : n.toFixed(1) + '%');
 const num = (n) => (n == null ? '—' : n.toFixed(1));
-/**
- * Format a product-of-ownership percentage. These get very small (six 20%-owned
- * golfers multiply out to 0.0064%), so fall back to exponential notation rather
- * than rounding a meaningful number down to a wall of zeros.
- */
-const fmtProdOwn = (v) => {
-  if (v == null || !isFinite(v)) return '—';
-  if (v === 0) return '0%';
-  return (v >= 0.0001 ? v.toFixed(4) : v.toExponential(1)) + '%';
-};
 /** Projected fantasy points for a golfer (mean of the sim), or null if unrun. */
 const projOf = (g) => {
   const r = State.simResults && State.simResults.get(g.id);
@@ -1223,15 +1213,11 @@ function renderReview() {
       let totOwn = 0;
       let totProj = 0;
       let sumT10 = 0;
-      let prodOwn = 1;      // product of the six ownership fractions
-      let ownComplete = true; // false if any golfer is missing an ownership number
       const rows = players
         .map((g) => {
           const fp = projOf(g);
           totOwn += g.ownership || 0;
           sumT10 += g.top10Prob || 0;
-          if (g.ownership == null) ownComplete = false;
-          else prodOwn *= g.ownership / 100;
           if (fp != null) totProj += fp;
           return `<tr>
             <td class="hn">${g.name}</td>
@@ -1260,10 +1246,9 @@ function renderReview() {
           </tr></tfoot>
         </table>
         <div class="lstats">
-          <span title="Chance all 6 golfers make the cut, measured across the simulated tournaments where they all survived together.">6/6 Cut <b>${lu.allCutPct != null ? lu.allCutPct.toFixed(1) + '%' : '—'}</b></span>
+          <span title="Chance all 6 golfers make the cut — each golfer's cut% multiplied together.">6/6 Cut <b>${lu.allCutPct != null ? lu.allCutPct.toFixed(1) + '%' : '—'}</b></span>
           <span title="10th percentile combined score for this lineup — a bad-but-realistic day for all 6 together.">Floor <b>${num(lu.floor)}</b></span>
           <span title="Sum of each golfer's top-10 finish equity. Higher means more of the lineup projects to contend.">Sum T10 <b>${sumT10.toFixed(1)}%</b></span>
-          <span title="The six ownership percentages multiplied together — a duplication-risk proxy. Lower means fewer opponents are likely to have this exact lineup.">Prod Own <b>${ownComplete ? fmtProdOwn(prodOwn * 100) : '—'}</b></span>
         </div>
       </div>`;
     })

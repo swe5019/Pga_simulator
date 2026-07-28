@@ -178,12 +178,6 @@ function runSimulation(golfers, nSims, seed, onProgress, opts) {
   for (const g of golfers) {
     results.set(g.id, {
       samples: new Float32Array(nSims),
-      // Per-tournament cut flag (1 = made cut). Keeping the outcome of each
-      // individual simulated tournament — not just the running total — lets us
-      // ask joint questions later, e.g. "in how many worlds did ALL SIX of these
-      // golfers survive the cut together?" That can't be recovered from a summary
-      // percentage, and it stays correct if correlation is added to the engine.
-      madeCut: new Uint8Array(nSims),
       madeCutCount: 0,
     });
   }
@@ -193,7 +187,7 @@ function runSimulation(golfers, nSims, seed, onProgress, opts) {
       const r = simOneTournament(rng, g, hasCut);
       const slot = results.get(g.id);
       slot.samples[i] = r.points;
-      if (r.madeCut) { slot.madeCut[i] = 1; slot.madeCutCount++; }
+      if (r.madeCut) slot.madeCutCount++;
     }
     if (onProgress && i % 250 === 0) onProgress(i / nSims);
   }
