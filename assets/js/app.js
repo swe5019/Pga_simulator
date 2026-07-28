@@ -484,11 +484,12 @@ function renderPlayers() {
   const filterActive = filterIsActive();
   for (const g of sorted) {
     if (g.notInSlate) continue; // not in this week's DK field — hidden from the pool
-    // Filters are a VIEW only: non-matching golfers are hidden from the table but keep
-    // their selection, locks, and exposure settings untouched. Use "Select shown" /
-    // "Deselect shown" to actually change selection based on the current filter.
-    if (filterActive && !golferMatchesFilter(g)) continue;
-    visibleCount++;
+    // Filters only highlight — every golfer stays listed and selectable so you can
+    // still grab someone outside the current filter. Selection, locks and exposure
+    // settings are never changed by filtering; use "Select shown" / "Deselect shown"
+    // for that deliberately.
+    const matchesFilter = !filterActive || golferMatchesFilter(g);
+    if (matchesFilter) visibleCount++;
     const r = State.simResults ? State.simResults.get(g.id) : null;
     // A locked/imported projection override shows immediately, even before a sim has
     // run (the sim results it would otherwise read from don't exist yet).
@@ -502,6 +503,7 @@ function renderPlayers() {
     if (g.locked) tr.classList.add('locked');
     if (g.out) tr.classList.add('out');
     if (!g.selected) tr.classList.add('deselected');
+    if (!matchesFilter) tr.classList.add('nomatch');
     tr.innerHTML = `
       <td class="ctr"><input type="checkbox" class="selbox" data-id="${g.id}" ${g.selected ? 'checked' : ''}></td>
       <td class="name"><button class="pname" data-id="${g.id}" title="View outcome distribution">${g.name}</button>${g.out ? ' <span class="tag out">OUT</span>' : ''}${g.added ? ' <span class="tag noproj" title="From DK field; no projection in your master yet — using salary-based skill">no proj</span>' : ''}</td>

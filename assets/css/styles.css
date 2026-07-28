@@ -362,6 +362,10 @@ input.expcell::placeholder { color: var(--line); }
 .tag.noproj { background: #2a2113; color: #e3b341; border: 1px solid #4a3a18; }
 tr.deselected { opacity: .42; }
 tr.deselected td.name .pname { color: var(--dim); }
+/* Outside the active filter: dimmed so matches stand out, but still fully listed
+   and selectable — you can always grab a golfer the filter didn't catch. */
+tr.nomatch { opacity: .5; }
+tr.nomatch:hover { opacity: 1; }
 
 /* ---------- Advanced Build Settings ---------- */
 .adv-wrap {
