@@ -392,13 +392,6 @@ function filterIsActive() {
   return Object.values(State.filter).some((v) => v !== '');
 }
 
-function applyFilterUncheck() {
-  if (!filterIsActive()) return;
-  State.golfers.forEach((g) => {
-    if (!g.notInSlate && !g.locked && !golferMatchesFilter(g)) g.selected = false;
-  });
-}
-
 /* ---------------------- Player CSV export / import ---------------------- */
 function exportPlayersCSV() {
   const r = (v, d = '') => (v != null ? v : d);
@@ -491,7 +484,11 @@ function renderPlayers() {
   const filterActive = filterIsActive();
   for (const g of sorted) {
     if (g.notInSlate) continue; // not in this week's DK field — hidden from the pool
-    const matchesFilter = !filterActive || golferMatchesFilter(g);
+    // Filters are a VIEW only: non-matching golfers are hidden from the table but keep
+    // their selection, locks, and exposure settings untouched. Use "Select shown" /
+    // "Deselect shown" to actually change selection based on the current filter.
+    if (filterActive && !golferMatchesFilter(g)) continue;
+    visibleCount++;
     const r = State.simResults ? State.simResults.get(g.id) : null;
     // A locked/imported projection override shows immediately, even before a sim has
     // run (the sim results it would otherwise read from don't exist yet).
@@ -526,7 +523,6 @@ function renderPlayers() {
       <td class="ctr"><button class="toggle ${g.banned ? 'on' : ''}" data-id="${g.id}" data-t="banned">🚫</button></td>
     `;
     tbody.appendChild(tr);
-    if (matchesFilter) visibleCount++;
   }
 
   // Update filter count badge
@@ -1846,7 +1842,7 @@ function init() {
   Object.entries(filterMap).forEach(([id, key]) => {
     const el = $('#' + id);
     if (!el) return;
-    el.addEventListener('input', () => { State.filter[key] = el.value; applyFilterUncheck(); renderPlayers(); });
+    el.addEventListener('input', () => { State.filter[key] = el.value; renderPlayers(); });
   });
   $('#filterSelectBtn').addEventListener('click', () => {
     State.golfers.forEach((g) => {
