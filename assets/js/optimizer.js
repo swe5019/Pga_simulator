@@ -364,14 +364,21 @@ function selectByExposure(sortedLineups, nTarget, opts = {}) {
   return { lineups, exposure, capExceeded };
 }
 
-/** Compute mean / ceiling / floor of each lineup over the full sim set. */
+/** Compute mean / ceiling / floor / all-cut% of each lineup over the full sim set. */
 function scoreLineups(lineups, simResults, nSims) {
   for (const lu of lineups) {
     const totals = new Float64Array(nSims);
+    // Chance all 6 golfers make the cut: their individual cut rates multiplied.
+    let cutProd = 1;
+    let haveCut = true;
     for (const id of lu.players) {
-      const s = simResults.get(id).samples;
+      const r = simResults.get(id);
+      const s = r.samples;
       for (let i = 0; i < nSims; i++) totals[i] += s[i];
+      if (r.cutPct == null) haveCut = false;
+      else cutProd *= r.cutPct / 100;
     }
+    lu.allCutPct = haveCut ? cutProd * 100 : null;
     const sorted = Float64Array.from(totals).sort();
     let sum = 0;
     for (let i = 0; i < nSims; i++) sum += sorted[i];

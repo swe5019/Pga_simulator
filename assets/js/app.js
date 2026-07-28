@@ -312,10 +312,8 @@ function initTabs() {
       btn.classList.add('active');
       $('#' + btn.dataset.tab).classList.add('active');
       track('tab_view', { tab: btn.dataset.tab });
-      if (btn.dataset.tab === 'handbuild') {
-        renderHandBuild();
-        renderSaved();
-      }
+      if (btn.dataset.tab === 'handbuild') renderHandBuild();
+      if (btn.dataset.tab === 'saved') renderSaved();
     });
   });
 }
@@ -404,16 +402,25 @@ function applyFilterUncheck() {
 /* ---------------------- Player CSV export / import ---------------------- */
 function exportPlayersCSV() {
   const r = (v, d = '') => (v != null ? v : d);
-  const rows = [['Name', 'Salary', 'Skill', 'Proj', 'Own%', 'MinExp', 'MaxExp']];
+  const rows = [['Name', 'Salary', 'Skill', 'Proj', 'Floor', 'Ceil', 'Cut%', 'Win%', 'T5%', 'T10%', 'Own%', 'Val', 'MinExp', 'MaxExp']];
   for (const g of State.golfers) {
     if (g.notInSlate) continue;
     const sim = State.simResults ? State.simResults.get(g.id) : null;
+    const proj = g.projLocked && g.projOverride != null ? g.projOverride : (sim ? sim.mean : null);
+    const val = proj != null ? proj / (g.salary / 1000) : null;
     rows.push([
       g.name,
       g.salary,
       g.skill,
-      r(g.projOverride ?? (sim ? sim.mean.toFixed(1) : null)),
+      r(proj != null ? (+proj).toFixed(1) : null),
+      r(sim ? num(sim.floor) : null),
+      r(sim ? num(sim.ceiling) : null),
+      r(sim ? num(sim.cutPct) : null),
+      r(winEquity(g) != null ? winEquity(g).toFixed(1) : null),
+      r(g.top5Prob != null ? g.top5Prob.toFixed(1) : null),
+      r(g.top10Prob != null ? g.top10Prob.toFixed(1) : null),
       r(g.ownership != null ? g.ownership.toFixed(1) : null),
+      r(val != null ? val.toFixed(2) : null),
       r(g.minExp),
       r(g.maxExp),
     ]);
@@ -946,8 +953,8 @@ function trimPool() {
     $('#buildStatus').textContent = `Pool already has ${State.build.lineups.length} lineups — nothing to trim. Build a larger pool first.`;
     return;
   }
-  const key = $('#sortBy').value;
-  const sorted = [...State.build.lineups].sort((a, b) => b[key] - a[key]);
+  const key = $('#trimBy').value;
+  const sorted = [...State.build.lineups].sort((a, b) => (b[key] || 0) - (a[key] || 0));
   const maxExpById = new Map();
   for (const g of State.golfers) if (g.maxExp != null) maxExpById.set(g.id, g.maxExp / 100);
   const locks = new Set(State.golfers.filter((g) => g.locked).map((g) => g.id));
@@ -958,7 +965,8 @@ function trimPool() {
   State.build.capExceeded = res.capExceeded;
   State.contest = null; // pool changed — any prior contest ROI is stale
   const nameById = new Map(State.golfers.map((g) => [g.id, g.name]));
-  let msg = `✓ Trimmed to ${res.lineups.length} lineups (best by ${key}, exposures re-enforced)`;
+  const keyLabel = $('#trimBy option:checked').textContent;
+  let msg = `✓ Trimmed to ${res.lineups.length} lineups (best by ${keyLabel}, exposures re-enforced)`;
   if (res.capExceeded && res.capExceeded.length) {
     const who = res.capExceeded
       .map((c) => `${nameById.get(c.id) || c.id} ${Math.round(c.exposure * 100)}%`)
@@ -969,6 +977,37 @@ function trimPool() {
   renderPlayers();
   renderBuildSummary();
   renderReview();
+}
+
+/** Export every lineup in the current pool (as ordered on the Review tab) to CSV. */
+function exportReviewCSV() {
+  if (!State.build || !State.build.lineups.length) {
+    $('#buildStatus').textContent = 'Build a pool first.';
+    return;
+  }
+  const header = ['Lineup', 'Golfers', 'Salary', 'Own Sum', 'Sum T10%', 'Sim Score',
+                   'Proj', 'Floor', 'Ceiling', 'Top-1% Spike', 'Win Equity%'];
+  const rows = State.build.lineups.map((lu, i) => {
+    const players = lu.players.map(byId);
+    const names = players.map((g) => g.name).join('; ');
+    const sumT10 = players.reduce((s, g) => s + (g.top10Prob || 0), 0);
+    return [
+      i + 1,
+      `"${names}"`,
+      lu.salary,
+      num(lu.ownSum),
+      num(sumT10),
+      num(lu.score),
+      num(lu.mean),
+      num(lu.floor),
+      num(lu.ceiling),
+      num(lu.p99),
+      lu.winEquity != null ? num(lu.winEquity) : '',
+    ].join(',');
+  });
+  const csv = [header.join(','), ...rows].join('\n');
+  download('slatesims_review_pool.csv', csv);
+  $('#buildStatus').textContent = `✓ Exported ${State.build.lineups.length} lineups.`;
 }
 
 /* ---------------------- Contest sim / ROI ---------------------- */
@@ -1029,6 +1068,69 @@ function runContest() {
   }, 30);
 }
 
+/**
+ * Trim the pool to the top N lineups by ROI *for the contest just simulated*,
+ * re-enforcing exposure caps. This is the per-contest version of the Review tab's
+ * trim: a lineup that grades well generally can still be a poor fit for a specific
+ * payout shape and field size, so this ranks by what that contest actually pays.
+ * Surviving lineups keep their contest results, so the ROI table stays populated.
+ */
+function trimByRoi() {
+  const c = State.contest;
+  const status = $('#contestStatus');
+  if (!State.build || !State.build.lineups.length) {
+    status.textContent = 'Build a lineup pool first (tab 2).';
+    return;
+  }
+  if (!c || !c.results || !c.results.length) {
+    status.textContent = 'Run the contest sim first — trimming by ROI needs contest results.';
+    return;
+  }
+  const n = parseInt($('#trimRoiN').value, 10);
+  if (!n || n < 1) { status.textContent = 'Enter how many lineups to trim to.'; return; }
+  if (n >= State.build.lineups.length) {
+    status.textContent = `Pool already has ${State.build.lineups.length} lineups — nothing to trim. Build a larger pool first.`;
+    return;
+  }
+  // Tie each contest result back to its lineup object before we reorder anything.
+  const resultByLineup = new Map();
+  for (const r of c.results) {
+    const lu = State.build.lineups[r.idx];
+    if (lu) resultByLineup.set(lu, r);
+  }
+  const sorted = [...State.build.lineups].sort((a, b) => {
+    const ra = resultByLineup.get(a), rb = resultByLineup.get(b);
+    return (rb ? rb.roi : -Infinity) - (ra ? ra.roi : -Infinity);
+  });
+  const maxExpById = new Map();
+  for (const g of State.golfers) if (g.maxExp != null) maxExpById.set(g.id, g.maxExp / 100);
+  const locks = new Set(State.golfers.filter((g) => g.locked).map((g) => g.id));
+  const maxExposure = (parseFloat($('#maxExposure').value) || 100) / 100;
+  const sel = window.Optimizer.selectByExposure(sorted, n, { maxExpById, maxExposure, locks });
+
+  State.build.lineups = sel.lineups;
+  State.build.exposure = sel.exposure;
+  State.build.capExceeded = sel.capExceeded;
+  // Keep the contest results for the survivors, re-indexed to the new pool.
+  State.contest.results = sel.lineups
+    .map((lu, i) => { const r = resultByLineup.get(lu); return r ? { ...r, idx: i } : null; })
+    .filter(Boolean);
+
+  const nameById = new Map(State.golfers.map((g) => [g.id, g.name]));
+  let msg = `✓ Trimmed to ${sel.lineups.length} lineups by contest ROI, exposures re-enforced`;
+  if (sel.capExceeded && sel.capExceeded.length) {
+    const who = sel.capExceeded
+      .map((x) => `${nameById.get(x.id) || x.id} ${Math.round(x.exposure * 100)}%`)
+      .join(', ');
+    msg += ` — ${who} over cap (required by the lineups that survived the trim)`;
+  }
+  status.textContent = msg;
+  renderPlayers();
+  renderBuildSummary();
+  renderReview();
+  renderContest();
+}
+
 function renderContest() {
   const c = State.contest;
   if (!c) return;
@@ -1065,9 +1167,37 @@ function renderContest() {
         <td class="num">${r.cashPct.toFixed(1)}%</td>
         <td class="num">${r.winPct.toFixed(2)}%</td>
         <td class="num">$${r.expPay.toFixed(2)}</td>
+        <td class="ctr"><button class="savelu savecl" data-idx="${r.idx}" title="Save to the ⭐ Saved tab under this contest">＋</button></td>
       </tr>`;
     })
     .join('');
+
+  const label = contestLabel();
+  $$('#contestTable .savecl').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const lu = State.build.lineups[+btn.dataset.idx];
+      if (!lu) return;
+      const r = c.results.find((x) => x.idx === +btn.dataset.idx);
+      const ok = saveLineup(lu.players.map(byId), 'contest', {
+        contest: label,
+        stats: lineupStats(lu),
+        contestStats: r ? { roi: r.roi, cashPct: r.cashPct, winPct: r.winPct, expPay: r.expPay } : null,
+      });
+      btn.textContent = ok ? '✓' : '✓';
+      btn.classList.add('saved');
+      btn.title = ok ? 'Saved to the ⭐ Saved tab' : 'Already saved for this contest';
+    });
+  });
+}
+
+/** Name for the contest currently simulated — used to group saved lineups. */
+function contestLabel() {
+  const real = selectedDkContest();
+  if (real && real.name) return real.name;
+  const entries = parseInt($('#cEntries').value, 10) || 0;
+  const fee = parseFloat($('#cFee').value) || 0;
+  const struct = $('#cStructure').options[$('#cStructure').selectedIndex].text;
+  return `Custom ${struct}${entries ? ` — ${entries.toLocaleString()} entries` : ''}${fee ? ` @ $${fee}` : ''}`;
 }
 
 /* ---------------------- Review: leverage + lineups ---------------------- */
@@ -1108,10 +1238,12 @@ function renderReview() {
       const players = lu.players.map(byId).sort((a, b) => b.salary - a.salary);
       let totOwn = 0;
       let totProj = 0;
+      let sumT10 = 0;
       const rows = players
         .map((g) => {
           const fp = projOf(g);
           totOwn += g.ownership || 0;
+          sumT10 += g.top10Prob || 0;
           if (fp != null) totProj += fp;
           return `<tr>
             <td class="hn">${g.name}</td>
@@ -1139,6 +1271,11 @@ function renderReview() {
             <td class="num">${totProj ? totProj.toFixed(1) : num(lu.mean)}</td>
           </tr></tfoot>
         </table>
+        <div class="lstats">
+          <span title="Chance all 6 golfers make the cut — each golfer's cut% multiplied together.">6/6 Cut <b>${lu.allCutPct != null ? lu.allCutPct.toFixed(1) + '%' : '—'}</b></span>
+          <span title="10th percentile combined score for this lineup — a bad-but-realistic day for all 6 together.">Floor <b>${num(lu.floor)}</b></span>
+          <span title="Sum of each golfer's top-10 finish equity. Higher means more of the lineup projects to contend.">Sum T10 <b>${sumT10.toFixed(1)}%</b></span>
+        </div>
       </div>`;
     })
     .join('');
@@ -1146,7 +1283,7 @@ function renderReview() {
   $$('#lineupList .savelu').forEach((btn) => {
     btn.addEventListener('click', () => {
       const lu = State.build.lineups[+btn.dataset.lu];
-      saveLineup(lu.players.map(byId), 'pool');
+      saveLineup(lu.players.map(byId), 'pool', { stats: lineupStats(lu) });
       btn.textContent = '✓ Saved';
       btn.classList.add('saved');
     });
@@ -1263,6 +1400,15 @@ function renderHandBuild() {
   );
 }
 
+/** Snapshot the sim stats worth keeping alongside a saved lineup. */
+function lineupStats(lu) {
+  if (!lu) return null;
+  return {
+    score: lu.score, mean: lu.mean, floor: lu.floor, ceiling: lu.ceiling,
+    p99: lu.p99, allCutPct: lu.allCutPct, winEquity: lu.winEquity, ownSum: lu.ownSum,
+  };
+}
+
 /* ---------------------- Saved lineups (localStorage) ---------------------- */
 function loadSaved() {
   try {
@@ -1280,20 +1426,44 @@ function persistSaved(arr) {
   }
 }
 
-/** Save a lineup (array of golfer objects) to localStorage. */
-function saveLineup(golfers, source) {
+/**
+ * Save a lineup (array of golfer objects) to localStorage.
+ * @param {Array} golfers - the six golfer objects
+ * @param {string} source - 'hand' | 'pool' (Review tab) | 'contest'
+ * @param {object} extra - optional { contest, stats, contestStats } captured at save
+ *   time. Stats are snapshotted rather than recomputed later because the pool they
+ *   came from gets rebuilt and re-trimmed constantly — the whole point of saving.
+ */
+function saveLineup(golfers, source, extra = {}) {
   const arr = loadSaved();
+  const players = golfers
+    .slice()
+    .sort((a, b) => b.salary - a.salary)
+    .map((g) => ({ id: g.id, name: g.name, salary: g.salary }));
+  // Don't stack duplicates within the same group, but the same six golfers CAN be
+  // saved once per group (e.g. kept for two different contests). Dedup therefore has
+  // to key on the same label the UI groups by — contest alone isn't enough, since
+  // Review-saved and hand-built lineups both have no contest yet live in separate groups.
+  const key = players.map((p) => p.id).sort().join('|');
+  const contest = extra.contest || null;
+  const candidate = { contest, source: source || 'hand' };
+  const label = savedGroupLabel(candidate);
+  if (arr.some((l) => savedGroupLabel(l) === label &&
+      l.players.map((p) => p.id).sort().join('|') === key)) {
+    return false; // already saved in this group
+  }
   arr.unshift({
     ts: Date.now(),
     source: source || 'hand',
+    contest,
     salary: golfers.reduce((s, g) => s + g.salary, 0),
-    players: golfers
-      .slice()
-      .sort((a, b) => b.salary - a.salary)
-      .map((g) => ({ id: g.id, name: g.name, salary: g.salary })),
+    players,
+    stats: extra.stats || null,
+    contestStats: extra.contestStats || null,
   });
   persistSaved(arr);
   renderSaved();
+  return true;
 }
 
 function removeSaved(ts) {
@@ -1308,33 +1478,99 @@ function clearSaved() {
   renderSaved();
 }
 
+/** Group label for a saved lineup: contest name, or where it was saved from. */
+function savedGroupLabel(l) {
+  if (l.contest) return l.contest;
+  if (l.source === 'pool') return 'Lineup Pool (Review)';
+  return 'Hand Built';
+}
+
 function renderSaved() {
-  const wrap = $('#savedList');
+  const wrap = $('#savedGroups');
   if (!wrap) return;
   const saved = loadSaved();
   $('#savedCount').textContent = saved.length ? `— ${saved.length}` : '';
   if (!saved.length) {
-    wrap.innerHTML = `<div class="hbslot empty"><span>No saved lineups yet — build one and hit Save.</span></div>`;
+    wrap.innerHTML = `<div class="hbslot empty"><span>No saved lineups yet — hit Save on a lineup in the Review or Contest tab.</span></div>`;
     return;
   }
-  wrap.innerHTML = saved
-    .map((l) => {
-      const when = new Date(l.ts).toLocaleString();
-      const names = l.players.map((p) => p.name).join(', ');
-      return `<div class="hbslot savedcard">
-        <div class="savedmeta">
-          <span>${money(l.salary)}</span>
-          <span>${l.source === 'pool' ? 'from pool' : 'hand built'}</span>
-          <span>${when}</span>
-          <button class="rm" data-ts="${l.ts}">✕</button>
-        </div>
-        <div class="savednames">${names}</div>
+
+  // Group, keeping contest groups first (they're the ones you're entering).
+  const groups = new Map();
+  for (const l of saved) {
+    const label = savedGroupLabel(l);
+    if (!groups.has(label)) groups.set(label, []);
+    groups.get(label).push(l);
+  }
+  const ordered = [...groups.entries()].sort((a, b) => {
+    const ac = a[1][0].contest ? 0 : 1;
+    const bc = b[1][0].contest ? 0 : 1;
+    return ac - bc || a[0].localeCompare(b[0]);
+  });
+
+  wrap.innerHTML = ordered
+    .map(([label, list]) => {
+      const isContest = !!list[0].contest;
+      const cards = list
+        .map((l) => {
+          const when = new Date(l.ts).toLocaleString();
+          const names = l.players.map((p) => p.name).join(', ');
+          const s = l.stats || {};
+          const cs = l.contestStats || null;
+          const bits = [];
+          if (cs && cs.roi != null) {
+            const cls = cs.roi >= 0 ? 'up' : 'down';
+            bits.push(`<span class="${cls}">ROI ${cs.roi >= 0 ? '+' : ''}${cs.roi.toFixed(0)}%</span>`);
+            if (cs.cashPct != null) bits.push(`<span>Cash ${cs.cashPct.toFixed(1)}%</span>`);
+          }
+          if (s.score != null) bits.push(`<span>Score ${num(s.score)}</span>`);
+          if (s.ceiling != null) bits.push(`<span>Ceil ${num(s.ceiling)}</span>`);
+          if (s.allCutPct != null) bits.push(`<span>6/6 ${s.allCutPct.toFixed(1)}%</span>`);
+          return `<div class="hbslot savedcard">
+            <div class="savedmeta">
+              <span>${money(l.salary)}</span>
+              ${bits.join('')}
+              <span class="dim">${when}</span>
+              <button class="rm" data-ts="${l.ts}" title="Remove this lineup">✕</button>
+            </div>
+            <div class="savednames">${names}</div>
+          </div>`;
+        })
+        .join('');
+      return `<div class="savedgroup">
+        <h3 class="savedgh">
+          ${isContest ? '🏆 ' : ''}${label}
+          <span class="sub">— ${list.length} lineup${list.length === 1 ? '' : 's'}</span>
+          <button class="ghost small expgrp" data-group="${encodeURIComponent(label)}" title="Export just this group as a DraftKings upload CSV">⬇ Export group</button>
+        </h3>
+        <div class="handlu">${cards}</div>
       </div>`;
     })
     .join('');
-  $$('#savedList .rm').forEach((b) =>
+
+  $$('#savedGroups .rm').forEach((b) =>
     b.addEventListener('click', () => removeSaved(+b.dataset.ts))
   );
+  $$('#savedGroups .expgrp').forEach((b) =>
+    b.addEventListener('click', () => exportSavedGroup(decodeURIComponent(b.dataset.group)))
+  );
+}
+
+/** Export one saved group (a contest, or the Review/Hand pile) as a DK upload CSV. */
+function exportSavedGroup(label) {
+  const list = loadSaved().filter((l) => savedGroupLabel(l) === label);
+  if (!list.length) return;
+  const header = 'G,G,G,G,G,G';
+  const lines = list.map((l) =>
+    l.players
+      .map((p) => {
+        const g = byId(p.id);
+        return (g && dkEntryName(g)) || p.name;
+      })
+      .join(',')
+  );
+  const safe = label.replace(/[^a-z0-9]+/gi, '_').replace(/^_+|_+$/g, '').toLowerCase();
+  download(`slatesims_saved_${safe || 'group'}.csv`, [header, ...lines].join('\n'));
 }
 
 /** Export all saved lineups as a DraftKings upload CSV. */
@@ -1559,6 +1795,8 @@ function init() {
   $('#runSim').addEventListener('click', () => { track('run_simulation', { n_sims: $('#nSims').value }); runSim(); });
   $('#buildBtn').addEventListener('click', () => { track('build_lineups', { n_lineups: $('#nLineups').value }); buildPool(); });
   $('#trimBtn').addEventListener('click', () => { track('trim_pool', { n: $('#trimN').value }); trimPool(); });
+  $('#exportReviewBtn').addEventListener('click', () => { track('export_review_csv'); exportReviewCSV(); });
+  $('#trimRoiBtn').addEventListener('click', () => { track('trim_pool_roi', { n: $('#trimRoiN').value }); trimByRoi(); });
   $('#exportPlayersBtn').addEventListener('click', exportPlayersCSV);
   $('#importPlayersCsv').addEventListener('change', (e) => { if (e.target.files[0]) { importPlayersCSV(e.target.files[0]); e.target.value = ''; } });
 
