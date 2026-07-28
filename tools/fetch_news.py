@@ -35,13 +35,27 @@ UA = "SlateSims/1.0 (PGA DFS news aggregator; +https://slatesims.com)"
 # Direct outlet feeds. Several publishers block datacenter IPs or move these URLs
 # without notice, so each is best-effort and failures are recorded, not fatal.
 RSS_FEEDS = [
+    # DFS/betting publishers first. These are the ones that matter: they carry real
+    # article links and real summaries, so golfer names can actually be extracted.
+    # Google News aggregates the same writers but hands back opaque redirect tokens
+    # with no recoverable URL, which caps mention counts at whoever made the headline.
+    ("RotoWire Golf", "https://www.rotowire.com/rss/news.php?sport=GOLF"),
+    ("RotoBaller Golf", "https://www.rotoballer.com/category/fantasy-golf/feed"),
+    ("RotoBaller", "https://www.rotoballer.com/feed"),
+    ("Golf News Net", "https://thegolfnewsnet.com/feed/"),
+    ("FantasyLabs", "https://www.fantasylabs.com/feed/"),
+    ("Action Network", "https://www.actionnetwork.com/rss.xml"),
+    ("VSiN", "https://www.vsin.com/feed/"),
+    ("Pinnacle Golf", "https://www.pinnacle.com/en/betting-resources/rss"),
+    ("SportsGrid", "https://www.sportsgrid.com/feed/"),
+    # General golf outlets, kept for withdrawal/injury coverage the DFS sites miss.
     ("Yahoo Golf", "https://sports.yahoo.com/golf/rss/"),
-    ("ESPN Golf", "https://www.espn.com/espn/rss/golf/news"),
-    ("Golfweek", "https://golfweek.usatoday.com/feed/"),
+    ("Golfweek", "https://golfweek.usatoday.com/rss/"),
     ("Sky Sports Golf", "https://www.skysports.com/rss/12040"),
     ("Golf Monthly", "https://www.golfmonthly.com/feeds/all"),
     ("Bunkered", "https://www.bunkered.co.uk/feed"),
-    ("RotoWire Golf", "https://www.rotowire.com/rss/news.php?sport=GOLF"),
+    ("Golf.com", "https://golf.com/feed/"),
+    ("GolfWRX", "https://www.golfwrx.com/feed/"),
 ]
 
 
@@ -476,7 +490,13 @@ def enrich_mentions(items, matchers, limit=45, workers=8):
     Bounded and parallel so a 3-hourly job stays quick, and entirely best-effort —
     sites that block or time out are simply skipped.
     """
-    targets = [it for it in items if not it.get("golfers")][:limit]
+    # Google News links are opaque redirect tokens (…/rss/articles/CBMi…), and the
+    # newer AU_yqL format carries no recoverable URL — fetching one returns Google's
+    # JS redirect shell, never the article. Skip them instead of burning the budget
+    # on pages that can't yield names.
+    targets = [it for it in items
+               if not it.get("golfers") and "news.google.com" not in (it.get("link") or "")
+               ][:limit]
     if not targets:
         return 0
     from concurrent.futures import ThreadPoolExecutor
