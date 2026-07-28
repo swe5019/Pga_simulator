@@ -44,7 +44,20 @@ jobs:
           git add data/news.json
           if git diff --cached --quiet; then
             echo "No change in news"
-          else
-            git commit -m "Auto-update industry news + golfer mention counts"
-            git push
+            exit 0
           fi
+          git commit -m "Auto-update industry news + golfer mention counts"
+          # The data workflows all push to main and can overlap (a schedule firing
+          # while a push-triggered run is mid-flight), so a plain push loses the race
+          # and fails the job. Rebase onto whatever landed first and retry.
+          for i in 1 2 3 4 5; do
+            if git push; then
+              echo "pushed on attempt $i"
+              exit 0
+            fi
+            echo "push rejected, rebasing and retrying ($i)"
+            git pull --rebase origin main || exit 1
+            sleep $((i * 3))
+          done
+          echo "could not push after 5 attempts"
+          exit 1

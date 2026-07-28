@@ -1462,9 +1462,13 @@ function renderNews() {
   if (!n) return;
   const when = n.updatedUtc ? new Date(n.updatedUtc).toLocaleString() : '';
   const stale = !n.items || !n.items.length;
+  const dead = (n.sources || []).filter((s) => !s.ok).length;
+  const live = (n.sources || []).length - dead;
   $('#newsMeta').textContent = stale
     ? '— no stories yet; the feed publishes on a schedule'
-    : `— ${n.event || 'this week'}, updated ${when}`;
+    : `— ${n.event || 'this week'}, updated ${when}` +
+      (n.counts ? ` · ${n.counts.news || 0} news / ${n.counts.chatter || 0} chatter` : '') +
+      (dead ? ` · ${live}/${live + dead} sources reporting` : '');
 
   // Buzz table, joined to your field so ownership sits next to the hype.
   const ownByName = new Map(

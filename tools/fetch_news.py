@@ -23,6 +23,7 @@ import os
 import re
 import sys
 import urllib.error
+import urllib.parse
 import urllib.request
 import xml.etree.ElementTree as ET
 
@@ -31,21 +32,45 @@ OUT = os.path.join(DATA_DIR, "news.json")
 
 UA = "SlateSims/1.0 (PGA DFS news aggregator; +https://slatesims.com)"
 
-# Public RSS feeds. Dead or reshuffled feeds are skipped rather than failing the run —
-# outlets change these URLs without notice and one bad feed shouldn't blank the tab.
+# Direct outlet feeds. Several publishers block datacenter IPs or move these URLs
+# without notice, so each is best-effort and failures are recorded, not fatal.
 RSS_FEEDS = [
+    ("Yahoo Golf", "https://sports.yahoo.com/golf/rss/"),
     ("ESPN Golf", "https://www.espn.com/espn/rss/golf/news"),
     ("Golfweek", "https://golfweek.usatoday.com/feed/"),
     ("Sky Sports Golf", "https://www.skysports.com/rss/12040"),
-    ("Yahoo Golf", "https://sports.yahoo.com/golf/rss/"),
-    ("PGA Tour", "https://www.pgatour.com/news/rss.xml"),
-    ("Golf Digest", "https://www.golfdigest.com/feed/rss"),
-    ("Golf Channel", "https://www.golfchannel.com/rss.xml"),
+    ("Golf Monthly", "https://www.golfmonthly.com/feeds/all"),
+    ("Bunkered", "https://www.bunkered.co.uk/feed"),
     ("RotoWire Golf", "https://www.rotowire.com/rss/news.php?sport=GOLF"),
-    ("Awesemo DFS", "https://www.awesemo.com/feed/"),
 ]
 
-# Public Reddit listings — community chatter, the ownership leading indicator.
+
+def google_news_feeds(event, slate_id):
+    """
+    Google News RSS queries, built around THIS week's tournament.
+
+    This is the backbone of the tab rather than a nice-to-have: querying by topic
+    pulls the same story from many outlets through one dependable endpoint, instead
+    of depending on a pile of individual publisher feeds that break or block us.
+    It also means "everything related to the current tournament" actually tracks the
+    tournament, since the query is rebuilt from the live event name each run.
+    """
+    base = "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US:en&q="
+    queries = []
+    if event:
+        queries.append((f"Google News: {event}", f'"{event}" golf'))
+        queries.append((f"Google News: {event} DFS", f'"{event}" DFS OR fantasy OR DraftKings'))
+    queries += [
+        ("Google News: PGA Tour", "PGA Tour golf news"),
+        ("Google News: PGA DFS", "PGA DFS DraftKings fantasy golf picks"),
+        ("Google News: withdrawals", "PGA Tour withdraws OR injury golfer"),
+    ]
+    return [(label, base + urllib.parse.quote(q)) for label, q in queries]
+
+
+# Community chatter — the ownership leading indicator. Reddit blocks the .json API
+# from datacenter IPs (which is exactly what a CI runner is), but the plain .rss
+# listings are served far more permissively, so those are tried first.
 SUBREDDITS = ["dfsports", "DraftKings", "golf"]
 
 MAX_ITEMS = 120  # cap what we publish so news.json stays small
@@ -175,51 +200,72 @@ def parse_rss(xml_bytes, source):
     return out
 
 
-def fetch_rss():
-    items, ok, dead = [], 0, []
-    for source, url in RSS_FEEDS:
+def fetch_rss(feeds):
+    """Fetch a list of (label, url) feeds. Returns (items, diagnostics)."""
+    items, diag = [], []
+    for source, url in feeds:
         try:
             got = parse_rss(get(url), source)
-            if got:
-                items.extend(got)
-                ok += 1
-            else:
-                dead.append(source)
+            items.extend(got)
+            diag.append({"source": source, "ok": bool(got), "items": len(got),
+                         "error": None if got else "no items"})
         except Exception as e:  # noqa: BLE001
-            dead.append(f"{source} ({type(e).__name__})")
-    print(f"RSS: {ok}/{len(RSS_FEEDS)} feeds returned items, {len(items)} items")
-    if dead:
-        print(f"  skipped: {', '.join(dead)}")
-    return items
+            diag.append({"source": source, "ok": False, "items": 0,
+                         "error": type(e).__name__})
+    ok = sum(1 for d in diag if d["ok"])
+    print(f"RSS: {ok}/{len(feeds)} feeds returned items, {len(items)} items")
+    for d in diag:
+        if not d["ok"]:
+            print(f"  skipped {d['source']}: {d['error']}")
+    return items, diag
 
 
 def fetch_reddit():
-    """Recent posts from DFS/golf subreddits — counted locally, so no per-golfer queries."""
-    items = []
+    """
+    Recent posts from the DFS/golf subreddits, counted locally so we never need
+    per-golfer queries (which would blow through rate limits on a 141-man field).
+
+    Tries the .rss listing first: Reddit blocks its .json API from datacenter IPs
+    like CI runners, which is why chatter came back empty on the first live run.
+    """
+    items, diag = [], []
     for sub in SUBREDDITS:
-        try:
-            raw = get(f"https://www.reddit.com/r/{sub}/new.json?limit=100")
-            data = json.loads(raw)
-            for child in data.get("data", {}).get("children", []):
-                d = child.get("data", {})
-                title = (d.get("title") or "").strip()
-                if not title:
-                    continue
-                items.append({
-                    "title": title,
-                    "link": "https://www.reddit.com" + (d.get("permalink") or ""),
-                    "summary": strip_html(d.get("selftext") or "")[:400],
-                    "published": datetime.datetime.utcfromtimestamp(
-                        d.get("created_utc") or 0).isoformat() + "Z",
-                    "source": "r/" + sub,
-                    "kind": "chatter",
-                    "score": d.get("score") or 0,
-                    "comments": d.get("num_comments") or 0,
-                })
-        except Exception as e:  # noqa: BLE001
-            print(f"  reddit r/{sub} failed: {type(e).__name__}")
+        got, err = [], None
+        for url in (f"https://www.reddit.com/r/{sub}/new/.rss?limit=100",
+                    f"https://old.reddit.com/r/{sub}/new/.rss?limit=100",
+                    f"https://www.reddit.com/r/{sub}/new.json?limit=100"):
+            try:
+                raw = get(url)
+                if url.endswith(".json?limit=100"):
+                    data = json.loads(raw)
+                    for child in data.get("data", {}).get("children", []):
+                        d = child.get("data", {})
+                        if not (d.get("title") or "").strip():
+                            continue
+                        got.append({
+                            "title": d["title"].strip(),
+                            "link": "https://www.reddit.com" + (d.get("permalink") or ""),
+                            "summary": strip_html(d.get("selftext") or "")[:400],
+                            "published": datetime.datetime.utcfromtimestamp(
+                                d.get("created_utc") or 0).isoformat() + "Z",
+                            "source": "r/" + sub, "kind": "chatter",
+                        })
+                else:
+                    for it in parse_rss(raw, "r/" + sub):
+                        it["kind"] = "chatter"
+                        got.append(it)
+                if got:
+                    break
+                err = "no items"
+            except Exception as e:  # noqa: BLE001
+                err = type(e).__name__
+        items.extend(got)
+        diag.append({"source": "r/" + sub, "ok": bool(got), "items": len(got),
+                     "error": None if got else err})
+        if not got:
+            print(f"  reddit r/{sub} failed: {err}")
     print(f"Reddit: {len(items)} posts")
-    return items
+    return items, diag
 
 
 # ---------------------------------------------------------------- main
@@ -246,7 +292,9 @@ def main():
     event_words = {w for w in _nrm(event).split() if len(w) > 3 and w not in ("open", "classic", "championship", "tour", "invitational")}
 
     matchers = build_matchers(golfers)
-    raw = fetch_rss() + fetch_reddit()
+    rss_items, rss_diag = fetch_rss(RSS_FEEDS + google_news_feeds(event, slate_id))
+    red_items, red_diag = fetch_reddit()
+    raw = rss_items + red_items
 
     # Keep an item if it mentions the event or anyone in this week's field.
     seen_links, items = set(), []
@@ -280,7 +328,15 @@ def main():
         "updatedUtc": datetime.datetime.utcnow().replace(microsecond=0).isoformat() + "Z",
         "slate": slate_id,
         "event": event,
-        "counts": {"items": len(items), "golfersMentioned": len(table)},
+        "counts": {
+            "items": len(items),
+            "golfersMentioned": len(table),
+            "news": sum(1 for i in items if i["kind"] == "news"),
+            "chatter": sum(1 for i in items if i["kind"] == "chatter"),
+        },
+        # Per-source status, so a silently dead feed is visible in the data itself
+        # instead of only in a workflow log nobody reads.
+        "sources": rss_diag + red_diag,
         "mentions": table,
         "items": items,
     }
