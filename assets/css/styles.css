@@ -171,6 +171,14 @@ table.lut td.hn { color: var(--text); }
 table.lut tfoot td { border-top: 2px solid var(--line); color: var(--dim); font-weight: 600; }
 table.lut tfoot td:first-child { color: var(--text); }
 
+/* Per-lineup stat strip under each card's table */
+.lstats {
+  display: flex; flex-wrap: wrap; gap: 4px 14px;
+  margin-top: 8px; padding-top: 7px; border-top: 1px solid var(--line);
+  font-size: 11px; color: var(--dim);
+}
+.lstats b { color: var(--text); font-weight: 600; margin-left: 3px; }
+
 /* Hand build */
 .hbh { margin-top: 18px; }
 .handlu { display: flex; flex-direction: column; gap: 7px; }

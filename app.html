@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>SlateSims — PGA DFS Simulator for DraftKings</title>
   <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml" />
-  <link rel="stylesheet" href="assets/css/styles.css?v=20260717h" />
+  <link rel="stylesheet" href="assets/css/styles.css?v=20260717i" />
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-13J1816EN4"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -422,6 +422,12 @@
         exact DraftKings prize tables.
       </p>
       <div id="contestSummary" class="cards"></div>
+      <div class="trim-bar">
+        <label class="trim-label">Trim to top</label>
+        <input id="trimRoiN" type="number" min="1" step="1" placeholder="20" class="filter-num" />
+        <button id="trimRoiBtn" class="ghost">Trim by ROI</button>
+        <span class="trim-hint">Keeps the lineups with the best ROI <i>for this contest</i>, with exposure caps re-enforced. Run the sim above first. Rebuild on tab 2 to restore the full pool.</span>
+      </div>
       <div class="tablewrap">
         <table id="contestTable">
           <thead>
@@ -545,13 +551,13 @@
     </div>
   </div>
 
-  <script src="assets/js/scoring.js?v=20260717h"></script>
-  <script src="assets/js/data.js?v=20260717h"></script>
-  <script src="assets/js/sim.js?v=20260717h"></script>
-  <script src="assets/js/optimizer.js?v=20260717h"></script>
-  <script src="assets/js/contest.js?v=20260717h"></script>
-  <script src="assets/js/app.js?v=20260717h"></script>
-  <script src="assets/js/onboard.js?v=20260717h"></script>
-  <script src="assets/js/tour.js?v=20260717h"></script>
+  <script src="assets/js/scoring.js?v=20260717i"></script>
+  <script src="assets/js/data.js?v=20260717i"></script>
+  <script src="assets/js/sim.js?v=20260717i"></script>
+  <script src="assets/js/optimizer.js?v=20260717i"></script>
+  <script src="assets/js/contest.js?v=20260717i"></script>
+  <script src="assets/js/app.js?v=20260717i"></script>
+  <script src="assets/js/onboard.js?v=20260717i"></script>
+  <script src="assets/js/tour.js?v=20260717i"></script>
 </body>
 </html>

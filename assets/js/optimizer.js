@@ -364,13 +364,33 @@ function selectByExposure(sortedLineups, nTarget, opts = {}) {
   return { lineups, exposure, capExceeded };
 }
 
-/** Compute mean / ceiling / floor of each lineup over the full sim set. */
+/** Compute mean / ceiling / floor / all-cut% of each lineup over the full sim set. */
 function scoreLineups(lineups, simResults, nSims) {
   for (const lu of lineups) {
     const totals = new Float64Array(nSims);
+    // allCut[i] stays 1 only while every golfer in this lineup made the cut in
+    // simulated tournament i. Counting these joint survivals directly is what makes
+    // "6/6%" a real measured probability rather than the product of six separate
+    // cut rates (which would silently assume the golfers are independent).
+    const cutArrays = [];
     for (const id of lu.players) {
-      const s = simResults.get(id).samples;
+      const r = simResults.get(id);
+      const s = r.samples;
       for (let i = 0; i < nSims; i++) totals[i] += s[i];
+      if (r.madeCut) cutArrays.push(r.madeCut);
+    }
+    if (cutArrays.length === lu.players.length && nSims > 0) {
+      let allCut = 0;
+      for (let i = 0; i < nSims; i++) {
+        let every = true;
+        for (let k = 0; k < cutArrays.length; k++) {
+          if (!cutArrays[k][i]) { every = false; break; }
+        }
+        if (every) allCut++;
+      }
+      lu.allCutPct = (allCut / nSims) * 100;
+    } else {
+      lu.allCutPct = null; // pre-existing sim results without per-tournament cut flags
     }
     const sorted = Float64Array.from(totals).sort();
     let sum = 0;

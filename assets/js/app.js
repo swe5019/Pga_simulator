@@ -292,6 +292,16 @@ const byId = (id) => State.golfers.find((g) => g.id === id);
 const money = (n) => '$' + Math.round(n).toLocaleString();
 const pct = (n) => (n == null ? '—' : n.toFixed(1) + '%');
 const num = (n) => (n == null ? '—' : n.toFixed(1));
+/**
+ * Format a product-of-ownership percentage. These get very small (six 20%-owned
+ * golfers multiply out to 0.0064%), so fall back to exponential notation rather
+ * than rounding a meaningful number down to a wall of zeros.
+ */
+const fmtProdOwn = (v) => {
+  if (v == null || !isFinite(v)) return '—';
+  if (v === 0) return '0%';
+  return (v >= 0.0001 ? v.toFixed(4) : v.toExponential(1)) + '%';
+};
 /** Projected fantasy points for a golfer (mean of the sim), or null if unrun. */
 const projOf = (g) => {
   const r = State.simResults && State.simResults.get(g.id);
@@ -1070,6 +1080,69 @@ function runContest() {
   }, 30);
 }
 
+/**
+ * Trim the pool to the top N lineups by ROI *for the contest just simulated*,
+ * re-enforcing exposure caps. This is the per-contest version of the Review tab's
+ * trim: a lineup that grades well generally can still be a poor fit for a specific
+ * payout shape and field size, so this ranks by what that contest actually pays.
+ * Surviving lineups keep their contest results, so the ROI table stays populated.
+ */
+function trimByRoi() {
+  const c = State.contest;
+  const status = $('#contestStatus');
+  if (!State.build || !State.build.lineups.length) {
+    status.textContent = 'Build a lineup pool first (tab 2).';
+    return;
+  }
+  if (!c || !c.results || !c.results.length) {
+    status.textContent = 'Run the contest sim first — trimming by ROI needs contest results.';
+    return;
+  }
+  const n = parseInt($('#trimRoiN').value, 10);
+  if (!n || n < 1) { status.textContent = 'Enter how many lineups to trim to.'; return; }
+  if (n >= State.build.lineups.length) {
+    status.textContent = `Pool already has ${State.build.lineups.length} lineups — nothing to trim. Build a larger pool first.`;
+    return;
+  }
+  // Tie each contest result back to its lineup object before we reorder anything.
+  const resultByLineup = new Map();
+  for (const r of c.results) {
+    const lu = State.build.lineups[r.idx];
+    if (lu) resultByLineup.set(lu, r);
+  }
+  const sorted = [...State.build.lineups].sort((a, b) => {
+    const ra = resultByLineup.get(a), rb = resultByLineup.get(b);
+    return (rb ? rb.roi : -Infinity) - (ra ? ra.roi : -Infinity);
+  });
+  const maxExpById = new Map();
+  for (const g of State.golfers) if (g.maxExp != null) maxExpById.set(g.id, g.maxExp / 100);
+  const locks = new Set(State.golfers.filter((g) => g.locked).map((g) => g.id));
+  const maxExposure = (parseFloat($('#maxExposure').value) || 100) / 100;
+  const sel = window.Optimizer.selectByExposure(sorted, n, { maxExpById, maxExposure, locks });
+
+  State.build.lineups = sel.lineups;
+  State.build.exposure = sel.exposure;
+  State.build.capExceeded = sel.capExceeded;
+  // Keep the contest results for the survivors, re-indexed to the new pool.
+  State.contest.results = sel.lineups
+    .map((lu, i) => { const r = resultByLineup.get(lu); return r ? { ...r, idx: i } : null; })
+    .filter(Boolean);
+
+  const nameById = new Map(State.golfers.map((g) => [g.id, g.name]));
+  let msg = `✓ Trimmed to ${sel.lineups.length} lineups by contest ROI, exposures re-enforced`;
+  if (sel.capExceeded && sel.capExceeded.length) {
+    const who = sel.capExceeded
+      .map((x) => `${nameById.get(x.id) || x.id} ${Math.round(x.exposure * 100)}%`)
+      .join(', ');
+    msg += ` — ${who} over cap (required by the lineups that survived the trim)`;
+  }
+  status.textContent = msg;
+  renderPlayers();
+  renderBuildSummary();
+  renderReview();
+  renderContest();
+}
+
 function renderContest() {
   const c = State.contest;
   if (!c) return;
@@ -1149,10 +1222,16 @@ function renderReview() {
       const players = lu.players.map(byId).sort((a, b) => b.salary - a.salary);
       let totOwn = 0;
       let totProj = 0;
+      let sumT10 = 0;
+      let prodOwn = 1;      // product of the six ownership fractions
+      let ownComplete = true; // false if any golfer is missing an ownership number
       const rows = players
         .map((g) => {
           const fp = projOf(g);
           totOwn += g.ownership || 0;
+          sumT10 += g.top10Prob || 0;
+          if (g.ownership == null) ownComplete = false;
+          else prodOwn *= g.ownership / 100;
           if (fp != null) totProj += fp;
           return `<tr>
             <td class="hn">${g.name}</td>
@@ -1180,6 +1259,12 @@ function renderReview() {
             <td class="num">${totProj ? totProj.toFixed(1) : num(lu.mean)}</td>
           </tr></tfoot>
         </table>
+        <div class="lstats">
+          <span title="Chance all 6 golfers make the cut, measured across the simulated tournaments where they all survived together.">6/6 Cut <b>${lu.allCutPct != null ? lu.allCutPct.toFixed(1) + '%' : '—'}</b></span>
+          <span title="10th percentile combined score for this lineup — a bad-but-realistic day for all 6 together.">Floor <b>${num(lu.floor)}</b></span>
+          <span title="Sum of each golfer's top-10 finish equity. Higher means more of the lineup projects to contend.">Sum T10 <b>${sumT10.toFixed(1)}%</b></span>
+          <span title="The six ownership percentages multiplied together — a duplication-risk proxy. Lower means fewer opponents are likely to have this exact lineup.">Prod Own <b>${ownComplete ? fmtProdOwn(prodOwn * 100) : '—'}</b></span>
+        </div>
       </div>`;
     })
     .join('');
@@ -1601,6 +1686,7 @@ function init() {
   $('#buildBtn').addEventListener('click', () => { track('build_lineups', { n_lineups: $('#nLineups').value }); buildPool(); });
   $('#trimBtn').addEventListener('click', () => { track('trim_pool', { n: $('#trimN').value }); trimPool(); });
   $('#exportReviewBtn').addEventListener('click', () => { track('export_review_csv'); exportReviewCSV(); });
+  $('#trimRoiBtn').addEventListener('click', () => { track('trim_pool_roi', { n: $('#trimRoiN').value }); trimByRoi(); });
   $('#exportPlayersBtn').addEventListener('click', exportPlayersCSV);
   $('#importPlayersCsv').addEventListener('change', (e) => { if (e.target.files[0]) { importPlayersCSV(e.target.files[0]); e.target.value = ''; } });
 
