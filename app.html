@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>SlateSims — PGA DFS Simulator for DraftKings</title>
   <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml" />
-  <link rel="stylesheet" href="assets/css/styles.css?v=20260717n" />
+  <link rel="stylesheet" href="assets/css/styles.css?v=20260717o" />
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-13J1816EN4"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -49,6 +49,7 @@
       <button class="tab" data-tab="lineups">3 · Review</button>
       <button class="tab" data-tab="contest">4 · Contest</button>
       <button class="tab" data-tab="export">5 · Export</button>
+      <button class="tab" data-tab="news">📰 News</button>
       <button class="tab" data-tab="saved">⭐ Saved</button>
       <button class="tab" data-tab="handbuild">✋ Hand Build</button>
     </nav>
@@ -468,6 +469,48 @@
     </section>
 
     <!-- ===================== HAND BUILD ===================== -->
+    <!-- ===================== INDUSTRY NEWS ===================== -->
+    <section id="news" class="panel">
+      <h2>Industry News <span class="sub" id="newsMeta"></span></h2>
+      <p class="hint">
+        Coverage and DFS community chatter for this week's tournament, refreshed every
+        few hours. <b>Buzz</b> counts how many separate stories and posts mention each
+        golfer in your field — <b>News</b> spikes on injuries, withdrawals and form,
+        while <b>Chatter</b> tends to lead projected ownership. A golfer high in chatter
+        but low in your projections is the field getting ahead of itself; the reverse is
+        where leverage hides.
+      </p>
+      <div class="split">
+        <div>
+          <h2 class="hbh">Most Talked About <span class="sub" id="buzzCount"></span></h2>
+          <div class="tablewrap">
+            <table id="buzzTable">
+              <thead>
+                <tr>
+                  <th>Golfer</th>
+                  <th class="num" title="Articles from golf and DFS outlets mentioning this golfer">News</th>
+                  <th class="num" title="Reddit DFS/golf posts mentioning this golfer — tends to lead ownership">Chatter</th>
+                  <th class="num" title="News + chatter combined">Buzz</th>
+                  <th class="num" title="Your projected ownership for this golfer">Own%</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </div>
+        <div>
+          <h2 class="hbh">Latest <span class="sub" id="newsFilterNote"></span></h2>
+          <div class="trim-bar">
+            <button class="ghost small newsfil active" data-kind="all">All</button>
+            <button class="ghost small newsfil" data-kind="news">News</button>
+            <button class="ghost small newsfil" data-kind="chatter">Chatter</button>
+            <input id="newsSearch" type="text" placeholder="Filter by golfer or keyword…" class="filter-text" />
+          </div>
+          <div id="newsList" class="lineups"></div>
+        </div>
+      </div>
+    </section>
+
     <!-- ===================== SAVED LINEUPS ===================== -->
     <section id="saved" class="panel">
       <h2>Saved Lineups <span class="sub" id="savedCount"></span>
@@ -566,13 +609,13 @@
     </div>
   </div>
 
-  <script src="assets/js/scoring.js?v=20260717n"></script>
-  <script src="assets/js/data.js?v=20260717n"></script>
-  <script src="assets/js/sim.js?v=20260717n"></script>
-  <script src="assets/js/optimizer.js?v=20260717n"></script>
-  <script src="assets/js/contest.js?v=20260717n"></script>
-  <script src="assets/js/app.js?v=20260717n"></script>
-  <script src="assets/js/onboard.js?v=20260717n"></script>
-  <script src="assets/js/tour.js?v=20260717n"></script>
+  <script src="assets/js/scoring.js?v=20260717o"></script>
+  <script src="assets/js/data.js?v=20260717o"></script>
+  <script src="assets/js/sim.js?v=20260717o"></script>
+  <script src="assets/js/optimizer.js?v=20260717o"></script>
+  <script src="assets/js/contest.js?v=20260717o"></script>
+  <script src="assets/js/app.js?v=20260717o"></script>
+  <script src="assets/js/onboard.js?v=20260717o"></script>
+  <script src="assets/js/tour.js?v=20260717o"></script>
 </body>
 </html>

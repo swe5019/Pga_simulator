@@ -1,0 +1,50 @@
+name: Fetch industry news
+
+on:
+  # Every 3 hours — frequent enough to catch withdrawals and Wednesday news
+  # without burning Actions minutes.
+  schedule:
+    - cron: '20 */3 * * *'
+  workflow_dispatch:
+  # Rebuild when the field changes or the fetcher itself is edited, so mention
+  # counts are always matched against the current week's golfers.
+  push:
+    branches: [main]
+    paths:
+      - 'tools/fetch_news.py'
+      - '.github/workflows/fetch-news.yml'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: fetch-news
+  cancel-in-progress: true
+
+jobs:
+  news:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      # No third-party deps: stdlib urllib + ElementTree only.
+      - name: Fetch news
+        run: python tools/fetch_news.py
+
+      - name: Commit news.json
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/news.json
+          if git diff --cached --quiet; then
+            echo "No change in news"
+          else
+            git commit -m "Auto-update industry news + golfer mention counts"
+            git push
+          fi

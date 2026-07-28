@@ -16,6 +16,8 @@ const State = {
   dkShowdownRaw: null,     // raw dk_showdown.json data when available
   slateType: 'classic',    // 'classic' | 'showdown'
   contest: null,           // last contest-sim result
+  news: null,              // data/news.json once loaded (industry news + buzz)
+  newsKind: 'all',         // News tab filter: 'all' | 'news' | 'chatter'
   dkContests: null,        // real DK contests + payout tiers (dk_contests.json)
   hand: { ids: [] },       // hand-build lineup in progress (golfer ids)
   sort: { key: 'salary', dir: -1 }, // player table sort (dir: 1 asc, -1 desc)
@@ -314,6 +316,7 @@ function initTabs() {
       track('tab_view', { tab: btn.dataset.tab });
       if (btn.dataset.tab === 'handbuild') renderHandBuild();
       if (btn.dataset.tab === 'saved') renderSaved();
+      if (btn.dataset.tab === 'news') loadNews();
     });
   });
 }
@@ -1431,6 +1434,116 @@ function renderHandBuild() {
   );
 }
 
+/* ---------------------- Industry news ---------------------- */
+/**
+ * Load data/news.json, published every few hours by the fetch-news workflow.
+ * It has to be built server-side: browsers can't read third-party RSS or Reddit
+ * directly (CORS), so the job fetches them and writes a same-origin file — the
+ * same approach slate.json and dk.json already use.
+ */
+async function loadNews() {
+  if (State.news) { renderNews(); return; }
+  const meta = $('#newsMeta');
+  meta.textContent = '— loading…';
+  try {
+    const res = await fetch('data/news.json?t=' + Date.now(), { cache: 'no-store' });
+    if (!res.ok) throw new Error('no news.json (' + res.status + ')');
+    State.news = await res.json();
+    renderNews();
+  } catch (e) {
+    meta.textContent = '';
+    $('#newsList').innerHTML =
+      `<div class="hbslot empty"><span>News feed unavailable — it publishes on a schedule and may not have run yet.</span></div>`;
+  }
+}
+
+function renderNews() {
+  const n = State.news;
+  if (!n) return;
+  const when = n.updatedUtc ? new Date(n.updatedUtc).toLocaleString() : '';
+  const stale = !n.items || !n.items.length;
+  $('#newsMeta').textContent = stale
+    ? '— no stories yet; the feed publishes on a schedule'
+    : `— ${n.event || 'this week'}, updated ${when}`;
+
+  // Buzz table, joined to your field so ownership sits next to the hype.
+  const ownByName = new Map(
+    State.golfers.filter((g) => !g.notInSlate).map((g) => [normName(g.name), g])
+  );
+  const rows = (n.mentions || []).slice(0, 40);
+  $('#buzzCount').textContent = rows.length ? `— top ${rows.length}` : '';
+  $('#buzzTable tbody').innerHTML = rows.length
+    ? rows
+        .map((m) => {
+          const g = ownByName.get(normName(m.name));
+          const own = g && g.ownership != null ? g.ownership.toFixed(1) + '%' : '—';
+          return `<tr>
+            <td class="name">${escapeHtml(m.name)}</td>
+            <td class="num">${m.news}</td>
+            <td class="num">${m.chatter}</td>
+            <td class="num"><b>${m.total}</b></td>
+            <td class="num dim">${own}</td>
+          </tr>`;
+        })
+        .join('')
+    : `<tr><td colspan="5" class="dim">No golfer mentions yet.</td></tr>`;
+
+  renderNewsList();
+}
+
+function renderNewsList() {
+  const n = State.news;
+  if (!n) return;
+  const kind = State.newsKind || 'all';
+  const q = ($('#newsSearch').value || '').trim().toLowerCase();
+  const items = (n.items || []).filter((it) => {
+    if (kind !== 'all' && it.kind !== kind) return false;
+    if (!q) return true;
+    const hay = `${it.title} ${it.summary || ''} ${(it.golfers || []).join(' ')}`.toLowerCase();
+    return hay.includes(q);
+  });
+  $('#newsFilterNote').textContent = items.length ? `— ${items.length} stor${items.length === 1 ? 'y' : 'ies'}` : '';
+  $('#newsList').innerHTML = items.length
+    ? items
+        .map((it) => {
+          const tags = (it.golfers || [])
+            .map((g) => `<span class="chip">${escapeHtml(g)}</span>`)
+            .join('');
+          const when = it.published ? timeAgo(it.published) : '';
+          const badge = it.kind === 'chatter' ? 'chatter' : 'news';
+          return `<div class="newsitem">
+            <div class="newshead">
+              <span class="newsbadge ${badge}">${badge}</span>
+              <span class="newssrc">${escapeHtml(it.source || '')}</span>
+              <span class="dim">${when}</span>
+            </div>
+            <a class="newstitle" href="${escapeHtml(it.link || '#')}" target="_blank" rel="noopener noreferrer">${escapeHtml(it.title)}</a>
+            ${it.summary ? `<div class="newssum">${escapeHtml(it.summary.slice(0, 220))}</div>` : ''}
+            ${tags ? `<div class="chips">${tags}</div>` : ''}
+          </div>`;
+        })
+        .join('')
+    : `<div class="hbslot empty"><span>Nothing matches that filter.</span></div>`;
+}
+
+function escapeHtml(s) {
+  return String(s == null ? '' : s)
+    .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+}
+
+/** "3h ago" style stamp; falls back to the raw string if unparseable. */
+function timeAgo(s) {
+  const t = Date.parse(s);
+  if (isNaN(t)) return '';
+  const mins = Math.round((Date.now() - t) / 60000);
+  if (mins < 1) return 'just now';
+  if (mins < 60) return mins + 'm ago';
+  const hrs = Math.round(mins / 60);
+  if (hrs < 24) return hrs + 'h ago';
+  return Math.round(hrs / 24) + 'd ago';
+}
+
 /** Snapshot the sim stats worth keeping alongside a saved lineup. */
 function lineupStats(lu) {
   if (!lu) return null;
@@ -1828,6 +1941,15 @@ function init() {
   $('#trimBtn').addEventListener('click', () => { track('trim_pool', { n: $('#trimN').value }); trimPool(); });
   $('#exportReviewBtn').addEventListener('click', () => { track('export_review_csv'); exportReviewCSV(); });
   $('#trimRoiBtn').addEventListener('click', () => { track('trim_pool_roi', { n: $('#trimRoiN').value }); trimByRoi(); });
+  $$('.newsfil').forEach((b) => {
+    b.addEventListener('click', () => {
+      $$('.newsfil').forEach((x) => x.classList.remove('active'));
+      b.classList.add('active');
+      State.newsKind = b.dataset.kind;
+      renderNewsList();
+    });
+  });
+  $('#newsSearch').addEventListener('input', renderNewsList);
   $('#exportPlayersBtn').addEventListener('click', exportPlayersCSV);
   $('#importPlayersCsv').addEventListener('change', (e) => { if (e.target.files[0]) { importPlayersCSV(e.target.files[0]); e.target.value = ''; } });
 
