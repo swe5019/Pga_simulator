@@ -1,25 +1,73 @@
 {
- "updatedUtc": "2026-07-28T20:35:05Z",
+ "updatedUtc": "2026-07-28T20:39:23Z",
  "slate": "ROCKET_2026",
  "event": "Rocket Classic",
  "counts": {
-  "items": 79,
-  "golfersMentioned": 15,
-  "news": 79,
+  "items": 82,
+  "golfersMentioned": 34,
+  "news": 82,
   "chatter": 0
  },
  "sources": [
+  {
+   "source": "RotoWire Golf",
+   "ok": true,
+   "items": 5,
+   "error": null
+  },
+  {
+   "source": "RotoBaller Golf",
+   "ok": false,
+   "items": 0,
+   "error": "no items"
+  },
+  {
+   "source": "RotoBaller",
+   "ok": true,
+   "items": 15,
+   "error": null
+  },
+  {
+   "source": "Golf News Net",
+   "ok": false,
+   "items": 0,
+   "error": "HTTP 401"
+  },
+  {
+   "source": "FantasyLabs",
+   "ok": true,
+   "items": 20,
+   "error": null
+  },
+  {
+   "source": "Action Network",
+   "ok": false,
+   "items": 0,
+   "error": "no items"
+  },
+  {
+   "source": "VSiN",
+   "ok": true,
+   "items": 25,
+   "error": null
+  },
+  {
+   "source": "Pinnacle Golf",
+   "ok": false,
+   "items": 0,
+   "error": "HTTP 404"
+  },
+  {
+   "source": "SportsGrid",
+   "ok": false,
+   "items": 0,
+   "error": "HTTP 404"
+  },
   {
    "source": "Yahoo Golf",
    "ok": true,
    "items": 50,
    "error": null
-  },
-  {
-   "source": "ESPN Golf",
-   "ok": false,
-   "items": 0,
-   "error": "no items"
   },
   {
    "source": "Golfweek",
@@ -46,9 +94,15 @@
    "error": null
   },
   {
-   "source": "RotoWire Golf",
+   "source": "Golf.com",
    "ok": true,
-   "items": 5,
+   "items": 10,
+   "error": null
+  },
+  {
+   "source": "GolfWRX",
+   "ok": true,
+   "items": 25,
    "error": null
   },
   {
@@ -103,38 +157,23 @@
  "mentions": [
   {
    "name": "Brooks Koepka",
-   "news": 7,
+   "news": 6,
    "chatter": 0,
    "alert": "wd",
    "alertHeadline": "Brooks Koepka withdraws from Rocket Classic - The Detroit News",
    "alertLink": "https://news.google.com/rss/articles/CBMiswFBVV95cUxQYVFxbU9LVzcyVW13b0wyTUQ3OXFxWG9vVm5jbWdSWlpjMHhIeWpqb0JTUXFYMUFzU0hySkpjVlRGUXU3RmRlN1Nyb1IyQzI3UlN4NW9VeWxYYU1GTFF2SkFWdjRJdXZ1RU8zYjl6enU0S2lQbTVHUWlQVDNEQW9EcG1YWmdEZC1rVmp1eU83c2Nqem1TM0RpU253bFdCTUdUaVJCcWVZOHZsWENHN2lJZnVMaw?oc=5",
-   "total": 7
+   "total": 6
   },
   {
    "name": "Cameron Young",
-   "news": 4,
+   "news": 6,
    "chatter": 0,
-   "total": 4
+   "total": 6
   },
   {
    "name": "Chris Gotterup",
-   "news": 4,
-   "chatter": 0,
-   "total": 4
-  },
-  {
-   "name": "Xander Schauffele",
    "news": 3,
    "chatter": 0,
-   "total": 3
-  },
-  {
-   "name": "Jason Day",
-   "news": 3,
-   "chatter": 0,
-   "alert": "wd",
-   "alertHeadline": "Jason Day withdraws from 2026 Rocket Classic, second straight WD with injury - Golfweek",
-   "alertLink": "https://news.google.com/rss/articles/CBMitgFBVV95cUxQb1pBMHctcXVWQUplTzdzd0F5UFZnNnVYQTlOQ1lZSlJHVFRmLUQwcjdNYnlTdUpxNlI4aGJISi1PLTJCaTZ6OU82T0N5OUFBay1HV3p5d0RQZV9UTlRaMUZXLUhNZkp0OGVwd0wzeDJIVUZpbm1yMUNxazg0SldUZkhpTG1UcXJqZm5PM01rT3BuY0lMSWc4ZS1IME9QS3hvWGQxVkdmUmZGSG1QUnR1S3BwZ19lQQ?oc=5",
    "total": 3
   },
   {
@@ -144,13 +183,19 @@
    "total": 2
   },
   {
-   "name": "Billy Horschel",
+   "name": "Xander Schauffele",
    "news": 2,
    "chatter": 0,
    "total": 2
   },
   {
-   "name": "Ryan Gerard",
+   "name": "Russell Henley",
+   "news": 2,
+   "chatter": 0,
+   "total": 2
+  },
+  {
+   "name": "J.J. Spaun",
    "news": 2,
    "chatter": 0,
    "total": 2
@@ -162,13 +207,112 @@
    "total": 2
   },
   {
+   "name": "Davis Thompson",
+   "news": 2,
+   "chatter": 0,
+   "total": 2
+  },
+  {
+   "name": "Eric Cole",
+   "news": 2,
+   "chatter": 0,
+   "total": 2
+  },
+  {
+   "name": "Seamus Power",
+   "news": 2,
+   "chatter": 0,
+   "total": 2
+  },
+  {
+   "name": "Ben Kohles",
+   "news": 2,
+   "chatter": 0,
+   "total": 2
+  },
+  {
+   "name": "Daniel Brown",
+   "news": 2,
+   "chatter": 0,
+   "total": 2
+  },
+  {
+   "name": "Cameron Davis",
+   "news": 2,
+   "chatter": 0,
+   "total": 2
+  },
+  {
+   "name": "Jason Day",
+   "news": 2,
+   "chatter": 0,
+   "alert": "wd",
+   "alertHeadline": "Jason Day withdraws from 2026 Rocket Classic, second straight WD with injury - Golfweek",
+   "alertLink": "https://news.google.com/rss/articles/CBMitgFBVV95cUxQb1pBMHctcXVWQUplTzdzd0F5UFZnNnVYQTlOQ1lZSlJHVFRmLUQwcjdNYnlTdUpxNlI4aGJISi1PLTJCaTZ6OU82T0N5OUFBay1HV3p5d0RQZV9UTlRaMUZXLUhNZkp0OGVwd0wzeDJIVUZpbm1yMUNxazg0SldUZkhpTG1UcXJqZm5PM01rT3BuY0lMSWc4ZS1IME9QS3hvWGQxVkdmUmZGSG1QUnR1S3BwZ19lQQ?oc=5",
+   "total": 2
+  },
+  {
+   "name": "Jackson Koivun",
+   "news": 1,
+   "chatter": 0,
+   "total": 1
+  },
+  {
+   "name": "Billy Horschel",
+   "news": 1,
+   "chatter": 0,
+   "total": 1
+  },
+  {
    "name": "Si Woo Kim",
    "news": 1,
    "chatter": 0,
    "total": 1
   },
   {
-   "name": "Jackson Koivun",
+   "name": "Nicolai Hojgaard",
+   "news": 1,
+   "chatter": 0,
+   "total": 1
+  },
+  {
+   "name": "Jacob Bridgeman",
+   "news": 1,
+   "chatter": 0,
+   "total": 1
+  },
+  {
+   "name": "Matt Wallace",
+   "news": 1,
+   "chatter": 0,
+   "total": 1
+  },
+  {
+   "name": "Sam Stevens",
+   "news": 1,
+   "chatter": 0,
+   "total": 1
+  },
+  {
+   "name": "Jordan L. Smith",
+   "news": 1,
+   "chatter": 0,
+   "total": 1
+  },
+  {
+   "name": "Nick Taylor",
+   "news": 1,
+   "chatter": 0,
+   "total": 1
+  },
+  {
+   "name": "Matti Schmid",
+   "news": 1,
+   "chatter": 0,
+   "total": 1
+  },
+  {
+   "name": "Chandler Phillips",
    "news": 1,
    "chatter": 0,
    "total": 1
@@ -180,25 +324,60 @@
    "total": 1
   },
   {
-   "name": "Hideki Matsuyama",
+   "name": "Jake Knapp",
    "news": 1,
    "chatter": 0,
    "total": 1
   },
   {
-   "name": "Harris English",
+   "name": "Corey Conners",
    "news": 1,
    "chatter": 0,
    "total": 1
   },
   {
-   "name": "Jordan Spieth",
+   "name": "Aldrich Potgieter",
+   "news": 1,
+   "chatter": 0,
+   "total": 1
+  },
+  {
+   "name": "Max Greyserman",
+   "news": 1,
+   "chatter": 0,
+   "total": 1
+  },
+  {
+   "name": "Chris Kirk",
+   "news": 1,
+   "chatter": 0,
+   "total": 1
+  },
+  {
+   "name": "Nicolas Echavarria",
+   "news": 1,
+   "chatter": 0,
+   "total": 1
+  },
+  {
+   "name": "Ryan Gerard",
    "news": 1,
    "chatter": 0,
    "total": 1
   }
  ],
  "items": [
+  {
+   "title": "Rocket Classic Best Bets and Golf Odds",
+   "link": "https://vsin.com/golf/rocket-classic-best-bets-and-golf-odds/",
+   "summary": "Rocket Classic Best Bets and Golf Odds: Former World No. 1 Amateur Jackson Koivun turned professional just four weeks ago at the John Deere Classic. Most golf observers recognized that his first PGA Tour victory was coming sooner rather than later. It was sooner, with Koivun winning last weekend&#8217;s 3M Open at 28-1. Koivun (-25) [&#8230;] The post Rocket Classic Best Bets and Golf Odds appeare",
+   "published": "Tue, 28 Jul 2026 20:05:32 +0000",
+   "source": "VSiN",
+   "kind": "news",
+   "golfers": [
+    "Jackson Koivun"
+   ]
+  },
   {
    "title": "Rocket Classic Best Bets and Golf Odds - VSiN",
    "link": "https://news.google.com/rss/articles/CBMibkFVX3lxTE40NXZ6NWstT2RwLVhJV0U2eDBVaEFiR0Q5TnFuZkNHOVlEQ1ZWMERXQ0xjT0lZdzhxRlJ0NVBjckRyNnBJS0RhTmpRZVR1VlBxMThweEhndURuRTVsRGdfYUV2V3pIVV84cWhldVdR?oc=5",
@@ -362,11 +541,11 @@
    "golfers": []
   },
   {
-   "title": "Rocket Classic Long Shot Picks and Predictions: Bhatia, Horschel Worth Targeting in Detroit - Covers.com",
-   "link": "https://news.google.com/rss/articles/CBMibkFVX3lxTE92Ujg2SFhZTHUzV2RZaXVOeEV6WEFnVlkyWDJDc0JocjE2VWxnWERpZWsyTk1uNk5aU1hodHFwQlF3TEljZ09leHZPZ3hEX0RMaldEUHZ5N0NnZ20zQzcyOG9SVmc5dHNQRTI3dEdR?oc=5",
-   "summary": "Rocket Classic Long Shot Picks and Predictions: Bhatia, Horschel Worth Targeting in Detroit Covers.com",
+   "title": "Rocket Classic Long Shot Picks and Predictions: Bhatia, Horschel Worth Targeting in Detroit - Yahoo Sports",
+   "link": "https://news.google.com/rss/articles/CBMihgFBVV95cUxQblBkNS1qZTVUeUtOMWJwSDUtbi1GZ0oyMmU2ODAxdDRqZGk5blVpVzNhX0pHRnpQYTlVcW05dHdaS2h5Qjl0NmdMUFcxSlpqaXJhV3lRVVJnYXlFZ1NjQWZJTTJZeVFBclJNbDM3OVhDelFHa0tHRngwdE9oYXZrOG1YSFdadw?oc=5",
+   "summary": "Rocket Classic Long Shot Picks and Predictions: Bhatia, Horschel Worth Targeting in Detroit Yahoo Sports",
    "published": "Tue, 28 Jul 2026 18:15:00 GMT",
-   "source": "Google News: Rocket Classic picks",
+   "source": "Google News: Rocket Classic DFS",
    "kind": "news",
    "golfers": [
     "Akshay Bhatia",
@@ -479,6 +658,35 @@
    "golfers": []
   },
   {
+   "title": "DraftKings PGA DFS Lineup Picks - Rocket Classic (2026)",
+   "link": "https://www.rotoballer.com/draftkings-pga-dfs-lineup-picks-for-the-rocket-classic-2026/1897866",
+   "summary": "Welcome, everyone, to my DraftKings PGA DFS lineup picks and advice for the 2026 Rocket Classic. I'll be providing DFS picks and analysis to help you set those winning DraftKings lineups as the PGA Tour returns to the United States after two weeks abroad. The Rocket Classic has been a regular part of the PGA TOUR's [&#8230;]",
+   "published": "Tue, 28 Jul 2026 14:45:50 +0000",
+   "source": "RotoBaller",
+   "kind": "news",
+   "golfers": [
+    "Cameron Young",
+    "Russell Henley",
+    "J.J. Spaun",
+    "Akshay Bhatia",
+    "Nicolai Hojgaard",
+    "Rickie Fowler",
+    "Jacob Bridgeman",
+    "Davis Thompson",
+    "Eric Cole",
+    "Matt Wallace",
+    "Seamus Power",
+    "Ben Kohles",
+    "Sam Stevens",
+    "Jordan L. Smith",
+    "Nick Taylor",
+    "Matti Schmid",
+    "Chandler Phillips",
+    "Daniel Brown",
+    "Cameron Davis"
+   ]
+  },
+  {
    "title": "DraftKings PGA DFS Lineup Picks for the Rocket Classic (2026) - RotoBaller",
    "link": "https://news.google.com/rss/articles/CBMimgFBVV95cUxOcG92UVdmbW0yMHV4UDZXanlaVzVCZ09Ba1RyRUU3cmdqeWtGa21rUXU5RlRFdUtLUUhMaXFXRTVTeDBrV1RFczNqd0FYNDg0d0phdGV1LVpDYVU2cDY2c2RTcHRjYmc3a2xjMi1NYVBwLTFubHhYVUpUQm4xUlFWcG5tWGtrb3I3MmpEODdJcjkydjlKZVFpVzdB?oc=5",
    "summary": "DraftKings PGA DFS Lineup Picks for the Rocket Classic (2026) RotoBaller",
@@ -495,6 +703,31 @@
    "source": "Google News: Rocket Classic DFS",
    "kind": "news",
    "golfers": []
+  },
+  {
+   "title": "PGA DFS: Top Cash Game Picks for the Rocket Classic",
+   "link": "https://www.fantasylabs.com/articles/pga-dfs-top-cash-game-picks-for-the-rocket-classic-2026/",
+   "summary": "The PGA TOUR heads to Detroit Golf Club (par 70, 7,328 yards, bentgrass/POA annua greens) for the Rocket Classic, which will... The post PGA DFS: Top Cash Game Picks for the Rocket Classic appeared first on FantasyLabs .",
+   "published": "Tue, 28 Jul 2026 13:36:18 +0000",
+   "source": "FantasyLabs",
+   "kind": "news",
+   "golfers": [
+    "Cameron Young",
+    "Russell Henley",
+    "Patrick Cantlay",
+    "Jake Knapp",
+    "J.J. Spaun",
+    "Davis Thompson",
+    "Eric Cole",
+    "Corey Conners",
+    "Aldrich Potgieter",
+    "Max Greyserman",
+    "Seamus Power",
+    "Ben Kohles",
+    "Chris Kirk",
+    "Nicolas Echavarria",
+    "Cameron Davis"
+   ]
   },
   {
    "title": "DraftKings PGA DFS Value Plays - 2026 Rocket Classic (Premium Content) - RotoBaller",
@@ -654,29 +887,6 @@
    "source": "Google News: Rocket Classic DFS",
    "kind": "news",
    "golfers": []
-  },
-  {
-   "title": "Major Champion Pulls Out of Rocket Classic Amid Ongoing Injury Battle",
-   "link": "https://sports.yahoo.com/articles/major-champion-pulls-rocket-classic-030217133.html",
-   "summary": "The Rocket Classic loses one of its biggest names after another withdrawal due to a back injury with the FedExCup Playoffs approaching. The post Major Champion Pulls Out of Rocket Classic Amid Ongoing Injury Battle appeared first on HEAVY.",
-   "published": "Tue, 28 Jul 2026 03:02:17 +0000",
-   "source": "Yahoo Golf",
-   "kind": "news",
-   "golfers": [
-    "Xander Schauffele",
-    "Chris Gotterup",
-    "Jackson Koivun",
-    "Patrick Cantlay",
-    "Hideki Matsuyama",
-    "Ryan Gerard",
-    "Harris English",
-    "Akshay Bhatia",
-    "Rickie Fowler",
-    "Brooks Koepka",
-    "Jordan Spieth",
-    "Jason Day",
-    "Billy Horschel"
-   ]
   },
   {
    "title": "DraftKings DFS Fantasy Golf Cheat Sheet: 2026 PGA TOUR Rocket Classic Picks - DraftKings Network",
@@ -921,6 +1131,17 @@
    "source": "Google News: Rocket Classic DFS",
    "kind": "news",
    "golfers": []
+  },
+  {
+   "title": "2026 NFL Rookie Betting Guide: Which First-Year Players Are Worth Backing?",
+   "link": "https://vsin.com/nfl/nfl-rookie-betting/",
+   "summary": "\ud83c\udfc8 Matt Brown&#8217;s Blueprint for Betting NFL Rookies NFL training camps are underway, but which rookies are actually worth betting? VSiN host Matt Brown tackles that question in the 2026 VSiN NFL Betting Guide, using five years of data to identify which rookie positions have historically produced betting value\u2014and which ones rarely do. One takeaway: [&#8230;] The post 2026 NFL Rookie Betting Gui",
+   "published": "Mon, 27 Jul 2026 04:26:45 +0000",
+   "source": "VSiN",
+   "kind": "news",
+   "golfers": [
+    "Daniel Brown"
+   ]
   },
   {
    "title": "Rocket Classic Picks, Predictions & Odds For 2026 - Sports Betting Dime",
