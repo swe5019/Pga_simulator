@@ -386,6 +386,43 @@ def _pick_showdown_dg(showdown_groups, lobby):
     return str(best_dg), event, tourney, date_str
 
 
+def find_contest_by_name(needle):
+    """
+    Diagnostic: search the ENTIRE open GOLF lobby for a contest name.
+
+    Used to answer "this contest is live on DraftKings, why isn't it in the app?".
+    Prints which draft group it belongs to and whether that matches the slate we
+    build from — a contest attached to a different draft group, or a lobby response
+    that simply doesn't include it, look identical from the app's side otherwise.
+    """
+    lobby = get_json("https://www.draftkings.com/lobby/getcontests?sport=GOLF", optional=True) or {}
+    contests = lobby.get("Contests", [])
+    print(f"Lobby returned {len(contests)} open GOLF contests")
+
+    by_dg = {}
+    for c in contests:
+        by_dg.setdefault(str(c.get("dg")), 0)
+        by_dg[str(c.get("dg"))] += 1
+    print("contests per draft group: " +
+          ", ".join(f"dg={k}:{v}" for k, v in sorted(by_dg.items(), key=lambda kv: -kv[1])))
+
+    kw = (needle or "").strip().lower()
+    hits = [c for c in contests if kw in (c.get("n") or "").lower()]
+    print(f"\n{len(hits)} contest(s) matching {needle!r}:")
+    for c in hits:
+        print(f"  dg={c.get('dg')}  id={c.get('id')}  fee=${c.get('a')}  "
+              f"entries={c.get('m')}  name={c.get('n')!r}")
+    if not hits:
+        print("  (none — DK's lobby endpoint did not return it)")
+        # Show the cheap single-entry contests it DID return, to compare shapes.
+        cheap = [c for c in contests
+                 if (c.get("a") or 0) <= 10 and "single" in (c.get("n") or "").lower()]
+        print(f"\n  cheap single-entry contests present ({len(cheap)}):")
+        for c in cheap[:25]:
+            print(f"    dg={c.get('dg')} fee=${c.get('a')} entries={c.get('m')} {c.get('n')!r}")
+    return 0
+
+
 def list_groups():
     """Print the open GOLF draft groups (id + start) and the event name read
     from each group's first draftable, so we can identify the right slate."""
@@ -452,6 +489,9 @@ def main():
         return probe_draftgroup_payouts(os.environ["DK_PROBE_DG"].strip())
     if os.environ.get("DK_PROBE_CONTEST", "").strip():
         return probe_contest(os.environ["DK_PROBE_CONTEST"].strip())
+    find_name = os.environ.get("DK_FIND_CONTEST", "").strip()
+    if find_name:
+        return find_contest_by_name(find_name)
     if os.environ.get("DK_LIST", "").strip():
         list_groups()
         return 0
