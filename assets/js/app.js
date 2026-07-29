@@ -42,7 +42,7 @@ function playerSortVal(g, key) {
     case 'proj': return r ? r.mean : -Infinity;
     case 'floor': return r ? r.floor : -Infinity;
     case 'ceil': return r ? r.ceiling : -Infinity;
-    case 'cut': return r ? r.cutPct : -Infinity;
+    case 'cut': return g.makeCutPct != null ? g.makeCutPct : (r ? r.cutPct : -Infinity);
     case 'win': { const w = winEquity(g); return w != null ? w : -Infinity; }
     case 't5': return g.top5Prob != null ? g.top5Prob : -Infinity;
     case 't10': return g.top10Prob != null ? g.top10Prob : -Infinity;
@@ -444,7 +444,7 @@ function exportPlayersCSV() {
       r(proj != null ? (+proj).toFixed(1) : null),
       r(sim ? num(sim.floor) : null),
       r(sim ? num(sim.ceiling) : null),
-      r(sim ? num(sim.cutPct) : null),
+      r(g.makeCutPct != null ? g.makeCutPct.toFixed(1) : (sim ? num(sim.cutPct) : null)),
       r(winEquity(g) != null ? winEquity(g).toFixed(1) : null),
       r(g.top5Prob != null ? g.top5Prob.toFixed(1) : null),
       r(g.top10Prob != null ? g.top10Prob.toFixed(1) : null),
@@ -548,7 +548,7 @@ function renderPlayers() {
       <td class="num"><input class="projcell${g.projLocked ? ' overridden' : ''}" data-id="${g.id}" value="${proj != null ? proj.toFixed(1) : ''}" placeholder="—" title="Manual projection override — leave blank to use the sim"></td>
       <td class="num dim">${r ? num(r.floor) : '—'}</td>
       <td class="num up">${r ? num(r.ceiling) : '—'}</td>
-      <td class="num">${r ? num(r.cutPct) : '—'}</td>
+      <td class="num${g.makeCutPct != null ? ' overridden-cell' : ''}" ${g.makeCutPct != null ? 'title="From your Make Cut tab (overrides the simulated rate)"' : ''}>${g.makeCutPct != null ? g.makeCutPct.toFixed(1) : (r ? num(r.cutPct) : '—')}</td>
       <td class="num">${pct(win)}</td>
       <td class="num dim">${pct(g.top5Prob)}</td>
       <td class="num dim">${pct(g.top10Prob)}</td>
@@ -812,6 +812,29 @@ function applyProjOverrides() {
   }
 }
 
+/**
+ * Replace the simulated cut rate with your own Make_Cut_Prob_Pct where you've
+ * supplied one (Make Cut tab of the master file).
+ *
+ * Written straight onto the sim result rather than handled at each display site,
+ * so everything downstream picks it up from one place — the Cut% column, the CSV
+ * export, sorting, and the 6/6 Cut figure on lineup cards, which multiplies these
+ * same per-golfer rates. Overriding only the display would leave 6/6 Cut quietly
+ * disagreeing with the column right above it.
+ */
+function applyMakeCutOverrides() {
+  if (!State.simResults) return 0;
+  let n = 0;
+  for (const g of State.golfers) {
+    const r = State.simResults.get(g.id);
+    if (!r || g.makeCutPct == null) continue;
+    if (r._cutOrig == null) r._cutOrig = r.cutPct; // keep the sim's own number
+    r.cutPct = g.makeCutPct;
+    n++;
+  }
+  return n;
+}
+
 /* ---------------------- Run simulation ---------------------- */
 function runSim() {
   const nSims = parseInt($('#nSims').value, 10);
@@ -825,12 +848,14 @@ function runSim() {
     const t0 = performance.now();
     State.simResults = window.Sim.runSimulation(State.golfers, nSims, seed, null, { hasCut });
     applyProjOverrides(); // re-apply any manual Proj overrides on top of the fresh sim
+    const nCut = applyMakeCutOverrides(); // your Make Cut tab beats the simulated rate
     // Keep the master file's real ownership; only model it for the sample slate.
     if (!State.hasRealOwnership) {
       window.Data.projectOwnership(State.golfers, State.simResults);
     }
     const ms = Math.round(performance.now() - t0);
-    status.textContent = `✓ ${nSims.toLocaleString()} sims in ${ms} ms`;
+    status.textContent = `✓ ${nSims.toLocaleString()} sims in ${ms} ms` +
+      (nCut ? ` — Cut% from your Make Cut tab for ${nCut} golfers` : '');
     renderPlayers();
     renderHandBuild(); // surface fresh projected points in the hand builder
   }, 30);

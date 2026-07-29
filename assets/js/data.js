@@ -196,6 +196,7 @@ function buildSlateFromMaster(records) {
         winProb: r.winProb,
         top5Prob: r.top5Prob,
         top10Prob: r.top10Prob,
+        makeCutPct: r.makeCutPct, // your own make-cut % from the Make Cut tab
         leverage: r.leverage,
         leverageTier: r.leverageTier,
       };

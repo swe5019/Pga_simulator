@@ -248,6 +248,51 @@ def odds_equity(raw, suffix):
     return out
 
 
+def make_cut_probs(raw, suffix):
+    """
+    Read the "Make Cut" tab -> {normname: make-cut probability %}.
+
+    Joined by normalized name like the Odds tab, so nickname and accent spellings
+    ("Johnny"/"John", "Højgaard"/"Hojgaard") line up with the Data tab.
+    """
+    sheet = None
+    engine = "odf" if suffix == ".ods" else "openpyxl"
+    for name in ("Make Cut", "Make_Cut", "MakeCut", "Make cut", "make cut"):
+        try:
+            sheet = pd.read_excel(io.BytesIO(raw), sheet_name=name, engine=engine)
+            break
+        except Exception:  # noqa: BLE001
+            continue
+    if sheet is None:
+        return {}
+    cols = {str(c).strip().lower(): c for c in sheet.columns}
+
+    def g(row, *names):
+        for n in names:
+            if n in cols:
+                return row[cols[n]]
+        return None
+
+    out = {}
+    for _, r in sheet.iterrows():
+        nm = str(g(r, "player", "name") or "").strip()
+        if not nm or nm.lower() == "nan":
+            continue
+        v = g(r, "make_cut_prob_pct", "make_cut_prob", "make_cut_pct",
+              "makecutprobpct", "cut_prob_pct", "cut%", "make cut prob pct")
+        try:
+            v = float(v)
+        except (TypeError, ValueError):
+            continue
+        if not np.isfinite(v):
+            continue
+        # Accept either 0-1 fractions or 0-100 percentages.
+        if 0 <= v <= 1:
+            v *= 100
+        out[_norm(nm)] = _r(max(0.0, min(100.0, v)), 1)
+    return out
+
+
 # Nickname canonicalization for cross-tab name matching. Mirror of
 # build_slate._NICKNAMES and the NICKNAMES map in assets/js/app.js.
 _NICKNAMES = {
@@ -328,6 +373,9 @@ def build_from_workbook(raw, suffix):
         return "NEUTRAL"
 
     odds = odds_equity(raw, suffix)
+    cut_probs = make_cut_probs(raw, suffix)
+    if cut_probs:
+        print(f"Make Cut tab: {len(cut_probs)} make-cut probabilities")
     golfers = []
     for _, r in slate.iterrows():
         name = str(r["Name"]).strip()
@@ -367,6 +415,9 @@ def build_from_workbook(raw, suffix):
             for k in ("winProb", "top5Prob", "top10Prob"):
                 if eq.get(k) is not None:
                     rec[k] = eq[k]
+        mc = cut_probs.get(_norm(name))
+        if mc is not None:
+            rec["makeCutPct"] = mc
         golfers.append(rec)
 
     meta = {"slate": slate_name, "trainRows": int(len(train)),
