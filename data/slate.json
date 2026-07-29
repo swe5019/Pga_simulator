@@ -1,12 +1,12 @@
 {
- "updatedUtc": "2026-07-28T23:54:33Z",
+ "updatedUtc": "2026-07-29T01:14:28Z",
  "source": "Data tab + ownership model (ROCKET_2026)",
  "slate": "ROCKET_2026",
  "trainRows": 3056,
  "trainEvents": 25,
  "cvMaePct": 2.449,
  "ensemble": 8,
- "count": 149,
+ "count": 147,
  "golfers": [
   {
    "name": "Cameron Young",
@@ -22,14 +22,15 @@
    "chFinish2": 6,
    "chEvents": 2,
    "chMadeCuts": 2,
-   "ownership": 23.92,
+   "ownership": 23.91,
    "winOdds": 1000.0,
    "impliedProb": 9.09,
    "leverage": 0.38,
    "leverageTier": "CHALK",
    "winProb": 9.09,
    "top5Prob": 32.3,
-   "top10Prob": 47.6
+   "top10Prob": 47.6,
+   "makeCutPct": 85.2
   },
   {
    "name": "Xander Schauffele",
@@ -44,14 +45,15 @@
    "form3W": 80,
    "chEvents": 0,
    "chMadeCuts": 0,
-   "ownership": 14.33,
+   "ownership": 14.32,
    "winOdds": 1600.0,
    "impliedProb": 5.88,
-   "leverage": 0.41,
+   "leverage": 0.411,
    "leverageTier": "CHALK",
    "winProb": 5.88,
    "top5Prob": 24.1,
-   "top10Prob": 38.5
+   "top10Prob": 38.5,
+   "makeCutPct": 80.8
   },
   {
    "name": "Chris Gotterup",
@@ -69,14 +71,15 @@
    "chFinish2": 67,
    "chEvents": 2,
    "chMadeCuts": 2,
-   "ownership": 23.36,
+   "ownership": 23.35,
    "winOdds": 1750.0,
    "impliedProb": 5.41,
    "leverage": 0.232,
    "leverageTier": "CHALK",
    "winProb": 5.41,
    "top5Prob": 22.7,
-   "top10Prob": 36.4
+   "top10Prob": 36.4,
+   "makeCutPct": 79.2
   },
   {
    "name": "Si Woo Kim",
@@ -92,14 +95,15 @@
    "chFinish1": 84,
    "chEvents": 1,
    "chMadeCuts": 1,
-   "ownership": 24.77,
+   "ownership": 24.76,
    "winOdds": 1900.0,
    "impliedProb": 5.0,
    "leverage": 0.202,
    "leverageTier": "CHALK",
    "winProb": 5.0,
    "top5Prob": 22.2,
-   "top10Prob": 36.4
+   "top10Prob": 36.4,
+   "makeCutPct": 80.4
   },
   {
    "name": "Jackson Koivun",
@@ -116,14 +120,15 @@
    "chFinish2": 80,
    "chEvents": 1,
    "chMadeCuts": 0,
-   "ownership": 24.96,
+   "ownership": 24.95,
    "winOdds": 2600.0,
    "impliedProb": 3.7,
    "leverage": 0.148,
    "leverageTier": "CHALK",
    "winProb": 3.7,
    "top5Prob": 17.2,
-   "top10Prob": 29.9
+   "top10Prob": 29.9,
+   "makeCutPct": 76.7
   },
   {
    "name": "Wyndham Clark",
@@ -146,7 +151,8 @@
    "leverageTier": "CHALK",
    "winProb": 5.26,
    "top5Prob": 22.2,
-   "top10Prob": 36.0
+   "top10Prob": 36.0,
+   "makeCutPct": 78.7
   },
   {
    "name": "Russell Henley",
@@ -160,14 +166,15 @@
    "form2W": 9,
    "chEvents": 0,
    "chMadeCuts": 0,
-   "ownership": 24.2,
+   "ownership": 24.18,
    "winOdds": 2500.0,
    "impliedProb": 3.85,
    "leverage": 0.159,
    "leverageTier": "CHALK",
    "winProb": 3.85,
    "top5Prob": 18.7,
-   "top10Prob": 32.3
+   "top10Prob": 32.3,
+   "makeCutPct": 77.8
   },
   {
    "name": "Patrick Cantlay",
@@ -183,14 +190,15 @@
    "chFinish1": 32,
    "chEvents": 1,
    "chMadeCuts": 1,
-   "ownership": 13.76,
+   "ownership": 13.75,
    "winOdds": 2200.0,
    "impliedProb": 4.35,
    "leverage": 0.316,
    "leverageTier": "CHALK",
    "winProb": 4.35,
    "top5Prob": 20.0,
-   "top10Prob": 33.6
+   "top10Prob": 33.6,
+   "makeCutPct": 78.3
   },
   {
    "name": "Hideki Matsuyama",
@@ -207,14 +215,15 @@
    "chFinish3": 80,
    "chEvents": 2,
    "chMadeCuts": 1,
-   "ownership": 22.73,
+   "ownership": 22.72,
    "winOdds": 3500.0,
    "impliedProb": 2.78,
    "leverage": 0.122,
    "leverageTier": "CHALK",
    "winProb": 2.78,
    "top5Prob": 14.5,
-   "top10Prob": 26.0
+   "top10Prob": 26.0,
+   "makeCutPct": 73.3
   },
   {
    "name": "Ben Griffin",
@@ -232,14 +241,15 @@
    "chFinish3": 33,
    "chEvents": 3,
    "chMadeCuts": 3,
-   "ownership": 16.58,
+   "ownership": 16.57,
    "winOdds": 2800.0,
    "impliedProb": 3.45,
    "leverage": 0.208,
    "leverageTier": "CHALK",
    "winProb": 3.45,
    "top5Prob": 16.8,
-   "top10Prob": 29.4
+   "top10Prob": 29.4,
+   "makeCutPct": 76.2
   },
   {
    "name": "Jake Knapp",
@@ -264,7 +274,8 @@
    "leverageTier": "CHALK",
    "winProb": 2.94,
    "top5Prob": 14.5,
-   "top10Prob": 25.3
+   "top10Prob": 25.3,
+   "makeCutPct": 72.2
   },
   {
    "name": "J.J. Spaun",
@@ -288,7 +299,8 @@
    "leverageTier": "CHALK",
    "winProb": 2.86,
    "top5Prob": 14.9,
-   "top10Prob": 26.3
+   "top10Prob": 26.3,
+   "makeCutPct": 74.4
   },
   {
    "name": "Ryan Gerard",
@@ -305,14 +317,15 @@
    "chFinish3": 56,
    "chEvents": 2,
    "chMadeCuts": 2,
-   "ownership": 10.74,
+   "ownership": 10.73,
    "winOdds": 4200.0,
    "impliedProb": 2.33,
    "leverage": 0.217,
    "leverageTier": "CHALK",
    "winProb": 2.33,
    "top5Prob": 12.8,
-   "top10Prob": 23.5
+   "top10Prob": 23.5,
+   "makeCutPct": 71.0
   },
   {
    "name": "Harris English",
@@ -334,7 +347,8 @@
    "leverageTier": "CHALK",
    "winProb": 2.63,
    "top5Prob": 14.1,
-   "top10Prob": 25.3
+   "top10Prob": 25.3,
+   "makeCutPct": 70.2
   },
   {
    "name": "Akshay Bhatia",
@@ -358,7 +372,8 @@
    "leverageTier": "CHALK",
    "winProb": 2.44,
    "top5Prob": 12.8,
-   "top10Prob": 23.3
+   "top10Prob": 23.3,
+   "makeCutPct": 69.7
   },
   {
    "name": "Nicolai Hojgaard",
@@ -376,14 +391,15 @@
    "chFinish3": 21,
    "chEvents": 3,
    "chMadeCuts": 3,
-   "ownership": 10.57,
+   "ownership": 10.56,
    "winOdds": 3900.0,
    "impliedProb": 2.5,
    "leverage": 0.237,
    "leverageTier": "CHALK",
    "winProb": 2.5,
    "top5Prob": 13.0,
-   "top10Prob": 23.3
+   "top10Prob": 23.3,
+   "makeCutPct": 69.2
   },
   {
    "name": "Michael Thorbjornsen",
@@ -408,7 +424,8 @@
    "leverageTier": "CHALK",
    "winProb": 2.44,
    "top5Prob": 13.2,
-   "top10Prob": 24.1
+   "top10Prob": 24.1,
+   "makeCutPct": 71.4
   },
   {
    "name": "Rickie Fowler",
@@ -426,36 +443,15 @@
    "chFinish3": 1,
    "chEvents": 3,
    "chMadeCuts": 2,
-   "ownership": 14.07,
+   "ownership": 14.06,
    "winOdds": 4400.0,
    "impliedProb": 2.22,
    "leverage": 0.158,
    "leverageTier": "CHALK",
    "winProb": 2.22,
    "top5Prob": 12.3,
-   "top10Prob": 23.0
-  },
-  {
-   "name": "Brooks Koepka",
-   "salary": 8000,
-   "sgTot": 0.99,
-   "sgT2g": 1.41,
-   "sgPutt": -0.42,
-   "sgArg": 0.06,
-   "sgApp": 0.55,
-   "sgOtt": 0.8,
-   "form2W": 28,
-   "form3W": 80,
-   "chEvents": 0,
-   "chMadeCuts": 0,
-   "ownership": 10.39,
-   "winOdds": 4700.0,
-   "impliedProb": 2.08,
-   "leverage": 0.2,
-   "leverageTier": "CHALK",
-   "winProb": 2.08,
-   "top5Prob": 11.4,
-   "top10Prob": 21.1
+   "top10Prob": 23.0,
+   "makeCutPct": 71.0
   },
   {
    "name": "Michael Brennan",
@@ -472,14 +468,15 @@
    "form4W": 33,
    "chEvents": 0,
    "chMadeCuts": 0,
-   "ownership": 10.26,
+   "ownership": 10.33,
    "winOdds": 5100.0,
    "impliedProb": 1.92,
-   "leverage": 0.187,
+   "leverage": 0.186,
    "leverageTier": "CHALK",
    "winProb": 1.92,
    "top5Prob": 10.6,
-   "top10Prob": 20.0
+   "top10Prob": 20.0,
+   "makeCutPct": 65.5
   },
   {
    "name": "Jacob Bridgeman",
@@ -496,14 +493,15 @@
    "chFinish2": 31,
    "chEvents": 2,
    "chMadeCuts": 2,
-   "ownership": 12.27,
+   "ownership": 12.34,
    "winOdds": 4600.0,
    "impliedProb": 2.13,
-   "leverage": 0.174,
+   "leverage": 0.173,
    "leverageTier": "CHALK",
    "winProb": 2.13,
    "top5Prob": 12.0,
-   "top10Prob": 22.2
+   "top10Prob": 22.2,
+   "makeCutPct": 69.7
   },
   {
    "name": "Keegan Bradley",
@@ -527,7 +525,8 @@
    "leverageTier": "CHALK",
    "winProb": 2.13,
    "top5Prob": 11.4,
-   "top10Prob": 21.3
+   "top10Prob": 21.3,
+   "makeCutPct": 69.7
   },
   {
    "name": "Marco Penge",
@@ -543,14 +542,15 @@
    "form4W": 9,
    "chEvents": 0,
    "chMadeCuts": 0,
-   "ownership": 10.86,
+   "ownership": 10.85,
    "winOdds": 6700.0,
    "impliedProb": 1.47,
    "leverage": 0.135,
    "leverageTier": "CHALK",
    "winProb": 1.47,
    "top5Prob": 8.7,
-   "top10Prob": 16.7
+   "top10Prob": 16.7,
+   "makeCutPct": 61.8
   },
   {
    "name": "Davis Thompson",
@@ -576,7 +576,8 @@
    "leverageTier": "CHALK",
    "winProb": 1.27,
    "top5Prob": 8.2,
-   "top10Prob": 16.1
+   "top10Prob": 16.1,
+   "makeCutPct": 66.4
   },
   {
    "name": "Jordan Spieth",
@@ -598,7 +599,8 @@
    "leverageTier": "CHALK",
    "winProb": 1.47,
    "top5Prob": 9.1,
-   "top10Prob": 17.7
+   "top10Prob": 17.7,
+   "makeCutPct": 65.0
   },
   {
    "name": "Eric Cole",
@@ -615,14 +617,15 @@
    "chFinish2": 6,
    "chEvents": 1,
    "chMadeCuts": 1,
-   "ownership": 7.42,
+   "ownership": 8.04,
    "winOdds": 8000.0,
    "impliedProb": 1.23,
-   "leverage": 0.166,
+   "leverage": 0.153,
    "leverageTier": "CHALK",
    "winProb": 1.23,
    "top5Prob": 8.0,
-   "top10Prob": 15.9
+   "top10Prob": 15.9,
+   "makeCutPct": 63.8
   },
   {
    "name": "Ryo Hisatsune",
@@ -639,14 +642,15 @@
    "chFinish2": 31,
    "chEvents": 2,
    "chMadeCuts": 2,
-   "ownership": 9.32,
+   "ownership": 9.7,
    "winOdds": 7400.0,
    "impliedProb": 1.33,
-   "leverage": 0.143,
+   "leverage": 0.137,
    "leverageTier": "CHALK",
    "winProb": 1.33,
    "top5Prob": 8.5,
-   "top10Prob": 16.8
+   "top10Prob": 16.8,
+   "makeCutPct": 66.2
   },
   {
    "name": "Jackson Suber",
@@ -663,14 +667,15 @@
    "chFinish1": 6,
    "chEvents": 1,
    "chMadeCuts": 1,
-   "ownership": 9.53,
+   "ownership": 9.88,
    "winOdds": 9200.0,
    "impliedProb": 1.08,
-   "leverage": 0.113,
+   "leverage": 0.109,
    "leverageTier": "CHALK",
    "winProb": 1.08,
    "top5Prob": 7.0,
-   "top10Prob": 14.3
+   "top10Prob": 14.3,
+   "makeCutPct": 61.5
   },
   {
    "name": "Corey Conners",
@@ -686,14 +691,15 @@
    "form3W": 52,
    "chEvents": 0,
    "chMadeCuts": 0,
-   "ownership": 8.28,
+   "ownership": 8.49,
    "winOdds": 7800.0,
    "impliedProb": 1.27,
-   "leverage": 0.153,
+   "leverage": 0.15,
    "leverageTier": "CHALK",
    "winProb": 1.27,
    "top5Prob": 8.3,
-   "top10Prob": 16.4
+   "top10Prob": 16.4,
+   "makeCutPct": 65.8
   },
   {
    "name": "Denny McCarthy",
@@ -709,14 +715,15 @@
    "form4W": 80,
    "chEvents": 0,
    "chMadeCuts": 0,
-   "ownership": 8.17,
+   "ownership": 8.49,
    "winOdds": 9400.0,
    "impliedProb": 1.05,
-   "leverage": 0.129,
+   "leverage": 0.124,
    "leverageTier": "CHALK",
    "winProb": 1.05,
    "top5Prob": 7.1,
-   "top10Prob": 14.7
+   "top10Prob": 14.7,
+   "makeCutPct": 62.1
   },
   {
    "name": "Doug Ghim",
@@ -735,14 +742,15 @@
    "chFinish3": 33,
    "chEvents": 3,
    "chMadeCuts": 2,
-   "ownership": 5.39,
+   "ownership": 5.42,
    "winOdds": 8200.0,
    "impliedProb": 1.2,
-   "leverage": 0.223,
+   "leverage": 0.221,
    "leverageTier": "CHALK",
    "winProb": 1.2,
    "top5Prob": 8.0,
-   "top10Prob": 16.1
+   "top10Prob": 16.1,
+   "makeCutPct": 66.0
   },
   {
    "name": "Pierceson Coody",
@@ -760,14 +768,15 @@
    "chFinish2": 63,
    "chEvents": 1,
    "chMadeCuts": 1,
-   "ownership": 3.98,
+   "ownership": 4.1,
    "winOdds": 9200.0,
    "impliedProb": 1.08,
-   "leverage": 0.271,
+   "leverage": 0.263,
    "leverageTier": "CHALK",
    "winProb": 1.08,
    "top5Prob": 7.0,
-   "top10Prob": 14.3
+   "top10Prob": 14.3,
+   "makeCutPct": 60.3
   },
   {
    "name": "Johnny Keefer",
@@ -784,14 +793,15 @@
    "form4W": 80,
    "chEvents": 0,
    "chMadeCuts": 0,
-   "ownership": 4.67,
+   "ownership": 4.98,
    "winOdds": 9000.0,
    "impliedProb": 1.1,
-   "leverage": 0.236,
+   "leverage": 0.221,
    "leverageTier": "CHALK",
    "winProb": 1.1,
    "top5Prob": 7.1,
-   "top10Prob": 14.3
+   "top10Prob": 14.3,
+   "makeCutPct": 60.3
   },
   {
    "name": "Rasmus Neergaard-Petersen",
@@ -808,14 +818,15 @@
    "form4W": 56,
    "chEvents": 0,
    "chMadeCuts": 0,
-   "ownership": 8.12,
+   "ownership": 8.68,
    "winOdds": 10000.0,
    "impliedProb": 0.99,
-   "leverage": 0.122,
+   "leverage": 0.114,
    "leverageTier": "CHALK",
    "winProb": 0.99,
    "top5Prob": 6.7,
-   "top10Prob": 13.7
+   "top10Prob": 13.7,
+   "makeCutPct": 61.5
   },
   {
    "name": "Matt Wallace",
@@ -834,14 +845,15 @@
    "chFinish3": 78,
    "chEvents": 3,
    "chMadeCuts": 2,
-   "ownership": 7.3,
+   "ownership": 7.63,
    "winOdds": 9400.0,
    "impliedProb": 1.05,
-   "leverage": 0.144,
+   "leverage": 0.138,
    "leverageTier": "CHALK",
    "winProb": 1.05,
    "top5Prob": 7.1,
-   "top10Prob": 14.7
+   "top10Prob": 14.7,
+   "makeCutPct": 62.4
   },
   {
    "name": "Mac Meissner",
@@ -859,14 +871,15 @@
    "chFinish2": 80,
    "chEvents": 2,
    "chMadeCuts": 0,
-   "ownership": 5.53,
+   "ownership": 5.51,
    "winOdds": 8800.0,
    "impliedProb": 1.12,
    "leverage": 0.203,
    "leverageTier": "CHALK",
    "winProb": 1.12,
    "top5Prob": 7.5,
-   "top10Prob": 15.4
+   "top10Prob": 15.4,
+   "makeCutPct": 64.3
   },
   {
    "name": "Aldrich Potgieter",
@@ -885,14 +898,15 @@
    "chFinish3": 80,
    "chEvents": 2,
    "chMadeCuts": 1,
-   "ownership": 2.2,
+   "ownership": 2.19,
    "winOdds": 10000.0,
    "impliedProb": 0.99,
-   "leverage": 0.45,
+   "leverage": 0.452,
    "leverageTier": "CHALK",
    "winProb": 0.99,
    "top5Prob": 6.3,
-   "top10Prob": 12.7
+   "top10Prob": 12.7,
+   "makeCutPct": 57.3
   },
   {
    "name": "Benjamin James",
@@ -909,14 +923,15 @@
    "chFinish2": 44,
    "chEvents": 1,
    "chMadeCuts": 1,
-   "ownership": 3.43,
+   "ownership": 3.42,
    "winOdds": 14500.0,
    "impliedProb": 0.68,
-   "leverage": 0.198,
+   "leverage": 0.199,
    "leverageTier": "CHALK",
    "winProb": 0.68,
    "top5Prob": 5.3,
-   "top10Prob": 11.2
+   "top10Prob": 11.2,
+   "makeCutPct": 61.5
   },
   {
    "name": "Max Greyserman",
@@ -935,14 +950,15 @@
    "chFinish2": 31,
    "chEvents": 2,
    "chMadeCuts": 2,
-   "ownership": 4.74,
+   "ownership": 4.73,
    "winOdds": 8800.0,
    "impliedProb": 1.12,
-   "leverage": 0.236,
+   "leverage": 0.237,
    "leverageTier": "CHALK",
    "winProb": 1.12,
    "top5Prob": 7.3,
-   "top10Prob": 14.5
+   "top10Prob": 14.5,
+   "makeCutPct": 62.1
   },
   {
    "name": "Christiaan Bezuidenhout",
@@ -960,14 +976,15 @@
    "chFinish3": 56,
    "chEvents": 1,
    "chMadeCuts": 1,
-   "ownership": 8.14,
+   "ownership": 8.13,
    "winOdds": 10000.0,
    "impliedProb": 0.99,
    "leverage": 0.122,
    "leverageTier": "CHALK",
    "winProb": 0.99,
    "top5Prob": 7.0,
-   "top10Prob": 14.5
+   "top10Prob": 14.5,
+   "makeCutPct": 63.2
   },
   {
    "name": "Seamus Power",
@@ -984,14 +1001,15 @@
    "chFinish1": 80,
    "chEvents": 1,
    "chMadeCuts": 0,
-   "ownership": 6.68,
+   "ownership": 6.66,
    "winOdds": 12000.0,
    "impliedProb": 0.83,
-   "leverage": 0.124,
+   "leverage": 0.125,
    "leverageTier": "CHALK",
    "winProb": 0.83,
    "top5Prob": 5.9,
-   "top10Prob": 12.5
+   "top10Prob": 12.5,
+   "makeCutPct": 59.4
   },
   {
    "name": "Ben Kohles",
@@ -1009,8 +1027,12 @@
    "chFinish2": 20,
    "chEvents": 2,
    "chMadeCuts": 2,
-   "ownership": 11.07,
-   "leverageTier": "NEUTRAL"
+   "ownership": 14.25,
+   "winOdds": 8400.0,
+   "impliedProb": 1.18,
+   "leverage": 0.083,
+   "leverageTier": "CHALK",
+   "makeCutPct": 64.5
   },
   {
    "name": "Sam Stevens",
@@ -1028,14 +1050,15 @@
    "chFinish3": 74,
    "chEvents": 2,
    "chMadeCuts": 2,
-   "ownership": 2.11,
+   "ownership": 2.37,
    "winOdds": 12000.0,
    "impliedProb": 0.83,
-   "leverage": 0.393,
+   "leverage": 0.35,
    "leverageTier": "CHALK",
    "winProb": 0.83,
    "top5Prob": 5.9,
-   "top10Prob": 12.3
+   "top10Prob": 12.3,
+   "makeCutPct": 59.0
   },
   {
    "name": "Beau Hossler",
@@ -1055,14 +1078,15 @@
    "chFinish3": 80,
    "chEvents": 3,
    "chMadeCuts": 2,
-   "ownership": 3.51,
+   "ownership": 3.95,
    "winOdds": 10500.0,
    "impliedProb": 0.94,
-   "leverage": 0.268,
+   "leverage": 0.238,
    "leverageTier": "CHALK",
    "winProb": 0.94,
    "top5Prob": 6.5,
-   "top10Prob": 13.3
+   "top10Prob": 13.3,
+   "makeCutPct": 61.2
   },
   {
    "name": "Jordan L. Smith",
@@ -1078,10 +1102,10 @@
    "form3W": 21,
    "chEvents": 0,
    "chMadeCuts": 0,
-   "ownership": 8.06,
+   "ownership": 8.35,
    "winOdds": 8000.0,
    "impliedProb": 1.23,
-   "leverage": 0.153,
+   "leverage": 0.147,
    "leverageTier": "CHALK"
   },
   {
@@ -1101,14 +1125,15 @@
    "chFinish3": 80,
    "chEvents": 2,
    "chMadeCuts": 1,
-   "ownership": 5.13,
+   "ownership": 5.14,
    "winOdds": 11000.0,
    "impliedProb": 0.9,
    "leverage": 0.175,
    "leverageTier": "CHALK",
    "winProb": 0.9,
    "top5Prob": 6.1,
-   "top10Prob": 12.5
+   "top10Prob": 12.5,
+   "makeCutPct": 59.0
   },
   {
    "name": "Michael Kim",
@@ -1127,14 +1152,15 @@
    "chFinish2": 52,
    "chEvents": 2,
    "chMadeCuts": 2,
-   "ownership": 5.12,
+   "ownership": 5.97,
    "winOdds": 8800.0,
    "impliedProb": 1.12,
-   "leverage": 0.219,
+   "leverage": 0.188,
    "leverageTier": "CHALK",
    "winProb": 1.12,
    "top5Prob": 7.4,
-   "top10Prob": 14.9
+   "top10Prob": 14.9,
+   "makeCutPct": 62.4
   },
   {
    "name": "Emiliano Grillo",
@@ -1150,14 +1176,15 @@
    "chFinish1": 73,
    "chEvents": 1,
    "chMadeCuts": 1,
-   "ownership": 6.72,
+   "ownership": 6.92,
    "winOdds": 11000.0,
    "impliedProb": 0.9,
-   "leverage": 0.134,
+   "leverage": 0.13,
    "leverageTier": "CHALK",
    "winProb": 0.9,
    "top5Prob": 6.2,
-   "top10Prob": 13.0
+   "top10Prob": 13.0,
+   "makeCutPct": 59.7
   },
   {
    "name": "Nick Taylor",
@@ -1172,14 +1199,15 @@
    "form3W": 26,
    "chEvents": 0,
    "chMadeCuts": 0,
-   "ownership": 3.85,
+   "ownership": 4.25,
    "winOdds": 9600.0,
    "impliedProb": 1.03,
-   "leverage": 0.268,
+   "leverage": 0.242,
    "leverageTier": "CHALK",
    "winProb": 1.03,
    "top5Prob": 7.1,
-   "top10Prob": 14.7
+   "top10Prob": 14.7,
+   "makeCutPct": 61.5
   },
   {
    "name": "Jason Day",
@@ -1193,11 +1221,11 @@
    "form2W": 80,
    "chEvents": 0,
    "chMadeCuts": 0,
-   "ownership": 1.49,
+   "ownership": 1.91,
    "winOdds": 10000.0,
    "impliedProb": 0.99,
-   "leverage": 0.664,
-   "leverageTier": "NEUTRAL",
+   "leverage": 0.518,
+   "leverageTier": "CHALK",
    "winProb": 0.99,
    "top5Prob": 6.7,
    "top10Prob": 13.7
@@ -1216,14 +1244,15 @@
    "form4W": 80,
    "chEvents": 0,
    "chMadeCuts": 0,
-   "ownership": 0.85,
+   "ownership": 0.88,
    "winOdds": 12500.0,
    "impliedProb": 0.79,
-   "leverage": 0.929,
+   "leverage": 0.898,
    "leverageTier": "NEUTRAL",
    "winProb": 0.79,
    "top5Prob": 5.7,
-   "top10Prob": 11.9
+   "top10Prob": 11.9,
+   "makeCutPct": 58.7
   },
   {
    "name": "Stephan Jaeger",
@@ -1243,14 +1272,15 @@
    "chFinish3": 9,
    "chEvents": 3,
    "chMadeCuts": 1,
-   "ownership": 2.9,
+   "ownership": 3.22,
    "winOdds": 12500.0,
    "impliedProb": 0.79,
-   "leverage": 0.272,
+   "leverage": 0.245,
    "leverageTier": "CHALK",
    "winProb": 0.79,
    "top5Prob": 5.7,
-   "top10Prob": 11.9
+   "top10Prob": 11.9,
+   "makeCutPct": 58.0
   },
   {
    "name": "Tony Finau",
@@ -1266,14 +1296,15 @@
    "chFinish3": 80,
    "chEvents": 1,
    "chMadeCuts": 0,
-   "ownership": 0.78,
+   "ownership": 0.82,
    "winOdds": 12500.0,
    "impliedProb": 0.79,
-   "leverage": 1.013,
+   "leverage": 0.963,
    "leverageTier": "NEUTRAL",
    "winProb": 0.79,
    "top5Prob": 5.7,
-   "top10Prob": 11.8
+   "top10Prob": 11.8,
+   "makeCutPct": 58.7
   },
   {
    "name": "Ricky Castillo",
@@ -1289,14 +1320,15 @@
    "chFinish1": 80,
    "chEvents": 1,
    "chMadeCuts": 0,
-   "ownership": 1.47,
+   "ownership": 1.64,
    "winOdds": 11500.0,
    "impliedProb": 0.86,
-   "leverage": 0.585,
+   "leverage": 0.524,
    "leverageTier": "CHALK",
    "winProb": 0.86,
    "top5Prob": 6.1,
-   "top10Prob": 12.5
+   "top10Prob": 12.5,
+   "makeCutPct": 58.0
   },
   {
    "name": "Mackenzie Hughes",
@@ -1313,14 +1345,15 @@
    "form4W": 46,
    "chEvents": 0,
    "chMadeCuts": 0,
-   "ownership": 2.8,
+   "ownership": 3.04,
    "winOdds": 13000.0,
    "impliedProb": 0.76,
-   "leverage": 0.271,
+   "leverage": 0.25,
    "leverageTier": "CHALK",
    "winProb": 0.76,
    "top5Prob": 5.7,
-   "top10Prob": 12.0
+   "top10Prob": 12.0,
+   "makeCutPct": 60.3
   },
   {
    "name": "Jesper Svensson",
@@ -1337,14 +1370,15 @@
    "chFinish1": 80,
    "chEvents": 1,
    "chMadeCuts": 0,
-   "ownership": 1.58,
+   "ownership": 1.66,
    "winOdds": 13000.0,
    "impliedProb": 0.76,
-   "leverage": 0.481,
+   "leverage": 0.458,
    "leverageTier": "CHALK",
    "winProb": 0.76,
    "top5Prob": 5.3,
-   "top10Prob": 11.0
+   "top10Prob": 11.0,
+   "makeCutPct": 56.5
   },
   {
    "name": "Harry Hall",
@@ -1362,14 +1396,15 @@
    "chFinish3": 80,
    "chEvents": 3,
    "chMadeCuts": 2,
-   "ownership": 1.68,
+   "ownership": 1.73,
    "winOdds": 10000.0,
    "impliedProb": 0.99,
-   "leverage": 0.589,
+   "leverage": 0.572,
    "leverageTier": "CHALK",
    "winProb": 0.99,
    "top5Prob": 6.6,
-   "top10Prob": 13.5
+   "top10Prob": 13.5,
+   "makeCutPct": 58.3
   },
   {
    "name": "Andrew Novak",
@@ -1387,14 +1422,15 @@
    "chFinish3": 80,
    "chEvents": 2,
    "chMadeCuts": 1,
-   "ownership": 1.33,
+   "ownership": 1.38,
    "winOdds": 10500.0,
    "impliedProb": 0.94,
-   "leverage": 0.707,
+   "leverage": 0.681,
    "leverageTier": "NEUTRAL",
    "winProb": 0.94,
    "top5Prob": 6.6,
-   "top10Prob": 13.5
+   "top10Prob": 13.5,
+   "makeCutPct": 61.8
   },
   {
    "name": "Sungjae Im",
@@ -1412,14 +1448,15 @@
    "chFinish3": 24,
    "chEvents": 1,
    "chMadeCuts": 1,
-   "ownership": 1.33,
+   "ownership": 1.34,
    "winOdds": 9800.0,
    "impliedProb": 1.01,
-   "leverage": 0.759,
+   "leverage": 0.754,
    "leverageTier": "NEUTRAL",
    "winProb": 1.01,
    "top5Prob": 6.9,
-   "top10Prob": 14.1
+   "top10Prob": 14.1,
+   "makeCutPct": 63.5
   },
   {
    "name": "Steven Fisk",
@@ -1436,14 +1473,15 @@
    "chFinish1": 80,
    "chEvents": 1,
    "chMadeCuts": 0,
-   "ownership": 1.19,
+   "ownership": 1.2,
    "winOdds": 12000.0,
    "impliedProb": 0.83,
-   "leverage": 0.697,
+   "leverage": 0.692,
    "leverageTier": "NEUTRAL",
    "winProb": 0.83,
    "top5Prob": 6.1,
-   "top10Prob": 12.5
+   "top10Prob": 12.5,
+   "makeCutPct": 59.7
   },
   {
    "name": "Taylor Moore",
@@ -1462,14 +1500,15 @@
    "chFinish3": 4,
    "chEvents": 3,
    "chMadeCuts": 2,
-   "ownership": 1.27,
+   "ownership": 1.3,
    "winOdds": 15000.0,
    "impliedProb": 0.66,
-   "leverage": 0.52,
+   "leverage": 0.508,
    "leverageTier": "CHALK",
    "winProb": 0.66,
    "top5Prob": 4.9,
-   "top10Prob": 10.4
+   "top10Prob": 10.4,
+   "makeCutPct": 57.6
   },
   {
    "name": "Keita Nakajima",
@@ -1493,7 +1532,8 @@
    "leverageTier": "CHALK",
    "winProb": 0.68,
    "top5Prob": 5.1,
-   "top10Prob": 11.0
+   "top10Prob": 11.0,
+   "makeCutPct": 57.6
   },
   {
    "name": "Taylor Pendrith",
@@ -1512,14 +1552,15 @@
    "chFinish3": 14,
    "chEvents": 2,
    "chMadeCuts": 2,
-   "ownership": 1.22,
+   "ownership": 1.23,
    "winOdds": 14500.0,
    "impliedProb": 0.68,
-   "leverage": 0.557,
+   "leverage": 0.553,
    "leverageTier": "CHALK",
    "winProb": 0.68,
    "top5Prob": 5.0,
-   "top10Prob": 10.6
+   "top10Prob": 10.6,
+   "makeCutPct": 55.4
   },
   {
    "name": "John Parry",
@@ -1535,14 +1576,15 @@
    "form3W": 80,
    "chEvents": 0,
    "chMadeCuts": 0,
-   "ownership": 1.96,
+   "ownership": 1.94,
    "winOdds": 18500.0,
    "impliedProb": 0.54,
-   "leverage": 0.276,
+   "leverage": 0.278,
    "leverageTier": "CHALK",
    "winProb": 0.54,
    "top5Prob": 4.3,
-   "top10Prob": 9.5
+   "top10Prob": 9.5,
+   "makeCutPct": 55.0
   },
   {
    "name": "Billy Horschel",
@@ -1558,14 +1600,15 @@
    "form3W": 80,
    "chEvents": 0,
    "chMadeCuts": 0,
-   "ownership": 2.28,
+   "ownership": 2.29,
    "winOdds": 18500.0,
    "impliedProb": 0.54,
-   "leverage": 0.237,
+   "leverage": 0.236,
    "leverageTier": "CHALK",
    "winProb": 0.54,
    "top5Prob": 4.2,
-   "top10Prob": 9.1
+   "top10Prob": 9.1,
+   "makeCutPct": 55.0
   },
   {
    "name": "Matthew McCarty",
@@ -1609,7 +1652,8 @@
    "leverageTier": "NEUTRAL",
    "winProb": 0.71,
    "top5Prob": 4.9,
-   "top10Prob": 10.4
+   "top10Prob": 10.4,
+   "makeCutPct": 55.8
   },
   {
    "name": "Rico Hoey",
@@ -1628,14 +1672,15 @@
    "chFinish2": 6,
    "chEvents": 2,
    "chMadeCuts": 1,
-   "ownership": 1.0,
+   "ownership": 0.96,
    "winOdds": 15500.0,
    "impliedProb": 0.64,
-   "leverage": 0.64,
+   "leverage": 0.667,
    "leverageTier": "NEUTRAL",
    "winProb": 0.64,
    "top5Prob": 4.9,
-   "top10Prob": 10.4
+   "top10Prob": 10.4,
+   "makeCutPct": 55.8
   },
   {
    "name": "Lucas Glover",
@@ -1652,14 +1697,15 @@
    "chFinish3": 4,
    "chEvents": 1,
    "chMadeCuts": 1,
-   "ownership": 4.83,
+   "ownership": 4.84,
    "winOdds": 20000.0,
    "impliedProb": 0.5,
-   "leverage": 0.104,
+   "leverage": 0.103,
    "leverageTier": "CHALK",
    "winProb": 0.5,
    "top5Prob": 4.1,
-   "top10Prob": 9.2
+   "top10Prob": 9.2,
+   "makeCutPct": 56.5
   },
   {
    "name": "Kris Ventura",
@@ -1684,7 +1730,8 @@
    "leverageTier": "CHALK",
    "winProb": 0.62,
    "top5Prob": 4.7,
-   "top10Prob": 10.1
+   "top10Prob": 10.1,
+   "makeCutPct": 55.4
   },
   {
    "name": "Zachary Bauchou",
@@ -1730,7 +1777,8 @@
    "leverageTier": "CHALK",
    "winProb": 0.57,
    "top5Prob": 4.3,
-   "top10Prob": 9.6
+   "top10Prob": 9.6,
+   "makeCutPct": 57.3
   },
   {
    "name": "Zecheng Dou",
@@ -1748,14 +1796,15 @@
    "chFinish3": 17,
    "chEvents": 1,
    "chMadeCuts": 1,
-   "ownership": 2.38,
+   "ownership": 2.4,
    "winOdds": 16500.0,
    "impliedProb": 0.6,
-   "leverage": 0.252,
+   "leverage": 0.25,
    "leverageTier": "CHALK",
    "winProb": 0.6,
    "top5Prob": 4.7,
-   "top10Prob": 10.0
+   "top10Prob": 10.0,
+   "makeCutPct": 58.3
   },
   {
    "name": "Nicolas Echavarria",
@@ -1773,14 +1822,15 @@
    "chFinish3": 80,
    "chEvents": 3,
    "chMadeCuts": 2,
-   "ownership": 1.8,
+   "ownership": 1.81,
    "winOdds": 14000.0,
    "impliedProb": 0.71,
-   "leverage": 0.394,
+   "leverage": 0.392,
    "leverageTier": "CHALK",
    "winProb": 0.71,
    "top5Prob": 5.1,
-   "top10Prob": 11.0
+   "top10Prob": 11.0,
+   "makeCutPct": 55.4
   },
   {
    "name": "William Mouw",
@@ -1797,14 +1847,15 @@
    "chFinish1": 34,
    "chEvents": 1,
    "chMadeCuts": 1,
-   "ownership": 1.94,
+   "ownership": 2.49,
    "winOdds": 15500.0,
    "impliedProb": 0.64,
-   "leverage": 0.33,
+   "leverage": 0.257,
    "leverageTier": "CHALK",
    "winProb": 0.64,
    "top5Prob": 4.8,
-   "top10Prob": 10.4
+   "top10Prob": 10.4,
+   "makeCutPct": 58.7
   },
   {
    "name": "Max McGreevy",
@@ -1823,14 +1874,15 @@
    "chFinish3": 80,
    "chEvents": 2,
    "chMadeCuts": 0,
-   "ownership": 0.65,
+   "ownership": 0.77,
    "winOdds": 18000.0,
    "impliedProb": 0.55,
-   "leverage": 0.846,
+   "leverage": 0.714,
    "leverageTier": "NEUTRAL",
    "winProb": 0.55,
    "top5Prob": 4.4,
-   "top10Prob": 9.8
+   "top10Prob": 9.8,
+   "makeCutPct": 56.5
   },
   {
    "name": "A.J. Ewart",
@@ -1847,14 +1899,15 @@
    "form4W": 71,
    "chEvents": 0,
    "chMadeCuts": 0,
-   "ownership": 1.2,
+   "ownership": 1.35,
    "winOdds": 28000.0,
    "impliedProb": 0.36,
-   "leverage": 0.3,
+   "leverage": 0.267,
    "leverageTier": "CHALK",
    "winProb": 0.36,
    "top5Prob": 3.0,
-   "top10Prob": 7.1
+   "top10Prob": 7.1,
+   "makeCutPct": 50.0
   },
   {
    "name": "Matti Schmid",
@@ -1872,14 +1925,15 @@
    "chFinish3": 80,
    "chEvents": 2,
    "chMadeCuts": 1,
-   "ownership": 1.01,
+   "ownership": 1.41,
    "winOdds": 19500.0,
    "impliedProb": 0.51,
-   "leverage": 0.505,
+   "leverage": 0.362,
    "leverageTier": "CHALK",
    "winProb": 0.51,
    "top5Prob": 3.9,
-   "top10Prob": 8.7
+   "top10Prob": 8.7,
+   "makeCutPct": 53.7
   },
   {
    "name": "Kevin Roy",
@@ -1898,14 +1952,15 @@
    "chFinish3": 80,
    "chEvents": 2,
    "chMadeCuts": 1,
-   "ownership": 1.01,
+   "ownership": 1.16,
    "winOdds": 19500.0,
    "impliedProb": 0.51,
-   "leverage": 0.505,
+   "leverage": 0.44,
    "leverageTier": "CHALK",
    "winProb": 0.51,
    "top5Prob": 4.1,
-   "top10Prob": 9.1
+   "top10Prob": 9.1,
+   "makeCutPct": 56.1
   },
   {
    "name": "Lee Hodges",
@@ -1924,14 +1979,15 @@
    "chFinish3": 80,
    "chEvents": 3,
    "chMadeCuts": 1,
-   "ownership": 2.97,
+   "ownership": 3.1,
    "winOdds": 15500.0,
    "impliedProb": 0.64,
-   "leverage": 0.215,
+   "leverage": 0.206,
    "leverageTier": "CHALK",
    "winProb": 0.64,
    "top5Prob": 4.9,
-   "top10Prob": 10.5
+   "top10Prob": 10.5,
+   "makeCutPct": 58.7
   },
   {
    "name": "Chandler Phillips",
@@ -1949,37 +2005,15 @@
    "chFinish2": 67,
    "chEvents": 2,
    "chMadeCuts": 2,
-   "ownership": 4.2,
+   "ownership": 4.65,
    "winOdds": 26000.0,
    "impliedProb": 0.38,
-   "leverage": 0.09,
+   "leverage": 0.082,
    "leverageTier": "CHALK",
    "winProb": 0.38,
    "top5Prob": 3.3,
-   "top10Prob": 7.5
-  },
-  {
-   "name": "Daniel Brown",
-   "salary": 6800,
-   "sgTot": 0.69,
-   "sgT2g": 1.2,
-   "sgPutt": -0.51,
-   "sgArg": -0.04,
-   "sgApp": 0.97,
-   "sgOtt": 0.27,
-   "form2W": 18,
-   "form3W": 80,
-   "form4W": 80,
-   "chEvents": 0,
-   "chMadeCuts": 0,
-   "ownership": 1.29,
-   "winOdds": 20000.0,
-   "impliedProb": 0.5,
-   "leverage": 0.388,
-   "leverageTier": "CHALK",
-   "winProb": 0.5,
-   "top5Prob": 3.9,
-   "top10Prob": 8.7
+   "top10Prob": 7.5,
+   "makeCutPct": 51.2
   },
   {
    "name": "Thorbjorn Olesen",
@@ -1997,14 +2031,15 @@
    "chFinish2": 80,
    "chEvents": 2,
    "chMadeCuts": 1,
-   "ownership": 0.28,
+   "ownership": 0.29,
    "winOdds": 24000.0,
    "impliedProb": 0.41,
-   "leverage": 1.464,
+   "leverage": 1.414,
    "leverageTier": "MEDIUM",
    "winProb": 0.41,
    "top5Prob": 3.4,
-   "top10Prob": 7.8
+   "top10Prob": 7.8,
+   "makeCutPct": 51.9
   },
   {
    "name": "Adrien Dumont De Chassart",
@@ -2015,14 +2050,15 @@
    "chFinish2": 80,
    "chEvents": 1,
    "chMadeCuts": 0,
-   "ownership": 0.41,
+   "ownership": 0.44,
    "winOdds": 23000.0,
    "impliedProb": 0.43,
-   "leverage": 1.049,
+   "leverage": 0.977,
    "leverageTier": "NEUTRAL",
    "winProb": 0.43,
    "top5Prob": 3.4,
-   "top10Prob": 7.8
+   "top10Prob": 7.8,
+   "makeCutPct": 52.4
   },
   {
    "name": "Tom Hoge",
@@ -2039,14 +2075,15 @@
    "chFinish3": 80,
    "chEvents": 1,
    "chMadeCuts": 0,
-   "ownership": 1.23,
+   "ownership": 1.25,
    "winOdds": 40000.0,
    "impliedProb": 0.25,
-   "leverage": 0.203,
+   "leverage": 0.2,
    "leverageTier": "CHALK",
    "winProb": 0.25,
    "top5Prob": 2.3,
-   "top10Prob": 5.6
+   "top10Prob": 5.6,
+   "makeCutPct": 45.0
   },
   {
    "name": "Hao-Tong Li",
@@ -2062,10 +2099,10 @@
    "form3W": 80,
    "form4W": 80,
    "chMadeCuts": 0,
-   "ownership": 0.82,
+   "ownership": 0.84,
    "winOdds": 21000.0,
    "impliedProb": 0.47,
-   "leverage": 0.573,
+   "leverage": 0.56,
    "leverageTier": "CHALK"
   },
   {
@@ -2085,14 +2122,15 @@
    "chFinish3": 80,
    "chEvents": 2,
    "chMadeCuts": 1,
-   "ownership": 0.73,
+   "ownership": 0.76,
    "winOdds": 26000.0,
    "impliedProb": 0.38,
-   "leverage": 0.521,
+   "leverage": 0.5,
    "leverageTier": "CHALK",
    "winProb": 0.38,
    "top5Prob": 3.2,
-   "top10Prob": 7.4
+   "top10Prob": 7.4,
+   "makeCutPct": 50.0
   },
   {
    "name": "Neal Shipley",
@@ -2109,14 +2147,15 @@
    "chFinish2": 20,
    "chEvents": 1,
    "chMadeCuts": 1,
-   "ownership": 0.81,
+   "ownership": 0.83,
    "winOdds": 27500.0,
    "impliedProb": 0.36,
-   "leverage": 0.444,
+   "leverage": 0.434,
    "leverageTier": "CHALK",
    "winProb": 0.36,
    "top5Prob": 3.1,
-   "top10Prob": 7.1
+   "top10Prob": 7.1,
+   "makeCutPct": 51.9
   },
   {
    "name": "Austin Smotherman",
@@ -2133,14 +2172,15 @@
    "chFinish3": 80,
    "chEvents": 1,
    "chMadeCuts": 0,
-   "ownership": 0.52,
+   "ownership": 0.55,
    "winOdds": 22000.0,
    "impliedProb": 0.45,
-   "leverage": 0.865,
+   "leverage": 0.818,
    "leverageTier": "NEUTRAL",
    "winProb": 0.45,
    "top5Prob": 3.7,
-   "top10Prob": 8.5
+   "top10Prob": 8.5,
+   "makeCutPct": 55.0
   },
   {
    "name": "Patrick Fishburn",
@@ -2159,14 +2199,15 @@
    "chFinish2": 25,
    "chEvents": 2,
    "chMadeCuts": 1,
-   "ownership": 0.5,
+   "ownership": 0.52,
    "winOdds": 25000.0,
    "impliedProb": 0.4,
-   "leverage": 0.8,
+   "leverage": 0.769,
    "leverageTier": "NEUTRAL",
    "winProb": 0.4,
    "top5Prob": 3.3,
-   "top10Prob": 7.5
+   "top10Prob": 7.5,
+   "makeCutPct": 50.5
   },
   {
    "name": "Andrew Putnam",
@@ -2190,7 +2231,8 @@
    "leverageTier": "CHALK",
    "winProb": 0.31,
    "top5Prob": 2.9,
-   "top10Prob": 7.0
+   "top10Prob": 7.0,
+   "makeCutPct": 52.8
   },
   {
    "name": "Cameron Davis",
@@ -2215,7 +2257,8 @@
    "leverageTier": "CHALK",
    "winProb": 0.17,
    "top5Prob": 1.7,
-   "top10Prob": 4.3
+   "top10Prob": 4.3,
+   "makeCutPct": 42.4
   },
   {
    "name": "Patrick Rodgers",
@@ -2238,7 +2281,8 @@
    "leverageTier": "MEDIUM",
    "winProb": 0.29,
    "top5Prob": 2.5,
-   "top10Prob": 6.1
+   "top10Prob": 6.1,
+   "makeCutPct": 48.1
   },
   {
    "name": "Karl Vilips",
@@ -2262,7 +2306,8 @@
    "leverageTier": "NEUTRAL",
    "winProb": 0.38,
    "top5Prob": 3.1,
-   "top10Prob": 7.0
+   "top10Prob": 7.0,
+   "makeCutPct": 47.6
   },
   {
    "name": "Trace Crowe",
@@ -2287,7 +2332,8 @@
    "leverageTier": "CHALK",
    "winProb": 0.25,
    "top5Prob": 2.2,
-   "top10Prob": 5.4
+   "top10Prob": 5.4,
+   "makeCutPct": 45.9
   },
   {
    "name": "Joel Dahmen",
@@ -2314,7 +2360,8 @@
    "leverageTier": "CHALK",
    "winProb": 0.26,
    "top5Prob": 2.4,
-   "top10Prob": 6.1
+   "top10Prob": 6.1,
+   "makeCutPct": 51.2
   },
   {
    "name": "Davis Chatfield",
@@ -2338,7 +2385,8 @@
    "leverageTier": "CHALK",
    "winProb": 0.2,
    "top5Prob": 2.0,
-   "top10Prob": 5.1
+   "top10Prob": 5.1,
+   "makeCutPct": 47.6
   },
   {
    "name": "Garrick Higgo",
@@ -2364,7 +2412,8 @@
    "leverageTier": "HIGH",
    "winProb": 0.29,
    "top5Prob": 2.6,
-   "top10Prob": 6.2
+   "top10Prob": 6.2,
+   "makeCutPct": 49.5
   },
   {
    "name": "Luke Clanton",
@@ -2390,7 +2439,8 @@
    "leverageTier": "NEUTRAL",
    "winProb": 0.24,
    "top5Prob": 2.2,
-   "top10Prob": 5.3
+   "top10Prob": 5.3,
+   "makeCutPct": 46.3
   },
   {
    "name": "Erik Van Rooyen",
@@ -2410,7 +2460,8 @@
    "leverageTier": "CHALK",
    "winProb": 0.28,
    "top5Prob": 2.4,
-   "top10Prob": 5.9
+   "top10Prob": 5.9,
+   "makeCutPct": 45.0
   },
   {
    "name": "Chad Ramey",
@@ -2437,7 +2488,8 @@
    "leverageTier": "NEUTRAL",
    "winProb": 0.27,
    "top5Prob": 2.4,
-   "top10Prob": 6.1
+   "top10Prob": 6.1,
+   "makeCutPct": 47.6
   },
   {
    "name": "Takumi Kanaya",
@@ -2462,7 +2514,8 @@
    "leverageTier": "MEDIUM",
    "winProb": 0.22,
    "top5Prob": 2.1,
-   "top10Prob": 5.4
+   "top10Prob": 5.4,
+   "makeCutPct": 48.1
   },
   {
    "name": "Pontus Nyholm",
@@ -2486,7 +2539,8 @@
    "leverageTier": "NEUTRAL",
    "winProb": 0.21,
    "top5Prob": 1.9,
-   "top10Prob": 4.7
+   "top10Prob": 4.7,
+   "makeCutPct": 44.2
   },
   {
    "name": "Chandler Blanchet",
@@ -2510,7 +2564,8 @@
    "leverageTier": "CHALK",
    "winProb": 0.18,
    "top5Prob": 1.8,
-   "top10Prob": 4.5
+   "top10Prob": 4.5,
+   "makeCutPct": 45.9
   },
   {
    "name": "Hank Lebioda",
@@ -2535,7 +2590,8 @@
    "leverageTier": "CHALK",
    "winProb": 0.1,
    "top5Prob": 1.1,
-   "top10Prob": 3.0
+   "top10Prob": 3.0,
+   "makeCutPct": 42.0
   },
   {
    "name": "Matt Kuchar",
@@ -2559,7 +2615,8 @@
    "leverageTier": "CHALK",
    "winProb": 0.22,
    "top5Prob": 2.2,
-   "top10Prob": 5.6
+   "top10Prob": 5.6,
+   "makeCutPct": 46.7
   },
   {
    "name": "David Lipsky",
@@ -2585,7 +2642,8 @@
    "leverageTier": "CHALK",
    "winProb": 0.17,
    "top5Prob": 1.7,
-   "top10Prob": 4.3
+   "top10Prob": 4.3,
+   "makeCutPct": 45.5
   },
   {
    "name": "Aaron Wise",
@@ -2610,7 +2668,8 @@
    "leverageTier": "CHALK",
    "winProb": 0.18,
    "top5Prob": 1.8,
-   "top10Prob": 4.3
+   "top10Prob": 4.3,
+   "makeCutPct": 43.1
   },
   {
    "name": "Matthieu Pavon",
@@ -2633,7 +2692,8 @@
    "leverageTier": "HIGH",
    "winProb": 0.24,
    "top5Prob": 2.2,
-   "top10Prob": 5.4
+   "top10Prob": 5.4,
+   "makeCutPct": 46.5
   },
   {
    "name": "Nick Dunlap",
@@ -2659,7 +2719,8 @@
    "leverageTier": "CHALK",
    "winProb": 0.18,
    "top5Prob": 1.7,
-   "top10Prob": 4.3
+   "top10Prob": 4.3,
+   "makeCutPct": 43.9
   },
   {
    "name": "Stefano Mazzoli",
@@ -2683,7 +2744,8 @@
    "leverageTier": "CHALK",
    "winProb": 0.09,
    "top5Prob": 1.0,
-   "top10Prob": 2.7
+   "top10Prob": 2.7,
+   "makeCutPct": 36.8
   },
   {
    "name": "Mark Hubbard",
@@ -2709,7 +2771,8 @@
    "leverageTier": "NEUTRAL",
    "winProb": 0.24,
    "top5Prob": 2.3,
-   "top10Prob": 5.6
+   "top10Prob": 5.6,
+   "makeCutPct": 49.5
   },
   {
    "name": "Vince Whaley",
@@ -2736,7 +2799,8 @@
    "leverageTier": "CHALK",
    "winProb": 0.22,
    "top5Prob": 2.0,
-   "top10Prob": 5.0
+   "top10Prob": 5.0,
+   "makeCutPct": 45.5
   },
   {
    "name": "Alejandro Tosti",
@@ -2755,14 +2819,15 @@
    "chFinish2": 80,
    "chEvents": 2,
    "chMadeCuts": 0,
-   "ownership": 0.09,
+   "ownership": 0.11,
    "winOdds": 67500.0,
    "impliedProb": 0.15,
-   "leverage": 1.667,
+   "leverage": 1.364,
    "leverageTier": "MEDIUM",
    "winProb": 0.15,
    "top5Prob": 1.2,
-   "top10Prob": 3.0
+   "top10Prob": 3.0,
+   "makeCutPct": 38.8
   },
   {
    "name": "Joe Highsmith",
@@ -2781,14 +2846,15 @@
    "chFinish2": 57,
    "chEvents": 2,
    "chMadeCuts": 2,
-   "ownership": 0.18,
+   "ownership": 0.2,
    "winOdds": 80000.0,
    "impliedProb": 0.12,
-   "leverage": 0.667,
-   "leverageTier": "NEUTRAL",
+   "leverage": 0.6,
+   "leverageTier": "CHALK",
    "winProb": 0.12,
    "top5Prob": 1.3,
-   "top10Prob": 3.4
+   "top10Prob": 3.4,
+   "makeCutPct": 41.3
   },
   {
    "name": "Brandt Snedeker",
@@ -2807,14 +2873,15 @@
    "chFinish3": 80,
    "chEvents": 3,
    "chMadeCuts": 0,
-   "ownership": 0.13,
+   "ownership": 0.15,
    "winOdds": 87500.0,
    "impliedProb": 0.11,
-   "leverage": 0.846,
+   "leverage": 0.733,
    "leverageTier": "NEUTRAL",
    "winProb": 0.11,
    "top5Prob": 1.3,
-   "top10Prob": 3.6
+   "top10Prob": 3.6,
+   "makeCutPct": 45.0
   },
   {
    "name": "John VanDerLaan",
@@ -2831,14 +2898,15 @@
    "form4W": 80,
    "chEvents": 0,
    "chMadeCuts": 0,
-   "ownership": 0.31,
+   "ownership": 0.33,
    "winOdds": 57500.0,
    "impliedProb": 0.17,
-   "leverage": 0.548,
+   "leverage": 0.515,
    "leverageTier": "CHALK",
    "winProb": 0.17,
    "top5Prob": 1.7,
-   "top10Prob": 4.3
+   "top10Prob": 4.3,
+   "makeCutPct": 43.5
   },
   {
    "name": "Kevin Streelman",
@@ -2855,14 +2923,15 @@
    "chFinish2": 57,
    "chEvents": 1,
    "chMadeCuts": 1,
-   "ownership": 0.45,
+   "ownership": 0.47,
    "winOdds": 77500.0,
    "impliedProb": 0.13,
-   "leverage": 0.289,
+   "leverage": 0.277,
    "leverageTier": "CHALK",
    "winProb": 0.13,
    "top5Prob": 1.4,
-   "top10Prob": 3.7
+   "top10Prob": 3.7,
+   "makeCutPct": 42.7
   },
   {
    "name": "Adrien Saddier",
@@ -2877,14 +2946,15 @@
    "form3W": 61,
    "chEvents": 0,
    "chMadeCuts": 0,
-   "ownership": 0.23,
+   "ownership": 0.25,
    "winOdds": 41000.0,
    "impliedProb": 0.24,
-   "leverage": 1.043,
+   "leverage": 0.96,
    "leverageTier": "NEUTRAL",
    "winProb": 0.24,
    "top5Prob": 2.3,
-   "top10Prob": 5.6
+   "top10Prob": 5.6,
+   "makeCutPct": 46.3
   },
   {
    "name": "Brad Dalke",
@@ -2898,14 +2968,15 @@
    "form4W": 30,
    "chEvents": 0,
    "chMadeCuts": 0,
-   "ownership": 0.52,
+   "ownership": 0.54,
    "winOdds": 100000.0,
    "impliedProb": 0.1,
-   "leverage": 0.192,
+   "leverage": 0.185,
    "leverageTier": "CHALK",
    "winProb": 0.1,
    "top5Prob": 0.9,
-   "top10Prob": 2.3
+   "top10Prob": 2.3,
+   "makeCutPct": 33.3
   },
   {
    "name": "Gordon Sargent",
@@ -2931,7 +3002,8 @@
    "leverageTier": "HIGH",
    "winProb": 0.12,
    "top5Prob": 1.2,
-   "top10Prob": 3.0
+   "top10Prob": 3.0,
+   "makeCutPct": 37.0
   },
   {
    "name": "Brice Garnett",
@@ -2958,7 +3030,8 @@
    "leverageTier": "NEUTRAL",
    "winProb": 0.08,
    "top5Prob": 1.0,
-   "top10Prob": 2.7
+   "top10Prob": 2.7,
+   "makeCutPct": 39.7
   },
   {
    "name": "Davis Riley",
@@ -2985,7 +3058,8 @@
    "leverageTier": "CHALK",
    "winProb": 0.08,
    "top5Prob": 0.9,
-   "top10Prob": 2.3
+   "top10Prob": 2.3,
+   "makeCutPct": 37.9
   },
   {
    "name": "Adam Svensson",
@@ -3012,7 +3086,8 @@
    "leverageTier": "NEUTRAL",
    "winProb": 0.09,
    "top5Prob": 1.0,
-   "top10Prob": 2.9
+   "top10Prob": 2.9,
+   "makeCutPct": 39.1
   },
   {
    "name": "Danny Walker",
@@ -3037,7 +3112,8 @@
    "leverageTier": "NEUTRAL",
    "winProb": 0.07,
    "top5Prob": 0.7,
-   "top10Prob": 2.0
+   "top10Prob": 2.0,
+   "makeCutPct": 36.0
   },
   {
    "name": "Jeffrey Kang",
@@ -3061,7 +3137,8 @@
    "leverageTier": "CHALK",
    "winProb": 0.07,
    "top5Prob": 0.9,
-   "top10Prob": 2.4
+   "top10Prob": 2.4,
+   "makeCutPct": 35.5
   },
   {
    "name": "Webb Simpson",
@@ -3085,7 +3162,8 @@
    "leverageTier": "CHALK",
    "winProb": 0.18,
    "top5Prob": 1.8,
-   "top10Prob": 4.4
+   "top10Prob": 4.4,
+   "makeCutPct": 44.2
   },
   {
    "name": "Dylan Wu",
@@ -3111,7 +3189,8 @@
    "leverageTier": "CHALK",
    "winProb": 0.1,
    "top5Prob": 1.1,
-   "top10Prob": 3.0
+   "top10Prob": 3.0,
+   "makeCutPct": 38.5
   },
   {
    "name": "Kensei Hirata",
@@ -3135,7 +3214,8 @@
    "leverageTier": "NEUTRAL",
    "winProb": 0.04,
    "top5Prob": 0.6,
-   "top10Prob": 1.7
+   "top10Prob": 1.7,
+   "makeCutPct": 33.6
   },
   {
    "name": "Brian Campbell",
@@ -3158,7 +3238,8 @@
    "leverageTier": "NEUTRAL",
    "winProb": 0.05,
    "top5Prob": 0.6,
-   "top10Prob": 1.9
+   "top10Prob": 1.9,
+   "makeCutPct": 34.2
   },
   {
    "name": "Christo Lamprecht",
@@ -3182,7 +3263,8 @@
    "leverageTier": "NEUTRAL",
    "winProb": 0.04,
    "top5Prob": 0.4,
-   "top10Prob": 1.2
+   "top10Prob": 1.2,
+   "makeCutPct": 27.8
   },
   {
    "name": "Marcelo Rozo",
@@ -3206,7 +3288,8 @@
    "leverageTier": "MEDIUM",
    "winProb": 0.03,
    "top5Prob": 0.4,
-   "top10Prob": 1.1
+   "top10Prob": 1.1,
+   "makeCutPct": 27.8
   },
   {
    "name": "Ryan Ruffels",
@@ -3220,15 +3303,20 @@
    "leverageTier": "NEUTRAL",
    "winProb": 0.06,
    "top5Prob": 0.7,
-   "top10Prob": 1.8
+   "top10Prob": 1.8,
+   "makeCutPct": 31.8
   },
   {
    "name": "William Jennings",
    "salary": 6100,
    "chEvents": 0,
    "chMadeCuts": 0,
-   "ownership": 0.24,
-   "leverageTier": "NEUTRAL"
+   "ownership": 0.27,
+   "winOdds": 17000.0,
+   "impliedProb": 0.58,
+   "leverage": 2.148,
+   "leverageTier": "HIGH",
+   "makeCutPct": 53.7
   },
   {
    "name": "Adam Schenk",
@@ -3254,7 +3342,8 @@
    "leverageTier": "CHALK",
    "winProb": 0.06,
    "top5Prob": 0.7,
-   "top10Prob": 2.0
+   "top10Prob": 2.0,
+   "makeCutPct": 37.9
   },
   {
    "name": "Rafael Campos",
@@ -3280,7 +3369,8 @@
    "leverageTier": "CHALK",
    "winProb": 0.02,
    "top5Prob": 0.3,
-   "top10Prob": 1.1
+   "top10Prob": 1.1,
+   "makeCutPct": 29.9
   },
   {
    "name": "Peter Malnati",
@@ -3307,7 +3397,8 @@
    "leverageTier": "CHALK",
    "winProb": 0.04,
    "top5Prob": 0.5,
-   "top10Prob": 1.4
+   "top10Prob": 1.4,
+   "makeCutPct": 33.3
   },
   {
    "name": "Patton Kizzire",
@@ -3333,7 +3424,8 @@
    "leverageTier": "CHALK",
    "winProb": 0.02,
    "top5Prob": 0.3,
-   "top10Prob": 1.0
+   "top10Prob": 1.0,
+   "makeCutPct": 29.4
   },
   {
    "name": "Brendon Todd",
@@ -3357,7 +3449,8 @@
    "leverageTier": "CHALK",
    "winProb": 0.02,
    "top5Prob": 0.2,
-   "top10Prob": 0.6
+   "top10Prob": 0.6,
+   "makeCutPct": 22.5
   },
   {
    "name": "Joe Hooks",
@@ -3372,15 +3465,20 @@
    "leverageTier": "CHALK",
    "winProb": 0.02,
    "top5Prob": 0.3,
-   "top10Prob": 0.8
+   "top10Prob": 0.8,
+   "makeCutPct": 20.0
   },
   {
    "name": "Patrick Wilkes-Krier",
    "salary": 6000,
    "chEvents": 0,
    "chMadeCuts": 0,
-   "ownership": 0.23,
-   "leverageTier": "NEUTRAL"
+   "ownership": 0.08,
+   "winOdds": 450000.0,
+   "impliedProb": 0.02,
+   "leverage": 0.25,
+   "leverageTier": "CHALK",
+   "makeCutPct": 25.3
   },
   {
    "name": "Zac Blair",
@@ -3392,22 +3490,33 @@
    "sgApp": 0.54,
    "sgOtt": -0.44,
    "chMadeCuts": 0,
-   "ownership": 1.92,
-   "leverageTier": "NEUTRAL"
+   "ownership": 1.56,
+   "winOdds": 25000.0,
+   "impliedProb": 0.4,
+   "leverage": 0.256,
+   "leverageTier": "CHALK",
+   "makeCutPct": 54.5
   },
   {
    "name": "Daniel Azallian",
    "salary": 6000,
    "chMadeCuts": 0,
-   "ownership": 0.23,
-   "leverageTier": "NEUTRAL"
+   "ownership": 0.09,
+   "winOdds": 500000.0,
+   "impliedProb": 0.02,
+   "leverage": 0.222,
+   "leverageTier": "CHALK"
   },
   {
    "name": "Ryan Celano",
    "salary": 6100,
    "chMadeCuts": 0,
-   "ownership": 0.25,
-   "leverageTier": "NEUTRAL"
+   "ownership": 0.09,
+   "winOdds": 500000.0,
+   "impliedProb": 0.02,
+   "leverage": 0.222,
+   "leverageTier": "CHALK",
+   "makeCutPct": 15.6
   },
   {
    "name": "Hayden Springer",
@@ -3418,9 +3527,20 @@
    "sgArg": -0.24,
    "sgApp": -0.33,
    "sgOtt": -0.46,
-   "chMadeCuts": 0,
-   "ownership": 0.38,
-   "leverageTier": "NEUTRAL"
+   "form1W": 80,
+   "form2W": 24,
+   "form3W": 80,
+   "form4W": 58,
+   "chFinish1": 34,
+   "chFinish2": 10,
+   "chEvents": 2,
+   "chMadeCuts": 2,
+   "ownership": 0.59,
+   "winOdds": 40000.0,
+   "impliedProb": 0.25,
+   "leverage": 0.424,
+   "leverageTier": "CHALK",
+   "makeCutPct": 45.5
   },
   {
    "name": "Lanto Griffin",
@@ -3431,12 +3551,24 @@
    "sgArg": 0.06,
    "sgApp": 0.17,
    "sgOtt": -0.38,
-   "chMadeCuts": 0,
-   "ownership": 0.32,
-   "leverageTier": "NEUTRAL",
+   "form1W": 64,
+   "form2W": 80,
+   "form3W": 55,
+   "form4W": 39,
+   "chFinish1": 51,
+   "chFinish2": 80,
+   "chFinish3": 80,
+   "chEvents": 3,
+   "chMadeCuts": 1,
+   "ownership": 0.38,
+   "winOdds": 60000.0,
+   "impliedProb": 0.17,
+   "leverage": 0.447,
+   "leverageTier": "CHALK",
    "winProb": 0.19,
    "top5Prob": 1.9,
-   "top10Prob": 4.7
+   "top10Prob": 4.7,
+   "makeCutPct": 43.1
   },
   {
    "name": "Justin Lower",
@@ -3447,9 +3579,21 @@
    "sgArg": -0.17,
    "sgApp": -0.71,
    "sgOtt": -0.33,
-   "chMadeCuts": 0,
-   "ownership": 0.25,
-   "leverageTier": "NEUTRAL"
+   "form1W": 80,
+   "form2W": 42,
+   "form3W": 59,
+   "form4W": 80,
+   "chFinish1": 46,
+   "chFinish2": 25,
+   "chFinish3": 8,
+   "chEvents": 3,
+   "chMadeCuts": 3,
+   "ownership": 0.33,
+   "winOdds": 90000.0,
+   "impliedProb": 0.11,
+   "leverage": 0.333,
+   "leverageTier": "CHALK",
+   "makeCutPct": 40.0
   },
   {
    "name": "Keenan Huskey",
@@ -3461,15 +3605,23 @@
    "sgApp": 0.69,
    "sgOtt": 0.35,
    "chMadeCuts": 0,
-   "ownership": 0.33,
-   "leverageTier": "NEUTRAL"
+   "ownership": 0.12,
+   "winOdds": 450000.0,
+   "impliedProb": 0.02,
+   "leverage": 0.167,
+   "leverageTier": "CHALK",
+   "makeCutPct": 23.5
   },
   {
    "name": "Justin Quiban",
    "salary": 6000,
    "chMadeCuts": 0,
-   "ownership": 0.23,
-   "leverageTier": "NEUTRAL"
+   "ownership": 0.09,
+   "winOdds": 500000.0,
+   "impliedProb": 0.02,
+   "leverage": 0.222,
+   "leverageTier": "CHALK",
+   "makeCutPct": 21.1
   }
  ]
 }
