@@ -593,7 +593,18 @@ def main():
     # big-field classic contest list so weekend "Short Game" slots don't replace it.
     existing_contests = _load_json_safe(os.path.join(os.path.dirname(out), "dk_contests.json"))
     contests_tournament_matches = (existing_contests or {}).get("tournament") == tourney
-    if not is_showdown and (not contests_tournament_matches or is_new_tournament):
+    # Also refresh when the stored list is thin. DK posts smaller contests (the
+    # low-buy-in and single-entry ones) after the flagship GPPs go up, so a list
+    # captured early in the week can be missing most of what people actually play —
+    # and without this it would sit stale until the next tournament.
+    have = len((existing_contests or {}).get("contests") or [])
+    thin_list = contests_tournament_matches and have < MIN_HEALTHY_CONTESTS
+    force = os.environ.get("DK_REFRESH_CONTESTS", "").strip() not in ("", "0")
+    if thin_list:
+        print(f"Only {have} contests stored for {tourney} — refreshing to pick up "
+              f"smaller/single-entry contests")
+    if not is_showdown and (not contests_tournament_matches or is_new_tournament
+                            or thin_list or force):
         contests = build_contests(dg, tourney, event)
         cpath = os.path.join(os.path.dirname(out), "dk_contests.json")
         with open(cpath, "w") as fh:
@@ -694,16 +705,31 @@ def build_contests(dg, tourney, event):
     Picks a spread of contest sizes/fees (deduped), up to a sane cap."""
     lobby = get_json("https://www.draftkings.com/lobby/getcontests?sport=GOLF", optional=True) or {}
     matches = [c for c in lobby.get("Contests", []) if str(c.get("dg")) == str(dg)]
-    seen = set()
-    picks = []
-    for c in sorted(matches, key=lambda c: -(c.get("m") or 0)):  # biggest fields first
-        key = (c.get("a"), c.get("m"))
-        if key in seen:
-            continue
-        seen.add(key)
-        picks.append(c)
-        if len(picks) >= 14:
-            break
+
+    # Spread the picks across ENTRY FEES rather than taking the biggest fields.
+    # Sorting purely by field size let the handful of giant flagship GPPs consume
+    # every slot, so the small-stakes and single-entry contests most people actually
+    # play (a $5 Caddie, a $3 single entry) never made the list at all.
+    by_fee = {}
+    for c in matches:
+        by_fee.setdefault(c.get("a"), []).append(c)
+    buckets = [sorted(v, key=lambda c: -(c.get("m") or 0))
+               for _, v in sorted(by_fee.items(), key=lambda kv: (kv[0] is None, kv[0]))]
+
+    seen, picks, depth = set(), [], 0
+    # Round-robin: every fee level contributes its biggest contest before any fee
+    # level contributes its second, so the spread survives the cap.
+    while len(picks) < MAX_CONTESTS and any(len(b) > depth for b in buckets):
+        for b in buckets:
+            if depth >= len(b) or len(picks) >= MAX_CONTESTS:
+                continue
+            c = b[depth]
+            key = (c.get("n") or "").strip().lower()
+            if key in seen:
+                continue
+            seen.add(key)
+            picks.append(c)
+        depth += 1
 
     out = []
     for c in picks:
@@ -724,7 +750,9 @@ def build_contests(dg, tourney, event):
             "prizePool": round(pool, 2),
             "tiers": tiers,
         })
-    out.sort(key=lambda x: -(x["entries"] or 0))
+    # Cheapest first, biggest field first within a fee — most players are
+    # looking for their low-buy-in contest, not the $5,300 Thunderdome.
+    out.sort(key=lambda x: ((x["fee"] if x["fee"] is not None else 1e9), -(x["entries"] or 0)))
     return {
         "updatedUtc": datetime.datetime.utcnow().replace(microsecond=0).isoformat() + "Z",
         "tournament": tourney,

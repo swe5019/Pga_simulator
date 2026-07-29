@@ -40,6 +40,10 @@ on:
         description: List open GOLF draft groups instead of fetching (1 = list)
         required: false
         default: ''
+      refresh_contests:
+        description: Force-rebuild the DK contest list (1 = on)
+        required: false
+        default: ''
       probe_contest:
         description: Probe a contest ID for payout endpoints (diagnostic only)
         required: false
@@ -77,6 +81,7 @@ jobs:
           DK_TOURNAMENT: ${{ inputs.tournament_name }}
           DK_DATE: ${{ inputs.date }}
           DK_LIST: ${{ inputs.list }}
+          DK_REFRESH_CONTESTS: ${{ inputs.refresh_contests }}
           DK_PROBE_CONTEST: ${{ inputs.probe_contest }}
           DK_PROBE_DG: ${{ inputs.probe_dg }}
           # Post-contest ownership (results mode) — needs the DK_COOKIE secret.
