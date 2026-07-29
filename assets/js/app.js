@@ -826,14 +826,13 @@ function applyProjOverrides() {
 }
 
 /**
- * Replace the simulated cut rate with your own Make_Cut_Prob_Pct where you've
- * supplied one (Make Cut tab of the master file).
+ * Snap the displayed cut rate to the exact market price from your Make Cut tab.
  *
- * Written straight onto the sim result rather than handled at each display site,
- * so everything downstream picks it up from one place — the Cut% column, the CSV
- * export, sorting, and the 6/6 Cut figure on lineup cards, which multiplies these
- * same per-golfer rates. Overriding only the display would leave 6/6 Cut quietly
- * disagreeing with the column right above it.
+ * The simulation already targets these prices directly — each golfer gets a personal
+ * cut line calibrated so he survives in that share of tournaments (see
+ * Sim.calibrateCutLines), which is what makes his projection, floor and ceiling
+ * consistent with the price. This just removes the last ~1 point of Monte Carlo
+ * wobble so the column reads back the number you actually supplied.
  */
 function applyMakeCutOverrides() {
   if (!State.simResults) return 0;

@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>SlateSims — PGA DFS Simulator for DraftKings</title>
   <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml" />
-  <link rel="stylesheet" href="assets/css/styles.css?v=20260717t" />
+  <link rel="stylesheet" href="assets/css/styles.css?v=20260717u" />
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-13J1816EN4"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -183,7 +183,7 @@
               <th class="num" data-sort="proj" title="Mean fantasy points across every simulated tournament. Editable as a manual override — leave blank to use the sim.">Proj</th>
               <th class="num" data-sort="floor" title="10th percentile simulated score — a bad-but-realistic day. The golfer scores at or above this in 90% of simulated tournaments.">Floor</th>
               <th class="num" data-sort="ceil" title="90th percentile simulated score — a strong day. The golfer reaches this in the top 10% of simulated tournaments.">Ceil</th>
-              <th class="num" data-sort="cut" title="Chance this golfer makes the 36-hole cut. Uses Make_Cut_Prob_Pct from your master file&#39;s Make Cut tab when present (shown in blue); otherwise the % of simulated tournaments in which they survive the cut.">Cut%</th>
+              <th class="num" data-sort="cut" title="Chance this golfer makes the 36-hole cut. When your Make Cut tab supplies a market price (shown in blue) the simulation is calibrated to it, so Proj, Floor and Ceiling all reflect that cut risk rather than just the column. Otherwise it is the % of simulated tournaments in which they survive.">Cut%</th>
               <th class="num" data-sort="win" title="Win equity from win odds">Win%</th>
               <th class="num" data-sort="t5" title="Top-5 equity from odds">T5%</th>
               <th class="num" data-sort="t10" title="Top-10 equity from odds">T10%</th>
@@ -612,13 +612,13 @@
     </div>
   </div>
 
-  <script src="assets/js/scoring.js?v=20260717t"></script>
-  <script src="assets/js/data.js?v=20260717t"></script>
-  <script src="assets/js/sim.js?v=20260717t"></script>
-  <script src="assets/js/optimizer.js?v=20260717t"></script>
-  <script src="assets/js/contest.js?v=20260717t"></script>
-  <script src="assets/js/app.js?v=20260717t"></script>
-  <script src="assets/js/onboard.js?v=20260717t"></script>
-  <script src="assets/js/tour.js?v=20260717t"></script>
+  <script src="assets/js/scoring.js?v=20260717u"></script>
+  <script src="assets/js/data.js?v=20260717u"></script>
+  <script src="assets/js/sim.js?v=20260717u"></script>
+  <script src="assets/js/optimizer.js?v=20260717u"></script>
+  <script src="assets/js/contest.js?v=20260717u"></script>
+  <script src="assets/js/app.js?v=20260717u"></script>
+  <script src="assets/js/onboard.js?v=20260717u"></script>
+  <script src="assets/js/tour.js?v=20260717u"></script>
 </body>
 </html>

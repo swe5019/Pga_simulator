@@ -112,11 +112,21 @@ function drawHole(rng, par, probs) {
   return { par, rel, holeInOne };
 }
 
+/**
+ * Per-round probability lookup. A round only ever has three distinct pars, but the
+ * skill shift is fixed for the day — so derive the three probability sets once
+ * instead of recomputing them (two Math.exp each) on all 18 holes.
+ */
+function roundProbs(daySkill) {
+  return { 3: holeProbs(3, daySkill), 4: holeProbs(4, daySkill), 5: holeProbs(5, daySkill) };
+}
+
 /** Simulate one 18-hole round given the golfer's effective skill that day. */
 function simRound(rng, daySkill) {
+  const probs = roundProbs(daySkill);
   const holes = [];
   for (const par of COURSE_PARS) {
-    holes.push(drawHole(rng, par, holeProbs(par, daySkill)));
+    holes.push(drawHole(rng, par, probs[par]));
   }
   return holes;
 }
@@ -130,7 +140,7 @@ function simRound(rng, daySkill) {
  * For no-cut events (Signature events like the Travelers, limited fields)
  * pass hasCut=false and every golfer plays all 4 rounds.
  */
-function simOneTournament(rng, golfer, hasCut) {
+function simOneTournament(rng, golfer, hasCut, fixedCutLine) {
   const skill = golfer.skill;
   // Per-golfer consistency: stars swing less round-to-round than journeymen.
   const formSigma = golfer.variance != null ? golfer.variance : 0.7;
@@ -148,9 +158,17 @@ function simOneTournament(rng, golfer, hasCut) {
     }
     // Apply the cut after 2 rounds (skipped entirely for no-cut events).
     if (hasCut && rd === 1) {
-      // Cut line ~ +0.5 over par for a 72 course; add noise for field strength.
-      const cutLine = 0.5 + gauss(rng) * 2;
-      if (strokesVsPar36 > cutLine) {
+      // With a market make-cut price we use this golfer's calibrated personal
+      // threshold (see calibrateCutLines); otherwise fall back to a generic line
+      // ~+0.5 over par with noise for field strength.
+      let missed;
+      if (fixedCutLine != null) {
+        missed = strokesVsPar36 > fixedCutLine.line ||
+          (strokesVsPar36 === fixedCutLine.line && rng() >= fixedCutLine.tieP);
+      } else {
+        missed = strokesVsPar36 > 0.5 + gauss(rng) * 2;
+      }
+      if (missed) {
         const res = window.Scoring.scoreTournament(rounds, false);
         return { points: res.points, madeCut: false, roundStrokes: res.roundStrokes };
       }
@@ -159,6 +177,65 @@ function simOneTournament(rng, golfer, hasCut) {
 
   const res = window.Scoring.scoreTournament(rounds, true);
   return { points: res.points, madeCut: true, roundStrokes: res.roundStrokes };
+}
+
+/**
+ * Turn a market make-cut probability into a personal 36-hole cut threshold.
+ *
+ * Why not simply overwrite each golfer's cut% after the fact: the cut is the single
+ * biggest driver of a DFS projection, because missing it means no weekend rounds at
+ * all. Overwriting the displayed number leaves the projection, floor and ceiling
+ * still reflecting whatever cut rate the simulation happened to produce — so a
+ * golfer priced by the market at 16% to make the cut would keep a projection built
+ * on him playing the weekend half the time.
+ *
+ * Instead we let the market price decide WHEN he survives. Simulate his opening 36
+ * holes many times, sort those scores, and take the value at his target percentile.
+ * He then makes the cut in exactly that share of tournaments — and crucially, in the
+ * ones where he actually played well, so the cut stays correlated with his own form
+ * rather than being flipped at random.
+ *
+ * @param {Array} golfers - need {id, skill, variance, makeCutPct}
+ * @param {number} nCal - calibration samples per golfer
+ * @param {number} seed - kept separate from the main run so calibration doesn't
+ *                        shift the tournament draws
+ * @returns {Map<id, number>} 36-hole strokes-vs-par threshold (make cut if <=)
+ */
+function calibrateCutLines(golfers, nCal, seed) {
+  const rng = makeRng(seed);
+  const lines = new Map();
+  for (const g of golfers) {
+    if (g.makeCutPct == null) continue;
+    const target = Math.max(0, Math.min(100, g.makeCutPct)) / 100;
+    if (target <= 0) { lines.set(g.id, -Infinity); continue; }   // never survives
+    if (target >= 1) { lines.set(g.id, Infinity); continue; }    // always survives
+    const formSigma = g.variance != null ? g.variance : 0.7;
+    const scores = new Float32Array(nCal);
+    for (let i = 0; i < nCal; i++) {
+      let s = 0;
+      for (let rd = 0; rd < 2; rd++) {
+        const probs = roundProbs(g.skill + gauss(rng) * formSigma);
+        for (const par of COURSE_PARS) s += drawHole(rng, par, probs[par]).rel;
+      }
+      scores[i] = s;
+    }
+    scores.sort();
+    // Lower strokes are better, so the target-th percentile is the survival line.
+    const k = Math.min(nCal, Math.max(1, Math.round(target * nCal))); // how many survive
+    const line = scores[k - 1];
+    // 36-hole scores are whole strokes, so many rounds land exactly ON the line.
+    // Admitting all of them overshoots the target badly (16% priced -> 20% actual).
+    // Count the ties and admit only the fraction still needed, breaking the rest
+    // at random, which lands the achieved rate on the market price.
+    let below = 0, at = 0;
+    for (let i = 0; i < nCal; i++) {
+      if (scores[i] < line) below++;
+      else if (scores[i] === line) at++;
+    }
+    const tieP = at > 0 ? Math.max(0, Math.min(1, (k - below) / at)) : 1;
+    lines.set(g.id, { line, tieP });
+  }
+  return lines;
 }
 
 /**
@@ -182,9 +259,13 @@ function runSimulation(golfers, nSims, seed, onProgress, opts) {
     });
   }
 
+  // Calibrate personal cut lines from market make-cut prices where we have them.
+  const cutLines = hasCut ? calibrateCutLines(golfers, 2000, (seed || 12345) ^ 0x5f3759df)
+                          : new Map();
+
   for (let i = 0; i < nSims; i++) {
     for (const g of golfers) {
-      const r = simOneTournament(rng, g, hasCut);
+      const r = simOneTournament(rng, g, hasCut, cutLines.get(g.id));
       const slot = results.get(g.id);
       slot.samples[i] = r.points;
       if (r.madeCut) slot.madeCutCount++;
@@ -218,4 +299,4 @@ function runSimulation(golfers, nSims, seed, onProgress, opts) {
   return results;
 }
 
-window.Sim = { runSimulation, COURSE_PARS, makeRng };
+window.Sim = { runSimulation, COURSE_PARS, makeRng, calibrateCutLines };
