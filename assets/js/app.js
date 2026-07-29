@@ -99,6 +99,14 @@ const NICKNAMES = {
   benny: 'ben', sammy: 'sam', matty: 'matt', timmy: 'tim',
   jimmy: 'jim', kenny: 'ken', ronnie: 'ron', donnie: 'don',
   matti: 'matthias',
+  // Formal <-> short; sources disagree on these constantly.
+  matthew: 'matt', zachary: 'zach', daniel: 'dan', benjamin: 'ben',
+  samuel: 'sam', joseph: 'joe', thomas: 'tom', william: 'will',
+  robert: 'rob', richard: 'rick', michael: 'mike', christopher: 'chris',
+  nicholas: 'nick', alexander: 'alex', patrick: 'pat', theodore: 'ted',
+  edward: 'ed', kenneth: 'ken', ronald: 'ron', donald: 'don',
+  stephen: 'steve', steven: 'steve', timothy: 'tim',
+  gregory: 'greg', jeffrey: 'jeff', douglas: 'doug', charles: 'charlie',
 };
 
 // Characters that NFD decomposition does NOT split into base + combining mark
@@ -120,7 +128,12 @@ function normName(s) {
     .replace(/\s+/g, ' ')
     .trim();
   // Normalize first-name nicknames so e.g. "Johnny Keefer" == "John Keefer".
-  const parts = base.split(' ');
+  let parts = base.split(' ');
+  // Drop a middle initial, unless the first token is itself an initial
+  // ("J.J. Spaun" must not collapse to "j spaun").
+  if (parts.length > 2 && parts[0].length > 1) {
+    parts = [parts[0], ...parts.slice(1, -1).filter((p) => p.length > 1), parts[parts.length - 1]];
+  }
   if (parts.length > 1 && NICKNAMES[parts[0]]) parts[0] = NICKNAMES[parts[0]];
   return parts.join(' ');
 }

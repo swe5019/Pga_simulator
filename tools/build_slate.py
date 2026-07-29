@@ -101,6 +101,14 @@ _NICKNAMES = {
     "benny": "ben", "sammy": "sam", "matty": "matt", "timmy": "tim",
     "jimmy": "jim", "kenny": "ken", "ronnie": "ron", "donnie": "don",
     "matti": "matthias",
+    # Formal <-> short; sources disagree on these constantly.
+    "matthew": "matt", "zachary": "zach", "daniel": "dan", "benjamin": "ben",
+    "samuel": "sam", "joseph": "joe", "thomas": "tom", "william": "will",
+    "robert": "rob", "richard": "rick", "michael": "mike", "christopher": "chris",
+    "nicholas": "nick", "alexander": "alex", "patrick": "pat", "theodore": "ted",
+    "edward": "ed", "kenneth": "ken", "ronald": "ron", "donald": "don",
+    "stephen": "steve", "steven": "steve", "timothy": "tim",
+    "gregory": "greg", "jeffrey": "jeff", "douglas": "doug", "charles": "charlie",
 }
 
 
@@ -115,6 +123,10 @@ def _nrm(s):
     s = re.sub(r"\b(jr|sr|ii|iii|iv)\b", "", s)
     s = re.sub(r"\s+", " ", s).strip()
     parts = s.split(" ")
+    # Drop a middle initial, unless the first token is itself an initial
+    # ("J.J. Spaun" must not collapse to "j spaun").
+    if len(parts) > 2 and len(parts[0]) > 1:
+        parts = [parts[0]] + [p for p in parts[1:-1] if len(p) > 1] + [parts[-1]]
     if len(parts) > 1 and parts[0] in _NICKNAMES:
         parts[0] = _NICKNAMES[parts[0]]
     return " ".join(parts)

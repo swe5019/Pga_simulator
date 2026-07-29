@@ -289,7 +289,9 @@ def make_cut_probs(raw, suffix):
         # Accept either 0-1 fractions or 0-100 percentages.
         if 0 <= v <= 1:
             v *= 100
-        out[_norm(nm)] = _r(max(0.0, min(100.0, v)), 1)
+        val = _r(max(0.0, min(100.0, v)), 1)
+        for k in _norm_keys(nm):
+            out.setdefault(k, val)
     return out
 
 
@@ -304,6 +306,15 @@ _NICKNAMES = {
     "benny": "ben", "sammy": "sam", "matty": "matt", "timmy": "tim",
     "jimmy": "jim", "kenny": "ken", "ronnie": "ron", "donnie": "don",
     "matti": "matthias",
+    # Formal <-> short. Sources disagree constantly on these ("Matthew McCarty" on
+    # one tab, "Matt McCarty" on another), which silently drops the join.
+    "matthew": "matt", "zachary": "zach", "daniel": "dan", "benjamin": "ben",
+    "samuel": "sam", "joseph": "joe", "thomas": "tom", "william": "will",
+    "robert": "rob", "richard": "rick", "michael": "mike", "christopher": "chris",
+    "nicholas": "nick", "alexander": "alex", "patrick": "pat", "theodore": "ted",
+    "edward": "ed", "kenneth": "ken", "ronald": "ron", "donald": "don",
+    "stephen": "steve", "steven": "steve", "andrew": "andrew", "timothy": "tim",
+    "gregory": "greg", "jeffrey": "jeff", "douglas": "doug", "charles": "charlie",
 }
 
 
@@ -320,9 +331,24 @@ def _norm(s):
     # a source spells a name differently (e.g. "Johnny Keefer" vs "John Keefer").
     # Keep this map in sync with build_slate._NICKNAMES and app.js NICKNAMES.
     parts = s.split(" ")
+    # Drop a middle initial ("Jordan L. Smith" -> "jordan smith"), but only when the
+    # first token isn't itself a single letter, or "J.J. Spaun" would be gutted to
+    # "j spaun" and stop matching everywhere.
+    if len(parts) > 2 and len(parts[0]) > 1:
+        parts = [parts[0]] + [p for p in parts[1:-1] if len(p) > 1] + [parts[-1]]
     if len(parts) > 1 and parts[0] in _NICKNAMES:
         parts[0] = _NICKNAMES[parts[0]]
     return " ".join(parts)
+
+
+def _norm_keys(s):
+    """
+    Candidate lookup keys for one name. The second collapses spaces so hyphenated
+    and compound spellings agree ("Hao-Tong Li" vs "Haotong Li"), which the plain
+    normalizer can't reconcile because it turns the hyphen into a space.
+    """
+    n = _norm(s)
+    return [n, n.replace(" ", "")]
 
 
 def _r(v, n=3):
@@ -415,7 +441,7 @@ def build_from_workbook(raw, suffix):
             for k in ("winProb", "top5Prob", "top10Prob"):
                 if eq.get(k) is not None:
                     rec[k] = eq[k]
-        mc = cut_probs.get(_norm(name))
+        mc = next((cut_probs[k] for k in _norm_keys(name) if k in cut_probs), None)
         if mc is not None:
             rec["makeCutPct"] = mc
         golfers.append(rec)
