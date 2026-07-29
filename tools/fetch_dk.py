@@ -27,9 +27,15 @@ import urllib.request
 UA = {"User-Agent": "Mozilla/5.0 (compatible; birdie-dfs/1.0)"}
 
 # How many real contests to capture exact payout tiers for. Each costs one API
-# call, so this is a spread-vs-runtime tradeoff; 60 covers the fee ladder with room for
-# several contests per tier.
-MAX_CONTESTS = 60
+# call, so this is a spread-vs-runtime tradeoff. A typical PGA slate carries ~40
+# distinct entry fees, so a cap of 60 only ever reached the top TWO contests per
+# fee — which is how the $5 single-entry Caddie (3rd largest $5 game) kept getting
+# dropped. 160 gets the round-robin four deep on every fee level.
+MAX_CONTESTS = 160
+
+# Never take more than this many contests from a single entry fee, so one crowded
+# fee level cannot swallow the budget before the rarer fees are reached.
+MAX_PER_FEE = 6
 
 # Below this, the stored contest list is treated as incomplete and rebuilt even
 # mid-tournament rather than waiting for the next event.
@@ -792,7 +798,8 @@ def build_contests(dg, tourney, event):
     seen, picks, depth = set(), [], 0
     # Round-robin: every fee level contributes its biggest contest before any fee
     # level contributes its second, so the spread survives the cap.
-    while len(picks) < MAX_CONTESTS and any(len(b) > depth for b in buckets):
+    while (len(picks) < MAX_CONTESTS and depth < MAX_PER_FEE
+           and any(len(b) > depth for b in buckets)):
         for b in buckets:
             if depth >= len(b) or len(picks) >= MAX_CONTESTS:
                 continue
