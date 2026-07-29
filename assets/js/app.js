@@ -561,7 +561,7 @@ function renderPlayers() {
       <td class="num"><input class="projcell${g.projLocked ? ' overridden' : ''}" data-id="${g.id}" value="${proj != null ? proj.toFixed(1) : ''}" placeholder="—" title="Manual projection override — leave blank to use the sim"></td>
       <td class="num dim">${r ? num(r.floor) : '—'}</td>
       <td class="num up">${r ? num(r.ceiling) : '—'}</td>
-      <td class="num${g.makeCutPct != null ? ' overridden-cell' : ''}" ${g.makeCutPct != null ? 'title="From your Make Cut tab (overrides the simulated rate)"' : ''}>${g.makeCutPct != null ? g.makeCutPct.toFixed(1) : (r ? num(r.cutPct) : '—')}</td>
+      <td class="num${g.makeCutPct == null ? '' : (g.makeCutDefaulted ? ' defaulted-cell' : ' overridden-cell')}" ${g.makeCutPct == null ? '' : (g.makeCutDefaulted ? 'title="Not listed on your Make Cut tab — defaulted to 50%"' : 'title="Market make-cut price from your Make Cut tab; the sim is calibrated to it"')}>${g.makeCutPct != null ? g.makeCutPct.toFixed(1) : (r ? num(r.cutPct) : '—')}</td>
       <td class="num">${pct(win)}</td>
       <td class="num dim">${pct(g.top5Prob)}</td>
       <td class="num dim">${pct(g.top10Prob)}</td>

@@ -513,3 +513,5 @@ button.ghost.small { padding: 4px 10px; font-size: 12px; }
 
 /* A Cut% supplied by your Make Cut tab rather than derived from the sim */
 td.overridden-cell { color: var(--accent); }
+/* Make-cut % filled in with the 50% default rather than a real market price */
+td.defaulted-cell { color: var(--dim); font-style: italic; }

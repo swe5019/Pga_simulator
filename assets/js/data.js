@@ -101,6 +101,10 @@ const MARKET_WEIGHT = 0.80; // odds vs. SG_TOT in the skill blend
 // import that has no SG/odds for the field, or a single golfer).
 const SKILL_SCALE = 0.6;
 
+// Even-money stand-in for a golfer the Make Cut tab doesn't list. Applied only when
+// the rest of the slate does have market prices — see buildSlateFromMaster.
+const DEFAULT_MAKE_CUT_PCT = 50;
+
 /** Mean & std of a numeric array (population std). */
 function meanStd(arr) {
   const mean = arr.reduce((a, b) => a + b, 0) / arr.length;
@@ -155,6 +159,13 @@ function buildSlateFromMaster(records) {
   const zSg = zfun(valid.map((r) => r.sgTot));
   const marketZ = computeMarketZ(valid);
 
+  // If the slate carries market make-cut prices, a golfer missing one is an omission
+  // (not yet posted, or a late addition) — fall back to an even-money 50%. Only do
+  // this when prices exist at all: on a bare DK-salary import nobody has one, and
+  // defaulting the whole field to 50% would erase every cut-risk distinction the
+  // simulation would otherwise infer from skill.
+  const slateHasMakeCut = valid.some((r) => r.makeCutPct != null);
+
   const golfers = valid
     .map((r, i) => {
       const mz = marketZ(r); // odds-implied z (null if no odds in the slate)
@@ -196,7 +207,11 @@ function buildSlateFromMaster(records) {
         winProb: r.winProb,
         top5Prob: r.top5Prob,
         top10Prob: r.top10Prob,
-        makeCutPct: r.makeCutPct, // your own make-cut % from the Make Cut tab
+        // Market make-cut % from the Make Cut tab; 50% stand-in when the slate has
+        // prices but this golfer isn't listed.
+        makeCutPct: r.makeCutPct != null ? r.makeCutPct
+          : (slateHasMakeCut ? DEFAULT_MAKE_CUT_PCT : undefined),
+        makeCutDefaulted: r.makeCutPct == null && slateHasMakeCut ? true : undefined,
         leverage: r.leverage,
         leverageTier: r.leverageTier,
       };
