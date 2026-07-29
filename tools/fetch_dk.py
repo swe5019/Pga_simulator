@@ -35,6 +35,11 @@ MAX_CONTESTS = 60
 # mid-tournament rather than waiting for the next event.
 MIN_HEALTHY_CONTESTS = 20
 
+# DraftKings keeps adding contests through the week — the small single-entry games
+# often appear a day or two after the flagship GPPs. Re-capture the list once it's
+# this old so those get picked up instead of waiting for the next tournament.
+CONTEST_MAX_AGE_HOURS = 12
+
 
 def get_json(url, optional=False):
     print(f"GET {url}")
@@ -608,12 +613,21 @@ def main():
     # and without this it would sit stale until the next tournament.
     have = len((existing_contests or {}).get("contests") or [])
     thin_list = contests_tournament_matches and have < MIN_HEALTHY_CONTESTS
+    age_h = None
+    if contests_tournament_matches:
+        prev = _parse_dk_dt((existing_contests or {}).get("updatedUtc"))
+        if prev:
+            age_h = (datetime.datetime.utcnow() - prev).total_seconds() / 3600.0
+    stale_list = age_h is not None and age_h > CONTEST_MAX_AGE_HOURS
     force = os.environ.get("DK_REFRESH_CONTESTS", "").strip() not in ("", "0")
     if thin_list:
         print(f"Only {have} contests stored for {tourney} — refreshing to pick up "
               f"smaller/single-entry contests")
+    elif stale_list:
+        print(f"Contest list for {tourney} is {age_h:.1f}h old — refreshing to pick up "
+              f"contests DK has posted since")
     if not is_showdown and (not contests_tournament_matches or is_new_tournament
-                            or thin_list or force):
+                            or thin_list or stale_list or force):
         contests = build_contests(dg, tourney, event)
         cpath = os.path.join(os.path.dirname(out), "dk_contests.json")
         with open(cpath, "w") as fh:
