@@ -26,6 +26,14 @@ import urllib.request
 
 UA = {"User-Agent": "Mozilla/5.0 (compatible; birdie-dfs/1.0)"}
 
+# How many real contests to capture exact payout tiers for. Each costs one API
+# call, so this is a spread-vs-runtime tradeoff; 40 covers the fee ladder well.
+MAX_CONTESTS = 40
+
+# Below this, the stored contest list is treated as incomplete and rebuilt even
+# mid-tournament rather than waiting for the next event.
+MIN_HEALTHY_CONTESTS = 20
+
 
 def get_json(url, optional=False):
     print(f"GET {url}")
