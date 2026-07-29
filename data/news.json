@@ -1,10 +1,10 @@
 {
- "updatedUtc": "2026-07-29T19:45:24Z",
+ "updatedUtc": "2026-07-29T22:14:28Z",
  "slate": "ROCKET_2026",
  "event": "Rocket Classic",
  "counts": {
   "items": 120,
-  "golfersMentioned": 43,
+  "golfersMentioned": 52,
   "news": 120,
   "chatter": 0
  },
@@ -108,7 +108,7 @@
   {
    "source": "Google News: Rocket Classic DFS",
    "ok": true,
-   "items": 77,
+   "items": 84,
    "error": null
   },
   {
@@ -120,7 +120,7 @@
   {
    "source": "Google News: Rocket Classic WD",
    "ok": true,
-   "items": 60,
+   "items": 59,
    "error": null
   },
   {
@@ -163,33 +163,45 @@
   },
   {
    "name": "Seamus Power",
+   "news": 8,
+   "chatter": 0,
+   "total": 8
+  },
+  {
+   "name": "Aldrich Potgieter",
+   "news": 7,
+   "chatter": 0,
+   "total": 7
+  },
+  {
+   "name": "Chris Gotterup",
    "news": 7,
    "chatter": 0,
    "total": 7
   },
   {
    "name": "Jackson Koivun",
-   "news": 6,
+   "news": 7,
    "chatter": 0,
-   "total": 6
+   "total": 7
   },
   {
-   "name": "Chris Gotterup",
-   "news": 6,
+   "name": "Xander Schauffele",
+   "news": 4,
    "chatter": 0,
-   "total": 6
+   "total": 4
   },
   {
-   "name": "Aldrich Potgieter",
-   "news": 5,
+   "name": "Akshay Bhatia",
+   "news": 4,
    "chatter": 0,
-   "total": 5
+   "total": 4
   },
   {
    "name": "Jake Knapp",
-   "news": 5,
+   "news": 4,
    "chatter": 0,
-   "total": 5
+   "total": 4
   },
   {
    "name": "Si Woo Kim",
@@ -198,7 +210,19 @@
    "total": 4
   },
   {
-   "name": "Akshay Bhatia",
+   "name": "Russell Henley",
+   "news": 3,
+   "chatter": 0,
+   "total": 3
+  },
+  {
+   "name": "Rickie Fowler",
+   "news": 3,
+   "chatter": 0,
+   "total": 3
+  },
+  {
+   "name": "Davis Thompson",
    "news": 3,
    "chatter": 0,
    "total": 3
@@ -216,19 +240,49 @@
    "total": 3
   },
   {
-   "name": "Xander Schauffele",
-   "news": 3,
-   "chatter": 0,
-   "total": 3
-  },
-  {
-   "name": "Billy Horschel",
+   "name": "Hideki Matsuyama",
    "news": 2,
    "chatter": 0,
    "total": 2
   },
   {
-   "name": "Harris English",
+   "name": "Jacob Bridgeman",
+   "news": 2,
+   "chatter": 0,
+   "total": 2
+  },
+  {
+   "name": "Benjamin James",
+   "news": 2,
+   "chatter": 0,
+   "total": 2
+  },
+  {
+   "name": "Michael Brennan",
+   "news": 2,
+   "chatter": 0,
+   "total": 2
+  },
+  {
+   "name": "Cameron Davis",
+   "news": 2,
+   "chatter": 0,
+   "total": 2
+  },
+  {
+   "name": "Matt Wallace",
+   "news": 2,
+   "chatter": 0,
+   "total": 2
+  },
+  {
+   "name": "Eric Cole",
+   "news": 2,
+   "chatter": 0,
+   "total": 2
+  },
+  {
+   "name": "Billy Horschel",
    "news": 2,
    "chatter": 0,
    "total": 2
@@ -246,7 +300,7 @@
    "total": 2
   },
   {
-   "name": "Rickie Fowler",
+   "name": "Harris English",
    "news": 2,
    "chatter": 0,
    "total": 2
@@ -258,7 +312,7 @@
    "total": 2
   },
   {
-   "name": "Davis Thompson",
+   "name": "Chris Kirk",
    "news": 2,
    "chatter": 0,
    "total": 2
@@ -270,31 +324,73 @@
    "total": 2
   },
   {
-   "name": "Chris Kirk",
-   "news": 2,
-   "chatter": 0,
-   "total": 2
-  },
-  {
    "name": "Justin Lower",
    "news": 2,
    "chatter": 0,
    "total": 2
   },
   {
-   "name": "Russell Henley",
-   "news": 2,
+   "name": "Chandler Phillips",
+   "news": 1,
    "chatter": 0,
-   "total": 2
+   "total": 1
   },
   {
-   "name": "Zac Blair",
+   "name": "Jordan L. Smith",
+   "news": 1,
+   "chatter": 0,
+   "total": 1
+  },
+  {
+   "name": "Matti Schmid",
+   "news": 1,
+   "chatter": 0,
+   "total": 1
+  },
+  {
+   "name": "Ben Griffin",
+   "news": 1,
+   "chatter": 0,
+   "total": 1
+  },
+  {
+   "name": "Nick Taylor",
+   "news": 1,
+   "chatter": 0,
+   "total": 1
+  },
+  {
+   "name": "Nicolai Hojgaard",
+   "news": 1,
+   "chatter": 0,
+   "total": 1
+  },
+  {
+   "name": "Michael Kim",
+   "news": 1,
+   "chatter": 0,
+   "total": 1
+  },
+  {
+   "name": "Tony Finau",
+   "news": 1,
+   "chatter": 0,
+   "total": 1
+  },
+  {
+   "name": "Sam Stevens",
    "news": 1,
    "chatter": 0,
    "total": 1
   },
   {
    "name": "Hayden Springer",
+   "news": 1,
+   "chatter": 0,
+   "total": 1
+  },
+  {
+   "name": "Zac Blair",
    "news": 1,
    "chatter": 0,
    "total": 1
@@ -318,30 +414,6 @@
    "total": 1
   },
   {
-   "name": "Michael Brennan",
-   "news": 1,
-   "chatter": 0,
-   "total": 1
-  },
-  {
-   "name": "Jacob Bridgeman",
-   "news": 1,
-   "chatter": 0,
-   "total": 1
-  },
-  {
-   "name": "Benjamin James",
-   "news": 1,
-   "chatter": 0,
-   "total": 1
-  },
-  {
-   "name": "Christiaan Bezuidenhout",
-   "news": 1,
-   "chatter": 0,
-   "total": 1
-  },
-  {
    "name": "Emiliano Grillo",
    "news": 1,
    "chatter": 0,
@@ -354,19 +426,13 @@
    "total": 1
   },
   {
+   "name": "Christiaan Bezuidenhout",
+   "news": 1,
+   "chatter": 0,
+   "total": 1
+  },
+  {
    "name": "Jackson Suber",
-   "news": 1,
-   "chatter": 0,
-   "total": 1
-  },
-  {
-   "name": "Matt Wallace",
-   "news": 1,
-   "chatter": 0,
-   "total": 1
-  },
-  {
-   "name": "Hideki Matsuyama",
    "news": 1,
    "chatter": 0,
    "total": 1
@@ -378,13 +444,7 @@
    "total": 1
   },
   {
-   "name": "Patrick Cantlay",
-   "news": 1,
-   "chatter": 0,
-   "total": 1
-  },
-  {
-   "name": "Eric Cole",
+   "name": "Ben Kohles",
    "news": 1,
    "chatter": 0,
    "total": 1
@@ -396,25 +456,129 @@
    "total": 1
   },
   {
-   "name": "Ben Kohles",
-   "news": 1,
-   "chatter": 0,
-   "total": 1
-  },
-  {
    "name": "Nicolas Echavarria",
    "news": 1,
    "chatter": 0,
    "total": 1
   },
   {
-   "name": "Cameron Davis",
+   "name": "Patrick Cantlay",
    "news": 1,
    "chatter": 0,
    "total": 1
   }
  ],
  "items": [
+  {
+   "title": "Aldrich Potgieter and 2 Other Fantasy Golf Longshots at the Rocket Classic - Sports Illustrated",
+   "link": "https://news.google.com/rss/articles/CBMiogFBVV95cUxOZm90NjNBVzRyblZGSXAzbDAyQWtQMktGenB3ZXNpYmZXRUpYZmdqUmpkR05oR3Q1Z2Ztb0lQNnczajZnaDVBRXJvcFlobThLeXdmem9ieUEwODhqUmF4NDQ4M2ZRbklOak93WFBwOXU5VnJBNzh0S2g0LU1mMVd4SDR1Vm5tUGM1RkRRd29EU2FUamZTekZJckU4dGkzWlJCMUE?oc=5",
+   "summary": "Aldrich Potgieter and 2 Other Fantasy Golf Longshots at the Rocket Classic Sports Illustrated",
+   "published": "Wed, 29 Jul 2026 21:33:50 GMT",
+   "source": "Google News: Rocket Classic DFS",
+   "kind": "news",
+   "golfers": [
+    "Aldrich Potgieter"
+   ]
+  },
+  {
+   "title": "2026 Rocket Classic odds, picks: Surprising predictions from golf model that's nailed 17 majors - CBS Sports",
+   "link": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxPY0NsaTU4YlpBVjczVWNsOTdjLTY5M05JS2V3bldEMkJ2ajM0c3FPa1pmOEhsb1c5RjJBcXY4SVZDUnd3MHFvUWFJTFE1ZDlmcTVyU2dRVlhhYWt6Y3VabENUNzlTcnZ3MmlCMEZyMFdjMldwTnUtU2gza1IxMlB2Y1JNVmJCV1FSRXFRNV9BbEl6VlpORk54OWIzQzZsRlpSdk9OcTYzSjI5NnBFdldFQTZSSjlINU01M0pEZXRHWGk?oc=5",
+   "summary": "2026 Rocket Classic odds, picks: Surprising predictions from golf model that's nailed 17 majors CBS Sports",
+   "published": "Wed, 29 Jul 2026 21:12:29 GMT",
+   "source": "Google News: Rocket Classic picks",
+   "kind": "news",
+   "golfers": []
+  },
+  {
+   "title": "PGA Best Bets: Novig Matchup Picks and Finishing Position Props for 2026 Rocket Classic",
+   "link": "https://www.rotoballer.com/pga-player-props-matchup-bets-for-2026-rocket-classic-expert-novig-picks/1899413",
+   "summary": "This marks the final Rocket Classic at Detroit Golf Club, as Rocket Companies has opted not to renew its sponsorship past 2026. The farewell comes on the heels of a $16.1 million renovation that transformed the Donald Ross design from a birdie-friendly par 72 into a tighter, more punishing par 70. This week's picks will [&#8230;]",
+   "published": "Wed, 29 Jul 2026 21:00:14 +0000",
+   "source": "RotoBaller",
+   "kind": "news",
+   "golfers": [
+    "Cameron Young",
+    "Hideki Matsuyama",
+    "Russell Henley",
+    "Chris Gotterup",
+    "Chandler Phillips",
+    "Rickie Fowler",
+    "Jordan L. Smith",
+    "Jacob Bridgeman",
+    "Matti Schmid",
+    "Jackson Koivun",
+    "Benjamin James",
+    "Seamus Power",
+    "Davis Thompson",
+    "Ben Griffin",
+    "Michael Brennan",
+    "Nick Taylor",
+    "Xander Schauffele",
+    "Cameron Davis",
+    "Matt Wallace",
+    "Nicolai Hojgaard",
+    "Eric Cole",
+    "Michael Kim",
+    "Tony Finau",
+    "Sam Stevens",
+    "Aldrich Potgieter",
+    "Akshay Bhatia"
+   ]
+  },
+  {
+   "title": "PGA Player Props & Matchup Bets for 2026 Rocket Classic: Expert Novig Picks - RotoBaller",
+   "link": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxPU0Mwcm0yZjB5by1ONktlM2Z4S2tqZS1ZUjVmMmE5UUptNy10MU5LVi1DS2RJck8xMGlpM053RGhLOGJTVmNldlNKbWV5d0Nyb0VScGk0ci1XTFI3UmhxeDZjZl9uNVJoNjJZbnk5b2xXU1N0VzNOak5EQWdWQzdwSi1ueVdrNGJDeWVxT2N3VTVkMld2RDhUN3BXTEZkNWt5NkVGQmxPQmN3dVk?oc=5",
+   "summary": "PGA Player Props & Matchup Bets for 2026 Rocket Classic: Expert Novig Picks RotoBaller",
+   "published": "Wed, 29 Jul 2026 21:00:14 GMT",
+   "source": "Google News: Rocket Classic picks",
+   "kind": "news",
+   "golfers": []
+  },
+  {
+   "title": "Fantasy Golf Picks Today: Top DraftKings PGA TOUR DFS Plays for the 2026 Rocket Classic - DraftKings Network",
+   "link": "https://news.google.com/rss/articles/CBMi2gFBVV95cUxQUnNRbHN2MkZPbDZydC10LV9mQ1NGOTdzV085MzF2Y19mTFB2aE1QZFVHRWhWek82N0xIamdhb0xDbDJLLTVGVGhrOGRjR0ZUOE9CR1hkUGwydHZ3ZzRJN21QOW9ya0ZxMGo1dmlFaEwzN3ViTldBRUNzRUNONG5hcGREdUdyMEtJcUJHNVlINHpMS0hkcjNldlNTbjQ4QTdCYkZPNFlCaFU1SzlULS1uTkdiTm4wZWhpUWJlSkQwM3Y4U3cwOGM0RWstdlB4ZHNodUlseHRNM2ozdw?oc=5",
+   "summary": "Fantasy Golf Picks Today: Top DraftKings PGA TOUR DFS Plays for the 2026 Rocket Classic DraftKings Network",
+   "published": "Wed, 29 Jul 2026 20:09:26 GMT",
+   "source": "Google News: Rocket Classic DFS",
+   "kind": "news",
+   "golfers": []
+  },
+  {
+   "title": "2026 Rocket Classic: Picks, predictions for Detroit Golf Club - Pro Golf Now",
+   "link": "https://news.google.com/rss/articles/CBMihAFBVV95cUxNc0RnSWZMODFmbENObnkwOVFzQjNoemU1VmxNRHZaUXNaYVNBZW42TEp5NTVRVHhjWXNRck82TVZEZ3RvVWdlaVB5TWlVQWxOa0h3dGJxdFFzSlFTcFIxZjROV1lfaXVTTmJEYzNDeHBON2t1S2hhQTVocWpoTFhGT0pOd0g?oc=5",
+   "summary": "2026 Rocket Classic: Picks, predictions for Detroit Golf Club Pro Golf Now",
+   "published": "Wed, 29 Jul 2026 20:00:01 GMT",
+   "source": "Google News: Rocket Classic picks",
+   "kind": "news",
+   "golfers": []
+  },
+  {
+   "title": "Rocket Classic Picks, Best Bets: 4 Expert Predictions for Detroit Golf Club - Action Network",
+   "link": "https://news.google.com/rss/articles/CBMipwFBVV95cUxPb1NDaXZiRlBNV25RdHdEYzJRNnRENXNRUHA4eFR5ODUwNW5tWWl0d2lrS2JlS1RSQ1l1aHR3ZDhpeDRzNEthWDB4Y0Jwa1hTbVVGUGVWQmdPakN0b0RBYUlDeXhWUllEdWJ4Ul9rOEJ1UmJ6Vl93TWJncW5aU05WTTRfY2RpLWVCMnFnb2J4RlJoR3RjMXdrTDFfODZJelFzNko1NWZlZw?oc=5",
+   "summary": "Rocket Classic Picks, Best Bets: 4 Expert Predictions for Detroit Golf Club Action Network",
+   "published": "Wed, 29 Jul 2026 19:57:00 GMT",
+   "source": "Google News: Rocket Classic picks",
+   "kind": "news",
+   "golfers": []
+  },
+  {
+   "title": "2026 Rocket Classic odds, picks: Proven golf model reveals projected leaderboard, surprising predictions - SportsLine",
+   "link": "https://news.google.com/rss/articles/CBMi1AFBVV95cUxOR21qaHVlNnpPb3pqTy1QZGhMckRITVZxQUZ1UDBpQXdxVzFOT0Q1NXItbFM1anNITWY1OGJKV0djR0RDcHZhUmNnRzY0SXF5YkFONF9hQ1FvTlpZUlRpQ2l3U0dob19jOEd4bkJkaTFmR0VGLWFwQ0lWdjRtcFFDOU9fY0RidnM0QkdQVDJNZk1hdnc5dWg5TXJQNTdNV3dreHA5cDNwZlJ5MTZrWjdiRm9JN1R1MVBjMDMzRkhpcENqczdxS0s4ZUR5STRHTkhkMlJVUg?oc=5",
+   "summary": "2026 Rocket Classic odds, picks: Proven golf model reveals projected leaderboard, surprising predictions SportsLine",
+   "published": "Wed, 29 Jul 2026 19:55:00 GMT",
+   "source": "Google News: Rocket Classic picks",
+   "kind": "news",
+   "golfers": []
+  },
+  {
+   "title": "PGA DFS Picks: DraftKings & FanDuel Core Plays for the Rocket Classic - RotoGrinders",
+   "link": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxQQzhJNm44OU5sLUFkS2FyQ21aTXJOUzVzcHdJRnBvdEwwSi1GYXFxVHNCX19fM1FQcnJkV09KeXoyUFNWUldqQU1xXzhiS2tfVnMyTlJyMU5OVUdrbmtYSTBRVEl5TFN4cVJ0SVJjdnd3M0VjcDZRcUkxdEhySG9sSnNWSjFYYXBDUFplN0RHTnVtZ0thMlgzVVZPLUZocXhCeTNVNnZibzg?oc=5",
+   "summary": "PGA DFS Picks: DraftKings & FanDuel Core Plays for the Rocket Classic RotoGrinders",
+   "published": "Wed, 29 Jul 2026 19:36:15 GMT",
+   "source": "Google News: Rocket Classic DFS",
+   "kind": "news",
+   "golfers": []
+  },
   {
    "title": "PGA DFS Expert Roundtable and Survey - 2026 Rocket Classic (Premium)",
    "link": "https://www.rotoballer.com/premium/pga-dfs-expert-roundtable-2026-rocket-classic-premium-content/1899441/",
@@ -447,6 +611,15 @@
    ]
   },
   {
+   "title": "PGA DFS Perfect Lineup: Rocket Classic 2026 Picks - Stokastic",
+   "link": "https://news.google.com/rss/articles/CBMijgFBVV95cUxNdDFvZzI3RlM2c3g5dDB1Z3BDWDkxdmZaMDFiZXhzYXdja1R6amU5Tjh3b05CY1RBa0g2SmtPZFdPdUVIaVFpRGJ3MGQ5MElIckFHQ0h6VmgzemJOekxjS2tjakZPYl9tdVQ5Qml3LVM4Q1p1a3dQMkNfS2x4MXdGNFkyQzNvT1lHU3ZfSEV3?oc=5",
+   "summary": "PGA DFS Perfect Lineup: Rocket Classic 2026 Picks Stokastic",
+   "published": "Wed, 29 Jul 2026 18:52:16 GMT",
+   "source": "Google News: Rocket Classic DFS",
+   "kind": "news",
+   "golfers": []
+  },
+  {
    "title": "Rocket Classic Long Shot Picks and Predictions: Bhatia, Horschel Worth Targeting in Detroit - Covers.com",
    "link": "https://news.google.com/rss/articles/CBMibkFVX3lxTE92Ujg2SFhZTHUzV2RZaXVOeEV6WEFnVlkyWDJDc0JocjE2VWxnWERpZWsyTk1uNk5aU1hodHFwQlF3TEljZ09leHZPZ3hEX0RMaldEUHZ5N0NnZ20zQzcyOG9SVmc5dHNQRTI3dEdR?oc=5",
    "summary": "Rocket Classic Long Shot Picks and Predictions: Bhatia, Horschel Worth Targeting in Detroit Covers.com",
@@ -454,8 +627,8 @@
    "source": "Google News: Rocket Classic picks",
    "kind": "news",
    "golfers": [
-    "Akshay Bhatia",
-    "Billy Horschel"
+    "Billy Horschel",
+    "Akshay Bhatia"
    ]
   },
   {
@@ -472,7 +645,7 @@
    "link": "https://news.google.com/rss/articles/CBMirgFBVV95cUxOYjRsWnFodWhrZkFYZnU2dnlPRHYyQVItSG9ic2d4ekFpMkVTMVhwc2FEQW9lUGZhWjJKYUVPYTlKU0t6dG5NT2NxSnhzQS0wNUpnUXpIUWpCaDcxbmpnbXZtOGN0X0t4bWVaLVRjV2FJLTRUSkl2MXpGWkpkVDhFN0p2NTFFenZfV3lDNE9GSHlTNGgtM2hVM1NjZW9SUTlFUWlONkFVTjliNEZEYXc?oc=5",
    "summary": "2026 Rocket Classic Betting: Picks, Odds, Predictions, and Best Bets RotoWire",
    "published": "Wed, 29 Jul 2026 18:33:00 GMT",
-   "source": "Google News: Rocket Classic picks",
+   "source": "Google News: Rocket Classic DFS",
    "kind": "news",
    "golfers": []
   },
@@ -494,16 +667,25 @@
    "kind": "news",
    "golfers": [
     "Jackson Koivun",
+    "Seamus Power",
     "Wyndham Clark",
-    "Harris English",
     "Keegan Bradley",
+    "Hayden Springer",
+    "Ben Silverman",
     "Jordan Spieth",
     "Aldrich Potgieter",
-    "Seamus Power",
-    "Zac Blair",
-    "Hayden Springer",
-    "Ben Silverman"
+    "Harris English",
+    "Zac Blair"
    ]
+  },
+  {
+   "title": "Multiple Golfers Abruptly Withdraw From the Rocket Classic - Yahoo Sports",
+   "link": "https://news.google.com/rss/articles/CBMilAFBVV95cUxOZnBicXBtTXBRR1I1eXNXajVYNFNXbWdhYndoWW1XTmlXb1huQl9MZE9jVlhsV0ZzNG5XM0RBMnE3MzhSRVpSOV9vSm1CNzhXOHBodWxJT3hJd0lFQkNwdXFWT21jMGJxRE1EZWQ0eHFqYUt6c1VCbzhmWVFnWHZOaFl4VFhYN01PaVlqbWZoeTVuWFFs?oc=5",
+   "summary": "Multiple Golfers Abruptly Withdraw From the Rocket Classic Yahoo Sports",
+   "published": "Wed, 29 Jul 2026 17:35:14 GMT",
+   "source": "Google News: Rocket Classic WD",
+   "kind": "news",
+   "golfers": []
   },
   {
    "title": "DraftKings PGA TOUR Pick6 Fantasy Golf Picks: Top Plays for the 2026 Rocket Classic - DraftKings Network",
@@ -523,17 +705,17 @@
    "kind": "news",
    "golfers": [
     "Cameron Young",
-    "Xander Schauffele",
-    "Jackson Koivun",
-    "Wyndham Clark",
-    "Harris English",
     "Rickie Fowler",
+    "Jackson Koivun",
+    "Seamus Power",
+    "Wyndham Clark",
+    "Xander Schauffele",
     "Keegan Bradley",
     "Jordan Spieth",
-    "Aldrich Potgieter",
-    "Seamus Power",
     "Brandt Snedeker",
-    "Danny Walker"
+    "Danny Walker",
+    "Aldrich Potgieter",
+    "Harris English"
    ]
   },
   {
@@ -550,15 +732,6 @@
    "link": "https://news.google.com/rss/articles/CBMid0FVX3lxTE96RUlFeDZ6Wm1wTkVwdWYybGtIUWpzdDRsdFQtRUVGUnRoM1hPUGNwR0luVTJoRU84Mkl3QVJ2ZHhHZk84QjlGNXFKVlQxMjNFOTdKd2dqbm9ZeTJYWkplWG95RkRwQndHNnBNQUVfdHJEOFZaN2pF?oc=5",
    "summary": "Rocket Classic Predictions & Top Picks (2026) Covers.com",
    "published": "Wed, 29 Jul 2026 16:57:00 GMT",
-   "source": "Google News: Rocket Classic picks",
-   "kind": "news",
-   "golfers": []
-  },
-  {
-   "title": "2026 Rocket Classic odds, picks: Proven golf model reveals projected leaderboard, surprising predictions - SportsLine",
-   "link": "https://news.google.com/rss/articles/CBMi1AFBVV95cUxOR21qaHVlNnpPb3pqTy1QZGhMckRITVZxQUZ1UDBpQXdxVzFOT0Q1NXItbFM1anNITWY1OGJKV0djR0RDcHZhUmNnRzY0SXF5YkFONF9hQ1FvTlpZUlRpQ2l3U0dob19jOEd4bkJkaTFmR0VGLWFwQ0lWdjRtcFFDOU9fY0RidnM0QkdQVDJNZk1hdnc5dWg5TXJQNTdNV3dreHA5cDNwZlJ5MTZrWjdiRm9JN1R1MVBjMDMzRkhpcENqczdxS0s4ZUR5STRHTkhkMlJVUg?oc=5",
-   "summary": "2026 Rocket Classic odds, picks: Proven golf model reveals projected leaderboard, surprising predictions SportsLine",
-   "published": "Wed, 29 Jul 2026 16:54:00 GMT",
    "source": "Google News: Rocket Classic picks",
    "kind": "news",
    "golfers": []
@@ -615,6 +788,15 @@
    "golfers": []
   },
   {
+   "title": "PGA DFS Lineup Advice: Top Golfers (2026 Rocket Classic) - FantasyPros",
+   "link": "https://news.google.com/rss/articles/CBMilAFBVV95cUxNTjdrTl9RLTlvLUZyWmN1cEZTLWdVaENFdktMVk5OYmt2eFVWS21LUl93OExZeEs5dGNBSnNrbnhGa1NCc0thbklPd3lHcFdKLTFpemtsMUk3THF0TEpXNmRDcnloQ25OdkxxeHF4RjMxQV9nQXZPY0R0MTJEMlA4RzExQmQ5QnBaZ1Q3V0N5WDRFbTVN0gGaAUFVX3lxTE0ycXFXOS1VZ0diSWRtVWM5Q09PLVh0LUNJVm51eE1LWUF1WXN1V0p6Z2FHNG5uWGE2dXc2MVZFZkRXYTNTeE1jS1cxd2Y2NWczVTZXTGtaN0pjM21GdWU3dUdBTWt0aGxrUkJWTmlMQXNNRmhKdEV5a0tGZ3JzN0RST3Bod3M2dUE2OU0zTFh1dWkteEVKNzE1OHc?oc=5",
+   "summary": "PGA DFS Lineup Advice: Top Golfers (2026 Rocket Classic) FantasyPros",
+   "published": "Wed, 29 Jul 2026 16:20:26 GMT",
+   "source": "Google News: Rocket Classic picks",
+   "kind": "news",
+   "golfers": []
+  },
+  {
    "title": "Patrick's Picks: Top Betting Plays for 2026 Rocket Classic (Premium)",
    "link": "https://www.rotoballer.com/premium/patricks-pga-betting-picks-2026-rocket-classic-premium/1899276/",
    "summary": "This content is for members only. Visit the site and log in/register to read.",
@@ -628,7 +810,7 @@
   },
   {
    "title": "Patrick's PGA Betting Picks: 2026 Rocket Classic (Premium) - RotoBaller",
-   "link": "https://news.google.com/rss/articles/CBMipAFBVV95cUxOb3FtMXFWZnZONlZaX0h5c3lCMl9MbDc4dW02ZWFDWFMzT2wySWlEbUk4bHhMMWdzN2hlak44V0kyOG9YR3czMEJDWC1IaEVIQkN3cVU4Z3hiWUZ5NUZib20zaXBjOUdlc0wybThmRFd1ZzY0M1d6SVpCZXQxNDA2QzEzNm1ybnlwbHAwQmFDTHFFSlhQZkRGX0trUXZ0bkZLd1NDYg?oc=5",
+   "link": "https://news.google.com/rss/articles/CBMinwFBVV95cUxOTTZuQjNzZ29jSFlXUmk3RUhkOXNKSm1qazZDVmZRXzF3MTF6VjcwZXZ6OXdabFB1cHlNSG5fQnYzWlhQUUdCZlJ5TGxEZ2RfSm5XVjUwd3pDUktEZGE5TWU0amlpTkZ2SFlZNHdQUWlmT21iU3RYcDRORk55Sk15X1AybWdMTmItVzB1MG5PRERvSXZxRXpMMk5FWXFrb0U?oc=5",
    "summary": "Patrick's PGA Betting Picks: 2026 Rocket Classic (Premium) RotoBaller",
    "published": "Wed, 29 Jul 2026 16:15:58 GMT",
    "source": "Google News: Rocket Classic picks",
@@ -694,24 +876,6 @@
    "golfers": []
   },
   {
-   "title": "PGA Betting: 6 Picks for the Rocket Classic - AOL.com",
-   "link": "https://news.google.com/rss/articles/CBMiekFVX3lxTE9JMzZ0Nk8xS0MzbTlYSFRiR3EtRjJDMVQzOVBPLWFQdkY2VWRSWFNDVTNkMEY5TTYtSkJfcFZwUndIVUhBQ3ZHRU5iZXYzN3ZBLTJpdEJsZzEyUzhCUXpBQ09CbjczMU9yNkJFVUFGbDduRnczSHdWR1lR?oc=5",
-   "summary": "PGA Betting: 6 Picks for the Rocket Classic AOL.com",
-   "published": "Wed, 29 Jul 2026 15:18:36 GMT",
-   "source": "Google News: Rocket Classic picks",
-   "kind": "news",
-   "golfers": []
-  },
-  {
-   "title": "Multiple Golfers Abruptly Withdraw From the Rocket Classic - heavy.com",
-   "link": "https://news.google.com/rss/articles/CBMihAFBVV95cUxNVVp5ZVQ2R0plRmlpOTdZZk9RUmVra1VpVzRlUkZ2UEcteGUzZ19pTDBhTXNzdFY1NlBGeWJBblFfd19hNzZzb3RxZ3AyM0N1X1JOaGM4aFNDY2Ztd3l3V0pVYlVIUWdKNTBzUGlHZE9fZ0NrMFoyY3EwN29FdTY0X19Ybko?oc=5",
-   "summary": "Multiple Golfers Abruptly Withdraw From the Rocket Classic heavy.com",
-   "published": "Wed, 29 Jul 2026 14:35:14 GMT",
-   "source": "Google News: Rocket Classic WD",
-   "kind": "news",
-   "golfers": []
-  },
-  {
    "title": "Rocket Classic betting guide: 5 picks our gambling expert loves this week",
    "link": "https://golf.com/news/rocket-classic-betting-guide-five-picks/",
    "summary": "The Rocket Classic begins on Thursday at Detroit Golf Club. Here are 5 picks our expert loves \u2014 and why he thinks you should too. The post Rocket Classic betting guide: 5 picks our gambling expert loves this week appeared first on Golf .",
@@ -721,14 +885,14 @@
    "golfers": [
     "Cameron Young",
     "Si Woo Kim",
-    "Jackson Koivun",
-    "J.J. Spaun",
-    "Michael Brennan",
-    "Jacob Bridgeman",
-    "Benjamin James",
-    "Christiaan Bezuidenhout",
     "Emiliano Grillo",
-    "Lucas Glover"
+    "Lucas Glover",
+    "Jacob Bridgeman",
+    "Jackson Koivun",
+    "Christiaan Bezuidenhout",
+    "Benjamin James",
+    "Michael Brennan",
+    "J.J. Spaun"
    ]
   },
   {
@@ -748,8 +912,8 @@
    "source": "Yahoo Golf",
    "kind": "news",
    "golfers": [
-    "Xander Schauffele",
-    "Si Woo Kim"
+    "Si Woo Kim",
+    "Xander Schauffele"
    ]
   },
   {
@@ -766,15 +930,6 @@
    "link": "https://news.google.com/rss/articles/CBMixwFBVV95cUxPMVp2MHVMa3FiUmM0UGFYUDJwR0x3RHJtRGo2TUpfS2pfbmpmMXNERFN2bEFSaU5hU2toYnN6YkczOE43Z09rN3dMSHFDRHpBbEtCNlpLLWpvRDJkZFBJZWN0eF9tc1IyWkZQU2pndUJKdjBtUkRKdDVoUmlzZnBOZndaRTF6TVB6TTFfeS1MT3VPNUhMc2FaRXVIcjVJVjhObW9qV2FFTGNrQm1Ic1JVM0FHZTRrT000M2poQ2h5SFZrc1MyZW1n?oc=5",
    "summary": "Rocket Classic predictions: PGA Pro\u2019s best bets and expert picks for Detroit Golf Club tournament sportingnews.com",
    "published": "Wed, 29 Jul 2026 14:07:54 GMT",
-   "source": "Google News: Rocket Classic picks",
-   "kind": "news",
-   "golfers": []
-  },
-  {
-   "title": "2026 Rocket Classic Preview, Full Field And Odds - Yahoo Sports",
-   "link": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxPYkZZYmxWclE3SzI2MGdXNGx4Tlk5czAxbnJNQS1YLU5xSGk3bWRrbzktSFgzN2E3ekRCU0ZOYlFCRDA4VTg2WU8tSC16cnIxZ0JrTXR6ZnBRYUx0TGRmeWFyelM1d2tySnMzeERRbXpyWE5yRTRqbFpaMGNraC0zYXdaVHQ5NG5C?oc=5",
-   "summary": "2026 Rocket Classic Preview, Full Field And Odds Yahoo Sports",
-   "published": "Wed, 29 Jul 2026 14:00:03 GMT",
    "source": "Google News: Rocket Classic picks",
    "kind": "news",
    "golfers": []
@@ -809,17 +964,6 @@
    ]
   },
   {
-   "title": "Rocket Classic 2026 odds, picks, predictions, props: Expert fading Jake Knapp in best bets at Detroit - thepress.net",
-   "link": "https://news.google.com/rss/articles/CBMijAJBVV95cUxQOE9sR3RXOEtNcktId08yTnlERV85Wk82S0FlVWg0dGl0aFpBdW1nZFU4VXJmenFDcV8zOWxmWHpWc1UzVVl5X3JGdjg0M1ZGZDhWWF96YzRBclB4N1V2bkxybnF6RmpwVE9ucDFfQ0k2NTFXZTByNUFBZ3A2M2xUXy05dWpiYW1aQzhFYlk3bFVSOWl4OS1zUmpIM296dEpfZVg0TkM2SVRTcVVua2RTZEtEOWpDOXN2WmtmQ2s2Mll4QURSMHFtZGhCMG1SdnpGVzJ2ZHhyYmpyMEpKWjVfVm9lbVk0OWNiS2xkWE0wUzY0ZWF4bFpJR3RDWUZ3U0tQSWdkUVR1T3hVMzJT?oc=5",
-   "summary": "Rocket Classic 2026 odds, picks, predictions, props: Expert fading Jake Knapp in best bets at Detroit thepress.net",
-   "published": "Wed, 29 Jul 2026 13:53:52 GMT",
-   "source": "Google News: Rocket Classic picks",
-   "kind": "news",
-   "golfers": [
-    "Jake Knapp"
-   ]
-  },
-  {
    "title": "PGA longshot parlay: Get SportsLine's top golf picks for 2026 Rocket Classic with a shot at a huge return - SportsLine",
    "link": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxNT3BVS1hhVF8wb0NzcjJFUVlqbllLVmk4dGR5a01vTjdwdjBBVmtpZjlnUEZtT3gta0N2bFB6QWxsR2ZVV3ZHQ01mcGZmOVUtUVY5NnE2dXZXbFduSXA4U2dYelVNeFdkYkV1c00zXzJKRUxqN2tQWkIyMnJMaXludHFJcWxiaG84eEdlc2xXYjROM3o0YUhpaVZNaWtXSGlNWFpXUC00dnNQQVRfSEJNNThQcDBCUGhORnRhcUpCWGhFT2E1bTZnNHV2eXp2dFpueWd0Z2dybw?oc=5",
    "summary": "PGA longshot parlay: Get SportsLine's top golf picks for 2026 Rocket Classic with a shot at a huge return SportsLine",
@@ -838,9 +982,9 @@
    "golfers": []
   },
   {
-   "title": "Rocket Classic: Top PGA DFS Picks, Values, and Sleepers for Large-Field Tournaments on DraftKings - fantasylabs.com",
+   "title": "Rocket Classic: Top PGA DFS Picks, Values, and Sleepers for Large-Field Tournaments on DraftKings - FantasyLabs",
    "link": "https://news.google.com/rss/articles/CBMizAFBVV95cUxPNjlkemN2dkFlS2FsV2xPVWRiY0V3bmd4UzgtNGlCZE45aGdaMkYtM0dJaWVWdU51MDU4X0QxQm9XVG5lVFI0RlRDc1YycDBQdHFXNlYtVEJsQWJ2ZXNTbHB3WGx5VS00bVVjRFVpMkRZOEM1dDVIUWU0VUpUazRFNUprYVFaQUVtTWZuMElSaWNUbWduSHBhSUYxSGFMc1A1Q3Vwc3U1eE1TdXdFUlpBRmtXNGVUNnMzbExPRjBkUGpzYTVLbC1hWXZvd0g?oc=5",
-   "summary": "Rocket Classic: Top PGA DFS Picks, Values, and Sleepers for Large-Field Tournaments on DraftKings fantasylabs.com",
+   "summary": "Rocket Classic: Top PGA DFS Picks, Values, and Sleepers for Large-Field Tournaments on DraftKings FantasyLabs",
    "published": "Wed, 29 Jul 2026 13:24:58 GMT",
    "source": "Google News: Rocket Classic DFS",
    "kind": "news",
@@ -855,12 +999,12 @@
    "kind": "news",
    "golfers": [
     "Cameron Young",
-    "Chris Gotterup",
     "Si Woo Kim",
+    "Chris Gotterup",
     "Jackson Koivun",
     "Davis Thompson",
-    "Max Greyserman",
     "Chris Kirk",
+    "Max Greyserman",
     "Justin Lower"
    ]
   },
@@ -901,6 +1045,15 @@
    "golfers": []
   },
   {
+   "title": "2026 Rocket Classic odds, picks: Surprising predictions from golf model that's nailed 17 majors - CBS Sports",
+   "link": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxOTjhCTU82dURZQ1I4R1VFYm90LU5uMktBU0FNMDJyY0xlNm9sY0Qyb21aUHNjR3c1UzlieEhFX0lubDNRamJrYlFqWWF3bGFFZHJ1aXItVm1ZOURQeTFEN2w5R1RZVW4yTXNocENUTmdzZXVlUUpwRzc2ZDVSUjN2UVVhTXlNdERQd3NFMWt3SzBQYVRiSjBjY2t3bjFxVENERmRLamRWM0J4bjdKelhJLTBSUmtSUE9sbXJZRkNzbUc?oc=5",
+   "summary": "2026 Rocket Classic odds, picks: Surprising predictions from golf model that's nailed 17 majors CBS Sports",
+   "published": "Wed, 29 Jul 2026 12:44:53 GMT",
+   "source": "Google News: Rocket Classic picks",
+   "kind": "news",
+   "golfers": []
+  },
+  {
    "title": "Top fantasy golf targets and pivot picks for the Rocket Classic - DraftKings Network",
    "link": "https://news.google.com/rss/articles/CBMirwFBVV95cUxQQkdxNm1iZUpkUG5WbHMwTjM2VEJvLXc0ZXR5REVsdmcyeEhYLVFzbUR0NmtIRWVyQ25ST3JjTnE2WVJleWtBNGJ4aWR5emlaaEM0M3VwdnpFckRoSU94dHQtbm5scFlDeG9ZRlNjVmVUYWQ5OEFYcmJxV0RHbkRBa05NYncwdEIwbnZhT3h3Ym8xSGFJTnotRTAwQnp3NW4xQTdtYnp5VTZ1ZVRHY3Vj?oc=5",
    "summary": "Top fantasy golf targets and pivot picks for the Rocket Classic DraftKings Network",
@@ -908,17 +1061,6 @@
    "source": "Google News: Rocket Classic DFS",
    "kind": "news",
    "golfers": []
-  },
-  {
-   "title": "Rocket Classic DFS picks 2026: I asked Cameron Young about his putting\u2014and I loved his answer",
-   "link": "https://sports.yahoo.com/articles/rocket-classic-dfs-picks-2026-112022401.html",
-   "summary": "Editor's Note: This article is published in partnership with Betsperts Golf, a Golf Digest content partner.",
-   "published": "Wed, 29 Jul 2026 11:20:22 +0000",
-   "source": "Yahoo Golf",
-   "kind": "news",
-   "golfers": [
-    "Cameron Young"
-   ]
   },
   {
    "title": "Rocket Classic DFS picks 2026: I asked Cameron Young about his putting\u2014and I loved his answer - Golf Digest",
@@ -941,9 +1083,9 @@
    "golfers": []
   },
   {
-   "title": "Betting the Rocket Classic: New-look course should benefit Gotterup - espn.com",
+   "title": "Betting the Rocket Classic: New-look course should benefit Gotterup - ESPN",
    "link": "https://news.google.com/rss/articles/CBMinwFBVV95cUxQc2Y3LXlKcnVPZkhWaGtHVmtuNkQ4ZDI4THVEbF81SnlINUZFNXFqYnMtTzJPRjQ1VFFLeDJlM3N4RmZ5Z1JYMHhGREdlNkpTd0F4ZmpVZmxwUEZTaVRPM3F2cE1XZzVrTVBtcERQRnJVbFRHLWNMQ1VpOWZFWDYzbGNxMUZoUDJFaUQ1UnpaRURWU1NYU3Vtck9MOV9zenc?oc=5",
-   "summary": "Betting the Rocket Classic: New-look course should benefit Gotterup espn.com",
+   "summary": "Betting the Rocket Classic: New-look course should benefit Gotterup ESPN",
    "published": "Wed, 29 Jul 2026 10:50:00 GMT",
    "source": "Google News: Rocket Classic picks",
    "kind": "news",
@@ -960,16 +1102,16 @@
    "kind": "news",
    "golfers": [
     "Cameron Young",
-    "Xander Schauffele",
-    "Chris Gotterup",
     "Si Woo Kim",
-    "Wyndham Clark",
     "Russell Henley",
-    "Akshay Bhatia",
+    "Chris Gotterup",
     "Rickie Fowler",
     "Jackson Suber",
+    "Wyndham Clark",
+    "Xander Schauffele",
     "Matt Wallace",
-    "Aldrich Potgieter"
+    "Aldrich Potgieter",
+    "Akshay Bhatia"
    ]
   },
   {
@@ -995,7 +1137,7 @@
    "link": "https://news.google.com/rss/articles/CBMi1AFBVV95cUxNcUJWZk83cFMtTkQ0TTMxdkZ5ZVN5UW16NngtUWZxSjBsTGQxS0dlTmh2MmM3bUFpa1J0amhmREhvSXJEQkdYV3hsVGhiTzNMejhhUjc3azhpRTJ4UGN4Sy1pcVRYSERyeFUzSDgtamY0b3dOMWlEM1RYS2tYOFc1WmptaFlZV3pYWG5MRHRGRDJRcVNRTHplOFRjekVOWkZ2TFltM2I1N3BBWFlyTzRfTktKU3NBdF85dUZOWVBMNXpfSlJ4ZzIwSS1DalpMQWNIemlPdQ?oc=5",
    "summary": "Rocket Classic Picks, Props, Predictions: Betting Michael Thorbjorsen, Jake Knapp and Hideki Matsuyama Sports Illustrated",
    "published": "Wed, 29 Jul 2026 10:00:02 GMT",
-   "source": "Google News: Rocket Classic picks",
+   "source": "Google News: Rocket Classic DFS",
    "kind": "news",
    "golfers": [
     "Hideki Matsuyama",
@@ -1029,11 +1171,11 @@
    "kind": "news",
    "golfers": [
     "Cameron Young",
-    "Jordan Spieth",
-    "Aldrich Potgieter",
     "Lanto Griffin",
+    "Ben Silverman",
     "Justin Lower",
-    "Ben Silverman"
+    "Jordan Spieth",
+    "Aldrich Potgieter"
    ]
   },
   {
@@ -1064,19 +1206,10 @@
    "golfers": []
   },
   {
-   "title": "PGA DFS Picks: DraftKings & FanDuel Core Plays for the Rocket Classic - RotoGrinders",
-   "link": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxQQzhJNm44OU5sLUFkS2FyQ21aTXJOUzVzcHdJRnBvdEwwSi1GYXFxVHNCX19fM1FQcnJkV09KeXoyUFNWUldqQU1xXzhiS2tfVnMyTlJyMU5OVUdrbmtYSTBRVEl5TFN4cVJ0SVJjdnd3M0VjcDZRcUkxdEhySG9sSnNWSjFYYXBDUFplN0RHTnVtZ0thMlgzVVZPLUZocXhCeTNVNnZibzg?oc=5",
-   "summary": "PGA DFS Picks: DraftKings & FanDuel Core Plays for the Rocket Classic RotoGrinders",
-   "published": "Wed, 29 Jul 2026 05:03:38 GMT",
-   "source": "Google News: Rocket Classic DFS",
-   "kind": "news",
-   "golfers": []
-  },
-  {
    "title": "PGA Betting: 6 Picks for the Rocket Classic - Yahoo Sports",
    "link": "https://news.google.com/rss/articles/CBMigAFBVV95cUxOUi1qUUFtUVB3b2FHcjZ0ZG5DQjEyZ0FkX2dqRjQ5Zm5NSjVnYVFVQXU3b2d6NFZMb0prZC0wTGhHdXdPWDZadzhPQnFuOVFPUTgzV0hBcXJoQjZkZklGMmtQVUVmLWVVX3RhRXd2aERuSWVQWFZWakZaa1pqcWE2Xw?oc=5",
    "summary": "PGA Betting: 6 Picks for the Rocket Classic Yahoo Sports",
-   "published": "Wed, 29 Jul 2026 04:58:00 GMT",
+   "published": "Wed, 29 Jul 2026 04:58:53 GMT",
    "source": "Google News: Rocket Classic picks",
    "kind": "news",
    "golfers": []
@@ -1120,6 +1253,24 @@
    "golfers": []
   },
   {
+   "title": "Rocket Classic Field 2026: Full Player List, Withdrawals - heavy.com",
+   "link": "https://news.google.com/rss/articles/CBMiggFBVV95cUxPNGVGV0lXN0pUSDJXREdqSjAwWVc3MU5mMFVFODI3SmhtNFZVaGo1Tm5CZWFkdXQ2UHdtVTJ1TWlRVHhmMmJrYmpPODVfbm40ek1mOXUxTGlJQ2d5dC1haG9ITThoUDFSdXVBbl96aFhCT24yT0diRTVjWTFrSnZZRVN3?oc=5",
+   "summary": "Rocket Classic Field 2026: Full Player List, Withdrawals heavy.com",
+   "published": "Wed, 29 Jul 2026 03:18:00 GMT",
+   "source": "Google News: Rocket Classic WD",
+   "kind": "news",
+   "golfers": []
+  },
+  {
+   "title": "PGA DFS Picks: DraftKings & FanDuel Expert Survey for the Rocket Classic - RotoGrinders",
+   "link": "https://news.google.com/rss/articles/CBMirAFBVV95cUxNWjBDNENiV21sbEtiYXk1OFhDOFk3c3J4Q0EzcXZOOFBkbkFBZHNNRE5XSkwxaGo5dWt3WHNHX01pb1IxdEs5VEhBVzFhZDB2Sm1HWGdFckFQalNFeDlWeEs5TlNTcGJkajRpRzczV1lwNzVCUG9ac0RpRUx3ZWRFaXhDT01JQWllTFJRVDU2Ykl2UU90Z2NWUk4yVTVCLVFuQ3pKc3NIQVM4UTlh?oc=5",
+   "summary": "PGA DFS Picks: DraftKings & FanDuel Expert Survey for the Rocket Classic RotoGrinders",
+   "published": "Wed, 29 Jul 2026 03:16:54 GMT",
+   "source": "Google News: Rocket Classic DFS",
+   "kind": "news",
+   "golfers": []
+  },
+  {
    "title": "Rocket Classic Best Bets and Golf Odds",
    "link": "https://vsin.com/golf/rocket-classic-best-bets-and-golf-odds/",
    "summary": "Rocket Classic Best Bets and Golf Odds: Former World No. 1 Amateur Jackson Koivun turned professional just four weeks ago at the John Deere Classic. Most golf observers recognized that his first PGA Tour victory was coming sooner rather than later. It was sooner, with Koivun winning last weekend&#8217;s 3M Open at 28-1. Koivun (-25) [&#8230;] The post Rocket Classic Best Bets and Golf Odds appeare",
@@ -1158,19 +1309,19 @@
    "golfers": [
     "Cameron Young",
     "Russell Henley",
-    "Patrick Cantlay",
-    "Jake Knapp",
-    "J.J. Spaun",
-    "Davis Thompson",
-    "Eric Cole",
-    "Corey Conners",
-    "Aldrich Potgieter",
-    "Max Greyserman",
-    "Seamus Power",
     "Ben Kohles",
+    "Seamus Power",
+    "Corey Conners",
+    "Davis Thompson",
+    "J.J. Spaun",
     "Chris Kirk",
+    "Cameron Davis",
     "Nicolas Echavarria",
-    "Cameron Davis"
+    "Patrick Cantlay",
+    "Eric Cole",
+    "Max Greyserman",
+    "Jake Knapp",
+    "Aldrich Potgieter"
    ]
   },
   {
@@ -1192,20 +1343,11 @@
    "golfers": []
   },
   {
-   "title": "Rocket Classic picks 2026: This big-hitting rookie should fare well in Detroit - Yahoo Sports",
-   "link": "https://news.google.com/rss/articles/CBMihAFBVV95cUxNZ3pMa1dOMU1jSV81YUM4NUl0ckc0YnFON0YtcW9xdjJLNG51ZWFHTlRzY0k4S0VEcWloZmc2VEdqSkhQdUZNc2hBaFg1X0FXTk5LVDliWjhGaFRTWHd6c2hPUHdCaUhlZW9DMWMwZHRDdk5WekJqc2F1bXY0LTduUmFBdGc?oc=5",
-   "summary": "Rocket Classic picks 2026: This big-hitting rookie should fare well in Detroit Yahoo Sports",
-   "published": "Tue, 28 Jul 2026 23:30:54 GMT",
-   "source": "Google News: Rocket Classic DFS",
-   "kind": "news",
-   "golfers": []
-  },
-  {
    "title": "Rocket Classic picks 2026: This big-hitting rookie should fare well in Detroit - Golf Digest",
    "link": "https://news.google.com/rss/articles/CBMiakFVX3lxTFBjSEpCcm1Gcmp2Ni1mSFRyeHJaZ0k3cjZwSVFmRWRpQjM1RmotSEo1U3B4OGMxWk5kLVVPYjAxa1loOWw3SzZRZGdyQkp5U0pIdk8zQlNYemkxbUZ3ZzZHWDE0MmdIUVp1dEE?oc=5",
    "summary": "Rocket Classic picks 2026: This big-hitting rookie should fare well in Detroit Golf Digest",
    "published": "Tue, 28 Jul 2026 23:30:54 GMT",
-   "source": "Google News: Rocket Classic picks",
+   "source": "Google News: Rocket Classic DFS",
    "kind": "news",
    "golfers": []
   },
@@ -1228,6 +1370,15 @@
    "golfers": []
   },
   {
+   "title": "DraftKings odds: Players to watch at Rocket Classic - PGA Tour",
+   "link": "https://news.google.com/rss/articles/CBMipgFBVV95cUxPM2Q0M2d5R29mVjJFVEFsVFZhdFhCUlVGMkZRMDB2ZjBBWk8wMVdzYkVHdXMxekpZbHJhc0pvbXhIcVJ2YjhqaVJEcDBlemRGeERCbDFEeEFBMVhJN1E1WVNTc0VfMUtQVlRKYjVkeG9DTWRRWVFTazlNWFk5U2dVV2pndkVfOTNMWDVFVVRVUnJUQkxQNkpfUXpIM3p1WGJVM1MwZk53?oc=5",
+   "summary": "DraftKings odds: Players to watch at Rocket Classic PGA Tour",
+   "published": "Tue, 28 Jul 2026 22:45:49 GMT",
+   "source": "Google News: Rocket Classic DFS",
+   "kind": "news",
+   "golfers": []
+  },
+  {
    "title": "Brooks Koepka withdraws from PGA Tour\u2019s 2026 Rocket Classic - Golf News Net",
    "link": "https://news.google.com/rss/articles/CBMivAFBVV95cUxPSmlONl9WNGxvcE1UWGZTTTZRU0RsMlFvd1RMSXdpNGQ3WlphNkhWc1hZVTNuX3ZTYl9UbFd6cTl2RThkSzMwcmx1V2dWOEVOMkFSVUJSdHpkU0hqVUlSQjRxODVoQ09KTHlScEhzRlZlQTV1X1Y2ZVNzNHJLRHZEYVB6Um1MX2VIdU5GNFdBRXVTeVhWZW1RVEdjRHJ5TGo4S20xNktxWlJ6cDhwZGI3YVVsV2NNdFFvNnRBNQ?oc=5",
    "summary": "Brooks Koepka withdraws from PGA Tour\u2019s 2026 Rocket Classic Golf News Net",
@@ -1241,15 +1392,6 @@
    "link": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxPd19FU2pGeVpkXzkwX2RZejdrdVNPN1NhNFRBQngzdTBLNkYwWm1rOVpNUmZKLXp5a2lDdFFOZ3NmaFJ0WVhObmI5czdyNUV2NHdQTzNUUGxoYVQtcUI0Uy0tVHBnQmxjb1RMX0FOMGxvWnFrU2dPcGw3THBWV1A4TllFQlJPeHdvZWI1RU5BaVFFSTV4c3p1bkhDSUlBNVRITUI3clhtTzlQQQ?oc=5",
    "summary": "PGA DFS Picks For DraftKings This Week: Rocket Classic Cash and GPP Strategy RotoWire",
    "published": "Tue, 28 Jul 2026 22:33:00 GMT",
-   "source": "Google News: Rocket Classic DFS",
-   "kind": "news",
-   "golfers": []
-  },
-  {
-   "title": "DraftKings odds: Players to watch at Rocket Classic - PGA Tour",
-   "link": "https://news.google.com/rss/articles/CBMipgFBVV95cUxPM2Q0M2d5R29mVjJFVEFsVFZhdFhCUlVGMkZRMDB2ZjBBWk8wMVdzYkVHdXMxekpZbHJhc0pvbXhIcVJ2YjhqaVJEcDBlemRGeERCbDFEeEFBMVhJN1E1WVNTc0VfMUtQVlRKYjVkeG9DTWRRWVFTazlNWFk5U2dVV2pndkVfOTNMWDVFVVRVUnJUQkxQNkpfUXpIM3p1WGJVM1MwZk53?oc=5",
-   "summary": "DraftKings odds: Players to watch at Rocket Classic PGA Tour",
-   "published": "Tue, 28 Jul 2026 21:38:05 GMT",
    "source": "Google News: Rocket Classic DFS",
    "kind": "news",
    "golfers": []
@@ -1287,15 +1429,6 @@
    "summary": "2026 Rocket Classic prop bet picks and PGA Tour predictions Sportsbook Wire",
    "published": "Tue, 28 Jul 2026 20:41:00 GMT",
    "source": "Google News: Rocket Classic picks",
-   "kind": "news",
-   "golfers": []
-  },
-  {
-   "title": "PGA DFS Picks: DraftKings & FanDuel Expert Survey for the Rocket Classic - RotoGrinders",
-   "link": "https://news.google.com/rss/articles/CBMirAFBVV95cUxNWjBDNENiV21sbEtiYXk1OFhDOFk3c3J4Q0EzcXZOOFBkbkFBZHNNRE5XSkwxaGo5dWt3WHNHX01pb1IxdEs5VEhBVzFhZDB2Sm1HWGdFckFQalNFeDlWeEs5TlNTcGJkajRpRzczV1lwNzVCUG9ac0RpRUx3ZWRFaXhDT01JQWllTFJRVDU2Ykl2UU90Z2NWUk4yVTVCLVFuQ3pKc3NIQVM4UTlh?oc=5",
-   "summary": "PGA DFS Picks: DraftKings & FanDuel Expert Survey for the Rocket Classic RotoGrinders",
-   "published": "Tue, 28 Jul 2026 20:16:54 GMT",
-   "source": "Google News: Rocket Classic DFS",
    "kind": "news",
    "golfers": []
   },
@@ -1426,8 +1559,8 @@
    "source": "Google News: Rocket Classic DFS",
    "kind": "news",
    "golfers": [
-    "Akshay Bhatia",
-    "Billy Horschel"
+    "Billy Horschel",
+    "Akshay Bhatia"
    ]
   },
   {
@@ -1497,9 +1630,9 @@
    "golfers": []
   },
   {
-   "title": "PGA DFS: Top Cash Game Picks for the Rocket Classic - fantasylabs.com",
+   "title": "PGA DFS: Top Cash Game Picks for the Rocket Classic - FantasyLabs",
    "link": "https://news.google.com/rss/articles/CBMimAFBVV95cUxOMVF4NG5uWF8wSWpSV2R6ZWthSVZYWDhpSEpQeHpFRkU0d0NweDB5eG00ZFNDcmpXd2FaTUt0b1NiZWhSMTl4NUlkTldTTU1nSXJldnQ5VFBZd2xkMjNnTDlWOWhtRHJGSVVZNURqUkwzQ2VkaFptVXR3QkhlUnViN205aTFIQ2Zlc0dfNXczOEFyZ3V6MVlucA?oc=5",
-   "summary": "PGA DFS: Top Cash Game Picks for the Rocket Classic fantasylabs.com",
+   "summary": "PGA DFS: Top Cash Game Picks for the Rocket Classic FantasyLabs",
    "published": "Tue, 28 Jul 2026 14:28:20 GMT",
    "source": "Google News: Rocket Classic DFS",
    "kind": "news",
@@ -1565,60 +1698,6 @@
    "summary": "2026 Rocket Classic betting tips \u2013 including a 125/1 shot in fine form Today's Golfer",
    "published": "Tue, 28 Jul 2026 10:10:37 GMT",
    "source": "Google News: Rocket Classic picks",
-   "kind": "news",
-   "golfers": []
-  },
-  {
-   "title": "Rocket Classic betting tips: Three longshot picks for this week on the PGA Tour - talkSPORT",
-   "link": "https://news.google.com/rss/articles/CBMid0FVX3lxTE8tVl9CbXduTllISlRhcWNUNTZRUnlldVhXWEU3X1pSX0dGZVhVbHFVT3VHOXdqQi11V2xwM0ZnbTRJY3N6dmNHRkhfTEQ0czNhNFlUZm1EVTJNNldiLWo5NDRMbnhIVEVGeFk5bHhMV0hzOHQtckI0?oc=5",
-   "summary": "Rocket Classic betting tips: Three longshot picks for this week on the PGA Tour talkSPORT",
-   "published": "Tue, 28 Jul 2026 08:51:11 GMT",
-   "source": "Google News: Rocket Classic picks",
-   "kind": "news",
-   "golfers": []
-  },
-  {
-   "title": "Rocket Classic: 22/1 Donald Ross specialist ready to win again - betting.betfair.com",
-   "link": "https://news.google.com/rss/articles/CBMivAFBVV95cUxPakZwSUFIVEhOSmV4NW1pY1ZILURCRmNRMEhuSjhPUXdUYldSMEFzX25BcE5rMEh2RExXR2VTTl81RnlERng1NzdYRFE1dmNfTEtKZXF1NHVoRlBZWDBCM2pVUXc5eWVPcmh5Q1pZWU1iQnJIb05oOG80TU81ai1BeW1xSUJUbDNqak80MTVYY3o3cExpdXM1eVJENU1OZDAtMkt4ZDhGbEZBa2RDYjFXOFNSZlN3UDM0LURibtIBxAFBVV95cUxQRWJ4azdkZURUTlp1d2tvYkwtanc4M0tvZTlBb0thTzNQMTBnaWFkOHdKSHJyLVZiSWR4LWFtODVEVEN3VW9ZNU9PaE5hVEhRWFpHcld0VnZBNGVNUnZkVDI4T2VxbTNLcTVpZ1Q4SWxSWTFkTk9FMG1tWWJPM0dUSE5FN0hkSXo2NVFsaFJTalBVNHp0aGV2ZWhvYWRtNGU3SUJLY01hRWo0c0VvVEhJbnFPa1JPelVQSWN5a3lFRHBPS1c0?oc=5",
-   "summary": "Rocket Classic: 22/1 Donald Ross specialist ready to win again betting.betfair.com",
-   "published": "Tue, 28 Jul 2026 08:25:43 GMT",
-   "source": "Google News: Rocket Classic picks",
-   "kind": "news",
-   "golfers": []
-  },
-  {
-   "title": "Top PGA DFS Picks for the 2026 Rocket Classic: Key Golfers to Watch - AOL.com",
-   "link": "https://news.google.com/rss/articles/CBMidEFVX3lxTE1tRFZTcFlpWm5tYWlTQVpYQUFBRlpXZkJ5OFExNXZDYWRLMjB6M3VFZWg2Xzh1SG5yRWpmU19PTUJOUnY0LUFiR1l0ZktJRFl2X1RfbmR1WURKV241NzI2eU9sLWctSW5wOGJUXzRQbjI2MElI?oc=5",
-   "summary": "Top PGA DFS Picks for the 2026 Rocket Classic: Key Golfers to Watch AOL.com",
-   "published": "Tue, 28 Jul 2026 07:24:55 GMT",
-   "source": "Google News: Rocket Classic DFS",
-   "kind": "news",
-   "golfers": []
-  },
-  {
-   "title": "PGA DFS First Look: Rocket Classic Odds, Salaries, Course History - RotoGrinders",
-   "link": "https://news.google.com/rss/articles/CBMihwFBVV95cUxQS0ZWb3lCMmlFU2NkakhXT1pIT25uUmp0elYzb2VkT1o2YjNtZ2dzc0hxSEsyV01GbE9wUGh0SkN4R1d0M3RBSWgtTkdCRHpURjZjTGh4R2x6YVRVOGVOei1iR1h5YmVpSHVZRTVybWRwTk9iMDI3RXJyTmRha1FpZWtxY1BZcW8?oc=5",
-   "summary": "PGA DFS First Look: Rocket Classic Odds, Salaries, Course History RotoGrinders",
-   "published": "Tue, 28 Jul 2026 05:03:46 GMT",
-   "source": "Google News: Rocket Classic DFS",
-   "kind": "news",
-   "golfers": []
-  },
-  {
-   "title": "DFS Fantasy Golf: Winning Picks for the Rocket Classic - Yardbarker",
-   "link": "https://news.google.com/rss/articles/CBMisgFBVV95cUxQN24yeHVLV09QWE9LODZaTHlxQ1BlLXEyZFplNUdRdzdsSlZ1YWotX293MWFTY2Q2MkMtSFdITjJFWWU5QTdYVmJRejNmLW1aUlF5eG1ZUkRCYVpudUZGdmhkNDFvYVZEWWxhWWkzQ2FBNEd2Q2YzOEFZXzJzMHZ1Q2hMQ21VLWNUa25nMDNzdHFmYWxMS2Z2NTc1QTdydW1OWTYxLVhrUHhsLVRtYUFGUnRR?oc=5",
-   "summary": "DFS Fantasy Golf: Winning Picks for the Rocket Classic Yardbarker",
-   "published": "Tue, 28 Jul 2026 04:45:17 GMT",
-   "source": "Google News: Rocket Classic DFS",
-   "kind": "news",
-   "golfers": []
-  },
-  {
-   "title": "Top PGA DFS Picks for the 2026 Rocket Classic: Key Golfers to Watch - Yahoo Sports",
-   "link": "https://news.google.com/rss/articles/CBMie0FVX3lxTFBES1ZGRnJNOWptbkpFWm5iMHBnSkhGdXNkS2FlcXhWMDIwX0ZqSm5MTlpfVXI1QXppUG83by1OS05EODN3YW5RaFlCNUdQUGNMMDI4ejBybTktS3NJMXMtTENsSWdFUmxkd3FUaFZPTGt2VE1JMmV5MDhOMA?oc=5",
-   "summary": "Top PGA DFS Picks for the 2026 Rocket Classic: Key Golfers to Watch Yahoo Sports",
-   "published": "Tue, 28 Jul 2026 03:40:00 GMT",
-   "source": "Google News: Rocket Classic DFS",
    "kind": "news",
    "golfers": []
   }
