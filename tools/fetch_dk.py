@@ -27,8 +27,9 @@ import urllib.request
 UA = {"User-Agent": "Mozilla/5.0 (compatible; birdie-dfs/1.0)"}
 
 # How many real contests to capture exact payout tiers for. Each costs one API
-# call, so this is a spread-vs-runtime tradeoff; 40 covers the fee ladder well.
-MAX_CONTESTS = 40
+# call, so this is a spread-vs-runtime tradeoff; 60 covers the fee ladder with room for
+# several contests per tier.
+MAX_CONTESTS = 60
 
 # Below this, the stored contest list is treated as incomplete and rebuilt even
 # mid-tournament rather than waiting for the next event.
@@ -718,8 +719,18 @@ def build_contests(dg, tourney, event):
     # Sorting purely by field size let the handful of giant flagship GPPs consume
     # every slot, so the small-stakes and single-entry contests most people actually
     # play (a $5 Caddie, a $3 single entry) never made the list at all.
+    # Drop satellites and qualifiers. They pay entry TICKETS rather than cash, so the
+    # contest sim's ROI is meaningless for them — and because each sits at its own odd
+    # buy-in ($1.85, $9, $13, $27...) they were spawning fee buckets and eating the
+    # slots that should go to real cash contests.
+    def is_satellite(c):
+        n = (c.get("n") or "").lower()
+        return any(k in n for k in ("satellite", "qual #", "qualifier", " qual ", "ticket"))
+
+    cash = [c for c in matches if not is_satellite(c)] or matches
+
     by_fee = {}
-    for c in matches:
+    for c in cash:
         by_fee.setdefault(c.get("a"), []).append(c)
     buckets = [sorted(v, key=lambda c: -(c.get("m") or 0))
                for _, v in sorted(by_fee.items(), key=lambda kv: (kv[0] is None, kv[0]))]
