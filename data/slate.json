@@ -1,5 +1,5 @@
 {
- "updatedUtc": "2026-07-29T01:14:28Z",
+ "updatedUtc": "2026-07-29T01:18:24Z",
  "source": "Data tab + ownership model (ROCKET_2026)",
  "slate": "ROCKET_2026",
  "trainRows": 3056,
@@ -1106,7 +1106,11 @@
    "winOdds": 8000.0,
    "impliedProb": 1.23,
    "leverage": 0.147,
-   "leverageTier": "CHALK"
+   "leverageTier": "CHALK",
+   "winProb": 1.23,
+   "top5Prob": 8.0,
+   "top10Prob": 15.9,
+   "makeCutPct": 65.0
   },
   {
    "name": "Kevin Yu",
@@ -1628,7 +1632,11 @@
    "winOdds": 14000.0,
    "impliedProb": 0.71,
    "leverage": 0.316,
-   "leverageTier": "CHALK"
+   "leverageTier": "CHALK",
+   "winProb": 0.71,
+   "top5Prob": 5.3,
+   "top10Prob": 11.1,
+   "makeCutPct": 56.1
   },
   {
    "name": "Rasmus Hojgaard",
@@ -1752,7 +1760,11 @@
    "winOdds": 16500.0,
    "impliedProb": 0.6,
    "leverage": 0.455,
-   "leverageTier": "CHALK"
+   "leverageTier": "CHALK",
+   "winProb": 0.6,
+   "top5Prob": 4.5,
+   "top10Prob": 10.0,
+   "makeCutPct": 55.8
   },
   {
    "name": "Chris Kirk",
@@ -2103,7 +2115,8 @@
    "winOdds": 21000.0,
    "impliedProb": 0.47,
    "leverage": 0.56,
-   "leverageTier": "CHALK"
+   "leverageTier": "CHALK",
+   "makeCutPct": 51.5
   },
   {
    "name": "Austin Eckroat",
