@@ -1,12 +1,11 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="512" height="512">
+  <!-- Square (no radius) so avatar uploads that apply their own crop stay clean -->
   <rect width="100" height="100" fill="#0e1116"/>
-  <circle cx="48" cy="56" r="28" fill="#fff"/>
-  <circle cx="48" cy="56" r="21" fill="#3fb950"/>
-  <circle cx="48" cy="56" r="14" fill="#fff"/>
-  <circle cx="48" cy="56" r="7" fill="#3fb950"/>
-  <line x1="84" y1="16" x2="52" y2="50" stroke="#0e1116" stroke-width="6" stroke-linecap="round"/>
-  <line x1="84" y1="16" x2="52" y2="50" stroke="#fff" stroke-width="3.4" stroke-linecap="round"/>
-  <polygon points="48,56 58,48 51,44" fill="#fff" stroke="#0e1116" stroke-width="1.1" stroke-linejoin="round"/>
-  <polygon points="84,16 93,9 90,19" fill="#fff" stroke="#0e1116" stroke-width="1" stroke-linejoin="round"/>
-  <polygon points="84,16 93,21 82,24" fill="#fff" stroke="#0e1116" stroke-width="1" stroke-linejoin="round"/>
+  <!-- Outcome distribution: the shape every SlateSims projection comes out of -->
+  <path d="M10,79 C31,79 31,38 50,38 C69,38 69,79 90,79 Z" fill="#3fb950" opacity=".22"/>
+  <path d="M10,79 C31,79 31,38 50,38 C69,38 69,79 90,79" fill="none" stroke="#3fb950"
+        stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Pin planted on the peak -->
+  <rect x="46.8" y="9" width="6.4" height="37" rx="3.2" fill="#e6edf3"/>
+  <polygon points="53.2,11 76,19 53.2,27" fill="#e6edf3"/>
 </svg>

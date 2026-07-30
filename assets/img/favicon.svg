@@ -1,12 +1,11 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
-  <!-- Dark rounded background -->
-  <rect width="32" height="32" rx="6" fill="#0f172a"/>
-  <!-- Flag pole -->
-  <rect x="13.5" y="4" width="2" height="21" rx="1" fill="#cbd5e1"/>
-  <!-- Flag -->
-  <polygon points="15.5,4 26,9.5 15.5,15" fill="#22c55e"/>
-  <!-- Ground / cup shadow -->
-  <ellipse cx="14" cy="26.5" rx="5.5" ry="1.8" fill="#1e293b"/>
-  <!-- Ball -->
-  <circle cx="14" cy="26.5" r="2.8" fill="#f1f5f9"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <!-- Dark rounded tile -->
+  <rect width="100" height="100" rx="22" fill="#0e1116"/>
+  <!-- Outcome distribution: the shape every SlateSims projection comes out of -->
+  <path d="M14,80 C33,80 33,42 50,42 C67,42 67,80 86,80 Z" fill="#3fb950" opacity=".22"/>
+  <path d="M14,80 C33,80 33,42 50,42 C67,42 67,80 86,80" fill="none" stroke="#3fb950"
+        stroke-width="7.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Pin planted on the peak -->
+  <rect x="47" y="14" width="6" height="36" rx="3" fill="#e6edf3"/>
+  <polygon points="53,16 74,23.5 53,31" fill="#e6edf3"/>
 </svg>
