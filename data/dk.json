@@ -1,5 +1,5 @@
 {
- "updatedUtc": "2026-08-03T15:39:37Z",
+ "updatedUtc": "2026-08-03T18:45:40Z",
  "tournament": "WYNDHAM_2026",
  "date": "8/6/26",
  "event": "Wyndham Championship",
@@ -24,8 +24,8 @@
   {
    "name": "Patrick Cantlay",
    "salary": 10000,
-   "status": "",
-   "out": false,
+   "status": "OUT",
+   "out": true,
    "dkId": 43746488
   },
   {
@@ -101,7 +101,7 @@
   {
    "name": "Brooks Koepka",
    "salary": 8500,
-   "status": "Q",
+   "status": "",
    "out": false,
    "dkId": 43746499
   },
