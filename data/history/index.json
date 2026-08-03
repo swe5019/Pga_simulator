@@ -1,6 +1,6 @@
 {
- "updatedUtc": "2026-08-03T17:05:54Z",
- "count": 26,
+ "updatedUtc": "2026-08-03T20:22:24Z",
+ "count": 27,
  "events": [
   {
    "tournament": "3M_OPEN_2025",
@@ -174,7 +174,7 @@
    "hasPredicted": false,
    "hasActual": true,
    "maePct": null,
-   "colabMaePct": 2.301,
+   "colabMaePct": 2.125,
    "comparedPlayers": null,
    "updatedUtc": "2026-06-25T15:52:16Z"
   },
@@ -194,10 +194,10 @@
    "file": "history/ROCKET_2026.json",
    "date": "2026-07-30 00:00:00",
    "hasPredicted": true,
-   "hasActual": false,
-   "maePct": null,
-   "colabMaePct": null,
-   "comparedPlayers": null,
+   "hasActual": true,
+   "maePct": 1.685,
+   "colabMaePct": 1.706,
+   "comparedPlayers": 147,
    "updatedUtc": "2026-08-03T17:05:54Z"
   },
   {
@@ -231,7 +231,7 @@
    "maePct": 2.958,
    "colabMaePct": 2.928,
    "comparedPlayers": 72,
-   "updatedUtc": "2026-08-03T17:05:54Z"
+   "updatedUtc": "2026-08-03T20:22:24Z"
   },
   {
    "tournament": "TRUIST_2026",
@@ -287,6 +287,17 @@
    "colabMaePct": 1.805,
    "comparedPlayers": null,
    "updatedUtc": "2026-06-25T15:52:16Z"
+  },
+  {
+   "tournament": "WYNDHAM_2026",
+   "file": "history/WYNDHAM_2026.json",
+   "date": "2026-08-06 00:00:00",
+   "hasPredicted": true,
+   "hasActual": false,
+   "maePct": null,
+   "colabMaePct": null,
+   "comparedPlayers": null,
+   "updatedUtc": "2026-08-03T20:22:24Z"
   }
  ]
 }
