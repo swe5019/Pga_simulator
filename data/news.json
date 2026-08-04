@@ -1,11 +1,11 @@
 {
- "updatedUtc": "2026-08-04T09:09:39Z",
+ "updatedUtc": "2026-08-04T11:34:30Z",
  "slate": "WYNDHAM_2026",
  "event": "Wyndham Championship",
  "counts": {
-  "items": 50,
+  "items": 52,
   "golfersMentioned": 85,
-  "news": 50,
+  "news": 52,
   "chatter": 0
  },
  "sources": [
@@ -108,7 +108,7 @@
   {
    "source": "Google News: Wyndham Championship DFS",
    "ok": true,
-   "items": 67,
+   "items": 68,
    "error": null
   },
   {
@@ -183,6 +183,12 @@
    "total": 5
   },
   {
+   "name": "Danny Walker",
+   "news": 4,
+   "chatter": 0,
+   "total": 4
+  },
+  {
    "name": "Justin Thomas",
    "news": 4,
    "chatter": 0,
@@ -208,12 +214,6 @@
   },
   {
    "name": "Mac Meissner",
-   "news": 3,
-   "chatter": 0,
-   "total": 3
-  },
-  {
-   "name": "Danny Walker",
    "news": 3,
    "chatter": 0,
    "total": 3
@@ -671,6 +671,26 @@
  ],
  "items": [
   {
+   "title": "3 Impact Fantasy Baseball Prospects To Stash - Walker Jenkins, Elmer Rodriguez, George Klassen",
+   "link": "https://www.rotoballer.com/3-impact-fantasy-baseball-prospects-to-stash-walker-jenkins-elmer-rodriguez-george-klassen/1901655",
+   "summary": "Throughout the first half of the 2026 season, managers have seen many prospects not only earn the call, but also emerge as legit fantasy options, like Carson Benge, Parker Messick and Payton Tolle. In this piece, we will check in on one of the hottest hitters at the Triple-A level and spotlight two emerging pitchers [&#8230;]",
+   "published": "Tue, 04 Aug 2026 10:05:54 +0000",
+   "source": "RotoBaller",
+   "kind": "news",
+   "golfers": [
+    "Danny Walker"
+   ]
+  },
+  {
+   "title": "Wyndham Championship 2026: Dave Tindall's each-way picks from 45/1 to 50/1 - Betfair",
+   "link": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxOUzRrZmZiNjI5Z1JxZmZkTXdJcHpLWEZlYktWNjdoSGQ3QzB5ZEVkbDgtSEJqWE9FYWlJLVZsSXotSFJxQnYyT3hHckhmaUtLMFF1RnQ0LVA0cnBIaEtIMlFjY3FTb3N5aWl1SS1pZjFNeWNnZVpJVERScjA2TUZ2cWxlNGpwdHBxaDlNdHhMOGpGZEw4aHl3Y1hiYVhXYWRwTTg0Ti1Ya3FSNzQtZzZZV3dBYTQyOF9rSVhPcUdIc2JvajB3Q1ZOdDRmZ2d4WDhEekHSAdoBQVVfeXFMTmx5WlhGbjN5bE5JX25wSGJoUTNjQXVSZGV2UWFaSWpxbExPSkx2YlFDaUtCTVpFY2xnYXhXVV9oY1NwS0VBVWRjYXFwNmxxcWtkRjhzNjdJMkFQLXUwLUJmOFRoNTZqczNtVmtuT0VGd0dhUmdfdEZWeHF1aThOSTVqWmhPbzJzSnctMFJCMFFXSU4tUkpYd09UODlTU1VPV3pqalNBUnQ2cnFwMVlRcS1XYkZROUNIeEV3MG55aDAtQThMTEhHYWpKOENrVzUzNG9SdDl1WUYyRFE?oc=5",
+   "summary": "Wyndham Championship 2026: Dave Tindall's each-way picks from 45/1 to 50/1 Betfair",
+   "published": "Tue, 04 Aug 2026 09:25:00 GMT",
+   "source": "Google News: Wyndham Championship picks",
+   "kind": "news",
+   "golfers": []
+  },
+  {
    "title": "Patrick Cantlay withdraws late from Wyndham Championship, shaking up $8.5 million PGA Tour finale - Dailyhunt",
    "link": "https://news.google.com/rss/articles/CBMilgJBVV95cUxQYmxKVlJNbmhHbmJfQXpWSXBqY1dfTHJEUy0tenlwQlFYTjMta2NiY2ZtNFdIY1ZTUmMzR0hQUXNoVGFlU0ZKeW9FOEVMc2F3ZHNhdk55Z2oyS21OYW1uZHY1Y3lqekVJbGVZU0VidGMzV1dJVFhxOVl4YlFSOFdTbDdyNUpkVWhkOWMxTlk4VHZEcElQQ2lRdEt6cnMzS1pfUWF1SmY1RnB5dTNDQ3ZHdDg4UWl5YTMxMzZvUS1RRVlrRlBkYlZPN0gzQlBpZ0FfRkFZUkVLYWtUZU8teE9pQUxET0U2MUgwZU52UE9TNy00Tlg1TW0tazJIeUNxQWhjbDhQbTl0NndFM3h5ZWdHeDJQM0hQdw?oc=5",
    "summary": "Patrick Cantlay withdraws late from Wyndham Championship, shaking up $8.5 million PGA Tour finale Dailyhunt",
@@ -725,17 +745,6 @@
    "golfers": []
   },
   {
-   "title": "Odds Outlook: Hideki Matsuyama brings fiery form to Wyndham Championship - PGA Tour",
-   "link": "https://news.google.com/rss/articles/CBMi8wFBVV95cUxNcEhvM0xKRFQzX2dsc29EMHJKaXlpalFRbDJ6N29tY1RFTkZOeGZoWmM4UFljWmxNOWJsU3llMlgyTlE2aTM1M0cwazY3V1Joc25nbTVyVWpMRWt2OFp1TkpWa3l0VFh0MW1ST0tmRkNGYmc4dm8yVTZON1VxaUhjTTh1cU5WMVh1dFc4TWxuUEZZQS1NTjFLcUZXa25GREEzel9lYVpyNjFFVWVkM3hxQXFQaUpaWXRYcmVpaEdfcVNJSXpyWUl4d0Fsc0lKZDBKYUw3Z1VhZUJzTTN6WGtPRE4zelFmWF9IX2U2TGZhRVc2S0k?oc=5",
-   "summary": "Odds Outlook: Hideki Matsuyama brings fiery form to Wyndham Championship PGA Tour",
-   "published": "Mon, 03 Aug 2026 23:57:04 GMT",
-   "source": "Google News: Wyndham Championship DFS",
-   "kind": "news",
-   "golfers": [
-    "Hideki Matsuyama"
-   ]
-  },
-  {
    "title": "$66 Million Golfer Suddenly Withdraws From the Wyndham Championship",
    "link": "https://sports.yahoo.com/articles/66-million-golfer-suddenly-withdraws-235009865.html",
    "summary": "The field at the Wyndham Championship is getting thinner. Another PGA Tour winner has decided to exit.Patrick Cantlay is out of the Wyndham Championship. PGA Tour Communications confirmed the withdrawal Monday. Ben Silverman takes his spot in the field at Sedgefield Country Club.The move caught fans off guard. Cantlay has earned more than $66 million [\u2026] The post $66 Million Golfer Suddenly Withdr",
@@ -761,6 +770,17 @@
    "source": "Google News: Wyndham Championship WD",
    "kind": "news",
    "golfers": []
+  },
+  {
+   "title": "Odds Outlook: Hideki Matsuyama brings fiery form to Wyndham Championship - PGA Tour",
+   "link": "https://news.google.com/rss/articles/CBMi8wFBVV95cUxNcEhvM0xKRFQzX2dsc29EMHJKaXlpalFRbDJ6N29tY1RFTkZOeGZoWmM4UFljWmxNOWJsU3llMlgyTlE2aTM1M0cwazY3V1Joc25nbTVyVWpMRWt2OFp1TkpWa3l0VFh0MW1ST0tmRkNGYmc4dm8yVTZON1VxaUhjTTh1cU5WMVh1dFc4TWxuUEZZQS1NTjFLcUZXa25GREEzel9lYVpyNjFFVWVkM3hxQXFQaUpaWXRYcmVpaEdfcVNJSXpyWUl4d0Fsc0lKZDBKYUw3Z1VhZUJzTTN6WGtPRE4zelFmWF9IX2U2TGZhRVc2S0k?oc=5",
+   "summary": "Odds Outlook: Hideki Matsuyama brings fiery form to Wyndham Championship PGA Tour",
+   "published": "Mon, 03 Aug 2026 22:51:00 GMT",
+   "source": "Google News: Wyndham Championship DFS",
+   "kind": "news",
+   "golfers": [
+    "Hideki Matsuyama"
+   ]
   },
   {
    "title": "DraftKings DFS Fantasy Golf Cheat Sheet: 2026 PGA TOUR Wyndham Championship Picks - DraftKings Network",
@@ -1003,15 +1023,6 @@
    "golfers": []
   },
   {
-   "title": "Wyndham Championship Predictions & Golf Picks for this week - Pickswise",
-   "link": "https://news.google.com/rss/articles/CBMirwFBVV95cUxPcUxfd0FyVkoxOHFHZlg2dlZuRnFxZ01BYXNSczM4NUhnMC1CX25ZV3lIQlpMLXZPWmt2VmpEQmpPR0xYVWhfd09sNjd0aW5OSWJaOWcway0zdmNEV0xnaWotN2RIQXZrVENmNzlJODdIYnltaS1BZE1uQ0NuanhEX0NRdjYxeUlIZ1pycFFKcExKWTl6aFcwb1JiWlBRUHBuNnpfVTdoYnpReUtERnlV?oc=5",
-   "summary": "Wyndham Championship Predictions & Golf Picks for this week Pickswise",
-   "published": "Mon, 03 Aug 2026 17:06:02 GMT",
-   "source": "Google News: Wyndham Championship picks",
-   "kind": "news",
-   "golfers": []
-  },
-  {
    "title": "2026 Wyndham Championship Betting Preview: Picks, Predictions, Odds for Sedgefield Country Club - Sports Illustrated",
    "link": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxPOEFaa29ObzgyaHZNMzdXRFFFNVk2T1Y2S25zenpGZ2RCR1FUNDVteHFTeGw3Ym5CZHAyaEFnVmxiY1VrLTBSTm40b2lrY3ZZS29HNXBPM3ctbDdOQnFybmJQVjNlTVM1REw3OEx1b29wWTVrUm5vbFZkNDdRSEhYRDRUS1NoaVZPTXV4anUyTXJ6cWZKNEFJYWM4cGpXd1FZVmp2dGxfRm5DMWl6ak5WeXdWUHRJNXpWa1FJ?oc=5",
    "summary": "2026 Wyndham Championship Betting Preview: Picks, Predictions, Odds for Sedgefield Country Club Sports Illustrated",
@@ -1094,9 +1105,9 @@
    ]
   },
   {
-   "title": "Bazza's Best Bets At The Wyndham Championship 2026: Rising Star Can Continue To Shine - Golf Monthly",
+   "title": "Bazza's Best Bets At The Wyndham Championship 2026: Rising Star Can Continue To Shine - golfmonthly.com",
    "link": "https://news.google.com/rss/articles/CBMijgFBVV95cUxPMW4xZjlvZVRHTThSYmFEUjNHYzUyOUViUHpueUdXSFpqd1Z5SmhnV005UlR5VThfbmNMZXBXZDhRRlJFc0UybXFrRjBVMVJoZXpPT3RvV0piRi1iN2h0ZTF2c0dyeU91LWI5ekZTdkxtbmZ3MmlNemdUTDNhLWFUVG16SnZVb29OWDJjekRn?oc=5",
-   "summary": "Bazza's Best Bets At The Wyndham Championship 2026: Rising Star Can Continue To Shine Golf Monthly",
+   "summary": "Bazza's Best Bets At The Wyndham Championship 2026: Rising Star Can Continue To Shine golfmonthly.com",
    "published": "Mon, 03 Aug 2026 14:51:08 GMT",
    "source": "Google News: Wyndham Championship picks",
    "kind": "news",
@@ -1221,9 +1232,18 @@
    "golfers": []
   },
   {
-   "title": "2026 Wyndham Championship Preview: Everything To Know About Sedgefield Country Club - Lineups",
+   "title": "Michael Thorbjornsen withdraws from Wyndham after first PGA Tour win - Yahoo Sports",
+   "link": "https://news.google.com/rss/articles/CBMimAFBVV95cUxNSzg4Q3JraDE3dDh0eVFaZ3ZfR0JHZUQ3Zk5CalRiclk5MzE3SENJQzlieDRxQUZqRzlNaUZPS3ZwS2dBVnQyQkZfaklhU3lTXzBKdGRCdHYtdnVtUGNrTHZDZlh3MTR2VTA4THA1UzV5MkJzdlF0T3paem1BMi1rLXVOSTBRd19ESnU2dEkzMEY5bEk2ckNNOA?oc=5",
+   "summary": "Michael Thorbjornsen withdraws from Wyndham after first PGA Tour win Yahoo Sports",
+   "published": "Mon, 03 Aug 2026 02:28:00 GMT",
+   "source": "Google News: PGA WD",
+   "kind": "news",
+   "golfers": []
+  },
+  {
+   "title": "2026 Wyndham Championship Preview: Everything To Know About Sedgefield Country Club - lineups.com",
    "link": "https://news.google.com/rss/articles/CBMitwFBVV95cUxNS2hJT2NmZGhsRlhQZ1kxN29BYUNTeTFGX2VqUFBXS2ppQlI4NkltSmVFV2ZuQ0JlY0ZFaFZRWVRMNmJUUDdoLXVkeG5EOGNTc3dHTTI3U2hyR1FxeVM1WW94alpHVWI3SzhiMDNwYm53QnJTTlRzX3ZMX0NzYmt1WEkyZ3JWQTVBMG5RRW8tUnU1TnBQaDBXcWs4WnFPX2tveDBZMXZ1cWxKSkVMSGJubVRwSmpCRFE?oc=5",
-   "summary": "2026 Wyndham Championship Preview: Everything To Know About Sedgefield Country Club Lineups",
+   "summary": "2026 Wyndham Championship Preview: Everything To Know About Sedgefield Country Club lineups.com",
    "published": "Sun, 02 Aug 2026 19:43:06 GMT",
    "source": "Google News: Wyndham Championship DFS",
    "kind": "news",
