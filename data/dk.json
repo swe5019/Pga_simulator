@@ -1,11 +1,11 @@
 {
- "updatedUtc": "2026-08-03T22:02:15Z",
+ "updatedUtc": "2026-08-04T15:20:41Z",
  "tournament": "WYNDHAM_2026",
  "date": "8/6/26",
  "event": "Wyndham Championship",
  "draftGroupId": "151491",
  "isShowdown": false,
- "count": 141,
+ "count": 149,
  "players": [
   {
    "name": "Cameron Young",
@@ -848,6 +848,13 @@
    "dkId": 43746605
   },
   {
+   "name": "Ben Silverman",
+   "salary": 6300,
+   "status": "",
+   "out": false,
+   "dkId": 43755543
+  },
+  {
    "name": "Dylan Wu",
    "salary": 6200,
    "status": "",
@@ -895,6 +902,20 @@
    "status": "",
    "out": false,
    "dkId": 43746612
+  },
+  {
+   "name": "Luke List",
+   "salary": 6200,
+   "status": "",
+   "out": false,
+   "dkId": 43755540
+  },
+  {
+   "name": "Hayden Springer",
+   "salary": 6200,
+   "status": "",
+   "out": false,
+   "dkId": 43755544
   },
   {
    "name": "Brice Garnett",
@@ -946,6 +967,20 @@
    "dkId": 43746619
   },
   {
+   "name": "Jimmy Stanger",
+   "salary": 6100,
+   "status": "",
+   "out": false,
+   "dkId": 43755545
+  },
+  {
+   "name": "Camilo Villegas",
+   "salary": 6100,
+   "status": "",
+   "out": false,
+   "dkId": 43755546
+  },
+  {
    "name": "Alejandro Tosti",
    "salary": 6000,
    "status": "",
@@ -993,6 +1028,27 @@
    "status": "",
    "out": false,
    "dkId": 43746626
+  },
+  {
+   "name": "Keenan Huskey",
+   "salary": 6000,
+   "status": "",
+   "out": false,
+   "dkId": 43755539
+  },
+  {
+   "name": "William McGirt",
+   "salary": 6000,
+   "status": "",
+   "out": false,
+   "dkId": 43755541
+  },
+  {
+   "name": "Lorenzo Rodriguez",
+   "salary": 6000,
+   "status": "",
+   "out": false,
+   "dkId": 43755542
   }
  ]
 }
