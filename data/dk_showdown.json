@@ -1,11 +1,11 @@
 {
- "updatedUtc": "2026-08-04T22:06:33Z",
+ "updatedUtc": "2026-08-05T15:10:12Z",
  "tournament": "WYNDHAM_2026",
  "date": "8/6/26",
  "event": "Wyndham Championship",
  "draftGroupId": "151495",
  "isShowdown": true,
- "count": 146,
+ "count": 147,
  "players": [
   {
    "name": "Cameron Young",
@@ -556,8 +556,8 @@
   {
    "name": "Daniel Berger",
    "salary": 6800,
-   "status": "",
-   "out": false,
+   "status": "OUT",
+   "out": true,
    "dkId": 43759417
   },
   {
@@ -755,6 +755,13 @@
    "status": "",
    "out": false,
    "dkId": 43759463
+  },
+  {
+   "name": "David Skinns",
+   "salary": 6500,
+   "status": "",
+   "out": false,
+   "dkId": 43763535
   },
   {
    "name": "Vince Whaley",

@@ -1,11 +1,11 @@
 {
- "updatedUtc": "2026-08-04T15:21:02Z",
+ "updatedUtc": "2026-08-05T15:10:23Z",
  "tournament": "WYNDHAM_2026",
  "event": "Wyndham Championship",
  "draftGroupId": "151491",
  "contests": [
   {
-   "id": "193221182",
+   "id": "193257963",
    "name": "PGA TOUR FREE 200-Player",
    "fee": 0,
    "entries": 200,
@@ -20,7 +20,7 @@
    ]
   },
   {
-   "id": "193201173",
+   "id": "193242465",
    "name": "PGA TOUR FREE 50-Player",
    "fee": 0,
    "entries": 50,
@@ -35,8 +35,23 @@
    ]
   },
   {
-   "id": "193218656",
-   "name": "PGA TOUR FREE 20-Player x2",
+   "id": "193242670",
+   "name": "PGA TOUR FREE 25-Player",
+   "fee": 0,
+   "entries": 25,
+   "paidSpots": 1,
+   "prizePool": 0.0,
+   "tiers": [
+    {
+     "min": 1,
+     "max": 1,
+     "value": 0.0
+    }
+   ]
+  },
+  {
+   "id": "193279940",
+   "name": "PGA TOUR FREE 20-Player",
    "fee": 0,
    "entries": 20,
    "paidSpots": 1,
@@ -395,7 +410,7 @@
    ]
   },
   {
-   "id": "193183905",
+   "id": "193283441",
    "name": "PGA TOUR $0.25 Winner Take All [$50 to 1st]",
    "fee": 0.25,
    "entries": 237,
@@ -895,7 +910,7 @@
    ]
   },
   {
-   "id": "193183831",
+   "id": "193281680",
    "name": "PGA TOUR $2 Winner Take All [$200 to 1st]",
    "fee": 2,
    "entries": 118,
@@ -925,7 +940,7 @@
    ]
   },
   {
-   "id": "193183832",
+   "id": "193270865",
    "name": "PGA TOUR 10x Booster [Top 3 Win $20]",
    "fee": 2,
    "entries": 35,
@@ -1190,7 +1205,7 @@
    ]
   },
   {
-   "id": "193196288",
+   "id": "193196286",
    "name": "PGA TOUR SUPERSat to NFL 9-13 $100 Fantasy Football Millionaire [10x]",
    "fee": 3,
    "entries": 396,
@@ -2240,7 +2255,7 @@
    ]
   },
   {
-   "id": "193183835",
+   "id": "193283964",
    "name": "PGA TOUR $20 Winner Take All [$175 to 1st]",
    "fee": 20,
    "entries": 10,
@@ -2266,46 +2281,6 @@
      "min": 1,
      "max": 5,
      "value": 36.0
-    }
-   ]
-  },
-  {
-   "id": "193184125",
-   "name": "PGA TOUR $20 10-Player",
-   "fee": 20,
-   "entries": 10,
-   "paidSpots": 3,
-   "prizePool": 180.0,
-   "tiers": [
-    {
-     "min": 1,
-     "max": 1,
-     "value": 90.0
-    },
-    {
-     "min": 2,
-     "max": 2,
-     "value": 55.0
-    },
-    {
-     "min": 3,
-     "max": 3,
-     "value": 35.0
-    }
-   ]
-  },
-  {
-   "id": "193193389",
-   "name": "PGA TOUR $20 8-Player (Winner Takes All)",
-   "fee": 20,
-   "entries": 8,
-   "paidSpots": 1,
-   "prizePool": 144.0,
-   "tiers": [
-    {
-     "min": 1,
-     "max": 1,
-     "value": 144.0
     }
    ]
   },
@@ -2675,21 +2650,6 @@
    ]
   },
   {
-   "id": "193183887",
-   "name": "PGA TOUR $50 Triple Up [Top 5 Win $150]",
-   "fee": 50,
-   "entries": 17,
-   "paidSpots": 5,
-   "prizePool": 750.0,
-   "tiers": [
-    {
-     "min": 1,
-     "max": 5,
-     "value": 150.0
-    }
-   ]
-  },
-  {
    "id": "193182851",
    "name": "PGA TOUR $70K Up-and-Down [$20K to 1st]",
    "fee": 55,
@@ -2850,7 +2810,7 @@
    ]
   },
   {
-   "id": "193183932",
+   "id": "193183936",
    "name": "PGA TOUR $85 Winner Take All [$300 to 1st]",
    "fee": 85,
    "entries": 4,
@@ -3102,21 +3062,6 @@
   {
    "id": "193184114",
    "name": "PGA TOUR $109 3-Player",
-   "fee": 109,
-   "entries": 3,
-   "paidSpots": 1,
-   "prizePool": 300.0,
-   "tiers": [
-    {
-     "min": 1,
-     "max": 1,
-     "value": 300.0
-    }
-   ]
-  },
-  {
-   "id": "193184200",
-   "name": "Casual PGA TOUR $109 3-Player",
    "fee": 109,
    "entries": 3,
    "paidSpots": 1,
@@ -3540,7 +3485,7 @@
    ]
   },
   {
-   "id": "193183923",
+   "id": "193183924",
    "name": "PGA TOUR $267 Winner Take All [$1K to 1st]",
    "fee": 267,
    "entries": 4,
@@ -3615,7 +3560,7 @@
    ]
   },
   {
-   "id": "193183958",
+   "id": "193183960",
    "name": "PGA TOUR $555 Winner Take All [$2K to 1st]",
    "fee": 555,
    "entries": 4,
@@ -3705,21 +3650,6 @@
    ]
   },
   {
-   "id": "193182840",
-   "name": "PGA TOUR $1,060 50-50 [Top 50% Win]",
-   "fee": 1060,
-   "entries": 10,
-   "paidSpots": 5,
-   "prizePool": 10000.0,
-   "tiers": [
-    {
-     "min": 1,
-     "max": 5,
-     "value": 2000.0
-    }
-   ]
-  },
-  {
    "id": "193184106",
    "name": "PGA TOUR $1,060 50-50",
    "fee": 1060,
@@ -3735,7 +3665,7 @@
    ]
   },
   {
-   "id": "193216161",
+   "id": "193259800",
    "name": "PGA TOUR $1,060 Winner Take All [$3K to 1st] (Must Fill)",
    "fee": 1060,
    "entries": 3,
@@ -3810,7 +3740,7 @@
    ]
   },
   {
-   "id": "193184239",
+   "id": "193216160",
    "name": "PGA TOUR $2,120 3-Player",
    "fee": 2120,
    "entries": 3,
@@ -3970,7 +3900,7 @@
    ]
   },
   {
-   "id": "193184234",
+   "id": "193243241",
    "name": "PGA TOUR $100K Heavy Hitter [Must Fill]",
    "fee": 26200,
    "entries": 4,
