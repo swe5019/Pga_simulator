@@ -1,5 +1,5 @@
 {
- "updatedUtc": "2026-08-05T19:56:06Z",
+ "updatedUtc": "2026-08-05T22:28:40Z",
  "slate": "WYNDHAM_2026",
  "event": "Wyndham Championship",
  "counts": {
@@ -108,7 +108,7 @@
   {
    "source": "Google News: Wyndham Championship DFS",
    "ok": true,
-   "items": 87,
+   "items": 90,
    "error": null
   },
   {
@@ -120,7 +120,7 @@
   {
    "source": "Google News: Wyndham Championship WD",
    "ok": true,
-   "items": 67,
+   "items": 68,
    "error": null
   },
   {
@@ -181,9 +181,9 @@
   },
   {
    "name": "Blades Brown",
-   "news": 6,
+   "news": 5,
    "chatter": 0,
-   "total": 6
+   "total": 5
   },
   {
    "name": "Hideki Matsuyama",
@@ -199,6 +199,12 @@
   },
   {
    "name": "Aaron Rai",
+   "news": 4,
+   "chatter": 0,
+   "total": 4
+  },
+  {
+   "name": "Sungjae Im",
    "news": 4,
    "chatter": 0,
    "total": 4
@@ -222,13 +228,13 @@
    "total": 3
   },
   {
-   "name": "Rasmus Hojgaard",
+   "name": "Benjamin James",
    "news": 3,
    "chatter": 0,
    "total": 3
   },
   {
-   "name": "Benjamin James",
+   "name": "Rasmus Hojgaard",
    "news": 3,
    "chatter": 0,
    "total": 3
@@ -240,19 +246,7 @@
    "total": 3
   },
   {
-   "name": "Ben Griffin",
-   "news": 3,
-   "chatter": 0,
-   "total": 3
-  },
-  {
    "name": "Matt Wallace",
-   "news": 3,
-   "chatter": 0,
-   "total": 3
-  },
-  {
-   "name": "Harry Hall",
    "news": 3,
    "chatter": 0,
    "total": 3
@@ -264,7 +258,19 @@
    "total": 3
   },
   {
+   "name": "Ben Griffin",
+   "news": 3,
+   "chatter": 0,
+   "total": 3
+  },
+  {
    "name": "Alex Fitzpatrick",
+   "news": 3,
+   "chatter": 0,
+   "total": 3
+  },
+  {
+   "name": "Harry Hall",
    "news": 3,
    "chatter": 0,
    "total": 3
@@ -274,24 +280,6 @@
    "news": 3,
    "chatter": 0,
    "total": 3
-  },
-  {
-   "name": "Sungjae Im",
-   "news": 3,
-   "chatter": 0,
-   "total": 3
-  },
-  {
-   "name": "Billy Horschel",
-   "news": 2,
-   "chatter": 0,
-   "total": 2
-  },
-  {
-   "name": "Harris English",
-   "news": 2,
-   "chatter": 0,
-   "total": 2
   },
   {
    "name": "Zac Blair",
@@ -306,7 +294,19 @@
    "total": 2
   },
   {
+   "name": "Billy Horschel",
+   "news": 2,
+   "chatter": 0,
+   "total": 2
+  },
+  {
    "name": "David Skinns",
+   "news": 2,
+   "chatter": 0,
+   "total": 2
+  },
+  {
+   "name": "Harris English",
    "news": 2,
    "chatter": 0,
    "total": 2
@@ -318,79 +318,13 @@
    "total": 2
   },
   {
-   "name": "Eric Cole",
-   "news": 2,
-   "chatter": 0,
-   "total": 2
-  },
-  {
-   "name": "Davis Riley",
-   "news": 2,
-   "chatter": 0,
-   "total": 2
-  },
-  {
-   "name": "Tony Finau",
-   "news": 2,
-   "chatter": 0,
-   "total": 2
-  },
-  {
-   "name": "Maverick McNealy",
-   "news": 2,
-   "chatter": 0,
-   "total": 2
-  },
-  {
-   "name": "Keith Mitchell",
-   "news": 2,
-   "chatter": 0,
-   "total": 2
-  },
-  {
-   "name": "Michael Kim",
-   "news": 2,
-   "chatter": 0,
-   "total": 2
-  },
-  {
-   "name": "Emiliano Grillo",
-   "news": 2,
-   "chatter": 0,
-   "total": 2
-  },
-  {
-   "name": "Austin Eckroat",
-   "news": 2,
-   "chatter": 0,
-   "total": 2
-  },
-  {
-   "name": "Doug Ghim",
-   "news": 2,
-   "chatter": 0,
-   "total": 2
-  },
-  {
-   "name": "Brandt Snedeker",
-   "news": 2,
-   "chatter": 0,
-   "total": 2
-  },
-  {
    "name": "Ryan Gerard",
    "news": 2,
    "chatter": 0,
    "total": 2
   },
   {
-   "name": "Nick Taylor",
-   "news": 2,
-   "chatter": 0,
-   "total": 2
-  },
-  {
-   "name": "Danny Walker",
+   "name": "Emiliano Grillo",
    "news": 2,
    "chatter": 0,
    "total": 2
@@ -408,7 +342,73 @@
    "total": 2
   },
   {
+   "name": "Michael Kim",
+   "news": 2,
+   "chatter": 0,
+   "total": 2
+  },
+  {
+   "name": "Davis Riley",
+   "news": 2,
+   "chatter": 0,
+   "total": 2
+  },
+  {
+   "name": "Nick Taylor",
+   "news": 2,
+   "chatter": 0,
+   "total": 2
+  },
+  {
    "name": "Johnny Keefer",
+   "news": 2,
+   "chatter": 0,
+   "total": 2
+  },
+  {
+   "name": "Austin Eckroat",
+   "news": 2,
+   "chatter": 0,
+   "total": 2
+  },
+  {
+   "name": "Maverick McNealy",
+   "news": 2,
+   "chatter": 0,
+   "total": 2
+  },
+  {
+   "name": "Doug Ghim",
+   "news": 2,
+   "chatter": 0,
+   "total": 2
+  },
+  {
+   "name": "Brandt Snedeker",
+   "news": 2,
+   "chatter": 0,
+   "total": 2
+  },
+  {
+   "name": "Keith Mitchell",
+   "news": 2,
+   "chatter": 0,
+   "total": 2
+  },
+  {
+   "name": "Eric Cole",
+   "news": 2,
+   "chatter": 0,
+   "total": 2
+  },
+  {
+   "name": "Danny Walker",
+   "news": 2,
+   "chatter": 0,
+   "total": 2
+  },
+  {
+   "name": "Tony Finau",
    "news": 2,
    "chatter": 0,
    "total": 2
@@ -480,13 +480,25 @@
    "total": 1
   },
   {
+   "name": "Ben Kohles",
+   "news": 1,
+   "chatter": 0,
+   "total": 1
+  },
+  {
    "name": "Kris Ventura",
    "news": 1,
    "chatter": 0,
    "total": 1
   },
   {
-   "name": "Alex Noren",
+   "name": "Kevin Roy",
+   "news": 1,
+   "chatter": 0,
+   "total": 1
+  },
+  {
+   "name": "Davis Chatfield",
    "news": 1,
    "chatter": 0,
    "total": 1
@@ -498,7 +510,37 @@
    "total": 1
   },
   {
-   "name": "Davis Chatfield",
+   "name": "Rasmus Neergaard-Petersen",
+   "news": 1,
+   "chatter": 0,
+   "total": 1
+  },
+  {
+   "name": "Kevin Yu",
+   "news": 1,
+   "chatter": 0,
+   "total": 1
+  },
+  {
+   "name": "Mackenzie Hughes",
+   "news": 1,
+   "chatter": 0,
+   "total": 1
+  },
+  {
+   "name": "Christiaan Bezuidenhout",
+   "news": 1,
+   "chatter": 0,
+   "total": 1
+  },
+  {
+   "name": "Denny McCarthy",
+   "news": 1,
+   "chatter": 0,
+   "total": 1
+  },
+  {
+   "name": "Beau Hossler",
    "news": 1,
    "chatter": 0,
    "total": 1
@@ -511,18 +553,6 @@
   },
   {
    "name": "Aaron Wise",
-   "news": 1,
-   "chatter": 0,
-   "total": 1
-  },
-  {
-   "name": "J.T. Poston",
-   "news": 1,
-   "chatter": 0,
-   "total": 1
-  },
-  {
-   "name": "Beau Hossler",
    "news": 1,
    "chatter": 0,
    "total": 1
@@ -546,25 +576,19 @@
    "total": 1
   },
   {
-   "name": "Nicolas Echavarria",
+   "name": "Rico Hoey",
    "news": 1,
    "chatter": 0,
    "total": 1
   },
   {
-   "name": "Denny McCarthy",
+   "name": "Alex Noren",
    "news": 1,
    "chatter": 0,
    "total": 1
   },
   {
-   "name": "Ryo Hisatsune",
-   "news": 1,
-   "chatter": 0,
-   "total": 1
-  },
-  {
-   "name": "Max McGreevy",
+   "name": "Bud Cauley",
    "news": 1,
    "chatter": 0,
    "total": 1
@@ -582,25 +606,25 @@
    "total": 1
   },
   {
+   "name": "Ryo Hisatsune",
+   "news": 1,
+   "chatter": 0,
+   "total": 1
+  },
+  {
    "name": "Gordon Sargent",
    "news": 1,
    "chatter": 0,
    "total": 1
   },
   {
-   "name": "Rico Hoey",
-   "news": 1,
-   "chatter": 0,
-   "total": 1
-  },
-  {
-   "name": "Christiaan Bezuidenhout",
-   "news": 1,
-   "chatter": 0,
-   "total": 1
-  },
-  {
    "name": "Joe Highsmith",
+   "news": 1,
+   "chatter": 0,
+   "total": 1
+  },
+  {
+   "name": "Jackson Suber",
    "news": 1,
    "chatter": 0,
    "total": 1
@@ -618,13 +642,13 @@
    "total": 1
   },
   {
-   "name": "Steven Fisk",
+   "name": "Zachary Bauchou",
    "news": 1,
    "chatter": 0,
    "total": 1
   },
   {
-   "name": "Mackenzie Hughes",
+   "name": "Steven Fisk",
    "news": 1,
    "chatter": 0,
    "total": 1
@@ -636,13 +660,13 @@
    "total": 1
   },
   {
-   "name": "Jordan Spieth",
+   "name": "Camilo Villegas",
    "news": 1,
    "chatter": 0,
    "total": 1
   },
   {
-   "name": "Camilo Villegas",
+   "name": "Jordan Spieth",
    "news": 1,
    "chatter": 0,
    "total": 1
@@ -672,13 +696,13 @@
    "total": 1
   },
   {
-   "name": "Lee Hodges",
+   "name": "Nick Dunlap",
    "news": 1,
    "chatter": 0,
    "total": 1
   },
   {
-   "name": "Nick Dunlap",
+   "name": "Lee Hodges",
    "news": 1,
    "chatter": 0,
    "total": 1
@@ -696,13 +720,13 @@
    "total": 1
   },
   {
-   "name": "Pierceson Coody",
+   "name": "Pontus Nyholm",
    "news": 1,
    "chatter": 0,
    "total": 1
   },
   {
-   "name": "Pontus Nyholm",
+   "name": "Nicolas Echavarria",
    "news": 1,
    "chatter": 0,
    "total": 1
@@ -720,43 +744,13 @@
    "total": 1
   },
   {
+   "name": "Max McGreevy",
+   "news": 1,
+   "chatter": 0,
+   "total": 1
+  },
+  {
    "name": "Chad Ramey",
-   "news": 1,
-   "chatter": 0,
-   "total": 1
-  },
-  {
-   "name": "Ben Kohles",
-   "news": 1,
-   "chatter": 0,
-   "total": 1
-  },
-  {
-   "name": "Bud Cauley",
-   "news": 1,
-   "chatter": 0,
-   "total": 1
-  },
-  {
-   "name": "Alex Smalley",
-   "news": 1,
-   "chatter": 0,
-   "total": 1
-  },
-  {
-   "name": "Jackson Suber",
-   "news": 1,
-   "chatter": 0,
-   "total": 1
-  },
-  {
-   "name": "Kevin Yu",
-   "news": 1,
-   "chatter": 0,
-   "total": 1
-  },
-  {
-   "name": "Kevin Roy",
    "news": 1,
    "chatter": 0,
    "total": 1
@@ -834,6 +828,18 @@
    "total": 1
   },
   {
+   "name": "Alex Smalley",
+   "news": 1,
+   "chatter": 0,
+   "total": 1
+  },
+  {
+   "name": "Pierceson Coody",
+   "news": 1,
+   "chatter": 0,
+   "total": 1
+  },
+  {
    "name": "Jeffrey Kang",
    "news": 1,
    "chatter": 0,
@@ -852,12 +858,6 @@
    "total": 1
   },
   {
-   "name": "Rasmus Neergaard-Petersen",
-   "news": 1,
-   "chatter": 0,
-   "total": 1
-  },
-  {
    "name": "Matthew McCarty",
    "news": 1,
    "chatter": 0,
@@ -865,12 +865,6 @@
   },
   {
    "name": "Adam Schenk",
-   "news": 1,
-   "chatter": 0,
-   "total": 1
-  },
-  {
-   "name": "Zachary Bauchou",
    "news": 1,
    "chatter": 0,
    "total": 1
@@ -901,6 +895,12 @@
   },
   {
    "name": "Marcelo Rozo",
+   "news": 1,
+   "chatter": 0,
+   "total": 1
+  },
+  {
+   "name": "J.T. Poston",
    "news": 1,
    "chatter": 0,
    "total": 1
@@ -938,10 +938,55 @@
  ],
  "items": [
   {
+   "title": "2026 Wyndham Championship Betting: Picks, Odds, Predictions, and Best Bets - RotoWire",
+   "link": "https://news.google.com/rss/articles/CBMitgFBVV95cUxNcHdGdHhfU3lzaDVzNkJRQzVzQldPMEpwbUQxbTZlWjRmbHowMkNIa3hsZDFMcjhQak1kbVMtOTJINllXYU9ycVNjaDJtV3FQc3Jlak1ESnEtTkhNdzZ2SE4zXzlEcGVGdWZabERsQ0c1UEV2Q0wyMkUtMHhWZ0dwQW0tLURLSDR5QmFlVjI2NFZQT1RkbEFuTXFNMWhaRk52NEZuTG5hM2FFZFhDOHdPdXJ5RWtaQQ?oc=5",
+   "summary": "2026 Wyndham Championship Betting: Picks, Odds, Predictions, and Best Bets RotoWire",
+   "published": "Wed, 05 Aug 2026 21:33:00 GMT",
+   "source": "Google News: Wyndham Championship DFS",
+   "kind": "news",
+   "golfers": []
+  },
+  {
+   "title": "Top fantasy golf targets and pivot picks for the Wyndham Championship - DraftKings Network",
+   "link": "https://news.google.com/rss/articles/CBMitwFBVV95cUxNZC1RYzY2QXdkenk3RTFNaFhWSHAtWHVOTWVfRjBhTlJDWFpzMnc5Y1E0Ujloc1ZpTHFlVTNWd2pVS2oyZHhRSDNBUzVvVG5lTVJmVkpqbHI1d2lZZ2JEX2tCd0F2anJndmVyOGwwNUQ5LWg5ZU1FYVZ0SVdSTmduR1JWMEc1cUdZbTlnQnl4cU5QOWdqOFpydEY1MWtNVnpoa25sdElGa2traTRrMTFJMjJFNmlGb1k?oc=5",
+   "summary": "Top fantasy golf targets and pivot picks for the Wyndham Championship DraftKings Network",
+   "published": "Wed, 05 Aug 2026 21:22:48 GMT",
+   "source": "Google News: Wyndham Championship DFS",
+   "kind": "news",
+   "golfers": []
+  },
+  {
+   "title": "Golf Best Bets: Round 1 Picks for the 2026 Wyndham Championship - DraftKings Network",
+   "link": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxOdFhub2taa2xzRXNReURPWV9xNEhjOTRpazQ5U3Qxa2psSTZ1MGx1emNvNFRadXlkamdhMHAyNEZvVDlLYU9uUllQbEtJbE1Xa2VzYlJVN19sTS1RY0Ezcm5PVVBvVHBFSjZ1eGFCVFd0TlhSSnpCbkNJWFFVOGM2X01EVUJqVlZac1hCMWdHVTl1YTlnNXRWVzZPVDhkb3lxUlBhUUZmd2F6V1E?oc=5",
+   "summary": "Golf Best Bets: Round 1 Picks for the 2026 Wyndham Championship DraftKings Network",
+   "published": "Wed, 05 Aug 2026 21:01:47 GMT",
+   "source": "Google News: Wyndham Championship DFS",
+   "kind": "news",
+   "golfers": []
+  },
+  {
+   "title": "Wyndham Predictions: 4 Golf Picks and Best Bets for This Week - FanDuel",
+   "link": "https://news.google.com/rss/articles/CBMimAFBVV95cUxQalBSQ0pjYTNjT3lRN0Rfb29DY25FdmZFZ3ZnLTNBMkN0RzhVMVJSTExBWS1CdnlaY0JyN2hGVTE5WkQ2NVExX3lCc1UtM3RkMzhtU2JMcHRuNGZXWXlkRldSLXd6d19JMTBobEVaV3RoTkMxdlAyR0NPTjJRMFExRmkyOWg1aGRjVVR1cnFmc2RHejl2Q0Y2aw?oc=5",
+   "summary": "Wyndham Predictions: 4 Golf Picks and Best Bets for This Week FanDuel",
+   "published": "Wed, 05 Aug 2026 19:45:21 GMT",
+   "source": "Google News: Wyndham Championship picks",
+   "kind": "news",
+   "golfers": []
+  },
+  {
    "title": "Wyndham Championship Picks, Best Bets: 5 Expert Predictions for Sedgefield - Action Network",
    "link": "https://news.google.com/rss/articles/CBMirAFBVV95cUxNeEZySFZ6QnBpYXRtQ0lSaHVmaFVsVTl3ZGhmY1oyX0F2Mm1GVzFPRGJGUEY0SV9vdHI0Szd6QmRoTENsVDhHdlcwbExabF9RaTV4YnExMVI5dGhmZXFpRk9OWnNnTlR4X0lIZ3B6WXFhVy1NYlhrTGRJY3Q0WW1rZFhlZ0p1RkdKZ09KV0k3TV9RM250dVNLV2hxc0s4bFBlUWdJY1NTTkN4OHFF?oc=5",
    "summary": "Wyndham Championship Picks, Best Bets: 5 Expert Predictions for Sedgefield Action Network",
    "published": "Wed, 05 Aug 2026 19:37:00 GMT",
+   "source": "Google News: Wyndham Championship picks",
+   "kind": "news",
+   "golfers": []
+  },
+  {
+   "title": "2026 Wyndham Championship odds, picks: Proven golf model reveals projected leaderboard, surprising predictions - SportsLine",
+   "link": "https://news.google.com/rss/articles/CBMi3AFBVV95cUxPc3NFMVo3bTVBSGpRQi1uZW9iZ0RCc2tnNm01NEhpNVdrVk4xc1JfWXpxMkFPQ3BsZS1YZThsdWF1QTFXb1kxUWhMaXkzLURfbGN6ck5tbTBSQWNlNWFxQ3p5QnVYMGxlQzdHa01oY1JCb1NNM2Z3Sno0VkxvOHo1N3laOV9DSnltSE9lUkYwbmNubXNKWFJVNzQtcEpNQ0gtT0RrcWxvUTd5TWxWSmNkYW1iVTZ4SG5BdXJtZG15RjM2d3plVV9qbl91N2ZEZ0dncTExT3R4cDhsSUpU?oc=5",
+   "summary": "2026 Wyndham Championship odds, picks: Proven golf model reveals projected leaderboard, surprising predictions SportsLine",
+   "published": "Wed, 05 Aug 2026 19:34:00 GMT",
    "source": "Google News: Wyndham Championship picks",
    "kind": "news",
    "golfers": []
@@ -1006,6 +1051,15 @@
    ]
   },
   {
+   "title": "Wyndham Championship DFS Picks 2026: PGA DraftKings Lineups - Stokastic",
+   "link": "https://news.google.com/rss/articles/CBMikwFBVV95cUxNVE9ObExaMFFLZngwSGNIanZHS2x2WnowdW5nZEhwSFg0Y3YweURyRGIzMWdKdlpENVk4b3Vtb3ZDR0JVSUNLWVpkZmVHeDFhZkJvY0J3WnlBLXBVQ3ZhZzBYaFBNSUFSc0JkV3UxMG9PajJpTWsxSXdwN0lFaVFNQUFrLV9qdlAwZWlic0RjODlLTUU?oc=5",
+   "summary": "Wyndham Championship DFS Picks 2026: PGA DraftKings Lineups Stokastic",
+   "published": "Wed, 05 Aug 2026 18:27:47 GMT",
+   "source": "Google News: Wyndham Championship picks",
+   "kind": "news",
+   "golfers": []
+  },
+  {
    "title": "PGA DFS Picks: DraftKings & FanDuel Tournament Breakdown for the Wyndham Championship - RotoGrinders",
    "link": "https://news.google.com/rss/articles/CBMiswFBVV95cUxPVExsR3ZsOEVCeXl0ZEJBN09rTEd1UkRaSTNuN2tCWnNtbGV1Z3FMenI0UHdzRXY0aE0xcm11MTBldXVSWHNCOG9fM3FGUnplNHphcmxCWjQ0ZVFRSTRtUUJvdUQxQnBMNVlBQ001NDFiQTF2RHhCLTNrMWNvSXFMRlBhR0RzRkJhbmVBWjNONk4zdW0zWFBxNzZiUHpHSEE4QXh0SVM3eGtSQTVvU1BjSHVXZw?oc=5",
    "summary": "PGA DFS Picks: DraftKings & FanDuel Tournament Breakdown for the Wyndham Championship RotoGrinders",
@@ -1037,15 +1091,6 @@
    "link": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxPaHVaMjlpRHUtY1F1Y2xkZHZ5cmZqblJYczFnbDVBNjJNYmtkd0I1ZDJpcU92QkFvOWczdmRZU2J6WVItZ2pJaWx3LTVJbWU3MWFVREV3S05EMXVLaXROS3VxT0FrczdFeVU2aHdWQWlJTkd6YTdVWlp2QTJzNEh4Q3FrRTIwNjdrVnlzbkRzTXdBUFNzaXlYRzNQRXZ4TWN0UHZFLXJqcjY5d1hTM2xpTmF2OVlkcFhUcGk3Vi1YTzFyS2hLWmZVLU1jN01FZUhHWUE?oc=5",
    "summary": "Shortest odds to win the 2026 Wyndham Championship include defending champion Golfweek",
    "published": "Wed, 05 Aug 2026 18:02:00 GMT",
-   "source": "Google News: Wyndham Championship picks",
-   "kind": "news",
-   "golfers": []
-  },
-  {
-   "title": "2026 Wyndham Championship Picks, Predictions, and Odds - Canada Sports Betting",
-   "link": "https://news.google.com/rss/articles/CBMinwFBVV95cUxQdU1sVFBDZHhBbmVVRmFRXzZOWGFsby13UXBJTkJDQVVtQ3M2RVdaaEhQZTNXajM5eUlTYmpTWnZEYl9CNHpfWExTR2V3TXlOa0h5ZG42STFHa3h0Tk1yeE9mb1VtN3puSnJjUE1qUmhldkVlR1dzYXRwT3dEd0pRU2MxRlpCc0VZLTdha1FjM1QybGJ4eUpaQlRhQzQ2ejQ?oc=5",
-   "summary": "2026 Wyndham Championship Picks, Predictions, and Odds Canada Sports Betting",
-   "published": "Wed, 05 Aug 2026 17:51:41 GMT",
    "source": "Google News: Wyndham Championship picks",
    "kind": "news",
    "golfers": []
@@ -1114,8 +1159,8 @@
    "source": "Google News: Wyndham Championship picks",
    "kind": "news",
    "golfers": [
-    "Aaron Rai",
-    "Tom Kim"
+    "Tom Kim",
+    "Aaron Rai"
    ]
   },
   {
@@ -1139,6 +1184,15 @@
    "golfers": []
   },
   {
+   "title": "PGA DFS Lineup Advice: Top Golfers (2026 Wyndham Championship) - FantasyPros",
+   "link": "https://news.google.com/rss/articles/CBMinAFBVV95cUxQWktZY3pqbWpPcGdBcVdkNC1HRk1CMUx6T25ScVRZOF9yb2dwX1l3Z3ZZYktNdWJVeGx4NXI1S1V1Rms3Vlg3ZmtiNFhUcUZYR1Z5ZU5TTlpIcnZ0Ym5tVHhSMUF4TXVXSGJqMnhHeGZnVk1nZzN5UWJCcjhoZlgxdU40dDF2YjAyZ3dWMGEwN2ViMUwtenliZjZBVlPSAaIBQVVfeXFMUHBQYXZDanhSY2xXRVdMSG5pTGFWanFIcFVPRk14OGZSUUc0R000MFE4WDRCWEhUZ1lFaTlWMlotU1pOZ3lpRWdQZ0x4YWxfQm1YOXdsLXVnQVAweDhoRzFSYW04WjNSU3ctbmRIeXRNNzFYUHdQYVJmdkx3Z0l6NWd1ZG9jNld6OWtzOVlINlAtaUlZdkpxRmxycHo1RFYtdHJR?oc=5",
+   "summary": "PGA DFS Lineup Advice: Top Golfers (2026 Wyndham Championship) FantasyPros",
+   "published": "Wed, 05 Aug 2026 16:48:09 GMT",
+   "source": "Google News: Wyndham Championship picks",
+   "kind": "news",
+   "golfers": []
+  },
+  {
    "title": "2026 Wyndham Championship: Expert picks, PGA Tour field rankings and fantasy golf tips - Golf News Net",
    "link": "https://news.google.com/rss/articles/CBMi3wFBVV95cUxPTTFkWVpJdHJnUERqamFIR2dCb0ZqWUVBU0NkM1VLdkJuSVVVYTdUWVNYNW1pdjhHdGVlYnZJOW15ZGR0Q3NwN1hFd2J2aFJsSHNFdEZtSHJ1bk5OYnhkSGQxeDNWUEJwTlpkOVVfTGl6WExYdGhHMEV2T1lhTDctU2lTZUg0a1pRZlNJbUE1NDZTZjFqYWxkVFU2bFhRaUNLakl1SDhFTGZPODlxbDFaUm1GVDhmMFdNWTdFaU01bW13UTJiS0RjZ1dBR3FkQUk2UkloTFNkbC1IUFNiVFFn?oc=5",
    "summary": "2026 Wyndham Championship: Expert picks, PGA Tour field rankings and fantasy golf tips Golf News Net",
@@ -1155,8 +1209,8 @@
    "source": "Google News: Wyndham Championship DFS",
    "kind": "news",
    "golfers": [
-    "Rasmus Hojgaard",
-    "Benjamin James"
+    "Benjamin James",
+    "Rasmus Hojgaard"
    ]
   },
   {
@@ -1167,18 +1221,19 @@
    "source": "Yahoo Golf",
    "kind": "news",
    "golfers": [
-    "Jackson Koivun",
-    "Billy Horschel",
     "Cameron Young",
-    "Patrick Fishburn",
-    "Harris English",
-    "Luke List",
-    "Keegan Bradley",
-    "Zac Blair",
-    "Ben Silverman",
-    "David Skinns",
     "Blades Brown",
+    "Jackson Koivun",
+    "Zac Blair",
+    "Keegan Bradley",
+    "Patrick Fishburn",
+    "Sungjae Im",
+    "Luke List",
     "Brooks Koepka",
+    "Ben Silverman",
+    "Billy Horschel",
+    "David Skinns",
+    "Harris English",
     "Jason Day",
     "Kihei Akina"
    ]
@@ -1188,6 +1243,15 @@
    "link": "https://news.google.com/rss/articles/CBMivAFBVV95cUxPQk9yd3dpYjRqcTNLN3puSE9XRDRsUEJqUTlWRVlidlB2QWtlWXFFa2ozMUVuX1paY1lMclR5N3ZTN0NrVzM1elQ1LUxfTEllR1ExWHE2NDNrTFVQb2JybGQtX1lXbjlSTVk4dW5GMHJRMHNnRUQ4bHN0THJyZWtEamVad0NHdERDVl9DdDNibjdoVWNxMU1sVl8yekwwaWVVbFVRUHlGeHB5OG8wYkxJRmtXX3BfeW1hajZuOA?oc=5",
    "summary": "Golf Best Bets: Top long shot winner picks for the 2026 Wyndham Championship DraftKings Network",
    "published": "Wed, 05 Aug 2026 15:41:58 GMT",
+   "source": "Google News: Wyndham Championship DFS",
+   "kind": "news",
+   "golfers": []
+  },
+  {
+   "title": "Wyndham Championship props: Lean on Carolina natives at Sedgefield - PGA Tour",
+   "link": "https://news.google.com/rss/articles/CBMihgJBVV95cUxONEZWZnYwRFh0cVI2TEZjQmF3b2FaMEk4WG9xM0ExRHdhU0FZemdrWUlSNGJtYlhsa1dzS1d5NzBXUUNPMTZtWmRzRTBYOGE5WGJuN1c5Y3I0NHgtVDVjS3N6TFo5Qk1fT29zRUdiT3hLa2E5dE1Pa3NFQWlGam1xbE5faHZSMEg4dDJPMWNVTmRKY19ZVDV6aFM3UGZZblhkendENHV1NG9DN3pFa1F5R0xTaEpTdk9EOXA5cEZuQXpYUXBIWmtrYUR3aDdfaVptd2NlZW8xejRVa24zVDVzSzhyRW5qYVoyQkhxeV9fSTlSX05Bb3UzUmYwWjdpdktXQzcxa2Z3?oc=5",
+   "summary": "Wyndham Championship props: Lean on Carolina natives at Sedgefield PGA Tour",
+   "published": "Wed, 05 Aug 2026 14:50:48 GMT",
    "source": "Google News: Wyndham Championship DFS",
    "kind": "news",
    "golfers": []
@@ -1256,51 +1320,51 @@
    "source": "RotoBaller",
    "kind": "news",
    "golfers": [
-    "Jackson Koivun",
     "Cameron Young",
-    "Justin Thomas",
+    "Hideki Matsuyama",
+    "Blades Brown",
+    "Jackson Koivun",
+    "Ryan Gerard",
+    "Emiliano Grillo",
+    "Jordan L. Smith",
     "Davis Thompson",
+    "Tom Kim",
     "Seamus Power",
-    "Aaron Rai",
-    "Eric Cole",
-    "Ben Griffin",
+    "Benjamin James",
+    "Michael Brennan",
     "Matt Wallace",
-    "Rasmus Hojgaard",
+    "Michael Kim",
     "Luke List",
     "Davis Riley",
-    "Tony Finau",
-    "Maverick McNealy",
-    "Keith Mitchell",
-    "Michael Kim",
-    "Hideki Matsuyama",
-    "Emiliano Grillo",
+    "Nick Taylor",
+    "Rasmus Hojgaard",
+    "Johnny Keefer",
     "Austin Eckroat",
+    "Brooks Koepka",
+    "Maverick McNealy",
+    "Justin Thomas",
     "Doug Ghim",
-    "Harry Hall",
+    "Sahith Theegala",
     "Brandt Snedeker",
     "Cameron Davis",
-    "Ryan Gerard",
-    "Tom Kim",
-    "Nick Taylor",
-    "Sahith Theegala",
+    "Keith Mitchell",
+    "Eric Cole",
+    "Ben Griffin",
     "Danny Walker",
-    "Blades Brown",
-    "Jordan L. Smith",
-    "Michael Brennan",
-    "Alex Fitzpatrick",
-    "Benjamin James",
-    "Brooks Koepka",
-    "Johnny Keefer",
     "Andrew Novak",
+    "Alex Fitzpatrick",
+    "Tony Finau",
+    "Aaron Rai",
+    "Harry Hall",
     "Webb Simpson",
     "Patrick Rodgers",
     "Lorenzo Rodriguez"
    ]
   },
   {
-   "title": "PGA Player Props & Matchup Bets for 2026 Wyndham Championship: Expert Novig Picks - rotoballer.com",
+   "title": "PGA Player Props & Matchup Bets for 2026 Wyndham Championship: Expert Novig Picks - RotoBaller",
    "link": "https://news.google.com/rss/articles/CBMiswFBVV95cUxNQjU1WUxVMkNQT0hHdmlBZ0VzZEJpWU5obWtqQkFwYkN6WlJ1TmMxV2NRbkIyNXh0Y1M1ZHBwamkyTFR2UFRTSG9id2M3YV91LWRXVG9YbVdFTmJzbTQ1cDhaaHlhaHFDdkloM1ZPUDUycFFyOEVERnFPeDR4YkNCeWp0MGtZYUptWE9MQ0c3S3dmTEZkcGNuMGxPWTIybVdwaWdrS3ZyLXYtQnJCTndkQmRqVQ?oc=5",
-   "summary": "PGA Player Props & Matchup Bets for 2026 Wyndham Championship: Expert Novig Picks rotoballer.com",
+   "summary": "PGA Player Props & Matchup Bets for 2026 Wyndham Championship: Expert Novig Picks RotoBaller",
    "published": "Wed, 05 Aug 2026 14:09:06 GMT",
    "source": "Google News: Wyndham Championship picks",
    "kind": "news",
@@ -1316,9 +1380,9 @@
    "golfers": []
   },
   {
-   "title": "Wyndham Championship: Top PGA DFS Picks, Values, and Sleepers for Large-Field Tournaments on DraftKings - fantasylabs.com",
+   "title": "Wyndham Championship: Top PGA DFS Picks, Values, and Sleepers for Large-Field Tournaments on DraftKings - FantasyLabs",
    "link": "https://news.google.com/rss/articles/CBMi2wFBVV95cUxONE5uYlh0NllZU3lGTlBibzV4cFJENUczeEt6ZThLbWtHYTNsNUhpNWZpbjlNcHR3TXA1NVFTNzRSRDRBV01KVjVvMFVOQ3pXakw5V3dRMzRiTHlIS2F5UnR0SGx5T29Qb3BENXE3Q1hSRWJISWVWV1JxcHVkRmVISHliUVRSa2tPVmdnVXF5TFlvLVRDZkRUWlljQTZOREpUVzdYdUJ0UlZsU1hEVkxSV3FVSkZQVmRIVnZSM3Ywb0lTZ0lVZk5YVzV5Y2toZnFLalo4RUtFQm90dUk?oc=5",
-   "summary": "Wyndham Championship: Top PGA DFS Picks, Values, and Sleepers for Large-Field Tournaments on DraftKings fantasylabs.com",
+   "summary": "Wyndham Championship: Top PGA DFS Picks, Values, and Sleepers for Large-Field Tournaments on DraftKings FantasyLabs",
    "published": "Wed, 05 Aug 2026 13:39:38 GMT",
    "source": "Google News: Wyndham Championship DFS",
    "kind": "news",
@@ -1332,21 +1396,21 @@
    "source": "FantasyLabs",
    "kind": "news",
    "golfers": [
-    "Jackson Koivun",
-    "Mac Meissner",
     "Cameron Young",
-    "Justin Thomas",
-    "Davis Thompson",
-    "Luke List",
     "Hideki Matsuyama",
-    "Justin Lower"
+    "Jackson Koivun",
+    "Davis Thompson",
+    "Mac Meissner",
+    "Luke List",
+    "Justin Lower",
+    "Justin Thomas"
    ]
   },
   {
    "title": "Sleeper Picks: Who's flying under the radar at Wyndham Championship - PGA Tour",
    "link": "https://news.google.com/rss/articles/CBMi3gFBVV95cUxPNTNTRHZaNGhsbTFveDR5b215WkVBaERLYk1uRXpLa1JzLUdwU21FTHJ5bzduMGk4VXJVQ05RSVowUVY3NUMyZGp1THA1OEwxSzFOWllKdi0yYW1WRVBSNHppOHFOekVqUm1nTUp4Vkhybm9yM0ROa1YwZFktSkk3dmZtdWN2RHBDXzB5bzdGbUlpNzdnaHlNaWJvS0tQcEZEUmR6bk5iWi1EMzJCM3JGYzcyMklyMXl5TTF1WHIzb3dxemp1MjEzaFQtbUFmdjV4ZkE5S3dXei1MbGxqLXc?oc=5",
    "summary": "Sleeper Picks: Who's flying under the radar at Wyndham Championship PGA Tour",
-   "published": "Wed, 05 Aug 2026 13:33:51 GMT",
+   "published": "Wed, 05 Aug 2026 13:08:10 GMT",
    "source": "Google News: Wyndham Championship picks",
    "kind": "news",
    "golfers": []
@@ -1363,9 +1427,9 @@
    ]
   },
   {
-   "title": "DraftKings PGA DFS Value Plays - 2026 Wyndham Championship (Premium Content) - rotoballer.com",
+   "title": "DraftKings PGA DFS Value Plays - 2026 Wyndham Championship (Premium Content) - RotoBaller",
    "link": "https://news.google.com/rss/articles/CBMitwFBVV95cUxOTzhfUXZrMUFEcEdDaldtYkVoaG14UEJjV2J4Y04tM0lxM1drNWlsbTlsNk1hLUg0SkYyQzFGSVJCZU5SZ0VDUkY4NWU2cDZiRWYtWlZsVXdMaEtURDNKMHFwRVRVeUZQbGItemFnc0J1cEg4VUo2T2MzNTNBSVdFSkZZWXVQTnNqcFFreUl6LUVTNlY1Mi03cW93S0NvQmRUc3dPYjBxeVpVRjRFUE5oXzM1b24yMms?oc=5",
-   "summary": "DraftKings PGA DFS Value Plays - 2026 Wyndham Championship (Premium Content) rotoballer.com",
+   "summary": "DraftKings PGA DFS Value Plays - 2026 Wyndham Championship (Premium Content) RotoBaller",
    "published": "Wed, 05 Aug 2026 13:00:22 GMT",
    "source": "Google News: Wyndham Championship DFS",
    "kind": "news",
@@ -1390,18 +1454,9 @@
    "golfers": []
   },
   {
-   "title": "Best Bets: Golf Talk Canada makes their picks for the Wyndham Championship - TSN",
-   "link": "https://news.google.com/rss/articles/CBMiugFBVV95cUxPaDZKMHFHZDJOQTl4Z1NEeWFmSS1qT1c4Zy1taEhBUXBlb0RIUkh2ay1CbWpRcnAyb1otdEhVWGF6amYzdFFWMmVkR0wtbkgyUDJlSmNxdlBMRGM2U1h1MDNPWEFaN2ZWZHh3Q3FDRTIwV05TalRIb1BfMmVuTzlXN1h5N0syRXl1ZzhQd1VrZWVaaUpMRmQ4UDg1TmYxMWxud3FiRF9SUDV6RDlmY20zRVJMWVhyWmlCcWc?oc=5",
-   "summary": "Best Bets: Golf Talk Canada makes their picks for the Wyndham Championship TSN",
-   "published": "Wed, 05 Aug 2026 12:26:57 GMT",
-   "source": "Google News: Wyndham Championship picks",
-   "kind": "news",
-   "golfers": []
-  },
-  {
-   "title": "DraftKings PGA DFS Lineup Picks for the Wyndham Championship (2026) - rotoballer.com",
+   "title": "DraftKings PGA DFS Lineup Picks for the Wyndham Championship (2026) - RotoBaller",
    "link": "https://news.google.com/rss/articles/CBMiogFBVV95cUxPY210TzBCcDBRTF9NaG5pdzdHelhfQXJwXzhUVWNpUDh3WFlScmVPV2Z1MVBLaC1zMUJvTzNJS2thNnoyMFJoUmVtR1lSc21PMTV2OXBaeEgwMG9teUhqQmpZYXZEM1k1MF90bml5QS1rY1RJOWFYNl8zV2dtYmlsaDJlTVJ6cGVTM2IxNGgwUWxmM2JJcmthdUg3TFlTUXlOM1E?oc=5",
-   "summary": "DraftKings PGA DFS Lineup Picks for the Wyndham Championship (2026) rotoballer.com",
+   "summary": "DraftKings PGA DFS Lineup Picks for the Wyndham Championship (2026) RotoBaller",
    "published": "Wed, 05 Aug 2026 12:15:00 GMT",
    "source": "Google News: Wyndham Championship DFS",
    "kind": "news",
@@ -1418,7 +1473,7 @@
   },
   {
    "title": "Wyndham Championship 2026 odds, picks, predictions, props: Expert fading Jackson Koivun at Greensboro, N.C. - CBS Sports",
-   "link": "https://news.google.com/rss/articles/CBMitgFBVV95cUxPRWdhLWQtVUVZMERvTGRNOEJ0WklidlZKV2MxdkR0bngwVFU3Q3NQMTByZkg4ZzZZaTdZUUJVN3pkWFJnT25ndU9KNnd5Q0p0VzZUckk2V1F1UmlpeTVYU0FEMTZjSndzT0UxcDZDMEI1Y0x0ejVNWmE0QU9SVXR1TEFSZXdDQ0tfd0V3X3ltMGhLUWRONzA2Sy1FQnFPRngtSDdneUpxVmtYczNrcy0taWhUVVJFUQ?oc=5",
+   "link": "https://news.google.com/rss/articles/CBMisAFBVV95cUxNOEhueWpJdDluUWZCYVhTSTc5SXZaYktnWW9QWWx0X0M5WUtxRWZxNDJEbkpEQ256dl80SVNMU1FnT01IUklNYnpvNFQ2T2ZMZmVuVDVZM0tteXdxUmVxWUI4MDBJRXhTbW5VZzlJWW5EV0hHckJOTzZhWkJac2pWOXUwUVNEY1paYWY0RkIyS0Nrb1dmMVFXekNMaW94UGdmaGpnOEtHZ1h3NkNxVTdQSg?oc=5",
    "summary": "Wyndham Championship 2026 odds, picks, predictions, props: Expert fading Jackson Koivun at Greensboro, N.C. CBS Sports",
    "published": "Wed, 05 Aug 2026 12:00:13 GMT",
    "source": "Google News: Wyndham Championship picks",
@@ -1439,20 +1494,20 @@
    ]
   },
   {
-   "title": "Wyndham Picks: 4 Golf Best Bets and Predictions for the Wyndham Championship - FanDuel",
-   "link": "https://news.google.com/rss/articles/CBMirAFBVV95cUxNMWtJeEVjR05zcHRnRlhvMERtUmJaZnpUdFRIMzIzblJaYXNheGZ1STlZSzFqWXNvYlZWN0NOQTlhTk9nZXVJT0dKRkhXSVByeEZacTVSSTd3YWwwRlIxMEJ3VGkyTjJUMVBqVUlzRDFUSDNJNWJEREIyWGRDejJPNVNXdjJuYUZCTzhrcW0zWnJFeUpWdUpaSnp3NHYzMUo4MFpHa2hzbk1DdndZ?oc=5",
-   "summary": "Wyndham Picks: 4 Golf Best Bets and Predictions for the Wyndham Championship FanDuel",
-   "published": "Wed, 05 Aug 2026 11:55:00 GMT",
-   "source": "Google News: Wyndham Championship picks",
+   "title": "PGA DFS First Look: Wyndham Championship Odds, Salaries, Course History - RotoGrinders",
+   "link": "https://news.google.com/rss/articles/CBMijwFBVV95cUxOeGZNX1VYRXVtc0lUbkhXSlhicG0wampBcVJFR0JvSWh0NmtRS0FkMXpKbEEtTjRoUno4VkNPblFnSXRseUt3cnhjN3o5T2I2cG9qN1dLYjFRSXlTZl93YzJZbDcySVFZMHF5YUhLeWJIZ1ctaDY3VjZfdURHS2JLTGpValJwRWJqa3BuQVVGUQ?oc=5",
+   "summary": "PGA DFS First Look: Wyndham Championship Odds, Salaries, Course History RotoGrinders",
+   "published": "Wed, 05 Aug 2026 11:48:13 GMT",
+   "source": "Google News: Wyndham Championship DFS",
    "kind": "news",
    "golfers": []
   },
   {
-   "title": "Wyndham Championship DFS picks 2026: The signs are there for Sungjae Im",
-   "link": "https://sports.yahoo.com/articles/wyndham-championship-dfs-picks-2026-114440755.html",
-   "summary": "Editor's Note: This article is published in partnership with Betsperts Golf, a Golf Digest content partner.",
-   "published": "Wed, 05 Aug 2026 11:44:40 +0000",
-   "source": "Yahoo Golf",
+   "title": "Wyndham Championship DFS picks 2026: The signs are there for Sungjae Im - Golf Digest",
+   "link": "https://news.google.com/rss/articles/CBMid0FVX3lxTE0xZElqOWNyMGk2ZU56dTZ0OVNrT1I4Wkh2cmdxYUMzMnpZY1JCWVFQdHVDWHVMOHVwd3pxNzdIY0FkWkJ6LXFrMDJRRXR3WUs0VTM2TDAxVXJnMGs1TnN6Wk5Fdmk1YlBTNkdScVpBQ1l0SXR0UTZV?oc=5",
+   "summary": "Wyndham Championship DFS picks 2026: The signs are there for Sungjae Im Golf Digest",
+   "published": "Wed, 05 Aug 2026 11:44:40 GMT",
+   "source": "Google News: Wyndham Championship DFS",
    "kind": "news",
    "golfers": [
     "Sungjae Im"
@@ -1463,7 +1518,7 @@
    "link": "https://news.google.com/rss/articles/CBMijAFBVV95cUxPd014N2lxWHM1eWROSWlUUFExUFByelpnWEJiRkY3dFk5dmdqa2VaWWJEbUo4S3hfaGtkZE5nb2FvZWlCV2Q3SVhsMENBNmprMnhaanc1aDJkMktyeWdWMXVBTHVxRTJScnFsZVp5UTBQWTh5Vy1zTXc2Z1NEYzZwLUV6UFJabk03VzZBaQ?oc=5",
    "summary": "Wyndham Championship DFS picks 2026: The signs are there for Sungjae Im Yahoo Sports",
    "published": "Wed, 05 Aug 2026 11:44:40 GMT",
-   "source": "Google News: Wyndham Championship DFS",
+   "source": "Google News: Wyndham Championship picks",
    "kind": "news",
    "golfers": [
     "Sungjae Im"
@@ -1495,17 +1550,6 @@
    "source": "Google News: Wyndham Championship picks",
    "kind": "news",
    "golfers": []
-  },
-  {
-   "title": "Wyndham Championship picks 2026: Another star will be born at Sedgefield",
-   "link": "https://sports.yahoo.com/articles/wyndham-championship-picks-2026-another-111219101.html",
-   "summary": "Blades Brown won't be a longshot for much longer, according to our experts.",
-   "published": "Wed, 05 Aug 2026 11:12:19 +0000",
-   "source": "Yahoo Golf",
-   "kind": "news",
-   "golfers": [
-    "Blades Brown"
-   ]
   },
   {
    "title": "Wyndham Championship picks 2026: Another star will be born at Sedgefield - Yahoo Sports",
@@ -1593,15 +1637,6 @@
    "golfers": []
   },
   {
-   "title": "PGA DFS First Look: Wyndham Championship Odds, Salaries, Course History - RotoGrinders",
-   "link": "https://news.google.com/rss/articles/CBMijwFBVV95cUxOeGZNX1VYRXVtc0lUbkhXSlhicG0wampBcVJFR0JvSWh0NmtRS0FkMXpKbEEtTjRoUno4VkNPblFnSXRseUt3cnhjN3o5T2I2cG9qN1dLYjFRSXlTZl93YzJZbDcySVFZMHF5YUhLeWJIZ1ctaDY3VjZfdURHS2JLTGpValJwRWJqa3BuQVVGUQ?oc=5",
-   "summary": "PGA DFS First Look: Wyndham Championship Odds, Salaries, Course History RotoGrinders",
-   "published": "Wed, 05 Aug 2026 03:06:58 GMT",
-   "source": "Google News: Wyndham Championship DFS",
-   "kind": "news",
-   "golfers": []
-  },
-  {
    "title": "Best Fantasy Golf One and Done Pick for the 2026 Wyndham Championship - DraftKings Network",
    "link": "https://news.google.com/rss/articles/CBMitAFBVV95cUxPVWFkVmRiWC1NeFRLRWF1cVR6OURMNEttQTdSVHVkU1NCT3pXSUJKckI0V1N6UndJeGo0TlZRMHh6QVZmTHU0ZEE0TFhfUkdPWmJOdElKcUFwYWRLdGc1OGlCLUtnYTdYNGlkcWZKYlRnUy0wOVh3ckNwWjExWHRxVWJYVDFITmNxSTZJTzh3b0FrcGRXRWp3ai1PUk9Va1BpNlU4OWVpUTZVS0pHbVlOZFRadjI?oc=5",
    "summary": "Best Fantasy Golf One and Done Pick for the 2026 Wyndham Championship DraftKings Network",
@@ -1648,20 +1683,20 @@
    "kind": "news",
    "golfers": [
     "Cameron Young",
-    "Justin Thomas",
-    "Davis Thompson",
-    "Seamus Power",
-    "Sungjae Im",
-    "Aaron Rai",
-    "Patrick Fishburn",
-    "Ben Griffin",
-    "Matt Wallace",
-    "Chris Kirk",
     "Hideki Matsuyama",
+    "Blades Brown",
+    "Davis Thompson",
+    "Chris Kirk",
+    "Seamus Power",
+    "Matt Wallace",
+    "Patrick Fishburn",
+    "Sungjae Im",
     "Justin Lower",
+    "Justin Thomas",
     "Mark Hubbard",
     "Cameron Davis",
-    "Blades Brown"
+    "Ben Griffin",
+    "Aaron Rai"
    ]
   },
   {
@@ -1670,15 +1705,6 @@
    "summary": "2026 Wyndham Championship odds, picks: Surprising predictions from golf model that's nailed 17 majors CBS Sports",
    "published": "Tue, 04 Aug 2026 22:58:51 GMT",
    "source": "Google News: Wyndham Championship DFS",
-   "kind": "news",
-   "golfers": []
-  },
-  {
-   "title": "Wyndham Championship predictions: PGA Pro\u2019s best bets, odds, expert picks for Sedgefield Country Club event - sportingnews.com",
-   "link": "https://news.google.com/rss/articles/CBMiygFBVV95cUxOUVFzeGI1VjdvQk04OUVYcTJQNFZKQWRyS2pYQ2diMUF3T3Ffbm1nVW9NWVNrbVpxdFlFNDhVYmM1TmJyT3lDeVNxZzI0YlJmTnNMdktvdXA2bUtNYU9pa2xUaHVxNjNaRGpyRTYwUmVFcHZsYldwVWdtSmVJUlZvZDE1S3h3RzdIa3pEUHNLVjVNS3FwZjBXVmZ5WUhaRHJVeEI1UlppeFc2UW1INENla2xLSF91aHNwNWtiUVA2eUhNRFlOMVF2SmxR?oc=5",
-   "summary": "Wyndham Championship predictions: PGA Pro\u2019s best bets, odds, expert picks for Sedgefield Country Club event sportingnews.com",
-   "published": "Tue, 04 Aug 2026 22:49:57 GMT",
-   "source": "Google News: Wyndham Championship picks",
    "kind": "news",
    "golfers": []
   },
@@ -1692,6 +1718,15 @@
    "golfers": []
   },
   {
+   "title": "Wyndham Championship Best Bets and Golf Odds - VSiN",
+   "link": "https://news.google.com/rss/articles/CBMieEFVX3lxTE53R2pwTW9yY25Sek1KeTZmTExzNUJYUVhNc0FwVlhRRGFlaVA1YWVsbjRReEZYUGJ6VjFoTk1OMXZRM1kyeTR5TTUwLUFlRUxVRW9mRmhzZnAyNDBCWXROOWVzenB5WUhhd0hFaW0xTmdEVnpZNE5QYQ?oc=5",
+   "summary": "Wyndham Championship Best Bets and Golf Odds VSiN",
+   "published": "Tue, 04 Aug 2026 21:07:47 GMT",
+   "source": "Google News: Wyndham Championship picks",
+   "kind": "news",
+   "golfers": []
+  },
+  {
    "title": "Wyndham Championship Best Bets and Golf Odds",
    "link": "https://vsin.com/golf/wyndham-championship-best-bets-and-golf-odds-2/",
    "summary": "Wyndham Championship Best Bets and Golf Odds: Former U.S. Junior Amateur (2018) champion Michael Thorbjornsen was promoted to the PGA Tour two years ago for finishing atop the PGA Tour University rankings from his time at Stanford. He got his first tour victory on Sunday at the Rocket Classic courtesy of a 30 on the [&#8230;] The post Wyndham Championship Best Bets and Golf Odds appeared first on ",
@@ -1699,90 +1734,89 @@
    "source": "VSiN",
    "kind": "news",
    "golfers": [
-    "Jackson Koivun",
-    "Billy Horschel",
-    "Mac Meissner",
-    "Kris Ventura",
     "Cameron Young",
-    "Justin Thomas",
+    "Hideki Matsuyama",
+    "Blades Brown",
+    "Jackson Koivun",
+    "Ryan Gerard",
+    "Ben Kohles",
+    "Emiliano Grillo",
+    "Kris Ventura",
+    "Zac Blair",
+    "Jordan L. Smith",
     "Davis Thompson",
+    "Kevin Roy",
+    "Chris Kirk",
+    "Tom Kim",
     "Seamus Power",
-    "Alex Noren",
-    "Ricky Castillo",
     "Davis Chatfield",
-    "Joel Dahmen",
-    "Aaron Rai",
-    "Aaron Wise",
-    "Patrick Fishburn",
-    "Eric Cole",
-    "Ben Griffin",
-    "J.T. Poston",
-    "Harris English",
-    "Matt Wallace",
-    "Rasmus Hojgaard",
+    "Benjamin James",
+    "Michael Brennan",
+    "Ricky Castillo",
+    "Rasmus Neergaard-Petersen",
+    "Kevin Yu",
+    "Mackenzie Hughes",
+    "Christiaan Bezuidenhout",
+    "Brian Harman",
+    "Denny McCarthy",
     "Beau Hossler",
+    "Matt Wallace",
+    "Joel Dahmen",
+    "Michael Kim",
+    "Aaron Wise",
+    "Mac Meissner",
+    "Patrick Fishburn",
     "A.J. Ewart",
     "Lucas Glover",
     "Kevin Streelman",
     "Luke List",
-    "Davis Riley",
-    "Nicolas Echavarria",
-    "Denny McCarthy",
-    "Ryo Hisatsune",
-    "Chris Kirk",
-    "Max McGreevy",
-    "Stephan Jaeger",
-    "Chandler Blanchet",
-    "Tony Finau",
-    "Gordon Sargent",
     "Rico Hoey",
-    "Brian Harman",
-    "Christiaan Bezuidenhout",
-    "Maverick McNealy",
-    "Keith Mitchell",
+    "Davis Riley",
+    "Nick Taylor",
+    "Alex Noren",
+    "Bud Cauley",
+    "Rasmus Hojgaard",
+    "Stephan Jaeger",
+    "Johnny Keefer",
+    "Chandler Blanchet",
+    "Austin Eckroat",
+    "Ryo Hisatsune",
+    "Gordon Sargent",
     "Joe Highsmith",
-    "Michael Kim",
-    "Hideki Matsuyama",
+    "Jackson Suber",
     "William Mouw",
     "John Parry",
-    "Emiliano Grillo",
+    "Zachary Bauchou",
     "Steven Fisk",
-    "Mackenzie Hughes",
     "Hank Lebioda",
+    "Brooks Koepka",
     "Justin Lower",
-    "Austin Eckroat",
-    "Jordan Spieth",
     "Camilo Villegas",
-    "Doug Ghim",
+    "Jordan Spieth",
     "Tom Hoge",
-    "Harry Hall",
+    "Maverick McNealy",
     "John VanDerLaan",
+    "Justin Thomas",
     "Neal Shipley",
+    "Doug Ghim",
     "Mark Hubbard",
     "Karl Vilips",
     "Brandt Snedeker",
-    "Lee Hodges",
     "Nick Dunlap",
+    "Lee Hodges",
     "Zecheng Dou",
-    "Zac Blair",
     "Stefano Mazzoli",
     "Cameron Davis",
-    "Pierceson Coody",
     "Ben Silverman",
     "Pontus Nyholm",
+    "Nicolas Echavarria",
     "Austin Smotherman",
+    "Keith Mitchell",
     "Adrien Saddier",
+    "Max McGreevy",
     "Chad Ramey",
-    "Ryan Gerard",
-    "Ben Kohles",
-    "Tom Kim",
-    "Bud Cauley",
-    "Alex Smalley",
-    "Nick Taylor",
+    "Billy Horschel",
     "David Skinns",
-    "Jackson Suber",
-    "Kevin Yu",
-    "Kevin Roy",
     "Jesper Svensson",
     "Takumi Kanaya",
     "Rafael Campos",
@@ -1795,43 +1829,35 @@
     "Hayden Springer",
     "Adrien Dumont De Chassart",
     "Patton Kizzire",
+    "Alex Smalley",
+    "Pierceson Coody",
+    "Eric Cole",
     "Jeffrey Kang",
     "Vince Whaley",
+    "Ben Griffin",
     "Lanto Griffin",
     "Danny Walker",
-    "Blades Brown",
-    "Jordan L. Smith",
-    "Michael Brennan",
-    "Alex Fitzpatrick",
-    "Benjamin James",
-    "Brooks Koepka",
-    "Rasmus Neergaard-Petersen",
-    "Johnny Keefer",
     "Matthew McCarty",
     "Adam Schenk",
-    "Zachary Bauchou",
     "Andrew Putnam",
     "Jimmy Stanger",
     "Brian Campbell",
     "Adam Svensson",
+    "Alex Fitzpatrick",
+    "Tony Finau",
+    "Harris English",
     "Marcelo Rozo",
+    "Aaron Rai",
+    "J.T. Poston",
+    "Harry Hall",
     "Taylor Moore",
     "Webb Simpson",
     "Matthieu Pavon",
-    "Erik Van Rooyen",
     "Patrick Rodgers",
+    "Erik Van Rooyen",
     "Brice Garnett",
     "Kensei Hirata"
    ]
-  },
-  {
-   "title": "Wyndham Championship Best Bets and Golf Odds - vsin.com",
-   "link": "https://news.google.com/rss/articles/CBMieEFVX3lxTE53R2pwTW9yY25Sek1KeTZmTExzNUJYUVhNc0FwVlhRRGFlaVA1YWVsbjRReEZYUGJ6VjFoTk1OMXZRM1kyeTR5TTUwLUFlRUxVRW9mRmhzZnAyNDBCWXROOWVzenB5WUhhd0hFaW0xTmdEVnpZNE5QYQ?oc=5",
-   "summary": "Wyndham Championship Best Bets and Golf Odds vsin.com",
-   "published": "Tue, 04 Aug 2026 20:58:03 GMT",
-   "source": "Google News: Wyndham Championship picks",
-   "kind": "news",
-   "golfers": []
   },
   {
    "title": "PGA DFS Picks For FanDuel This Week: Wyndham Championship Cash and GPP Strategy - RotoWire",
@@ -1937,37 +1963,10 @@
    "golfers": []
   },
   {
-   "title": "Wyndham Championship First-Round Leader Picks: FRL Predictions for Sedgefield Country Club - Action Network",
-   "link": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxQQkRLaTFpd3RaTHZTVHZieHc2NlNfMHRVRWpibWpiSGhQcDlVRDlRQkFvbEktWEM3bGRINU9RbXFDUm5ZQkVLakxDN2pIamNPRVA1dko2Q1ZMckN2ZWZhWGVYajhlbkVnUmY2RDZkaEhHMGFnUHBlc3BOVl9ZRnNqNVh6U3pvU0dITDEwdjdkT05HNV9aX0YzWGR3eWJfWjd5T2VtbVZIak1QbG51aXEzQ3RzTi1MRTNzeFNVOUdHanBqQQ?oc=5",
-   "summary": "Wyndham Championship First-Round Leader Picks: FRL Predictions for Sedgefield Country Club Action Network",
-   "published": "Tue, 04 Aug 2026 16:50:00 GMT",
-   "source": "Google News: Wyndham Championship picks",
-   "kind": "news",
-   "golfers": []
-  },
-  {
-   "title": "Wyndham Championship Preview, Predictions, Picks, Odds for Sedgefield Country Club - Action Network",
-   "link": "https://news.google.com/rss/articles/CBMirwFBVV95cUxNNE9WQ0NOOU1UTkM2bnZaSmZ4THRwMkZ3dWZBbXBZdVljWXVBR3FCaE9uV1N6UmJBUVI5TnFsNUxtM2V6cVVfb2VRSk1OdG5BbGtlSE1WVTF5QnY4ejhKc3hjN1F6c0cxZ0IwUk5qLUJEOTFGM2hGX2dYb2ZTaXBTZ2JUa0VrT0JZRk4zMF85S1Ywa2xNaUU0dXd0SFJrNkw0YXZETk13bVNycEk4T2JF?oc=5",
-   "summary": "Wyndham Championship Preview, Predictions, Picks, Odds for Sedgefield Country Club Action Network",
-   "published": "Tue, 04 Aug 2026 16:35:00 GMT",
-   "source": "Google News: Wyndham Championship picks",
-   "kind": "news",
-   "golfers": []
-  },
-  {
-   "title": "Wyndham Championship: Golf One and Done Picks Strategy (2026) - poolgenius.teamrankings.com",
-   "link": "https://news.google.com/rss/articles/CBMixgFBVV95cUxQRFQ4b1oxbHh6Z01fQ1BGSjJpRDlTajNJc1RvU1VieHlPOVh6ZzNXbVJvdlE0bnBpdHF6MlBNVzR6YjZUX1NKRHBjamEyQ0x1a3J6UHNmYjRPNjlCRVptSHlGVDlPZWJJZXFuNHAwSDZSRDNTNlRZWFFGNWJELWlJeXVHVmlBNnp4dm9oVnNaRTRiaEh0RU9GU2tzOW1JZGdkM3BicXNrRnFnR2dicHZnZ1NOdGVfUUp1dDQxOEZLN2NHWlVEd2c?oc=5",
-   "summary": "Wyndham Championship: Golf One and Done Picks Strategy (2026) poolgenius.teamrankings.com",
-   "published": "Tue, 04 Aug 2026 16:17:53 GMT",
-   "source": "Google News: Wyndham Championship picks",
-   "kind": "news",
-   "golfers": []
-  },
-  {
    "title": "Expert Picks: Who are experts riding with at Wyndham Championship? - PGA Tour",
    "link": "https://news.google.com/rss/articles/CBMi7wFBVV95cUxOZE5kNmFSczRqcE11Y0gtSWc1bE8xVGgyMkRYY2lIV1FWdmN4SVRrV2FBekwyQ0R4Qnp6UHpRbXdMR01DN1I5WmR5cGt4MHc0NWRjT0xpTDdKSUEyZlpVVW1ERUN0NGQzdVNJeHFFdzBLeHNEcnFwMlRlYXpkOHhfRlVYNWxYWlBGMXFXZTN0REoxdWRNWWdFVDBRTTh1QXpHZ3VWQW1xZFFTWm84aWV1T3Z3Ukctd0loMUtGb3FydS1XMG51V1RIb2ZoSV8wUWkydUlfaUpOUHNlbzdwcFBJLVdtRGZ6T3B3aEhiVkh2OA?oc=5",
    "summary": "Expert Picks: Who are experts riding with at Wyndham Championship? PGA Tour",
-   "published": "Tue, 04 Aug 2026 15:11:36 GMT",
+   "published": "Tue, 04 Aug 2026 16:03:04 GMT",
    "source": "Google News: Wyndham Championship picks",
    "kind": "news",
    "golfers": []
@@ -1982,9 +1981,9 @@
    "golfers": []
   },
   {
-   "title": "PGA DFS: Top Cash Game Picks for the Wyndham Championship - fantasylabs.com",
+   "title": "PGA DFS: Top Cash Game Picks for the Wyndham Championship - FantasyLabs",
    "link": "https://news.google.com/rss/articles/CBMioAFBVV95cUxQdXZjQmU0dUx1blFBTS1UY2s5Y0FXdVpZc1hQRk82Y09sVzF0U1E5ZWc5czlicVpwUWprZlRGQmkyQUtpcVZfRjc5bUhsMnFobjJBQU02MlU1cUwxbTl6b3dMSkhOWTRwLVFTa3NQRV9OdEU4bmdLRk9oZ2FGOG5Ybi1EMzZVdEZRNEN0X0g2ZzRVbGJvazg3TTJ0dzRDWmRa?oc=5",
-   "summary": "PGA DFS: Top Cash Game Picks for the Wyndham Championship fantasylabs.com",
+   "summary": "PGA DFS: Top Cash Game Picks for the Wyndham Championship FantasyLabs",
    "published": "Tue, 04 Aug 2026 14:28:51 GMT",
    "source": "Google News: Wyndham Championship DFS",
    "kind": "news",
@@ -2054,9 +2053,9 @@
    "golfers": []
   },
   {
-   "title": "PGA DFS Picks: Horse For The Course - 2026 Wyndham Championship - rotoballer.com",
+   "title": "PGA DFS Picks: Horse For The Course - 2026 Wyndham Championship - RotoBaller",
    "link": "https://news.google.com/rss/articles/CBMimwFBVV95cUxOekdxNHpRd2NsQkdjX1BXUkY1Q0V1dm9DU3lyY1JMT09FeV9fMURzUGtmck9oMnI5X0hCNXh6clZUNGtpX1AtQndGeVlGeXRvdE1XYUl2ZWVIZVNPLVBCVlJFekN2M0RCVmF1U2xHUEpGd0s1Y0ctT1VuNV84V0NUSjFDdmIyTlFfdko0UmpaTFEtaDBoU0ZvckJITQ?oc=5",
-   "summary": "PGA DFS Picks: Horse For The Course - 2026 Wyndham Championship rotoballer.com",
+   "summary": "PGA DFS Picks: Horse For The Course - 2026 Wyndham Championship RotoBaller",
    "published": "Tue, 04 Aug 2026 00:15:25 GMT",
    "source": "Google News: Wyndham Championship DFS",
    "kind": "news",
