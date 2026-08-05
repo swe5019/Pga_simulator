@@ -256,14 +256,23 @@ def make_cut_probs(raw, suffix):
     ("Johnny"/"John", "Højgaard"/"Hojgaard") line up with the Data tab.
     """
     sheet = None
+    tried_names = ("Make Cut", "Make_Cut", "MakeCut", "Make cut", "make cut")
     engine = "odf" if suffix == ".ods" else "openpyxl"
-    for name in ("Make Cut", "Make_Cut", "MakeCut", "Make cut", "make cut"):
+    for name in tried_names:
         try:
             sheet = pd.read_excel(io.BytesIO(raw), sheet_name=name, engine=engine)
             break
         except Exception:  # noqa: BLE001
             continue
+    # This used to fail silent: a renamed tab or header meant Cut% went blank
+    # with nothing in the workflow log to say why. Print the mismatch instead.
     if sheet is None:
+        try:
+            all_sheets = pd.ExcelFile(io.BytesIO(raw), engine=engine).sheet_names
+        except Exception:  # noqa: BLE001
+            all_sheets = ["<could not list tabs>"]
+        print(f"Make Cut tab: NOT FOUND. Tried {list(tried_names)}; "
+              f"workbook tabs are {all_sheets}. Cut% will be blank this run.")
         return {}
     cols = {str(c).strip().lower(): c for c in sheet.columns}
 
@@ -272,6 +281,15 @@ def make_cut_probs(raw, suffix):
             if n in cols:
                 return row[cols[n]]
         return None
+
+    name_cols = ("player", "name")
+    value_cols = ("make_cut_prob_pct", "make_cut_prob", "make_cut_pct",
+                  "makecutprobpct", "cut_prob_pct", "cut%", "make cut prob pct")
+    if not any(c in cols for c in name_cols) or not any(c in cols for c in value_cols):
+        print(f"Make Cut tab: found but columns don't match. Looked for name in "
+              f"{name_cols} and probability in {value_cols}; sheet has columns "
+              f"{list(sheet.columns)}. Cut% will be blank this run.")
+        return {}
 
     out = {}
     for _, r in sheet.iterrows():
@@ -292,6 +310,9 @@ def make_cut_probs(raw, suffix):
         val = _r(max(0.0, min(100.0, v)), 1)
         for k in _norm_keys(nm):
             out.setdefault(k, val)
+    if not out:
+        print(f"Make Cut tab: found {len(sheet)} rows but none had a usable "
+              f"name + probability pair. Cut% will be blank this run.")
     return out
 
 
