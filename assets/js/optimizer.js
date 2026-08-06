@@ -162,9 +162,12 @@ function buildPool(golfers, simResults, opts = {}) {
   const allLineups = []; // full candidate pool before exposure post-selection
   // useCount tracks only floor (minExp) progress during the build phase.
   const useCount = new Map(pool.map((g) => [g.id, 0]));
-  const minUses = new Map(
-    pool.map((g) => [g.id, Math.round((minExpById.get(g.id) || 0) * nLineups)])
-  );
+  // Floors are a FRACTION of the candidate pool, not a count against nLineups.
+  // Counting against nLineups was the bug: a 28% floor on a 7-lineup build set
+  // the target to 2 appearances, but useCount is counted across the ~500-lineup
+  // candidate pool, so the boost switched off after 2 candidates and the player
+  // was then nowhere near the top 7 that actually got selected.
+  const minFrac = new Map(pool.map((g) => [g.id, minExpById.get(g.id) || 0]));
 
   const rng = window.Sim.makeRng(987654321);
 
@@ -187,10 +190,14 @@ function buildPool(golfers, simResults, opts = {}) {
     for (const g of pool) {
       let v = simResults.get(g.id).samples[simIndex];
       if (randomness > 0) v += (rng() - 0.5) * 2 * randomness * 30;
-      const floor = minUses.get(g.id);
-      const used = useCount.get(g.id);
-      if (floor > 0 && used < floor) {
-        v += 500 + 500 * ((floor - used) / floor);
+      // Keep the candidate pool at least `frac` represented for this player so the
+      // final selection has enough lineups containing them to honor the floor.
+      // Ratio-based, so the boost re-arms whenever representation slips below target.
+      const frac = minFrac.get(g.id);
+      if (frac > 0) {
+        const built = allLineups.length;
+        const share = built > 0 ? useCount.get(g.id) / built : 0;
+        if (share < frac) v += 500 + 500 * ((frac - share) / frac);
       }
       obj.set(g.id, v);
     }
@@ -277,10 +284,10 @@ function buildPool(golfers, simResults, opts = {}) {
   // Sort all candidates by composite score descending.
   allLineups.sort((a, b) => b.score - a.score);
 
-  const { lineups, exposure, capExceeded } =
-    selectByExposure(allLineups, nLineups, { maxExposure, maxExpById, locks });
+  const { lineups, exposure, capExceeded, floorMissed } =
+    selectByExposure(allLineups, nLineups, { maxExposure, maxExpById, minExpById, locks });
 
-  return { lineups, exposure, attempts, capExceeded, requested: nLineups };
+  return { lineups, exposure, attempts, capExceeded, floorMissed, requested: nLineups };
 }
 
 /**
@@ -292,34 +299,74 @@ function buildPool(golfers, simResults, opts = {}) {
  *
  * @param {Array} sortedLineups - candidates, best first (each has .players: [id])
  * @param {number} nTarget - how many lineups to keep
- * @param {object} opts - { maxExposure, maxExpById:Map<id,0..1>, locks:Set }
- * @returns {{lineups:Array, exposure:Map, capExceeded:Array}}
+ * @param {object} opts - { maxExposure, maxExpById:Map<id,0..1>,
+ *                          minExpById:Map<id,0..1>, locks:Set }
+ * @returns {{lineups:Array, exposure:Map, capExceeded:Array, floorMissed:Array}}
  */
 function selectByExposure(sortedLineups, nTarget, opts = {}) {
   const maxExposure = opts.maxExposure != null ? opts.maxExposure : 1;
   const maxExpById = opts.maxExpById || new Map();
+  const minExpById = opts.minExpById || new Map();
   const locks = opts.locks || new Set();
   const capFor = (id) => (maxExpById.has(id) ? maxExpById.get(id) : maxExposure);
 
+  // A floor of 28% over 7 lineups means "in at least 2 of them" — ceil, not round,
+  // or a 20% floor over 7 would round down to 1 and land at 14%, under the floor.
+  const needFor = (frac, T) => Math.ceil(frac * T - 1e-9);
+
   // Greedy top-down selection honoring per-golfer caps against a FIXED denominator T:
   // a lineup is added only while each capped player's count stays <= floor(cap * T).
+  // Exposure FLOORS get first claim on the slots (phase A), because a floor player
+  // is by definition someone the score ordering would not have picked on its own —
+  // filling purely by score leaves them at 0% every time.
   function selectWithTarget(T) {
     const count = new Map();
-    const out = [];
-    for (const lu of sortedLineups) {
-      if (out.length >= nTarget) break;
-      let ok = true;
+    const taken = new Set(); // indices already selected
+    const fits = (lu) => {
       for (const id of lu.players) {
         if (locks.has(id)) continue;
         const cap = capFor(id);
         if (cap >= 1) continue;
-        if ((count.get(id) || 0) + 1 > Math.floor(cap * T)) { ok = false; break; }
+        if ((count.get(id) || 0) + 1 > Math.floor(cap * T)) return false;
       }
-      if (!ok) continue;
-      out.push(lu);
-      for (const id of lu.players) count.set(id, (count.get(id) || 0) + 1);
+      return true;
+    };
+    const take = (i) => {
+      taken.add(i);
+      for (const id of sortedLineups[i].players) count.set(id, (count.get(id) || 0) + 1);
+    };
+
+    // Phase A: reserve slots to satisfy exposure floors, best-scoring first.
+    if (minExpById.size) {
+      const needs = [];
+      for (const [id, frac] of minExpById) {
+        const need = needFor(frac, nTarget);
+        if (need > 0) needs.push({ id, need });
+      }
+      // Biggest floor first: it has the least room to be satisfied later.
+      needs.sort((a, b) => b.need - a.need);
+      for (const { id, need } of needs) {
+        for (let i = 0; i < sortedLineups.length; i++) {
+          if (taken.size >= nTarget) break;
+          if ((count.get(id) || 0) >= need) break;
+          if (taken.has(i)) continue;
+          if (!sortedLineups[i].players.includes(id)) continue;
+          if (!fits(sortedLineups[i])) continue;
+          take(i);
+        }
+      }
     }
-    return out;
+
+    // Phase B: fill whatever is left purely by score.
+    for (let i = 0; i < sortedLineups.length; i++) {
+      if (taken.size >= nTarget) break;
+      if (taken.has(i)) continue;
+      if (!fits(sortedLineups[i])) continue;
+      take(i);
+    }
+
+    // Return in score order — phase A pulled some lineups out of sequence.
+    return [...taken].sort((a, b) => a - b).map((i) => sortedLineups[i]);
   }
 
   // Find the largest pool whose exposures actually honor the caps. Start with the
@@ -361,7 +408,18 @@ function selectByExposure(sortedLineups, nTarget, opts = {}) {
     }
   }
 
-  return { lineups, exposure, capExceeded };
+  // Which floors we genuinely could not reach — reported so the UI can say whether
+  // the candidate pool simply had too few lineups with that player, or whether the
+  // player's own max cap contradicts their floor.
+  const floorMissed = [];
+  for (const [id, frac] of minExpById) {
+    if (frac <= 0) continue;
+    const got = useCount.get(id) || 0;
+    const need = needFor(frac, lineups.length);
+    if (got < need) floorMissed.push({ id, got, need, min: frac, of: lineups.length });
+  }
+
+  return { lineups, exposure, capExceeded, floorMissed };
 }
 
 /** Compute mean / ceiling / floor / all-cut% of each lineup over the full sim set. */

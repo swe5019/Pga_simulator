@@ -962,10 +962,8 @@ function buildPool() {
     const n = State.build.lineups.length;
     const requested = State.build.requested || opts.nLineups;
     const nameById = new Map(State.golfers.map((g) => [g.id, g.name]));
-    // Best-effort min-exposure: flag any floors we couldn't reach.
-    const miss = State.golfers.filter(
-      (g) => g.minExp != null && (State.build.exposure.get(g.id) || 0) * 100 < g.minExp - 0.5
-    );
+    // Exposure floors the selection could not reach, with the reason where we know it.
+    const miss = State.build.floorMissed || [];
     let msg = `✓ ${n} lineups in ${ms} ms`;
     // A player whose MAX cap couldn't be honored is effectively required by the other
     // constraints (locks, ownership brackets, salary). Explain rather than fail silently.
@@ -979,7 +977,23 @@ function buildPool() {
       msg += ` — capped at ${n} of ${requested}: your exposure limits leave no more unique lineups. Raise a max exposure, add variety, or loosen constraints for more.`;
     }
     if (miss.length) {
-      msg += ` — couldn't reach min exposure for ${miss.map((g) => g.name).join(', ')}`;
+      let anyPoolShortfall = false;
+      const who = miss.map((m) => {
+        const g = byId(m.id);
+        const name = nameById.get(m.id) || m.id;
+        const capPct = g && g.maxExp != null ? g.maxExp : (parseFloat($('#maxExposure').value) || 100);
+        // A floor above the player's own ceiling can never be met — say so plainly
+        // rather than blaming the lineup pool for a self-contradicting setting.
+        if (capPct < m.min * 100) {
+          return `${name} (min ${Math.round(m.min * 100)}% is above their max ${Math.round(capPct)}%)`;
+        }
+        anyPoolShortfall = true;
+        return `${name} ${m.got}/${m.of} lineups, needed ${m.need}`;
+      }).join(', ');
+      msg += ` — couldn't reach min exposure: ${who}.`;
+      if (anyPoolShortfall) {
+        msg += ' Not enough valid lineups contain them; loosen your other constraints or build a bigger pool.';
+      }
     }
     $('#buildStatus').textContent = msg;
     renderPlayers(); // fill the Exp% column
@@ -1027,10 +1041,14 @@ function trimPool() {
   const key = $('#trimBy').value;
   const sorted = [...State.build.lineups].sort((a, b) => (b[key] || 0) - (a[key] || 0));
   const maxExpById = new Map();
-  for (const g of State.golfers) if (g.maxExp != null) maxExpById.set(g.id, g.maxExp / 100);
+  const minExpById = new Map();
+  for (const g of State.golfers) {
+    if (g.maxExp != null) maxExpById.set(g.id, g.maxExp / 100);
+    if (g.minExp != null) minExpById.set(g.id, g.minExp / 100);
+  }
   const locks = new Set(State.golfers.filter((g) => g.locked).map((g) => g.id));
   const maxExposure = (parseFloat($('#maxExposure').value) || 100) / 100;
-  const res = window.Optimizer.selectByExposure(sorted, n, { maxExpById, maxExposure, locks });
+  const res = window.Optimizer.selectByExposure(sorted, n, { maxExpById, maxExposure, minExpById, locks });
   State.build.lineups = res.lineups;
   State.build.exposure = res.exposure;
   State.build.capExceeded = res.capExceeded;
