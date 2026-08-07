@@ -1,7 +1,7 @@
 {
- "updatedUtc": "2026-08-07T00:59:46Z",
+ "updatedUtc": "2026-08-07T14:07:46Z",
  "tournament": "WYNDHAM_2026",
- "date": "8/6/26",
+ "date": "8/8/26",
  "event": "Wyndham Championship",
  "draftGroupId": "151491",
  "isShowdown": false,
@@ -24,8 +24,8 @@
   {
    "name": "Patrick Cantlay",
    "salary": 10000,
-   "status": "",
-   "out": false,
+   "status": "OUT",
+   "out": true,
    "dkId": 43746488
   },
   {
@@ -416,8 +416,8 @@
   {
    "name": "Daniel Berger",
    "salary": 7000,
-   "status": "",
-   "out": false,
+   "status": "OUT",
+   "out": true,
    "dkId": 43746544
   },
   {
@@ -507,8 +507,8 @@
   {
    "name": "Taylor Moore",
    "salary": 6900,
-   "status": "",
-   "out": false,
+   "status": "OUT",
+   "out": true,
    "dkId": 43746557
   },
   {
@@ -724,8 +724,8 @@
   {
    "name": "Garrick Higgo",
    "salary": 6500,
-   "status": "",
-   "out": false,
+   "status": "OUT",
+   "out": true,
    "dkId": 43746588
   },
   {
