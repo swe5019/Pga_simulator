@@ -1,5 +1,5 @@
 {
- "updatedUtc": "2026-08-05T22:07:19Z",
+ "updatedUtc": "2026-08-07T00:59:46Z",
  "tournament": "WYNDHAM_2026",
  "date": "8/6/26",
  "event": "Wyndham Championship",
@@ -24,8 +24,8 @@
   {
    "name": "Patrick Cantlay",
    "salary": 10000,
-   "status": "OUT",
-   "out": true,
+   "status": "",
+   "out": false,
    "dkId": 43746488
   },
   {
@@ -318,8 +318,8 @@
   {
    "name": "Pierceson Coody",
    "salary": 7200,
-   "status": "",
-   "out": false,
+   "status": "WD",
+   "out": true,
    "dkId": 43746530
   },
   {
@@ -416,8 +416,8 @@
   {
    "name": "Daniel Berger",
    "salary": 7000,
-   "status": "OUT",
-   "out": true,
+   "status": "",
+   "out": false,
    "dkId": 43746544
   },
   {
@@ -507,8 +507,8 @@
   {
    "name": "Taylor Moore",
    "salary": 6900,
-   "status": "OUT",
-   "out": true,
+   "status": "",
+   "out": false,
    "dkId": 43746557
   },
   {
@@ -724,8 +724,8 @@
   {
    "name": "Garrick Higgo",
    "salary": 6500,
-   "status": "OUT",
-   "out": true,
+   "status": "",
+   "out": false,
    "dkId": 43746588
   },
   {
