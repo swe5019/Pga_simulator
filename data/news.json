@@ -1,10 +1,10 @@
 {
- "updatedUtc": "2026-08-07T10:12:02Z",
+ "updatedUtc": "2026-08-07T13:40:44Z",
  "slate": "WYNDHAM_2026",
  "event": "Wyndham Championship",
  "counts": {
   "items": 120,
-  "golfersMentioned": 125,
+  "golfersMentioned": 124,
   "news": 120,
   "chatter": 0
  },
@@ -157,33 +157,51 @@
  "mentions": [
   {
    "name": "Jackson Koivun",
-   "news": 7,
-   "chatter": 0,
-   "total": 7
-  },
-  {
-   "name": "Cameron Young",
    "news": 6,
    "chatter": 0,
    "total": 6
   },
   {
-   "name": "Hideki Matsuyama",
+   "name": "Harry Hall",
    "news": 5,
    "chatter": 0,
    "total": 5
   },
   {
-   "name": "Harry Hall",
+   "name": "Blades Brown",
    "news": 4,
    "chatter": 0,
    "total": 4
   },
   {
-   "name": "Justin Thomas",
+   "name": "Cameron Young",
    "news": 4,
    "chatter": 0,
    "total": 4
+  },
+  {
+   "name": "Hideki Matsuyama",
+   "news": 4,
+   "chatter": 0,
+   "total": 4
+  },
+  {
+   "name": "Jordan L. Smith",
+   "news": 3,
+   "chatter": 0,
+   "total": 3
+  },
+  {
+   "name": "Seamus Power",
+   "news": 3,
+   "chatter": 0,
+   "total": 3
+  },
+  {
+   "name": "Luke List",
+   "news": 3,
+   "chatter": 0,
+   "total": 3
   },
   {
    "name": "Benjamin James",
@@ -192,31 +210,13 @@
    "total": 3
   },
   {
-   "name": "Ben Griffin",
-   "news": 3,
-   "chatter": 0,
-   "total": 3
-  },
-  {
-   "name": "Alex Fitzpatrick",
+   "name": "Justin Thomas",
    "news": 3,
    "chatter": 0,
    "total": 3
   },
   {
    "name": "Davis Thompson",
-   "news": 3,
-   "chatter": 0,
-   "total": 3
-  },
-  {
-   "name": "Mac Meissner",
-   "news": 3,
-   "chatter": 0,
-   "total": 3
-  },
-  {
-   "name": "Blades Brown",
    "news": 3,
    "chatter": 0,
    "total": 3
@@ -234,6 +234,18 @@
    "total": 3
   },
   {
+   "name": "Nick Taylor",
+   "news": 2,
+   "chatter": 0,
+   "total": 2
+  },
+  {
+   "name": "Danny Walker",
+   "news": 2,
+   "chatter": 0,
+   "total": 2
+  },
+  {
    "name": "Brandt Snedeker",
    "news": 2,
    "chatter": 0,
@@ -246,7 +258,7 @@
    "total": 2
   },
   {
-   "name": "Ryan Gerard",
+   "name": "Ben Griffin",
    "news": 2,
    "chatter": 0,
    "total": 2
@@ -258,13 +270,19 @@
    "total": 2
   },
   {
+   "name": "Alex Fitzpatrick",
+   "news": 2,
+   "chatter": 0,
+   "total": 2
+  },
+  {
    "name": "Brian Harman",
    "news": 2,
    "chatter": 0,
    "total": 2
   },
   {
-   "name": "Ben Kohles",
+   "name": "Mac Meissner",
    "news": 2,
    "chatter": 0,
    "total": 2
@@ -282,31 +300,7 @@
    "total": 2
   },
   {
-   "name": "J.T. Poston",
-   "news": 2,
-   "chatter": 0,
-   "total": 2
-  },
-  {
    "name": "Chris Kirk",
-   "news": 2,
-   "chatter": 0,
-   "total": 2
-  },
-  {
-   "name": "Emiliano Grillo",
-   "news": 2,
-   "chatter": 0,
-   "total": 2
-  },
-  {
-   "name": "Ryo Hisatsune",
-   "news": 2,
-   "chatter": 0,
-   "total": 2
-  },
-  {
-   "name": "Seamus Power",
    "news": 2,
    "chatter": 0,
    "total": 2
@@ -324,16 +318,16 @@
    "total": 2
   },
   {
-   "name": "Luke List",
+   "name": "Cameron Davis",
    "news": 2,
    "chatter": 0,
    "total": 2
   },
   {
-   "name": "Cameron Davis",
-   "news": 2,
+   "name": "Ryan Gerard",
+   "news": 1,
    "chatter": 0,
-   "total": 2
+   "total": 1
   },
   {
    "name": "Tom Kim",
@@ -390,6 +384,12 @@
    "total": 1
   },
   {
+   "name": "Ben Kohles",
+   "news": 1,
+   "chatter": 0,
+   "total": 1
+  },
+  {
    "name": "Alex Smalley",
    "news": 1,
    "chatter": 0,
@@ -402,7 +402,7 @@
    "total": 1
   },
   {
-   "name": "Jordan L. Smith",
+   "name": "J.T. Poston",
    "news": 1,
    "chatter": 0,
    "total": 1
@@ -420,13 +420,19 @@
    "total": 1
   },
   {
-   "name": "Michael Kim",
+   "name": "Emiliano Grillo",
    "news": 1,
    "chatter": 0,
    "total": 1
   },
   {
-   "name": "Nick Taylor",
+   "name": "Ryo Hisatsune",
+   "news": 1,
+   "chatter": 0,
+   "total": 1
+  },
+  {
+   "name": "Michael Kim",
    "news": 1,
    "chatter": 0,
    "total": 1
@@ -852,12 +858,6 @@
    "total": 1
   },
   {
-   "name": "Danny Walker",
-   "news": 1,
-   "chatter": 0,
-   "total": 1
-  },
-  {
    "name": "Camilo Villegas",
    "news": 1,
    "chatter": 0,
@@ -898,31 +898,81 @@
    "news": 1,
    "chatter": 0,
    "total": 1
-  },
-  {
-   "name": "Jason Day",
-   "news": 1,
-   "chatter": 0,
-   "total": 1
   }
  ],
  "items": [
   {
-   "title": "Why Liverpool are ready to put their faith in the 'real deal' Jacquet",
-   "link": "https://www.skysports.com/football/news/12040/13570137/jeremy-jacquet-why-liverpool-are-ready-to-put-their-faith-in-60m-france-centre-back",
-   "summary": "Liverpool have big hopes for Jeremy Jacquet having invested &#163;60m to bring the highly-regarded young central defender to Anfield this summer. An injury has disrupted his pre-season but the Frenchman looks worth the wait.",
-   "published": "Fri, 07 Aug 2026 08:00:00 BST",
+   "title": "Who Should I Draft for Fantasy Football? Jonathan Taylor, Omarion Hampton, Chase Brown, Saquon Barkley, Kenneth Walker, TreVeyon Henderson, Rhamondre Stevenson",
+   "link": "https://www.rotoballer.com/who-should-i-draft-for-fantasy-football-outlooks-for-jonathan-taylor-omarion-hampton-chase-brown-saquon-barkley-kenneth-walker-treveyon-henderson-rhamondre-stevenson/1904635",
+   "summary": "Who Should I Draft? Use this tool to assist you with some common 2026 fantasy football draft decisions regarding players like Jonathan Taylor, Omarion Hampton, Chase Brown, Saquon Barkley, Kenneth Walker, TreVeyon Henderson, Rhamondre Stevenson. We are here to help make these calls and build winning teams in 2026. Draft your optimal fantasy football teams for [&#8230;]",
+   "published": "Fri, 07 Aug 2026 13:11:53 +0000",
+   "source": "RotoBaller",
+   "kind": "news",
+   "golfers": [
+    "Blades Brown",
+    "Nick Taylor",
+    "Danny Walker"
+   ]
+  },
+  {
+   "title": "Andy Smith's Fantasy Football League-Winners: 8 Must-Draft Players (2026)",
+   "link": "https://www.rotoballer.com/8-fantasy-football-league-winners-to-draft-andys-must-have-players-2026/1901703",
+   "summary": "Hey RotoBallers! Training camp is in full swing, and the Hall of Fame game is just around the corner, which means it's time to talk league-winners. The phrase \"league-winners\" has various meanings, as it could be striking gold on a breakout or finding a discounted veteran in the later rounds. Last season, we saw a [&#8230;]",
+   "published": "Fri, 07 Aug 2026 13:11:26 +0000",
+   "source": "RotoBaller",
+   "kind": "news",
+   "golfers": [
+    "Jordan L. Smith",
+    "Harry Hall"
+   ]
+  },
+  {
+   "title": "Nick Mariano's Closer Rankings and Fantasy Baseball Waiver Wire Pickups (Week 20)",
+   "link": "https://www.rotoballer.com/closer-fantasy-baseball-rankings-waiver-wire-adds-breakouts-week-20-2026/1903244",
+   "summary": "The trade deadline came and went, and now we sprint through August. This column brings you my updated fantasy baseball closer rankings for Week 20 of 2026, with tiered closer rankings and relievers to add across all league types. Andy Smith is filling in for Nick Mariano for the rankings, while I (Mike Carter) will continue [&#8230;]",
+   "published": "Fri, 07 Aug 2026 13:07:06 +0000",
+   "source": "RotoBaller",
+   "kind": "news",
+   "golfers": [
+    "Jordan L. Smith"
+   ]
+  },
+  {
+   "title": "Hitter Fantasy Baseball Breakouts - Risers to Watch and Waiver Wire Outlooks (Week 20)",
+   "link": "https://www.rotoballer.com/hitter-fantasy-baseball-breakouts-risers-waiver-wire-for-week-20-2026/1904278",
+   "summary": "Welcome back to my Fantasy Baseball Breakout Hitters article for Week 20 of the 2026 MLB regular season. The goal of this article is to highlight players who could be getting hot, review current active hitting streaks, and look at recent leaders in batting average, isolated power (ISO), stolen bases, and more. This week we'll [&#8230;]",
+   "published": "Fri, 07 Aug 2026 13:06:30 +0000",
+   "source": "RotoBaller",
+   "kind": "news",
+   "golfers": [
+    "Seamus Power"
+   ]
+  },
+  {
+   "title": "Van Barneveld fine and suspension revealed in Darts Regulation Authority case list",
+   "link": "https://www.skysports.com/darts/news/12040/13570629/van-barneveld-fined-and-suspended-over-inappropriate-behaviour-and-offensive-language-in-latest-darts-regulation-authority-case-list",
+   "summary": "Five-time world champion Raymond van Barneveld has been fined and suspended by the Darts Regulation Authority for inappropriate behaviour and offensive language.",
+   "published": "Fri, 07 Aug 2026 12:00:00 BST",
    "source": "Sky Sports Golf",
    "kind": "news",
    "golfers": [
-    "Cameron Young"
+    "Luke List"
    ]
+  },
+  {
+   "title": "More Golfers Withdraw From Wyndham Championship on Short Notice - heavy.com",
+   "link": "https://news.google.com/rss/articles/CBMilAFBVV95cUxPaHlEeUhiVE1LdzExRTBrODdWVVRRbmJsVUw1MnF2UUI0cjFmOV9FbjlCb196aFpfRWdocHd0cFFQdWo3U2xXd1RvX1hMRk1oQUFKNkpoc2ZuaElEZDNqdzk3Ti0yc01IZjV1Z2NteThZVlF3ZHVxQVRaYmhURzc4VTMtUjhVdE90aVEyeFVpQlgtbVM3?oc=5",
+   "summary": "More Golfers Withdraw From Wyndham Championship on Short Notice heavy.com",
+   "published": "Fri, 07 Aug 2026 11:24:55 GMT",
+   "source": "Google News: Wyndham Championship WD",
+   "kind": "news",
+   "golfers": []
   },
   {
    "title": "PGA DFS Picks & Projections on DraftKings for Round 2 of the Wyndham Championship - RotoGrinders",
    "link": "https://news.google.com/rss/articles/CBMitwFBVV95cUxQd3ZLeE1zQWU3OFRkUDcxNXV1Ml9lbWUzY0J4QTBiS3F5Slo0U3hKNU9feDAxN1hUM3JXVlZGcHdkQUlOZEJXUkoyYUZBeU1lTXRySGdKWDZIMDZ6YmJkYXU1Um56Vl92VnpkRlRwNkxoMDZWem5KcjQtWG9MM2Rxdk5SOE9ObW9mTFNMdFI4SXBUeVA5Y2hiaElNaC1UYnU3SHFFb0p4WjdGLUJIclJrNWJnOEM1MVk?oc=5",
    "summary": "PGA DFS Picks & Projections on DraftKings for Round 2 of the Wyndham Championship RotoGrinders",
-   "published": "Fri, 07 Aug 2026 01:25:49 GMT",
+   "published": "Fri, 07 Aug 2026 01:08:29 GMT",
    "source": "Google News: Wyndham Championship DFS",
    "kind": "news",
    "golfers": []
@@ -951,7 +1001,7 @@
   {
    "title": "'There's No Faking It': Pro Golfer's PGA Tour Dream Takes Painful Detour After Freak Injury",
    "link": "https://sports.yahoo.com/articles/theres-no-faking-pro-golfers-202957962.html",
-   "summary": "James Nicholas spent seven days crawling around his own home. An injury from a high jump had left him with painful bone bruises in both heels.",
+   "summary": "James Nicholas spent seven days crawling around his own home. An injury from a jump had left him with painful bone bruises in both heels.",
    "published": "Thu, 06 Aug 2026 20:29:57 +0000",
    "source": "Yahoo Golf",
    "kind": "news",
@@ -1434,9 +1484,9 @@
    "golfers": []
   },
   {
-   "title": "Shortest odds to win the 2026 Wyndham Championship include defending champion - golfweek.usatoday.com",
+   "title": "Shortest odds to win the 2026 Wyndham Championship include defending champion - Golfweek",
    "link": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxPaHVaMjlpRHUtY1F1Y2xkZHZ5cmZqblJYczFnbDVBNjJNYmtkd0I1ZDJpcU92QkFvOWczdmRZU2J6WVItZ2pJaWx3LTVJbWU3MWFVREV3S05EMXVLaXROS3VxT0FrczdFeVU2aHdWQWlJTkd6YTdVWlp2QTJzNEh4Q3FrRTIwNjdrVnlzbkRzTXdBUFNzaXlYRzNQRXZ4TWN0UHZFLXJqcjY5d1hTM2xpTmF2OVlkcFhUcGk3Vi1YTzFyS2hLWmZVLU1jN01FZUhHWUE?oc=5",
-   "summary": "Shortest odds to win the 2026 Wyndham Championship include defending champion golfweek.usatoday.com",
+   "summary": "Shortest odds to win the 2026 Wyndham Championship include defending champion Golfweek",
    "published": "Wed, 05 Aug 2026 18:02:00 GMT",
    "source": "Google News: Wyndham Championship picks",
    "kind": "news",
@@ -1463,18 +1513,18 @@
    ]
   },
   {
-   "title": "2026 Wyndham Championship: PGA Tour betting odds, futures picks and winner tips - Golf News Net",
+   "title": "2026 Wyndham Championship: PGA Tour betting odds, futures picks and winner tips - thegolfnewsnet.com",
    "link": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxPbFZUOTBGdDRaMF9sNDJBSEJUTzlTZFZESXRKWktXUUhkYWllWVp4M1FxT0hYVmJBV0pDVmVfc0RJLUpoYXptZ25WOFFMVTk3ZWhhdkNiVkpPaUJYdUtGX0t5Z2dHZHZtZ1RDZGRWVkJ2U1NZX1V4YUl5RFhjMlF6azhxQ2ZBaW5sdWtzOE5OM1c0VXVRRzlVM2h5RHpBNi1zUWxuSnFYWUQ5RHV0V1AtQmR3XzFUcHRPVHh6MldjWlN1cS1vWmJ5dTdOYTh2S2dnaGxRSF93?oc=5",
-   "summary": "2026 Wyndham Championship: PGA Tour betting odds, futures picks and winner tips Golf News Net",
+   "summary": "2026 Wyndham Championship: PGA Tour betting odds, futures picks and winner tips thegolfnewsnet.com",
    "published": "Wed, 05 Aug 2026 17:24:41 GMT",
    "source": "Google News: Wyndham Championship picks",
    "kind": "news",
    "golfers": []
   },
   {
-   "title": "2026 Wyndham Championship: PGA Tour daily fantasy golf (DFS) picks - Golf News Net",
+   "title": "2026 Wyndham Championship: PGA Tour daily fantasy golf (DFS) picks - thegolfnewsnet.com",
    "link": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxNNXJETGI0dTlCSXZiQy05OUJrTFpkQ0NMWnlMOURoaHQtbDRyaE5WcHE4eW5zYzFZSjlKcWxqU2tGOVJUZ1FUZjNCa09LaEFXM3FFVTd4akpBTVI2QWlwaFdrOVdsZXZHSXI2dXhfWmRISjRWaXU5bEQwQVpiRFljNV9ta2hzSXFER3ZnUEdVY3pldGxseDdOdzNHcmxwZDc3T3owTVNNZVlKQTBxaDlRaUQyZEFfbTh6SGtQVWlMMFExR28?oc=5",
-   "summary": "2026 Wyndham Championship: PGA Tour daily fantasy golf (DFS) picks Golf News Net",
+   "summary": "2026 Wyndham Championship: PGA Tour daily fantasy golf (DFS) picks thegolfnewsnet.com",
    "published": "Wed, 05 Aug 2026 17:14:33 GMT",
    "source": "Google News: Wyndham Championship DFS",
    "kind": "news",
@@ -1490,27 +1540,27 @@
    "golfers": []
   },
   {
-   "title": "2026 Wyndham Championship: PGA Tour one-and-done fantasy golf picks - Golf News Net",
+   "title": "2026 Wyndham Championship: PGA Tour one-and-done fantasy golf picks - thegolfnewsnet.com",
    "link": "https://news.google.com/rss/articles/CBMixwFBVV95cUxOVzUzZTNoVzEwRjdHVGZ0NU1OZTR0S0NkcGZsRHZBMkVWNW53aWhta2RERUU2OVp0VnJjcTRhT29HSG8xbXdtY1FkcjdGY29lRVNIQl94ME1TSk5uWDNBYjVJV0RING9Mbi14MGcwa293NjF6TW5uYWN3Y19pRlY0RkNaaXBkQnQtLXFKNnN1djdtaVQ3SUZVbGgteVg2UVA3VXA0aEFnUm92SFFSSWlfbkpsTVdOM05PRi13bE5pTTcxYWk5ZFZ3?oc=5",
-   "summary": "2026 Wyndham Championship: PGA Tour one-and-done fantasy golf picks Golf News Net",
+   "summary": "2026 Wyndham Championship: PGA Tour one-and-done fantasy golf picks thegolfnewsnet.com",
    "published": "Wed, 05 Aug 2026 16:49:11 GMT",
    "source": "Google News: Wyndham Championship picks",
    "kind": "news",
    "golfers": []
   },
   {
-   "title": "2026 Wyndham Championship: Expert picks, PGA Tour field rankings and fantasy golf tips - Golf News Net",
+   "title": "2026 Wyndham Championship: Expert picks, PGA Tour field rankings and fantasy golf tips - thegolfnewsnet.com",
    "link": "https://news.google.com/rss/articles/CBMi3wFBVV95cUxPTTFkWVpJdHJnUERqamFIR2dCb0ZqWUVBU0NkM1VLdkJuSVVVYTdUWVNYNW1pdjhHdGVlYnZJOW15ZGR0Q3NwN1hFd2J2aFJsSHNFdEZtSHJ1bk5OYnhkSGQxeDNWUEJwTlpkOVVfTGl6WExYdGhHMEV2T1lhTDctU2lTZUg0a1pRZlNJbUE1NDZTZjFqYWxkVFU2bFhRaUNLakl1SDhFTGZPODlxbDFaUm1GVDhmMFdNWTdFaU01bW13UTJiS0RjZ1dBR3FkQUk2UkloTFNkbC1IUFNiVFFn?oc=5",
-   "summary": "2026 Wyndham Championship: Expert picks, PGA Tour field rankings and fantasy golf tips Golf News Net",
+   "summary": "2026 Wyndham Championship: Expert picks, PGA Tour field rankings and fantasy golf tips thegolfnewsnet.com",
    "published": "Wed, 05 Aug 2026 16:36:56 GMT",
    "source": "Google News: Wyndham Championship picks",
    "kind": "news",
    "golfers": []
   },
   {
-   "title": "Wyndham Championship 2026 Fantasy Golf & DFS Sleeper Picks Featuring Ben James & Rasmus Hojgaard - Sports Illustrated",
+   "title": "Wyndham Championship 2026 Fantasy Golf & DFS Sleeper Picks Featuring Ben James & Rasmus Hojgaard - si.com",
    "link": "https://news.google.com/rss/articles/CBMixwFBVV95cUxOWndGaTEzNHF1OS1VMElMbGV0MEVrenZmTDM1UlpjUlhMN0p4Skx2NFZ6dUxVTWkxQnRPUEE4Q0VCUXBLaUNwX3cxMDVSTll1b2liSTVobVJCNnRfNEs5OE4ySC1xN1JxQkI1bGZ4Tmc3M2F6cW9LVHdHRVBfSVdiQWgzaVVza3FZdnVlOFpDU0xFZzdUUjNaOTVLNFNXTldlMkc2dndXTlp3NDdLeEtXbTFqUGYydXdWb2dRUVl1OXluTXlFWk9B?oc=5",
-   "summary": "Wyndham Championship 2026 Fantasy Golf & DFS Sleeper Picks Featuring Ben James & Rasmus Hojgaard Sports Illustrated",
+   "summary": "Wyndham Championship 2026 Fantasy Golf & DFS Sleeper Picks Featuring Ben James & Rasmus Hojgaard si.com",
    "published": "Wed, 05 Aug 2026 16:06:29 GMT",
    "source": "Google News: Wyndham Championship DFS",
    "kind": "news",
@@ -1547,9 +1597,9 @@
    "golfers": []
   },
   {
-   "title": "Rai, Harman and Other DFS Studs for the Wyndham Championship - FTN (For the Numbers)",
+   "title": "Rai, Harman and Other DFS Studs for the Wyndham Championship - ftnfantasy.com",
    "link": "https://news.google.com/rss/articles/CBMijwFBVV95cUxQN1M3RzJGcUtKTmt4VWJRMUN3X04tcnNBZWRBVWN2ZnNkME40NVV4SWdIV2R5T0ZTUktsWlhaU21pQUY1LUV6RmozNGpOWVFwQ1JlanB4dDEzZnR4REQwZ042OWIzTnBRRC12QWhpQWROUGhQZWVISmZ5NVo5Z2JmVDNkWk5SZl9zMjRKZ1NjTQ?oc=5",
-   "summary": "Rai, Harman and Other DFS Studs for the Wyndham Championship FTN (For the Numbers)",
+   "summary": "Rai, Harman and Other DFS Studs for the Wyndham Championship ftnfantasy.com",
    "published": "Wed, 05 Aug 2026 14:32:13 GMT",
    "source": "Google News: Wyndham Championship DFS",
    "kind": "news",
@@ -1585,15 +1635,6 @@
    "golfers": []
   },
   {
-   "title": "PGA Player Props & Matchup Bets for 2026 Wyndham Championship: Expert Novig Picks - RotoBaller",
-   "link": "https://news.google.com/rss/articles/CBMiswFBVV95cUxNQjU1WUxVMkNQT0hHdmlBZ0VzZEJpWU5obWtqQkFwYkN6WlJ1TmMxV2NRbkIyNXh0Y1M1ZHBwamkyTFR2UFRTSG9id2M3YV91LWRXVG9YbVdFTmJzbTQ1cDhaaHlhaHFDdkloM1ZPUDUycFFyOEVERnFPeDR4YkNCeWp0MGtZYUptWE9MQ0c3S3dmTEZkcGNuMGxPWTIybVdwaWdrS3ZyLXYtQnJCTndkQmRqVQ?oc=5",
-   "summary": "PGA Player Props & Matchup Bets for 2026 Wyndham Championship: Expert Novig Picks RotoBaller",
-   "published": "Wed, 05 Aug 2026 14:09:06 GMT",
-   "source": "Google News: Wyndham Championship picks",
-   "kind": "news",
-   "golfers": []
-  },
-  {
    "title": "2026 Wyndham Championship Odds, Picks, Predictions: Best Bets, Props, OAD - Lineups",
    "link": "https://news.google.com/rss/articles/CBMipAFBVV95cUxNaWNpUTlCREFyRFdWdEdxbVBJQjVCR000aXlhNTJMZEZFaU54eDNGSmFHOTQyLXN6ZnVOSDZTeGlVTzVjWkFiR2ZEQ1NQVUpfbXc2ZE1talRheC15T2x5UGwzbnpzWnV2UlZGRnY4X1YzYzJrV2NHbllvUXlPNEtlR1U0SDJUMGlfTlhTQldaYjV0bDRiZ3p2amdRNi1BenhqQzlKVQ?oc=5",
    "summary": "2026 Wyndham Championship Odds, Picks, Predictions: Best Bets, Props, OAD Lineups",
@@ -1603,9 +1644,9 @@
    "golfers": []
   },
   {
-   "title": "Wyndham Championship: Top PGA DFS Picks, Values, and Sleepers for Large-Field Tournaments on DraftKings - FantasyLabs",
+   "title": "Wyndham Championship: Top PGA DFS Picks, Values, and Sleepers for Large-Field Tournaments on DraftKings - fantasylabs.com",
    "link": "https://news.google.com/rss/articles/CBMi2wFBVV95cUxONE5uYlh0NllZU3lGTlBibzV4cFJENUczeEt6ZThLbWtHYTNsNUhpNWZpbjlNcHR3TXA1NVFTNzRSRDRBV01KVjVvMFVOQ3pXakw5V3dRMzRiTHlIS2F5UnR0SGx5T29Qb3BENXE3Q1hSRWJISWVWV1JxcHVkRmVISHliUVRSa2tPVmdnVXF5TFlvLVRDZkRUWlljQTZOREpUVzdYdUJ0UlZsU1hEVkxSV3FVSkZQVmRIVnZSM3Ywb0lTZ0lVZk5YVzV5Y2toZnFLalo4RUtFQm90dUk?oc=5",
-   "summary": "Wyndham Championship: Top PGA DFS Picks, Values, and Sleepers for Large-Field Tournaments on DraftKings FantasyLabs",
+   "summary": "Wyndham Championship: Top PGA DFS Picks, Values, and Sleepers for Large-Field Tournaments on DraftKings fantasylabs.com",
    "published": "Wed, 05 Aug 2026 13:39:38 GMT",
    "source": "Google News: Wyndham Championship DFS",
    "kind": "news",
@@ -1648,15 +1689,24 @@
    "golfers": []
   },
   {
-   "title": "Wyndham Championship DFS picks 2026: The signs are there for Sungjae Im - Australian Golf Digest",
+   "title": "Wyndham Championship DFS picks 2026: The signs are there for Sungjae Im - australiangolfdigest.com.au",
    "link": "https://news.google.com/rss/articles/CBMiggFBVV95cUxQcWVodXoxbXFPMmR4dHBaRGJiQWRXNmMwSU9FRFhMU0l2Q1otTDZnN29qTG1HanJKQWFxb1V4VlY4aWp5VXNNbUNlWV9SZ1ZwaUZyRUdBbUFDaUU3djZpZnBiUDREMUU0dXZXZDRqTDR3VnNxbGp3eXBmUWlKNU5LLUhR?oc=5",
-   "summary": "Wyndham Championship DFS picks 2026: The signs are there for Sungjae Im Australian Golf Digest",
+   "summary": "Wyndham Championship DFS picks 2026: The signs are there for Sungjae Im australiangolfdigest.com.au",
    "published": "Wed, 05 Aug 2026 12:13:52 GMT",
    "source": "Google News: Wyndham Championship DFS",
    "kind": "news",
    "golfers": [
     "Sungjae Im"
    ]
+  },
+  {
+   "title": "Wyndham Championship picks 2026: Another star will be born at Sedgefield - australiangolfdigest.com.au",
+   "link": "https://news.google.com/rss/articles/CBMifEFVX3lxTE1BS1ZLMlVZRVFaUW9pUDRLQXoyTURvbzVJWk04Z3VGRU1hTjJKVWFYUFlVdXViZ1FUX2FZMS1qSFRVTjZHYmFYazFWWGZvWjRzM0xhOUNVZmdVSWZaT1NnTVRPYVNiSTNVR0R6cHpYNlQ4TW5wVURnOWFBcWQ?oc=5",
+   "summary": "Wyndham Championship picks 2026: Another star will be born at Sedgefield australiangolfdigest.com.au",
+   "published": "Wed, 05 Aug 2026 12:13:51 GMT",
+   "source": "Google News: Wyndham Championship picks",
+   "kind": "news",
+   "golfers": []
   },
   {
    "title": "Wyndham Picks: 4 Golf Best Bets and Predictions for the Wyndham Championship - FanDuel",
@@ -1715,9 +1765,9 @@
    "golfers": []
   },
   {
-   "title": "Wyndham Championship Picks, Props, Predictions: Betting Jackson Koivun, Alex Fitzpatrick and Justin Thomas - Sports Illustrated",
+   "title": "Wyndham Championship Picks, Props, Predictions: Betting Jackson Koivun, Alex Fitzpatrick and Justin Thomas - si.com",
    "link": "https://news.google.com/rss/articles/CBMi2gFBVV95cUxNMWxqUWp3czM4MGxqSHBCMGJUUGlwSEpPaGd3M1hIVFdtZ01SWGtsdkxQbVZlbVB1eXR2WjFmWkZoNkFTNG9Fa2hUX2RaTVNfdUk2NmxCWi11djI1MXh0ZTlYSU9pR3F2c2xJYlpya1pvZHNSQUxLblhWWFM5ZS1wdDZPd3pBb2hZTHp1RE1tY3dvaWZYam5GVTFMMXlkS2I4eTF1Z1VGOVNBQi1CSGFrYVNTY3BpcmRaeXRBczgtbFJBaTVNSm5NdkQxUFlETmlyV0U3dklUU0RGUQ?oc=5",
-   "summary": "Wyndham Championship Picks, Props, Predictions: Betting Jackson Koivun, Alex Fitzpatrick and Justin Thomas Sports Illustrated",
+   "summary": "Wyndham Championship Picks, Props, Predictions: Betting Jackson Koivun, Alex Fitzpatrick and Justin Thomas si.com",
    "published": "Wed, 05 Aug 2026 10:00:05 GMT",
    "source": "Google News: Wyndham Championship picks",
    "kind": "news",
@@ -1728,9 +1778,9 @@
    ]
   },
   {
-   "title": "Wyndham Championship picks, predictions, odds: Who wins in 2026? - palmbeachpost.com",
+   "title": "Wyndham Championship picks, predictions, odds: Who wins in 2026? - The Palm Beach Post",
    "link": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxQOGpOMGE3SWdEN1kzc3VhQzFRN1VDNXBNZUVoUzVSekVoVFBFSGp2aDdlRFlVWmdjNHJFblpqdWR3WDZGREFnYlR1TjluandJU2s2UHNSSVduWVZPYnVMQjhtSDVlQjlFeUtpb2xTOHp6THVXNXh1YV90clhMSVl1cDVGWkFBZnhqMDJHblFTZm1tdnBrUEU5N3p2V1FkOV9nOU5iclVBdF9Ya0xhN3hsTHB1TVJCUzl5YmEyT01Oa1I?oc=5",
-   "summary": "Wyndham Championship picks, predictions, odds: Who wins in 2026? palmbeachpost.com",
+   "summary": "Wyndham Championship picks, predictions, odds: Who wins in 2026? The Palm Beach Post",
    "published": "Wed, 05 Aug 2026 09:00:00 GMT",
    "source": "Google News: Wyndham Championship picks",
    "kind": "news",
@@ -1874,9 +1924,9 @@
    "golfers": []
   },
   {
-   "title": "Experts reveal their 2026 Wyndham Championship picks - golfweek.usatoday.com",
+   "title": "Experts reveal their 2026 Wyndham Championship picks - Golfweek",
    "link": "https://news.google.com/rss/articles/CBMitAFBVV95cUxNSHpoZHFMb1RVMDZNWjMxcTNNMFFGeWttTFhtR1BkMEhVMXB6eVVGWE9EVERObENTc05CcDJRY3pMNkZZakNiMTBLQk1LdUNHSUk3XzlfellVaVhtVjJIWEVrYnI5WUtwU1N6amgyTUJaNFpsS3lKRHVTLXk1ZHJ6djFoMExFdEo0azlDRmxvOTJpM3gtYkxUUjJYdmgtZXBLeHZhRmVhdGliOGl6dy04TlhLcmw?oc=5",
-   "summary": "Experts reveal their 2026 Wyndham Championship picks golfweek.usatoday.com",
+   "summary": "Experts reveal their 2026 Wyndham Championship picks Golfweek",
    "published": "Tue, 04 Aug 2026 19:03:00 GMT",
    "source": "Google News: Wyndham Championship picks",
    "kind": "news",
@@ -1892,9 +1942,9 @@
    "golfers": []
   },
   {
-   "title": "Blades Brown Features Fantasy Golf Picks (DraftKings) at the Wyndham Championship - Sports Illustrated",
+   "title": "Blades Brown Features Fantasy Golf Picks (DraftKings) at the Wyndham Championship - si.com",
    "link": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxPQ1FSc2M2WS1CcXlQVTZGZmp4STBHeG5hLXlkYjdSQ0ItejJQRFFfeHVwZUNJckxrbUxGOEFBUm5TMWJXWkYwRVlpZzhEZlFWRTl1WGE4WERqZXEtRXkycHVZbWFXMmUxakJJY2RxX2s5VWJlWmt4OHo2NUxqQnhHNkJKSjdnNzRNcy1vZ1N4Wkd5enozcXZWZWZhRUFwYTZXNnBhbUZqMDVKRWc?oc=5",
-   "summary": "Blades Brown Features Fantasy Golf Picks (DraftKings) at the Wyndham Championship Sports Illustrated",
+   "summary": "Blades Brown Features Fantasy Golf Picks (DraftKings) at the Wyndham Championship si.com",
    "published": "Tue, 04 Aug 2026 18:28:17 GMT",
    "source": "Google News: Wyndham Championship DFS",
    "kind": "news",
@@ -1966,9 +2016,9 @@
    "golfers": []
   },
   {
-   "title": "PGA DFS: Top Cash Game Picks for the Wyndham Championship - FantasyLabs",
+   "title": "PGA DFS: Top Cash Game Picks for the Wyndham Championship - fantasylabs.com",
    "link": "https://news.google.com/rss/articles/CBMioAFBVV95cUxQdXZjQmU0dUx1blFBTS1UY2s5Y0FXdVpZc1hQRk82Y09sVzF0U1E5ZWc5czlicVpwUWprZlRGQmkyQUtpcVZfRjc5bUhsMnFobjJBQU02MlU1cUwxbTl6b3dMSkhOWTRwLVFTa3NQRV9OdEU4bmdLRk9oZ2FGOG5Ybi1EMzZVdEZRNEN0X0g2ZzRVbGJvazg3TTJ0dzRDWmRa?oc=5",
-   "summary": "PGA DFS: Top Cash Game Picks for the Wyndham Championship FantasyLabs",
+   "summary": "PGA DFS: Top Cash Game Picks for the Wyndham Championship fantasylabs.com",
    "published": "Tue, 04 Aug 2026 14:28:51 GMT",
    "source": "Google News: Wyndham Championship DFS",
    "kind": "news",
@@ -2002,18 +2052,18 @@
    "golfers": []
   },
   {
-   "title": "Patrick Cantlay withdraws from the Wyndham Championship on Monday \u2014 and the field changes fast - el-balad.com",
+   "title": "Patrick Cantlay withdraws from the Wyndham Championship on Monday \u2014 and the field changes fast - El-Balad.com",
    "link": "https://news.google.com/rss/articles/CBMiSEFVX3lxTE96Yms5b2xfZzFpb1llbnJ4TDVxMXNLbDJBblF1NTQtYU9zWnhoYUhZN1B3dkR3Nl90VEpiMXhNRGVnMXVNdFloag?oc=5",
-   "summary": "Patrick Cantlay withdraws from the Wyndham Championship on Monday \u2014 and the field changes fast el-balad.com",
+   "summary": "Patrick Cantlay withdraws from the Wyndham Championship on Monday \u2014 and the field changes fast El-Balad.com",
    "published": "Tue, 04 Aug 2026 12:52:13 GMT",
    "source": "Google News: Wyndham Championship WD",
    "kind": "news",
    "golfers": []
   },
   {
-   "title": "Patrick Cantlay Withdraws from Wyndham Championship Ahead of PGA Tour Event - news.ssbcrack.com",
+   "title": "Patrick Cantlay Withdraws from Wyndham Championship Ahead of PGA Tour Event - SSBCrack",
    "link": "https://news.google.com/rss/articles/CBMipAFBVV95cUxQZkhLQUVCbVh3SzBsblJDSUNybUlhMUgxd0FuR0JNWjh5bmVLQlgwT2ZtdzVKR2N1c2JQSzE4VmNidlJVTjZZWFJxT29pdXZ2ellvazdlOHJoVXNoYzhLSXZGNGtWV0VYUWREemd0QjFvZzRuc3o5NXR3ekdUejBXMjJ3M0k3NTdyMW83cFdrai0xWTY5c3lRWDNUcDVnNzRnWERsVA?oc=5",
-   "summary": "Patrick Cantlay Withdraws from Wyndham Championship Ahead of PGA Tour Event news.ssbcrack.com",
+   "summary": "Patrick Cantlay Withdraws from Wyndham Championship Ahead of PGA Tour Event SSBCrack",
    "published": "Tue, 04 Aug 2026 12:20:17 GMT",
    "source": "Google News: Wyndham Championship WD",
    "kind": "news",
@@ -2058,9 +2108,9 @@
    ]
   },
   {
-   "title": "2026 Wyndham Championship betting tips \u2013 including a 110/1 shot with course form - Today's Golfer",
+   "title": "2026 Wyndham Championship betting tips \u2013 including a 110/1 shot with course form - todays-golfer.com",
    "link": "https://news.google.com/rss/articles/CBMimwFBVV95cUxPU1lNa2syMmRPMmxPR0RtSmZtSWhZU1FNSXdMRXFkRXNiUnNTQjl1bGI4U3lHUW5GaGJCZHhPdTZKZnRVMEdtV0k2VVBROXk0MlVjS3FCYUhqeS1pdU9NMmJUTk9IT0lGOVBkcHRLcmkwa1pjdnludDN6YzhZOVZSNXBjT1dBQjVxOEMwMFMxeHRPbElUVlk3UFRJbw?oc=5",
-   "summary": "2026 Wyndham Championship betting tips \u2013 including a 110/1 shot with course form Today's Golfer",
+   "summary": "2026 Wyndham Championship betting tips \u2013 including a 110/1 shot with course form todays-golfer.com",
    "published": "Mon, 03 Aug 2026 21:19:12 GMT",
    "source": "Google News: Wyndham Championship picks",
    "kind": "news",
@@ -2085,9 +2135,9 @@
    "golfers": []
   },
   {
-   "title": "Noonan\u2019s 2026 Wyndham Championship Outright Picks - Betsperts Golf",
+   "title": "Noonan\u2019s 2026 Wyndham Championship Outright Picks - betspertsgolf.com",
    "link": "https://news.google.com/rss/articles/CBMikgFBVV95cUxPMGZSQVlZWFNndEJJZVk0RFQ0cHBZOGNDUDVXOTJRUU5FeldUYUtyakcya1hReFk4cUpKa1BlTWRQUW9QMkFxQUpuWUxsSm9fTTBIelYxOWNDTEJWOG1EVFN5Z0RHbHNEd19ISkw4TVctbWlaZDFqb0tpRjUteU81RHIxc2JkLVBDejR4SmZvc05ZZw?oc=5",
-   "summary": "Noonan\u2019s 2026 Wyndham Championship Outright Picks Betsperts Golf",
+   "summary": "Noonan\u2019s 2026 Wyndham Championship Outright Picks betspertsgolf.com",
    "published": "Mon, 03 Aug 2026 20:02:33 GMT",
    "source": "Google News: Wyndham Championship picks",
    "kind": "news",
@@ -2103,18 +2153,18 @@
    "golfers": []
   },
   {
-   "title": "Patrick Cantlay is fifth player to withdraw from 2026 Wyndham Championship - golfweek.usatoday.com",
+   "title": "Patrick Cantlay is fifth player to withdraw from 2026 Wyndham Championship - Golfweek",
    "link": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxNdUNMcUZwSXNvZzRJRDk2bWFJbUdYMExpSGhaNG5UTk1ZLTRxYjlnczZPaE9HNHR3NVFjZkZad3F4elBhM1lnVHlodHJ3V2JiMngtR1NtRV9kVVlWelJvOFNrMnZPYVVENzhCNHJqZC05TFlQN3dCeWNwdEhpRUsyb1RiNGhoR3dyX0lUVHZuTFh4WFZCcGp0cjdMUTJnbkRDakptTFhjMldRanlXdDU4T0dFUEVmSkRQa3piOU5kMlI4QVpIQjgxQ2pqdHYwVGdiUzYzYVV3?oc=5",
-   "summary": "Patrick Cantlay is fifth player to withdraw from 2026 Wyndham Championship golfweek.usatoday.com",
+   "summary": "Patrick Cantlay is fifth player to withdraw from 2026 Wyndham Championship Golfweek",
    "published": "Mon, 03 Aug 2026 19:01:00 GMT",
    "source": "Google News: Wyndham Championship WD",
    "kind": "news",
    "golfers": []
   },
   {
-   "title": "Wyndham Championship 2026: Favorites, odds for regular-season finale - Golf Channel",
+   "title": "Wyndham Championship 2026: Favorites, odds for regular-season finale - golfchannel.com",
    "link": "https://news.google.com/rss/articles/CBMirAFBVV95cUxQbUpSRzctdEc0Sk5BRHRqMGZqYWZQWXF4TWtQNHBhMHdYVjg0NE14VTJUM0ZxWmZwUmtuSTA4VHc2dDhFZlBrVTVoSi1XeDZidXBvalBza19KTGN1LXJ4NWNMZlR5dV9ZNzB5Zmp3bWloZVhYaUJzUlR3UWZhVmtvVWhaalhJQjU3Z19oUTFSbkRCLXF4bWJaVWM4bkJ0MHdkN2VVSS05VUd0TWpk?oc=5",
-   "summary": "Wyndham Championship 2026: Favorites, odds for regular-season finale Golf Channel",
+   "summary": "Wyndham Championship 2026: Favorites, odds for regular-season finale golfchannel.com",
    "published": "Mon, 03 Aug 2026 17:34:58 GMT",
    "source": "Google News: Wyndham Championship DFS",
    "kind": "news",
@@ -2125,65 +2175,6 @@
    "link": "https://news.google.com/rss/articles/CBMikgFBVV95cUxQUU1kMGpNaVRvZ0FQOXFhTGowVFhKbGJudjQ5VnpVUzJpWk41LVBVSjJ0SVdjSmlDUFhReFA2R3lyaUU2WUVqVndQYzBYd1BqamZKYmRyc3dMcnNpNHdwUnRqQnpJaTFHaTNKVGdlS25BM3N6NWFMRVA3TFYyaDJIOTdyeEhjWi01YXlJZFBmOWZLQQ?oc=5",
    "summary": "One-and-Done Golf Picks for Wyndham Championship betmgm.com",
    "published": "Mon, 03 Aug 2026 17:07:51 GMT",
-   "source": "Google News: Wyndham Championship picks",
-   "kind": "news",
-   "golfers": []
-  },
-  {
-   "title": "2026 Wyndham Championship Betting Preview: Picks, Predictions, Odds for Sedgefield Country Club - Sports Illustrated",
-   "link": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxPOEFaa29ObzgyaHZNMzdXRFFFNVk2T1Y2S25zenpGZ2RCR1FUNDVteHFTeGw3Ym5CZHAyaEFnVmxiY1VrLTBSTm40b2lrY3ZZS29HNXBPM3ctbDdOQnFybmJQVjNlTVM1REw3OEx1b29wWTVrUm5vbFZkNDdRSEhYRDRUS1NoaVZPTXV4anUyTXJ6cWZKNEFJYWM4cGpXd1FZVmp2dGxfRm5DMWl6ak5WeXdWUHRJNXpWa1FJ?oc=5",
-   "summary": "2026 Wyndham Championship Betting Preview: Picks, Predictions, Odds for Sedgefield Country Club Sports Illustrated",
-   "published": "Mon, 03 Aug 2026 17:00:01 GMT",
-   "source": "Google News: Wyndham Championship DFS",
-   "kind": "news",
-   "golfers": []
-  },
-  {
-   "title": "PGA DFS First Look: Wyndham Championship Odds, Salaries, Course History - RotoGrinders",
-   "link": "https://news.google.com/rss/articles/CBMijwFBVV95cUxOeGZNX1VYRXVtc0lUbkhXSlhicG0wampBcVJFR0JvSWh0NmtRS0FkMXpKbEEtTjRoUno4VkNPblFnSXRseUt3cnhjN3o5T2I2cG9qN1dLYjFRSXlTZl93YzJZbDcySVFZMHF5YUhLeWJIZ1ctaDY3VjZfdURHS2JLTGpValJwRWJqa3BuQVVGUQ?oc=5",
-   "summary": "PGA DFS First Look: Wyndham Championship Odds, Salaries, Course History RotoGrinders",
-   "published": "Mon, 03 Aug 2026 16:45:51 GMT",
-   "source": "Google News: Wyndham Championship DFS",
-   "kind": "news",
-   "golfers": []
-  },
-  {
-   "title": "Bazza's Best Bets At The Wyndham Championship 2026: Rising Star Can Continue To Shine",
-   "link": "https://www.golfmonthly.com/betting/bazzas-best-bets-at-the-wyndham-championship-2026",
-   "summary": "Our resident betting expert, Baz Plummer, shares his best bets for the Wyndham Championship as the regular PGA Tour season draws to a close and the playoffs loom",
-   "published": "Mon, 03 Aug 2026 14:51:08 +0000",
-   "source": "Golf Monthly",
-   "kind": "news",
-   "golfers": [
-    "Cameron Young",
-    "Jackson Koivun",
-    "Hideki Matsuyama",
-    "Justin Thomas",
-    "Ryan Gerard",
-    "Ben Griffin",
-    "Alex Fitzpatrick",
-    "Mac Meissner",
-    "Ben Kohles",
-    "J.T. Poston",
-    "Emiliano Grillo",
-    "Ryo Hisatsune",
-    "Jason Day"
-   ]
-  },
-  {
-   "title": "Bazza's Best Bets At The Wyndham Championship 2026: Rising Star Can Continue To Shine - Golf Monthly",
-   "link": "https://news.google.com/rss/articles/CBMijgFBVV95cUxPMW4xZjlvZVRHTThSYmFEUjNHYzUyOUViUHpueUdXSFpqd1Z5SmhnV005UlR5VThfbmNMZXBXZDhRRlJFc0UybXFrRjBVMVJoZXpPT3RvV0piRi1iN2h0ZTF2c0dyeU91LWI5ekZTdkxtbmZ3MmlNemdUTDNhLWFUVG16SnZVb29OWDJjekRn?oc=5",
-   "summary": "Bazza's Best Bets At The Wyndham Championship 2026: Rising Star Can Continue To Shine Golf Monthly",
-   "published": "Mon, 03 Aug 2026 14:51:08 GMT",
-   "source": "Google News: Wyndham Championship picks",
-   "kind": "news",
-   "golfers": []
-  },
-  {
-   "title": "4 Best PGA Picks this Week for the Wyndham Championship - betmgm.com",
-   "link": "https://news.google.com/rss/articles/CBMijAFBVV95cUxPV0laSURlNURjSFcwWkNUaVhQSmJyLXI1WV9Ub3Flc1ZwQlJLMk9XNWhpa2Z6NVFnUkozLVVELV9HUjRrMmNpM1NZREN5MHU0eDFmcHZCR2NPTVVpN2dheHp4Q05rNFBFbjFVNHZGX0dqa1JpMXBMN3haYUI1cHdvSHRGN2hjOWcwazZ5Zg?oc=5",
-   "summary": "4 Best PGA Picks this Week for the Wyndham Championship betmgm.com",
-   "published": "Mon, 03 Aug 2026 14:31:15 GMT",
    "source": "Google News: Wyndham Championship picks",
    "kind": "news",
    "golfers": []
