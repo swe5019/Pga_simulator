@@ -111,6 +111,10 @@ function lineupKey(ids) {
   return [...ids].sort().join('|');
 }
 
+/** Lineup stats that may be used to rank the pool. Must match the Build tab's
+ *  "Optimize for" options and the Review tab's trim-by list. */
+const RANK_KEYS = new Set(['score', 'ceiling', 'mean', 'p99', 'winEquity', 'allCutPct', 'floor']);
+
 /**
  * Build a lineup pool from the simulation results.
  *
@@ -132,6 +136,9 @@ function lineupKey(ids) {
  *    maxTotalOwn       - maximum sum of projected ownership% across all 6 players
  *    minWinEquity      - minimum sum of win equity % across all 6 players
  *    winEquityById     - Map<id, number> win equity % per golfer
+ *    objective         - lineup stat to rank candidates by when picking the final
+ *                        pool: 'score' | 'ceiling' | 'mean' | 'p99' | 'winEquity' |
+ *                        'allCutPct'. Defaults to 'score'.
  * @returns {{lineups:Array, exposure:Map}}
  */
 function buildPool(golfers, simResults, opts = {}) {
@@ -150,6 +157,7 @@ function buildPool(golfers, simResults, opts = {}) {
   const maxTotalOwn = opts.maxTotalOwn != null ? opts.maxTotalOwn : null;
   const minWinEquity = opts.minWinEquity || 0;
   const winEquityById = opts.winEquityById || new Map();
+  const objective = opts.objective || 'score';
 
   // Pre-build lookup maps for constraint checks (avoids per-lineup array scans).
   const ownMap = new Map(golfers.map((g) => [g.id, g.ownership || 0]));
@@ -280,9 +288,25 @@ function buildPool(golfers, simResults, opts = {}) {
   // Score every candidate lineup across ALL sims for its true distribution.
   scoreLineups(allLineups, simResults, nSims);
   scoreComposite(allLineups, golfers);
+  // Win equity comes from the golfers rather than the sim, so fill it in here.
+  // The caller used to compute it only AFTER selection, far too late to affect
+  // which lineups were picked.
+  for (const lu of allLineups) {
+    lu.winEquity = lu.players.reduce((s, id) => s + (winEquityById.get(id) || 0), 0);
+  }
 
-  // Sort all candidates by composite score descending.
-  allLineups.sort((a, b) => b.score - a.score);
+  // Rank candidates by the CHOSEN objective, which is what makes "Optimize for"
+  // mean something. Previously this was hardcoded to composite score and the
+  // objective was applied by the caller as a display sort, so every objective
+  // returned the same pool in a different order. Ties break on composite score,
+  // so among equally good lineups the better-rounded one wins. Missing values
+  // (allCutPct on a no-cut slate) sink rather than poisoning the comparison.
+  const rankKey = RANK_KEYS.has(objective) ? objective : 'score';
+  const rankOf = (lu) => {
+    const v = lu[rankKey];
+    return typeof v === 'number' && isFinite(v) ? v : -Infinity;
+  };
+  allLineups.sort((a, b) => (rankOf(b) - rankOf(a)) || (b.score - a.score));
 
   const { lineups, exposure, capExceeded, floorMissed } =
     selectByExposure(allLineups, nLineups, { maxExposure, maxExpById, minExpById, locks });

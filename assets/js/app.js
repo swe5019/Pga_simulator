@@ -986,6 +986,9 @@ function buildPool() {
     maxTotalOwn,
     minWinEquity,
     winEquityById,
+    // What to rank candidates by when picking the final pool. Passing this is what
+    // makes the "Optimize for" control actually select different lineups.
+    objective: $('#sortBy').value,
   };
 
   $('#buildStatus').textContent = 'Building…';
@@ -994,12 +997,10 @@ function buildPool() {
     State.build = window.Optimizer.buildPool(State.golfers, State.simResults, opts);
     State.contest = null; // pool changed; previous ROI no longer valid
 
-    // Compute total win equity for every lineup (for display).
+    // buildPool already ranked and selected against the objective; the pool comes
+    // back in that order, so no re-sort here. Win equity is refreshed for display
+    // from the live golfer records (the optimizer's copy is built from a snapshot).
     State.build.lineups.forEach((lu) => { lu.winEquity = lineupWinEquity(lu); })
-
-    // Re-sort the pool per the chosen objective.
-    const key = $('#sortBy').value;
-    State.build.lineups.sort((a, b) => b[key] - a[key]);
 
     const ms = Math.round(performance.now() - t0);
     const n = State.build.lineups.length;
