@@ -1,11 +1,11 @@
 {
- "updatedUtc": "2026-08-12T13:49:00Z",
+ "updatedUtc": "2026-08-12T16:05:16Z",
  "slate": "FEDEX_2026",
- "event": "Wyndham Championship",
+ "event": "FedEx St. Jude Championship",
  "counts": {
-  "items": 120,
-  "golfersMentioned": 13,
-  "news": 120,
+  "items": 111,
+  "golfersMentioned": 27,
+  "news": 111,
   "chatter": 0
  },
  "sources": [
@@ -106,21 +106,21 @@
    "error": null
   },
   {
-   "source": "Google News: Wyndham Championship DFS",
+   "source": "Google News: FedEx St. Jude Championship DFS",
    "ok": true,
    "items": 100,
    "error": null
   },
   {
-   "source": "Google News: Wyndham Championship picks",
+   "source": "Google News: FedEx St. Jude Championship picks",
    "ok": true,
    "items": 100,
    "error": null
   },
   {
-   "source": "Google News: Wyndham Championship WD",
+   "source": "Google News: FedEx St. Jude Championship WD",
    "ok": true,
-   "items": 68,
+   "items": 85,
    "error": null
   },
   {
@@ -156,13 +156,52 @@
  ],
  "mentions": [
   {
-   "name": "Patrick Cantlay",
+   "name": "Scottie Scheffler",
+   "news": 8,
+   "chatter": 0,
+   "total": 8
+  },
+  {
+   "name": "Sam Burns",
+   "news": 6,
+   "chatter": 0,
+   "total": 6
+  },
+  {
+   "name": "Tommy Fleetwood",
+   "news": 6,
+   "chatter": 0,
+   "total": 6
+  },
+  {
+   "name": "Justin Thomas",
    "news": 4,
    "chatter": 0,
-   "alert": "wd",
-   "alertHeadline": "Patrick Cantlay SHOCKINGLY Withdraws From Wyndham Championship! \ud83d\ude31 FedExCup Playoff Race Just Changed Pakistan (sCNno6En08) - Mshale",
-   "alertLink": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE0tMUg1WjJWSmMtamgyVDN6Q19zQXV6cm1rSE9yZE14WW9yVzNFT1hGYnV0dEh2a0tGX2EyQzg5ajFmTEhXNnN5d010d3F3R3hubnhsVEZPTTQyZ1E?oc=5",
    "total": 4
+  },
+  {
+   "name": "Hideki Matsuyama",
+   "news": 4,
+   "chatter": 0,
+   "total": 4
+  },
+  {
+   "name": "Patrick Cantlay",
+   "news": 3,
+   "chatter": 0,
+   "total": 3
+  },
+  {
+   "name": "Rory McIlroy",
+   "news": 3,
+   "chatter": 0,
+   "total": 3
+  },
+  {
+   "name": "Michael Brennan",
+   "news": 2,
+   "chatter": 0,
+   "total": 2
   },
   {
    "name": "Cameron Young",
@@ -171,13 +210,7 @@
    "total": 2
   },
   {
-   "name": "Justin Thomas",
-   "news": 2,
-   "chatter": 0,
-   "total": 2
-  },
-  {
-   "name": "Jackson Koivun",
+   "name": "Harry Hall",
    "news": 2,
    "chatter": 0,
    "total": 2
@@ -189,55 +222,343 @@
    "total": 2
   },
   {
-   "name": "Michael Brennan",
+   "name": "Rickie Fowler",
+   "news": 2,
+   "chatter": 0,
+   "total": 2
+  },
+  {
+   "name": "Viktor Hovland",
    "news": 1,
    "chatter": 0,
    "total": 1
   },
   {
-   "name": "Harry Hall",
+   "name": "Xander Schauffele",
    "news": 1,
    "chatter": 0,
    "total": 1
   },
   {
-   "name": "Scottie Scheffler",
+   "name": "Collin Morikawa",
    "news": 1,
    "chatter": 0,
    "total": 1
   },
   {
-   "name": "Jordan L. Smith",
+   "name": "Aaron Rai",
    "news": 1,
    "chatter": 0,
    "total": 1
   },
   {
-   "name": "Nicolai H\u00f8jgaard",
+   "name": "J.J. Spaun",
    "news": 1,
    "chatter": 0,
    "total": 1
   },
   {
-   "name": "Brian Harman",
+   "name": "Alex Noren",
    "news": 1,
    "chatter": 0,
    "total": 1
   },
   {
-   "name": "Alex Fitzpatrick",
+   "name": "Justin Rose",
    "news": 1,
    "chatter": 0,
    "total": 1
   },
   {
-   "name": "Hideki Matsuyama",
+   "name": "Kurt Kitayama",
+   "news": 1,
+   "chatter": 0,
+   "total": 1
+  },
+  {
+   "name": "Ryan Fox",
+   "news": 1,
+   "chatter": 0,
+   "total": 1
+  },
+  {
+   "name": "Michael Thorbjornsen",
+   "news": 1,
+   "chatter": 0,
+   "total": 1
+  },
+  {
+   "name": "Tom Kim",
+   "news": 1,
+   "chatter": 0,
+   "total": 1
+  },
+  {
+   "name": "Ludvig Aberg",
+   "news": 1,
+   "chatter": 0,
+   "total": 1
+  },
+  {
+   "name": "Matt Fitzpatrick",
+   "news": 1,
+   "chatter": 0,
+   "total": 1
+  },
+  {
+   "name": "Ben Griffin",
+   "news": 1,
+   "chatter": 0,
+   "total": 1
+  },
+  {
+   "name": "Chris Gotterup",
    "news": 1,
    "chatter": 0,
    "total": 1
   }
  ],
  "items": [
+  {
+   "title": "FedEx St. Jude Championship Sleeper Picks, Top 10 Predictions for TPC Southwind - PrizePicks",
+   "link": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxPWVV3emIxNzNVamhoNFZ4c3lfQ2drRjRJSEFTNl92YXRhMjBZUGRwMEpmNWg3M1F1UWoxSXBRTVd4a2twdUtsc0dONHlnTS05REdVbkktR2hFVjBBT2pEMGJDNGxjMVJmSlNiZ3l1eUZ1Q1JOQnI0Zm9xTkc2VE14anlpNFc0MEFTRVJTQktzVmR2UUczVUNpM3lCZDh1WkxsUGhEWW40Z2s1bTVzaFdSSTVOajFhNVpi?oc=5",
+   "summary": "FedEx St. Jude Championship Sleeper Picks, Top 10 Predictions for TPC Southwind PrizePicks",
+   "published": "Wed, 12 Aug 2026 16:00:39 GMT",
+   "source": "Google News: FedEx St. Jude Championship picks",
+   "kind": "news",
+   "golfers": []
+  },
+  {
+   "title": "Top fantasy golf targets and pivot picks for the FedEx St. Jude Championship - DraftKings Network",
+   "link": "https://news.google.com/rss/articles/CBMivwFBVV95cUxNc0Yzd3o5X3lXMmRZVnhZSWlaQkhuQXFYXzhkNU1PbEJmcU5vVmt0NkRUMFV3Tl9jbDBKUnpnTFhIUzRrMWJ5bzUxSVl3ZVlqVGNVZ01HWGtwdjdBOVB0NHMtMUdQOGI4OTFpMmliSnhSVHRvMkZIUzd2RVIxOEltcERsNUU4VGdLR0Ftd3VYSkNiSDM0V1ZxWW9LTUp4b2hIWUU0aHRhN1NpQjVBQ1JGbXNOWFBidEdXaUtleWZwWQ?oc=5",
+   "summary": "Top fantasy golf targets and pivot picks for the FedEx St. Jude Championship DraftKings Network",
+   "published": "Wed, 12 Aug 2026 15:29:20 GMT",
+   "source": "Google News: FedEx St. Jude Championship DFS",
+   "kind": "news",
+   "golfers": []
+  },
+  {
+   "title": "Fantasy Golf Picks Today: Top DraftKings PGA TOUR DFS Plays for the FedEx St. Jude Championship - DraftKings Network",
+   "link": "https://news.google.com/rss/articles/CBMi1AFBVV95cUxOaTBONHhrV0lmUU14Wk00RHBIMFVpZmlIZmd3RVgwUUcxTDVQZ0xUTVdWU2Y0UmZXbHZ3RHdfQkhkcEZmUDMtdVJPQVozR0NBOTJtQ0tpOExteEplU193alZyZUdyVU4wU1NmbGx0WWo4SHY5c1p0RUJfNk9lcWItMERCREI3UDU5Zk9hM3k4Wk0yc3JXeUdiLXk5Yms4blhPbDZESVBicDlrYXNjMXhjOGx3aVY4ZFR0eGEyMFFuUTRia3VSZFEyNHVQM1RmbGFha2dmQw?oc=5",
+   "summary": "Fantasy Golf Picks Today: Top DraftKings PGA TOUR DFS Plays for the FedEx St. Jude Championship DraftKings Network",
+   "published": "Wed, 12 Aug 2026 15:24:27 GMT",
+   "source": "Google News: FedEx St. Jude Championship DFS",
+   "kind": "news",
+   "golfers": []
+  },
+  {
+   "title": "PGA DFS Lineup Advice: Top Golfers (2026 FedEx St. Jude Championship) - FantasyPros",
+   "link": "https://news.google.com/rss/articles/CBMipAFBVV95cUxPeXA4bGQwVTNDRkZrUlpCcThfMnFCMVh3UXR5WXRnYThFeldzeUtfcm5HNlBodUVKZi1oWmZNVTJscDYzZVJTODVxTkpVU2FSWFRKcDhDR2dnOXhCcHFCeVEtYmJLRVZkTU1HVzJyS3h2V0kwSnJDQkRHeFIyd1lyNkZ2VzZXaHRKaXN6M3RhclV2ekNLbk02dzZ6OE5Ld0hEMG5NQdIBqgFBVV95cUxPYmJHOW9fYXNNWkNaQ2c1bUZLTWhSb01HdGpCaTJKU3E0bTNrV3dkRk5hTm1NM1FZZ0VzTjJLT1ZXTGJ3QkxtODZhOENmeGh0Um5HTnhzSHNzV0VZYjRHWGpRVTRpdzFaTHUxVXltbk1uOU9WQlpVWnRSNTVGdWI5X21oX0hMd1JzQ2FXbXJtOExEMXVtTEQxWFpmX3ZsTkRvVTN2Y2haeDlQZw?oc=5",
+   "summary": "PGA DFS Lineup Advice: Top Golfers (2026 FedEx St. Jude Championship) FantasyPros",
+   "published": "Wed, 12 Aug 2026 14:30:01 GMT",
+   "source": "Google News: FedEx St. Jude Championship DFS",
+   "kind": "news",
+   "golfers": []
+  },
+  {
+   "title": "FedEx St. Jude Championship Predictions & Top Picks 2026: Burns, Baby, Burns! - Covers.com",
+   "link": "https://news.google.com/rss/articles/CBMihwFBVV95cUxQaVhGZmh6ZC1tR1dSNDZselZjUXF6RVZjZVpLb0lRYTR3ekNxQlg3VkpuVm1HRzg2ejR4d0NQV0hpOWZBWTlJTWU5TzQzUHVWaHczMnNyTk0ybHpoakRBaGdTZDlkZzBiT21FdlpCblBJLXA4dzRiNUlXeFJTS3ZFRUp1VFVDdzQ?oc=5",
+   "summary": "FedEx St. Jude Championship Predictions & Top Picks 2026: Burns, Baby, Burns! Covers.com",
+   "published": "Wed, 12 Aug 2026 14:19:00 GMT",
+   "source": "Google News: FedEx St. Jude Championship picks",
+   "kind": "news",
+   "golfers": [
+    "Sam Burns"
+   ]
+  },
+  {
+   "title": "Justin Thomas, Viktor Hovland and Hideki Matsuyama headline the 2026 FedEx St Jude Championship best bets - Fox News",
+   "link": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxNQ0l1d1hpLVVFRVg4cTc4Z29mbDhZRGZLMlpNOXdMMjItYlJPTHhQQVFadk1vdlhXbXNkOW1haVE2Slg3M0VBcEpjcTB6cDEzSXllZWhNWU55d0NtdmNDVWhaUElWa3JWWlJZSUFJaTBZaF9meGJhdkwtUElkUU93SEJTVnhZMFlzNVJCVGdoQ1VNZllvWUxzU2VQYTByWGxLZXozaWxlTkJ4ZkFtVzZMcHoyS0F1Z0xEYnJla2hnbWRScjQ2UnZsNlVTRllIU2F1?oc=5",
+   "summary": "Justin Thomas, Viktor Hovland and Hideki Matsuyama headline the 2026 FedEx St Jude Championship best bets Fox News",
+   "published": "Wed, 12 Aug 2026 13:41:08 GMT",
+   "source": "Google News: FedEx St. Jude Championship picks",
+   "kind": "news",
+   "golfers": [
+    "Justin Thomas",
+    "Hideki Matsuyama",
+    "Viktor Hovland"
+   ]
+  },
+  {
+   "title": "Best Bets: Golf Talk Canada makes their picks for the FedEx St. Jude Championship - TSN",
+   "link": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxPdHpIQldwMWh3SUt0Rk9WTmkzRjZ6cmthOHJ4MkhuRkh1TktVSDNmMkxQcHVqWnZlSkVyWUpienVGTDY1U2dVaGEyTTRNUUVmcVlNY0JSUVlPdWVMS0RqVmE2TnBuQmRIZGtLUVFsMmp5amxzZFFXLUJFSXI3TW1kNk01WGZnLW9TNDU4R19tMlhFMFl5UjJZZ2lQS0dXX0UzVmdoT1RWa2VEYVZwWmdVVlhGdEVqU2xsckw2dG1CcUpjQQ?oc=5",
+   "summary": "Best Bets: Golf Talk Canada makes their picks for the FedEx St. Jude Championship TSN",
+   "published": "Wed, 12 Aug 2026 13:38:01 GMT",
+   "source": "Google News: FedEx St. Jude Championship picks",
+   "kind": "news",
+   "golfers": []
+  },
+  {
+   "title": "2026 FedEx St. Jude Championship odds, picks: Proven golf model reveals projected leaderboard, surprising predictions - SportsLine",
+   "link": "https://news.google.com/rss/articles/CBMi5AFBVV95cUxQWmFCbDY4QUhBb2RCS0xfcEo1YUdPYkhFeTZ4R2hEY3hGc25aNktnUm9Nb2VXVVI1Y29RRzE3bnFTQmdwX1YyUUIxMXB6eTBHTThtWGVjdXZDQXlkTW56UExMX2M1WVFwY1NZRVY3bFNBSVBFY3hPUVl5YmVfTDItalpVaWdVcUtBZTYxNHVpdDQ4dV9ndV9SZDJVQVdtUlpUd2doQ29kSDVFWWlhZmhZSS13LXhKcnVCR3hiZE5Qb3MzNHpMY183UDU1dHNqQ09kQjNTMElMVWFRa3JsWk11SGhRLWs?oc=5",
+   "summary": "2026 FedEx St. Jude Championship odds, picks: Proven golf model reveals projected leaderboard, surprising predictions SportsLine",
+   "published": "Wed, 12 Aug 2026 13:33:47 GMT",
+   "source": "Google News: FedEx St. Jude Championship picks",
+   "kind": "news",
+   "golfers": []
+  },
+  {
+   "title": "Patrick's Picks: Top Betting Plays for 2026 FedEx St. Jude Championship (Premium)",
+   "link": "https://www.rotoballer.com/premium/patricks-pga-betting-picks-2026-fedex-st-jude-championship-premium/1906679/",
+   "summary": "This content is for members only. Visit the site and log in/register to read.",
+   "published": "Wed, 12 Aug 2026 13:00:31 +0000",
+   "source": "RotoBaller",
+   "kind": "news",
+   "golfers": [
+    "Xander Schauffele",
+    "Tommy Fleetwood"
+   ]
+  },
+  {
+   "title": "Patrick's PGA Betting Picks: 2026 FedEx St. Jude Championship (Premium) - RotoBaller",
+   "link": "https://news.google.com/rss/articles/CBMirwFBVV95cUxNQnYxMFdyTTdfX3ZfdGI2TmU1VmhzSjBSLWlIak9xbW5BTC15Ym1mNnpBZlZ4ZW53S29fUHVOckZ6ai1EYks0d0tGRnZwZEZuX0pIb0lNTUUwTFZJbGYxYmt5YkZfcnV6Y084N0NFTzdyREtwTmFQclJYMDA1RnU1aVAtSE45bTdmRHpzYnFkV3M4cmRyeF94Z0NBck8yU3pnU2lVb0pUcmlmQWV0RVU0?oc=5",
+   "summary": "Patrick's PGA Betting Picks: 2026 FedEx St. Jude Championship (Premium) RotoBaller",
+   "published": "Wed, 12 Aug 2026 13:00:31 GMT",
+   "source": "Google News: FedEx St. Jude Championship picks",
+   "kind": "news",
+   "golfers": []
+  },
+  {
+   "title": "2026 FedEx St. Jude's Championship picks: PGA Tour best bets, odds, predictions for TPC Southwind - nypost.com",
+   "link": "https://news.google.com/rss/articles/CBMiywFBVV95cUxOdEE4d2d5Q0RIaFdWSVFHOGxkdFF3aE1wSVRJUEdEWWhLUUdlSmFuZ0U5bTlRTEtEcUFhdld6SnJPTjJNRDUxeTdIb1NLTzdhd3RpbjZXNFNjelRIT0szbzJnSjlxQVkyYVJsODJjdlZZYkM3ejZyclE1S2JtT3VhRVFFeXJYMzZWR1huWWNwTnFjY3MwSmVFN1owek1TNkotMm1paUh0LTR6NUJtVlVBaGgtcWhCRWlDU095aU9HVW40dkR1ODd6MHF0Yw?oc=5",
+   "summary": "2026 FedEx St. Jude's Championship picks: PGA Tour best bets, odds, predictions for TPC Southwind nypost.com",
+   "published": "Wed, 12 Aug 2026 13:00:00 GMT",
+   "source": "Google News: FedEx St. Jude Championship DFS",
+   "kind": "news",
+   "golfers": []
+  },
+  {
+   "title": "2026 St. Jude Championship Preview, Full Field And Odds - Yahoo Sports",
+   "link": "https://news.google.com/rss/articles/CBMiigFBVV95cUxPMHRBNVI3YjFBN0dndVVLV1ltX19ZTllsTG9oemFKVG1ULU5oTWQwNUFHdHNqWXNNaEFnTGVkMGJnWU53eXFwdW84YzhIa19oa2tZZndwVzNDektBZ3ZONU5mYmZOY1J5aTNHeV9MWTBpUmpTRlZPS1dEUGF3dzd1cWEteWtRT0JpUGc?oc=5",
+   "summary": "2026 St. Jude Championship Preview, Full Field And Odds Yahoo Sports",
+   "published": "Wed, 12 Aug 2026 12:15:04 GMT",
+   "source": "Google News: FedEx St. Jude Championship picks",
+   "kind": "news",
+   "golfers": []
+  },
+  {
+   "title": "2026 FedEx St. Jude Championship Odds, Picks, Predictions: Best Bets, Props, OAD - Lineups",
+   "link": "https://news.google.com/rss/articles/CBMirAFBVV95cUxONkpLbXFCUjZqQnUwQUhRUndjeTVPN183NWduOGtKWWc4eE9VR21INGtNZ1hrYXgtdFQzbnpGYnY3WkVBdjIybUFvd0VmUWZMNDlNQmJBYk5sVnVnTVpoTUtCUkRYODd3LTlJRUlMLTZKRUZpaGZQTE93bGx2NzVobU5pVEx6ZWZ3RHg1ZTFwV1JSa3pjS1BVdjdwemVLdDEtSDc1bjdhOGgwbUlL?oc=5",
+   "summary": "2026 FedEx St. Jude Championship Odds, Picks, Predictions: Best Bets, Props, OAD Lineups",
+   "published": "Wed, 12 Aug 2026 12:00:08 GMT",
+   "source": "Google News: FedEx St. Jude Championship DFS",
+   "kind": "news",
+   "golfers": []
+  },
+  {
+   "title": "FedEx St. Jude Championship Sleeper Picks and Predictions - Yahoo Sports",
+   "link": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxOWU0tTEc2UXUxbTZTYlhaQmtGeVpfc2VtWWVTN2daQzFjMWJ6Nm52NERscXF3dF82bFFpTEMwSWI0TWVrSEZveDF2dXJYTXJsYU9TV08tWTVKYVJ1WkpIbURKQWVyMWJ4N2tDM1Q1ZDlyaERlRVU3aS13THpSbGU1LTRDMjE5OU5ZRnpJ?oc=5",
+   "summary": "FedEx St. Jude Championship Sleeper Picks and Predictions Yahoo Sports",
+   "published": "Wed, 12 Aug 2026 11:00:00 GMT",
+   "source": "Google News: FedEx St. Jude Championship DFS",
+   "kind": "news",
+   "golfers": []
+  },
+  {
+   "title": "FedEx St. Jude Championship Sleeper Picks and Predictions - Covers.com",
+   "link": "https://news.google.com/rss/articles/CBMifkFVX3lxTFBHcHhQcVdxVWNWVkllS1VYYy1ldTJzN2JmX18wLVJTVjZjeDYyTDB2V0RuRUw3TnhWRXNjbzVOQk1GZnBHV0UySU1fMEtpTF9rSGtKeDc5Q3lDTV84dVE0OXJxMXYwa0luS25yTVZZNGwyMUhfSjUyRl9NVlRCZw?oc=5",
+   "summary": "FedEx St. Jude Championship Sleeper Picks and Predictions Covers.com",
+   "published": "Wed, 12 Aug 2026 11:00:00 GMT",
+   "source": "Google News: FedEx St. Jude Championship picks",
+   "kind": "news",
+   "golfers": []
+  },
+  {
+   "title": "PGA DFS Picks: DraftKings & FanDuel Tournament Breakdown for the FedEx St. Jude Championship - RotoGrinders",
+   "link": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxQMUQ0QUhUXzRuUlg5aV9GSnl3OEEtOUdsNFA3X2pwWDh0YWg4c0tMV1R3VXhQQ3R2SjdJRl9fbkJBUWZrc2NIWS1SNFJZUXVhOTV6ZWt2LXd4X3JZVnRqS3ozRU1LOXZQRDhENnVjb0pEaTd3LXU0VzJ4THY2LUtuVW50dldRSkNXOTctMHBhN21zUWtLdl9aVHhScllCenBaeElqTHB3M3l2b0lxLXNfRm9NaGpjb0NFLTlN?oc=5",
+   "summary": "PGA DFS Picks: DraftKings & FanDuel Tournament Breakdown for the FedEx St. Jude Championship RotoGrinders",
+   "published": "Wed, 12 Aug 2026 10:06:29 GMT",
+   "source": "Google News: FedEx St. Jude Championship DFS",
+   "kind": "news",
+   "golfers": []
+  },
+  {
+   "title": "DraftKings PGA DFS Lineup Picks for the FedEx St. Jude Championship (2026) - RotoBaller",
+   "link": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxQa3ZPaFFkc25kNmQwX0Z6UDNYZXlVVDI2RDVrWGtaMGZJQ0dfVUxqN3cxaU5tb0lxcXB5OVhPa1NZOHFCRFY1ZVJseE52N3ZETm5qVzdvcU5sM3d6OFdkcDRHdkdXX2lXLWJLdnFwV1NCaktDY0p5dWJVRjdEOWdlSGdYcWJGX0cxUHZXRURqdkt6dWE1aWh3RnRBWlhUWmlVNjlZXzRBMzZWdw?oc=5",
+   "summary": "DraftKings PGA DFS Lineup Picks for the FedEx St. Jude Championship (2026) RotoBaller",
+   "published": "Wed, 12 Aug 2026 10:00:33 GMT",
+   "source": "Google News: FedEx St. Jude Championship DFS",
+   "kind": "news",
+   "golfers": []
+  },
+  {
+   "title": "FedEx St. Jude Championship Picks, Props, Predictions: Betting Scottie Scheffler, Collin Morikawa and Justin Thomas - Sports Illustrated",
+   "link": "https://news.google.com/rss/articles/CBMi5AFBVV95cUxPVVNqMzlKX2M1anlHWFh3LXlCZlBNZWNaZHduTlFXOTZEci1wZjJmV0Q2WGxtSEx6UzVERGVMMWpZZWZ2Skg4SGFpZjVYSXNvOV9raElYSDM2dm5JeGpFZmJROHNrMGdmcVBWN214QW9DMFhmY1RJTDZRVlFIdFduWnBKVEgyMWhSU1ZGVmg5UW02YU9ENWZuRm81dV9VQ29pc1g0WVlXX3A4cWtScm9LU09pRkY3N0J5dktaR0E5MWwyMzk2Qjd4ZHdzU3NMWnRxNU9lcGZjTmlMbTZta2RKR1VMb24?oc=5",
+   "summary": "FedEx St. Jude Championship Picks, Props, Predictions: Betting Scottie Scheffler, Collin Morikawa and Justin Thomas Sports Illustrated",
+   "published": "Wed, 12 Aug 2026 10:00:01 GMT",
+   "source": "Google News: FedEx St. Jude Championship DFS",
+   "kind": "news",
+   "golfers": [
+    "Justin Thomas",
+    "Scottie Scheffler",
+    "Collin Morikawa"
+   ]
+  },
+  {
+   "title": "FedEx St Jude Championship Predictions, Model Picks: Data-Driven Bets for Matchups, Outright Winners - Action Network",
+   "link": "https://news.google.com/rss/articles/CBMixwFBVV95cUxObjVrTnpkNi1TdGVITnpJd0Rva09UWnpPcmxIVHVBZ1dGcEt1MjlYbDkwd2IwS0VvNTRiRXFZU1VhSVZLSGRWeWtObkFNRTFvRzJ6RkkwbkVHQWl3blNNMElScnZ4NFp4UHA1ZDNjZWgzSmM0ZXFRNEpZRl9HU0dmbGhtUWh0M1E0OS14Y3JpcGVfZW9yanV5UF9DZENINmxJelJ1TlRlSm1vNTM2ZFBJSVI0eVJCVnp2TmNfSjNSSW01LUVCajE4?oc=5",
+   "summary": "FedEx St Jude Championship Predictions, Model Picks: Data-Driven Bets for Matchups, Outright Winners Action Network",
+   "published": "Wed, 12 Aug 2026 10:00:00 GMT",
+   "source": "Google News: FedEx St. Jude Championship picks",
+   "kind": "news",
+   "golfers": []
+  },
+  {
+   "title": "2026 FedEx St. Jude Championship DFS picks, odds: Scottie Scheffler enters as clear favorite - The New York Times",
+   "link": "https://news.google.com/rss/articles/CBMinwFBVV95cUxObHhLY3R3NjBfMUpnX3hPWnJ2YXdTVEFNYWkwZV9oTWM3QW9vbDlYUkkzX1FIMVFVNFhXdDNVak95X1I3a3JjVE1nc3V6VXVqdFBJXzEzME5pODgwUnlwejRhOHlra25qdnk1a2VWV2M4bTNBcWZLVmVuNjh3RS05LVQ1ZGE4TFJMR2hTX0tXXzU5MXJZMVZmUGhpNk1jZW8?oc=5",
+   "summary": "2026 FedEx St. Jude Championship DFS picks, odds: Scottie Scheffler enters as clear favorite The New York Times",
+   "published": "Wed, 12 Aug 2026 09:08:42 GMT",
+   "source": "Google News: FedEx St. Jude Championship DFS",
+   "kind": "news",
+   "golfers": [
+    "Scottie Scheffler"
+   ]
+  },
+  {
+   "title": "Golf Tips: Best bets for FedEx St Jude Championship and Danish Golf Championship - Betfair",
+   "link": "https://news.google.com/rss/articles/CBMi3AFBVV95cUxPLUp2R09RYXNJSWxPUmJ2NFEzVE9rdENFUXpQMW5vWTF2QzhRYWUzSDJYZ0VsY25XSDF3dTdFT3RfQm53NGVjS1JTVnU1VGx1eHNUUkx5Y0Q1QXV0dV9xdTdJb2NNdGdvTkRydHlJMUUyeXdmUlFMNl81bFJCNlEwVjlvOHBLS1Z4MXA4b2pmaTkwZ2JhSEFJODNSQTJQTXJhYU1MN3BQdDlwOGlXSG1EU2NYdThoVnpLYUdTUS1QWUFMTVZCNWZ1MFVBcU54cDFINDVudnplT3dWRnI00gHcAUFVX3lxTE8tSnZHT1Fhc0lJbE9SYnY0UTNUT2t0Q0VRelAxbm9ZMXZDOFFhZTNIMlhnRWxjbldIMXd1N0VPdF9Cbnc0ZWNLUlNWdTVUbHV4c1RSTHljRDVBdXR1X3F1N0lvY010Z29ORHJ0eUkxRTJ5d2ZSUUw2XzVsUkI2UTBWOW84cEtLVngxcDhvamZpOTBnYmFIQUk4M1JBMlBNcmFhTUw3cFB0OXA4aVdIbURTY1h1OGhWekthR1NRLVBZQUxNVkI1ZnUwVUFxTnhwMUg0NW52emVPd1ZGcjQ?oc=5",
+   "summary": "Golf Tips: Best bets for FedEx St Jude Championship and Danish Golf Championship Betfair",
+   "published": "Wed, 12 Aug 2026 08:43:00 GMT",
+   "source": "Google News: FedEx St. Jude Championship picks",
+   "kind": "news",
+   "golfers": []
+  },
+  {
+   "title": "FedEx St. Jude Championship Betting Tips - PGA Tour Golf Expert Picks For The FedEx St. Jude Championship - Bookies.com",
+   "link": "https://news.google.com/rss/articles/CBMizgFBVV95cUxQdlhadHdhMjZvbHBQeHFRQVVab3huOWxnXzlaWW45WHBZaThPbW5Ob3VhMnRJc1pkdkZMcXdLZ1dwdFVLVkpaNWVObDRGamlTMHFrWlJDVS1rSFc0bDdQeVVwaGdVUGI2dGhxVWxGMEhpWGlhY3NwS0xjWEpObG93VHZUbmY4VUlHMGdKbmY3N3NreUVvTXR6RUl4RFpaRlIwZUpaS0ZlcHN3TGQwQ1MwZWtIQm9nZVZFR242Zy02RFV6YjZfR256dTN0U0V4QQ?oc=5",
+   "summary": "FedEx St. Jude Championship Betting Tips - PGA Tour Golf Expert Picks For The FedEx St. Jude Championship Bookies.com",
+   "published": "Wed, 12 Aug 2026 08:05:14 GMT",
+   "source": "Google News: FedEx St. Jude Championship picks",
+   "kind": "news",
+   "golfers": []
+  },
+  {
+   "title": "PGA DFS Picks: DraftKings & FanDuel Expert Survey for the FedEx St. Jude Championship - RotoGrinders",
+   "link": "https://news.google.com/rss/articles/CBMivAFBVV95cUxPd0I1RjNEcW50djNfYkQtWmI2WGNWVWVCMnV6ZHgyQjFWU0YtdV9WdldTMVB6bWJoYUV2aFByaTZVUkFSMlVvM251My1NQ1ZYMTRLVzFEZ3pkejRnRUkwRnZoUFBxZnQ3c1dJYVJFT080eDV1UF9Bb1RMdEZWUkF3VF9HQ0U5Q2R5ZUdqRkJWd2o3SHY5bzlfMy1vdHVBNGlaSHlmRVdFSUwxS1U0UEUybXBPQWlpTTJvUHZQaw?oc=5",
+   "summary": "PGA DFS Picks: DraftKings & FanDuel Expert Survey for the FedEx St. Jude Championship RotoGrinders",
+   "published": "Wed, 12 Aug 2026 07:36:54 GMT",
+   "source": "Google News: FedEx St. Jude Championship DFS",
+   "kind": "news",
+   "golfers": []
+  },
+  {
+   "title": "PGA Betting: 6 Picks for the FedEx St. Jude Championship - Athlon Sports",
+   "link": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxPeWRGWFFyWEVVVTUtSXN2ZjNCQjFVXzQwXzBad2NNODl6bHZFR19TZWcwTUs3RlpUTER4UTNBOEE1bGhCNzZrdnZsY1psRlVSQzF2MkFXSzA4M2ZBc3ZPM2s2UE13MGVBTnc2UnIzQzdvRmRHNnNCeVc3ZGRJUnRXOWZ1TG1UUkF3?oc=5",
+   "summary": "PGA Betting: 6 Picks for the FedEx St. Jude Championship Athlon Sports",
+   "published": "Wed, 12 Aug 2026 05:18:25 GMT",
+   "source": "Google News: FedEx St. Jude Championship DFS",
+   "kind": "news",
+   "golfers": []
+  },
+  {
+   "title": "Sleeper Picks: Who's a value play at FedEx St. Jude Championship? - PGA Tour",
+   "link": "https://news.google.com/rss/articles/CBMi-wFBVV95cUxNTFo4aEE2YUJvSmdtelZoNGxQXy1XMlVWVE41dnlHYXROVXA1cm5SSDBEWGY1aWZLdE5xVUhPMjlRRkdmZkIyRkVNOENUSWhNb3ZnT3dJWF9qakNfS1pjLVVGX253LS1wdzZlRmQ1eEtjYWgwc09vTXRMWkVoWWlmdW8wbXRFVWFSanU5RUZlWXUzeE53SWxuWnV1SzhuczVuRDRlcGVxaW5JZUZLNUNTczRheFJsNDJfMWJjbExub196UnlhN1BBQktPUVctSlUtRTlyaTdCVWV2Z0wwckNZM3hTaDhjdXJXWmVBOUFfR3JxeVNQdjc2OUFvcw?oc=5",
+   "summary": "Sleeper Picks: Who's a value play at FedEx St. Jude Championship? PGA Tour",
+   "published": "Wed, 12 Aug 2026 04:40:29 GMT",
+   "source": "Google News: FedEx St. Jude Championship DFS",
+   "kind": "news",
+   "golfers": []
+  },
   {
    "title": "FedEx St. Jude Championship Best Bets and Golf Odds",
    "link": "https://vsin.com/golf/fedex-st-jude-championship-best-bets-and-golf-odds/",
@@ -248,6 +569,15 @@
    "golfers": [
     "Michael Brennan"
    ]
+  },
+  {
+   "title": "FedEx St. Jude Championship Best Bets and Golf Odds - VSiN",
+   "link": "https://news.google.com/rss/articles/CBMifkFVX3lxTE8yM3l3Ym9IaEQ1cUExdEREbDBzeDNLNXFfNjFROU9KcDZBN1pGcGhVNXR1Z2R2MHVUbWR6WXE3c1ZNSzNPTWEwQkhHY3MtQUlWWEV6Y2ZWOGNGUW1Nb0VqMzJJV3pKVjF0b3RSXzFkR2QwMktNbnkwTEhHd25EZw?oc=5",
+   "summary": "FedEx St. Jude Championship Best Bets and Golf Odds VSiN",
+   "published": "Wed, 12 Aug 2026 04:02:26 GMT",
+   "source": "Google News: FedEx St. Jude Championship picks",
+   "kind": "news",
+   "golfers": []
   },
   {
    "title": "NFL Preseason Top Betting Opportunities and QB Depth Charts",
@@ -272,6 +602,65 @@
    ]
   },
   {
+   "title": "PGA DFS Ownership Projections on DraftKings for the FedEx St. Jude Championship - RotoGrinders",
+   "link": "https://news.google.com/rss/articles/CBMisgFBVV95cUxObnN2bldMaWY1UVFVM3ozb1BEQ1lNYjZqQUVGNVZNVUtyRGhfOU1oNlBKYnRweFdlWEljNWJXcWFIZ1BoQzhubVhHaF85ZVBzdlRFVGRORzZmSFBHNjhVTnNHQ2NYOGNLU05MVG5ibDVOUGQxc2YxaUhQVnRzMFJISUlBbTl5Rzc1MkpQM3VvNjM1bGtvb2MyQUQ0bmpsTGJENHFjNV9UenFReXVSTU5iMUh3?oc=5",
+   "summary": "PGA DFS Ownership Projections on DraftKings for the FedEx St. Jude Championship RotoGrinders",
+   "published": "Wed, 12 Aug 2026 03:37:33 GMT",
+   "source": "Google News: FedEx St. Jude Championship DFS",
+   "kind": "news",
+   "golfers": []
+  },
+  {
+   "title": "PGA DFS Picks: DraftKings & FanDuel Core Plays for the FedEx St. Jude Championship - RotoGrinders",
+   "link": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxQYjRqVVJkLUhoUXd4NV81dFRISXNBcjZIbjhvT3pUdWNDY3RIX2VOb3d5VGNGTE5fX3NuTXdkSUxCVlFYV2VfWENLUkN6MzFoMGxURUpmM1BHcHpUdGhaOVBvODEwSmFBc01lM1lucXNMZ2pFM091ZGVHLVZSREdyQ0p6UW03UFByMWxKazNKOWJXaFY0U0JHbzYwY3ZoNldRaFdpU3VWcFh1b01RRFB5R1Y4TEZVY2xp?oc=5",
+   "summary": "PGA DFS Picks: DraftKings & FanDuel Core Plays for the FedEx St. Jude Championship RotoGrinders",
+   "published": "Wed, 12 Aug 2026 03:01:05 GMT",
+   "source": "Google News: FedEx St. Jude Championship DFS",
+   "kind": "news",
+   "golfers": []
+  },
+  {
+   "title": "Best Fantasy Golf One and Done Pick for the 2026 FedEx St. Jude Championship - DraftKings Network",
+   "link": "https://news.google.com/rss/articles/CBMivAFBVV95cUxQWTJxZzkxcFMwbENZX2NkS0FIeUJIVV93cmJ1eHhGMHYwM0hNbGFBYU1mYkd0ckVJeWloR2N6UGtIMmtCUVNraFZmdnozUmtoVm9tNm9BNW1tZWJFSFFsR0QtWTlvM2N3Sk9MWWxCTllTYlpRT2NYNk5jaDQyNW5fSENQTnZ3ZkF4ZUUzRXNtWEx4UFpyMkZxSS1EcXhDN240OFJQQ2Z1T0RmZUNRVkZLT1Rpajl5OGk2RkF5Ng?oc=5",
+   "summary": "Best Fantasy Golf One and Done Pick for the 2026 FedEx St. Jude Championship DraftKings Network",
+   "published": "Wed, 12 Aug 2026 02:00:00 GMT",
+   "source": "Google News: FedEx St. Jude Championship DFS",
+   "kind": "news",
+   "golfers": []
+  },
+  {
+   "title": "PGA DFS: Top Cash Game Picks for the FedEx St. Jude Championship",
+   "link": "https://www.fantasylabs.com/articles/pga-dfs-top-cash-game-picks-for-the-fedex-st-jude-championship-2/",
+   "summary": "For the first of three events for the FedEx Cup Playoffs, we head to TPC Southwind (par 70, 7,288 yards, Bermuda... The post PGA DFS: Top Cash Game Picks for the FedEx St. Jude Championship appeared first on FantasyLabs .",
+   "published": "Wed, 12 Aug 2026 01:40:00 +0000",
+   "source": "FantasyLabs",
+   "kind": "news",
+   "golfers": [
+    "Justin Thomas",
+    "Sungjae Im",
+    "Hideki Matsuyama",
+    "Aaron Rai",
+    "Rickie Fowler",
+    "Patrick Cantlay",
+    "Scottie Scheffler",
+    "Tommy Fleetwood",
+    "J.J. Spaun",
+    "Sam Burns",
+    "Alex Noren",
+    "Justin Rose",
+    "Kurt Kitayama"
+   ]
+  },
+  {
+   "title": "PGA Drive for Show, DFS for Dough - FedEx St. Jude Championship - RotoGrinders",
+   "link": "https://news.google.com/rss/articles/CBMioAFBVV95cUxNOExnUVR4TjBjd1VrcTlIUFplM1NlOGF0cC1fNTJvM09tem1PX2xURGMxRFV6ejVaUm1lalMxd0FNbDVFdjFPMEFldkNIRjhqdmxTM2I4aHJaWFR4cHE1dlhjLVhib1Z6bWNIS1NiZUNhZFRockI0SmpNQkFBWWNLLTZ6NGU4R21Gc3pyNGhVb29qR0dhNlRXbUtBc3pyaEg0?oc=5",
+   "summary": "PGA Drive for Show, DFS for Dough - FedEx St. Jude Championship RotoGrinders",
+   "published": "Wed, 12 Aug 2026 00:48:18 GMT",
+   "source": "Google News: FedEx St. Jude Championship DFS",
+   "kind": "news",
+   "golfers": []
+  },
+  {
    "title": "Bet on a Brian Thomas Jr. Bounce Back in Fantasy Football Drafts?",
    "link": "https://www.fantasylabs.com/articles/bet-on-a-brian-thomas-jr-bounce-back-in-fantasy-football-drafts/",
    "summary": "The Jaguars possess arguably the most interesting wide receiver group in all of football. They have four potential contributors at the... The post Bet on a Brian Thomas Jr. Bounce Back in Fantasy Football Drafts? appeared first on FantasyLabs .",
@@ -283,65 +672,648 @@
    ]
   },
   {
-   "title": "Jason Day's 18-Year Playoff Streak Ends: Back Injury Forces Break | Wyndham Championship 2026 Doordash (lbOSgSdyBI) - Mshale",
-   "link": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE9FSlNjY2VVVm9pV0d3N2I5NHU5UUFENU5yTG9aU05mRFlNODk2UkxuUlBYeUJRUDRLSHh3STJFUjZkem0xSDRVRGIxM3pQdFdkM0tFV1NlaTNQeFk?oc=5",
-   "summary": "Jason Day's 18-Year Playoff Streak Ends: Back Injury Forces Break | Wyndham Championship 2026 Doordash (lbOSgSdyBI) Mshale",
-   "published": "Tue, 11 Aug 2026 14:48:27 GMT",
-   "source": "Google News: Wyndham Championship WD",
+   "title": "FedEx St. Jude Championship picks 2026: Why we believe in Sam Burns - Golf Digest",
+   "link": "https://news.google.com/rss/articles/CBMiekFVX3lxTE9Hd1RNa2xYc1MxZU5Eb3g1WGRvejlsNUsxUXhycGFjcGx1ZU5OQklqSS1MWXNpSEhiQmhSNHNEdVBlSzhubERCUGpraUo4LW9NNXdFZFAtRDJqN1M1anZCWEw1WUZYX1VQTC1aakEtSnFsUm4wVzFXM1ZR?oc=5",
+   "summary": "FedEx St. Jude Championship picks 2026: Why we believe in Sam Burns Golf Digest",
+   "published": "Wed, 12 Aug 2026 00:14:16 GMT",
+   "source": "Google News: FedEx St. Jude Championship DFS",
+   "kind": "news",
+   "golfers": [
+    "Sam Burns"
+   ]
+  },
+  {
+   "title": "FedEx St. Jude Championship Predictions & Top Picks 2026: Feel the Burns! - Yahoo Sports",
+   "link": "https://news.google.com/rss/articles/CBMikAFBVV95cUxPc2lnOE1oenllUWxfVmR3QmhJbmI3OVVjVjdKcS1takFHNC10V1E5bHRIU2lVZjZ2dGlmMGFDakVOLXMwWUxUcEs2YzRVbWpGS2JYWVNpenNsUGxVenR1Wkx5bVFndDJETWJVSTFWUzRaR1ctdUxzSnAxc19pNXpkeHlURzQzZTdHVVlKZ2toRXk?oc=5",
+   "summary": "FedEx St. Jude Championship Predictions & Top Picks 2026: Feel the Burns! Yahoo Sports",
+   "published": "Tue, 11 Aug 2026 23:30:00 GMT",
+   "source": "Google News: FedEx St. Jude Championship DFS",
+   "kind": "news",
+   "golfers": [
+    "Sam Burns"
+   ]
+  },
+  {
+   "title": "PGA Fantasy Preview For This Week: FedEx St. Jude Championship - rotowire.com",
+   "link": "https://news.google.com/rss/articles/CBMimwFBVV95cUxPVlYtRlI2aU8teEJSRzR2alhPalV1QjJtUjdfWW5rVXNRWkQ1Z01lakxRQy1JcTJWMWVIUUo2b1Myc2w4aHRqSzRjeGF0Y2hzZ0VEQjNtbnZ0aHFCazRpMHlGdEJxdlFCT2t4dlVEMXBlWW9hNWFjUGlxdnR5SlNYanJ1azgyTnFFUlVXR0p4SDA5XzdKemFsbkxrMA?oc=5",
+   "summary": "PGA Fantasy Preview For This Week: FedEx St. Jude Championship rotowire.com",
+   "published": "Tue, 11 Aug 2026 22:33:00 GMT",
+   "source": "Google News: FedEx St. Jude Championship DFS",
    "kind": "news",
    "golfers": []
   },
   {
-   "title": "The Drive: Wyndham Championship | Golf Picks & Analysis With Geoff Fienberg And Andy Lack Union Saint-gilloise Vs Anderlecht (hXpyk7ryXj) - Mshale",
-   "link": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE9WXzBXNnZtOGkzelhQbW90TmZXR2tPejZxSVg4VkRrRFg5a2ptLVhHOFNNRkp4UlhfSXlzNzRPWjVTOWRCaUpHYkF1TmVESl80azhSOWtMSURXTkE?oc=5",
-   "summary": "The Drive: Wyndham Championship | Golf Picks & Analysis With Geoff Fienberg And Andy Lack Union Saint-gilloise Vs Anderlecht (hXpyk7ryXj) Mshale",
-   "published": "Tue, 11 Aug 2026 10:40:48 GMT",
-   "source": "Google News: Wyndham Championship picks",
+   "title": "FedEx St. Jude Championship props: Tommy Fleetwood in search of FedExCup history - PGA Tour",
+   "link": "https://news.google.com/rss/articles/CBMilAJBVV95cUxOX0JpQ044YTJQeUZoRHcxbHNTbE5Wa2hTZ0pzLVM5dzJ1Y216T3RGWER0VEh6U0tkZkxQYXJ0bGJIdFlKYmdsZUEwMzZNNktEOGtxbkU0dlZVQmhVQTA2dTBveldCYlFHaXNmR0NYR1lGMmhleHRvcTROdEVzcEZweTA1TlRsejd6VHNKZDVJbWJJSXBUUldoRlhIU3JsQmY0N1dVc0dkaGJWbHlXUFZOQXg1NVU5dmgzNWdqcGxxRkVSNmF3WjNsRlN4TzNDcjRfNnVfQ0pRQWFnb0cwR3l1QTVJTGx6MmotYzB2MnpXOTNOdi0xdEVpcC1jcVQtbGpsWjFvSERfWENRcl9pdFBaYklEcFA?oc=5",
+   "summary": "FedEx St. Jude Championship props: Tommy Fleetwood in search of FedExCup history PGA Tour",
+   "published": "Tue, 11 Aug 2026 22:24:54 GMT",
+   "source": "Google News: FedEx St. Jude Championship DFS",
+   "kind": "news",
+   "golfers": [
+    "Tommy Fleetwood"
+   ]
+  },
+  {
+   "title": "Bolton: Hideki Matsuyama, Patrick Cantlay among fantasy plays for chasers at FedEx St. Jude Championship - PGA Tour",
+   "link": "https://news.google.com/rss/articles/CBMihgJBVV95cUxOSU5ueE5CLW5kbE5qa1lpak9xZUoyTVBVMDNybXNnVmdlSEoyTzQ5a0N2VGZHUklYbm9fM2RldjUxZ1EtajYtemxyMkw5QWRuVmtsQXlSbkR1NFR6d2R0Y3RIRW5jRGo2bHY3TGFsLXA4R0tTRjBhYUx4LXFzeVlLMnBoSkZKYXViOWJmYlJCQmlYMnFCV2o0VXpKRHFZSXdVc0h5RFF5OEJQZG9JMFQ0LVljYm1mQVlJcXZpMHg1azBDQlZha28tTTlFMjFPUnQwZGNkSjFkSE9mQzg4bXB0LWQ5ZzNZdm5xQ1I4cUxLU3JiS05TTTF6NEpDUE16elN3V3NEanFn?oc=5",
+   "summary": "Bolton: Hideki Matsuyama, Patrick Cantlay among fantasy plays for chasers at FedEx St. Jude Championship PGA Tour",
+   "published": "Tue, 11 Aug 2026 22:12:38 GMT",
+   "source": "Google News: FedEx St. Jude Championship DFS",
+   "kind": "news",
+   "golfers": [
+    "Hideki Matsuyama",
+    "Patrick Cantlay"
+   ]
+  },
+  {
+   "title": "Noto's Model Breakdown: PGA DFS Preview & Strategy for the FedEx St. Jude Championship - RotoGrinders",
+   "link": "https://news.google.com/rss/articles/CBMipAFBVV95cUxPRi1HUV9wVjUzcS1CTHRfa3pfLUxjTEdZTHQ3cElsUmdJbDJHdlpoSWdVTkpwODhoTkowcE1TT2FhcWEtc2N2ZmhLR2V3d3ZoTnVYZW1iRTQtVjdidnhOb1h2VDhnQlRmOVhUeGNmX0F6R1R6RmZkSDVmRmdsVm1MbnRfaTFOQ3dGV2ZaNHR4cm9JSUI2YlhkX0NUUmg5bV8xOTNRMw?oc=5",
+   "summary": "Noto's Model Breakdown: PGA DFS Preview & Strategy for the FedEx St. Jude Championship RotoGrinders",
+   "published": "Tue, 11 Aug 2026 22:03:18 GMT",
+   "source": "Google News: FedEx St. Jude Championship DFS",
    "kind": "news",
    "golfers": []
   },
   {
-   "title": "2025 Wyndham Championship DFS First Take - PGA Tour DFS Preview & Picks Alex Iwobi (R8J40I2V4F) - Mshale",
-   "link": "https://news.google.com/rss/articles/CBMiW0FVX3lxTFAyMFBMZDlvdjEzREs5U1Rha0trbGlHOVlZYWFHc0ZsYzRNa0FUbFdLTUFmZ2Fsd2ppWUZzRGhLVW1HcE9rRkZLS2I5N2wwZ1RqNkFFa05md203S1U?oc=5",
-   "summary": "2025 Wyndham Championship DFS First Take - PGA Tour DFS Preview & Picks Alex Iwobi (R8J40I2V4F) Mshale",
-   "published": "Tue, 11 Aug 2026 05:40:02 GMT",
-   "source": "Google News: Wyndham Championship DFS",
+   "title": "PGA DFS Picks For FanDuel This Week: FedEx St. Jude Championship Cash and GPP Strategy - rotowire.com",
+   "link": "https://news.google.com/rss/articles/CBMitgFBVV95cUxQM0pFMHRPQ0lZdWYxV1QtdXFUVWFIR2tVelJjYVhRRUh0NjJiWl8wSW5FVFpkQUJGbktDRTRUQ0dWeFdpMnMxZndERTJFNTJjTXRWcnpEUkhQM1BmTHgxTzE0d0Jqa254ZlpLdk5TNHQzdHVOeGpOUDIzZU5McnpEcmd3MVBIMG5mUWJ4THFjV2JKc1JIaEN4djhKUVp2dmtwX29idktoaDZmQkhGWTRUVGNodTFsZw?oc=5",
+   "summary": "PGA DFS Picks For FanDuel This Week: FedEx St. Jude Championship Cash and GPP Strategy rotowire.com",
+   "published": "Tue, 11 Aug 2026 22:03:00 GMT",
+   "source": "Google News: FedEx St. Jude Championship DFS",
    "kind": "news",
    "golfers": []
   },
   {
-   "title": "Cash Lineup Review: Wyndham Championship - Establish The Run",
-   "link": "https://news.google.com/rss/articles/CBMiekFVX3lxTE9ZNzh1YTR5MDZENWYwazdFcWVwaVNnaFhsNkE3aDJTSWJUeHlfdW1UWUx6cWpMMHE1ZWR3WmkzeVRvQnFlMDQ1ZFFtbnhEUC0zYmo2QUhFMTBGVnpEajZIZDBHSndveGZMY2FrY2FaV3gwVEs5TDluc2NR?oc=5",
-   "summary": "Cash Lineup Review: Wyndham Championship Establish The Run",
-   "published": "Tue, 11 Aug 2026 01:22:22 GMT",
-   "source": "Google News: Wyndham Championship DFS",
+   "title": "2026 FedEx St. Jude DFS and Betting Picks - Fantasy Six Pack",
+   "link": "https://news.google.com/rss/articles/CBMid0FVX3lxTFBvZDdreGZwWTN2SlplTGJaUTlaZ21xNGlkd1RwbVFncHZURHExZEVITVp0YW0wTTZyLTRVUFBPOVRZNWNLOXY0dFlDdERCYnBMdWhVQ1NHd2RQRHNZMEo1bmRFRGM0dkxma2VjZHJDb3hVMVlxeU9N?oc=5",
+   "summary": "2026 FedEx St. Jude DFS and Betting Picks Fantasy Six Pack",
+   "published": "Tue, 11 Aug 2026 21:47:20 GMT",
+   "source": "Google News: FedEx St. Jude Championship DFS",
    "kind": "news",
    "golfers": []
   },
   {
-   "title": "2026 Wyndham Championship Round 2 Showdown + Prop Stream: Weather, DFS, Pick Em Props + Matchup Bets El Ni\u00f1o (Lgg86pu1Td) - Mshale",
-   "link": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE5rVG14MWVpeTFCZVRLWDlweGtWb0c4alB4YUQ5aDBuUF9udWdDeHFfR2VUVGtqcW4ta0l1a3V5WHdwMGRlTGV1N1NWeTY0bFJ4T254SzAtYUo1YkE?oc=5",
-   "summary": "2026 Wyndham Championship Round 2 Showdown + Prop Stream: Weather, DFS, Pick Em Props + Matchup Bets El Ni\u00f1o (Lgg86pu1Td) Mshale",
-   "published": "Mon, 10 Aug 2026 22:48:07 GMT",
-   "source": "Google News: Wyndham Championship DFS",
+   "title": "2026 FedEx St. Jude Championship Picks: Golf Best Bets on DraftKings Sportsbook - DraftKings Network",
+   "link": "https://news.google.com/rss/articles/CBMivwFBVV95cUxObkRZcENmS3RQY2ZxdlpDQlF6RkJuajg3YW1ZTzR0bU1CYXpia3dHY2RJbjA1OEQ3bHFYZzFIbUN6a1ZFXzFaZW55bW5zclVpNmhHT1hYYXBFZGRwam9NcHVZcHNUSkswQ0c0YWJMb05wT2p1VzUwRUJ3WjhEY3FhbkczRkNYSjU0aXRjQnNUTnQ2UDcxUjFpZjM2R05ObWctdjZMelRjSE90ZDRkM0s2b2Z1MDRTOTBldDB6Mk9oYw?oc=5",
+   "summary": "2026 FedEx St. Jude Championship Picks: Golf Best Bets on DraftKings Sportsbook DraftKings Network",
+   "published": "Tue, 11 Aug 2026 20:59:34 GMT",
+   "source": "Google News: FedEx St. Jude Championship DFS",
    "kind": "news",
    "golfers": []
   },
   {
-   "title": "Wyndham Championship 2026: Top PGA DFS Picks, Lineup Strategy, Core Plays + Favorite Outright Bets Iphone Ultra (V3hPe9lN00) - Mshale",
-   "link": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE1YYkhvUXFWVGpmTlRuWUtuX3pwSFUzTEdsWFlrYXROTFd3eUkzVi1tZ2pFUzlFZEhYQ2RxWnZzREY4ZDZxSGxZS0ZhbENJbUFrd2J3Z0lCc1FqcnM?oc=5",
-   "summary": "Wyndham Championship 2026: Top PGA DFS Picks, Lineup Strategy, Core Plays + Favorite Outright Bets Iphone Ultra (V3hPe9lN00) Mshale",
-   "published": "Mon, 10 Aug 2026 20:43:06 GMT",
-   "source": "Google News: Wyndham Championship DFS",
+   "title": "2026 FedEx St. Jude Championship Preview: Top 70 compete in Memphis + Michael Brennan wins Wyndham | Scorecard Stream of Golf - CBS Sports",
+   "link": "https://news.google.com/rss/articles/CBMi4AFBVV95cUxQVEhPOVZ2dHlzM0ZtTFBpUGFjeUp5ZWZScDVhZ3BLckNDNkpqY3lMTjhrOEdBY0NaSzVHdVZlbExTcDc1Sld4S3UyWUVHZnFEenFpRm04LXRUeTNSbWZZcVk3cXhCMi1pckVWX0FRblM1TU81MVVwTmFteHRkSGFaWkNhZjFVeHUxMUlSbUlZemRVQVBQRWJCTHM1c1lCcEFQXzE3UFpGdkF2ZVJFdnh0QnFFd3RhOUNFblV4Y21Sc25vZF9YY1ctQ3JtdU9CamJrSTk2X1luM2xwbmphbDZ4Rg?oc=5",
+   "summary": "2026 FedEx St. Jude Championship Preview: Top 70 compete in Memphis + Michael Brennan wins Wyndham | Scorecard Stream of Golf CBS Sports",
+   "published": "Tue, 11 Aug 2026 20:49:32 GMT",
+   "source": "Google News: FedEx St. Jude Championship picks",
+   "kind": "news",
+   "golfers": [
+    "Michael Brennan"
+   ]
+  },
+  {
+   "title": "Sam Burns Headlines Fantasy Golf Picks (DraftKings) at the FedEx St. Jude Championship - Sports Illustrated",
+   "link": "https://news.google.com/rss/articles/CBMipAFBVV95cUxNLVU2bloycHZwSWVPSFBlTmVXZUQ0WFdPeFhzMkIxdlNsNGU4dHpvekpjZFg0Z2xGemNxLUFROWtmc2NDd3JlTGdLeWVtQ2FROFpOWTBFYjJMcElaX29CWGxESE5mbDNOMG9uN1N2LUJHcF91bHlZVVR5VFpyNTNUUzBIQVJZQXpqLUQtNFAyRFA5Ui14YkYzV2JiekJrNFE3cDF5SA?oc=5",
+   "summary": "Sam Burns Headlines Fantasy Golf Picks (DraftKings) at the FedEx St. Jude Championship Sports Illustrated",
+   "published": "Tue, 11 Aug 2026 19:57:55 GMT",
+   "source": "Google News: FedEx St. Jude Championship DFS",
+   "kind": "news",
+   "golfers": [
+    "Sam Burns"
+   ]
+  },
+  {
+   "title": "FedEx St. Jude betting guide: 6 picks our gambling expert loves this week - GOLF.com",
+   "link": "https://news.google.com/rss/articles/CBMid0FVX3lxTE51NmxBQzFfOW9SaWYyV2FCaXV4Ulp2dHA3b0tOMEloOHdtYm8yd2tXNzFmTFR6QWRNVUpfRkx6ZzEzN3RMNFBNVV9UVDVKWE1PMU94Q3YtWHhmSEcyMzRTX3pmX2lLWXdraDMtZm4tdTQxUGowOE00?oc=5",
+   "summary": "FedEx St. Jude betting guide: 6 picks our gambling expert loves this week GOLF.com",
+   "published": "Tue, 11 Aug 2026 19:34:28 GMT",
+   "source": "Google News: FedEx St. Jude Championship picks",
    "kind": "news",
    "golfers": []
   },
   {
-   "title": "Course Breakdown - 2022 Wyndham Championship: Sedgefield Country Club Preview By Gsluke DFS Jensen Huang (VYfJguYy2K) - Mshale",
-   "link": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE1hYXlsNmJEb0dfT1QyUFhaOWhlcThaVzBwMlBDamwyQ0V1QmNnUHFMUnVxd0Mxc05aMS1ESXNMSnpPUTF0X29aVzVvZm45dklGbHJOVlpBaVFTYTA?oc=5",
-   "summary": "Course Breakdown - 2022 Wyndham Championship: Sedgefield Country Club Preview By Gsluke DFS Jensen Huang (VYfJguYy2K) Mshale",
-   "published": "Mon, 10 Aug 2026 18:18:01 GMT",
-   "source": "Google News: Wyndham Championship DFS",
+   "title": "DraftKings PGA DFS Value Plays - 2026 FedEx St. Jude Championship (Premium Content) - RotoBaller",
+   "link": "https://news.google.com/rss/articles/CBMivwFBVV95cUxPRnpVbGpBQmVnQXp5MXJMeU0yclRVQTFxdXoxamhUWVJXbEZrN1JhVHJJRnd1VFhINExGRDFGSUwzRDJPemlvMzJMMGFrQ1NIYjZDZ09VQjJOZ19MUFl2TXc1NnRrVkFtWENLaklFbDhQSk5mMHJXT0hYTU1razV4SVREOGdqUlA3cHdlRk9CSUhRTzc5OXlIc0RhODFmUkROSkJ0OUt4d2QtaFY3U29IQmJHX0FvY0tzTDNnVjgtYw?oc=5",
+   "summary": "DraftKings PGA DFS Value Plays - 2026 FedEx St. Jude Championship (Premium Content) RotoBaller",
+   "published": "Tue, 11 Aug 2026 19:33:34 GMT",
+   "source": "Google News: FedEx St. Jude Championship DFS",
+   "kind": "news",
+   "golfers": []
+  },
+  {
+   "title": "PGA DFS Picks For DraftKings This Week: FedEx St. Jude Championship Cash and GPP Strategy - rotowire.com",
+   "link": "https://news.google.com/rss/articles/CBMiugFBVV95cUxOa3BMazllUXJIYU9BTVphYzRmWUZQUnpXNnVkRTlWT1BqZTI1TWRfeHRNdmVlWWIyYk9odTJCclJ4M3V4dFdFXzdFZkE5eE11QnFSQ0otX3ZOU194VFV3c3Q2UGdkUUd6V3cyVzFaR0htZDFuU1hEbzAweGZtZ0VBV0Y2d1J4RHlZUDZsWURuQVVOUjhLeW9LOVo3ZGdfNlQ5bXRlV2FoY1AtRW9VUUtOLTNvYjhEN3NIdHc?oc=5",
+   "summary": "PGA DFS Picks For DraftKings This Week: FedEx St. Jude Championship Cash and GPP Strategy rotowire.com",
+   "published": "Tue, 11 Aug 2026 19:33:00 GMT",
+   "source": "Google News: FedEx St. Jude Championship DFS",
+   "kind": "news",
+   "golfers": []
+  },
+  {
+   "title": "Tommy Fleetwood Tops Fantasy Golf Picks (FanDuel) at the FedEx St. Jude Championship - Sports Illustrated",
+   "link": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxORUdjOEtiS09zbTlBQ2VlNy10MHduLWd3T04wQjdEQ1dZRmEwNFpFR3dHSnNtbjlKT2swM2N4Qng5cDFIYWdITUJPbG9EUFdhSi1zZkNnX3F4THNzZEdLdmRYLU5iaDlILW91d3ZrcDFCalUzUVU1N1J5dDNTUmVOM2lkMi1CVTE2d3dCT18yVzM2eFBaSmpTSG90M2dlS0U3dmwxcWRUN18?oc=5",
+   "summary": "Tommy Fleetwood Tops Fantasy Golf Picks (FanDuel) at the FedEx St. Jude Championship Sports Illustrated",
+   "published": "Tue, 11 Aug 2026 19:27:42 GMT",
+   "source": "Google News: FedEx St. Jude Championship picks",
+   "kind": "news",
+   "golfers": [
+    "Tommy Fleetwood"
+   ]
+  },
+  {
+   "title": "DraftKings Fantasy Golf Picks: 2026 FedEx St. Jude Championship Predictions, Preview - DraftKings Network",
+   "link": "https://news.google.com/rss/articles/CBMixAFBVV95cUxNYTgyQTQ0cndCcTliNG1rcjl0SHZFRlJFbWstcmxjal9sTUFQb0FUd1YxMVpKYTV5bWJZdDlfS3laQVRoRUZfU1ZHMnVDOTZrUGJTSzVtSndKU0FMbUdBU1I2WWt0Q1oyZ1JBcllfNGUxamhnQURfVVVvQ2RULTN3V0IwbXJWOVBFdVNRS295SksxZmVLQXlwcFZDQ3Z3aDVHTFU3eUh6SDFjdm44REk5NjZnRkNaR09kZXpMM1VVUVAtSHFN?oc=5",
+   "summary": "DraftKings Fantasy Golf Picks: 2026 FedEx St. Jude Championship Predictions, Preview DraftKings Network",
+   "published": "Tue, 11 Aug 2026 18:53:08 GMT",
+   "source": "Google News: FedEx St. Jude Championship DFS",
+   "kind": "news",
+   "golfers": []
+  },
+  {
+   "title": "PGA longshot parlay: Get SportsLine's top golf picks for 2026 FedEx St. Jude Championship with a shot at a huge return - SportsLine",
+   "link": "https://news.google.com/rss/articles/CBMi5wFBVV95cUxOUEtxVGZpSll1LWRiWGNEd3ROSGl5eGZrRFJFRjJlT2QtUWdDU0JoRi1NMVdrYmZVeTFPNm9TNFM2YTVmMWFvNEdsNDEyanloVjZEQ2g4b0RXR253YUxDMkZFMExqdmZiX1BDRXFndWFfRTZWd3ZvdnlsN2lKSllxeVBjenJPNmVMX2tINVNHdThCVXRhbVQ3V1AxZ0FPM2Z6OG8wTXFaM2tFNDJrZmJ3RGJhM2s0ZnFPWWJYaEtnNHJVQkxxRWdFUFBqbk1KelZ0MkFrLWl2Zm1DdG9rM2F5QVNNSDNpSXM?oc=5",
+   "summary": "PGA longshot parlay: Get SportsLine's top golf picks for 2026 FedEx St. Jude Championship with a shot at a huge return SportsLine",
+   "published": "Tue, 11 Aug 2026 18:13:44 GMT",
+   "source": "Google News: FedEx St. Jude Championship picks",
+   "kind": "news",
+   "golfers": []
+  },
+  {
+   "title": "FedEx St. Jude Championship DFS picks 2026: Our expert's favorite play might be controversial - Golf Digest",
+   "link": "https://news.google.com/rss/articles/CBMif0FVX3lxTE1WVnlaampuMy1Da3QxMlBxQkx4Mi1KM3h0RWN5cGU5bV84SFN5SmpfU0RkRGRJY250ZzlIX3M1TXlmMExWUHZXMXNGWGNVR0NidVZxdDF3X2NDQkU0d3FNUmpoV19FYWkyR2c0VzdVNlFoOU01RFFLcFM4UVByRzA?oc=5",
+   "summary": "FedEx St. Jude Championship DFS picks 2026: Our expert's favorite play might be controversial Golf Digest",
+   "published": "Tue, 11 Aug 2026 17:50:52 GMT",
+   "source": "Google News: FedEx St. Jude Championship DFS",
+   "kind": "news",
+   "golfers": []
+  },
+  {
+   "title": "2026 FedEx St. Jude Championship Dark Horse Picks, Sleepers and Long Shot Predictions - Sports Illustrated",
+   "link": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxQZTI2SkZJcnNkLWtZMWp6akNwaFQxRXFGdVFTdDZGdUc4YkltTWVpQU1NZ1premY3RVVNdXFDZFMzQ1RGTEE2d1YtNjRFQ1JYMGFLaDBvZDdDM2hkc09VOFhfLXAtcVVXSC1nVG5KOS1YaDVwZlkxUHQ4c25CaUd0NkZ2TWxrbmxOWUNVNl9tbkt4V1dpWF9DMEFtRUlRd1JEa3dzUWtkZ253R0NCNnVmempmQ3c0cjJsSXJRcG9neGk?oc=5",
+   "summary": "2026 FedEx St. Jude Championship Dark Horse Picks, Sleepers and Long Shot Predictions Sports Illustrated",
+   "published": "Tue, 11 Aug 2026 17:46:41 GMT",
+   "source": "Google News: FedEx St. Jude Championship DFS",
+   "kind": "news",
+   "golfers": []
+  },
+  {
+   "title": "FedEx St. Jude Championship Preview, Predictions, Picks, Odds for TPC Southwind - Action Network",
+   "link": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxORFNRcFZNX21MM2dZMUpTSmNnSDlsYy01d3pwTTYyRXdhdnZXUjNUeGM0aEFHZ0JrTXNza0VBVV9SaG82RUN5SkhIeWRLUkhOUjZWQWRLalB0b2hRQlhuakppSGFyNElOSXpOTVpQZFBwWVlBRDBQeFFjS0VOOFJNdV9yUl9GQ0ZGeFhzbm9LcHB2UDB1TUdSRVZXaDdOWldjbmFkd1dFay0xZw?oc=5",
+   "summary": "FedEx St. Jude Championship Preview, Predictions, Picks, Odds for TPC Southwind Action Network",
+   "published": "Tue, 11 Aug 2026 17:44:00 GMT",
+   "source": "Google News: FedEx St. Jude Championship picks",
+   "kind": "news",
+   "golfers": []
+  },
+  {
+   "title": "Expert Picks: See who experts are trusting to perform at FedEx St. Jude Championship and beyond - PGA Tour",
+   "link": "https://news.google.com/rss/articles/CBMi3wFBVV95cUxQM292MldjTEF5dzZuaDI4NnZkcVhYVWdkam5sWDlzb0x5cXp0TGlfbTlBV0JmajcxSnhPcTI3Vl9uYzFEb3UzOGdDTDAweFB2OV8xUHJWcWZNZllzS3hNYk4ySk9YaXdsYVpxZE9lcGI5d2lYS2FIb2RMTElPWFM4a1MtZlZfQTBiWXZPVGdESndiRHk2Vjh4cUgzLWd4b2FDUlJESl9tNVVNU3dnOUkzYlA3LWlPSU1Pa2Z2TU1fN1ZQRGMxSWVCSnV5VzBvTlFvV0Z6VUhMbVNGUEdobENB?oc=5",
+   "summary": "Expert Picks: See who experts are trusting to perform at FedEx St. Jude Championship and beyond PGA Tour",
+   "published": "Tue, 11 Aug 2026 17:33:45 GMT",
+   "source": "Google News: FedEx St. Jude Championship DFS",
+   "kind": "news",
+   "golfers": []
+  },
+  {
+   "title": "FedEx St. Jude Championship PGA DFS Fantasy Golf Sleepers Featuring Ryan Fox & Rickie Fowler - Sports Illustrated",
+   "link": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxQMnRhZEVjMG1SeXVWNnpIOXRoMm45TGFBdTR3NmxuZERIV2s0MkVCMGVnVGVWWl9qQjRmQWFxbTg5ZXVQUzlXal91WVo5QkVTaFljUUhScEdjVm4zdWY4SVh1VVc5QTN6YmI5VVU0dzYtVXhQS1RXb1FDZmdXajhUX2NiQW5PdlVJLVdKM0VEcU1FcXpGUGlZQnk5dmtnVnJNR3drNHBMNHU0SkRwOXBkdG9xOHh0Mk5nZldncnhNdWx4YW8?oc=5",
+   "summary": "FedEx St. Jude Championship PGA DFS Fantasy Golf Sleepers Featuring Ryan Fox & Rickie Fowler Sports Illustrated",
+   "published": "Tue, 11 Aug 2026 17:16:38 GMT",
+   "source": "Google News: FedEx St. Jude Championship DFS",
+   "kind": "news",
+   "golfers": [
+    "Rickie Fowler",
+    "Ryan Fox"
+   ]
+  },
+  {
+   "title": "2026 St. Jude Championship predictions, odds: Scottie Scheffler, Rory McIlroy begin FedEx Cup Playoffs run - CBS Sports",
+   "link": "https://news.google.com/rss/articles/CBMiugFBVV95cUxQbllabVI0aVpha3lmZGw2Q2s4bGFZT0tSQ0ViZlptQ1FuU1g5aDNkdGMwM3RRNDRvRjhRaG9rcU9ncW1IV2RyRGgyNV9FREVLMWJXZ1JmM1ZTSkt3cDhoNWlxV280RVBiZkhKY1h3VEdJYS1scUxHZHlPOGt2amd1MHdQTEtCTUJNYmJWTjBEeGxMalkyVU8zVjlSNExtU2NadXNaRjZmUTI4RnB6aFh3MTIwazl0cUpuTmc?oc=5",
+   "summary": "2026 St. Jude Championship predictions, odds: Scottie Scheffler, Rory McIlroy begin FedEx Cup Playoffs run CBS Sports",
+   "published": "Tue, 11 Aug 2026 17:15:03 GMT",
+   "source": "Google News: FedEx St. Jude Championship picks",
+   "kind": "news",
+   "golfers": [
+    "Scottie Scheffler",
+    "Rory McIlroy"
+   ]
+  },
+  {
+   "title": "Experts reveal their picks for the PGA Tour's FedEx St. Jude - Golfweek",
+   "link": "https://news.google.com/rss/articles/CBMivAFBVV95cUxNSTlPZTU3dEtmTmg0TC1GOU82aFRCb0ZDZ1lacUkwV1Fwbi1lakJmNXJhM3kxakk3SHdBbmZfMGZDWGJHcU9scWpIaEN6WUFyUEctWkJBTmhob0l3dU90RnNIelVkS1dqNmswd1NZUnJvYlR0TUF2YkdGMjJldUV2b21HbVRSQlJSNUVXSEw1eEpncGpzcm5zd2JWMWV0dGJ4azFIRThsQTRNZmVrd3JaZUxvbVY0MHN6Q3VhWA?oc=5",
+   "summary": "Experts reveal their picks for the PGA Tour's FedEx St. Jude Golfweek",
+   "published": "Tue, 11 Aug 2026 17:10:00 GMT",
+   "source": "Google News: FedEx St. Jude Championship picks",
+   "kind": "news",
+   "golfers": []
+  },
+  {
+   "title": "FedEx St Jude Championship First-Round Leader Picks: FRL Predictions for TPC Southwind - Action Network",
+   "link": "https://news.google.com/rss/articles/CBMitwFBVV95cUxPRTFVX3ZndFUxQ293M3p4cW1CUXJvcmZnaXpCUTJLTFI2ZEtTdU1meUtsaDM0RFpxRTNtM2RtRUJTRUlPLXctRVpmWDFkcTdfMjZwdzRJaUhldy1oTUN3b1NXNDBsam8yY3RpN2hXQ3pScVpMTnNBelZXQVl2bkpJcVptalRFTUdzNDFtSHJHOTRicTVZeE5jQ01vRUkySFFWbVFIVUtBNHBPR3FvZ0x5Ylp2MVJNLWc?oc=5",
+   "summary": "FedEx St Jude Championship First-Round Leader Picks: FRL Predictions for TPC Southwind Action Network",
+   "published": "Tue, 11 Aug 2026 17:07:00 GMT",
+   "source": "Google News: FedEx St. Jude Championship picks",
+   "kind": "news",
+   "golfers": []
+  },
+  {
+   "title": "2026 FedEx St. Jude Championship odds: Scottie Scheffler big favorite to win in Memphis - Golfweek",
+   "link": "https://news.google.com/rss/articles/CBMivAFBVV95cUxPeXBiQ0IyOXdMREp6UGVXT0ZZRHR0Sk1KWFBoQWFTZXllZTk0OEloa2UyQXBOMF9UQVJFVzlEZy02dV8tZDZDTmpmbUJhUDJzZEVHOXZTbU5tUl9INTZ2TzZUMEh6alQ1YmVlR0JOVTZnLTZkRzJtNmFLRVlPSEpEc3diVVRmU0x2M3UtU1FkV21SZlZIVFRmVG1sVUNuaW5ENUhBNkRCa2FRQU5Bc1JIaGgyZU5HNDhSa2Nqcg?oc=5",
+   "summary": "2026 FedEx St. Jude Championship odds: Scottie Scheffler big favorite to win in Memphis Golfweek",
+   "published": "Tue, 11 Aug 2026 17:00:00 GMT",
+   "source": "Google News: FedEx St. Jude Championship picks",
+   "kind": "news",
+   "golfers": [
+    "Scottie Scheffler"
+   ]
+  },
+  {
+   "title": "FedEx St. Jude Championship 2026: Odds, favorites for TPC Southwind - Golf Channel",
+   "link": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxNX2R4LU9nVXkzWTJ2MHRBOWItQVJ1OHVzTmRkUHlDaV8yS2lKVXh4MnBGZFlRS3ZDMHMyNlJLdkhobS1aRGJVdUdrSC1odnB1UkFqSDFKeHpycWk0akl2aENUU2M0MXVIYlhoVmZucHlsWDV2cWU2SDV6NU9EVkpFY0tkMUg0Ym5ZS1JlZmpUTS1hTkhVb3RreGhyNFVJMEdVN1Q1SzNycFMzV1V1RTlqU1VSc1BEcDZQ?oc=5",
+   "summary": "FedEx St. Jude Championship 2026: Odds, favorites for TPC Southwind Golf Channel",
+   "published": "Tue, 11 Aug 2026 16:36:13 GMT",
+   "source": "Google News: FedEx St. Jude Championship DFS",
+   "kind": "news",
+   "golfers": []
+  },
+  {
+   "title": "2026 FedEx St. Jude Championship longshot picks, PGA props: This golf parlay could return $45,000 - CBS Sports",
+   "link": "https://news.google.com/rss/articles/CBMirAFBVV95cUxNQ0JuRzJOc3hma3ZpZV9HeW9CYnlfLXFJdFZQdzM1M1M1ZnhZVllTcGhKZi00YjVUYjFDNGlKcXBFZkdRN0RpOTVXdEhYM1RZYUwtTC1yUW9vekNwWDZnNHBqbHJYU0Y5WU5BdEhMaXllMFZUUHJpa1JBeHpUSThRSTNIVEJMQXo2dTZZWklvMTJjVDAwMjFnd29SUXNMTzlheFVvWWtGQ3lWX1R6?oc=5",
+   "summary": "2026 FedEx St. Jude Championship longshot picks, PGA props: This golf parlay could return $45,000 CBS Sports",
+   "published": "Tue, 11 Aug 2026 16:15:14 GMT",
+   "source": "Google News: FedEx St. Jude Championship DFS",
+   "kind": "news",
+   "golfers": []
+  },
+  {
+   "title": "FedEx St. Jude 2026 Championship Odds, Picks and Tournament Props - TheLines.com",
+   "link": "https://news.google.com/rss/articles/CBMipAFBVV95cUxNWllyWF9MVUFOVkhIM2dQUjREUnBLRWJrbXpKV0ZfNUYtTGxzajZobXBtVkxSV0R4NnZCWXJmbHhFQzVPWTVDV3FMTFZ6S2x2ZFdqb2I0M2ZNamhVbDYzMEI4YXRxU0tNN2JXTHFRSWM2bmt5TU02V29JeV9HN2h6YzhJYV91WGx0YUFYT24wejVid2hQVXdkS0xuNUpTUmxSUmpDNQ?oc=5",
+   "summary": "FedEx St. Jude 2026 Championship Odds, Picks and Tournament Props TheLines.com",
+   "published": "Tue, 11 Aug 2026 15:58:53 GMT",
+   "source": "Google News: FedEx St. Jude Championship picks",
+   "kind": "news",
+   "golfers": []
+  },
+  {
+   "title": "Bazza's Best Bets At The FedEx St. Jude Championship 2026: Major Contender To Take Title",
+   "link": "https://www.golfmonthly.com/betting/bazzas-best-bets-fedex-st-jude-championship-2026",
+   "summary": "After a win and two runner-ups recently, our betting expert believes he can bolster that record with another winning tip at the FedEx St. Jude Championsip 2026",
+   "published": "Tue, 11 Aug 2026 15:48:41 +0000",
+   "source": "Golf Monthly",
+   "kind": "news",
+   "golfers": [
+    "Sungjae Im",
+    "Hideki Matsuyama",
+    "Cameron Young",
+    "Michael Thorbjornsen",
+    "Tom Kim",
+    "Scottie Scheffler",
+    "Tommy Fleetwood",
+    "Ludvig Aberg",
+    "Matt Fitzpatrick",
+    "Ben Griffin",
+    "Harry Hall",
+    "Rory McIlroy",
+    "Sam Burns",
+    "Chris Gotterup"
+   ]
+  },
+  {
+   "title": "Bazza's Best Bets At The FedEx St. Jude Championship 2026: Major Contender To Take Title - Golf Monthly",
+   "link": "https://news.google.com/rss/articles/CBMijAFBVV95cUxPZGwtMzNPN21uMUZrbjFVbFZEdFVUTFRFc2V2bmtVdHVRWHNaYWgtMjVSTER2SnRMam5FVTZtazNzN0t4WV90a09Kd3ozM19QZjJubndELU1QQVc0WVo1TjJzSFBRQ3pjUjUzS0gwclZXT1VpZUQ3QnVua0lMWnpFdTZ1bERaTU53cGhXWA?oc=5",
+   "summary": "Bazza's Best Bets At The FedEx St. Jude Championship 2026: Major Contender To Take Title Golf Monthly",
+   "published": "Tue, 11 Aug 2026 15:48:41 GMT",
+   "source": "Google News: FedEx St. Jude Championship picks",
+   "kind": "news",
+   "golfers": []
+  },
+  {
+   "title": "PGA DFS: Top Cash Game Picks for the FedEx St. Jude Championship - fantasylabs.com",
+   "link": "https://news.google.com/rss/articles/CBMipAFBVV95cUxNb2Q0aHc2Sm9OTkVaY2tja09rbmpzdkNEeVhySTdyUVQtS3pwNHByQ05VVWRWU1U1Z2xRU1JnUlVVa1ZGNDNYWHN2M0FNOVlFNVB6R1hibk00bFRQZUx2QXJJbHg3SnhTbjBqRmxtQ3k0X3dKUGx4Nk84TjZ6T0w2VWlESk5xYlVKZDJFVUdDVVRVV3Z3VkktYjczWEp3eDZ0X3l5Wg?oc=5",
+   "summary": "PGA DFS: Top Cash Game Picks for the FedEx St. Jude Championship fantasylabs.com",
+   "published": "Tue, 11 Aug 2026 15:13:29 GMT",
+   "source": "Google News: FedEx St. Jude Championship DFS",
+   "kind": "news",
+   "golfers": []
+  },
+  {
+   "title": "FedEx St. Jude Championship Picks, Winner Predictions: Tommy Fleetwood, More - PrizePicks",
+   "link": "https://news.google.com/rss/articles/CBMivgFBVV95cUxPcVhLeUc5eVREbkZTV1NjT2QzbEdnVURTSVUtUk1kekNrMV9JOU1VQ3JtTXdXUTRHUGRKNzhRNGJSZGk2VFZFc3IyUWpwWEZjMHM2dE4zbTF6NXoxRjdhNlNiY2YyaGR3Nm9pS0p1ajF4ZmYzRmVJZmNjLTFMeU1fNUNGN2dZWmVHcTBya0R0aEtvaTU2bUlGRXBvMnJxNHBBSlJldV9zUWt6aWVUNGVrMFZfbVg4YmJTdHpsOFZR?oc=5",
+   "summary": "FedEx St. Jude Championship Picks, Winner Predictions: Tommy Fleetwood, More PrizePicks",
+   "published": "Tue, 11 Aug 2026 15:00:58 GMT",
+   "source": "Google News: FedEx St. Jude Championship picks",
+   "kind": "news",
+   "golfers": [
+    "Tommy Fleetwood"
+   ]
+  },
+  {
+   "title": "FedEx St Jude Championship Betting Tips: Expert Picks to land PGA Tour's Playoffs opener - Golfmagic",
+   "link": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxPSEtqUkx1YVJxSkxSdTU3S2RkbTFfU0h0TkVuRmNPUDUzSG1vV0xVWWVIZE45WXJReVRKLV9jTExKZFU1MlJmNjNJaUtLX1dWZGRuSkVpOHc2eF9pM0pEdlpwSVdLZG1WQlAzVWFnV2FMNjBvNTZIUC1sUmNTWHFRZDFwY2hRTUo2Vkhzbk9SZ0xHVVgwZlFuRWhjVFhxWVpmVnRpLWxFMVJBZEJiZjh2aUQwWlZRa2hfODVmX2tsc2Q?oc=5",
+   "summary": "FedEx St Jude Championship Betting Tips: Expert Picks to land PGA Tour's Playoffs opener Golfmagic",
+   "published": "Tue, 11 Aug 2026 14:50:00 GMT",
+   "source": "Google News: FedEx St. Jude Championship picks",
+   "kind": "news",
+   "golfers": []
+  },
+  {
+   "title": "Course Preview and Fits: FedEx St. Jude Championship - Establish The Run",
+   "link": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxNWWk4aXNyT3NwUnFOb1p4ZEN2LTlWZWMwNm5SbWlXaHA1bk5Nam1EWUIzanA3RGx1WHJrMXRONERrNlVmUlI3RTZfUDBZUGFacVN3RHBlMk8wWTU0QnNWaEFRUlNHN3RMN2RuZEc1TWlLSFFhb3N0WUtvM3R3ekdLRE1fVkxsRVo1?oc=5",
+   "summary": "Course Preview and Fits: FedEx St. Jude Championship Establish The Run",
+   "published": "Tue, 11 Aug 2026 13:56:19 GMT",
+   "source": "Google News: FedEx St. Jude Championship DFS",
+   "kind": "news",
+   "golfers": []
+  },
+  {
+   "title": "2026 FedEx St. Jude Championship PGA Fantasy and Betting Preview: Key Stats, Course Breakdown, TV Times - RotoBaller",
+   "link": "https://news.google.com/rss/articles/CBMizwFBVV95cUxORVBjOHdHcHRKa3NmQWpLbDFrS1E2dDhHc2YxZkliM1BNZ1U4TU9rNFhndEx2dVk5NjNEMVduVk5QMHlYTV9zZjR3a2toWDVWWlVHZWtzN3dOSHNNUzZTZi1uOUNldm5fS3g0S0Rpb2U0RWNibmdvUnFKZy02eFhQdV9feUdhdTZXbU1BWTE3UEVQZU9ZVnBQRi14Q0x4a3JOMEc0eFBGeFc1ZzdpNGpRZE1BX1JSZ1R6WHNxLWxJMjhKMDZ2ZWxMWDZlSHc4dk0?oc=5",
+   "summary": "2026 FedEx St. Jude Championship PGA Fantasy and Betting Preview: Key Stats, Course Breakdown, TV Times RotoBaller",
+   "published": "Tue, 11 Aug 2026 13:00:05 GMT",
+   "source": "Google News: FedEx St. Jude Championship DFS",
+   "kind": "news",
+   "golfers": []
+  },
+  {
+   "title": "2026 FedEx St Jude Championship Odds: Four Longshots & PGA Tour Sleepers - Lineups",
+   "link": "https://news.google.com/rss/articles/CBMipgFBVV95cUxOdENOajRXNTgzTTJ6UzBiZkVPdFNTaTZQUVNXV2FSa190c1A3TVBwRHF4MXNjZ0ZIYVNsRVJFQ3FOblhfYVVXT3dQVjh4R2JCUmEzd2FmQzl4U1hnNGhDQzRxS3hiMEQ0T185SW1icXNEUkRRVzJwbUpiSkhOejVYMnRQT19YMjdHc2E4anl4SGZwSjJZTTI5eU5wMVJQUXBrNzFmMVlR?oc=5",
+   "summary": "2026 FedEx St Jude Championship Odds: Four Longshots & PGA Tour Sleepers Lineups",
+   "published": "Tue, 11 Aug 2026 12:36:09 GMT",
+   "source": "Google News: FedEx St. Jude Championship DFS",
+   "kind": "news",
+   "golfers": []
+  },
+  {
+   "title": "2026 FedEx St. Jude Championship odds, picks: Surprising predictions by model that's nailed 17 majors - CBS Sports",
+   "link": "https://news.google.com/rss/articles/CBMirwFBVV95cUxPNURoQzByYS0tbFh1akxqbVhkNW5qUUhWOHB1MkczWllpRnZsMDF1Tk9Eb3BQVTFhQU9iV1V0dmF0Sm9mbnUzYmkxTHR4WnFXVVc0RTNreE1ZQUZrdGYwZ3hrLV9YdE91MHVITy1BUi1CNTVMSDlybVowbDU0a2M3aGJ3M1NiT2FVN1kwcWZYVUUtT3dWWTlIbDFCdkNENE91QlFyTHExaTJDRmxUbkxj?oc=5",
+   "summary": "2026 FedEx St. Jude Championship odds, picks: Surprising predictions by model that's nailed 17 majors CBS Sports",
+   "published": "Tue, 11 Aug 2026 12:12:00 GMT",
+   "source": "Google News: FedEx St. Jude Championship DFS",
+   "kind": "news",
+   "golfers": []
+  },
+  {
+   "title": "FedEx St. Jude Championship Predictions & Picks: Conservative/Aggressive Plays for Every Type of Bettor - BetMGM",
+   "link": "https://news.google.com/rss/articles/CBMi6wFBVV95cUxQRVcxSmRmWU9oSzBWNkpxZ0YySmx2MDF3emtra0R3T0o0QUhsZUFtOVBDXzhkc0stTnUyZGZ6NEl6d1I4RGIzbnlaUDlVZkw4S0o5OFBSN00yX2k4UmpkWG1WWmstTnNicHpuVGc4VlFnRUlmYWlBbUR3aHR4X2pNQ3RIVDBEcEYyVEk3OUJfSnRtc0UxT0sxaWxLSlkyQzRSUmJ4cnFRdjg3UVVWbUhiZ1ZpV3BEMG1xdHpQZkZkcEQ4RVAxQ2hjbi1kaEYyWUF3Qmw4aGhtc251d0tRX1V4d3VZT2piYlpQejNN?oc=5",
+   "summary": "FedEx St. Jude Championship Predictions & Picks: Conservative/Aggressive Plays for Every Type of Bettor BetMGM",
+   "published": "Tue, 11 Aug 2026 11:48:35 GMT",
+   "source": "Google News: FedEx St. Jude Championship picks",
+   "kind": "news",
+   "golfers": []
+  },
+  {
+   "title": "2026 FedEx St. Jude Championship preview: Betting odds and stats - PGA Tour",
+   "link": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxOSGRoVkZwaXIwNUM0am9XR0NEUTJTNlYtZDZPVlRFcEJZNnlualRvb191U29YZzFtSXJ2eEdBYlFuRUV6ZkhMM2pWMktUYm83YmhsNFVMVGRWR0NQZ0EtYlNSZ1BQd0prSFdHZ2gtYndwUHJCWlNJc29maWxlSDRLMUtWX1pHcFQwSWQ3LUxQRVdhM1RVWWYteFN6YUE1Zlh3Snl3bGQ1T1FOOGEwMURRVC1JWkl2QVhhaWxyS2ZKc3pkREI1ZEZjRw?oc=5",
+   "summary": "2026 FedEx St. Jude Championship preview: Betting odds and stats PGA Tour",
+   "published": "Tue, 11 Aug 2026 06:39:54 GMT",
+   "source": "Google News: FedEx St. Jude Championship DFS",
+   "kind": "news",
+   "golfers": []
+  },
+  {
+   "title": "DFS Fantasy Golf: Winning Picks for the FedEx St. Jude Championship - Yahoo Sports",
+   "link": "https://news.google.com/rss/articles/CBMihgFBVV95cUxPSjZ1SngwU3cxQnpIQjZwUUlUUXdoeW10MkFtUkdidFlSOVlTd0RyZFoyNUdJMThqa3lCbTAwRmh4d2tvcVNscy1qX3NwWjlkR285ZFh1Ml9rZFU2T3ZrWW1IR1NLQ3VZX0hqMVFUdURXN0xRRndLSy1HR3RkOHFKM2VBdDRQUQ?oc=5",
+   "summary": "DFS Fantasy Golf: Winning Picks for the FedEx St. Jude Championship Yahoo Sports",
+   "published": "Tue, 11 Aug 2026 05:00:00 GMT",
+   "source": "Google News: FedEx St. Jude Championship DFS",
+   "kind": "news",
+   "golfers": []
+  },
+  {
+   "title": "DFS Fantasy Golf: Winning Picks for the FedEx St. Jude Championship - AOL.com",
+   "link": "https://news.google.com/rss/articles/CBMif0FVX3lxTE9FT1JrVzJGRHliMC1Ia0NqQ1pic2RjZl9oUWpMUVlHSFI4R1RrT2xRaVk2MzlJNFhvVGR0TFdvdTRJQndrRWNRcTRkQ01YN1hyYnlSYXNtLWROUmxPT1lKR2VKaWJYRS1VR09xZmRKb0F6dWhmR0c3SkUybWZzVkU?oc=5",
+   "summary": "DFS Fantasy Golf: Winning Picks for the FedEx St. Jude Championship AOL.com",
+   "published": "Tue, 11 Aug 2026 05:00:00 GMT",
+   "source": "Google News: FedEx St. Jude Championship DFS",
+   "kind": "news",
+   "golfers": []
+  },
+  {
+   "title": "Daniel Berger out of FedExCup playoff opener due to injury - Reuters",
+   "link": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxPbWxmTGF2NUpCNzZfVnVjV2lva0NFcnplNzVTLVhlTFVWMmVqRlNpZmdrcVFIbE91di1xNWh5Q19iSjNXbjYyMXQ3Y0liTWY5QmNGQ05uM3dXUkVxVXZydHBRRE5VNVdLOXFQQlFFOTU1dkZQTUFjZVNmcm5LamI4d05HTVROTVJMS1EwWGVzU0x4bkh1T1ZIRHBnVmlTQ0YxUmJXQlBydWI?oc=5",
+   "summary": "Daniel Berger out of FedExCup playoff opener due to injury Reuters",
+   "published": "Tue, 11 Aug 2026 00:30:00 GMT",
+   "source": "Google News: FedEx St. Jude Championship WD",
+   "kind": "news",
+   "golfers": []
+  },
+  {
+   "title": "PGA DFS Picks: Horse For The Course - 2026 FedEx St. Jude Championship - RotoBaller",
+   "link": "https://news.google.com/rss/articles/CBMiowFBVV95cUxNVUVDaktxN1JsM3ViNU91ajZydmFjS0p2dFpyeWhfLXhWNHktVGY0cVBPUFZBRnNIWHhTS2RGUDhWcW1rLVViRTlyd19KU1ZJSG4zVzdYNjZmeTJuTVRINVIzZS1pNEY2ZFFmMkZBUUxMOFFIZmdKb1RFLTNSaUNKTjY1cGVnUy1fcWktMlc5V0RmbE1DVVBNcS1kZkZEcmFURFBB?oc=5",
+   "summary": "PGA DFS Picks: Horse For The Course - 2026 FedEx St. Jude Championship RotoBaller",
+   "published": "Tue, 11 Aug 2026 00:10:39 GMT",
+   "source": "Google News: FedEx St. Jude Championship DFS",
+   "kind": "news",
+   "golfers": []
+  },
+  {
+   "title": "FedEx St. Jude Championship: Golf One and Done Picks Strategy (2026) - Pool Genius",
+   "link": "https://news.google.com/rss/articles/CBMizgFBVV95cUxOWnlzTkpNd2tFU09mNXRiYWZ6b1pkMFNpOElmcWFoNXpycDZ2N0g5UUN1d2VGeFJQUWpwWXoxZ1ZiR1VPeDJkV0hCQ253NDlnd1Q5dzg5cTJXc1FpTUI5UDg3djNOZkR1bS14SlJjX3NyR1pMUUpET2pSWUVkTk9QbWM3dXFlajZsRzRqbHFLYnNFM3hIekNDU0lxMDh6aVAybnpfektqblRzYkJ0ejlLNFM0MDJSM0lrU0NfcWRuTXZCSi1GdS1TaHZaYnhoZw?oc=5",
+   "summary": "FedEx St. Jude Championship: Golf One and Done Picks Strategy (2026) Pool Genius",
+   "published": "Mon, 10 Aug 2026 23:59:14 GMT",
+   "source": "Google News: FedEx St. Jude Championship picks",
+   "kind": "news",
+   "golfers": []
+  },
+  {
+   "title": "FedEx St. Jude Championship Field 2026: Full Player List, Withdrawals - heavy.com",
+   "link": "https://news.google.com/rss/articles/CBMidkFVX3lxTE9ubDlUS1ZfVUJXM3pYdkZRODhlUE9oa0VYX1NnVHlYazJCVXF5VUdBUk0wTnhNenFRMm9wc2FCUFVpVENvWTFlUkMxN0VnTlp3Zm0tMVR3RzJja29OdWdjbktMX2tzVXBXUVV5dmY2ZGlJTUhVSkE?oc=5",
+   "summary": "FedEx St. Jude Championship Field 2026: Full Player List, Withdrawals heavy.com",
+   "published": "Mon, 10 Aug 2026 23:56:43 GMT",
+   "source": "Google News: FedEx St. Jude Championship WD",
+   "kind": "news",
+   "golfers": []
+  },
+  {
+   "title": "DraftKings DFS Fantasy Golf Cheat Sheet: 2026 PGA TOUR FedEx St. Jude Championship Picks - DraftKings Network",
+   "link": "https://news.google.com/rss/articles/CBMiywFBVV95cUxQZl9PSkJacGpmdmZHeDUyQnJxU2swYzZPYWI1Ny1DeWxWNDhXY01aR3pSejBfS0JiOXBFZ3RHenRlUHZ4eDl2ZE9fVTRiSjN1ejdtTWJfcllHR1RwbXM1emtEZHJrU20xbl9NemZQNFNsanFUbTFXQWJFeVl6RHlJNF9HNWF1UkNGcmxkZXplNDFuTXFTTnBSN3VOZWJYM0JiUzc4bHlBeVRlNFdkbS04UkwySUVHaUdzNlRWV0xaYV9oT29FN2pqTXVMUQ?oc=5",
+   "summary": "DraftKings DFS Fantasy Golf Cheat Sheet: 2026 PGA TOUR FedEx St. Jude Championship Picks DraftKings Network",
+   "published": "Mon, 10 Aug 2026 23:48:31 GMT",
+   "source": "Google News: FedEx St. Jude Championship DFS",
+   "kind": "news",
+   "golfers": []
+  },
+  {
+   "title": "FedExCup Playoffs betting odds breakdown: Who will lift the trophy, advance to East Lake - PGA Tour",
+   "link": "https://news.google.com/rss/articles/CBMi9gFBVV95cUxOZ3NJcUlYTGVFaGZqR1JiNW82N3JWM1libU5QYU1XUk5Nd3FMTlA5RlgyUEdQVmVLbFVCTzlMTkJfSkxOYVpFM2F2MkdVbl9IWVMzVmpzTHEwVFBPdHNjTnNGQko4QmU3dERjV1J4eXZ2Qi1sSlZRTkM5VFFyenR2eUcyVEEyRnp5SDNiQnMzQzhyZnprSWhKOWMtcXR1MldJTldkZVhpa2dDVnN6WmFnWW9zQWE1QjN5eksxWmR4b1BJWHZfcDBaN1FzdzJnSFVBVWNkbVFLWXEtWjhna1ZvTjV6T3ZvMXpyRDNxUFZyWWdaMzJwRnc?oc=5",
+   "summary": "FedExCup Playoffs betting odds breakdown: Who will lift the trophy, advance to East Lake PGA Tour",
+   "published": "Mon, 10 Aug 2026 21:33:43 GMT",
+   "source": "Google News: FedEx St. Jude Championship DFS",
+   "kind": "news",
+   "golfers": []
+  },
+  {
+   "title": "FedEx St Jude Championship betting tips \u2013 including in-form major champion with course success - Today's Golfer",
+   "link": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxOV2w0OXhnUndCTGpSS1Y2blJneHZob3FqV3JUcDkxU1g5M29nYXg1Y0ZqcVJFMko4WkhjRFlZNkVzdE5FTEgwNlc1UktBTG12TmVqaHEtVHZZOHE2X1RodUplclVGaFF2SXNoaXdyX1FDX093YkVtazJuWEMzd0FNcFhWQS1aZlpNWlFQcWY2RktlRlRGVFdzaTVtQXNQcTR5NHdQMkVuR04?oc=5",
+   "summary": "FedEx St Jude Championship betting tips \u2013 including in-form major champion with course success Today's Golfer",
+   "published": "Mon, 10 Aug 2026 21:24:24 GMT",
+   "source": "Google News: FedEx St. Jude Championship picks",
+   "kind": "news",
+   "golfers": []
+  },
+  {
+   "title": "2026 FedEx St. Jude Championship odds, picks and PGA Tour predictions - Sportsbook Wire",
+   "link": "https://news.google.com/rss/articles/CBMi3AFBVV95cUxOYWdMUU1GUGVmbHU0em1HYVgwZHlhRVBOaGVnbUpFVzRRVlJ2UWRKQm5yeW9KbkdTVWM4YnRlVGh4YVpHLUtzMjJMYlQ4dGVtUmNiM3ZBX00tV0Jkb1ZyUU5nc3NsWFExWHZZTGpmbWprUUVfRkhLZzZNTkd0N1lpOWdPcS1WaTBqUTRRcUxSb3BoeUdueEJZT19GNkhjQzBZRmVDWUZLcXUyaXVTT0RZOEhOSUxVUFRCLXZjTkVib0stQW5qd2d0Ql91SjY1cnA3V1pBU2t6RWU4b1Mz?oc=5",
+   "summary": "2026 FedEx St. Jude Championship odds, picks and PGA Tour predictions Sportsbook Wire",
+   "published": "Mon, 10 Aug 2026 20:14:00 GMT",
+   "source": "Google News: FedEx St. Jude Championship picks",
+   "kind": "news",
+   "golfers": []
+  },
+  {
+   "title": "Fantasy Golf Value Picks: Top DraftKings PGA TOUR DFS Bargain Plays for 2026 FedEx St. Jude Championship - DraftKings Network",
+   "link": "https://news.google.com/rss/articles/CBMi4AFBVV95cUxOZWFpelBfNENaUFRTdDJOVkZtbzF2Vm8zT3NmQ3VZN2tiNTE4amZ2SzJoZGkzVjg5MkhacFB4N3liWnZ0UTRaaUhxVk8tWVBDQmswN0lQVlhldUgxME9xbDJ5ZnFaSWRhc0dHOGlweGVlOTV0djVUc0JzdWRYdVJaVmgyMUdvTlFKRGpPMGRXX2pqbTh3NGxBOGduanJZR2lIVGZ4Qms1cEFFeFJkMXRlbWszRE1vRFhUUURyNGJPMENPV3Z0Y0x3aFRKRGNPVzhYeUJrbkpubktzdE1KU1k2eA?oc=5",
+   "summary": "Fantasy Golf Value Picks: Top DraftKings PGA TOUR DFS Bargain Plays for 2026 FedEx St. Jude Championship DraftKings Network",
+   "published": "Mon, 10 Aug 2026 20:02:30 GMT",
+   "source": "Google News: FedEx St. Jude Championship DFS",
+   "kind": "news",
+   "golfers": []
+  },
+  {
+   "title": "Where is the FedEx St. Jude Championship being played in 2026? - DraftKings Network",
+   "link": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxQRGtoZ2toeVFZV0Z1b1ZzYXl6a0twSHhjRDR1X21YN0xBRThIa1JyYTdWeFNJWmN4UkdEN2NicWl5TmNTLUJPZlZmVFFMZ0VjZk50RDZqejloV2VJMVJHVHk2cHlfSGhJU1E1YjlaTE1lclZiT1ZrS2NMOW1xNXNBTzNQRVR1R05UbWhUUllEeFdyZVJET0xOcnhzc1ZkUG82elF5QXY5RDI?oc=5",
+   "summary": "Where is the FedEx St. Jude Championship being played in 2026? DraftKings Network",
+   "published": "Mon, 10 Aug 2026 20:01:34 GMT",
+   "source": "Google News: FedEx St. Jude Championship DFS",
+   "kind": "news",
+   "golfers": []
+  },
+  {
+   "title": "FedEx St. Jude Championship Sleepers: 2 Best Longshot Picks - BetMGM",
+   "link": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxQaEE4am5VaUhIUHNHa2pBZlpDQmFCZDUtbjliN2ZZTzNmV09ucVhwUUpWaWdXRlp4M3ZDZEdDU1RBT05VSEVGejFiNFNQZ3FQaXpBY0lLdVdZUkNEMElyZV9vX2hrdjhLejZUM3F2cVFwVTQtdldkQklSVVJna1djUkdJb1dmeXpySkdfblVQMUtNbzJ5a2x6UzB0cmRxWE0yamMxZndWZ0NuZw?oc=5",
+   "summary": "FedEx St. Jude Championship Sleepers: 2 Best Longshot Picks BetMGM",
+   "published": "Mon, 10 Aug 2026 19:59:58 GMT",
+   "source": "Google News: FedEx St. Jude Championship picks",
+   "kind": "news",
+   "golfers": []
+  },
+  {
+   "title": "FedEx St. Jude Championship 2026: The major champion with 'disrespectful' odds is a must-bet - Golf Digest",
+   "link": "https://news.google.com/rss/articles/CBMihgFBVV95cUxNZ2xtWFg1Mk1PeGNMbDFzQ1haeWVuQjduRmVOMW40SVFWZkVWRzhPX2JSRHBqVGNuX3ZIa0I1eW1jS0tZSHIzOGFIS3JnbzVwYW1lN2YtS2RTTFk2Sm9HWUZPOXdNQXk5YlRrUVplNkFFalpCX3dkYjkxelpET0RJckk4Um85Zw?oc=5",
+   "summary": "FedEx St. Jude Championship 2026: The major champion with 'disrespectful' odds is a must-bet Golf Digest",
+   "published": "Mon, 10 Aug 2026 19:33:32 GMT",
+   "source": "Google News: FedEx St. Jude Championship DFS",
+   "kind": "news",
+   "golfers": []
+  },
+  {
+   "title": "One player is out of FedEx St. Jude Championship, start of FedEx Cup Playoffs, due to injury - Golfweek",
+   "link": "https://news.google.com/rss/articles/CBMi4gFBVV95cUxPZnJrQkxBME93MkNsN0VPeVJuaEloZy1aSnNyaE9hMVFvRUc1cFA0OFN2X0tkLXNVT01Xb082cUdtZXNWcHc1VjA5QXNwX0VhNGNMbWxzcFZBdDhqUTc3UW5qYjNEeWVTQzl2TDFwYWs2b2xlQldOVHJ2YUx5QnEyT1phbEdZd1NrbEs5N01YaTUzbHlhRjlOVG1xd2VRQ3J4dWFjc3NSd0JRV04wdjhKQVNZNi0ybUlFdXloWW1mUEtmSlIyOUY5dWtXZlluM1N1T0JmTnFpOGtEYjMweTEzN2xR?oc=5",
+   "summary": "One player is out of FedEx St. Jude Championship, start of FedEx Cup Playoffs, due to injury Golfweek",
+   "published": "Mon, 10 Aug 2026 19:26:00 GMT",
+   "source": "Google News: FedEx St. Jude Championship picks",
+   "kind": "news",
+   "golfers": []
+  },
+  {
+   "title": "2026 FedEx St. Jude Championship odds, picks: Surprising predictions by model that's nailed 17 majors - thepress.net",
+   "link": "https://news.google.com/rss/articles/CBMilwJBVV95cUxNcDVxRXlyU1YtcmxJZ0gzRkNoYXJqNUNjM045Uy14ZnYtclNvdGZvN3Nyc2h5T2pVMXhYeG9ZVTl5aGNUd21yMUM2M0hTVFpaT0RYLXh4VkFzaXVQdUJkMnJaM2M2XzJXdUtrRTg3cXh6Z2tJdjVsTkJKXzdKQkY1Tm9CV1VjOGxieTFtdjd5SHhBbG1ZY2RJV1l6UGZiQmRYSklBaUc0LU1mQXFuZlpVclhmUE1ZVENUU3diTy1ESUc0SzNXaXVobmtwQ0tLRmVQTWRsMjcyQVB3a2g3U2VsaWhmWW1ETTZ2SmdBLUk0eXJERUN5SldBSHJkRFNsVFRhdWhWRFh4R3FIVmcxUy15VVlNUkJWMW8?oc=5",
+   "summary": "2026 FedEx St. Jude Championship odds, picks: Surprising predictions by model that's nailed 17 majors thepress.net",
+   "published": "Mon, 10 Aug 2026 19:23:55 GMT",
+   "source": "Google News: FedEx St. Jude Championship picks",
+   "kind": "news",
+   "golfers": []
+  },
+  {
+   "title": "One-and-Done Golf Picks for FedEx St. Jude Championship - BetMGM",
+   "link": "https://news.google.com/rss/articles/CBMimgFBVV95cUxOVmt5N0xrd0lzWGJIekgwV3V3akF3c1lTMXM5dGJxWUEzdF9ZczVfQUVuWGx2T29YaG56Z2dRTkstZ2FMQTlpNDRZSms4ZmxNbTItbmZCYnFCa3BuSFlaOE5VWEIxYnBsSGttc1pnRjNBa094dzRyaFVaTG0zUW12cVp0SjVrdl9NWVdtVUZ0SXZqcF9aLWgtdkRB?oc=5",
+   "summary": "One-and-Done Golf Picks for FedEx St. Jude Championship BetMGM",
+   "published": "Mon, 10 Aug 2026 18:41:23 GMT",
+   "source": "Google News: FedEx St. Jude Championship picks",
+   "kind": "news",
+   "golfers": []
+  },
+  {
+   "title": "Four-time PGA Tour winner withdraws from Playoffs opener as FedEx Cup race ends - Golfmagic",
+   "link": "https://news.google.com/rss/articles/CBMirwFBVV95cUxPZVgtRkhLSTM5OTZQWldiZERqMFBnMlRVRkxIcWluR21YaGRtQ01icnVLQmdPZUYyQk9STnZ5VklVcHZrTHhHNXhfTHlIdWoxZGI3R19WRXVFYy03NGFFSGNQSmJJSlgxeFJoMzlseVJHNVZQbXlGd2pXdVZRTW9KOGlQS0NHTHR1WXRMb2UwNXJobXJTUHkwLU9pU2tESUkyWnplRDNKeG9rODJuek04?oc=5",
+   "summary": "Four-time PGA Tour winner withdraws from Playoffs opener as FedEx Cup race ends Golfmagic",
+   "published": "Mon, 10 Aug 2026 18:30:00 GMT",
+   "source": "Google News: FedEx St. Jude Championship WD",
+   "kind": "news",
+   "golfers": []
+  },
+  {
+   "title": "Odds Outlook: Scottie Scheffler, Rory McIlroy headline star-studded field at FedEx St. Jude Championship - PGA Tour",
+   "link": "https://news.google.com/rss/articles/CBMiigJBVV95cUxQaW5pTFYxTi1GdXBXUF95ZnM1b2pVc0xFM25hTjZHRl8tbkJSekFPYk1haDJzRmZJRWthMXBMTW5pZWcwajFHSlZIaVY3R1d2dlJKZWQ1SGhkWlZ0RWZSUnNZR2djWWFjY09OSmQ1OTkwc0hRUVlWdGpZN1MtQ1loZnZRMHJkZG5ycWVJdWJSRFJSLUU4eXZFQ2F3eVN3ZXFBVTdLVHZBaVdZaWYyNjBlanE1Tnczc2VhUGszaGc0QzYtSWJOY3Q5ZFpKalZHYkVhbGE0REdWQlJDWDNXYjBPV1JxSHk4OTV0aUFNUHFIRFVJSjJBWmRzX0V6cV8yZGJnNjdwYmppWl9ZZw?oc=5",
+   "summary": "Odds Outlook: Scottie Scheffler, Rory McIlroy headline star-studded field at FedEx St. Jude Championship PGA Tour",
+   "published": "Mon, 10 Aug 2026 18:25:19 GMT",
+   "source": "Google News: FedEx St. Jude Championship DFS",
+   "kind": "news",
+   "golfers": [
+    "Scottie Scheffler",
+    "Rory McIlroy"
+   ]
+  },
+  {
+   "title": "Noonan\u2019s 2026 FedEx St. Jude Championship Outright Betting Picks - Betsperts Golf",
+   "link": "https://news.google.com/rss/articles/CBMinAFBVV95cUxNN2s5UkJHMkUycVVCYTRuZldGckZZVkt2UTFVRzQxNS1hSVNSQnhqOUltV1lyODRTNHp3ZTFkb042b3VvX2VWR2JnR3lob3BjZkY2bURvcjF5RFoyc2VwV1piS19iVDhSbDM5cGpBc3hveWM5MFVHNGx3NlA1VjcxQTV6QkRDbHB5TnZXcVRkcW1fWExYRy1wS0Q5QUM?oc=5",
+   "summary": "Noonan\u2019s 2026 FedEx St. Jude Championship Outright Betting Picks Betsperts Golf",
+   "published": "Mon, 10 Aug 2026 17:52:39 GMT",
+   "source": "Google News: FedEx St. Jude Championship picks",
+   "kind": "news",
+   "golfers": []
+  },
+  {
+   "title": "PGA DFS First Look: FedEx St. Jude Championship Odds, Salaries, Course History - RotoGrinders",
+   "link": "https://news.google.com/rss/articles/CBMilwFBVV95cUxNSDM0QWR5WkZpVjdsTTJQcEo4dFJ0MTgzTmRFRGZZbWFENGNva0w3cDJudUNzUkdfZXhWY2xrT2NVYm1ocXFLVkhBcEtRNWxJVV9maFl0M2RVYUxFOVV2NmU1YmFrM3ZHM2doRjZIQVNvTXBLQ2w1bDItVzhLMllnR0ZwTEJJNTZPdXJfR0tqOWtHNFJSRlJv?oc=5",
+   "summary": "PGA DFS First Look: FedEx St. Jude Championship Odds, Salaries, Course History RotoGrinders",
+   "published": "Mon, 10 Aug 2026 16:32:25 GMT",
+   "source": "Google News: FedEx St. Jude Championship DFS",
+   "kind": "news",
+   "golfers": []
+  },
+  {
+   "title": "2026 FedEx St. Jude Championship: PGA Tour daily fantasy golf (DFS) picks - Golf News Net",
+   "link": "https://news.google.com/rss/articles/CBMiywFBVV95cUxPeTRRaGVhdUVjc1VXSGJVd0c0ZVRsb0FnZGdKRjBVN2hJZGdRcHFzc2Y0NU40MVlMV0NOdWJYTU1PUVdFS3BKc2pLSkRYRmNHMnZMTkY4UGRuT1NNY04zTHRGRlhFTnc2WFNBVDhRcHhhWFlwREZpUm1jOGh6NHFFT0h2MU5hNVl2c2t3T1BxOFRsY19RWlIzOFNod1B4UEhSSTBvcG51SlpmaUl4dDdyY1VCTDhOem1HVndOeDRhR0JqS3MwMGxKdkZzcw?oc=5",
+   "summary": "2026 FedEx St. Jude Championship: PGA Tour daily fantasy golf (DFS) picks Golf News Net",
+   "published": "Mon, 10 Aug 2026 16:03:10 GMT",
+   "source": "Google News: FedEx St. Jude Championship DFS",
+   "kind": "news",
+   "golfers": []
+  },
+  {
+   "title": "2026 FedEx St. Jude Championship Betting Preview: Picks, Predictions, Odds for TPC Southwind - Sports Illustrated",
+   "link": "https://news.google.com/rss/articles/CBMixwFBVV95cUxPdVlYSXBIbmp3V2hBUWwxVFJBdE1qNW9hMkxRLWswVFVCUmtDY2RhUUtZazNNSnJpVnpvZG5Tem9xWEViMFZaTkpYSjZZeXNwRWFCOGFJaXRrajZ3M09weHB2OW5uMmNDcHA0c3dDeVFjS0hZaTNiOTE0T2VaWXVvM1ZsM1Y5U0ZGUE1zWjdlTXFlTmhQdmttVm50aUtManlrREdnNjIzbWFwTEk0VVpQSC1qdXFEMXcxS1ZEMUtmR19xMF9GTFVR?oc=5",
+   "summary": "2026 FedEx St. Jude Championship Betting Preview: Picks, Predictions, Odds for TPC Southwind Sports Illustrated",
+   "published": "Mon, 10 Aug 2026 16:02:43 GMT",
+   "source": "Google News: FedEx St. Jude Championship DFS",
+   "kind": "news",
+   "golfers": []
+  },
+  {
+   "title": "2026 FedEx St. Jude Championship: Expert picks, PGA Tour field rankings and fantasy golf tips - Golf News Net",
+   "link": "https://news.google.com/rss/articles/CBMi5wFBVV95cUxPZENIaVR0bl9qQVBzdEZpbFJUR1Rnb294REEyQ1NzemZUUHhoNVFOQVY1RUlsX01uejVLRWNuVnBnLTBnUl9hUDF4djRsekRQck1ObWQzZU82aTBlbkltalRDdFBXSDZycGw1X0tDbGZPYTdEWGJEWnh1NWVJNTRyY3lscFQ3MGlpUHkxYWJyQnZhVVdnNV92d3BDY2xsd3pSNVV0VjNmLVh0clA5OVZKcGxUdVlocU9lcjBZeFB6b0ZjUlpXbzNJMWxiMXFLdnhsSlZKdlBWd3Q0aEhpODl2ODhGLVI2b3c?oc=5",
+   "summary": "2026 FedEx St. Jude Championship: Expert picks, PGA Tour field rankings and fantasy golf tips Golf News Net",
+   "published": "Mon, 10 Aug 2026 15:53:16 GMT",
+   "source": "Google News: FedEx St. Jude Championship DFS",
+   "kind": "news",
+   "golfers": []
+  },
+  {
+   "title": "2026 FedEx St. Jude Championship: PGA Tour one-and-done fantasy golf picks - Golf News Net",
+   "link": "https://news.google.com/rss/articles/CBMizwFBVV95cUxNdlFxbXZCU0pfQWJNR3g1X0p1U3ZIMjkzM2pyeDM0Wk1IVk9aUS1PZ204cXJCcmtTbno1X3h4a2o3UTNMRGJiaXRIdS1vckZMekUwOXRrSXR0TEtuVHRaREJTZlk0SV95NU5VMVRiWmFMck5tM05Kd2FQM3hoNXRmY1lRT0VLclBfUzRWd1lraWpkWmRYOUVERVdHcDlyMng2ak9hWHNqVGdITWE2U28wNllQNUVjZGRIRHNzUGdBaV81Y3VVNXp3Rm1tWkRUbnM?oc=5",
+   "summary": "2026 FedEx St. Jude Championship: PGA Tour one-and-done fantasy golf picks Golf News Net",
+   "published": "Mon, 10 Aug 2026 15:34:43 GMT",
+   "source": "Google News: FedEx St. Jude Championship picks",
+   "kind": "news",
+   "golfers": []
+  },
+  {
+   "title": "2026 FedEx St. Jude Championship: PGA Tour betting odds, futures picks and winner tips - Golf News Net",
+   "link": "https://news.google.com/rss/articles/CBMi3gFBVV95cUxPZWhyYkhvZWVsWDRnbTdIcThpeGpnZkVlUU5nRThxN3NNRzlzNjdkdFlpVGFXNjJwSDVBN3h1XzJmcWVIWWVvVkNXQUI5b3pZdFg2S09BZXhrMndoTTBCM2x5SHZfbkdiZHBOSXdacGtwR2YtQ1pjSjdsdHRvOU5KN3YxS28tOVV3VF8tcGl1cnFvLU1oWllUNW5rM2laUHU5Z2N0bkZwRWJIM2NFeUpFVlhoU1dVd1FGWThSU3hyWWNjTFZUYlh3bHZpanlXYUtxRURIbXA2c1MtMGFLd3c?oc=5",
+   "summary": "2026 FedEx St. Jude Championship: PGA Tour betting odds, futures picks and winner tips Golf News Net",
+   "published": "Mon, 10 Aug 2026 15:17:13 GMT",
+   "source": "Google News: FedEx St. Jude Championship picks",
+   "kind": "news",
+   "golfers": []
+  },
+  {
+   "title": "Best PGA Picks this Week for the FedEx St. Jude - BetMGM",
+   "link": "https://news.google.com/rss/articles/CBMilAFBVV95cUxPUUh4SDhQRV90V1R3X1BQRmRlSEgtZXZ4cFhLUjQ0WUZpMjhfa3NCTnZDM0lOeTJBUjNrTnNVak9lSmNMYktCOGdXN1lseVRqRmF2SVQ3d1JqSHRXRlV2eDNnYXhGUU1WQ0JtcmxrazVxX1lhdmYtU25IYWRRMW95eHE3aFRBemx2aThZeDBpZTN2NjhK?oc=5",
+   "summary": "Best PGA Picks this Week for the FedEx St. Jude BetMGM",
+   "published": "Mon, 10 Aug 2026 14:48:17 GMT",
+   "source": "Google News: FedEx St. Jude Championship picks",
    "kind": "news",
    "golfers": []
   },
@@ -350,1013 +1322,85 @@
    "link": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE54eGRpdFk3Tko5MkoyTGd4SzY5X2o1MG43RlM3ZG1feXc2cHcxeHhHY0xDSjlkWk9PQl9mOGlaaEg1LXRmWUVFdlQ3cm5kQlZvT29TMEQ2ZkFDeTQ?oc=5",
    "summary": "Erik Van Rooyen Withdraws From Wyndham Championship With Injury FedEx Cup In Jeopardy\u0964 Zuma (ik6S9f4y1n) Mshale",
    "published": "Mon, 10 Aug 2026 14:33:56 GMT",
-   "source": "Google News: Wyndham Championship WD",
+   "source": "Google News: FedEx St. Jude Championship WD",
    "kind": "news",
    "golfers": []
   },
   {
-   "title": "Wyndham Championship 2026 Odds, Picks And Predictions Austin Reeves (lU2x9079so) - Mshale",
-   "link": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE1KVmRJaDI5c3JOV0NERUhfeFdzMkU1Yk13Ml9KckJZcjVLcWVvSGp3RXF2ZHYzcUUwcG1peW03ZE5vNjdqdXFWeXg1WmpGQUV3MzRLbTloT3FXLVE?oc=5",
-   "summary": "Wyndham Championship 2026 Odds, Picks And Predictions Austin Reeves (lU2x9079so) Mshale",
-   "published": "Mon, 10 Aug 2026 14:33:37 GMT",
-   "source": "Google News: Wyndham Championship picks",
+   "title": "2026 FedEx St. Jude Championship Preview: Everything To Know About TPC Southwind - Lineups",
+   "link": "https://news.google.com/rss/articles/CBMisgFBVV95cUxPN3BXNGZMQmFDdy1vV2I0VmlzbHlGcGlhX1dvVWotM2RjWWFOTzltUmxrbENsOGdRUWFOdlNRYlg4ekQ4cDdoZk5MM0pjcXhNY215U095dGZGSDYyQzZKN1lZQWxRN2dJdG94R011Zm45NVBvUEhfMmtMUjhUaTdITEl5Nnp5d1J2QnV2Tkx4c1JlYU93MGNfT29WNjNvMFl4OHNjemlKd0RSYkYyZ3N2LTNB?oc=5",
+   "summary": "2026 FedEx St. Jude Championship Preview: Everything To Know About TPC Southwind Lineups",
+   "published": "Mon, 10 Aug 2026 14:30:03 GMT",
+   "source": "Google News: FedEx St. Jude Championship DFS",
    "kind": "news",
    "golfers": []
   },
   {
-   "title": "LIVE: Wyndham Championship PAR Roster \u2013 Top 20 DraftKings Salary Ranking Mistakes Gbnews (UOceBhQAIJ) - Mshale",
-   "link": "https://news.google.com/rss/articles/CBMiW0FVX3lxTFBHU0tvcjBJd0FmZWtHU3dFWmlHbHVHdXFCY2pYU2NURmN4N3lyYVdwS0xJdmFFUHY1SnNKQmV4Y3pvaXdaLTFfOWF6NEVHS1dMZ1B4R00zVGF2dGM?oc=5",
-   "summary": "LIVE: Wyndham Championship PAR Roster \u2013 Top 20 DraftKings Salary Ranking Mistakes Gbnews (UOceBhQAIJ) Mshale",
-   "published": "Mon, 10 Aug 2026 12:21:21 GMT",
-   "source": "Google News: Wyndham Championship DFS",
+   "title": "FedEx St. Jude Championship 2026 DFS Picks: Predictions, Values & Projections - Fantasy Alarm",
+   "link": "https://news.google.com/rss/articles/CBMiygFBVV95cUxNRUg0T1gyVFF5TVpjS1VjZ3VRQzNHTUp5clJoV1N0T0FZX3RtQWRId3l2X0szSE9WSkVianZuWTZVb1VfamIxWkdFV2xGSWJNQW4zNXN3UXhQRnA3WkVaOWlzQ2UxcUhPRm1MMXlHc1ZiM1oxaGpGTFBZNHpQWXhTOENqejltMU90QVZUa2diaGEwSWI2WWZONHBEV1kycEFSSmxoYU5NVWVXMkp2UzB4dERBUnFTR2tEMVJHZmhSREt5UWRJaXprdWFR?oc=5",
+   "summary": "FedEx St. Jude Championship 2026 DFS Picks: Predictions, Values & Projections Fantasy Alarm",
+   "published": "Mon, 10 Aug 2026 14:15:22 GMT",
+   "source": "Google News: FedEx St. Jude Championship DFS",
    "kind": "news",
    "golfers": []
   },
   {
-   "title": "Wyndham Championship Odds: A 300-to-1 Winner's Tape - Stokastic",
-   "link": "https://news.google.com/rss/articles/CBMihgFBVV95cUxOenU3NjMxZDRQODA0Nll5ZzlmbUQ1cEFJdWpFVFVYRXFoS05DWWw2WWJkSzRzVEdwQUtjcGlZeFlBMVhPTjVocmV5Qy02bXprTGtjMlhjMUw4eWR2c1JvSlZGTGQtSTdmakRJUEhsVl9tYWk2bF9ENjROZDdrUThMblh5Nk9fQQ?oc=5",
-   "summary": "Wyndham Championship Odds: A 300-to-1 Winner's Tape Stokastic",
-   "published": "Mon, 10 Aug 2026 10:18:44 GMT",
-   "source": "Google News: Wyndham Championship DFS",
-   "kind": "news",
-   "golfers": []
-  },
-  {
-   "title": "Patrick Cantlay SHOCKINGLY Withdraws From Wyndham Championship! \ud83d\ude31 FedExCup Playoff Race Just Changed Pakistan (sCNno6En08) - Mshale",
-   "link": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE0tMUg1WjJWSmMtamgyVDN6Q19zQXV6cm1rSE9yZE14WW9yVzNFT1hGYnV0dEh2a0tGX2EyQzg5ajFmTEhXNnN5d010d3F3R3hubnhsVEZPTTQyZ1E?oc=5",
-   "summary": "Patrick Cantlay SHOCKINGLY Withdraws From Wyndham Championship! \ud83d\ude31 FedExCup Playoff Race Just Changed Pakistan (sCNno6En08) Mshale",
-   "published": "Mon, 10 Aug 2026 05:24:06 GMT",
-   "source": "Google News: Wyndham Championship WD",
+   "title": "2026 FedEx St. Jude Championship odds: Scottie Scheffler opens playoffs as favorite - GOLF.com",
+   "link": "https://news.google.com/rss/articles/CBMihAFBVV95cUxPZjNvZzFIWHVRZTVYWm9pdGx3bkVtQktmbVhQbEhpSzk3clhRSDB0WDBocnhmWFI2WVlYTnUxZ1QzRHVZdDhKN3lrcHNaTkI3ZHRWcUozd24yR1lhOURlRDVNeXJFdHRnS0J6VFN3eE04X25QaFl5SmNqXzUycnF2emx4UzY?oc=5",
+   "summary": "2026 FedEx St. Jude Championship odds: Scottie Scheffler opens playoffs as favorite GOLF.com",
+   "published": "Mon, 10 Aug 2026 11:09:11 GMT",
+   "source": "Google News: FedEx St. Jude Championship picks",
    "kind": "news",
    "golfers": [
-    "Patrick Cantlay"
-   ],
-   "alert": "wd"
-  },
-  {
-   "title": "Wyndham Championship & LIV Golf NY 2026: Astrology Picks, Predictions, And Best Bets Playstation Plus Extra (4C89LBiElr) - Mshale",
-   "link": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE95SkJrTlU4MUU1V2RTOGJXME1KNlZpYjJkcjBGQWg5SEYtT3VEbDBfN0pwbHg4VURWci1vRWhXeTVwUjdpLTN5SVFxZXZEZ1pnWjFPbFB2ZWExXzQ?oc=5",
-   "summary": "Wyndham Championship & LIV Golf NY 2026: Astrology Picks, Predictions, And Best Bets Playstation Plus Extra (4C89LBiElr) Mshale",
-   "published": "Mon, 10 Aug 2026 03:51:22 GMT",
-   "source": "Google News: Wyndham Championship picks",
-   "kind": "news",
-   "golfers": []
-  },
-  {
-   "title": "Wyndham Championship 2026 Purse Breakdown, Payouts - DraftKings Network",
-   "link": "https://news.google.com/rss/articles/CBMimgFBVV95cUxOV2FTNzJDendHTDY2czVRcXVVenpaZjlaX0lUM1hXc0pkaF9xS0ZKM2hGVklKWkhydnZ3dkJ6bnJERTNtQmVwZ2lBS2c2N0FiOFBydVNjNE9Zblg0anJSRFVNWXVwNDAwM2hNOXNvMkQ4S3JxVWljdmF6ak1aUEZDMjNkRHFvTFFaRlcwYzFfeUFuTXh5c0QyRmx3?oc=5",
-   "summary": "Wyndham Championship 2026 Purse Breakdown, Payouts DraftKings Network",
-   "published": "Sun, 09 Aug 2026 14:30:48 GMT",
-   "source": "Google News: Wyndham Championship DFS",
-   "kind": "news",
-   "golfers": []
-  },
-  {
-   "title": "2026 Wyndham Championship Picks | Top PGA Tour Predictions & Best Golf Bets \u00e9tats-unis (FFqhBM85T0) - Mshale",
-   "link": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE1DbVpQdHJXMzhRNWVTb294UG9qblpvZUxqeFpvbzNJZm0yWlhKT1R2eUhScTVZdFJpNEdfTEpjSGREUnEwcXF1b3B1amZfa0FjVnU3Vzl6VUh3dW8?oc=5",
-   "summary": "2026 Wyndham Championship Picks | Top PGA Tour Predictions & Best Golf Bets \u00e9tats-unis (FFqhBM85T0) Mshale",
-   "published": "Sun, 09 Aug 2026 13:10:48 GMT",
-   "source": "Google News: Wyndham Championship picks",
-   "kind": "news",
-   "golfers": []
-  },
-  {
-   "title": "Wyndham Championship | Fantasy Golf Preview & Picks, Sleepers, Data - DFS Golf & DraftKings Emma Navarro (siDmDIdI1n) - Mshale",
-   "link": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE5VVWpDa2t1eXFzdzQycXhjZFZxaUJncjBpdEtGYl9NeXlNLUhINDBXWkhnYU9VQWlDV3RNbTk1Z1BBdVItQjEtMV84MW1iMlhzY01NRS1tRDJ4SEk?oc=5",
-   "summary": "Wyndham Championship | Fantasy Golf Preview & Picks, Sleepers, Data - DFS Golf & DraftKings Emma Navarro (siDmDIdI1n) Mshale",
-   "published": "Sun, 09 Aug 2026 11:21:55 GMT",
-   "source": "Google News: Wyndham Championship DFS",
-   "kind": "news",
-   "golfers": []
-  },
-  {
-   "title": "The Wyndham Championship 2026 PGA DFS Picks & Strategy | Best DraftKings Golf Lineups Barcelona - Real Madrid (seyx1Oe6F2) - Mshale",
-   "link": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE9haEFJMWo0V1hYUllLbHhna3lyMVVlNDY2eHRVNWU0bW03OExMY1VyLVRVdDJzSnA1V2FnRk5CSzBMWFM3ZUhyMlNhZW9ScDRUSnlQQ1pKVGJIWEk?oc=5",
-   "summary": "The Wyndham Championship 2026 PGA DFS Picks & Strategy | Best DraftKings Golf Lineups Barcelona - Real Madrid (seyx1Oe6F2) Mshale",
-   "published": "Sun, 09 Aug 2026 10:35:48 GMT",
-   "source": "Google News: Wyndham Championship DFS",
-   "kind": "news",
-   "golfers": []
-  },
-  {
-   "title": "Ultimate 2025 Wyndham Championship DFS Guide: Top Picks, Winning Bets & Course Insights Wec (epmc2ImUG3) - Mshale",
-   "link": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE14a3RwREhkcHBRWG9wVHlUdEhVcGE5eWZ2ZGQzNV85TG5BZ2ZsTVYyTzlfNUZMV1ZwVjVHeUNvNFk3NWlWaDRsMWZzd0VJWXdvbUlaQlA4UjJ0ZEE?oc=5",
-   "summary": "Ultimate 2025 Wyndham Championship DFS Guide: Top Picks, Winning Bets & Course Insights Wec (epmc2ImUG3) Mshale",
-   "published": "Sun, 09 Aug 2026 10:19:39 GMT",
-   "source": "Google News: Wyndham Championship DFS",
-   "kind": "news",
-   "golfers": []
-  },
-  {
-   "title": "The Wyndham Championship PGA DFS Picks & Plays - Stokastic",
-   "link": "https://news.google.com/rss/articles/CBMib0FVX3lxTE5DSVkzanpJUFUzeks1UGc0X09lWll2eGFYSmZTVVdLQ2FpeHBHbHk1SnBkQUtGVlcwM1RacW1HM05JeGVnQ3V2Z3dzNm0wd0JhSEppbHcwYXFSaUZSTnZRQU9wOF94b1FOdWc4NzFEcw?oc=5",
-   "summary": "The Wyndham Championship PGA DFS Picks & Plays Stokastic",
-   "published": "Sun, 09 Aug 2026 07:00:00 GMT",
-   "source": "Google News: Wyndham Championship DFS",
-   "kind": "news",
-   "golfers": []
-  },
-  {
-   "title": "PGA DFS Picks & Projections on DraftKings for Round 4 of the Wyndham Championship - RotoGrinders",
-   "link": "https://news.google.com/rss/articles/CBMitwFBVV95cUxOVTIwUkRfTzRhQjlnVUUzaG1pTEc1aEVoOVV4MmhNeWZueVp0VHFucDlna0wtYTFNX2NtRkl1SnJnRmdxNWF5SWlrTGVYWDZmM3M5TlV2SFd1U1lzLTVscDgwU0pLMmEzZ3ViZzdOd0o1T3QzdWozdnZPNnQxY2h3ZjFnSElFdkRaeW5XaEN0b1EySEo5UFFoN1VzLVIydk42MndGdWFYbHhFXzFNVDlBdzFvVDRtS1k?oc=5",
-   "summary": "PGA DFS Picks & Projections on DraftKings for Round 4 of the Wyndham Championship RotoGrinders",
-   "published": "Sun, 09 Aug 2026 05:56:08 GMT",
-   "source": "Google News: Wyndham Championship DFS",
-   "kind": "news",
-   "golfers": []
-  },
-  {
-   "title": "Wyndham Championship Round 4: Expert Predictions, Picks, Odds for Sunday, August 9 - Action Network",
-   "link": "https://news.google.com/rss/articles/CBMiswFBVV95cUxPUUJfMENKaEJuQjhuMnlBYXQtZEhsQWJSdUZsaVNHV0FVNFpmXzJSUFJKRGNSXzgzUXMzM3N2LThGbWVCb0JwcXc2cEVkSTBlaFhVd3hBYjNzTnQ5dkQtMFljT0cxdjBWczdXWGczbUtMYTFsdVRNdTVqaVlhYi05WG00WUZVMFdIcy1iMUR2Wk5yTmFQTDJodlFkbjNiNTZJRW5wNmdOOFlCX3VRcjJJSkhrbw?oc=5",
-   "summary": "Wyndham Championship Round 4: Expert Predictions, Picks, Odds for Sunday, August 9 Action Network",
-   "published": "Sat, 08 Aug 2026 23:48:00 GMT",
-   "source": "Google News: Wyndham Championship picks",
-   "kind": "news",
-   "golfers": []
-  },
-  {
-   "title": "PGA Rundown: Wyndham Championship DraftKings DFS Preview, Best Bets, OAD Picks Provincial Life Satisfaction Canada (hkp5bMpkAc) - Mshale",
-   "link": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE5MTlVhRS00ZlR2M3RDMTlMSHI0VjhzVUdHT0RoTnRhUktvMDZvNjV0bHdaVkJNdUhSQVlKWjJSLWZjS0M5d2dzNHY3MTVzdkJjaEdWTVpzT2wwT1U?oc=5",
-   "summary": "PGA Rundown: Wyndham Championship DraftKings DFS Preview, Best Bets, OAD Picks Provincial Life Satisfaction Canada (hkp5bMpkAc) Mshale",
-   "published": "Sat, 08 Aug 2026 23:47:29 GMT",
-   "source": "Google News: Wyndham Championship DFS",
-   "kind": "news",
-   "golfers": []
-  },
-  {
-   "title": "2021 Wyndham Championship Draftkings Golf DFS Ownership Reaction: Top 3 PGA Fades And Sleeper Picks Alec Guinness (jeScss6DNS) - Mshale",
-   "link": "https://news.google.com/rss/articles/CBMiW0FVX3lxTFBQdkp1Unl6RWxQM3BjSDN4UlVhbTFZZVhZd3BCcXZUSlFsTVg0cWNRbzZJempraXFxcHJGX1UxQ1VsS2MzN0lfYTY3MF8zUTA2azRsZEZobEFKSm8?oc=5",
-   "summary": "2021 Wyndham Championship Draftkings Golf DFS Ownership Reaction: Top 3 PGA Fades And Sleeper Picks Alec Guinness (jeScss6DNS) Mshale",
-   "published": "Sat, 08 Aug 2026 17:49:42 GMT",
-   "source": "Google News: Wyndham Championship DFS",
-   "kind": "news",
-   "golfers": []
-  },
-  {
-   "title": "PGA DFS Picks & Projections on DraftKings for Round 3 of the Wyndham Championship - RotoGrinders",
-   "link": "https://news.google.com/rss/articles/CBMitwFBVV95cUxNc2tORDVEd2lDa0wyZFp0Z0pWS1I0TGhTamRMT0NSN0F0bklZLXg2WTQtaHBVdVdMQjNsMUlnS2JGNW1PVWNLdWoyOTZrTkFTcGxWNUc4TWI0UG8xNWsyaDdhclI3dFdXMjlLZW42Z2J1b2RtQThXeU9TZGl2SklSVTd1UzJaalhJLVZyZGxRSnQySDUzMkxxQndaLUtjWTVYT0g0eHBMcVJHa2dLR0liZFl3ZXB4aVE?oc=5",
-   "summary": "PGA DFS Picks & Projections on DraftKings for Round 3 of the Wyndham Championship RotoGrinders",
-   "published": "Sat, 08 Aug 2026 13:14:11 GMT",
-   "source": "Google News: Wyndham Championship DFS",
-   "kind": "news",
-   "golfers": []
-  },
-  {
-   "title": "PGA Tour Winner Disqualified After Being 'Not In Place To Play' At Wyndham Championship",
-   "link": "https://www.golfmonthly.com/news/pga-tour-winner-disqualified-after-being-not-in-place-to-play-at-wyndham-championship",
-   "summary": "Aaron Wise was disqualified from the event after he wasn't in position to play following a weather delay, with the American failing to notify officials",
-   "published": "Sat, 08 Aug 2026 12:52:44 +0000",
-   "source": "Golf Monthly",
-   "kind": "news",
-   "golfers": [
-    "Scottie Scheffler",
-    "Jordan L. Smith"
+    "Scottie Scheffler"
    ]
   },
   {
-   "title": "Wyndham Championship Round 3: Expert Predictions, Picks, Odds for Saturday, August 8 - Action Network",
-   "link": "https://news.google.com/rss/articles/CBMitgFBVV95cUxOenEyR2FuZ3B1NnhFQlltY28yWFRsVHhzZEpyMnFHbDhfNUdRUkFmQ2EtckllZEFXY3dNMkFNNXFCVGhRS01heGFCMkYxZUx0WldwUGpQdTBHR3BmZXF1YmREbDB2UDBvaWNjRFBwMFlOU0VKZU5yMUhKbVdacXdILTZtRl96TGp3UlBDQTR3WmFSOEpETlNlbnd0Z0dFMDY2SU83WDU3TmdsRU1DTk53dFNXTTRBUQ?oc=5",
-   "summary": "Wyndham Championship Round 3: Expert Predictions, Picks, Odds for Saturday, August 8 Action Network",
-   "published": "Sat, 08 Aug 2026 11:03:00 GMT",
-   "source": "Google News: Wyndham Championship picks",
+   "title": "FedEx St Jude Championship 2026 preview, picks & analysis - Golfshake.com",
+   "link": "https://news.google.com/rss/articles/CBMiowFBVV95cUxNTmthdGR6WkxNQThsNTZKdGZpZGNpVVFUUzhQZjdEUktORVQ5cUpMMkRxN09pVkloZzdzWnlVWHFYYV9hdk1hS2pnZllCNjNHRjNtdzBHQmYxc3RWMUMwdU1FRFRBU1lveXlOXzFaZk05VzRTOV9BQ2RQRURuS3hTTEVlWVFXWUROUTZuaC1XQkpxY0xJTVBhWFJpNGUxUXEwb25r?oc=5",
+   "summary": "FedEx St Jude Championship 2026 preview, picks & analysis Golfshake.com",
+   "published": "Mon, 10 Aug 2026 10:20:27 GMT",
+   "source": "Google News: FedEx St. Jude Championship picks",
    "kind": "news",
    "golfers": []
   },
   {
-   "title": "Wyndham Championship - PGA DFS | DraftKings & FanDuel DFS | First Look Liam Neeson (pGcfzfCNI0) - Mshale",
-   "link": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE1fVHZGTWtXUTVmTWo5TkVmeFFGNTNBbFBad3BKT2R5Z1RFdTlPRll6NC1ETFpkbUVTdnhPd050SUR1NUgyUXVSQm1SZzJhLTV3SUt4aFdEdTNpNzQ?oc=5",
-   "summary": "Wyndham Championship - PGA DFS | DraftKings & FanDuel DFS | First Look Liam Neeson (pGcfzfCNI0) Mshale",
-   "published": "Sat, 08 Aug 2026 08:18:34 GMT",
-   "source": "Google News: Wyndham Championship DFS",
+   "title": "FedEx St. Jude Championship Picks, Predictions & Odds For 2026 - Sports Betting Dime",
+   "link": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxNY3llNTBnNlRfRUtqYnNDNVZuUy1KMklWU2NsRER0c182TTBZaDRGTzJMdl9sdXRaQXBiMjQ0cXVMMU1QTTlSR3BUWHJsbmF1cmhSZG1qWU9lRHZiX0dOeGxlaVlubE1oSVdsODRVYW5neG1hVkI4em5IN3k3amdCUG1IMWVKbE1qOEJfaV9jNXpHX2N0Wk02UTBCS2NzeENzcFk3V1lXZFMybm8?oc=5",
+   "summary": "FedEx St. Jude Championship Picks, Predictions & Odds For 2026 Sports Betting Dime",
+   "published": "Mon, 10 Aug 2026 03:49:00 GMT",
+   "source": "Google News: FedEx St. Jude Championship DFS",
    "kind": "news",
    "golfers": []
   },
   {
-   "title": "2022 Wyndham Championship | DFS Golf Preview & Picks, Sleepers - Fantasy Golf & DraftKings Bears (TxkWksCXH0) - Mshale",
-   "link": "https://news.google.com/rss/articles/CBMiW0FVX3lxTFBJbGsweGtieVhjTUJLMjdOLUtEc09KeEpNS2lNdHM3cTMyV2xvclBTakNFc0RhLWhCc29VOG5fR29BbzQxTzZBR3V6cDRIVmtpeGoxSlFNLVJRRU0?oc=5",
-   "summary": "2022 Wyndham Championship | DFS Golf Preview & Picks, Sleepers - Fantasy Golf & DraftKings Bears (TxkWksCXH0) Mshale",
-   "published": "Sat, 08 Aug 2026 08:02:54 GMT",
-   "source": "Google News: Wyndham Championship DFS",
+   "title": "2026 FedEx St. Jude Championship odds, full field - DraftKings Network",
+   "link": "https://news.google.com/rss/articles/CBMilwFBVV95cUxQN2lnS2lOZkVRbmdnbjJIVlh6VDVfREI3TjlwamV1M1JoNDhGVS1lVWR2QUt4OU9CcU9DSlg2alJpQnZUTWl2b2piMU8tMlpUQ3NheDFQZ1d5UXltQVhibWh5TmQ0cDMxZDF0RmZsbW9oeTZaTXJVWXJzREhfM3NaWEp4cmJ6NnZlNnllM3VsS1pEa0ctNndv?oc=5",
+   "summary": "2026 FedEx St. Jude Championship odds, full field DraftKings Network",
+   "published": "Sun, 09 Aug 2026 22:12:00 GMT",
+   "source": "Google News: FedEx St. Jude Championship DFS",
    "kind": "news",
    "golfers": []
   },
   {
-   "title": "Expert PGA DFS Strategies For The Wyndham Championship! Pedro Pascal (CqZYBvfPQV) - Mshale",
-   "link": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE1BXzNCdVFIUU1XSDNKbEhYQmdkZjBLSEgxMEQzZDJSNDZkVExVMWxTQ1lSRmhMbUJMV1pweEVIUmFpTjZRV2l4QjRhcnYwM2tlaUQ5aGdZcmMtZTA?oc=5",
-   "summary": "Expert PGA DFS Strategies For The Wyndham Championship! Pedro Pascal (CqZYBvfPQV) Mshale",
-   "published": "Sat, 08 Aug 2026 07:09:47 GMT",
-   "source": "Google News: Wyndham Championship DFS",
+   "title": "Who made the 2026 FedExCup Playoffs? - DraftKings Network",
+   "link": "https://news.google.com/rss/articles/CBMihwFBVV95cUxNVlRQazdWT3NVZlRlRTNwMERsQVYwR1hpUmJhUTdDamxocFFCX1JwY2dEMk5GZU94M05xLXdaUXoxYXhHODBiZVU1S3Bybi1najN1VEJVVmkzYnBqU3U0b1RMemZuaG9ULVpjd2RVUmZBb1FuemdFX29PY1Byd0RjcV9YbGw2LW8?oc=5",
+   "summary": "Who made the 2026 FedExCup Playoffs? DraftKings Network",
+   "published": "Sun, 09 Aug 2026 22:02:08 GMT",
+   "source": "Google News: FedEx St. Jude Championship DFS",
    "kind": "news",
    "golfers": []
   },
   {
-   "title": "Wyndham Championship Field 2026: Full Player List, Withdrawals - heavy.com",
-   "link": "https://news.google.com/rss/articles/CBMiigFBVV95cUxOSk95UDIyamlhbmdQc1EwSU5xbXdteUg5MDhPRG10QzlOWWljdmRmZlNqa3J2N2xHa0sxYzhwV2NnbnlyOWJ1dnpJVE1yOExrT2NNOVlhNm5HWWVZZ3YxM0ZLZVVDQmdTT0NJb2V1TF9uWDF1czkzNWlaNURJNDZubGFOUUNJR1JxV1E?oc=5",
-   "summary": "Wyndham Championship Field 2026: Full Player List, Withdrawals heavy.com",
-   "published": "Fri, 07 Aug 2026 20:27:02 GMT",
-   "source": "Google News: Wyndham Championship WD",
-   "kind": "news",
-   "golfers": []
-  },
-  {
-   "title": "PGA Veteran Makes Sudden Injury Decision at Wyndham Championship - heavy.com",
-   "link": "https://news.google.com/rss/articles/CBMif0FVX3lxTE8tcHdBTGtTN0ZzTU1kS0lqalJ5TGZXR0wxLW1fUkFfWHdfbTRDVkpOZ2ptZHFVS3JBLUNPMTJsd3ltUWJ2Wm9IVC0yMGl1M043VWxQc2M4Q3A4Rkw2eWNTbVdaZEw0a0ZrNVctamhBZ2g3TkpPV3VWckRQSXEzblU?oc=5",
-   "summary": "PGA Veteran Makes Sudden Injury Decision at Wyndham Championship heavy.com",
-   "published": "Fri, 07 Aug 2026 19:58:02 GMT",
-   "source": "Google News: Wyndham Championship WD",
-   "kind": "news",
-   "golfers": []
-  },
-  {
-   "title": "Wyndham Championship: Jason Day talks back injury after missing playoffs for first time in career - Golf Channel",
-   "link": "https://news.google.com/rss/articles/CBMivwFBVV95cUxPUkpOYUFuRVl2MW5sZEdkQXliU1dpa0s2SHM0QXZva0ZfeU9vTUlPZkFZY2s1TkJNSlpaUXlTRzF4c29yMENfakZncTBGQkJ6dEVVYWswYTdMY2FsbDFOaDZPYnBFR3hYTk01WDBZR2FpMUVrTGJHWDU0QzhybXZBX3pMbTBuQUowbk9IMndoVnNzMVVYVGh4WUo0a0ttR1lLMkFlZEc4eWxqY1hOeVd6clJMbVFZMHV1N19XOU1KOA?oc=5",
-   "summary": "Wyndham Championship: Jason Day talks back injury after missing playoffs for first time in career Golf Channel",
-   "published": "Fri, 07 Aug 2026 18:57:33 GMT",
-   "source": "Google News: Wyndham Championship WD",
-   "kind": "news",
-   "golfers": []
-  },
-  {
-   "title": "More Golfers Withdraw From Wyndham Championship on Short Notice - sports.yahoo.com",
-   "link": "https://news.google.com/rss/articles/CBMilgFBVV95cUxNckR2OE94akMwb3FOSlYxVFhnVjJqQUdrSUtVcjJsR2JQZU8xNTE1Q0dKNUIxd0VZVlAxbmNYaGdwa1U2QUtVb2ZocElhOEpDcHoxaXJKZDNxX1BlTEllaEZhOVl3dmZobXkyejhTbENlM3h6MVhiMXN4OHQzdTA4Zl96cW1Tb1lNbnMxcTl1bnlqZm9IVHc?oc=5",
-   "summary": "More Golfers Withdraw From Wyndham Championship on Short Notice sports.yahoo.com",
-   "published": "Fri, 07 Aug 2026 14:22:30 GMT",
-   "source": "Google News: Wyndham Championship WD",
-   "kind": "news",
-   "golfers": []
-  },
-  {
-   "title": "PGA DFS Picks & Projections on DraftKings for Round 2 of the Wyndham Championship - RotoGrinders",
-   "link": "https://news.google.com/rss/articles/CBMitwFBVV95cUxQd3ZLeE1zQWU3OFRkUDcxNXV1Ml9lbWUzY0J4QTBiS3F5Slo0U3hKNU9feDAxN1hUM3JXVlZGcHdkQUlOZEJXUkoyYUZBeU1lTXRySGdKWDZIMDZ6YmJkYXU1Um56Vl92VnpkRlRwNkxoMDZWem5KcjQtWG9MM2Rxdk5SOE9ObW9mTFNMdFI4SXBUeVA5Y2hiaElNaC1UYnU3SHFFb0p4WjdGLUJIclJrNWJnOEM1MVk?oc=5",
-   "summary": "PGA DFS Picks & Projections on DraftKings for Round 2 of the Wyndham Championship RotoGrinders",
-   "published": "Fri, 07 Aug 2026 12:07:21 GMT",
-   "source": "Google News: Wyndham Championship DFS",
-   "kind": "news",
-   "golfers": []
-  },
-  {
-   "title": "2026 Wyndham Championship Odds: Four Longshots & PGA Tour Golf DFS Picks - Lineups",
-   "link": "https://news.google.com/rss/articles/CBMipgFBVV95cUxPY2M4d21DaF9oTFEyUHpZWTRUYmJxX1AzdHNKeXdlbVV2NHpIREJJRjU3aGFzWUd2ZmphdHFtYVJuSGRTTUp4b25EU213REhkRXNHQjhQTWltaW1vMTRwb2RaZHd2VGcxb2lscEFVcklOWThqYURsbHpSbm9jSTFjUmwxVXhxQzd4bW1XaEdOd19kcmUtY3VlNHRoVUpFSEg5N3lTYlNn?oc=5",
-   "summary": "2026 Wyndham Championship Odds: Four Longshots & PGA Tour Golf DFS Picks Lineups",
-   "published": "Fri, 07 Aug 2026 07:00:00 GMT",
-   "source": "Google News: Wyndham Championship DFS",
-   "kind": "news",
-   "golfers": []
-  },
-  {
-   "title": "2026 Wyndham Championship Odds, Picks, Predictions: Best Bets, Props, OAD - Lineups",
-   "link": "https://news.google.com/rss/articles/CBMipAFBVV95cUxNaWNpUTlCREFyRFdWdEdxbVBJQjVCR000aXlhNTJMZEZFaU54eDNGSmFHOTQyLXN6ZnVOSDZTeGlVTzVjWkFiR2ZEQ1NQVUpfbXc2ZE1talRheC15T2x5UGwzbnpzWnV2UlZGRnY4X1YzYzJrV2NHbllvUXlPNEtlR1U0SDJUMGlfTlhTQldaYjV0bDRiZ3p2amdRNi1BenhqQzlKVQ?oc=5",
-   "summary": "2026 Wyndham Championship Odds, Picks, Predictions: Best Bets, Props, OAD Lineups",
-   "published": "Fri, 07 Aug 2026 07:00:00 GMT",
-   "source": "Google News: Wyndham Championship picks",
-   "kind": "news",
-   "golfers": []
-  },
-  {
-   "title": "Wyndham Championship Round 2: Expert Predictions, Picks, Odds for Friday, August 7 - Action Network",
-   "link": "https://news.google.com/rss/articles/CBMiswFBVV95cUxOZ3RScllSWHdSckxJWDlVYmMxc19TZ0xVWmI3Z19yb0ZvdDVSb1BGQTZyNWJSQk51QnBDM1VYSG5GR1E3ckdXSWdmd2dkdUM1dGxWSV9DaFVsQm14S1BTUWFtQ1pvenYwbGFBdF9kUDNBSXhXaG9qb09oOGFOR3NvR2RqdV9zZ3VVQi1hdmhoaUpIRVRyMThwNlJVajNZb1l0dHlmb2E5QmZlLTY4alB6RlNSVQ?oc=5",
-   "summary": "Wyndham Championship Round 2: Expert Predictions, Picks, Odds for Friday, August 7 Action Network",
-   "published": "Fri, 07 Aug 2026 00:40:00 GMT",
-   "source": "Google News: Wyndham Championship picks",
-   "kind": "news",
-   "golfers": []
-  },
-  {
-   "title": "PGA DFS Picks For DraftKings This Week: Wyndham Championship Cash and GPP Strategy - RotoWire",
-   "link": "https://news.google.com/rss/articles/CBMisgFBVV95cUxQWm9OUXNhdGRPOVJBOFY2NHpBbFJsaXpVZGg1V283dFdxWm9RQjZ4SGxmZS1Hc3R3MUtwRmVoUlllclUzQWlIUGZCSXhCaFZzc2NncUl4Z0lWNFU2WUZFTU9fem5tVmg4S0hUNEVOQVBGSktTZ2FvYWhRVUxub0ZGRTdBeDR2Nk5qekhzaWpqaDhMb1pIN1ZyRUlGSHdRSUcwSUVVWUVRTnZ5TG5vcDRpRWtB?oc=5",
-   "summary": "PGA DFS Picks For DraftKings This Week: Wyndham Championship Cash and GPP Strategy RotoWire",
-   "published": "Thu, 06 Aug 2026 18:53:00 GMT",
-   "source": "Google News: Wyndham Championship DFS",
-   "kind": "news",
-   "golfers": []
-  },
-  {
-   "title": "Noto's Model Breakdown: PGA DFS Preview & Strategy for the Wyndham Championship - RotoGrinders",
-   "link": "https://news.google.com/rss/articles/CBMinAFBVV95cUxOV0wwV2V5ay1Tczd0OExNaXY5cGsyYWk3dVQyN0Y4Ui11UFJLaWNKeVZOWmtRZURCSFY5NjRVcVd5VTRwSTdQVnpWSmliLUxFMmNjNTRsbGhpZmt4SHdRM2ktbDRiaFFWX2FEa1hidkpZN0NIMXFfWXFWbDZmcVRRQXpsNWFCRWZ5ZTREc1VsNnhyeGVXUVRjMVJoSng?oc=5",
-   "summary": "Noto's Model Breakdown: PGA DFS Preview & Strategy for the Wyndham Championship RotoGrinders",
-   "published": "Thu, 06 Aug 2026 16:31:51 GMT",
-   "source": "Google News: Wyndham Championship DFS",
-   "kind": "news",
-   "golfers": []
-  },
-  {
-   "title": "PGA DFS Picks: DraftKings & FanDuel Expert Survey for the Wyndham Championship - RotoGrinders",
-   "link": "https://news.google.com/rss/articles/CBMitAFBVV95cUxPY20tN05RMmlja3dDYmhnZzI2bVdHdERzMjlTNkVkYXdZS041c3VJU3Z0ajVBbVREN3hzclBmX2Q5RGpVNVg3RGJxNnhtVFFLNGozcTZEUnQyN01iT2hNVGlCQ2dwZVJ6QXdSMnM1RlpNdnA1OWt5clRTY1dELTh6OEREVVFTb2U2cXE2VVlRSzZfSjhPVTE0dmpXYURtSXpvbDFYVVNIYmtWYnRCTFJ3SFF1SS0?oc=5",
-   "summary": "PGA DFS Picks: DraftKings & FanDuel Expert Survey for the Wyndham Championship RotoGrinders",
-   "published": "Thu, 06 Aug 2026 14:19:32 GMT",
-   "source": "Google News: Wyndham Championship DFS",
-   "kind": "news",
-   "golfers": []
-  },
-  {
-   "title": "Wyndham Championship Long Shot Picks and Predictions: Sungjae Shines at Sedgefield - Yahoo Sports",
-   "link": "https://news.google.com/rss/articles/CBMijgFBVV95cUxQSU1UUXQxMUJsS1IwdHhaUU1OV1QwbVlReEdLVEpVRGlRYjhYMXdXYjRaeTlaaS1kNzdvWm5Md1EwYmFBY0UzVnJYQ0ZaYmVRaEE5WG5kcG52S0xwOGl6UlZyZnpDY3Qyb3pKWHBleGhOZGRMNzA3MzUxbzZwdHV3NkJ0YW8tU0FfbzBoWWJn?oc=5",
-   "summary": "Wyndham Championship Long Shot Picks and Predictions: Sungjae Shines at Sedgefield Yahoo Sports",
-   "published": "Thu, 06 Aug 2026 11:54:52 GMT",
-   "source": "Google News: Wyndham Championship picks",
-   "kind": "news",
-   "golfers": []
-  },
-  {
-   "title": "BEST BETS: 2026 Wyndham Championship Picks, Odds, One and Done | The Early Wedge Stream of Golf - CBS Sports",
-   "link": "https://news.google.com/rss/articles/CBMiugFBVV95cUxQSU5MN0NIV29QSXhYdUhqZnc3eUxjbGE0a0lsRGdWcm9rYjF1Ni1wRF9EWFVUS1V4UnpGNmhDaEd4dTZlcFdDaVkxRUlSRXRzR1NuSldfWmFWei1ETUtEN3IzS21LTGNCWnpDRF9WRFdwczlDSWotMkRDQUpzVllPSXJfbHh6bTJYUFl6RGxwc0lXUVZ2MjFyQktrNTdEOGJ6NHBOVDdQVDNkTk10Q0lQeF9xSWx0Snd3SXc?oc=5",
-   "summary": "BEST BETS: 2026 Wyndham Championship Picks, Odds, One and Done | The Early Wedge Stream of Golf CBS Sports",
-   "published": "Thu, 06 Aug 2026 07:02:57 GMT",
-   "source": "Google News: Wyndham Championship picks",
-   "kind": "news",
-   "golfers": []
-  },
-  {
-   "title": "Wyndham Championship Best Bets and Golf Odds - VSiN",
-   "link": "https://news.google.com/rss/articles/CBMieEFVX3lxTE53R2pwTW9yY25Sek1KeTZmTExzNUJYUVhNc0FwVlhRRGFlaVA1YWVsbjRReEZYUGJ6VjFoTk1OMXZRM1kyeTR5TTUwLUFlRUxVRW9mRmhzZnAyNDBCWXROOWVzenB5WUhhd0hFaW0xTmdEVnpZNE5QYQ?oc=5",
-   "summary": "Wyndham Championship Best Bets and Golf Odds VSiN",
-   "published": "Thu, 06 Aug 2026 01:38:13 GMT",
-   "source": "Google News: Wyndham Championship picks",
-   "kind": "news",
-   "golfers": []
-  },
-  {
-   "title": "2026 Wyndham Championship Predictions, Picks & Best Bets \u2013 BettingPros PGA Show - Hard Rock Bet",
-   "link": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxNU3RqblFsT3NlS2kxMVZ6NEZ4QU5NbXZYcFRfaGdCazAyNS16WVJXY3JkVEFTV0ktLWpMaUlBeXIwNVNVcjJsZkZvcWM3UWVNMkFjR0I0TXJ5am1nWnNyemx1Tm52aFNfbzZPWTlEVEVlRmdNNVhNbkNZeDQ1enpYQkkzYWFVbERsd0dQTThkdXdQMEZSS0Q1SzVxRERkcDUteVhEVkNoQ2M?oc=5",
-   "summary": "2026 Wyndham Championship Predictions, Picks & Best Bets \u2013 BettingPros PGA Show Hard Rock Bet",
-   "published": "Thu, 06 Aug 2026 00:00:00 GMT",
-   "source": "Google News: Wyndham Championship picks",
-   "kind": "news",
-   "golfers": []
-  },
-  {
-   "title": "Wyndham Championship 2026 odds, picks, predictions, props: Expert fading Jackson Koivun at Greensboro, N.C. - CBS Sports",
-   "link": "https://news.google.com/rss/articles/CBMisAFBVV95cUxNOEhueWpJdDluUWZCYVhTSTc5SXZaYktnWW9QWWx0X0M5WUtxRWZxNDJEbkpEQ256dl80SVNMU1FnT01IUklNYnpvNFQ2T2ZMZmVuVDVZM0tteXdxUmVxWUI4MDBJRXhTbW5VZzlJWW5EV0hHckJOTzZhWkJac2pWOXUwUVNEY1paYWY0RkIyS0Nrb1dmMVFXekNMaW94UGdmaGpnOEtHZ1h3NkNxVTdQSg?oc=5",
-   "summary": "Wyndham Championship 2026 odds, picks, predictions, props: Expert fading Jackson Koivun at Greensboro, N.C. CBS Sports",
-   "published": "Wed, 05 Aug 2026 23:15:35 GMT",
-   "source": "Google News: Wyndham Championship picks",
-   "kind": "news",
-   "golfers": [
-    "Jackson Koivun"
-   ]
-  },
-  {
-   "title": "Golf One and Done Pool Expert PGA Picks: Wyndham Championship - RotoWire",
-   "link": "https://news.google.com/rss/articles/CBMiowFBVV95cUxPejZTWHpoRnp3cmpGczBDdm9KZTQxN1ZrNE8tak4yZF9Nc1ZvTEh3bHB3RkNJVmJkeUJVdDFLcm5KZU9hdmRCQkVNcHhHb2VIdldvQkx1Zkw5VnB6S0hKa21ZT2p4RURhblUwYWR6WEYtbWgzdlFBd0FqQ3FFcUliOTFFOGx4T2RTd0Jzc21QcFI5ZjdsRjFNRTFtQnNoQ3hvNFdv?oc=5",
-   "summary": "Golf One and Done Pool Expert PGA Picks: Wyndham Championship RotoWire",
-   "published": "Wed, 05 Aug 2026 22:30:00 GMT",
-   "source": "Google News: Wyndham Championship DFS",
-   "kind": "news",
-   "golfers": []
-  },
-  {
-   "title": "2026 Wyndham Championship Betting: Picks, Odds, Predictions, and Best Bets - RotoWire",
-   "link": "https://news.google.com/rss/articles/CBMitgFBVV95cUxNcHdGdHhfU3lzaDVzNkJRQzVzQldPMEpwbUQxbTZlWjRmbHowMkNIa3hsZDFMcjhQak1kbVMtOTJINllXYU9ycVNjaDJtV3FQc3Jlak1ESnEtTkhNdzZ2SE4zXzlEcGVGdWZabERsQ0c1UEV2Q0wyMkUtMHhWZ0dwQW0tLURLSDR5QmFlVjI2NFZQT1RkbEFuTXFNMWhaRk52NEZuTG5hM2FFZFhDOHdPdXJ5RWtaQQ?oc=5",
-   "summary": "2026 Wyndham Championship Betting: Picks, Odds, Predictions, and Best Bets RotoWire",
-   "published": "Wed, 05 Aug 2026 21:33:00 GMT",
-   "source": "Google News: Wyndham Championship DFS",
-   "kind": "news",
-   "golfers": []
-  },
-  {
-   "title": "Top fantasy golf targets and pivot picks for the Wyndham Championship - DraftKings Network",
-   "link": "https://news.google.com/rss/articles/CBMitwFBVV95cUxNZC1RYzY2QXdkenk3RTFNaFhWSHAtWHVOTWVfRjBhTlJDWFpzMnc5Y1E0Ujloc1ZpTHFlVTNWd2pVS2oyZHhRSDNBUzVvVG5lTVJmVkpqbHI1d2lZZ2JEX2tCd0F2anJndmVyOGwwNUQ5LWg5ZU1FYVZ0SVdSTmduR1JWMEc1cUdZbTlnQnl4cU5QOWdqOFpydEY1MWtNVnpoa25sdElGa2traTRrMTFJMjJFNmlGb1k?oc=5",
-   "summary": "Top fantasy golf targets and pivot picks for the Wyndham Championship DraftKings Network",
-   "published": "Wed, 05 Aug 2026 21:22:48 GMT",
-   "source": "Google News: Wyndham Championship DFS",
-   "kind": "news",
-   "golfers": []
-  },
-  {
-   "title": "2026 Wyndham Championship longshot picks, PGA props: This golf parlay could return $40,000 - CBS Sports",
-   "link": "https://news.google.com/rss/articles/CBMirgFBVV95cUxORURpczNVUXZqbjRIT21zYUQxVENvX1dWeEdCVjBvRkFBVnR0N3lvc2dHM1RneHhNLWpDY1FodDBHcGVvRDY0MFNLeGpQejZOTkNzanBBQXFqcENtLXdlX2FKS2c4MDBMZUtTcm1Yc3dMdDlqNTlxVnRjQk9FblQtdGc1WjBHOTdpM0hQWDlqdGpLRWZua3ZETVNjaHAtbWVCUnNkc0FMc0dhVlRkcEE?oc=5",
-   "summary": "2026 Wyndham Championship longshot picks, PGA props: This golf parlay could return $40,000 CBS Sports",
-   "published": "Wed, 05 Aug 2026 21:10:29 GMT",
-   "source": "Google News: Wyndham Championship picks",
-   "kind": "news",
-   "golfers": []
-  },
-  {
-   "title": "Golf Best Bets: Round 1 Picks for the 2026 Wyndham Championship - DraftKings Network",
-   "link": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxOdFhub2taa2xzRXNReURPWV9xNEhjOTRpazQ5U3Qxa2psSTZ1MGx1emNvNFRadXlkamdhMHAyNEZvVDlLYU9uUllQbEtJbE1Xa2VzYlJVN19sTS1RY0Ezcm5PVVBvVHBFSjZ1eGFCVFd0TlhSSnpCbkNJWFFVOGM2X01EVUJqVlZac1hCMWdHVTl1YTlnNXRWVzZPVDhkb3lxUlBhUUZmd2F6V1E?oc=5",
-   "summary": "Golf Best Bets: Round 1 Picks for the 2026 Wyndham Championship DraftKings Network",
-   "published": "Wed, 05 Aug 2026 21:01:47 GMT",
-   "source": "Google News: Wyndham Championship DFS",
-   "kind": "news",
-   "golfers": []
-  },
-  {
-   "title": "Golf expert reveals 2026 Wyndham Championship picks - SportsLine",
-   "link": "https://news.google.com/rss/articles/CBMi4wFBVV95cUxObEIzR1JsSWNpOUZwZ3ByUTJHWlJWZEozT2ZpVGtjWUxITWdKRDdGcDNBSVNSd0lGUlBoYWY3clFQbHhxSnBJN01RNE9HazdDclo2dHJsenk4NEVGWTZvNnNMTFVXUVVWdGlGSExROHByaVdiMTVPSVZGMFBTM0ZZdXVHMVhCQm9IaS1sZUJaY3VxNjNQVVdBY0pJM1F4a0NOV2hxTzdrcVE3UTZCb0VLNlUybnp6Z0tLUWw4X2YzdW51Uk1ZXzZ3dkJhNHNULTdfQVlLRklEYzg1aTNaejNuRE1sRQ?oc=5",
-   "summary": "Golf expert reveals 2026 Wyndham Championship picks SportsLine",
-   "published": "Wed, 05 Aug 2026 20:02:56 GMT",
-   "source": "Google News: Wyndham Championship picks",
-   "kind": "news",
-   "golfers": []
-  },
-  {
-   "title": "Wyndham Championship Picks, Best Bets: 5 Expert Predictions for Sedgefield - Action Network",
-   "link": "https://news.google.com/rss/articles/CBMirAFBVV95cUxNeEZySFZ6QnBpYXRtQ0lSaHVmaFVsVTl3ZGhmY1oyX0F2Mm1GVzFPRGJGUEY0SV9vdHI0Szd6QmRoTENsVDhHdlcwbExabF9RaTV4YnExMVI5dGhmZXFpRk9OWnNnTlR4X0lIZ3B6WXFhVy1NYlhrTGRJY3Q0WW1rZFhlZ0p1RkdKZ09KV0k3TV9RM250dVNLV2hxc0s4bFBlUWdJY1NTTkN4OHFF?oc=5",
-   "summary": "Wyndham Championship Picks, Best Bets: 5 Expert Predictions for Sedgefield Action Network",
-   "published": "Wed, 05 Aug 2026 19:37:00 GMT",
-   "source": "Google News: Wyndham Championship picks",
-   "kind": "news",
-   "golfers": []
-  },
-  {
-   "title": "2026 Wyndham Championship odds, picks: Proven golf model reveals projected leaderboard, surprising predictions - SportsLine",
-   "link": "https://news.google.com/rss/articles/CBMi3AFBVV95cUxPc3NFMVo3bTVBSGpRQi1uZW9iZ0RCc2tnNm01NEhpNVdrVk4xc1JfWXpxMkFPQ3BsZS1YZThsdWF1QTFXb1kxUWhMaXkzLURfbGN6ck5tbTBSQWNlNWFxQ3p5QnVYMGxlQzdHa01oY1JCb1NNM2Z3Sno0VkxvOHo1N3laOV9DSnltSE9lUkYwbmNubXNKWFJVNzQtcEpNQ0gtT0RrcWxvUTd5TWxWSmNkYW1iVTZ4SG5BdXJtZG15RjM2d3plVV9qbl91N2ZEZ0dncTExT3R4cDhsSUpU?oc=5",
-   "summary": "2026 Wyndham Championship odds, picks: Proven golf model reveals projected leaderboard, surprising predictions SportsLine",
-   "published": "Wed, 05 Aug 2026 19:34:52 GMT",
-   "source": "Google News: Wyndham Championship picks",
-   "kind": "news",
-   "golfers": []
-  },
-  {
-   "title": "2026 Wyndham Championship odds, picks: Surprising predictions from golf model that's nailed 17 majors - CBS Sports",
-   "link": "https://news.google.com/rss/articles/CBMiowFBVV95cUxNUXJELW9YMlBQcUhYbGNBWnJ5VHhaYlA5Zk04RFVrWlBvRWpoYzNfRHpTYXVZd0E4REVyU3Z1cUhJS1ZlaElNc3ZVWDJYSVNyeGFHRzEzYThEcGZ6aGlzVlZHT3h2Q3JXRF9waTFXenNsUjJRSm5rSWpkaHEteEo5eXBlWW9zOUw1OHoxSmNybXJwUW5ZNi1tV250aEozWTA2dXNR?oc=5",
-   "summary": "2026 Wyndham Championship odds, picks: Surprising predictions from golf model that's nailed 17 majors CBS Sports",
-   "published": "Wed, 05 Aug 2026 19:33:59 GMT",
-   "source": "Google News: Wyndham Championship DFS",
-   "kind": "news",
-   "golfers": []
-  },
-  {
-   "title": "PGA DFS Picks: DraftKings & FanDuel Core Plays for the Wyndham Championship - RotoGrinders",
-   "link": "https://news.google.com/rss/articles/CBMisAFBVV95cUxQT2VKWGw3ZHN2bF9FQzZXd0QteU04RkphRWI4a1dJVmJXUGRITGwyMWNSbTljbFVuTVpTZ1IzSmlPdS1xbkRxQUp3ck5CSUZ2WklTU3NWQmk2T1d1YmJWRkxFaklaMFNVUzRGcXUtYXhXN1I5T05KUWxHdWZNQ0ttU28yaFhyU0psRnI0T2kxQVdmY0pMeldqOGZfUUo2S2N3YTBXV2Z5QnJFaE01N0lMNQ?oc=5",
-   "summary": "PGA DFS Picks: DraftKings & FanDuel Core Plays for the Wyndham Championship RotoGrinders",
-   "published": "Wed, 05 Aug 2026 19:01:32 GMT",
-   "source": "Google News: Wyndham Championship DFS",
-   "kind": "news",
-   "golfers": []
-  },
-  {
-   "title": "2026 Wyndham Championship prop picks: Who will be first-round leader? - Central Oregon Daily",
-   "link": "https://news.google.com/rss/articles/CBMi8AFBVV95cUxQNl9zUjRwVWptN1BvYjUwSUhTZGVGMG5nR1g2ekF2b0pWR3QwU3hPSUpySm5hYWM2Si0wdm9ET3pudDNocTdOOFNOVEJTNUNYNkZRMW5lcUpzWHBYUUtOamR0c2tPbWI0bUdWUU5xV19sX2FZXzVDVjhpVi1DRnJ4cWlUUDZuZGpGcU1zMjlCNV9ZTnZBR1BiUFhXY2h6TllGaW1CeFlSN01wd1BDdzllaUtZSU5iMnZCRTlrRkNNSC1OLThCWTdBbWJZSjloSmRpUjJhLUx2Z1lONG5NeXVNWlpPTGZfQU5rS2U4RXJzU3A?oc=5",
-   "summary": "2026 Wyndham Championship prop picks: Who will be first-round leader? Central Oregon Daily",
-   "published": "Wed, 05 Aug 2026 19:00:44 GMT",
-   "source": "Google News: Wyndham Championship picks",
-   "kind": "news",
-   "golfers": []
-  },
-  {
-   "title": "DraftKings PGA TOUR Pick6 Fantasy Golf Picks: Top Plays for the 2026 Wyndham Championship - DraftKings Network",
-   "link": "https://news.google.com/rss/articles/CBMizgFBVV95cUxQUU01X2VlMzhVcVZ5Qm5BS0pmbHBnMFJ1aGo4dm9hbEY2OFFPek5QNXZmOTV5LU5peTQzUkF0VlZlTFltc2FDU1RzV2dpZDJpcktEbzBTMTdzQWpBNTN2enBGbGs1cXp0eVV0bjhyVU1ZajlQUElCb3MtS1FXWGwxME83OUw4dFBVZlREQlZiYTdpSlJNZlJBaGx3SWpsd1NHbnFEQ0FQNV9mQmVyVFl5Tnl2N3c4Vmk4TTlYcXloVER3UWQwQ0gxX29WaUdRQQ?oc=5",
-   "summary": "DraftKings PGA TOUR Pick6 Fantasy Golf Picks: Top Plays for the 2026 Wyndham Championship DraftKings Network",
-   "published": "Wed, 05 Aug 2026 18:52:29 GMT",
-   "source": "Google News: Wyndham Championship DFS",
-   "kind": "news",
-   "golfers": []
-  },
-  {
-   "title": "DraftKings Core Four: PGA DFS - 2026 Wyndham Championship (Premium Content) - RotoBaller",
-   "link": "https://news.google.com/rss/articles/CBMitAFBVV95cUxPb2d2WDZzSkdCNTVONERNYWdGUGZHQ290OGpQY0ZDSHpxU0lEblJnQjlYUDh0cnJrN0pmR2V5SkdRQnNxOElibnhYT0UtNlE1UXA1YTVUTjUwZUNFaDBJb3lFTGtsSWdoa0xQRl9XdExsd3psOXpUdkNMUVZvcDlveTh2OEtLQVNIRUdPS3pTSk1zSEtnOXdIN1RNVVdkOFk0bFJHNW9rZUZ6SjU1eTVtdVRNNGk?oc=5",
-   "summary": "DraftKings Core Four: PGA DFS - 2026 Wyndham Championship (Premium Content) RotoBaller",
-   "published": "Wed, 05 Aug 2026 18:35:44 GMT",
-   "source": "Google News: Wyndham Championship DFS",
-   "kind": "news",
-   "golfers": []
-  },
-  {
-   "title": "PGA DFS Lineup Advice: Top Golfers (2026 Wyndham Championship) - FantasyPros",
-   "link": "https://news.google.com/rss/articles/CBMinAFBVV95cUxQWktZY3pqbWpPcGdBcVdkNC1HRk1CMUx6T25ScVRZOF9yb2dwX1l3Z3ZZYktNdWJVeGx4NXI1S1V1Rms3Vlg3ZmtiNFhUcUZYR1Z5ZU5TTlpIcnZ0Ym5tVHhSMUF4TXVXSGJqMnhHeGZnVk1nZzN5UWJCcjhoZlgxdU40dDF2YjAyZ3dWMGEwN2ViMUwtenliZjZBVlPSAaIBQVVfeXFMUHBQYXZDanhSY2xXRVdMSG5pTGFWanFIcFVPRk14OGZSUUc0R000MFE4WDRCWEhUZ1lFaTlWMlotU1pOZ3lpRWdQZ0x4YWxfQm1YOXdsLXVnQVAweDhoRzFSYW04WjNSU3ctbmRIeXRNNzFYUHdQYVJmdkx3Z0l6NWd1ZG9jNld6OWtzOVlINlAtaUlZdkpxRmxycHo1RFYtdHJR?oc=5",
-   "summary": "PGA DFS Lineup Advice: Top Golfers (2026 Wyndham Championship) FantasyPros",
-   "published": "Wed, 05 Aug 2026 18:34:10 GMT",
-   "source": "Google News: Wyndham Championship DFS",
-   "kind": "news",
-   "golfers": []
-  },
-  {
-   "title": "Wyndham Championship DFS Picks 2026: PGA DraftKings Lineups - Stokastic",
-   "link": "https://news.google.com/rss/articles/CBMikwFBVV95cUxNVE9ObExaMFFLZngwSGNIanZHS2x2WnowdW5nZEhwSFg0Y3YweURyRGIzMWdKdlpENVk4b3Vtb3ZDR0JVSUNLWVpkZmVHeDFhZkJvY0J3WnlBLXBVQ3ZhZzBYaFBNSUFSc0JkV3UxMG9PajJpTWsxSXdwN0lFaVFNQUFrLV9qdlAwZWlic0RjODlLTUU?oc=5",
-   "summary": "Wyndham Championship DFS Picks 2026: PGA DraftKings Lineups Stokastic",
-   "published": "Wed, 05 Aug 2026 18:27:47 GMT",
-   "source": "Google News: Wyndham Championship DFS",
-   "kind": "news",
-   "golfers": []
-  },
-  {
-   "title": "Large-Field GPP Breakdown: Wyndham Championship - Establish The Run",
-   "link": "https://news.google.com/rss/articles/CBMigwFBVV95cUxNTkRMLWJKbHZvODdXWVUwN2NEMEM0Vmc0RF9iQmtwSGxyRTRXemlCX0Z2dkNfSHlIcU9qVVdnRXZRYUtEV05SOU50UGZHZXJpWWtieF9TazRQOVdScEp3cEM5aTZKOWh6TkpsRWtCVW1JNjR2aE5kRXhJaFhpNER5SjZObw?oc=5",
-   "summary": "Large-Field GPP Breakdown: Wyndham Championship Establish The Run",
-   "published": "Wed, 05 Aug 2026 18:14:48 GMT",
-   "source": "Google News: Wyndham Championship DFS",
-   "kind": "news",
-   "golfers": []
-  },
-  {
-   "title": "Shortest odds to win the 2026 Wyndham Championship include defending champion - golfweek.usatoday.com",
-   "link": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxPaHVaMjlpRHUtY1F1Y2xkZHZ5cmZqblJYczFnbDVBNjJNYmtkd0I1ZDJpcU92QkFvOWczdmRZU2J6WVItZ2pJaWx3LTVJbWU3MWFVREV3S05EMXVLaXROS3VxT0FrczdFeVU2aHdWQWlJTkd6YTdVWlp2QTJzNEh4Q3FrRTIwNjdrVnlzbkRzTXdBUFNzaXlYRzNQRXZ4TWN0UHZFLXJqcjY5d1hTM2xpTmF2OVlkcFhUcGk3Vi1YTzFyS2hLWmZVLU1jN01FZUhHWUE?oc=5",
-   "summary": "Shortest odds to win the 2026 Wyndham Championship include defending champion golfweek.usatoday.com",
-   "published": "Wed, 05 Aug 2026 18:02:00 GMT",
-   "source": "Google News: Wyndham Championship picks",
-   "kind": "news",
-   "golfers": []
-  },
-  {
-   "title": "Golf Best Bets: Cut Parlay for the Wyndham Championship - DraftKings Network",
-   "link": "https://news.google.com/rss/articles/CBMiowFBVV95cUxPR1BwQjQtcDBlbVBsdHFqdEVfcGNCanhDVmlJbTNMWjY1VFZxMklqdWwyQ2h4dC1JNV8zWGtiRHczUkdMcjN0cjVheGp4S2lHTHlyeDRia3h0VExqZUk3SXlwWWlzMTVlc012bkl2ME9PTG1MSjlyQklPV0V0NmNsNy12eFJtYXVWSDlBM0dPdnpQc3RMd3VzaFZ1a0RnX3luNDZF?oc=5",
-   "summary": "Golf Best Bets: Cut Parlay for the Wyndham Championship DraftKings Network",
-   "published": "Wed, 05 Aug 2026 17:29:13 GMT",
-   "source": "Google News: Wyndham Championship DFS",
-   "kind": "news",
-   "golfers": []
-  },
-  {
-   "title": "2026 Wyndham Championship: PGA Tour daily fantasy golf (DFS) picks - thegolfnewsnet.com",
-   "link": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxNNXJETGI0dTlCSXZiQy05OUJrTFpkQ0NMWnlMOURoaHQtbDRyaE5WcHE4eW5zYzFZSjlKcWxqU2tGOVJUZ1FUZjNCa09LaEFXM3FFVTd4akpBTVI2QWlwaFdrOVdsZXZHSXI2dXhfWmRISjRWaXU5bEQwQVpiRFljNV9ta2hzSXFER3ZnUEdVY3pldGxseDdOdzNHcmxwZDc3T3owTVNNZVlKQTBxaDlRaUQyZEFfbTh6SGtQVWlMMFExR28?oc=5",
-   "summary": "2026 Wyndham Championship: PGA Tour daily fantasy golf (DFS) picks thegolfnewsnet.com",
-   "published": "Wed, 05 Aug 2026 17:14:33 GMT",
-   "source": "Google News: Wyndham Championship DFS",
-   "kind": "news",
-   "golfers": []
-  },
-  {
-   "title": "PGA Fantasy Preview For This Week: Wyndham Championship - RotoWire",
-   "link": "https://news.google.com/rss/articles/CBMijAFBVV95cUxNQTc1LU1yYnBCdjBVMkV4dTlHMUF5RmxpLXBWaHhFZWVpYTFPY0ppVzBWTE5ub3dKZG5Ea3ctMFhHb0dQeXlwcFl5SmNTYWhTMG9jSkIyd0FQbTJFNHhmQWd5T1A3aVR2MWdUM2VKbkM1dVFzdTJUanZKcWpTOEN4SEJRbEh2SXE2NVZYcQ?oc=5",
-   "summary": "PGA Fantasy Preview For This Week: Wyndham Championship RotoWire",
-   "published": "Wed, 05 Aug 2026 17:04:00 GMT",
-   "source": "Google News: Wyndham Championship DFS",
-   "kind": "news",
-   "golfers": []
-  },
-  {
-   "title": "2026 Wyndham Championship: PGA Tour one-and-done fantasy golf picks - thegolfnewsnet.com",
-   "link": "https://news.google.com/rss/articles/CBMixwFBVV95cUxOVzUzZTNoVzEwRjdHVGZ0NU1OZTR0S0NkcGZsRHZBMkVWNW53aWhta2RERUU2OVp0VnJjcTRhT29HSG8xbXdtY1FkcjdGY29lRVNIQl94ME1TSk5uWDNBYjVJV0RING9Mbi14MGcwa293NjF6TW5uYWN3Y19pRlY0RkNaaXBkQnQtLXFKNnN1djdtaVQ3SUZVbGgteVg2UVA3VXA0aEFnUm92SFFSSWlfbkpsTVdOM05PRi13bE5pTTcxYWk5ZFZ3?oc=5",
-   "summary": "2026 Wyndham Championship: PGA Tour one-and-done fantasy golf picks thegolfnewsnet.com",
-   "published": "Wed, 05 Aug 2026 16:49:11 GMT",
-   "source": "Google News: Wyndham Championship picks",
-   "kind": "news",
-   "golfers": []
-  },
-  {
-   "title": "Wyndham Championship 2026: Favorites, odds for regular-season finale - Golf Channel",
-   "link": "https://news.google.com/rss/articles/CBMirAFBVV95cUxQbUpSRzctdEc0Sk5BRHRqMGZqYWZQWXF4TWtQNHBhMHdYVjg0NE14VTJUM0ZxWmZwUmtuSTA4VHc2dDhFZlBrVTVoSi1XeDZidXBvalBza19KTGN1LXJ4NWNMZlR5dV9ZNzB5Zmp3bWloZVhYaUJzUlR3UWZhVmtvVWhaalhJQjU3Z19oUTFSbkRCLXF4bWJaVWM4bkJ0MHdkN2VVSS05VUd0TWpk?oc=5",
-   "summary": "Wyndham Championship 2026: Favorites, odds for regular-season finale Golf Channel",
-   "published": "Wed, 05 Aug 2026 16:37:05 GMT",
-   "source": "Google News: Wyndham Championship DFS",
-   "kind": "news",
-   "golfers": []
-  },
-  {
-   "title": "2026 Wyndham Championship: Expert picks, PGA Tour field rankings and fantasy golf tips - thegolfnewsnet.com",
-   "link": "https://news.google.com/rss/articles/CBMi3wFBVV95cUxPTTFkWVpJdHJnUERqamFIR2dCb0ZqWUVBU0NkM1VLdkJuSVVVYTdUWVNYNW1pdjhHdGVlYnZJOW15ZGR0Q3NwN1hFd2J2aFJsSHNFdEZtSHJ1bk5OYnhkSGQxeDNWUEJwTlpkOVVfTGl6WExYdGhHMEV2T1lhTDctU2lTZUg0a1pRZlNJbUE1NDZTZjFqYWxkVFU2bFhRaUNLakl1SDhFTGZPODlxbDFaUm1GVDhmMFdNWTdFaU01bW13UTJiS0RjZ1dBR3FkQUk2UkloTFNkbC1IUFNiVFFn?oc=5",
-   "summary": "2026 Wyndham Championship: Expert picks, PGA Tour field rankings and fantasy golf tips thegolfnewsnet.com",
-   "published": "Wed, 05 Aug 2026 16:36:56 GMT",
-   "source": "Google News: Wyndham Championship picks",
-   "kind": "news",
-   "golfers": []
-  },
-  {
-   "title": "Wyndham Championship 2026 Fantasy Golf & DFS Sleeper Picks Featuring Ben James & Rasmus Hojgaard - Sports Illustrated",
-   "link": "https://news.google.com/rss/articles/CBMixwFBVV95cUxOWndGaTEzNHF1OS1VMElMbGV0MEVrenZmTDM1UlpjUlhMN0p4Skx2NFZ6dUxVTWkxQnRPUEE4Q0VCUXBLaUNwX3cxMDVSTll1b2liSTVobVJCNnRfNEs5OE4ySC1xN1JxQkI1bGZ4Tmc3M2F6cW9LVHdHRVBfSVdiQWgzaVVza3FZdnVlOFpDU0xFZzdUUjNaOTVLNFNXTldlMkc2dndXTlp3NDdLeEtXbTFqUGYydXdWb2dRUVl1OXluTXlFWk9B?oc=5",
-   "summary": "Wyndham Championship 2026 Fantasy Golf & DFS Sleeper Picks Featuring Ben James & Rasmus Hojgaard Sports Illustrated",
-   "published": "Wed, 05 Aug 2026 16:06:29 GMT",
-   "source": "Google News: Wyndham Championship DFS",
-   "kind": "news",
-   "golfers": [
-    "Nicolai H\u00f8jgaard"
-   ]
-  },
-  {
-   "title": "Multiple Golfers Abruptly Withdraw Just 2 Days Before the Wyndham Championship - sports.yahoo.com",
-   "link": "https://news.google.com/rss/articles/CBMikgFBVV95cUxOVUtsR25hX0hXTVF1M2ZFTUx5U2pDOXYtaW9LNXdsaXVZYUZtMWpTQjZ6Z0V0Yk1rNHJhX2d2LXJtNHRWRS1IRGV2b3o2MGJqRkhJUUFCcmVxRXo1WWxBWDNRZFo3MFZTNHlId01YQVFvWHhOZ2tEM0l2X0twUDNKemRYOHVsMFdlWGZfaXV5d0Q0Zw?oc=5",
-   "summary": "Multiple Golfers Abruptly Withdraw Just 2 Days Before the Wyndham Championship sports.yahoo.com",
-   "published": "Wed, 05 Aug 2026 15:48:57 GMT",
-   "source": "Google News: Wyndham Championship WD",
-   "kind": "news",
-   "golfers": []
-  },
-  {
-   "title": "Golf Best Bets: Top long shot winner picks for the 2026 Wyndham Championship - DraftKings Network",
-   "link": "https://news.google.com/rss/articles/CBMivAFBVV95cUxPQk9yd3dpYjRqcTNLN3puSE9XRDRsUEJqUTlWRVlidlB2QWtlWXFFa2ozMUVuX1paY1lMclR5N3ZTN0NrVzM1elQ1LUxfTEllR1ExWHE2NDNrTFVQb2JybGQtX1lXbjlSTVk4dW5GMHJRMHNnRUQ4bHN0THJyZWtEamVad0NHdERDVl9DdDNibjdoVWNxMU1sVl8yekwwaWVVbFVRUHlGeHB5OG8wYkxJRmtXX3BfeW1hajZuOA?oc=5",
-   "summary": "Golf Best Bets: Top long shot winner picks for the 2026 Wyndham Championship DraftKings Network",
-   "published": "Wed, 05 Aug 2026 15:41:58 GMT",
-   "source": "Google News: Wyndham Championship DFS",
-   "kind": "news",
-   "golfers": []
-  },
-  {
-   "title": "Wyndham Championship props: Lean on Carolina natives at Sedgefield - PGA Tour",
-   "link": "https://news.google.com/rss/articles/CBMihgJBVV95cUxONEZWZnYwRFh0cVI2TEZjQmF3b2FaMEk4WG9xM0ExRHdhU0FZemdrWUlSNGJtYlhsa1dzS1d5NzBXUUNPMTZtWmRzRTBYOGE5WGJuN1c5Y3I0NHgtVDVjS3N6TFo5Qk1fT29zRUdiT3hLa2E5dE1Pa3NFQWlGam1xbE5faHZSMEg4dDJPMWNVTmRKY19ZVDV6aFM3UGZZblhkendENHV1NG9DN3pFa1F5R0xTaEpTdk9EOXA5cEZuQXpYUXBIWmtrYUR3aDdfaVptd2NlZW8xejRVa24zVDVzSzhyRW5qYVoyQkhxeV9fSTlSX05Bb3UzUmYwWjdpdktXQzcxa2Z3?oc=5",
-   "summary": "Wyndham Championship props: Lean on Carolina natives at Sedgefield PGA Tour",
-   "published": "Wed, 05 Aug 2026 15:02:32 GMT",
-   "source": "Google News: Wyndham Championship DFS",
-   "kind": "news",
-   "golfers": []
-  },
-  {
-   "title": "2026 Wyndham Championship Preview, Full Field And Odds - forbes.com",
-   "link": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxNUzVyeEltaTVoZzZQSzd4YTRZOEY1QVJ4SFptVXlMQkhieExoWXRrTGZ5QkVJcXR4WGNFNWVIb2pWSllXNHNEanNUa0xycXhjNGhIQUVMVjI1MGRLckUtX3RyMGNzbmdCODFONU9aMi1kVnZMMmZOb2ZfVk5hRnI5UUxJa0JBWlhDTkk5Q21YQjNNU0JFVE8xOFZnRngwdEg1MnhmU2UxUGt4dw?oc=5",
-   "summary": "2026 Wyndham Championship Preview, Full Field And Odds forbes.com",
-   "published": "Wed, 05 Aug 2026 14:41:19 GMT",
-   "source": "Google News: Wyndham Championship picks",
-   "kind": "news",
-   "golfers": []
-  },
-  {
-   "title": "Rai, Harman and Other DFS Studs for the Wyndham Championship - FTN (For the Numbers)",
-   "link": "https://news.google.com/rss/articles/CBMijwFBVV95cUxQN1M3RzJGcUtKTmt4VWJRMUN3X04tcnNBZWRBVWN2ZnNkME40NVV4SWdIV2R5T0ZTUktsWlhaU21pQUY1LUV6RmozNGpOWVFwQ1JlanB4dDEzZnR4REQwZ042OWIzTnBRRC12QWhpQWROUGhQZWVISmZ5NVo5Z2JmVDNkWk5SZl9zMjRKZ1NjTQ?oc=5",
-   "summary": "Rai, Harman and Other DFS Studs for the Wyndham Championship FTN (For the Numbers)",
-   "published": "Wed, 05 Aug 2026 14:32:13 GMT",
-   "source": "Google News: Wyndham Championship DFS",
-   "kind": "news",
-   "golfers": [
-    "Brian Harman"
-   ]
-  },
-  {
-   "title": "Fantasy Golf Picks Today: Top DraftKings PGA TOUR DFS Plays for the 2026 Wyndham Championship - DraftKings Network",
-   "link": "https://news.google.com/rss/articles/CBMi4gFBVV95cUxOcmxLUktLcWo2OE0zQkphWkxLRG1lZ3RhZDVmUXkxa19sc2ZpZUNNZDV3Zi1MVUxIeEJYRzhyU20tZ21xS3FjRDQxTmN3NVljNkxHSzlJaWFvZTh1azhHNjBtUmxMY29vSU54Q1U3VkU1NFRnU0ZDczNnZGNxTk9IT1Y3bFR1WURVSFg4T2pYSkpyaEo5YVlnM1hzYzYtYlBjWUV0MnlmZGJCa2M4X0RwakUybGFBMnFzNU5ZM0wtd0xHSlRTSXFjS1AtU3ZlRkVFLTAycnA2Rm5tRWVSNUZoRnB3?oc=5",
-   "summary": "Fantasy Golf Picks Today: Top DraftKings PGA TOUR DFS Plays for the 2026 Wyndham Championship DraftKings Network",
-   "published": "Wed, 05 Aug 2026 14:30:55 GMT",
-   "source": "Google News: Wyndham Championship DFS",
-   "kind": "news",
-   "golfers": []
-  },
-  {
-   "title": "Wyndham Championship: Top PGA DFS Picks, Values, and Sleepers for Large-Field Tournaments on DraftKings - FantasyLabs",
-   "link": "https://news.google.com/rss/articles/CBMi2wFBVV95cUxONE5uYlh0NllZU3lGTlBibzV4cFJENUczeEt6ZThLbWtHYTNsNUhpNWZpbjlNcHR3TXA1NVFTNzRSRDRBV01KVjVvMFVOQ3pXakw5V3dRMzRiTHlIS2F5UnR0SGx5T29Qb3BENXE3Q1hSRWJISWVWV1JxcHVkRmVISHliUVRSa2tPVmdnVXF5TFlvLVRDZkRUWlljQTZOREpUVzdYdUJ0UlZsU1hEVkxSV3FVSkZQVmRIVnZSM3Ywb0lTZ0lVZk5YVzV5Y2toZnFLalo4RUtFQm90dUk?oc=5",
-   "summary": "Wyndham Championship: Top PGA DFS Picks, Values, and Sleepers for Large-Field Tournaments on DraftKings FantasyLabs",
-   "published": "Wed, 05 Aug 2026 13:39:38 GMT",
-   "source": "Google News: Wyndham Championship DFS",
-   "kind": "news",
-   "golfers": []
-  },
-  {
-   "title": "Sleeper Picks: Who's flying under the radar at Wyndham Championship - PGA Tour",
-   "link": "https://news.google.com/rss/articles/CBMi3gFBVV95cUxPNTNTRHZaNGhsbTFveDR5b215WkVBaERLYk1uRXpLa1JzLUdwU21FTHJ5bzduMGk4VXJVQ05RSVowUVY3NUMyZGp1THA1OEwxSzFOWllKdi0yYW1WRVBSNHppOHFOekVqUm1nTUp4Vkhybm9yM0ROa1YwZFktSkk3dmZtdWN2RHBDXzB5bzdGbUlpNzdnaHlNaWJvS0tQcEZEUmR6bk5iWi1EMzJCM3JGYzcyMklyMXl5TTF1WHIzb3dxemp1MjEzaFQtbUFmdjV4ZkE5S3dXei1MbGxqLXc?oc=5",
-   "summary": "Sleeper Picks: Who's flying under the radar at Wyndham Championship PGA Tour",
-   "published": "Wed, 05 Aug 2026 13:32:22 GMT",
-   "source": "Google News: Wyndham Championship picks",
-   "kind": "news",
-   "golfers": []
-  },
-  {
-   "title": "2026 Wyndham Championship picks: PGA Tour best bets, odds, predictions for Sedgefield Country Club - nypost.com",
-   "link": "https://news.google.com/rss/articles/CBMizwFBVV95cUxNVmkweG50ZXc5ajdCMFZzNXV5MmpqbWx3UWVSVXJwWTlQQ0NMQjV0MXpjY0NET2hiMnQ1SlpWcTA1NTREMVRKTHRDYzI1T2hwaUFjdTVDTE1DbllJeHBKS19oNnN3QWN0SS1mdWVSTHB6M0lmeEcxNVhtX1E5dWJkLTJhNC1kdm81Ym9LeVhuV1R6MEV0V3ZZTmFBTVRoUDUwSHFMR1BfaEd6QnhEb19NR21FMFpfZlBqdVNkdUUwRlF3UWhiVHdEdHFrdjl3T3M?oc=5",
-   "summary": "2026 Wyndham Championship picks: PGA Tour best bets, odds, predictions for Sedgefield Country Club nypost.com",
-   "published": "Wed, 05 Aug 2026 13:00:00 GMT",
-   "source": "Google News: Wyndham Championship picks",
-   "kind": "news",
-   "golfers": []
-  },
-  {
-   "title": "DraftKings PGA DFS Lineup Picks for the Wyndham Championship (2026) - RotoBaller",
-   "link": "https://news.google.com/rss/articles/CBMiogFBVV95cUxPY210TzBCcDBRTF9NaG5pdzdHelhfQXJwXzhUVWNpUDh3WFlScmVPV2Z1MVBLaC1zMUJvTzNJS2thNnoyMFJoUmVtR1lSc21PMTV2OXBaeEgwMG9teUhqQmpZYXZEM1k1MF90bml5QS1rY1RJOWFYNl8zV2dtYmlsaDJlTVJ6cGVTM2IxNGgwUWxmM2JJcmthdUg3TFlTUXlOM1E?oc=5",
-   "summary": "DraftKings PGA DFS Lineup Picks for the Wyndham Championship (2026) RotoBaller",
-   "published": "Wed, 05 Aug 2026 12:15:00 GMT",
-   "source": "Google News: Wyndham Championship DFS",
-   "kind": "news",
-   "golfers": []
-  },
-  {
-   "title": "Wyndham Championship DFS picks 2026: The signs are there for Sungjae Im - Australian Golf Digest",
-   "link": "https://news.google.com/rss/articles/CBMiggFBVV95cUxQcWVodXoxbXFPMmR4dHBaRGJiQWRXNmMwSU9FRFhMU0l2Q1otTDZnN29qTG1HanJKQWFxb1V4VlY4aWp5VXNNbUNlWV9SZ1ZwaUZyRUdBbUFDaUU3djZpZnBiUDREMUU0dXZXZDRqTDR3VnNxbGp3eXBmUWlKNU5LLUhR?oc=5",
-   "summary": "Wyndham Championship DFS picks 2026: The signs are there for Sungjae Im Australian Golf Digest",
-   "published": "Wed, 05 Aug 2026 12:13:52 GMT",
-   "source": "Google News: Wyndham Championship DFS",
-   "kind": "news",
-   "golfers": [
-    "Sungjae Im"
-   ]
-  },
-  {
-   "title": "Wyndham Championship DFS picks 2026: The signs are there for Sungjae Im - Golf Digest",
-   "link": "https://news.google.com/rss/articles/CBMid0FVX3lxTE0xZElqOWNyMGk2ZU56dTZ0OVNrT1I4Wkh2cmdxYUMzMnpZY1JCWVFQdHVDWHVMOHVwd3pxNzdIY0FkWkJ6LXFrMDJRRXR3WUs0VTM2TDAxVXJnMGs1TnN6Wk5Fdmk1YlBTNkdScVpBQ1l0SXR0UTZV?oc=5",
-   "summary": "Wyndham Championship DFS picks 2026: The signs are there for Sungjae Im Golf Digest",
-   "published": "Wed, 05 Aug 2026 11:44:40 GMT",
-   "source": "Google News: Wyndham Championship DFS",
-   "kind": "news",
-   "golfers": [
-    "Sungjae Im"
-   ]
-  },
-  {
-   "title": "PGA Tour 2026: Wyndham Championship best bets, 'horses for the course' for the Sedgefield Country Club - Fox News",
-   "link": "https://news.google.com/rss/articles/CBMivgFBVV95cUxQN04yMnRxLTg0Y0h6VnBGR0dwYzFmcXd4U1JHd0x6WW94cHlfaXhpMjhseEYwcTU3eUN6SHlyaS1JbEFkdkw4TmMzS0x1M0k3Xy0tcjlhUTVFdXBDSGJWYkNZMGpka3pjSGZNVDB4MndDcVprWXV0U3NQZnR4N1V2OHV2TzMtb0IwM0FGcHR1dDE0TzUtajkzR0VxRV9UQmd1MUx5cXhmT1BYVEEwUGtLZ0t0MFREeEZwMUd5c1ZB?oc=5",
-   "summary": "PGA Tour 2026: Wyndham Championship best bets, 'horses for the course' for the Sedgefield Country Club Fox News",
-   "published": "Wed, 05 Aug 2026 11:23:08 GMT",
-   "source": "Google News: Wyndham Championship picks",
-   "kind": "news",
-   "golfers": []
-  },
-  {
-   "title": "Wyndham Championship picks 2026: Another star will be born at Sedgefield - sports.yahoo.com",
-   "link": "https://news.google.com/rss/articles/CBMikgFBVV95cUxQTHJ4bmNPNGpKOWJhV1cyekIydlhobERPbXpMZVR0bU51T1pSSUtEeklmdG9sa1NtbnBpUzl4ZUlZQW9rM19JQ0lJcU0tRzZ4VTF1alQxVFRHUmVCdFZJZFlVU0d4QXRHOEJERUdEaHJCVXVXYVFCWlhsZ2xWcWxiSXNPcUxHQTFqQ3VaZ2w3ZUlxQQ?oc=5",
-   "summary": "Wyndham Championship picks 2026: Another star will be born at Sedgefield sports.yahoo.com",
-   "published": "Wed, 05 Aug 2026 11:12:19 GMT",
-   "source": "Google News: Wyndham Championship DFS",
-   "kind": "news",
-   "golfers": []
-  },
-  {
-   "title": "Wyndham Championship picks 2026: Another star will be born at Sedgefield - Golf Digest",
-   "link": "https://news.google.com/rss/articles/CBMickFVX3lxTE41TVd6UEcyRjBuR2RGdHgwbVd1RkpNZ1NlZlg1SzNNVWREMC0wa0FxYjBmeG85djJQbWZzT2pSR0E2SjZrQ01OenBUNGVybl9rVGIyT0J4VFNqcWtIQlRfdnFtcTFuN2xTdjFxQkEzRHdjQQ?oc=5",
-   "summary": "Wyndham Championship picks 2026: Another star will be born at Sedgefield Golf Digest",
-   "published": "Wed, 05 Aug 2026 11:12:19 GMT",
-   "source": "Google News: Wyndham Championship picks",
-   "kind": "news",
-   "golfers": []
-  },
-  {
-   "title": "PGA Drive for Show, DFS for Dough - Wyndham Championship - RotoGrinders",
-   "link": "https://news.google.com/rss/articles/CBMimAFBVV95cUxNYjRFTVpNRjlDaXQ3X3pBcURjbVZidmE5VXA2QVNvNkREQnFEbVQ2ZG1zZzNFTGRiMVA2Vzd2RFU4QmtKZTJ3aVVvb1MyZndfR01QN214SDhINXNXNDFNQnhoRl9OZlltVXpxd1k2a3k4czhKcHU1M2loSXlnbVRnaTQ4TV8zUHBvQ3M5dk9lM2RST081Wk1sTA?oc=5",
-   "summary": "PGA Drive for Show, DFS for Dough - Wyndham Championship RotoGrinders",
-   "published": "Wed, 05 Aug 2026 10:35:09 GMT",
-   "source": "Google News: Wyndham Championship DFS",
-   "kind": "news",
-   "golfers": []
-  },
-  {
-   "title": "Wyndham Championship Picks, Props, Predictions: Betting Jackson Koivun, Alex Fitzpatrick and Justin Thomas - Sports Illustrated",
-   "link": "https://news.google.com/rss/articles/CBMi2gFBVV95cUxNMWxqUWp3czM4MGxqSHBCMGJUUGlwSEpPaGd3M1hIVFdtZ01SWGtsdkxQbVZlbVB1eXR2WjFmWkZoNkFTNG9Fa2hUX2RaTVNfdUk2NmxCWi11djI1MXh0ZTlYSU9pR3F2c2xJYlpya1pvZHNSQUxLblhWWFM5ZS1wdDZPd3pBb2hZTHp1RE1tY3dvaWZYam5GVTFMMXlkS2I4eTF1Z1VGOVNBQi1CSGFrYVNTY3BpcmRaeXRBczgtbFJBaTVNSm5NdkQxUFlETmlyV0U3dklUU0RGUQ?oc=5",
-   "summary": "Wyndham Championship Picks, Props, Predictions: Betting Jackson Koivun, Alex Fitzpatrick and Justin Thomas Sports Illustrated",
-   "published": "Wed, 05 Aug 2026 10:00:05 GMT",
-   "source": "Google News: Wyndham Championship picks",
-   "kind": "news",
-   "golfers": [
-    "Jackson Koivun",
-    "Justin Thomas",
-    "Alex Fitzpatrick"
-   ]
-  },
-  {
-   "title": "Wyndham Championship picks, predictions, odds: Who wins in 2026? - The Palm Beach Post",
-   "link": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxQOGpOMGE3SWdEN1kzc3VhQzFRN1VDNXBNZUVoUzVSekVoVFBFSGp2aDdlRFlVWmdjNHJFblpqdWR3WDZGREFnYlR1TjluandJU2s2UHNSSVduWVZPYnVMQjhtSDVlQjlFeUtpb2xTOHp6THVXNXh1YV90clhMSVl1cDVGWkFBZnhqMDJHblFTZm1tdnBrUEU5N3p2V1FkOV9nOU5iclVBdF9Ya0xhN3hsTHB1TVJCUzl5YmEyT01Oa1I?oc=5",
-   "summary": "Wyndham Championship picks, predictions, odds: Who wins in 2026? The Palm Beach Post",
-   "published": "Wed, 05 Aug 2026 09:00:00 GMT",
-   "source": "Google News: Wyndham Championship picks",
-   "kind": "news",
-   "golfers": []
-  },
-  {
-   "title": "Wyndham Championship PGA Picks: 10 Golfers to Watch This Week - heavy.com",
-   "link": "https://news.google.com/rss/articles/CBMie0FVX3lxTE9ubTh3bnpLNUZEXzZ2RG54Tk5naWlRZmNQZjUxQ1FTZ2paclVDMDBXMjZDOTg0XzRDN1g0OTJvVlZReV9sUm10U2UtN0dhYzl5NTh3UDgwanZyajBvUnFvN0tBNFdobVRDN0p5T3p2Z2FCbklpZnJTWkpPUQ?oc=5",
-   "summary": "Wyndham Championship PGA Picks: 10 Golfers to Watch This Week heavy.com",
-   "published": "Wed, 05 Aug 2026 04:43:18 GMT",
-   "source": "Google News: Wyndham Championship picks",
-   "kind": "news",
-   "golfers": []
-  },
-  {
-   "title": "Best Fantasy Golf One and Done Pick for the 2026 Wyndham Championship - DraftKings Network",
-   "link": "https://news.google.com/rss/articles/CBMitAFBVV95cUxPVWFkVmRiWC1NeFRLRWF1cVR6OURMNEttQTdSVHVkU1NCT3pXSUJKckI0V1N6UndJeGo0TlZRMHh6QVZmTHU0ZEE0TFhfUkdPWmJOdElKcUFwYWRLdGc1OGlCLUtnYTdYNGlkcWZKYlRnUy0wOVh3ckNwWjExWHRxVWJYVDFITmNxSTZJTzh3b0FrcGRXRWp3ai1PUk9Va1BpNlU4OWVpUTZVS0pHbVlOZFRadjI?oc=5",
-   "summary": "Best Fantasy Golf One and Done Pick for the 2026 Wyndham Championship DraftKings Network",
-   "published": "Wed, 05 Aug 2026 02:00:00 GMT",
-   "source": "Google News: Wyndham Championship DFS",
-   "kind": "news",
-   "golfers": []
-  },
-  {
-   "title": "PGA DFS Picks: DraftKings & FanDuel Tournament Breakdown for the Wyndham Championship - RotoGrinders",
-   "link": "https://news.google.com/rss/articles/CBMiswFBVV95cUxPVExsR3ZsOEVCeXl0ZEJBN09rTEd1UkRaSTNuN2tCWnNtbGV1Z3FMenI0UHdzRXY0aE0xcm11MTBldXVSWHNCOG9fM3FGUnplNHphcmxCWjQ0ZVFRSTRtUUJvdUQxQnBMNVlBQ001NDFiQTF2RHhCLTNrMWNvSXFMRlBhR0RzRkJhbmVBWjNONk4zdW0zWFBxNzZiUHpHSEE4QXh0SVM3eGtSQTVvU1BjSHVXZw?oc=5",
-   "summary": "PGA DFS Picks: DraftKings & FanDuel Tournament Breakdown for the Wyndham Championship RotoGrinders",
-   "published": "Tue, 04 Aug 2026 23:03:20 GMT",
-   "source": "Google News: Wyndham Championship DFS",
-   "kind": "news",
-   "golfers": []
-  },
-  {
-   "title": "2026 Wyndham Championship Picks: Golf Best Bets on DraftKings Sportsbook - DraftKings Network",
-   "link": "https://news.google.com/rss/articles/CBMitwFBVV95cUxPeWttdWVET1NrWVNSX3JsZDNIdzI3RVUxSF9WUHVKcUh0d25PRDhRb21sX0xGRjBCWnd3UWdiUnhMXzItVXEwS01yclo1Ql84SU50c3Y5RmE0NEpKQ1BEQkJzbC00TG1saFN3ODRrRjJEUHdWV0dJUzcwVUdmRVVfZFl1dFF4ejBIS1hBR3NhRVFKbVVzRWNPVmFCSmoxVzRZMWpnN0t0VF9nQ0pOTVplUHRZTFFBa3M?oc=5",
-   "summary": "2026 Wyndham Championship Picks: Golf Best Bets on DraftKings Sportsbook DraftKings Network",
-   "published": "Tue, 04 Aug 2026 21:12:49 GMT",
-   "source": "Google News: Wyndham Championship DFS",
-   "kind": "news",
-   "golfers": []
-  },
-  {
-   "title": "2026 Wyndham Championship odds, picks and PGA Tour predictions - Sportsbook Wire",
-   "link": "https://news.google.com/rss/articles/CBMi1AFBVV95cUxQeUEzQzlOclp4Y0tXdTE4SVBVQ1hRVXRmODBPME1ad09qS2MxX1l0bHRuaEVZTlhWazg1aHFxZWtudG9pSHMtN25qaDNMdmxoYy1EbGVWUUNtOUF4UFJpM0hQUVBHSjNJY01iR0NlbXZVR3BWZHJvZ1pMdVpWTE1qSFdxTDNBQmtkRmJWaEt4OVRwYnNlbjZlZ1ZPZEhacUREQnBvNnZMQXhwdUhFazhQNHJVNnptRHh2N0RJOFVrbTlPTGhBeUJQYWxEY001ZVZjWU1JOA?oc=5",
-   "summary": "2026 Wyndham Championship odds, picks and PGA Tour predictions Sportsbook Wire",
-   "published": "Tue, 04 Aug 2026 20:26:00 GMT",
-   "source": "Google News: Wyndham Championship picks",
-   "kind": "news",
-   "golfers": []
-  },
-  {
-   "title": "DFS Fantasy Golf: Winning Picks for the Wyndham Championship - Athlon Sports",
-   "link": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxQMGRHMC1CRWVKVjUyUjZOZmFKSDkwemNnWGFCVm5BSWRCU0E3bE80U0ZudWpFd00ybFM3RXlBR0ROWXkxamVucWpNSFd2MFRlbThLb3F6YmJwNUF1SWZWSG1zekZtMEZITnZHTVZpRHhpU2VUOGVzZU56Y25mdnJ1V1RGVkE2N1JhSXVnaHZ5blJKQ0k2alVMMmVPY0RlcHo0a3Rlanp2a05fM00?oc=5",
-   "summary": "DFS Fantasy Golf: Winning Picks for the Wyndham Championship Athlon Sports",
-   "published": "Tue, 04 Aug 2026 20:12:24 GMT",
-   "source": "Google News: Wyndham Championship DFS",
-   "kind": "news",
-   "golfers": []
-  },
-  {
-   "title": "Two more PGA Tour winners withdraw from Wyndham Championship - Golfmagic",
-   "link": "https://news.google.com/rss/articles/CBMimwFBVV95cUxNaWdkcEtWcXBrWTN1WFp1YUVJT1lIYU5ZZzV3R01hdWNKaGs4eW94d3kzdWhuNmVCM1FqQVNSN0ZLNG5JSEQtcDBoYjVxRE5kVFNCdUxWMkNiMWZ2QjI2Vko0ZkExSy15RHZaY0pQLTBweElfbm5KOUM1bEYxX3JPaFY0SFdETzl2THM0QjN1T2ZLczdYb243MldoVQ?oc=5",
-   "summary": "Two more PGA Tour winners withdraw from Wyndham Championship Golfmagic",
-   "published": "Tue, 04 Aug 2026 19:52:02 GMT",
-   "source": "Google News: Wyndham Championship WD",
-   "kind": "news",
-   "golfers": []
-  },
-  {
-   "title": "2026 Wyndham Championship predictions, preview: Cameron Young set to defend as FedEx Cup Playoffs approach - CBS Sports",
-   "link": "https://news.google.com/rss/articles/CBMirgFBVV95cUxPOEt2eTdsLWNyR1Z5OXpVX3J1WjlHdkxwSm1DWHRUd0pCVno0TEVMV1E3SXRpUVBkcjR0V2Vva0YxZEFXZzNRUmRSWGEtYmJsVFhpQnNDOEY2WHVCbDhGVExTam9lNGdnOUJKek5DMnE5blF6SFlQSHUxcFJMUjU3S0Y3Y0N0RHRLY3h6OWt4N28yOVRPd0xQQUVVc1cyR1dNNnYwSE1pTFFxZkpsWWc?oc=5",
-   "summary": "2026 Wyndham Championship predictions, preview: Cameron Young set to defend as FedEx Cup Playoffs approach CBS Sports",
-   "published": "Tue, 04 Aug 2026 19:40:00 GMT",
-   "source": "Google News: Wyndham Championship DFS",
-   "kind": "news",
-   "golfers": [
-    "Cameron Young"
-   ]
-  },
-  {
-   "title": "DraftKings odds: Picking top-70 bubble players at Wyndham Championship - PGA Tour",
-   "link": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxQQ0Y4ZlhLcmxLeVkyUjJjTFFIX2tqeE1iT0FBVFZWRzluRDZvRmZRaGw4dFRhbzROejlsR0thRFl5bDJJUG8wNUxoLTRydTZiU3NqRUh0NkRBVlNMcFJNeGpIajA1ZnhldjRESDRpLVUwUUF0TTBoRDVidElERm40bXF0NnVxN2czZHJadTloM0V4Nkk3U1RlOU04ekpDX29YU09YNTZaemJva2FobGl2WFRGT2FlekRkMU13?oc=5",
-   "summary": "DraftKings odds: Picking top-70 bubble players at Wyndham Championship PGA Tour",
-   "published": "Tue, 04 Aug 2026 19:33:04 GMT",
-   "source": "Google News: Wyndham Championship DFS",
-   "kind": "news",
-   "golfers": []
-  },
-  {
-   "title": "Wyndham Championship betting guide: 6 picks our gambling expert loves this week - GOLF.com",
-   "link": "https://news.google.com/rss/articles/CBMigAFBVV95cUxQc0lNQksydmV4NXM5VC00SWphdjhwbUF3U3JUTW1yNndGZEx3eTZ5elg1LU5mdHlLenJ1V1ZGbkEwMTVOYUdVbWR4WVRROTNhSWV1NEQwNG5aZng3WjBUOWFvaGZ0ZEphaU1oTGEtbjJnYVk5UlNsT19EVzdPYUZTQQ?oc=5",
-   "summary": "Wyndham Championship betting guide: 6 picks our gambling expert loves this week GOLF.com",
-   "published": "Tue, 04 Aug 2026 19:26:34 GMT",
-   "source": "Google News: Wyndham Championship picks",
-   "kind": "news",
-   "golfers": []
-  },
-  {
-   "title": "DraftKings Fantasy Golf Picks: 2026 Wyndham Championship Predictions, Preview - DraftKings Network",
-   "link": "https://news.google.com/rss/articles/CBMivAFBVV95cUxPYU5JTG9YOGZfRWdsSXlsZzJ1V0FmOUhPVjNWemJoSzMxQjNRWkVJOThZLVVqbFUwWVVwelp6N1hCQ0J3b2x6R3h5LThBZm5XWGlZUWh5cU5DYU41MXdRUHUzelRodWpBek40bnNDQjFmNXVEWFlJOUtTTDAwMjhXd3FtbmNJZXRKUDJGeUxYelUybGE4TDBMdmhiN1JzdGlxcEd1XzJPc0EzOG1yM1hXejVjRm15MEtUOG1zXw?oc=5",
-   "summary": "DraftKings Fantasy Golf Picks: 2026 Wyndham Championship Predictions, Preview DraftKings Network",
-   "published": "Tue, 04 Aug 2026 19:21:14 GMT",
-   "source": "Google News: Wyndham Championship DFS",
-   "kind": "news",
-   "golfers": []
-  },
-  {
-   "title": "Experts reveal their 2026 Wyndham Championship picks - golfweek.usatoday.com",
-   "link": "https://news.google.com/rss/articles/CBMitAFBVV95cUxNSHpoZHFMb1RVMDZNWjMxcTNNMFFGeWttTFhtR1BkMEhVMXB6eVVGWE9EVERObENTc05CcDJRY3pMNkZZakNiMTBLQk1LdUNHSUk3XzlfellVaVhtVjJIWEVrYnI5WUtwU1N6amgyTUJaNFpsS3lKRHVTLXk1ZHJ6djFoMExFdEo0azlDRmxvOTJpM3gtYkxUUjJYdmgtZXBLeHZhRmVhdGliOGl6dy04TlhLcmw?oc=5",
-   "summary": "Experts reveal their 2026 Wyndham Championship picks golfweek.usatoday.com",
-   "published": "Tue, 04 Aug 2026 19:03:00 GMT",
-   "source": "Google News: Wyndham Championship picks",
-   "kind": "news",
-   "golfers": []
-  },
-  {
-   "title": "2026 Wyndham Championship First Round Leader Picks, Bets - DraftKings Network",
-   "link": "https://news.google.com/rss/articles/CBMiogFBVV95cUxPWEVDeVNtcVQ2Ym5BcjNKY1Y5UXhsaTZGR0tlU05BaUNoMzQ2SlpCN2hvZGNhU2ZhcXR0TmxGRUJUazR2cTZGNlBKbjFmdGpnQ2JQbjVUUHFERzVDcEFhSk9qM1VTZlZJOXdqSFVTT3p2X1RlLXdaYnJEX2t4YmpvRTByNllRUm51Nld0TGRIbWpzWkYtWXdyYXVHYnFtTHFkZ0E?oc=5",
-   "summary": "2026 Wyndham Championship First Round Leader Picks, Bets DraftKings Network",
-   "published": "Tue, 04 Aug 2026 18:39:41 GMT",
-   "source": "Google News: Wyndham Championship DFS",
-   "kind": "news",
-   "golfers": []
-  },
-  {
-   "title": "Blades Brown Features Fantasy Golf Picks (DraftKings) at the Wyndham Championship - Sports Illustrated",
-   "link": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxPQ1FSc2M2WS1CcXlQVTZGZmp4STBHeG5hLXlkYjdSQ0ItejJQRFFfeHVwZUNJckxrbUxGOEFBUm5TMWJXWkYwRVlpZzhEZlFWRTl1WGE4WERqZXEtRXkycHVZbWFXMmUxakJJY2RxX2s5VWJlWmt4OHo2NUxqQnhHNkJKSjdnNzRNcy1vZ1N4Wkd5enozcXZWZWZhRUFwYTZXNnBhbUZqMDVKRWc?oc=5",
-   "summary": "Blades Brown Features Fantasy Golf Picks (DraftKings) at the Wyndham Championship Sports Illustrated",
-   "published": "Tue, 04 Aug 2026 18:28:17 GMT",
-   "source": "Google News: Wyndham Championship DFS",
-   "kind": "news",
-   "golfers": []
-  },
-  {
-   "title": "2026 Wyndham Championship DFS and Betting Picks - Fantasy Six Pack",
-   "link": "https://news.google.com/rss/articles/CBMigAFBVV95cUxNeE9XaHBhMDBXWEoyeWc1LUE1TmVYMzFpZHhuV0RrYUJmMDZadi02dzFrNWc5S1NOeVVTYllCNHZIdDV2Rm5pUlRQZlk5c001V25XV1p5WndUcnpyc001NXE1Sm9NV3N1eWFtSzJnWk1tbklJQ0RxMjNjSDh4c0wxNg?oc=5",
-   "summary": "2026 Wyndham Championship DFS and Betting Picks Fantasy Six Pack",
-   "published": "Tue, 04 Aug 2026 17:42:29 GMT",
-   "source": "Google News: Wyndham Championship DFS",
-   "kind": "news",
-   "golfers": []
-  },
-  {
-   "title": "Wyndham Championship: Golf One and Done Picks Strategy (2026) - Pool Genius",
-   "link": "https://news.google.com/rss/articles/CBMixgFBVV95cUxQRFQ4b1oxbHh6Z01fQ1BGSjJpRDlTajNJc1RvU1VieHlPOVh6ZzNXbVJvdlE0bnBpdHF6MlBNVzR6YjZUX1NKRHBjamEyQ0x1a3J6UHNmYjRPNjlCRVptSHlGVDlPZWJJZXFuNHAwSDZSRDNTNlRZWFFGNWJELWlJeXVHVmlBNnp4dm9oVnNaRTRiaEh0RU9GU2tzOW1JZGdkM3BicXNrRnFnR2dicHZnZ1NOdGVfUUp1dDQxOEZLN2NHWlVEd2c?oc=5",
-   "summary": "Wyndham Championship: Golf One and Done Picks Strategy (2026) Pool Genius",
-   "published": "Tue, 04 Aug 2026 16:17:53 GMT",
-   "source": "Google News: Wyndham Championship picks",
-   "kind": "news",
-   "golfers": []
-  },
-  {
-   "title": "Expert Picks: Who are experts riding with at Wyndham Championship? - PGA Tour",
-   "link": "https://news.google.com/rss/articles/CBMi7wFBVV95cUxOZE5kNmFSczRqcE11Y0gtSWc1bE8xVGgyMkRYY2lIV1FWdmN4SVRrV2FBekwyQ0R4Qnp6UHpRbXdMR01DN1I5WmR5cGt4MHc0NWRjT0xpTDdKSUEyZlpVVW1ERUN0NGQzdVNJeHFFdzBLeHNEcnFwMlRlYXpkOHhfRlVYNWxYWlBGMXFXZTN0REoxdWRNWWdFVDBRTTh1QXpHZ3VWQW1xZFFTWm84aWV1T3Z3Ukctd0loMUtGb3FydS1XMG51V1RIb2ZoSV8wUWkydUlfaUpOUHNlbzdwcFBJLVdtRGZ6T3B3aEhiVkh2OA?oc=5",
-   "summary": "Expert Picks: Who are experts riding with at Wyndham Championship? PGA Tour",
-   "published": "Tue, 04 Aug 2026 15:11:36 GMT",
-   "source": "Google News: Wyndham Championship picks",
-   "kind": "news",
-   "golfers": []
-  },
-  {
-   "title": "Wyndham Championship 2026 DFS Picks: Predictions, Values & Projections - Fantasy Alarm",
-   "link": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxPc1BUTGJtdmZVSlRDcERua0ptQU51ZTIwYWxPdlp6R3VodEJjOEF1SVBITGtjdmRXc3pWZGRUMm1pUTVvVDhVUm1Fc3lQSUowV2wzSDljOG1jS1JHclNSOEFYSnh4bFdYX3NoSWNNZ21Tajc0WVF3TXIyeXpPQWRnOXhHQXlxRHBXaml6b1NhbHdXMTk3MEp5c0dCX2ZfZFQ3aFhuTG90UW82YWxKaC1tdVVQVXlKNUR6OS02RTNId0h5dw?oc=5",
-   "summary": "Wyndham Championship 2026 DFS Picks: Predictions, Values & Projections Fantasy Alarm",
-   "published": "Tue, 04 Aug 2026 14:54:27 GMT",
-   "source": "Google News: Wyndham Championship DFS",
-   "kind": "news",
-   "golfers": []
-  },
-  {
-   "title": "PGA DFS: Top Cash Game Picks for the Wyndham Championship - FantasyLabs",
-   "link": "https://news.google.com/rss/articles/CBMioAFBVV95cUxQdXZjQmU0dUx1blFBTS1UY2s5Y0FXdVpZc1hQRk82Y09sVzF0U1E5ZWc5czlicVpwUWprZlRGQmkyQUtpcVZfRjc5bUhsMnFobjJBQU02MlU1cUwxbTl6b3dMSkhOWTRwLVFTa3NQRV9OdEU4bmdLRk9oZ2FGOG5Ybi1EMzZVdEZRNEN0X0g2ZzRVbGJvazg3TTJ0dzRDWmRa?oc=5",
-   "summary": "PGA DFS: Top Cash Game Picks for the Wyndham Championship FantasyLabs",
-   "published": "Tue, 04 Aug 2026 14:28:51 GMT",
-   "source": "Google News: Wyndham Championship DFS",
-   "kind": "news",
-   "golfers": []
-  },
-  {
-   "title": "Wyndham Championship Predictions & Picks: Conservative/Aggressive Plays for Every Type of Bettor - BetMGM",
-   "link": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxQYTl3U1RYM0JBZnRFdWFwaTRpSkZkSWZwN0ZDUl9XZm9lcnJqQWd4Y2ZQXzU1RUNaZWdTbHRELXdQWEVyRzA0dWV1cExVLVJEWXIwVGwwc21UWTgtX0g0V3YtVVBnNmlrd2JnczAxN2FIRGV0M3ZwLVlBbWJOXzhEbE90bkROOUZxeGkzaFRRRWhlOTNNRmRKVXBLbHc1SHFqR3BOdENZZEVNTTFmNFlMSTNXeVdBQUF3UDFCUzFvNk9SZmlRX09sS2NaRjZRNHNNS3pz?oc=5",
-   "summary": "Wyndham Championship Predictions & Picks: Conservative/Aggressive Plays for Every Type of Bettor BetMGM",
-   "published": "Tue, 04 Aug 2026 14:10:06 GMT",
-   "source": "Google News: Wyndham Championship picks",
-   "kind": "news",
-   "golfers": []
-  },
-  {
-   "title": "Wyndham Championship Betting Tips: Expert picks two players to win at Sedgefield - Golfmagic",
-   "link": "https://news.google.com/rss/articles/CBMiswFBVV95cUxQbkFfOVk0S0pxTG95V0NnM1pHMTZraVZWblR0alNqang0N3NicG91LTZDVXlQbFBEV05wenItWlRqRU8xd2JfYWl4MEVMbFZfZ2hHUmZDMzVkaGhwTnUtQWMxTFhqUjBQcDFzMnpYdGN4bm13UEg2NXNQdVVtQVU1NWhfS1p5SmRLaVJ0aVFpLVR6V3h3RmFHcjc1bElVVXZ3NWZaQ29RV3N0djg2SWJ3ZlRjVQ?oc=5",
-   "summary": "Wyndham Championship Betting Tips: Expert picks two players to win at Sedgefield Golfmagic",
-   "published": "Tue, 04 Aug 2026 12:56:36 GMT",
-   "source": "Google News: Wyndham Championship picks",
-   "kind": "news",
-   "golfers": []
-  },
-  {
-   "title": "Patrick Cantlay withdraws from the Wyndham Championship on Monday \u2014 and the field changes fast - El-Balad.com",
-   "link": "https://news.google.com/rss/articles/CBMiSEFVX3lxTE96Yms5b2xfZzFpb1llbnJ4TDVxMXNLbDJBblF1NTQtYU9zWnhoYUhZN1B3dkR3Nl90VEpiMXhNRGVnMXVNdFloag?oc=5",
-   "summary": "Patrick Cantlay withdraws from the Wyndham Championship on Monday \u2014 and the field changes fast El-Balad.com",
-   "published": "Tue, 04 Aug 2026 12:52:13 GMT",
-   "source": "Google News: Wyndham Championship WD",
-   "kind": "news",
-   "golfers": [
-    "Patrick Cantlay"
-   ],
-   "alert": "wd"
-  },
-  {
-   "title": "Patrick Cantlay Withdraws from Wyndham Championship Ahead of PGA Tour Event - SSBCrack",
-   "link": "https://news.google.com/rss/articles/CBMipAFBVV95cUxQZkhLQUVCbVh3SzBsblJDSUNybUlhMUgxd0FuR0JNWjh5bmVLQlgwT2ZtdzVKR2N1c2JQSzE4VmNidlJVTjZZWFJxT29pdXZ2ellvazdlOHJoVXNoYzhLSXZGNGtWV0VYUWREemd0QjFvZzRuc3o5NXR3ekdUejBXMjJ3M0k3NTdyMW83cFdrai0xWTY5c3lRWDNUcDVnNzRnWERsVA?oc=5",
-   "summary": "Patrick Cantlay Withdraws from Wyndham Championship Ahead of PGA Tour Event SSBCrack",
-   "published": "Tue, 04 Aug 2026 12:20:17 GMT",
-   "source": "Google News: Wyndham Championship WD",
-   "kind": "news",
-   "golfers": [
-    "Patrick Cantlay"
-   ],
-   "alert": "wd"
-  },
-  {
-   "title": "PGA DFS Picks For FanDuel This Week: Wyndham Championship Cash and GPP Strategy - RotoWire",
-   "link": "https://news.google.com/rss/articles/CBMirgFBVV95cUxNX1dqOENnVnFFQ3dsNHkzOFJEX0N6U2NtX3F1SmM3Z1BZeGJ1OGpwbWo5ejJmd1h6MW1NTC03aDgyc05IRzE0cmFQZHY3WVF3bUU3R0tJczFJRDAyS2NkcVpOY2RvUEwtR1JHTlI5enMzU3A5dW9ObU9vWTJ2ZlptY090NV9iU3AwYl9RWjNFa3EwZXNQUU9HdUhWMTRFSzVsMFlFYzA1MHJnYV9oX0E?oc=5",
-   "summary": "PGA DFS Picks For FanDuel This Week: Wyndham Championship Cash and GPP Strategy RotoWire",
-   "published": "Tue, 04 Aug 2026 07:00:00 GMT",
-   "source": "Google News: Wyndham Championship DFS",
-   "kind": "news",
-   "golfers": []
-  },
-  {
-   "title": "2026 Wyndham Championship Picks, PGA Tour Odds - Fried Egg Golf",
-   "link": "https://news.google.com/rss/articles/CBMigwFBVV95cUxNN1E4MXp3Y2hJQjFWOFVGVU9WNmdyd3BuVzhEV1U1Uzc2QkR1dnhQSWl0MWRfeVI5OGFUdlAzU3RrU1ZESjdQSFB1SmczaDJUR2pnSVo5V2hqcDc1bXZjb1pkQkhTYUlDaXRKSHNxLXdLZzVxNEpnT0dnc3BiQ2wwUGQ4SQ?oc=5",
-   "summary": "2026 Wyndham Championship Picks, PGA Tour Odds Fried Egg Golf",
-   "published": "Tue, 04 Aug 2026 07:00:00 GMT",
-   "source": "Google News: Wyndham Championship picks",
-   "kind": "news",
-   "golfers": []
-  },
-  {
-   "title": "Wyndham Championship Field Gutted by High-Profile Withdrawals, Including $66M Pro - dailyclubgolf.com",
-   "link": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxOSldaOGtnZnZxTDZ6NnRYbG90QkpDTW9vZ1hJTDRxck80WXhfQXZmSnNhaFJmaVBZZmJaZ3RXVi1Nc2t1N0Z2c3E3NVo2N0xHNkY5WXBHYWR1VzY5b1U2R3RBVWhySEVHTkltV3BfQ2tLeERkemd2bExrbFRzVzUyZDJnZzVqSGdqQ3ZtY3lEaG1KWENHdW5nNGswTGsybUZaYVVJWlVKS1JyT3BGLXNNd1h0Yk01T1hxc0ZGNEF5eW9NdTExakdsWWdZTnM5cU5UakE?oc=5",
-   "summary": "Wyndham Championship Field Gutted by High-Profile Withdrawals, Including $66M Pro dailyclubgolf.com",
-   "published": "Tue, 04 Aug 2026 04:42:55 GMT",
-   "source": "Google News: Wyndham Championship WD",
-   "kind": "news",
-   "golfers": []
-  },
-  {
-   "title": "Patrick Cantlay\u2019s Late Withdrawal Deals Another Blow to PGA Tour\u2019s $8.5 Million Finale - EssentiallySports",
-   "link": "https://news.google.com/rss/articles/CBMi2AFBVV95cUxQZ1VMcnZWekhxazBTbWV0NUlpRlZJUGowZFZxM0pnc2R0NmEtYlpJa0JuQ2VhTXpILVp0Uk94UXhRNXg4ZDcwWnd0YndFM0VzaEl4MHd2cVFpRFVjOTlRR21GdlRjVHpqdDRnT3pPQUhfY3h4RVR6dGg1Z0RSNFhQUkNFSHpMSWxYdlpraEo3V2ZPalg0ZU9uUWsxMjJab3lhbHRYRzhhcjNfbXBPbmMwNjZ3SmlLajI3LXBDamdyWGhGMS1MNXc2anFFUFB5V2pJSktIR0tiejA?oc=5",
-   "summary": "Patrick Cantlay\u2019s Late Withdrawal Deals Another Blow to PGA Tour\u2019s $8.5 Million Finale EssentiallySports",
-   "published": "Mon, 03 Aug 2026 21:50:00 GMT",
-   "source": "Google News: Wyndham Championship WD",
+   "title": "Patrick Cantlay is fifth player to withdraw from 2026 Wyndham Championship - Golfweek",
+   "link": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxNdUNMcUZwSXNvZzRJRDk2bWFJbUdYMExpSGhaNG5UTk1ZLTRxYjlnczZPaE9HNHR3NVFjZkZad3F4elBhM1lnVHlodHJ3V2JiMngtR1NtRV9kVVlWelJvOFNrMnZPYVVENzhCNHJqZC05TFlQN3dCeWNwdEhpRUsyb1RiNGhoR3dyX0lUVHZuTFh4WFZCcGp0cjdMUTJnbkRDakptTFhjMldRanlXdDU4T0dFUEVmSkRQa3piOU5kMlI4QVpIQjgxQ2pqdHYwVGdiUzYzYVV3?oc=5",
+   "summary": "Patrick Cantlay is fifth player to withdraw from 2026 Wyndham Championship Golfweek",
+   "published": "Mon, 03 Aug 2026 07:00:00 GMT",
+   "source": "Google News: FedEx St. Jude Championship WD",
    "kind": "news",
    "golfers": [
     "Patrick Cantlay"
    ]
-  },
-  {
-   "title": "Odds Outlook: Hideki Matsuyama brings fiery form to Wyndham Championship - PGA Tour",
-   "link": "https://news.google.com/rss/articles/CBMi8wFBVV95cUxNcEhvM0xKRFQzX2dsc29EMHJKaXlpalFRbDJ6N29tY1RFTkZOeGZoWmM4UFljWmxNOWJsU3llMlgyTlE2aTM1M0cwazY3V1Joc25nbTVyVWpMRWt2OFp1TkpWa3l0VFh0MW1ST0tmRkNGYmc4dm8yVTZON1VxaUhjTTh1cU5WMVh1dFc4TWxuUEZZQS1NTjFLcUZXa25GREEzel9lYVpyNjFFVWVkM3hxQXFQaUpaWXRYcmVpaEdfcVNJSXpyWUl4d0Fsc0lKZDBKYUw3Z1VhZUJzTTN6WGtPRE4zelFmWF9IX2U2TGZhRVc2S0k?oc=5",
-   "summary": "Odds Outlook: Hideki Matsuyama brings fiery form to Wyndham Championship PGA Tour",
-   "published": "Mon, 03 Aug 2026 21:23:01 GMT",
-   "source": "Google News: Wyndham Championship DFS",
-   "kind": "news",
-   "golfers": [
-    "Hideki Matsuyama"
-   ]
-  },
-  {
-   "title": "2026 Wyndham Championship betting tips \u2013 including a 110/1 shot with course form - Today's Golfer",
-   "link": "https://news.google.com/rss/articles/CBMimwFBVV95cUxPU1lNa2syMmRPMmxPR0RtSmZtSWhZU1FNSXdMRXFkRXNiUnNTQjl1bGI4U3lHUW5GaGJCZHhPdTZKZnRVMEdtV0k2VVBROXk0MlVjS3FCYUhqeS1pdU9NMmJUTk9IT0lGOVBkcHRLcmkwa1pjdnludDN6YzhZOVZSNXBjT1dBQjVxOEMwMFMxeHRPbElUVlk3UFRJbw?oc=5",
-   "summary": "2026 Wyndham Championship betting tips \u2013 including a 110/1 shot with course form Today's Golfer",
-   "published": "Mon, 03 Aug 2026 21:19:12 GMT",
-   "source": "Google News: Wyndham Championship picks",
-   "kind": "news",
-   "golfers": []
   }
  ]
 }
