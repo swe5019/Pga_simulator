@@ -15,6 +15,8 @@ const State = {
   dkPlayersClassic: null,  // preserved classic player map (never overwritten by showdown)
   dkShowdownRaw: null,     // raw dk_showdown.json data when available
   slateType: 'classic',    // 'classic' | 'showdown'
+  cutAuto: true,           // false once the user overrides the detected cut setting
+  cutField: 0,             // field size the cut setting was detected from
   contest: null,           // last contest-sim result
   news: null,              // data/news.json once loaded (industry news + buzz)
   newsKind: 'all',         // News tab filter: 'all' | 'news' | 'chatter'
@@ -797,6 +799,47 @@ function autoDetectCut() {
   const cutBox = $('#hasCut');
   if (!cutBox) return;
   cutBox.checked = field >= 100; // <100 golfers ⇒ no-cut Signature/limited field
+  // Every slate load re-detects, so a manual override from last week's slate can
+  // never silently ride along into a slate where it would be wrong.
+  State.cutAuto = true;
+  State.cutField = field;
+  renderCutMode();
+}
+
+/**
+ * Show what the cut setting is and WHY. Auto-detected reads as an explanation
+ * ("no cut · 69-player field"); an override is highlighted with a way back,
+ * because this one checkbox silently changes every projection in the app.
+ */
+function renderCutMode() {
+  const cutBox = $('#hasCut');
+  const label = $('#cutLabel');
+  const why = $('#cutWhy');
+  const wrap = $('#cutBox');
+  const reset = $('#cutReset');
+  if (!cutBox || !label || !why || !wrap || !reset) return;
+
+  const on = cutBox.checked;
+  const field = State.cutField;
+  label.textContent = on ? '36-hole cut' : 'No cut';
+
+  if (State.cutAuto) {
+    why.textContent = field ? `· ${field}-player field (auto)` : '';
+    wrap.classList.remove('overridden');
+    reset.classList.add('hidden');
+  } else {
+    const auto = field >= 100;
+    // Only shout when the override actually disagrees with the detection.
+    if (auto === on) {
+      why.textContent = field ? `· ${field}-player field (auto)` : '';
+      wrap.classList.remove('overridden');
+      reset.classList.add('hidden');
+    } else {
+      why.textContent = `· set by hand, field says ${auto ? 'cut' : 'no cut'}`;
+      wrap.classList.add('overridden');
+      reset.classList.remove('hidden');
+    }
+  }
 }
 
 /**
@@ -1837,6 +1880,7 @@ function importCsv(file) {
       State.build = null;
       State.hasRealOwnership = hasOwnership;
       if (!hasOwnership) window.Data.projectOwnership(State.golfers, null);
+      autoDetectCut(); // new field ⇒ re-detect, don't inherit the last slate's setting
       renderPlayers();
       $('#simStatus').textContent = `Imported ${golfers.length} golfers — run the sim.`;
     } catch (e) {
@@ -2023,6 +2067,15 @@ function download(filename, text) {
 function init() {
   initTabs();
   loadAutoSlate();
+  // Toggling the cut by hand marks it as an override so the UI can say so.
+  $('#hasCut').addEventListener('change', () => {
+    State.cutAuto = false;
+    renderCutMode();
+  });
+  $('#cutReset').addEventListener('click', (e) => {
+    e.preventDefault(); // it lives inside the <label>, so don't re-toggle the box
+    autoDetectCut();
+  });
   $('#runSim').addEventListener('click', () => { track('run_simulation', { n_sims: $('#nSims').value }); runSim(); });
   $('#buildBtn').addEventListener('click', () => { track('build_lineups', { n_lineups: $('#nLineups').value }); buildPool(); });
   $('#trimBtn').addEventListener('click', () => { track('trim_pool', { n: $('#trimN').value }); trimPool(); });
@@ -2053,6 +2106,7 @@ function init() {
       } else {
         _applyClassicOverlay();
       }
+      autoDetectCut(); // the field changed, so re-detect and re-explain
       renderPlayers();
       renderDkBanner();
       const note = $('#slateToggleNote');

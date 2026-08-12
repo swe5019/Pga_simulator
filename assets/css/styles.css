@@ -11,6 +11,7 @@
   --up: #3fb950;
   --down: #f85149;
   --accent: #58a6ff;
+  --warn: #d29922;
   --chip: #21283a;
 }
 
@@ -278,6 +279,19 @@ label.cutbox {
   padding: 5px 0;
 }
 label.cutbox input { cursor: pointer; }
+/* Why the cut setting is what it is. Reads as an explanation when auto-detected,
+   and shouts when the user has overridden it, so a manual toggle can't quietly
+   ride along into a slate where it is wrong. */
+.cut-why { font-size: 11.5px; color: var(--dim); white-space: nowrap; }
+label.cutbox.overridden { color: var(--warn); }
+label.cutbox.overridden .cut-why { color: var(--warn); font-weight: 600; }
+.cut-reset {
+  background: transparent; border: 1px solid var(--line); color: var(--dim);
+  border-radius: 5px; padding: 1px 6px; font-size: 10.5px; cursor: pointer;
+  text-transform: uppercase; letter-spacing: .4px;
+}
+.cut-reset:hover { color: var(--text); border-color: var(--dim); }
+.cut-reset.hidden { display: none; }
 
 /* Sortable table headers */
 th.sortable { cursor: pointer; user-select: none; white-space: nowrap; }

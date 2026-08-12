@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>SlateSims — PGA DFS Simulator for DraftKings</title>
   <link rel="icon" href="assets/img/favicon.svg?v=20260730v" type="image/svg+xml" />
-  <link rel="stylesheet" href="assets/css/styles.css?v=20260806v" />
+  <link rel="stylesheet" href="assets/css/styles.css?v=20260812v" />
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-13J1816EN4"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -71,7 +71,13 @@
         </div>
         <div class="control">
           <label>Cut</label>
-          <label class="cutbox"><input type="checkbox" id="hasCut" checked /> 36-hole cut</label>
+          <label class="cutbox" id="cutBox">
+            <input type="checkbox" id="hasCut" checked />
+            <span id="cutLabel">36-hole cut</span>
+            <span id="cutWhy" class="cut-why"></span>
+            <button type="button" id="cutReset" class="cut-reset hidden"
+                    title="Go back to the setting detected from the field size">reset</button>
+          </label>
         </div>
         <button id="runSim" class="primary">▶ Run Simulation</button>
         <span id="simStatus" class="status"></span>
@@ -609,13 +615,13 @@
     </div>
   </div>
 
-  <script src="assets/js/scoring.js?v=20260806v"></script>
-  <script src="assets/js/data.js?v=20260806v"></script>
-  <script src="assets/js/sim.js?v=20260806v"></script>
-  <script src="assets/js/optimizer.js?v=20260806v"></script>
-  <script src="assets/js/contest.js?v=20260806v"></script>
-  <script src="assets/js/app.js?v=20260806v"></script>
-  <script src="assets/js/onboard.js?v=20260806v"></script>
-  <script src="assets/js/tour.js?v=20260806v"></script>
+  <script src="assets/js/scoring.js?v=20260812v"></script>
+  <script src="assets/js/data.js?v=20260812v"></script>
+  <script src="assets/js/sim.js?v=20260812v"></script>
+  <script src="assets/js/optimizer.js?v=20260812v"></script>
+  <script src="assets/js/contest.js?v=20260812v"></script>
+  <script src="assets/js/app.js?v=20260812v"></script>
+  <script src="assets/js/onboard.js?v=20260812v"></script>
+  <script src="assets/js/tour.js?v=20260812v"></script>
 </body>
 </html>
