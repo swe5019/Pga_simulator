@@ -608,9 +608,19 @@ def main():
 
     os.makedirs(os.path.dirname(out), exist_ok=True)
 
-    # Detect showdown by duplicate player names (CPT+FLEX = same name appears twice).
+    # Detect showdown by duplicate player names: DK lists every golfer twice in
+    # captain mode (CPT + FLEX), which is structural and true at any field size.
+    #
+    # Field size is NOT a showdown signal. This used to also flag anything under 80
+    # unique players, which silently misfiled every small-field CLASSIC slate as a
+    # showdown: the FedEx St. Jude (69) and Signature events (~70-78) went to
+    # dk_showdown.json and left dk.json frozen on the previous week's event. The
+    # News tab reads its event name from dk.json, so it kept reporting last week's
+    # tournament while everything else had moved on.
     raw_names = [p.get("displayName", "").strip() for p in draftables if p.get("displayName")]
-    is_showdown = len(raw_names) > len(set(raw_names)) or len(set(raw_names)) < 80
+    sd_dg = str(showdown_disc[0]) if showdown_disc else None
+    is_showdown = (len(raw_names) > len(set(raw_names))
+                   or (sd_dg is not None and str(dg) == sd_dg))
 
     # Rich JSON for the live app to overlay onto the master slate (salary + status).
     doc = {
