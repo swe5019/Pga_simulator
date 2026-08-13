@@ -1,10 +1,10 @@
 {
- "updatedUtc": "2026-08-13T19:26:55Z",
+ "updatedUtc": "2026-08-13T22:04:23Z",
  "slate": "FEDEX_2026",
  "event": "FedEx St. Jude Championship",
  "counts": {
   "items": 120,
-  "golfersMentioned": 69,
+  "golfersMentioned": 29,
   "news": 120,
   "chatter": 0
  },
@@ -120,7 +120,7 @@
   {
    "source": "Google News: FedEx St. Jude Championship WD",
    "ok": true,
-   "items": 98,
+   "items": 99,
    "error": null
   },
   {
@@ -157,414 +157,174 @@
  "mentions": [
   {
    "name": "Scottie Scheffler",
-   "news": 9,
-   "chatter": 0,
-   "total": 9
-  },
-  {
-   "name": "Sam Burns",
    "news": 8,
    "chatter": 0,
    "total": 8
   },
   {
-   "name": "Tommy Fleetwood",
-   "news": 6,
+   "name": "Sam Burns",
+   "news": 7,
    "chatter": 0,
-   "total": 6
+   "total": 7
+  },
+  {
+   "name": "Tommy Fleetwood",
+   "news": 5,
+   "chatter": 0,
+   "total": 5
   },
   {
    "name": "Justin Thomas",
-   "news": 5,
-   "chatter": 0,
-   "total": 5
-  },
-  {
-   "name": "Hideki Matsuyama",
-   "news": 5,
-   "chatter": 0,
-   "total": 5
-  },
-  {
-   "name": "Patrick Cantlay",
    "news": 4,
    "chatter": 0,
    "total": 4
   },
   {
-   "name": "Rory McIlroy",
-   "news": 3,
+   "name": "Hideki Matsuyama",
+   "news": 4,
    "chatter": 0,
-   "total": 3
+   "total": 4
   },
   {
-   "name": "Cameron Young",
-   "news": 3,
-   "chatter": 0,
-   "total": 3
-  },
-  {
-   "name": "Viktor Hovland",
-   "news": 3,
-   "chatter": 0,
-   "total": 3
-  },
-  {
-   "name": "Justin Rose",
-   "news": 3,
-   "chatter": 0,
-   "total": 3
-  },
-  {
-   "name": "J.J. Spaun",
-   "news": 3,
-   "chatter": 0,
-   "total": 3
-  },
-  {
-   "name": "Rickie Fowler",
-   "news": 3,
-   "chatter": 0,
-   "total": 3
-  },
-  {
-   "name": "Sungjae Im",
+   "name": "Patrick Cantlay",
    "news": 3,
    "chatter": 0,
    "total": 3
   },
   {
    "name": "Harry Hall",
-   "news": 3,
-   "chatter": 0,
-   "total": 3
-  },
-  {
-   "name": "Matt Fitzpatrick",
    "news": 2,
    "chatter": 0,
    "total": 2
   },
   {
-   "name": "Collin Morikawa",
+   "name": "Cameron Young",
    "news": 2,
    "chatter": 0,
    "total": 2
   },
   {
-   "name": "Ludvig Aberg",
+   "name": "Justin Rose",
    "news": 2,
    "chatter": 0,
    "total": 2
   },
   {
-   "name": "Chris Gotterup",
+   "name": "J.J. Spaun",
    "news": 2,
    "chatter": 0,
    "total": 2
   },
   {
-   "name": "Jackson Koivun",
+   "name": "Rickie Fowler",
    "news": 2,
    "chatter": 0,
    "total": 2
   },
   {
-   "name": "Tom Kim",
+   "name": "Sungjae Im",
    "news": 2,
    "chatter": 0,
    "total": 2
   },
   {
-   "name": "Ben Griffin",
+   "name": "Viktor Hovland",
    "news": 2,
    "chatter": 0,
    "total": 2
   },
   {
-   "name": "Kurt Kitayama",
-   "news": 2,
-   "chatter": 0,
-   "total": 2
-  },
-  {
-   "name": "Michael Thorbjornsen",
-   "news": 2,
-   "chatter": 0,
-   "total": 2
-  },
-  {
-   "name": "Michael Brennan",
-   "news": 2,
-   "chatter": 0,
-   "total": 2
-  },
-  {
-   "name": "Alex Noren",
+   "name": "Rory McIlroy",
    "news": 2,
    "chatter": 0,
    "total": 2
   },
   {
    "name": "Jordan Spieth",
-   "news": 2,
+   "news": 1,
    "chatter": 0,
-   "total": 2
+   "total": 1
   },
   {
-   "name": "Ryan Fox",
-   "news": 2,
+   "name": "Michael Brennan",
+   "news": 1,
    "chatter": 0,
-   "total": 2
+   "total": 1
+  },
+  {
+   "name": "Jackson Koivun",
+   "news": 1,
+   "chatter": 0,
+   "total": 1
+  },
+  {
+   "name": "Kurt Kitayama",
+   "news": 1,
+   "chatter": 0,
+   "total": 1
+  },
+  {
+   "name": "Alex Noren",
+   "news": 1,
+   "chatter": 0,
+   "total": 1
   },
   {
    "name": "Aaron Rai",
-   "news": 2,
+   "news": 1,
    "chatter": 0,
-   "total": 2
+   "total": 1
   },
   {
    "name": "Sam Stevens",
-   "news": 2,
-   "chatter": 0,
-   "total": 2
-  },
-  {
-   "name": "Xander Schauffele",
    "news": 1,
    "chatter": 0,
    "total": 1
   },
   {
-   "name": "Si Woo Kim",
+   "name": "Collin Morikawa",
    "news": 1,
    "chatter": 0,
    "total": 1
   },
   {
-   "name": "Russell Henley",
+   "name": "Ryan Fox",
    "news": 1,
    "chatter": 0,
    "total": 1
   },
   {
-   "name": "Wyndham Clark",
+   "name": "Matt Fitzpatrick",
    "news": 1,
    "chatter": 0,
    "total": 1
   },
   {
-   "name": "Robert MacIntyre",
+   "name": "Ludvig Aberg",
    "news": 1,
    "chatter": 0,
    "total": 1
   },
   {
-   "name": "Min Woo Lee",
+   "name": "Chris Gotterup",
    "news": 1,
    "chatter": 0,
    "total": 1
   },
   {
-   "name": "Maverick McNealy",
+   "name": "Tom Kim",
    "news": 1,
    "chatter": 0,
    "total": 1
   },
   {
-   "name": "Ryan Gerard",
+   "name": "Ben Griffin",
    "news": 1,
    "chatter": 0,
    "total": 1
   },
   {
-   "name": "Shane Lowry",
-   "news": 1,
-   "chatter": 0,
-   "total": 1
-  },
-  {
-   "name": "Akshay Bhatia",
-   "news": 1,
-   "chatter": 0,
-   "total": 1
-  },
-  {
-   "name": "Nicolai Hojgaard",
-   "news": 1,
-   "chatter": 0,
-   "total": 1
-  },
-  {
-   "name": "Jacob Bridgeman",
-   "news": 1,
-   "chatter": 0,
-   "total": 1
-  },
-  {
-   "name": "Kristoffer Reitan",
-   "news": 1,
-   "chatter": 0,
-   "total": 1
-  },
-  {
-   "name": "Jake Knapp",
-   "news": 1,
-   "chatter": 0,
-   "total": 1
-  },
-  {
-   "name": "Adam Scott",
-   "news": 1,
-   "chatter": 0,
-   "total": 1
-  },
-  {
-   "name": "Alex Smalley",
-   "news": 1,
-   "chatter": 0,
-   "total": 1
-  },
-  {
-   "name": "Keith Mitchell",
-   "news": 1,
-   "chatter": 0,
-   "total": 1
-  },
-  {
-   "name": "Harris English",
-   "news": 1,
-   "chatter": 0,
-   "total": 1
-  },
-  {
-   "name": "Alex Fitzpatrick",
-   "news": 1,
-   "chatter": 0,
-   "total": 1
-  },
-  {
-   "name": "Gary Woodland",
-   "news": 1,
-   "chatter": 0,
-   "total": 1
-  },
-  {
-   "name": "Corey Conners",
-   "news": 1,
-   "chatter": 0,
-   "total": 1
-  },
-  {
-   "name": "Sahith Theegala",
-   "news": 1,
-   "chatter": 0,
-   "total": 1
-  },
-  {
-   "name": "Jordan L. Smith",
-   "news": 1,
-   "chatter": 0,
-   "total": 1
-  },
-  {
-   "name": "Eric Cole",
-   "news": 1,
-   "chatter": 0,
-   "total": 1
-  },
-  {
-   "name": "Michael Kim",
-   "news": 1,
-   "chatter": 0,
-   "total": 1
-  },
-  {
-   "name": "Bud Cauley",
-   "news": 1,
-   "chatter": 0,
-   "total": 1
-  },
-  {
-   "name": "Brian Harman",
-   "news": 1,
-   "chatter": 0,
-   "total": 1
-  },
-  {
-   "name": "Max Homa",
-   "news": 1,
-   "chatter": 0,
-   "total": 1
-  },
-  {
-   "name": "Nick Taylor",
-   "news": 1,
-   "chatter": 0,
-   "total": 1
-  },
-  {
-   "name": "Nicolas Echavarria",
-   "news": 1,
-   "chatter": 0,
-   "total": 1
-  },
-  {
-   "name": "Ryo Hisatsune",
-   "news": 1,
-   "chatter": 0,
-   "total": 1
-  },
-  {
-   "name": "J.T. Poston",
-   "news": 1,
-   "chatter": 0,
-   "total": 1
-  },
-  {
-   "name": "Sudarshan Yellamaraju",
-   "news": 1,
-   "chatter": 0,
-   "total": 1
-  },
-  {
-   "name": "Ricky Castillo",
-   "news": 1,
-   "chatter": 0,
-   "total": 1
-  },
-  {
-   "name": "Sepp Straka",
-   "news": 1,
-   "chatter": 0,
-   "total": 1
-  },
-  {
-   "name": "Aldrich Potgieter",
-   "news": 1,
-   "chatter": 0,
-   "total": 1
-  },
-  {
-   "name": "Matthew McCarty",
-   "news": 1,
-   "chatter": 0,
-   "total": 1
-  },
-  {
-   "name": "Patrick Rodgers",
-   "news": 1,
-   "chatter": 0,
-   "total": 1
-  },
-  {
-   "name": "Pierceson Coody",
-   "news": 1,
-   "chatter": 0,
-   "total": 1
-  },
-  {
-   "name": "Matti Schmid",
+   "name": "Michael Thorbjornsen",
    "news": 1,
    "chatter": 0,
    "total": 1
@@ -580,85 +340,6 @@
    "kind": "news",
    "golfers": [
     "Justin Thomas"
-   ]
-  },
-  {
-   "title": "Ranking all 70 FedEx Cup playoffs golfers by odds to win championship",
-   "link": "https://sports.yahoo.com/articles/ranking-70-fedex-cup-playoffs-100736756.html",
-   "summary": "FedEx Cup playoffs open in Memphis and one player is priced shorter than next two combined. Every golfer, sorted by what number is really saying.",
-   "published": "Thu, 13 Aug 2026 10:07:36 +0000",
-   "source": "Yahoo Golf",
-   "kind": "news",
-   "golfers": [
-    "Scottie Scheffler",
-    "Rory McIlroy",
-    "Tommy Fleetwood",
-    "Xander Schauffele",
-    "Matt Fitzpatrick",
-    "Cameron Young",
-    "Sam Burns",
-    "Collin Morikawa",
-    "Ludvig Aberg",
-    "Hideki Matsuyama",
-    "Chris Gotterup",
-    "Patrick Cantlay",
-    "Si Woo Kim",
-    "Russell Henley",
-    "Wyndham Clark",
-    "Viktor Hovland",
-    "Robert MacIntyre",
-    "Jackson Koivun",
-    "Justin Thomas",
-    "Justin Rose",
-    "Tom Kim",
-    "J.J. Spaun",
-    "Min Woo Lee",
-    "Ben Griffin",
-    "Kurt Kitayama",
-    "Maverick McNealy",
-    "Rickie Fowler",
-    "Michael Thorbjornsen",
-    "Michael Brennan",
-    "Ryan Gerard",
-    "Shane Lowry",
-    "Akshay Bhatia",
-    "Nicolai Hojgaard",
-    "Jacob Bridgeman",
-    "Kristoffer Reitan",
-    "Alex Noren",
-    "Jake Knapp",
-    "Adam Scott",
-    "Alex Smalley",
-    "Keith Mitchell",
-    "Jordan Spieth",
-    "Harris English",
-    "Ryan Fox",
-    "Alex Fitzpatrick",
-    "Aaron Rai",
-    "Gary Woodland",
-    "Corey Conners",
-    "Sungjae Im",
-    "Sahith Theegala",
-    "Jordan L. Smith",
-    "Eric Cole",
-    "Michael Kim",
-    "Bud Cauley",
-    "Brian Harman",
-    "Max Homa",
-    "Harry Hall",
-    "Nick Taylor",
-    "Nicolas Echavarria",
-    "Ryo Hisatsune",
-    "J.T. Poston",
-    "Sudarshan Yellamaraju",
-    "Ricky Castillo",
-    "Sepp Straka",
-    "Aldrich Potgieter",
-    "Sam Stevens",
-    "Matthew McCarty",
-    "Patrick Rodgers",
-    "Pierceson Coody",
-    "Matti Schmid"
    ]
   },
   {
@@ -692,9 +373,9 @@
    "golfers": []
   },
   {
-   "title": "DFS Fantasy Golf: Winning Picks for the FedEx St. Jude Championship - Yahoo Sports",
+   "title": "DFS Fantasy Golf: Winning Picks for the FedEx St. Jude Championship - sports.yahoo.com",
    "link": "https://news.google.com/rss/articles/CBMihgFBVV95cUxPSjZ1SngwU3cxQnpIQjZwUUlUUXdoeW10MkFtUkdidFlSOVlTd0RyZFoyNUdJMThqa3lCbTAwRmh4d2tvcVNscy1qX3NwWjlkR285ZFh1Ml9rZFU2T3ZrWW1IR1NLQ3VZX0hqMVFUdURXN0xRRndLSy1HR3RkOHFKM2VBdDRQUQ?oc=5",
-   "summary": "DFS Fantasy Golf: Winning Picks for the FedEx St. Jude Championship Yahoo Sports",
+   "summary": "DFS Fantasy Golf: Winning Picks for the FedEx St. Jude Championship sports.yahoo.com",
    "published": "Thu, 13 Aug 2026 04:44:00 GMT",
    "source": "Google News: FedEx St. Jude Championship DFS",
    "kind": "news",
@@ -749,9 +430,9 @@
    ]
   },
   {
-   "title": "FedEx St Jude Championship DFS Picks 2026: DraftKings Golf - Stokastic",
+   "title": "FedEx St Jude Championship DFS Picks 2026: DraftKings Golf - stokastic.com",
    "link": "https://news.google.com/rss/articles/CBMilgFBVV95cUxNOGJPRGN2VENIMm90REkxa3llNDUtTEcyRjRlQy1YbGJjeWdYVEVaTGNSNXF0ajVjZmUwU0RqSUM1dk9QTTNCTG1Hc1Q2MFpOdkpvWHBTTHRjTVIyc09JckxwQVpXM1dzUmlTcy1wZWJWRDZMME85ai1hUlZiSlYtSDQyc1RjWlp3VG51ZUdwQ1F4ZGRVanc?oc=5",
-   "summary": "FedEx St Jude Championship DFS Picks 2026: DraftKings Golf Stokastic",
+   "summary": "FedEx St Jude Championship DFS Picks 2026: DraftKings Golf stokastic.com",
    "published": "Thu, 13 Aug 2026 02:12:47 GMT",
    "source": "Google News: FedEx St. Jude Championship DFS",
    "kind": "news",
@@ -799,9 +480,9 @@
    "golfers": []
   },
   {
-   "title": "FedEx St Jude Championship Picks, Best Bets: Expert Predictions for TPC Southwind - Action Network",
+   "title": "FedEx St Jude Championship Picks, Best Bets: Expert Predictions for TPC Southwind - actionnetwork.com",
    "link": "https://news.google.com/rss/articles/CBMirwFBVV95cUxOUWZKZEtxbjdydDYxcktjT2xNMjNpQW82cFFPZ0ZTbXZRckpRWVVWZ1RWaksyendUaWRfM1ViWHRhcEZ0ek1IWERBeEZxM2NxRk1GeDNBRGxJTlFGbXBTbEpkaTRmVEdSVFYwbTNlUFBqejExYnA0VTR6andhZTNlbjVIdFlsQ0k2WEEyS3Z1WU9OdVlMa1JvS3AtR1N1QlBqcmxNWVZOTC03THVYMGYw?oc=5",
-   "summary": "FedEx St Jude Championship Picks, Best Bets: Expert Predictions for TPC Southwind Action Network",
+   "summary": "FedEx St Jude Championship Picks, Best Bets: Expert Predictions for TPC Southwind actionnetwork.com",
    "published": "Wed, 12 Aug 2026 22:02:00 GMT",
    "source": "Google News: FedEx St. Jude Championship picks",
    "kind": "news",
@@ -844,6 +525,15 @@
    "golfers": []
   },
   {
+   "title": "2026 FedEx St. Jude Championship prop bet picks, PGA Tour predictions - Central Oregon Daily",
+   "link": "https://news.google.com/rss/articles/CBMi8AFBVV95cUxQWTdpV0tQM3F6TFdYOXlJZW5kYWpWeDZxM19KQkNBVGREUFhzX0dzeWdmTEdsa0p3bUlkTzNkcHZaeFRndDNGS0NncmlIazQ3b2tKcmhuQlcwdnAzMVVGNXljdTg2M2pKSFl0dHc5c0YtdFczSVdBYzdKQmVqVnB2LURjN3UyQm5rZHF5VTByd2hqOTcxSlUxUExRYUNIVXJjMDJWb0hxemNsTnJhWVZkTDJOUHBnSnpMTU0wZ0ZjSWthUVlwTzVXT0wxMUVRdGNUM29JUlR6LXhWM0htT3RDNXk1bjd2V0Z1XzVBM2pOblE?oc=5",
+   "summary": "2026 FedEx St. Jude Championship prop bet picks, PGA Tour predictions Central Oregon Daily",
+   "published": "Wed, 12 Aug 2026 18:50:38 GMT",
+   "source": "Google News: FedEx St. Jude Championship picks",
+   "kind": "news",
+   "golfers": []
+  },
+  {
    "title": "DraftKings Core Four: PGA DFS - 2026 FedEx St. Jude Championship (Premium Content) - RotoBaller",
    "link": "https://news.google.com/rss/articles/CBMivAFBVV95cUxNdGJwUzItYjA3enRpRmkxaDNoVE5zUFdxeWhpTHBRVi1zNDhjRzhDdmxCMnZvMVRxNWgyVmdqbVRLcVp4S0stY0VBYVkybVlrRFEwaTliX0hXUXVqQnFRSzRfVF9sNlE3Y053MHBTdzBERXdTY0k1Ul91RzJfRURDd3BIMG1TbWFnNGhzRUk1bnhIR2w4bW9LdzBYbDA1c0pianZpNTZWbC1vdmlLVlpqTFg5bHdKU2ttZkl6TQ?oc=5",
    "summary": "DraftKings Core Four: PGA DFS - 2026 FedEx St. Jude Championship (Premium Content) RotoBaller",
@@ -853,9 +543,9 @@
    "golfers": []
   },
   {
-   "title": "FedEx St. Jude Championship 2026: Best Bets, DraftKings Picks, Ownership Projections & Weather - Yahoo Sports",
+   "title": "FedEx St. Jude Championship 2026: Best Bets, DraftKings Picks, Ownership Projections & Weather - sports.yahoo.com",
    "link": "https://news.google.com/rss/articles/CBMihwFBVV95cUxOQjhpQ3BsQWZ5ZUJ3bHpVUE5hXzBUSVhMcGJ0dXZ6cDA1R0RTdjlVdzc1UzcyM0t3QVo5azNIOGFYSnpnZzhORHlIY0RaTnFiVHhDTVd4Z0xuYndEaGdfdm1NYTJFWWk0UFRydDJHWF9UZmRpUWZ5MURfcjRtMFl2VVNHZlk5cFE?oc=5",
-   "summary": "FedEx St. Jude Championship 2026: Best Bets, DraftKings Picks, Ownership Projections & Weather Yahoo Sports",
+   "summary": "FedEx St. Jude Championship 2026: Best Bets, DraftKings Picks, Ownership Projections & Weather sports.yahoo.com",
    "published": "Wed, 12 Aug 2026 17:45:59 GMT",
    "source": "Google News: FedEx St. Jude Championship DFS",
    "kind": "news",
@@ -880,9 +570,9 @@
    "golfers": []
   },
   {
-   "title": "2026 FedEx St. Jude Championship prop bet picks, PGA Tour predictions - The Coloradoan",
+   "title": "2026 FedEx St. Jude Championship prop bet picks, PGA Tour predictions - coloradoan.com",
    "link": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxQRWZ6NHYyMnpOUldzTzk5dlg5OUtOMmVXZ2d5d290cV94VnZxX2NpSGhhRlJ6RDJuWnpGTFBEN0xNdURxV1hLdXh6MnRab3NCcUJwUUQ1cm40X0NQUTBxUzVsRUM2b203NTNIUE9xQ1BpaHpZbEc5cGdKZjh4NGNrb09zWjJSU1pIX1M3SVYyejlQZTQ1Mzc3bU5NS0VEVlJtM2l4UFJHb1otQlEyeVJ5QnA4WC1PUTBLSU1OM2xvV2UwMEFxXzNzM1Rtd1k4Q1FoS2p3eV93?oc=5",
-   "summary": "2026 FedEx St. Jude Championship prop bet picks, PGA Tour predictions The Coloradoan",
+   "summary": "2026 FedEx St. Jude Championship prop bet picks, PGA Tour predictions coloradoan.com",
    "published": "Wed, 12 Aug 2026 16:59:00 GMT",
    "source": "Google News: FedEx St. Jude Championship picks",
    "kind": "news",
@@ -907,9 +597,9 @@
    "golfers": []
   },
   {
-   "title": "2026 FedEx St. Jude Championship prop bet picks, PGA Tour predictions - thenewsstar.com",
+   "title": "2026 FedEx St. Jude Championship prop bet picks, PGA Tour predictions - The News-Star",
    "link": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxON2VXRDRoaDRVd21JYjktUjk3ZXZDbzFPSlRDNVp3MGxQNDQ0bmdJZXBaTXRGN1ZkQjZueDBaNHdLcFZxenowaWkxM0ZEUkJpb1JzYjRkQmdDRTJFMFRBU0ZyemltQjE2WTdaclEzX25VNThWb2k0N0FyY3VvaUoycFotWEloTzlxakRzcUdPa3B3QnhmS1VPTmg3ZmdxUUc2NDg2TUVkMW5OSHE0cDdrLWNaMnRBdE9DUm5vNmM0dmF2R0haYWJpWkI4OThZVmVGbUxrV1dGQQ?oc=5",
-   "summary": "2026 FedEx St. Jude Championship prop bet picks, PGA Tour predictions thenewsstar.com",
+   "summary": "2026 FedEx St. Jude Championship prop bet picks, PGA Tour predictions The News-Star",
    "published": "Wed, 12 Aug 2026 16:59:00 GMT",
    "source": "Google News: FedEx St. Jude Championship picks",
    "kind": "news",
@@ -999,9 +689,9 @@
    "golfers": []
   },
   {
-   "title": "2026 FedEx St. Jude Championship prop bet picks, PGA Tour predictions - sturgisjournal.com",
+   "title": "2026 FedEx St. Jude Championship prop bet picks, PGA Tour predictions - Sturgis Journal",
    "link": "https://news.google.com/rss/articles/CBMi2wFBVV95cUxPRGZmaldMSUxqZHdxbGh0Z2lhbG4xb21HenRzT292WTN1Rk41aDM3cTVldXQwMjVpMld5UjRsZXA0ajZuZUtZTE9FakZibVZOR3B1T21FTzI0OHdXMjM1ZDQwN3dlaHdBUkhWdXlXcE5saUJ4Qjh0d1FNU0JRVDFJOThHdFpZWUs2ZXNmQ3BsZVA5LXZYR1RHSDN4WHk4UEk5UUtVMnZzX29QWTVYa0NUbkNoR3BXTXNJZU9McDJIUkhXajJNWlhmY05iWFJvSTRheDNLcXNDSkF4bU0?oc=5",
-   "summary": "2026 FedEx St. Jude Championship prop bet picks, PGA Tour predictions sturgisjournal.com",
+   "summary": "2026 FedEx St. Jude Championship prop bet picks, PGA Tour predictions Sturgis Journal",
    "published": "Wed, 12 Aug 2026 16:59:00 GMT",
    "source": "Google News: FedEx St. Jude Championship picks",
    "kind": "news",
@@ -1044,18 +734,18 @@
    "golfers": []
   },
   {
-   "title": "FedEx St Jude Championship First-Round Leader Picks: FRL Predictions for TPC Southwind - Action Network",
+   "title": "FedEx St Jude Championship First-Round Leader Picks: FRL Predictions for TPC Southwind - actionnetwork.com",
    "link": "https://news.google.com/rss/articles/CBMitwFBVV95cUxPRTFVX3ZndFUxQ293M3p4cW1CUXJvcmZnaXpCUTJLTFI2ZEtTdU1meUtsaDM0RFpxRTNtM2RtRUJTRUlPLXctRVpmWDFkcTdfMjZwdzRJaUhldy1oTUN3b1NXNDBsam8yY3RpN2hXQ3pScVpMTnNBelZXQVl2bkpJcVptalRFTUdzNDFtSHJHOTRicTVZeE5jQ01vRUkySFFWbVFIVUtBNHBPR3FvZ0x5Ylp2MVJNLWc?oc=5",
-   "summary": "FedEx St Jude Championship First-Round Leader Picks: FRL Predictions for TPC Southwind Action Network",
+   "summary": "FedEx St Jude Championship First-Round Leader Picks: FRL Predictions for TPC Southwind actionnetwork.com",
    "published": "Wed, 12 Aug 2026 16:33:00 GMT",
    "source": "Google News: FedEx St. Jude Championship picks",
    "kind": "news",
    "golfers": []
   },
   {
-   "title": "FedEx St. Jude Championship Preview, Predictions, Picks, Odds for TPC Southwind - Action Network",
+   "title": "FedEx St. Jude Championship Preview, Predictions, Picks, Odds for TPC Southwind - actionnetwork.com",
    "link": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxORFNRcFZNX21MM2dZMUpTSmNnSDlsYy01d3pwTTYyRXdhdnZXUjNUeGM0aEFHZ0JrTXNza0VBVV9SaG82RUN5SkhIeWRLUkhOUjZWQWRLalB0b2hRQlhuakppSGFyNElOSXpOTVpQZFBwWVlBRDBQeFFjS0VOOFJNdV9yUl9GQ0ZGeFhzbm9LcHB2UDB1TUdSRVZXaDdOWldjbmFkd1dFay0xZw?oc=5",
-   "summary": "FedEx St. Jude Championship Preview, Predictions, Picks, Odds for TPC Southwind Action Network",
+   "summary": "FedEx St. Jude Championship Preview, Predictions, Picks, Odds for TPC Southwind actionnetwork.com",
    "published": "Wed, 12 Aug 2026 16:32:00 GMT",
    "source": "Google News: FedEx St. Jude Championship picks",
    "kind": "news",
@@ -1080,9 +770,9 @@
    "golfers": []
   },
   {
-   "title": "2026 FedEx St. Jude Championship: Scottie Scheffler odds to win, best bet recommendations - Yahoo Sports",
+   "title": "2026 FedEx St. Jude Championship: Scottie Scheffler odds to win, best bet recommendations - sports.yahoo.com",
    "link": "https://news.google.com/rss/articles/CBMihwFBVV95cUxNSktkaWFzZDZkZFNSUUpjeXBpV1FsLU1mUm1IMlRtMkpvRTlzZGxiUTZjampIYUNWVDVkS1MyUko4Sm54dXFRQmE4M2dNS1VEcVQzQzhiX09EclRPQ2VEdlJjZHFhT2N3eFhFeUQyckcxX2loamlZcndsSE52TUtFUkVfUXVXZE0?oc=5",
-   "summary": "2026 FedEx St. Jude Championship: Scottie Scheffler odds to win, best bet recommendations Yahoo Sports",
+   "summary": "2026 FedEx St. Jude Championship: Scottie Scheffler odds to win, best bet recommendations sports.yahoo.com",
    "published": "Wed, 12 Aug 2026 16:09:00 GMT",
    "source": "Google News: FedEx St. Jude Championship picks",
    "kind": "news",
@@ -1130,27 +820,27 @@
    "golfers": []
   },
   {
-   "title": "PGA DFS Lineup Advice: Top Golfers (2026 FedEx St. Jude Championship) - FantasyPros",
+   "title": "PGA DFS Lineup Advice: Top Golfers (2026 FedEx St. Jude Championship) - fantasypros.com",
    "link": "https://news.google.com/rss/articles/CBMipAFBVV95cUxPeXA4bGQwVTNDRkZrUlpCcThfMnFCMVh3UXR5WXRnYThFeldzeUtfcm5HNlBodUVKZi1oWmZNVTJscDYzZVJTODVxTkpVU2FSWFRKcDhDR2dnOXhCcHFCeVEtYmJLRVZkTU1HVzJyS3h2V0kwSnJDQkRHeFIyd1lyNkZ2VzZXaHRKaXN6M3RhclV2ekNLbk02dzZ6OE5Ld0hEMG5NQdIBqgFBVV95cUxPYmJHOW9fYXNNWkNaQ2c1bUZLTWhSb01HdGpCaTJKU3E0bTNrV3dkRk5hTm1NM1FZZ0VzTjJLT1ZXTGJ3QkxtODZhOENmeGh0Um5HTnhzSHNzV0VZYjRHWGpRVTRpdzFaTHUxVXltbk1uOU9WQlpVWnRSNTVGdWI5X21oX0hMd1JzQ2FXbXJtOExEMXVtTEQxWFpmX3ZsTkRvVTN2Y2haeDlQZw?oc=5",
-   "summary": "PGA DFS Lineup Advice: Top Golfers (2026 FedEx St. Jude Championship) FantasyPros",
+   "summary": "PGA DFS Lineup Advice: Top Golfers (2026 FedEx St. Jude Championship) fantasypros.com",
    "published": "Wed, 12 Aug 2026 14:30:01 GMT",
    "source": "Google News: FedEx St. Jude Championship DFS",
    "kind": "news",
    "golfers": []
   },
   {
-   "title": "Large-Field GPP Breakdown: FedEx St. Jude Championship - establishtherun.com",
+   "title": "Large-Field GPP Breakdown: FedEx St. Jude Championship - Establish The Run",
    "link": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxOWEljTnhEdzFEdlRkQjRXLWkzbUkzQlU0R3dUWkNHQllfZzczQmZXS19FZTkyT1lsLVNjaUhLaDlQcFBCTGdURWQ1Qk1FWFRuNGNqNUVFM1Mwd0RxRHFhamhoUVRNS0NydFFGZmJYX1Z3RzhoVzhqSmluQmU2UURNS2xkZ1REdTJsM0Rr?oc=5",
-   "summary": "Large-Field GPP Breakdown: FedEx St. Jude Championship establishtherun.com",
+   "summary": "Large-Field GPP Breakdown: FedEx St. Jude Championship Establish The Run",
    "published": "Wed, 12 Aug 2026 14:20:57 GMT",
    "source": "Google News: FedEx St. Jude Championship DFS",
    "kind": "news",
    "golfers": []
   },
   {
-   "title": "FedEx St. Jude Championship Predictions & Top Picks 2026: Burns, Baby, Burns! - Yahoo Sports",
+   "title": "FedEx St. Jude Championship Predictions & Top Picks 2026: Burns, Baby, Burns! - sports.yahoo.com",
    "link": "https://news.google.com/rss/articles/CBMikAFBVV95cUxPc2lnOE1oenllUWxfVmR3QmhJbmI3OVVjVjdKcS1takFHNC10V1E5bHRIU2lVZjZ2dGlmMGFDakVOLXMwWUxUcEs2YzRVbWpGS2JYWVNpenNsUGxVenR1Wkx5bVFndDJETWJVSTFWUzRaR1ctdUxzSnAxc19pNXpkeHlURzQzZTdHVVlKZ2toRXk?oc=5",
-   "summary": "FedEx St. Jude Championship Predictions & Top Picks 2026: Burns, Baby, Burns! Yahoo Sports",
+   "summary": "FedEx St. Jude Championship Predictions & Top Picks 2026: Burns, Baby, Burns! sports.yahoo.com",
    "published": "Wed, 12 Aug 2026 14:19:00 GMT",
    "source": "Google News: FedEx St. Jude Championship DFS",
    "kind": "news",
@@ -1201,27 +891,27 @@
    "golfers": []
   },
   {
-   "title": "2026 St. Jude Championship Preview, Full Field And Odds - Yahoo Sports",
+   "title": "2026 St. Jude Championship Preview, Full Field And Odds - sports.yahoo.com",
    "link": "https://news.google.com/rss/articles/CBMiigFBVV95cUxPMHRBNVI3YjFBN0dndVVLV1ltX19ZTllsTG9oemFKVG1ULU5oTWQwNUFHdHNqWXNNaEFnTGVkMGJnWU53eXFwdW84YzhIa19oa2tZZndwVzNDektBZ3ZONU5mYmZOY1J5aTNHeV9MWTBpUmpTRlZPS1dEUGF3dzd1cWEteWtRT0JpUGc?oc=5",
-   "summary": "2026 St. Jude Championship Preview, Full Field And Odds Yahoo Sports",
+   "summary": "2026 St. Jude Championship Preview, Full Field And Odds sports.yahoo.com",
    "published": "Wed, 12 Aug 2026 12:15:04 GMT",
    "source": "Google News: FedEx St. Jude Championship picks",
    "kind": "news",
    "golfers": []
   },
   {
-   "title": "2026 FedEx St. Jude Championship Odds, Picks, Predictions: Best Bets, Props, OAD - Lineups",
+   "title": "2026 FedEx St. Jude Championship Odds, Picks, Predictions: Best Bets, Props, OAD - lineups.com",
    "link": "https://news.google.com/rss/articles/CBMirAFBVV95cUxONkpLbXFCUjZqQnUwQUhRUndjeTVPN183NWduOGtKWWc4eE9VR21INGtNZ1hrYXgtdFQzbnpGYnY3WkVBdjIybUFvd0VmUWZMNDlNQmJBYk5sVnVnTVpoTUtCUkRYODd3LTlJRUlMLTZKRUZpaGZQTE93bGx2NzVobU5pVEx6ZWZ3RHg1ZTFwV1JSa3pjS1BVdjdwemVLdDEtSDc1bjdhOGgwbUlL?oc=5",
-   "summary": "2026 FedEx St. Jude Championship Odds, Picks, Predictions: Best Bets, Props, OAD Lineups",
+   "summary": "2026 FedEx St. Jude Championship Odds, Picks, Predictions: Best Bets, Props, OAD lineups.com",
    "published": "Wed, 12 Aug 2026 12:00:08 GMT",
    "source": "Google News: FedEx St. Jude Championship DFS",
    "kind": "news",
    "golfers": []
   },
   {
-   "title": "FedEx St. Jude Championship Sleeper Picks and Predictions - Yahoo Sports",
+   "title": "FedEx St. Jude Championship Sleeper Picks and Predictions - sports.yahoo.com",
    "link": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxOWU0tTEc2UXUxbTZTYlhaQmtGeVpfc2VtWWVTN2daQzFjMWJ6Nm52NERscXF3dF82bFFpTEMwSWI0TWVrSEZveDF2dXJYTXJsYU9TV08tWTVKYVJ1WkpIbURKQWVyMWJ4N2tDM1Q1ZDlyaERlRVU3aS13THpSbGU1LTRDMjE5OU5ZRnpJ?oc=5",
-   "summary": "FedEx St. Jude Championship Sleeper Picks and Predictions Yahoo Sports",
+   "summary": "FedEx St. Jude Championship Sleeper Picks and Predictions sports.yahoo.com",
    "published": "Wed, 12 Aug 2026 11:00:00 GMT",
    "source": "Google News: FedEx St. Jude Championship DFS",
    "kind": "news",
@@ -1266,15 +956,6 @@
     "Collin Morikawa",
     "Justin Thomas"
    ]
-  },
-  {
-   "title": "FedEx St Jude Championship Predictions, Model Picks: Data-Driven Bets for Matchups, Outright Winners - Action Network",
-   "link": "https://news.google.com/rss/articles/CBMixwFBVV95cUxObjVrTnpkNi1TdGVITnpJd0Rva09UWnpPcmxIVHVBZ1dGcEt1MjlYbDkwd2IwS0VvNTRiRXFZU1VhSVZLSGRWeWtObkFNRTFvRzJ6RkkwbkVHQWl3blNNMElScnZ4NFp4UHA1ZDNjZWgzSmM0ZXFRNEpZRl9HU0dmbGhtUWh0M1E0OS14Y3JpcGVfZW9yanV5UF9DZENINmxJelJ1TlRlSm1vNTM2ZFBJSVI0eVJCVnp2TmNfSjNSSW01LUVCajE4?oc=5",
-   "summary": "FedEx St Jude Championship Predictions, Model Picks: Data-Driven Bets for Matchups, Outright Winners Action Network",
-   "published": "Wed, 12 Aug 2026 10:00:00 GMT",
-   "source": "Google News: FedEx St. Jude Championship picks",
-   "kind": "news",
-   "golfers": []
   },
   {
    "title": "2026 FedEx St. Jude Championship DFS picks, odds: Scottie Scheffler enters as clear favorite - The New York Times",
@@ -1628,9 +1309,9 @@
    "golfers": []
   },
   {
-   "title": "Course Preview and Fits: FedEx St. Jude Championship - establishtherun.com",
+   "title": "Course Preview and Fits: FedEx St. Jude Championship - Establish The Run",
    "link": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxNWWk4aXNyT3NwUnFOb1p4ZEN2LTlWZWMwNm5SbWlXaHA1bk5Nam1EWUIzanA3RGx1WHJrMXRONERrNlVmUlI3RTZfUDBZUGFacVN3RHBlMk8wWTU0QnNWaEFRUlNHN3RMN2RuZEc1TWlLSFFhb3N0WUtvM3R3ekdLRE1fVkxsRVo1?oc=5",
-   "summary": "Course Preview and Fits: FedEx St. Jude Championship establishtherun.com",
+   "summary": "Course Preview and Fits: FedEx St. Jude Championship Establish The Run",
    "published": "Tue, 11 Aug 2026 13:56:19 GMT",
    "source": "Google News: FedEx St. Jude Championship DFS",
    "kind": "news",
@@ -1646,9 +1327,9 @@
    "golfers": []
   },
   {
-   "title": "2026 FedEx St Jude Championship Odds: Four Longshots & PGA Tour Sleepers - Lineups",
+   "title": "2026 FedEx St Jude Championship Odds: Four Longshots & PGA Tour Sleepers - lineups.com",
    "link": "https://news.google.com/rss/articles/CBMipgFBVV95cUxOdENOajRXNTgzTTJ6UzBiZkVPdFNTaTZQUVNXV2FSa190c1A3TVBwRHF4MXNjZ0ZIYVNsRVJFQ3FOblhfYVVXT3dQVjh4R2JCUmEzd2FmQzl4U1hnNGhDQzRxS3hiMEQ0T185SW1icXNEUkRRVzJwbUpiSkhOejVYMnRQT19YMjdHc2E4anl4SGZwSjJZTTI5eU5wMVJQUXBrNzFmMVlR?oc=5",
-   "summary": "2026 FedEx St Jude Championship Odds: Four Longshots & PGA Tour Sleepers Lineups",
+   "summary": "2026 FedEx St Jude Championship Odds: Four Longshots & PGA Tour Sleepers lineups.com",
    "published": "Tue, 11 Aug 2026 12:36:09 GMT",
    "source": "Google News: FedEx St. Jude Championship DFS",
    "kind": "news",
@@ -1691,9 +1372,9 @@
    "golfers": []
   },
   {
-   "title": "Daniel Berger out of FedExCup playoff opener due to injury - Reuters",
+   "title": "Daniel Berger out of FedExCup playoff opener due to injury - reuters.com",
    "link": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxPbWxmTGF2NUpCNzZfVnVjV2lva0NFcnplNzVTLVhlTFVWMmVqRlNpZmdrcVFIbE91di1xNWh5Q19iSjNXbjYyMXQ3Y0liTWY5QmNGQ05uM3dXUkVxVXZydHBRRE5VNVdLOXFQQlFFOTU1dkZQTUFjZVNmcm5LamI4d05HTVROTVJMS1EwWGVzU0x4bkh1T1ZIRHBnVmlTQ0YxUmJXQlBydWI?oc=5",
-   "summary": "Daniel Berger out of FedExCup playoff opener due to injury Reuters",
+   "summary": "Daniel Berger out of FedExCup playoff opener due to injury reuters.com",
    "published": "Tue, 11 Aug 2026 00:30:00 GMT",
    "source": "Google News: FedEx St. Jude Championship WD",
    "kind": "news",
@@ -1745,9 +1426,9 @@
    "golfers": []
   },
   {
-   "title": "FedEx St Jude Championship betting tips \u2013 including in-form major champion with course success - Today's Golfer",
+   "title": "FedEx St Jude Championship betting tips \u2013 including in-form major champion with course success - todays-golfer.com",
    "link": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxOV2w0OXhnUndCTGpSS1Y2blJneHZob3FqV3JUcDkxU1g5M29nYXg1Y0ZqcVJFMko4WkhjRFlZNkVzdE5FTEgwNlc1UktBTG12TmVqaHEtVHZZOHE2X1RodUplclVGaFF2SXNoaXdyX1FDX093YkVtazJuWEMzd0FNcFhWQS1aZlpNWlFQcWY2RktlRlRGVFdzaTVtQXNQcTR5NHdQMkVuR04?oc=5",
-   "summary": "FedEx St Jude Championship betting tips \u2013 including in-form major champion with course success Today's Golfer",
+   "summary": "FedEx St Jude Championship betting tips \u2013 including in-form major champion with course success todays-golfer.com",
    "published": "Mon, 10 Aug 2026 21:24:24 GMT",
    "source": "Google News: FedEx St. Jude Championship picks",
    "kind": "news",
@@ -1804,6 +1485,15 @@
    "summary": "One player is out of FedEx St. Jude Championship, start of FedEx Cup Playoffs, due to injury Golfweek",
    "published": "Mon, 10 Aug 2026 19:26:00 GMT",
    "source": "Google News: FedEx St. Jude Championship picks",
+   "kind": "news",
+   "golfers": []
+  },
+  {
+   "title": "Four-time PGA Tour winner withdraws from Playoffs opener as FedEx Cup race ends - Golfmagic",
+   "link": "https://news.google.com/rss/articles/CBMirwFBVV95cUxPZVgtRkhLSTM5OTZQWldiZERqMFBnMlRVRkxIcWluR21YaGRtQ01icnVLQmdPZUYyQk9STnZ5VklVcHZrTHhHNXhfTHlIdWoxZGI3R19WRXVFYy03NGFFSGNQSmJJSlgxeFJoMzlseVJHNVZQbXlGd2pXdVZRTW9KOGlQS0NHTHR1WXRMb2UwNXJobXJTUHkwLU9pU2tESUkyWnplRDNKeG9rODJuek04?oc=5",
+   "summary": "Four-time PGA Tour winner withdraws from Playoffs opener as FedEx Cup race ends Golfmagic",
+   "published": "Mon, 10 Aug 2026 18:30:00 GMT",
+   "source": "Google News: FedEx St. Jude Championship WD",
    "kind": "news",
    "golfers": []
   }
