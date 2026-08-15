@@ -1,10 +1,10 @@
 {
- "updatedUtc": "2026-08-15T09:42:26Z",
+ "updatedUtc": "2026-08-15T12:59:52Z",
  "slate": "FEDEX_2026",
  "event": "FedEx St. Jude Championship",
  "counts": {
   "items": 120,
-  "golfersMentioned": 34,
+  "golfersMentioned": 35,
   "news": 120,
   "chatter": 0
  },
@@ -156,19 +156,19 @@
  ],
  "mentions": [
   {
-   "name": "Robert MacIntyre",
-   "news": 10,
-   "chatter": 0,
-   "alert": "wd",
-   "alertHeadline": "Robert MacIntyre withdraws from St. Jude Championship after tough first round - AOL.com",
-   "alertLink": "https://news.google.com/rss/articles/CBMihAFBVV95cUxNZG45MXpRTllkUHMxeWJEVWt6Vm4zZTJRYVJueDEwX1VBUHY0LWt1cnY0UktiaVB0ckViN1BXSmdrNFVUUXFUSXpkUExZV0dLdFdVcEhzcnF5U1Q2TElfcUpQVXl4THIycEVmMnZQeXg5TzJOa3NpZVpJOGlFVEFtUUtKeTA?oc=5",
-   "total": 10
-  },
-  {
    "name": "Scottie Scheffler",
    "news": 9,
    "chatter": 0,
    "total": 9
+  },
+  {
+   "name": "Robert MacIntyre",
+   "news": 8,
+   "chatter": 0,
+   "alert": "wd",
+   "alertHeadline": "Robert MacIntyre withdraws from St. Jude Championship after tough first round - AOL.com",
+   "alertLink": "https://news.google.com/rss/articles/CBMihAFBVV95cUxNZG45MXpRTllkUHMxeWJEVWt6Vm4zZTJRYVJueDEwX1VBUHY0LWt1cnY0UktiaVB0ckViN1BXSmdrNFVUUXFUSXpkUExZV0dLdFdVcEhzcnF5U1Q2TElfcUpQVXl4THIycEVmMnZQeXg5TzJOa3NpZVpJOGlFVEFtUUtKeTA?oc=5",
+   "total": 8
   },
   {
    "name": "Sam Burns",
@@ -213,6 +213,12 @@
    "total": 3
   },
   {
+   "name": "Nick Taylor",
+   "news": 2,
+   "chatter": 0,
+   "total": 2
+  },
+  {
    "name": "Cameron Young",
    "news": 2,
    "chatter": 0,
@@ -255,7 +261,13 @@
    "total": 2
   },
   {
-   "name": "Michael Brennan",
+   "name": "Adam Scott",
+   "news": 1,
+   "chatter": 0,
+   "total": 1
+  },
+  {
+   "name": "Jordan L. Smith",
    "news": 1,
    "chatter": 0,
    "total": 1
@@ -304,12 +316,6 @@
   },
   {
    "name": "Aaron Rai",
-   "news": 1,
-   "chatter": 0,
-   "total": 1
-  },
-  {
-   "name": "Sam Stevens",
    "news": 1,
    "chatter": 0,
    "total": 1
@@ -365,6 +371,40 @@
  ],
  "items": [
   {
+   "title": "6 Crowded Fantasy Football Backfields To Avoid: Potential Running Back Draft Busts (2026)",
+   "link": "https://www.rotoballer.com/6-fantasy-football-backfields-to-avoid-running-back-bust-candidates-2026/1901623",
+   "summary": "Running back fantasy value typically comes from players who receive the vast majority of work in their offense. Players who fit that mold are becoming scarcer as teams look to keep their backfields healthy for playoff time. As such, players like Bijan Robinson, Jonathan Taylor, and Christian McCaffrey are highly coveted for their volume. Running [&#8230;]",
+   "published": "Sat, 15 Aug 2026 11:25:24 +0000",
+   "source": "RotoBaller",
+   "kind": "news",
+   "golfers": [
+    "Nick Taylor"
+   ]
+  },
+  {
+   "title": "6 Upside Fantasy Baseball Closers Breaking Out? Ben Joyce, Jordan Romano, JT Brubaker, Andrew Kittredge, Tanner Scott, Grant Taylor",
+   "link": "https://www.rotoballer.com/6-fantasy-baseball-closer-breakouts-waiver-wire-adds-drops-for-week-21/1908451",
+   "summary": "Targeting an emerging reliever before they eventually claim the ninth-inning role can provide a massive boost to your fantasy team, especially if you are in need of saves. Below, we will take a look at six high-leverage relievers who have begun to see their fantasy value increase over the past week of MLB action. Let's [&#8230;]",
+   "published": "Sat, 15 Aug 2026 10:20:57 +0000",
+   "source": "RotoBaller",
+   "kind": "news",
+   "golfers": [
+    "Adam Scott",
+    "Nick Taylor"
+   ]
+  },
+  {
+   "title": "RotoBaller Staff Roundtable - Waiver Wire Pickups: Fantasy Baseball Week 21",
+   "link": "https://www.rotoballer.com/week-21-waiver-wire-pickups-fantasy-baseball-targets-rotoballer-staff-picks/1908453",
+   "summary": "Welcome, RotoBallers, to another staff roundtable ahead of Week 21 of the fantasy season. As always, we will spotlight our top waiver wire targets from members of our fantasy baseball staff, including Andy Smith, Kevin Larson, and Marty Tallman. In this week's edition, we will spotlight several recent prospect call-ups, including a rising star in [&#8230;]",
+   "published": "Sat, 15 Aug 2026 10:10:01 +0000",
+   "source": "RotoBaller",
+   "kind": "news",
+   "golfers": [
+    "Jordan L. Smith"
+   ]
+  },
+  {
    "title": "NFL Preseason Top Betting Opportunities and QB Depth Charts",
    "link": "https://vsin.com/nfl/nfl-preseason-top-betting-opportunities-and-qb-depth-charts/",
    "summary": "NFL Preseason Top Betting Opportunities One of the most intense quarterback competitions of the NFL preseason is being staged in Minnesota, where veteran Kyler Murray is attempting to beat out young gun J.J. McCarthy for the starting job. According to numerous reports out of Vikings camp, Murray has emerged as the favorite, but a few [&#8230;] The post NFL Preseason Top Betting Opportunities and Q",
@@ -384,17 +424,6 @@
    "kind": "news",
    "golfers": [
     "Harry Hall"
-   ]
-  },
-  {
-   "title": "2026 FedEx St. Jude Championship Preview: Top 70 compete in Memphis + Michael Brennan wins Wyndham | Scorecard Stream of Golf - CBS Sports",
-   "link": "https://news.google.com/rss/articles/CBMi4AFBVV95cUxQVEhPOVZ2dHlzM0ZtTFBpUGFjeUp5ZWZScDVhZ3BLckNDNkpqY3lMTjhrOEdBY0NaSzVHdVZlbExTcDc1Sld4S3UyWUVHZnFEenFpRm04LXRUeTNSbWZZcVk3cXhCMi1pckVWX0FRblM1TU81MVVwTmFteHRkSGFaWkNhZjFVeHUxMUlSbUlZemRVQVBQRWJCTHM1c1lCcEFQXzE3UFpGdkF2ZVJFdnh0QnFFd3RhOUNFblV4Y21Sc25vZF9YY1ctQ3JtdU9CamJrSTk2X1luM2xwbmphbDZ4Rg?oc=5",
-   "summary": "2026 FedEx St. Jude Championship Preview: Top 70 compete in Memphis + Michael Brennan wins Wyndham | Scorecard Stream of Golf CBS Sports",
-   "published": "Sat, 15 Aug 2026 05:11:13 GMT",
-   "source": "Google News: FedEx St. Jude Championship picks",
-   "kind": "news",
-   "golfers": [
-    "Michael Brennan"
    ]
   },
   {
@@ -494,9 +523,9 @@
    "alert": "wd"
   },
   {
-   "title": "Robert MacIntyre Withdraws from FedEx St. Jude After Opening-Round 82 - On Tap Sports Net",
+   "title": "Robert MacIntyre Withdraws from FedEx St. Jude After Opening-Round 82 - ontapsportsnet.com",
    "link": "https://news.google.com/rss/articles/CBMiowFBVV95cUxQZDNtVFRsSTZHNmhjbUZKb0U5NzBkTVV1WmFyRW93d2RkbnZZRjhqZ3VwMkgzSUhxdGxxaExTdUMteVlsYlJyX0QwMnJnNU9fS0FyUGpUQ2RidnVvbm1MQ3pPYWcwbFZKV0VTTVE0Q0dqS2ZaM3pzRUN3Y1JFMU92V09BX0ZPaGVpaUVORG9mZlh4S1VLd2ptdzVncnZidGFKYlcw?oc=5",
-   "summary": "Robert MacIntyre Withdraws from FedEx St. Jude After Opening-Round 82 On Tap Sports Net",
+   "summary": "Robert MacIntyre Withdraws from FedEx St. Jude After Opening-Round 82 ontapsportsnet.com",
    "published": "Fri, 14 Aug 2026 16:42:59 GMT",
    "source": "Google News: FedEx St. Jude Championship WD",
    "kind": "news",
@@ -522,18 +551,6 @@
    "summary": "Robert MacIntyre withdraws from St. Jude Championship after tough first round USA Today",
    "published": "Fri, 14 Aug 2026 16:40:00 GMT",
    "source": "Google News: FedEx St. Jude Championship WD",
-   "kind": "news",
-   "golfers": [
-    "Robert MacIntyre"
-   ],
-   "alert": "wd"
-  },
-  {
-   "title": "Robert MacIntyre withdraws from St. Jude Championship after tough first round",
-   "link": "https://sports.yahoo.com/articles/robert-macintyre-withdraws-st-jude-163546238.html",
-   "summary": "Robert MacIntyre withdrew from the St. Jude Championship, the first leg of the FedEx Cup playoffs, on Friday after enduring a tough opening round.",
-   "published": "Fri, 14 Aug 2026 16:35:46 +0000",
-   "source": "Yahoo Golf",
    "kind": "news",
    "golfers": [
     "Robert MacIntyre"
@@ -587,21 +604,28 @@
    "alert": "wd"
   },
   {
-   "title": "Injured Robert MacIntyre withdraws from playoffs event - bunkered.co.uk",
-   "link": "https://news.google.com/rss/articles/CBMilwFBVV95cUxPcGJSSE1yNGZOUS1xUXc3Q0VUbWdvbW9wbHdhblQzQ0tSMmRXdWZIbDBqZ3RidU15b29DNk9XdXJtc3JBV3JnV05rckJINHFDMjBWZkpkM0E0WEkzdW5Td3UzaThtcTEtR2lXcWdieTdGZnJFQ2RqMlVSa3RmRmQxd05QSVRwaHJlRHBSelBIa3pKY01pNmpr?oc=5",
-   "summary": "Injured Robert MacIntyre withdraws from playoffs event bunkered.co.uk",
-   "published": "Fri, 14 Aug 2026 15:26:28 GMT",
-   "source": "Google News: PGA WD",
+   "title": "DFS Golf Preview: FedEx St. Jude Championship 2024 Fantasy Golf Picks, Data & DraftKings Strategy Jerry Seinfeld (NMTuPKrzfw) - Mshale",
+   "link": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE50RlU1REtiZ1JnQXJ5RGpHd2VpZGRWMFpjanp2WVVQNDU1Y2sza3dmMHl6WmxXQWdSRnA5WjhxbFNnS3BWU1k3UWp4OVFWR1djdHk3anRGWGlPNFE?oc=5",
+   "summary": "DFS Golf Preview: FedEx St. Jude Championship 2024 Fantasy Golf Picks, Data & DraftKings Strategy Jerry Seinfeld (NMTuPKrzfw) Mshale",
+   "published": "Fri, 14 Aug 2026 14:12:37 GMT",
+   "source": "Google News: FedEx St. Jude Championship DFS",
    "kind": "news",
-   "golfers": [
-    "Robert MacIntyre"
-   ]
+   "golfers": []
   },
   {
    "title": "FEDEX ST. JUDE CHAMPIONSHIP 2026, Fantasy Golf Picks & Bets | Fantasy Golf Degenerates Rays Vs Red Sox (i6d1E0ez8T) - Mshale",
    "link": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE51NzdTRnRfZHRSS2JRUEw2TzhjRkhRV1l6SGlIc1VTTTE3RXRuSVNWc0Fudi1POWNaZ2VnSlI5V3V6MUJYWlNHSkxSRnUxLVRwVjlRV2l4UmdzeUU?oc=5",
    "summary": "FEDEX ST. JUDE CHAMPIONSHIP 2026, Fantasy Golf Picks & Bets | Fantasy Golf Degenerates Rays Vs Red Sox (i6d1E0ez8T) Mshale",
    "published": "Fri, 14 Aug 2026 13:36:25 GMT",
+   "source": "Google News: FedEx St. Jude Championship DFS",
+   "kind": "news",
+   "golfers": []
+  },
+  {
+   "title": "2026 FedEx St. Jude Championship Preview: The Blueprint To Win At TPC Southwind Gracie Abrams (mGxaXf5HdN) - Mshale",
+   "link": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE5OZDVtSmN0TkRDN3ZhUXV3cUdBbHg3S1NHQnJlOHAzNDBSLUlnVVVRbUViYUNFeDZDY1A4V0FiZU5xNlVrUnpXU1V2NEN6bTlGTkVqby15eVQtOVU?oc=5",
+   "summary": "2026 FedEx St. Jude Championship Preview: The Blueprint To Win At TPC Southwind Gracie Abrams (mGxaXf5HdN) Mshale",
+   "published": "Fri, 14 Aug 2026 13:27:20 GMT",
    "source": "Google News: FedEx St. Jude Championship DFS",
    "kind": "news",
    "golfers": []
@@ -729,9 +753,9 @@
    ]
   },
   {
-   "title": "FedEx St. Jude Championship: Top PGA DFS Picks, Values, and Sleepers for Large-Field Tournaments on DraftKings - FantasyLabs",
+   "title": "FedEx St. Jude Championship: Top PGA DFS Picks, Values, and Sleepers for Large-Field Tournaments on DraftKings - fantasylabs.com",
    "link": "https://news.google.com/rss/articles/CBMi4wFBVV95cUxPNFhqcnVRUjNrS3piaWZmck1Vd2xqbXlsREc2UkhGajg5cW14cUIxcUt5V2FuN1hLRE5IYy1LSVVNc1NhcC1jT2dVd3lDTFFKc0V0SmR2b1pPblYyRDdjaVFBYkNtM3FOY2xTWkdiT1AxRk9aVGZlSS01MmFHYi1WdmJRRTRpSjcyVC1GdnZTbl9GWmEwcFF0MHF3S3Y2amk0ZTNkNTJrVXV3UUdCYjZoUjliR05hNl9xb1dLWDlhNGtfVkhZc3EzaGdSUXo1M1I3Qzd5U1VGYXZyd0ctODFNUWk5SQ?oc=5",
-   "summary": "FedEx St. Jude Championship: Top PGA DFS Picks, Values, and Sleepers for Large-Field Tournaments on DraftKings FantasyLabs",
+   "summary": "FedEx St. Jude Championship: Top PGA DFS Picks, Values, and Sleepers for Large-Field Tournaments on DraftKings fantasylabs.com",
    "published": "Thu, 13 Aug 2026 01:31:47 GMT",
    "source": "Google News: FedEx St. Jude Championship DFS",
    "kind": "news",
@@ -855,15 +879,6 @@
    "golfers": []
   },
   {
-   "title": "2026 FedEx St. Jude Championship prop bet picks, PGA Tour predictions - Oshkosh Northwestern",
-   "link": "https://news.google.com/rss/articles/CBMi3AFBVV95cUxOLXVGTXhER3ZBWWZVSktrU0ppMUd1M0xPTG5mbGcydmY4akFpN01BcFRJcHRfNFBsVG9kN21tR1Z3QjhmZ0tEYkdLTmFNYmlzZzRqM0t6enJmTldIVjdxejFlSkNOMl9QMUtSeGpOOEpFZjg0UVlZUDdKR2FhOVhycDFtaHM3OUJ5X1VzOUZ0R290MWNLZHc5bEhOR0lTS1YwVXJRRGxkWDQ1bjB0cWxWc2ZGUWhJdU9qdmVtS0pCTnRsbVdvRFVBQlo5d1V3M3Z2a010RVJNN2o5WnND?oc=5",
-   "summary": "2026 FedEx St. Jude Championship prop bet picks, PGA Tour predictions Oshkosh Northwestern",
-   "published": "Wed, 12 Aug 2026 16:59:00 GMT",
-   "source": "Google News: FedEx St. Jude Championship picks",
-   "kind": "news",
-   "golfers": []
-  },
-  {
    "title": "2026 FedEx St. Jude Championship prop bet picks, PGA Tour predictions - The News-Star",
    "link": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxON2VXRDRoaDRVd21JYjktUjk3ZXZDbzFPSlRDNVp3MGxQNDQ0bmdJZXBaTXRGN1ZkQjZueDBaNHdLcFZxenowaWkxM0ZEUkJpb1JzYjRkQmdDRTJFMFRBU0ZyemltQjE2WTdaclEzX25VNThWb2k0N0FyY3VvaUoycFotWEloTzlxakRzcUdPa3B3QnhmS1VPTmg3ZmdxUUc2NDg2TUVkMW5OSHE0cDdrLWNaMnRBdE9DUm5vNmM0dmF2R0haYWJpWkI4OThZVmVGbUxrV1dGQQ?oc=5",
    "summary": "2026 FedEx St. Jude Championship prop bet picks, PGA Tour predictions The News-Star",
@@ -873,38 +888,27 @@
    "golfers": []
   },
   {
-   "title": "2026 FedEx St. Jude Championship prop bet picks, PGA Tour predictions - Stevens Point Journal",
+   "title": "2026 FedEx St. Jude Championship prop bet picks, PGA Tour predictions - stevenspointjournal.com",
    "link": "https://news.google.com/rss/articles/CBMi4gFBVV95cUxPWXhjTFNKem9XNVAzbURRY2ptNW9rQnhPT0piY241VmNuVnN4T0lBNGp0cnVQLVBtRjdJelFFNTIxamFDVmlqQ0wxdUpXYkxIMEZibWF0Z1JTQ3JuNUdnTm1IX09kTXVpX0lfekgwN2FlRlRfZWlXMVBJQUlqc1NQMm5EWG41Uzg2WmZZVXo5MFFWdUFoVXhBSW52UGNZZ0p2MFBUcnNnQTVHSDNTZkNkVElVZGhPRE40UTdJeFNEbVRNRnF4TUpQLURMQ2QybmcwZlY3alRIX2c3NVBjN0hzMHNn?oc=5",
-   "summary": "2026 FedEx St. Jude Championship prop bet picks, PGA Tour predictions Stevens Point Journal",
-   "published": "Wed, 12 Aug 2026 16:59:00 GMT",
-   "source": "Google News: FedEx St. Jude Championship picks",
-   "kind": "news",
-   "golfers": [
-    "Sam Stevens"
-   ]
-  },
-  {
-   "title": "2026 FedEx St. Jude Championship prop bet picks, PGA Tour predictions - Enterprise News",
-   "link": "https://news.google.com/rss/articles/CBMi2wFBVV95cUxNUnBBQk83N3FtSFFtcWkwc0pKMF9JdXhCc01lNWZNOGp1YUM4YkJwbkUxQ1RaZkV5TndYWGpYXzRfY1d4dVVOeGVwd1ZfZmswSmxvdEsydnNvR204b3RHU29MSWhCbUVwMUY4M1YxY29wTDNtTHdIT0RxZHhya1dsMVVhdHlLWG1WNGpFVVNZYjlDVXVuZlNSVHVmSTRQTWhwQ0JHb2VtWExuLVZjVVhhV1V4bEQxazY0LW5vRElyMGhvTkNFcEthNEtpcmVmODdHOXhLSVh1Nlc1ZVU?oc=5",
-   "summary": "2026 FedEx St. Jude Championship prop bet picks, PGA Tour predictions Enterprise News",
+   "summary": "2026 FedEx St. Jude Championship prop bet picks, PGA Tour predictions stevenspointjournal.com",
    "published": "Wed, 12 Aug 2026 16:59:00 GMT",
    "source": "Google News: FedEx St. Jude Championship picks",
    "kind": "news",
    "golfers": []
   },
   {
-   "title": "2026 FedEx St. Jude Championship prop bet picks, PGA Tour predictions - Erie Times-News",
+   "title": "2026 FedEx St. Jude Championship prop bet picks, PGA Tour predictions - goerie.com",
    "link": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxPR0tjWE5ZMnQ3c0xIY0FNWjFxUDZod3BiVmpHSmh5NFNBVF9BODFDRXhrQ2NmUDF2WmJ4Q0hKU05FUjl3Tzd1ZENXeFo1YlZpWmtHY2MwT3NYYjRlUUo0SkdOVWwyeTdFd3hIZ19TeEZ0LTRLdkdlT18tLUtkOThTYVRKbWhJdzhWT0RZWG9YU09GNG5DRGp2VFlPQWlHbnB3aF9aaWpqbTBQd0dFZXdzN1phVk8zdnBJcFc0R3Z4eEZWbXBCSXBnbG5LVVRHQjRU?oc=5",
-   "summary": "2026 FedEx St. Jude Championship prop bet picks, PGA Tour predictions Erie Times-News",
+   "summary": "2026 FedEx St. Jude Championship prop bet picks, PGA Tour predictions goerie.com",
    "published": "Wed, 12 Aug 2026 16:59:00 GMT",
    "source": "Google News: FedEx St. Jude Championship picks",
    "kind": "news",
    "golfers": []
   },
   {
-   "title": "2026 FedEx St. Jude Championship prop bet picks, PGA Tour predictions - shreveporttimes.com",
+   "title": "2026 FedEx St. Jude Championship prop bet picks, PGA Tour predictions - Shreveport Times",
    "link": "https://news.google.com/rss/articles/CBMi3AFBVV95cUxNckdaQ1RielJvWUVOMW1hNm9CajIyLXktaUZtU04tdzE5V20zbWVKSUVwRWxQNklScFQ3SHRYcmZkTnEwWFRRaXN5dUtLRjFtUVFTZGQ3TmhzZTRSTHhZUERsOUlSbzZTSVZwS09qN1g0ZW9QTWxJb21QMFVJMXdTOEdNcno0cnB0YTdyaDNxNGlWUlZmQW9zQUl6VWc3MFNGVVR5NEJuN1NIOF9xdDF4U2VNWnA4TGNFclNmUzktU0VCeUdDLUg0ZWhGRkJKWEQyQ1BqcklzTjJQRmhH?oc=5",
-   "summary": "2026 FedEx St. Jude Championship prop bet picks, PGA Tour predictions shreveporttimes.com",
+   "summary": "2026 FedEx St. Jude Championship prop bet picks, PGA Tour predictions Shreveport Times",
    "published": "Wed, 12 Aug 2026 16:59:00 GMT",
    "source": "Google News: FedEx St. Jude Championship picks",
    "kind": "news",
@@ -920,18 +924,18 @@
    "golfers": []
   },
   {
-   "title": "2026 FedEx St. Jude Championship prop bet picks, PGA Tour predictions - Lebanon Daily News",
-   "link": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxPLURxWERzUjJCRnNkR1ZxcVNmLVVDamVHM1F5M2ZyclRoZm9xUkpIaXN2QzFyem5Ha1hleEp4bDZEcGUzeFBSazRtOXZ1UUh5bnh2eDlZUW5VN1QzdzhoZHdOaGtwLXhJTVVPRnZpVmhlbmx1ODdGODM3NG5ocE9Ob05RUEdKQW1LeG1TcTl0eU9OUUdPRkdQWEd0Q0VVZnJMWTRsb3NlRjRlcnFKNEFpVGE3YmlzNmhWcUxBQnhiQ1NOOTZCaHVCVHVpVGpScHJl?oc=5",
-   "summary": "2026 FedEx St. Jude Championship prop bet picks, PGA Tour predictions Lebanon Daily News",
+   "title": "2026 FedEx St. Jude Championship prop bet picks, PGA Tour predictions - Florida Today",
+   "link": "https://news.google.com/rss/articles/CBMi2AFBVV95cUxQUnpKXzMwYm9Hb3poZWRnM1BWTmxEN2lGbzg2cUxVem0zUkdVRGMtTTFaVWx0MURuZHZKTFhfdl9sU1ZLa3JDdFNTMXNuXzhnTzRiWGNONVA4YkhjemFHaEd2VVNQaHpvYWZ4SC1yUU5qdHNsZWM3b09NTHZsZmtXTVZlSHlPd2RXblBFWDhjVVFzbGZPS2RKeEQ5M05mb2hjN3FyWHVYX3dkUFY3WTVTbmI3TldBRm9ESmRRNmpyZmhxQTZVeVlfSWNBdmItQjZZMHJRWmdIUDg?oc=5",
+   "summary": "2026 FedEx St. Jude Championship prop bet picks, PGA Tour predictions Florida Today",
    "published": "Wed, 12 Aug 2026 16:59:00 GMT",
    "source": "Google News: FedEx St. Jude Championship picks",
    "kind": "news",
    "golfers": []
   },
   {
-   "title": "2026 FedEx St. Jude Championship prop bet picks, PGA Tour predictions - Florida Today",
-   "link": "https://news.google.com/rss/articles/CBMi2AFBVV95cUxQUnpKXzMwYm9Hb3poZWRnM1BWTmxEN2lGbzg2cUxVem0zUkdVRGMtTTFaVWx0MURuZHZKTFhfdl9sU1ZLa3JDdFNTMXNuXzhnTzRiWGNONVA4YkhjemFHaEd2VVNQaHpvYWZ4SC1yUU5qdHNsZWM3b09NTHZsZmtXTVZlSHlPd2RXblBFWDhjVVFzbGZPS2RKeEQ5M05mb2hjN3FyWHVYX3dkUFY3WTVTbmI3TldBRm9ESmRRNmpyZmhxQTZVeVlfSWNBdmItQjZZMHJRWmdIUDg?oc=5",
-   "summary": "2026 FedEx St. Jude Championship prop bet picks, PGA Tour predictions Florida Today",
+   "title": "2026 FedEx St. Jude Championship prop bet picks, PGA Tour predictions - Daily American",
+   "link": "https://news.google.com/rss/articles/CBMi2gFBVV95cUxNdFE2aDlweXBRcm5rNm5BTEZDSkRxZnpmOXdjSGdxU2N0MzMzRnA3c3lRVHNMVU5wMTBjNjJibVNxcU5mdFFrekZvSG1nRkdHUEgwY2ZhZTZYTFZVNGJFTG1yS0ZpR3ByMjRfdWJ3U01mQ1JWMDRLSzd6N09OOVRmd1h2Y0tlS0tNN3NLU2FOdnNlbTQtLTBuV3Rkb2JfYmxoMHRPaXAxX0NMMjlQSlhRM2s4dEYxbVhxYzVzejZjM2FCdXNsbTFKUTlPcDZnMFNvR0ltNF9mTW5OZw?oc=5",
+   "summary": "2026 FedEx St. Jude Championship prop bet picks, PGA Tour predictions Daily American",
    "published": "Wed, 12 Aug 2026 16:59:00 GMT",
    "source": "Google News: FedEx St. Jude Championship picks",
    "kind": "news",
@@ -965,9 +969,9 @@
    "golfers": []
   },
   {
-   "title": "2026 FedEx St. Jude Championship: Preview, Prop Picks, Best Bets - lufkindailynews.com",
+   "title": "2026 FedEx St. Jude Championship: Preview, Prop Picks, Best Bets - The Lufkin Daily News",
    "link": "https://news.google.com/rss/articles/CBMi7wFBVV95cUxOR0lMRlZfeDhDbDlacENwdFhXTHhOY2xlNFlFQTQtTTkzWmpvV3J4SXhyOVJrQng2ZVlGNUtMaXE3YTBMQTQ4LUpWNjh4TEJSS1dpTTJ6MFhqRXZzOFJwQ3dCUTdBSjBxd0hqQ09RRWswaWhLYzk4WFVIbFdrOGMzVjBJa09URFZHcUVYVndISFpKdXEtMHhLRHV1Z0s0endsSDEwRmlZTzlYQk1oS0V3VklEdnBXX1Z6VHBnYXYxY0lRdXRTcl9UZ3VzMUl0Rl9WOXhmdkZxY1o4VVo1Z3o3bG9KWlNHc3lzbkJWUjhfRQ?oc=5",
-   "summary": "2026 FedEx St. Jude Championship: Preview, Prop Picks, Best Bets lufkindailynews.com",
+   "summary": "2026 FedEx St. Jude Championship: Preview, Prop Picks, Best Bets The Lufkin Daily News",
    "published": "Wed, 12 Aug 2026 16:10:03 GMT",
    "source": "Google News: FedEx St. Jude Championship picks",
    "kind": "news",
@@ -994,9 +998,9 @@
    "golfers": []
   },
   {
-   "title": "2026 FedEx St. Jude Championship Sleeper Picks: Bet on Patrick Cantlay, Victor Hovland at TPC Southwind - oddschecker.com",
+   "title": "2026 FedEx St. Jude Championship Sleeper Picks: Bet on Patrick Cantlay, Victor Hovland at TPC Southwind - Oddschecker",
    "link": "https://news.google.com/rss/articles/CBMi8AFBVV95cUxQa3pYUF9KWkFCS2Y4Z3NmeHE3U0NnT3B2MFNyaVYycllEWXhVUTViMzN5TkkxUGNnalRsYUpWb2d1OVRpdU1ub0twS3RHN1BWTWZsZ196Qy1WemdOd01zSGNQRFYxVjNTR2d1VEt1ZVJBdi1QY0gzRmlJQjhlbjFtRXc1WkVaY01oQ2I1X2lZaWs0MjBDa2ZrVm9xdTJMVHh1eHNzWklJUlR0aXZ2MmI4UmJlMFJ5Q0hTS0NnN0Y4MHNYd1lZOWFfbnZyTU9WaEwyZ1JaQUp5QXIxeTZMM2xoVnJNVGZyQ3ZoTWJfWE05cU4?oc=5",
-   "summary": "2026 FedEx St. Jude Championship Sleeper Picks: Bet on Patrick Cantlay, Victor Hovland at TPC Southwind oddschecker.com",
+   "summary": "2026 FedEx St. Jude Championship Sleeper Picks: Bet on Patrick Cantlay, Victor Hovland at TPC Southwind Oddschecker",
    "published": "Wed, 12 Aug 2026 16:00:00 GMT",
    "source": "Google News: FedEx St. Jude Championship DFS",
    "kind": "news",
@@ -1207,6 +1211,15 @@
    "golfers": [
     "Scottie Scheffler"
    ]
+  },
+  {
+   "title": "2026 FedEx St. Jude Championship: Preview, Prop Picks, Best Bets - WJOX-FM",
+   "link": "https://news.google.com/rss/articles/CBMimgFBVV95cUxQbU4zc3JNdWc2SDUwWEs4TVVoOVM5c29tSXd0YTRsMl9ZbG92eFVXSHpOWExCX2lKamhieUZTZGRzbUVHMU40a3ZNTTFObWs3d05ydWt2X2M2eDRzdldrOFhEclpGQmJUVDJWaW56eTUtMUpqQzdTaU94c3NTNksyY0w3ekMyUUwtQ0FHT1BWZTE3OXVQbE8wSjRB?oc=5",
+   "summary": "2026 FedEx St. Jude Championship: Preview, Prop Picks, Best Bets WJOX-FM",
+   "published": "Wed, 12 Aug 2026 07:00:00 GMT",
+   "source": "Google News: FedEx St. Jude Championship picks",
+   "kind": "news",
+   "golfers": []
   },
   {
    "title": "FedEx St. Jude Championship Best Bets and Golf Odds - VSiN",
@@ -1493,9 +1506,9 @@
    ]
   },
   {
-   "title": "PGA DFS: Top Cash Game Picks for the FedEx St. Jude Championship - FantasyLabs",
+   "title": "PGA DFS: Top Cash Game Picks for the FedEx St. Jude Championship - fantasylabs.com",
    "link": "https://news.google.com/rss/articles/CBMipAFBVV95cUxNb2Q0aHc2Sm9OTkVaY2tja09rbmpzdkNEeVhySTdyUVQtS3pwNHByQ05VVWRWU1U1Z2xRU1JnUlVVa1ZGNDNYWHN2M0FNOVlFNVB6R1hibk00bFRQZUx2QXJJbHg3SnhTbjBqRmxtQ3k0X3dKUGx4Nk84TjZ6T0w2VWlESk5xYlVKZDJFVUdDVVRVV3Z3VkktYjczWEp3eDZ0X3l5Wg?oc=5",
-   "summary": "PGA DFS: Top Cash Game Picks for the FedEx St. Jude Championship FantasyLabs",
+   "summary": "PGA DFS: Top Cash Game Picks for the FedEx St. Jude Championship fantasylabs.com",
    "published": "Tue, 11 Aug 2026 15:13:29 GMT",
    "source": "Google News: FedEx St. Jude Championship DFS",
    "kind": "news",
@@ -1554,15 +1567,6 @@
    "summary": "2026 FedEx St Jude Championship Odds: Four Longshots & PGA Tour Sleepers Lineups",
    "published": "Tue, 11 Aug 2026 12:36:09 GMT",
    "source": "Google News: FedEx St. Jude Championship DFS",
-   "kind": "news",
-   "golfers": []
-  },
-  {
-   "title": "FedEx St. Jude Championship Predictions & Picks: Conservative/Aggressive Plays for Every Type of Bettor - BetMGM",
-   "link": "https://news.google.com/rss/articles/CBMi6wFBVV95cUxQRVcxSmRmWU9oSzBWNkpxZ0YySmx2MDF3emtra0R3T0o0QUhsZUFtOVBDXzhkc0stTnUyZGZ6NEl6d1I4RGIzbnlaUDlVZkw4S0o5OFBSN00yX2k4UmpkWG1WWmstTnNicHpuVGc4VlFnRUlmYWlBbUR3aHR4X2pNQ3RIVDBEcEYyVEk3OUJfSnRtc0UxT0sxaWxLSlkyQzRSUmJ4cnFRdjg3UVVWbUhiZ1ZpV3BEMG1xdHpQZkZkcEQ4RVAxQ2hjbi1kaEYyWUF3Qmw4aGhtc251d0tRX1V4d3VZT2piYlpQejNN?oc=5",
-   "summary": "FedEx St. Jude Championship Predictions & Picks: Conservative/Aggressive Plays for Every Type of Bettor BetMGM",
-   "published": "Tue, 11 Aug 2026 11:48:35 GMT",
-   "source": "Google News: FedEx St. Jude Championship picks",
    "kind": "news",
    "golfers": []
   }
