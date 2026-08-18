@@ -1,5 +1,5 @@
 {
- "updatedUtc": "2026-08-17T17:21:45Z",
+ "updatedUtc": "2026-08-18T13:37:07Z",
  "tournament": "BMW_2026",
  "event": "BMW Championship",
  "draftGroupId": "151539",
@@ -9,6 +9,21 @@
    "name": "PGA TOUR FREE 200-Player",
    "fee": 0,
    "entries": 200,
+   "paidSpots": 1,
+   "prizePool": 0.0,
+   "tiers": [
+    {
+     "min": 1,
+     "max": 1,
+     "value": 0.0
+    }
+   ]
+  },
+  {
+   "id": "193962822",
+   "name": "PGA TOUR FREE 50-Player",
+   "fee": 0,
+   "entries": 50,
    "paidSpots": 1,
    "prizePool": 0.0,
    "tiers": [
@@ -1170,7 +1185,7 @@
    ]
   },
   {
-   "id": "193947325",
+   "id": "193947324",
    "name": "PGA TOUR SUPERSat to NFL 9-13 $100 Fantasy Football Millionaire [10x]",
    "fee": 3,
    "entries": 396,
@@ -3060,8 +3075,8 @@
    ]
   },
   {
-   "id": "193947613",
-   "name": "Casual PGA TOUR $109 3-Player",
+   "id": "193947539",
+   "name": "PGA TOUR $109 3-Player",
    "fee": 109,
    "entries": 3,
    "paidSpots": 1,
@@ -3075,8 +3090,8 @@
    ]
   },
   {
-   "id": "193947539",
-   "name": "PGA TOUR $109 3-Player",
+   "id": "193947613",
+   "name": "Casual PGA TOUR $109 3-Player",
    "fee": 109,
    "entries": 3,
    "paidSpots": 1,
@@ -3515,7 +3530,7 @@
    ]
   },
   {
-   "id": "193947150",
+   "id": "193947155",
    "name": "PGA TOUR $267 Winner Take All [$1K to 1st]",
    "fee": 267,
    "entries": 4,
@@ -3665,7 +3680,7 @@
    ]
   },
   {
-   "id": "193947196",
+   "id": "193947197",
    "name": "PGA TOUR $555 Winner Take All [$2K to 1st]",
    "fee": 555,
    "entries": 4,
@@ -3795,7 +3810,7 @@
    ]
   },
   {
-   "id": "193947652",
+   "id": "193952279",
    "name": "PGA TOUR $2,120 3-Player",
    "fee": 2120,
    "entries": 3,
@@ -3976,6 +3991,36 @@
      "min": 1,
      "max": 1,
      "value": 30000.0
+    }
+   ]
+  },
+  {
+   "id": "193947647",
+   "name": "PGA TOUR $100K Heavy Hitter [Must Fill]",
+   "fee": 26200,
+   "entries": 4,
+   "paidSpots": 1,
+   "prizePool": 100000.0,
+   "tiers": [
+    {
+     "min": 1,
+     "max": 1,
+     "value": 100000.0
+    }
+   ]
+  },
+  {
+   "id": "193947648",
+   "name": "PGA TOUR $75K Heavy Hitter [Must Fill]",
+   "fee": 26200,
+   "entries": 3,
+   "paidSpots": 1,
+   "prizePool": 75000.0,
+   "tiers": [
+    {
+     "min": 1,
+     "max": 1,
+     "value": 75000.0
     }
    ]
   }
