@@ -1,11 +1,11 @@
 {
- "updatedUtc": "2026-08-18T09:49:12Z",
+ "updatedUtc": "2026-08-18T13:09:13Z",
  "slate": "BMW_2026",
  "event": "BMW Championship",
  "counts": {
-  "items": 10,
-  "golfersMentioned": 6,
-  "news": 10,
+  "items": 15,
+  "golfersMentioned": 7,
+  "news": 15,
   "chatter": 0
  },
  "sources": [
@@ -108,7 +108,7 @@
   {
    "source": "Google News: BMW Championship DFS",
    "ok": true,
-   "items": 72,
+   "items": 73,
    "error": null
   },
   {
@@ -156,6 +156,12 @@
  ],
  "mentions": [
   {
+   "name": "Scottie Scheffler",
+   "news": 5,
+   "chatter": 0,
+   "total": 5
+  },
+  {
    "name": "Robert MacIntyre",
    "news": 5,
    "chatter": 0,
@@ -163,24 +169,24 @@
   },
   {
    "name": "Cameron Young",
+   "news": 3,
+   "chatter": 0,
+   "total": 3
+  },
+  {
+   "name": "Justin Thomas",
    "news": 2,
    "chatter": 0,
    "total": 2
   },
   {
-   "name": "Justin Thomas",
+   "name": "Matt Fitzpatrick",
    "news": 1,
    "chatter": 0,
    "total": 1
   },
   {
    "name": "Adam Scott",
-   "news": 1,
-   "chatter": 0,
-   "total": 1
-  },
-  {
-   "name": "Matt Fitzpatrick",
    "news": 1,
    "chatter": 0,
    "total": 1
@@ -193,6 +199,40 @@
   }
  ],
  "items": [
+  {
+   "title": "Fantasy Baseball Breakouts or Fake Outs? Hitters Delivering Elite Results For Week 21",
+   "link": "https://www.rotoballer.com/fantasy-baseball-breakout-hitters-elite-bats-or-fake-outs-for-week-21-2026/1910671",
+   "summary": "Welcome to Week 21! The fantasy playoffs are going to be starting shortly and you need to find some real winners to help you out with your playoff push. Finding vets you know and trust is a solid strategy, but you know what's even better? Taking a chance on rookies and young studs that turn [&#8230;]",
+   "published": "Tue, 18 Aug 2026 12:00:05 +0000",
+   "source": "RotoBaller",
+   "kind": "news",
+   "golfers": [
+    "Cameron Young"
+   ]
+  },
+  {
+   "title": "Fantasy Football Breakout Candidates: Mid-to-Late-Round Draft Values and Targets for 2026",
+   "link": "https://www.rotoballer.com/fantasy-football-breakout-candidates-sleepers-for-middle-to-late-rounds-2026/1902867",
+   "summary": "You can lose a draft in the first couple of rounds by selecting this year's Brian Thomas Jr. You can't win a draft with those early picks. The middle rounds are where you can win the draft. Hit on those picks, and you'll have a complete, championship-contending lineup. Miss, and you'll be scrambling to find [&#8230;]",
+   "published": "Tue, 18 Aug 2026 11:45:03 +0000",
+   "source": "RotoBaller",
+   "kind": "news",
+   "golfers": [
+    "Justin Thomas"
+   ]
+  },
+  {
+   "title": "Odds Outlook: Expect top 2026 performers Cameron Young, Matt Fitzpatrick to contend at BMW Championship - PGA Tour",
+   "link": "https://news.google.com/rss/articles/CBMi3wFBVV95cUxPZHFlZW9UaUtIWUF0SHRzeEdnR2pNb1UyaUY3Z2kxVURTVHZwanFwNzU0WnMycDlSUE11RVRYM1NPZzNyVlZyZ2Fkb2FEMWowa01QRVVuMUwtRUxHTldzM0ctZzNBZzFwcE02elpjNmpPQm5zZXVpNWotRkxZTXZZcW1wREJRVEFBQWpKR2hWN0tTUWg3ZlJteTBwb19VZjF6T1FqTkZKZTg4MWhOaXFZMDBkRlJ6V0dSZEJsUFFEeG5sSjJwclByUTFLNy1iZWVYNS1PdU81OE1iZ3FTT3JN?oc=5",
+   "summary": "Odds Outlook: Expect top 2026 performers Cameron Young, Matt Fitzpatrick to contend at BMW Championship PGA Tour",
+   "published": "Tue, 18 Aug 2026 05:41:43 GMT",
+   "source": "Google News: BMW Championship DFS",
+   "kind": "news",
+   "golfers": [
+    "Cameron Young",
+    "Matt Fitzpatrick"
+   ]
+  },
   {
    "title": "Bet on a Brian Thomas Jr. Bounce Back in Fantasy Football Drafts?",
    "link": "https://www.fantasylabs.com/articles/bet-on-a-brian-thomas-jr-bounce-back-in-fantasy-football-drafts/",
@@ -223,19 +263,41 @@
    "source": "Google News: BMW Championship picks",
    "kind": "news",
    "golfers": [
+    "Scottie Scheffler",
     "Adam Scott"
    ]
   },
   {
-   "title": "Odds Outlook: Expect top 2026 performers Cameron Young, Matt Fitzpatrick to contend at BMW Championship - PGA Tour",
-   "link": "https://news.google.com/rss/articles/CBMi3wFBVV95cUxPZHFlZW9UaUtIWUF0SHRzeEdnR2pNb1UyaUY3Z2kxVURTVHZwanFwNzU0WnMycDlSUE11RVRYM1NPZzNyVlZyZ2Fkb2FEMWowa01QRVVuMUwtRUxHTldzM0ctZzNBZzFwcE02elpjNmpPQm5zZXVpNWotRkxZTXZZcW1wREJRVEFBQWpKR2hWN0tTUWg3ZlJteTBwb19VZjF6T1FqTkZKZTg4MWhOaXFZMDBkRlJ6V0dSZEJsUFFEeG5sSjJwclByUTFLNy1iZWVYNS1PdU81OE1iZ3FTT3JN?oc=5",
-   "summary": "Odds Outlook: Expect top 2026 performers Cameron Young, Matt Fitzpatrick to contend at BMW Championship PGA Tour",
-   "published": "Mon, 17 Aug 2026 20:40:14 GMT",
+   "title": "BMW Championship Odds: Scheffler And The Field - oddsshopper.com",
+   "link": "https://news.google.com/rss/articles/CBMigwFBVV95cUxQcnZmTU5HWmQ4ckxLZXQ1OWtYSU9VanlDYmZsR1VlNU9TYWJaYkVDU1ZiS1QtUjNqX1h3b2d4QVUteUhRSkJld3FYZEEzOU5fY1JwX0VROG82YlN1OU4yeXhRRGZzSV94cnJ2WmcwVHhxWmROMUpKYjVTYzFFZXZjZktpYw?oc=5",
+   "summary": "BMW Championship Odds: Scheffler And The Field oddsshopper.com",
+   "published": "Mon, 17 Aug 2026 16:07:15 GMT",
    "source": "Google News: BMW Championship DFS",
    "kind": "news",
    "golfers": [
-    "Cameron Young",
-    "Matt Fitzpatrick"
+    "Scottie Scheffler"
+   ]
+  },
+  {
+   "title": "2026 BMW Championship odds: Scottie Scheffler huge favorite in St. Louis",
+   "link": "https://golf.com/news/2026-bmw-championship-odds-scottie-scheffler-favorite/",
+   "summary": "The 2026 BMW Championship odds show FedEX Cup leader Scottie Scheffler as a huge betting favorite heading into the second playoff event. The post 2026 BMW Championship odds: Scottie Scheffler huge favorite in St. Louis appeared first on Golf .",
+   "published": "Mon, 17 Aug 2026 11:01:03 +0000",
+   "source": "Golf.com",
+   "kind": "news",
+   "golfers": [
+    "Scottie Scheffler"
+   ]
+  },
+  {
+   "title": "2026 BMW Championship odds: Scottie Scheffler huge favorite in St. Louis - golf.com",
+   "link": "https://news.google.com/rss/articles/CBMiggFBVV95cUxNNFFXNklkd3MwN0psTmlLejl2dF8wQWk0bnBMOTZLbVA4MWIwNF83U1ZGUHF6cndRWlFHTE85elJXbG0wMXVaMUNLMXBmN0ZaOGNoNFVtZlc1LUNkNWhVdV9paWZwajZwUV9ZcjlHSk53ZDlURDJFT2Z3OF90anljYkd3?oc=5",
+   "summary": "2026 BMW Championship odds: Scottie Scheffler huge favorite in St. Louis golf.com",
+   "published": "Mon, 17 Aug 2026 11:01:03 GMT",
+   "source": "Google News: BMW Championship picks",
+   "kind": "news",
+   "golfers": [
+    "Scottie Scheffler"
    ]
   },
   {
@@ -301,6 +363,7 @@
    "source": "Google News: BMW Championship picks",
    "kind": "news",
    "golfers": [
+    "Scottie Scheffler",
     "Rory McIlroy"
    ]
   }
