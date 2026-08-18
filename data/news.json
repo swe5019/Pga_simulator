@@ -1,11 +1,11 @@
 {
- "updatedUtc": "2026-08-18T15:47:18Z",
+ "updatedUtc": "2026-08-18T18:57:42Z",
  "slate": "BMW_2026",
  "event": "BMW Championship",
  "counts": {
-  "items": 16,
+  "items": 19,
   "golfersMentioned": 9,
-  "news": 16,
+  "news": 19,
   "chatter": 0
  },
  "sources": [
@@ -108,7 +108,7 @@
   {
    "source": "Google News: BMW Championship DFS",
    "ok": true,
-   "items": 75,
+   "items": 78,
    "error": null
   },
   {
@@ -156,13 +156,13 @@
  ],
  "mentions": [
   {
-   "name": "Robert MacIntyre",
-   "news": 5,
+   "name": "Scottie Scheffler",
+   "news": 8,
    "chatter": 0,
-   "total": 5
+   "total": 8
   },
   {
-   "name": "Scottie Scheffler",
+   "name": "Robert MacIntyre",
    "news": 4,
    "chatter": 0,
    "total": 4
@@ -174,25 +174,31 @@
    "total": 3
   },
   {
+   "name": "Rory McIlroy",
+   "news": 2,
+   "chatter": 0,
+   "total": 2
+  },
+  {
    "name": "Justin Thomas",
    "news": 2,
    "chatter": 0,
    "total": 2
   },
   {
-   "name": "Kurt Kitayama",
-   "news": 1,
-   "chatter": 0,
-   "total": 1
-  },
-  {
    "name": "Adam Scott",
+   "news": 2,
+   "chatter": 0,
+   "total": 2
+  },
+  {
+   "name": "Ludvig Aberg",
    "news": 1,
    "chatter": 0,
    "total": 1
   },
   {
-   "name": "Sam Burns",
+   "name": "Kurt Kitayama",
    "news": 1,
    "chatter": 0,
    "total": 1
@@ -202,15 +208,54 @@
    "news": 1,
    "chatter": 0,
    "total": 1
-  },
-  {
-   "name": "Rory McIlroy",
-   "news": 1,
-   "chatter": 0,
-   "total": 1
   }
  ],
  "items": [
+  {
+   "title": "Ludvig Aberg Features Fantasy Golf Picks (DraftKings) at the BMW Championship - Sports Illustrated",
+   "link": "https://news.google.com/rss/articles/CBMisgFBVV95cUxNaTIwSzg4YVJRNks2RnYtY3U4VGcwLTBrWjhqSjZCSXlJTnBLY0pMd3NEbG9Ga0lEM2lLMGxqZU1Gc0d2enFGRWZ4QURoY01TZ2lfV2h1dGhuYVJ0RUM2T200RFZXZFhIVElja3QyaDhkakNkUkF4WXJLcVhRZGNCUDlYeDU5Q0tsa09vclotN0w5QTRUM3p1YS13Qi0wNURQVjVtWmRWcVZpZjNSbkpuVHNR?oc=5",
+   "summary": "Ludvig Aberg Features Fantasy Golf Picks (DraftKings) at the BMW Championship Sports Illustrated",
+   "published": "Tue, 18 Aug 2026 18:23:52 GMT",
+   "source": "Google News: BMW Championship DFS",
+   "kind": "news",
+   "golfers": [
+    "Ludvig Aberg"
+   ]
+  },
+  {
+   "title": "2026 BMW Championship predictions, odds: Scottie Scheffler, Rory McIlroy lead 50-man field into St. Louis - cbssports.com",
+   "link": "https://news.google.com/rss/articles/CBMitAFBVV95cUxPclAzNjhzU2dLbjBDMmtfWG1MT0pjSHpUaUs3dDVZeGFXU0h4VElTZ0t1QXVrTlljN2x6VE1sTzE1dW4xdzU5V2p4YjlLTHpNUnJLMS0tYVctb2Q4dnhGdjQ4QjRTS1hiNkFaVjlhcXVKOXVLTzUzSF9Mc3NkS2p0NVpSQjhsSnpZdkNNY3c2eE05TkpkOExYNVB4QUgwcktGOFhDajUzNmJ1QlA5eUk4SmNuclc?oc=5",
+   "summary": "2026 BMW Championship predictions, odds: Scottie Scheffler, Rory McIlroy lead 50-man field into St. Louis cbssports.com",
+   "published": "Tue, 18 Aug 2026 17:01:00 GMT",
+   "source": "Google News: BMW Championship picks",
+   "kind": "news",
+   "golfers": [
+    "Scottie Scheffler",
+    "Rory McIlroy"
+   ]
+  },
+  {
+   "title": "BMW Championship Predictions & Odds 2026: How to Fade Scheffler",
+   "link": "https://sports.yahoo.com/articles/bmw-championship-odds-predictions-preview-131500993.html",
+   "summary": "Breaking down the best 2026 BMW Championship predictions based on the odds from Kalshi, with a 50-man field at Bellerive Country Club from August 20-23.",
+   "published": "Tue, 18 Aug 2026 16:03:00 +0000",
+   "source": "Yahoo Golf",
+   "kind": "news",
+   "golfers": [
+    "Scottie Scheffler"
+   ]
+  },
+  {
+   "title": "BMW Championship Betting Tips: Two players to take on short-priced Scheffler at Bellerive - Golfmagic",
+   "link": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxQbWppekpGUUc3Mmdrd1dqLTZEdlo3SUh3S09EZlFuNkE5VVAyUG14cGtKbm9XQ294T3lvR2dRNTItalZZV3dla3ljVFdlOVZvaFgyTmxNUTJIZXkzVEEzTWpWdDFWRW91WG9QX1hpSVFhR0YtSWZGNU1pRUZVYnFjM3RkMVhnN21EUTRVTDJyYVYtVnFrQi1EaTVxQndVZ3R3WWxvS3NEWE1nQmxSd1M0dFhPUUNOTl9nYy1F?oc=5",
+   "summary": "BMW Championship Betting Tips: Two players to take on short-priced Scheffler at Bellerive Golfmagic",
+   "published": "Tue, 18 Aug 2026 14:20:00 GMT",
+   "source": "Google News: BMW Championship picks",
+   "kind": "news",
+   "golfers": [
+    "Scottie Scheffler"
+   ]
+  },
   {
    "title": "2026 BMW Championship Odds: Four Longshots & PGA Tour Sleepers, Including Kurt Kitayama - Lineups",
    "link": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxOdFBLSG1RM1JxN3RrbTlYQVdBSWxKanQtOGI3WHRHemswemVXbEhaU2V0QXdMZ0o4X3AxU3ViT1gtR1pJaThMNDZ0UGFwLXhWWEw4aEdkZEhkaGdBeFBCS1Z6NGJKQmdhWmNFR0h0YTZLaDBPRXJxRlktRFNQMXo0MjU4d1hpNzVZRkNkeC1xUldOZEJNaUh6SnFCeFBDNEdVbld0WmIxQU53UElPUUl6a09HUWJkT0lt?oc=5",
@@ -225,7 +270,7 @@
   {
    "title": "Fantasy Baseball Breakouts or Fake Outs? Hitters Delivering Elite Results For Week 21",
    "link": "https://www.rotoballer.com/fantasy-baseball-breakout-hitters-elite-bats-or-fake-outs-for-week-21-2026/1910671",
-   "summary": "Welcome to Week 21! The fantasy playoffs are going to be starting shortly and you need to find some real winners to help you out with your playoff push. Finding vets you know and trust is a solid strategy, but you know what's even better? Taking a chance on rookies and young studs that turn [&#8230;]",
+   "summary": "Welcome to Week 21! The fantasy playoffs are going to start shortly, and you need to find some real winners to help you out with your playoff push. Finding vets you know and trust is a solid strategy, but you know what's even better? Taking a chance on rookies and young studs that turn out [&#8230;]",
    "published": "Tue, 18 Aug 2026 12:00:05 +0000",
    "source": "RotoBaller",
    "kind": "news",
@@ -267,9 +312,9 @@
    ]
   },
   {
-   "title": "BMW Championship Picks: Scottie Scheffler & Adam Scott Stream of Golf - CBS Sports",
+   "title": "BMW Championship Picks: Scottie Scheffler & Adam Scott Stream of Golf - cbssports.com",
    "link": "https://news.google.com/rss/articles/CBMinwFBVV95cUxNcm5DQ0l6YUNzSDg1RXdDX3FkOUJxejJvXzRhelhlM2FYbUpIWVl2ZkJZYlJ4Sy1ObXF1OWY1YVNGSURLZ2J3aXltdDBFeDNoX0RMUFowY2N5NEV4MW50QXRjdkcyUVlZT3Q4bkRtRGpmem5yNGJkdklkVDdNcTJjc0lmQmRkd1A4ZnliOXBBNkw3MGh0bzhQWDN5d0ZPaTQ?oc=5",
-   "summary": "BMW Championship Picks: Scottie Scheffler & Adam Scott Stream of Golf CBS Sports",
+   "summary": "BMW Championship Picks: Scottie Scheffler & Adam Scott Stream of Golf cbssports.com",
    "published": "Mon, 17 Aug 2026 22:52:32 GMT",
    "source": "Google News: BMW Championship picks",
    "kind": "news",
@@ -279,14 +324,15 @@
    ]
   },
   {
-   "title": "The Case for Sam Burns in St. Louis\u2014Our Best Bets for the BMW Championship",
-   "link": "https://sports.yahoo.com/articles/case-sam-burns-st-louis-201858545.html",
-   "summary": "He's is the best player on TOUR this year without a victory\u2014and his stat profile in Memphis week was exactly what you\u2019d like to see from him.",
-   "published": "Mon, 17 Aug 2026 20:18:58 +0000",
-   "source": "Yahoo Golf",
+   "title": "BMW Championship Picks: Scottie Scheffler & Adam Scott - 247sports.com",
+   "link": "https://news.google.com/rss/articles/CBMisAFBVV95cUxOLWJZQktJVDQxeUpFbGExa2hiSG1MNDJXanFDQVNoa01LbFJjbVBvSzBXZzFLZk1VZHRDREktV1c3c2xHeHZoUmVFeVVrVE5vcVRDRGFDYU1vWm9XMkY1TTNKcm1ESmlnR3ZORmMzN196Z1Bwa1hNbUxaS2h6VGc0bl9xU1hJQ3UyZ3VyRG93VHVqNGZZVExMSmlKMXo3d09ReV81WERPSnd5eWZMTkIxQg?oc=5",
+   "summary": "BMW Championship Picks: Scottie Scheffler & Adam Scott 247sports.com",
+   "published": "Mon, 17 Aug 2026 20:04:00 GMT",
+   "source": "Google News: BMW Championship picks",
    "kind": "news",
    "golfers": [
-    "Sam Burns"
+    "Scottie Scheffler",
+    "Adam Scott"
    ]
   },
   {
@@ -346,17 +392,6 @@
    ]
   },
   {
-   "title": "After opening in 82, Robert MacIntyre withdraws before Round 2 in Memphis - Golf Channel",
-   "link": "https://news.google.com/rss/articles/CBMitAFBVV95cUxQdmRPMThraWtsYmxsR1Btdm5yUlI3Wlo1MTJMeVFoRnozZFBRSmhveUJ5M0pZNzRoYnpTYmdpTkV5QkFtRF9LVXU2QWhqTzZwY3JWMkFxaE1JWkRVTVpPV1g2S1FRRm1pQTBSaW1NMmxkWE5tMk1pQ3hEalJWY0pZLXB3QklmRnlPNnJFeDRBMVFJRWhXNUtoYXZ2bVkzUmR1cjhHZElQQ1FNZEgtN1dtMllLekc?oc=5",
-   "summary": "After opening in 82, Robert MacIntyre withdraws before Round 2 in Memphis Golf Channel",
-   "published": "Fri, 14 Aug 2026 16:03:48 GMT",
-   "source": "Google News: BMW Championship WD",
-   "kind": "news",
-   "golfers": [
-    "Robert MacIntyre"
-   ]
-  },
-  {
    "title": "Robert MacIntyre withdraws from 2026 FedEx St. Jude Championship - Golfweek",
    "link": "https://news.google.com/rss/articles/CBMizwFBVV95cUxPWkZTRVhHZGc4b0FvQ1ZKUHV0UHF2YksydlBLckd4QzJXV2ROMjFlOGpacVAzLVk4UmhjcFZRb0FPT295NEFLSGtEZVFZWFVPQWFIeHFUX1dWN3R2VExxRnpxZVBhdWpaRWI0WkQ3ZFdyU2JwdDJ2U1VnV25qTUZYbnpRa0pLLUtVUlZFQW5fOTd1UGJnalR5SjhBdGRJaUdFNGkwSmJ5VVhnejVpNlozU2FienN4dnhVNEMzeFA3S3NHSzVDV0RhWGctQnpwTk0?oc=5",
    "summary": "Robert MacIntyre withdraws from 2026 FedEx St. Jude Championship Golfweek",
@@ -372,16 +407,16 @@
    "link": "https://news.google.com/rss/articles/CBMijwFBVV95cUxPcHJkSGlJRThPcjByQ0FkdzZIWmRjWUhCZjl2eFJ4T2xtcjBxZXpLUGQ4N2x5WGY4QnRlR2FuVDdXVHhDTjFReUZUMDVTcFFoWHZubzhLS04yVkVVTlVJTWkzbGNOSndJdjBsZmVWUXdHeGo4ckJmRmp4bnRIdi1lYXdJVU9Ca0tfLUNuZWJORQ?oc=5",
    "summary": "After opening in 82, Robert MacIntyre withdraws before Round 2 in Memphis Yahoo Sports",
    "published": "Fri, 14 Aug 2026 15:11:24 GMT",
-   "source": "Google News: PGA WD",
+   "source": "Google News: BMW Championship WD",
    "kind": "news",
    "golfers": [
     "Robert MacIntyre"
    ]
   },
   {
-   "title": "2026 St. Jude Championship predictions, odds: Scottie Scheffler, Rory McIlroy begin FedEx Cup Playoffs run - CBS Sports",
+   "title": "2026 St. Jude Championship predictions, odds: Scottie Scheffler, Rory McIlroy begin FedEx Cup Playoffs run - cbssports.com",
    "link": "https://news.google.com/rss/articles/CBMiugFBVV95cUxQbllabVI0aVpha3lmZGw2Q2s4bGFZT0tSQ0ViZlptQ1FuU1g5aDNkdGMwM3RRNDRvRjhRaG9rcU9ncW1IV2RyRGgyNV9FREVLMWJXZ1JmM1ZTSkt3cDhoNWlxV280RVBiZkhKY1h3VEdJYS1scUxHZHlPOGt2amd1MHdQTEtCTUJNYmJWTjBEeGxMalkyVU8zVjlSNExtU2NadXNaRjZmUTI4RnB6aFh3MTIwazl0cUpuTmc?oc=5",
-   "summary": "2026 St. Jude Championship predictions, odds: Scottie Scheffler, Rory McIlroy begin FedEx Cup Playoffs run CBS Sports",
+   "summary": "2026 St. Jude Championship predictions, odds: Scottie Scheffler, Rory McIlroy begin FedEx Cup Playoffs run cbssports.com",
    "published": "Tue, 11 Aug 2026 17:15:03 GMT",
    "source": "Google News: BMW Championship picks",
    "kind": "news",
