@@ -1,18 +1,18 @@
 {
- "updatedUtc": "2026-08-18T21:39:29Z",
+ "updatedUtc": "2026-08-19T01:53:52Z",
  "slate": "BMW_2026",
  "event": "BMW Championship",
  "counts": {
-  "items": 21,
-  "golfersMentioned": 10,
-  "news": 21,
+  "items": 26,
+  "golfersMentioned": 11,
+  "news": 26,
   "chatter": 0
  },
  "sources": [
   {
    "source": "RotoWire Golf",
    "ok": true,
-   "items": 5,
+   "items": 2,
    "error": null
   },
   {
@@ -108,7 +108,7 @@
   {
    "source": "Google News: BMW Championship DFS",
    "ok": true,
-   "items": 84,
+   "items": 87,
    "error": null
   },
   {
@@ -157,9 +157,9 @@
  "mentions": [
   {
    "name": "Scottie Scheffler",
-   "news": 9,
+   "news": 13,
    "chatter": 0,
-   "total": 9
+   "total": 13
   },
   {
    "name": "Robert MacIntyre",
@@ -168,19 +168,19 @@
    "total": 4
   },
   {
-   "name": "Cameron Young",
+   "name": "Sam Burns",
    "news": 3,
    "chatter": 0,
    "total": 3
   },
   {
-   "name": "Rory McIlroy",
+   "name": "Justin Thomas",
    "news": 2,
    "chatter": 0,
    "total": 2
   },
   {
-   "name": "Justin Thomas",
+   "name": "Rory McIlroy",
    "news": 2,
    "chatter": 0,
    "total": 2
@@ -210,6 +210,12 @@
    "total": 1
   },
   {
+   "name": "Cameron Young",
+   "news": 1,
+   "chatter": 0,
+   "total": 1
+  },
+  {
    "name": "Matt Fitzpatrick",
    "news": 1,
    "chatter": 0,
@@ -217,6 +223,72 @@
   }
  ],
  "items": [
+  {
+   "title": "BMW Championship picks 2026: Sooner or later, Sam Burns is going to win",
+   "link": "https://sports.yahoo.com/articles/bmw-championship-picks-2026-sooner-010310167.html",
+   "summary": "Burns has taken his ball-striking to another level. Can he finally cash in?",
+   "published": "Wed, 19 Aug 2026 01:03:10 +0000",
+   "source": "Yahoo Golf",
+   "kind": "news",
+   "golfers": [
+    "Sam Burns"
+   ]
+  },
+  {
+   "title": "BMW Championship picks 2026: Sooner or later, Sam Burns is going to win - Golf Digest",
+   "link": "https://news.google.com/rss/articles/CBMibEFVX3lxTE5vaFdLSHJtbmRZS2pnNmRwcEVremhtTVpzdnhWNWZhOVBUQmJPakJkaXhlQjVSZkZQLXF1QTRvbDZwNU4yaDg4SUYtUnh6cmJnTzc4VXRjVklRZ0I5WGd3T1BFVWdMajk3dC1MRA?oc=5",
+   "summary": "BMW Championship picks 2026: Sooner or later, Sam Burns is going to win Golf Digest",
+   "published": "Wed, 19 Aug 2026 01:03:10 GMT",
+   "source": "Google News: BMW Championship picks",
+   "kind": "news",
+   "golfers": [
+    "Sam Burns"
+   ]
+  },
+  {
+   "title": "BMW Championship Picks: Scheffler Leads Star-Studded Field At Bellerive - forbes.com",
+   "link": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxOb2VkR0NaSURjUzhmNnNudnNBQTBmTkdLblZ5b19nNll4ZzBFSkRMbU5KYXFjZEtJbG4yVml1N2UtMkJhX0xrY0pxWmliblpDaWwtQW9pTGNyYkQyS21hbGlEZGZRTEoweEZaa1F0cTBURUlHZ3pvWlhrUFRCcTFxVWFQSGc4WkZ1NlFrNUpVaUw5SEVXMldNSFJ0bHdWYWVwdXV3dU5lX3FhTmN2bmVlN2VuelJxTzRPLWY0?oc=5",
+   "summary": "BMW Championship Picks: Scheffler Leads Star-Studded Field At Bellerive forbes.com",
+   "published": "Wed, 19 Aug 2026 00:51:26 GMT",
+   "source": "Google News: BMW Championship picks",
+   "kind": "news",
+   "golfers": [
+    "Scottie Scheffler"
+   ]
+  },
+  {
+   "title": "Fantasy Football Breakout Candidates: Mid-to-Late Round Draft Values",
+   "link": "https://www.rotoballer.com/fantasy-football-breakout-candidates-sleepers-for-middle-to-late-rounds-2026/1902867",
+   "summary": "You can lose a draft in the first couple of rounds by selecting this year's Brian Thomas Jr. You can't win a draft with those early picks. The middle rounds are where you can win the draft. Hit on those picks, and you'll have a complete, championship-contending lineup. Miss, and you'll be scrambling to find [&#8230;]",
+   "published": "Tue, 18 Aug 2026 22:45:03 +0000",
+   "source": "RotoBaller",
+   "kind": "news",
+   "golfers": [
+    "Justin Thomas"
+   ]
+  },
+  {
+   "title": "BMW Championship DFS picks 2026: My case for Sam Burns - Golf Digest",
+   "link": "https://news.google.com/rss/articles/CBMickFVX3lxTE5LVFhpa1FtVF9tTWd5OUc4U1k2Q1NuUkxiX19hdTZ3OF94Zy1XOW9qZzVDRzVtMEtiZjQwU1lud1JMSEpwQWk3ZkNuSkVHOVJZQWlSc0VBemdZOFItSGNERjlSRTJmYXFaaGt4MVZOVzFqUQ?oc=5",
+   "summary": "BMW Championship DFS picks 2026: My case for Sam Burns Golf Digest",
+   "published": "Tue, 18 Aug 2026 22:33:54 GMT",
+   "source": "Google News: BMW Championship DFS",
+   "kind": "news",
+   "golfers": [
+    "Sam Burns"
+   ]
+  },
+  {
+   "title": "Scottie Scheffler claimed to have exposed a problem on the PGA Tour with his performance at the FedEx St. Jude",
+   "link": "https://sports.yahoo.com/articles/scottie-scheffler-claimed-exposed-problem-223000713.html",
+   "summary": "Kevin Kisner believes that Scottie Scheffler\u2019s victory at the FedEx St. Jude Championship proved that the signature event model has not worked, with the world number one taking all of the drama out of the tournament in Memphis.",
+   "published": "Tue, 18 Aug 2026 22:30:00 +0000",
+   "source": "Yahoo Golf",
+   "kind": "news",
+   "golfers": [
+    "Scottie Scheffler"
+   ]
+  },
   {
    "title": "BMW Championship Best Bets and Golf Odds",
    "link": "https://vsin.com/golf/bmw-championship-best-bets-and-golf-odds/",
@@ -263,6 +335,17 @@
    ]
   },
   {
+   "title": "BMW Championship Predictions & Odds 2026: How to Fade Scheffler - Yahoo Sports",
+   "link": "https://news.google.com/rss/articles/CBMilAFBVV95cUxPeU8yVzJNVXBfQVRhdWFLVnE1ZThKYXM4eUptQWVPZHdXQ0lpUk5pZ3hsS3NCQkhrdUNwWTBsa1BRc2ozOVZYTFBfSEd6X293b0JaZVdjMTNvM3lIZ1NDTDN2YUZFLUhPRkpOQWhkYXNWMFU5M2JpMnJVSldvSDh3bE5PeVZhajQwZ1EyV3Z6MlNLZk13?oc=5",
+   "summary": "BMW Championship Predictions & Odds 2026: How to Fade Scheffler Yahoo Sports",
+   "published": "Tue, 18 Aug 2026 16:03:00 GMT",
+   "source": "Google News: BMW Championship picks",
+   "kind": "news",
+   "golfers": [
+    "Scottie Scheffler"
+   ]
+  },
+  {
    "title": "BMW Championship Sleepers: Jake Knapp Leads Long-Shot Picks - roundtable.io",
    "link": "https://news.google.com/rss/articles/CBMiowFBVV95cUxORGZGUHlQMEpmdzdwaTdPV1BWbnUtTDRMbTRURWduMWM5U1pRUE9yTlJmbFU1OExtUWpFM01wWkJoSU0yNnV0dFUxQjc3bHVmNDVnLVFOQk9QS0NobFk4N1hoemdlQlowRC1IeHZLdzc0MEpraDUtS1Y3V3dSeFRlREU2TzFKQTBzdEVJaE05d1BPODNhQk4zVGd3RENnMXBMVzNN?oc=5",
    "summary": "BMW Championship Sleepers: Jake Knapp Leads Long-Shot Picks roundtable.io",
@@ -296,28 +379,6 @@
    ]
   },
   {
-   "title": "Fantasy Baseball Breakouts or Fake Outs? Hitters Delivering Elite Results For Week 21",
-   "link": "https://www.rotoballer.com/fantasy-baseball-breakout-hitters-elite-bats-or-fake-outs-for-week-21-2026/1910671",
-   "summary": "Welcome to Week 21! The fantasy playoffs are going to start shortly, and you need to find some real winners to help you out with your playoff push. Finding vets you know and trust is a solid strategy, but you know what's even better? Taking a chance on rookies and young studs that turn out [&#8230;]",
-   "published": "Tue, 18 Aug 2026 12:00:05 +0000",
-   "source": "RotoBaller",
-   "kind": "news",
-   "golfers": [
-    "Cameron Young"
-   ]
-  },
-  {
-   "title": "Fantasy Football Breakout Candidates: Mid-to-Late-Round Draft Values and Targets for 2026",
-   "link": "https://www.rotoballer.com/fantasy-football-breakout-candidates-sleepers-for-middle-to-late-rounds-2026/1902867",
-   "summary": "You can lose a draft in the first couple of rounds by selecting this year's Brian Thomas Jr. You can't win a draft with those early picks. The middle rounds are where you can win the draft. Hit on those picks, and you'll have a complete, championship-contending lineup. Miss, and you'll be scrambling to find [&#8230;]",
-   "published": "Tue, 18 Aug 2026 11:45:03 +0000",
-   "source": "RotoBaller",
-   "kind": "news",
-   "golfers": [
-    "Justin Thomas"
-   ]
-  },
-  {
    "title": "Bet on a Brian Thomas Jr. Bounce Back in Fantasy Football Drafts?",
    "link": "https://www.fantasylabs.com/articles/bet-on-a-brian-thomas-jr-bounce-back-in-fantasy-football-drafts/",
    "summary": "The Jaguars possess arguably the most interesting wide receiver group in all of football. They have four potential contributors at the... The post Bet on a Brian Thomas Jr. Bounce Back in Fantasy Football Drafts? appeared first on FantasyLabs .",
@@ -326,29 +387,6 @@
    "kind": "news",
    "golfers": [
     "Justin Thomas"
-   ]
-  },
-  {
-   "title": "NFL Preseason Top Betting Opportunities and QB Depth Charts",
-   "link": "https://vsin.com/nfl/nfl-preseason-top-betting-opportunities-and-qb-depth-charts/",
-   "summary": "NFL Preseason Top Betting Opportunities One of the most intense quarterback competitions of the NFL preseason is being staged in Minnesota, where veteran Kyler Murray is attempting to beat out young gun J.J. McCarthy for the starting job. According to numerous reports out of Vikings camp, Murray has emerged as the favorite, but a few [&#8230;] The post NFL Preseason Top Betting Opportunities and Q",
-   "published": "Tue, 18 Aug 2026 00:00:00 +0000",
-   "source": "VSiN",
-   "kind": "news",
-   "golfers": [
-    "Cameron Young"
-   ]
-  },
-  {
-   "title": "BMW Championship Picks: Scottie Scheffler & Adam Scott Stream of Golf - CBS Sports",
-   "link": "https://news.google.com/rss/articles/CBMinwFBVV95cUxNcm5DQ0l6YUNzSDg1RXdDX3FkOUJxejJvXzRhelhlM2FYbUpIWVl2ZkJZYlJ4Sy1ObXF1OWY1YVNGSURLZ2J3aXltdDBFeDNoX0RMUFowY2N5NEV4MW50QXRjdkcyUVlZT3Q4bkRtRGpmem5yNGJkdklkVDdNcTJjc0lmQmRkd1A4ZnliOXBBNkw3MGh0bzhQWDN5d0ZPaTQ?oc=5",
-   "summary": "BMW Championship Picks: Scottie Scheffler & Adam Scott Stream of Golf CBS Sports",
-   "published": "Mon, 17 Aug 2026 22:52:32 GMT",
-   "source": "Google News: BMW Championship picks",
-   "kind": "news",
-   "golfers": [
-    "Scottie Scheffler",
-    "Adam Scott"
    ]
   },
   {
@@ -364,15 +402,26 @@
    ]
   },
   {
-   "title": "Odds Outlook: Expect top 2026 performers Cameron Young, Matt Fitzpatrick to contend at BMW Championship - pgatour.com",
+   "title": "Odds Outlook: Expect top 2026 performers Cameron Young, Matt Fitzpatrick to contend at BMW Championship - PGA Tour",
    "link": "https://news.google.com/rss/articles/CBMi3wFBVV95cUxPZHFlZW9UaUtIWUF0SHRzeEdnR2pNb1UyaUY3Z2kxVURTVHZwanFwNzU0WnMycDlSUE11RVRYM1NPZzNyVlZyZ2Fkb2FEMWowa01QRVVuMUwtRUxHTldzM0ctZzNBZzFwcE02elpjNmpPQm5zZXVpNWotRkxZTXZZcW1wREJRVEFBQWpKR2hWN0tTUWg3ZlJteTBwb19VZjF6T1FqTkZKZTg4MWhOaXFZMDBkRlJ6V0dSZEJsUFFEeG5sSjJwclByUTFLNy1iZWVYNS1PdU81OE1iZ3FTT3JN?oc=5",
-   "summary": "Odds Outlook: Expect top 2026 performers Cameron Young, Matt Fitzpatrick to contend at BMW Championship pgatour.com",
+   "summary": "Odds Outlook: Expect top 2026 performers Cameron Young, Matt Fitzpatrick to contend at BMW Championship PGA Tour",
    "published": "Mon, 17 Aug 2026 19:03:59 GMT",
    "source": "Google News: BMW Championship DFS",
    "kind": "news",
    "golfers": [
     "Cameron Young",
     "Matt Fitzpatrick"
+   ]
+  },
+  {
+   "title": "BMW Championship DFS & Betting Picks | Scottie Scheffler & FedEx Cup Playoffs - t.co",
+   "link": "https://news.google.com/rss/articles/CBMiO0FVX3lxTE4zdGJweFFOSm5Zbm02bDRoNjFoZ25HUWpOVXVGY2NhUHJDUnBra1hpMzFGZzJvZEFkZ0Q0?oc=5",
+   "summary": "BMW Championship DFS & Betting Picks | Scottie Scheffler & FedEx Cup Playoffs t.co",
+   "published": "Mon, 17 Aug 2026 17:21:19 GMT",
+   "source": "Google News: BMW Championship DFS",
+   "kind": "news",
+   "golfers": [
+    "Scottie Scheffler"
    ]
   },
   {
@@ -395,6 +444,18 @@
    "kind": "news",
    "golfers": [
     "Scottie Scheffler"
+   ]
+  },
+  {
+   "title": "BMW Championship Picks: Scottie Scheffler & Adam Scott Stream of Golf - CBS Sports",
+   "link": "https://news.google.com/rss/articles/CBMinwFBVV95cUxNcm5DQ0l6YUNzSDg1RXdDX3FkOUJxejJvXzRhelhlM2FYbUpIWVl2ZkJZYlJ4Sy1ObXF1OWY1YVNGSURLZ2J3aXltdDBFeDNoX0RMUFowY2N5NEV4MW50QXRjdkcyUVlZT3Q4bkRtRGpmem5yNGJkdklkVDdNcTJjc0lmQmRkd1A4ZnliOXBBNkw3MGh0bzhQWDN5d0ZPaTQ?oc=5",
+   "summary": "BMW Championship Picks: Scottie Scheffler & Adam Scott Stream of Golf CBS Sports",
+   "published": "Sun, 16 Aug 2026 23:27:00 GMT",
+   "source": "Google News: BMW Championship picks",
+   "kind": "news",
+   "golfers": [
+    "Scottie Scheffler",
+    "Adam Scott"
    ]
   },
   {
