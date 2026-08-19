@@ -1,14 +1,14 @@
 {
- "updatedUtc": "2026-08-18T13:37:07Z",
+ "updatedUtc": "2026-08-19T13:38:55Z",
  "tournament": "BMW_2026",
  "event": "BMW Championship",
  "draftGroupId": "151539",
  "contests": [
   {
-   "id": "193940787",
-   "name": "PGA TOUR FREE 200-Player",
+   "id": "194019437",
+   "name": "PGA TOUR FREE 150-Player",
    "fee": 0,
-   "entries": 200,
+   "entries": 150,
    "paidSpots": 1,
    "prizePool": 0.0,
    "tiers": [
@@ -20,10 +20,70 @@
    ]
   },
   {
-   "id": "193962822",
-   "name": "PGA TOUR FREE 50-Player",
+   "id": "194050839",
+   "name": "PGA TOUR FREE 30-Player",
    "fee": 0,
-   "entries": 50,
+   "entries": 30,
+   "paidSpots": 1,
+   "prizePool": 0.0,
+   "tiers": [
+    {
+     "min": 1,
+     "max": 1,
+     "value": 0.0
+    }
+   ]
+  },
+  {
+   "id": "194051190",
+   "name": "PGA TOUR FREE 20-Player",
+   "fee": 0,
+   "entries": 20,
+   "paidSpots": 1,
+   "prizePool": 0.0,
+   "tiers": [
+    {
+     "min": 1,
+     "max": 1,
+     "value": 0.0
+    }
+   ]
+  },
+  {
+   "id": "194051047",
+   "name": "PGA TOUR FREE 10-Player",
+   "fee": 0,
+   "entries": 10,
+   "paidSpots": 1,
+   "prizePool": 0.0,
+   "tiers": [
+    {
+     "min": 1,
+     "max": 1,
+     "value": 0.0
+    }
+   ]
+  },
+  {
+   "id": "194051928",
+   "name": "PGA TOUR FREE 8-Player",
+   "fee": 0,
+   "entries": 8,
+   "paidSpots": 1,
+   "prizePool": 0.0,
+   "tiers": [
+    {
+     "min": 1,
+     "max": 1,
+     "value": 0.0
+    }
+   ]
+  },
+  {
+   "id": "194051927",
+   "name": "PGA TOUR FREE 7-Player",
+   "fee": 0,
+   "entries": 7,
    "paidSpots": 1,
    "prizePool": 0.0,
    "tiers": [
@@ -380,7 +440,7 @@
    ]
   },
   {
-   "id": "193947135",
+   "id": "194052082",
    "name": "PGA TOUR $0.25 Winner Take All [$50 to 1st]",
    "fee": 0.25,
    "entries": 237,
@@ -920,7 +980,7 @@
    ]
   },
   {
-   "id": "193947052",
+   "id": "194044992",
    "name": "PGA TOUR 10x Booster [Top 3 Win $20]",
    "fee": 2,
    "entries": 35,
@@ -2210,6 +2270,21 @@
    ]
   },
   {
+   "id": "194019342",
+   "name": "PGA TOUR $20 20-Player (Winner Takes All)",
+   "fee": 20,
+   "entries": 20,
+   "paidSpots": 1,
+   "prizePool": 360.0,
+   "tiers": [
+    {
+     "min": 1,
+     "max": 1,
+     "value": 360.0
+    }
+   ]
+  },
+  {
    "id": "193947055",
    "name": "PGA TOUR $20 Winner Take All [$175 to 1st]",
    "fee": 20,
@@ -2236,51 +2311,6 @@
      "min": 1,
      "max": 5,
      "value": 36.0
-    }
-   ]
-  },
-  {
-   "id": "193947550",
-   "name": "PGA TOUR $20 10-Player",
-   "fee": 20,
-   "entries": 10,
-   "paidSpots": 3,
-   "prizePool": 180.0,
-   "tiers": [
-    {
-     "min": 1,
-     "max": 1,
-     "value": 90.0
-    },
-    {
-     "min": 2,
-     "max": 2,
-     "value": 55.0
-    },
-    {
-     "min": 3,
-     "max": 3,
-     "value": 35.0
-    }
-   ]
-  },
-  {
-   "id": "193947629",
-   "name": "Beginner PGA TOUR $20 5-Player",
-   "fee": 20,
-   "entries": 5,
-   "paidSpots": 2,
-   "prizePool": 90.0,
-   "tiers": [
-    {
-     "min": 1,
-     "max": 1,
-     "value": 60.0
-    },
-    {
-     "min": 2,
-     "max": 2,
-     "value": 30.0
     }
    ]
   },
@@ -2640,31 +2670,6 @@
    ]
   },
   {
-   "id": "193947046",
-   "name": "PGA TOUR $50 Contest",
-   "fee": 50,
-   "entries": 11,
-   "paidSpots": 3,
-   "prizePool": 500.0,
-   "tiers": [
-    {
-     "min": 1,
-     "max": 1,
-     "value": 250.0
-    },
-    {
-     "min": 2,
-     "max": 2,
-     "value": 150.0
-    },
-    {
-     "min": 3,
-     "max": 3,
-     "value": 100.0
-    }
-   ]
-  },
-  {
    "id": "193942906",
    "name": "PGA TOUR $70K Up-and-Down [$20K to 1st]",
    "fee": 55,
@@ -2825,7 +2830,7 @@
    ]
   },
   {
-   "id": "193947167",
+   "id": "194023837",
    "name": "PGA TOUR $85 Winner Take All [$300 to 1st]",
    "fee": 85,
    "entries": 4,
@@ -3077,21 +3082,6 @@
   {
    "id": "193947539",
    "name": "PGA TOUR $109 3-Player",
-   "fee": 109,
-   "entries": 3,
-   "paidSpots": 1,
-   "prizePool": 300.0,
-   "tiers": [
-    {
-     "min": 1,
-     "max": 1,
-     "value": 300.0
-    }
-   ]
-  },
-  {
-   "id": "193947613",
-   "name": "Casual PGA TOUR $109 3-Player",
    "fee": 109,
    "entries": 3,
    "paidSpots": 1,
@@ -3530,7 +3520,7 @@
    ]
   },
   {
-   "id": "193947155",
+   "id": "193969109",
    "name": "PGA TOUR $267 Winner Take All [$1K to 1st]",
    "fee": 267,
    "entries": 4,
@@ -3680,7 +3670,7 @@
    ]
   },
   {
-   "id": "193947197",
+   "id": "193947203",
    "name": "PGA TOUR $555 Winner Take All [$2K to 1st]",
    "fee": 555,
    "entries": 4,
@@ -3725,7 +3715,7 @@
    ]
   },
   {
-   "id": "193947657",
+   "id": "194045912",
    "name": "PGA TOUR $1,060 Winner Take All [$3K to 1st] (Must Fill)",
    "fee": 1060,
    "entries": 3,
