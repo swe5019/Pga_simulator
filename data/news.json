@@ -1,18 +1,18 @@
 {
- "updatedUtc": "2026-08-19T13:10:00Z",
+ "updatedUtc": "2026-08-19T15:47:16Z",
  "slate": "BMW_2026",
  "event": "BMW Championship",
  "counts": {
-  "items": 28,
-  "golfersMentioned": 13,
-  "news": 28,
+  "items": 27,
+  "golfersMentioned": 12,
+  "news": 27,
   "chatter": 0
  },
  "sources": [
   {
    "source": "RotoWire Golf",
    "ok": true,
-   "items": 2,
+   "items": 1,
    "error": null
   },
   {
@@ -108,7 +108,7 @@
   {
    "source": "Google News: BMW Championship DFS",
    "ok": true,
-   "items": 98,
+   "items": 100,
    "error": null
   },
   {
@@ -157,9 +157,9 @@
  "mentions": [
   {
    "name": "Scottie Scheffler",
-   "news": 13,
+   "news": 10,
    "chatter": 0,
-   "total": 13
+   "total": 10
   },
   {
    "name": "Sam Burns",
@@ -174,22 +174,28 @@
    "total": 4
   },
   {
+   "name": "Kurt Kitayama",
+   "news": 3,
+   "chatter": 0,
+   "total": 3
+  },
+  {
    "name": "Ludvig Aberg",
    "news": 3,
    "chatter": 0,
    "total": 3
   },
   {
-   "name": "Adam Scott",
+   "name": "Viktor Hovland",
    "news": 2,
    "chatter": 0,
    "total": 2
   },
   {
-   "name": "Viktor Hovland",
-   "news": 1,
+   "name": "Rory McIlroy",
+   "news": 2,
    "chatter": 0,
-   "total": 1
+   "total": 2
   },
   {
    "name": "Hideki Matsuyama",
@@ -198,25 +204,13 @@
    "total": 1
   },
   {
-   "name": "Rory McIlroy",
-   "news": 1,
-   "chatter": 0,
-   "total": 1
-  },
-  {
-   "name": "Jake Knapp",
-   "news": 1,
-   "chatter": 0,
-   "total": 1
-  },
-  {
-   "name": "Kurt Kitayama",
-   "news": 1,
-   "chatter": 0,
-   "total": 1
-  },
-  {
    "name": "Justin Thomas",
+   "news": 1,
+   "chatter": 0,
+   "total": 1
+  },
+  {
+   "name": "Adam Scott",
    "news": 1,
    "chatter": 0,
    "total": 1
@@ -235,6 +229,39 @@
   }
  ],
  "items": [
+  {
+   "title": "BMW Championship 2026 odds, picks, predictions, props: Expert fading Kurt Kitayama at St. Louis - CBS Sports",
+   "link": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxNbEtIVEJDbWZSblcwbk5hQmZhUmJkTUZEVlpjSUJ0ZkUxWGpXaDY2eWY1NUc4NkNvb0cwUlB5QUk2Vk5JWUwtcVVlUDBZT2RmVFFCYWo2SDhuZ1lkQ3oydmZvYlFveFhUX1RPRjV6NnAteG5SYkk0UC1JQjVPQU1IbzlDNUFleENZTjQ4TFNtMVdrVnp2ck94VzhiY3BKTkxIT0RwNzRtWmpBTTNaeTc2cmZfTUZKZkdKSEJCTm5zMkluSnoyWlF0d1dURTlWVjRBUFY1WGRRRQ?oc=5",
+   "summary": "BMW Championship 2026 odds, picks, predictions, props: Expert fading Kurt Kitayama at St. Louis CBS Sports",
+   "published": "Wed, 19 Aug 2026 14:46:52 GMT",
+   "source": "Google News: BMW Championship picks",
+   "kind": "news",
+   "golfers": [
+    "Kurt Kitayama"
+   ]
+  },
+  {
+   "title": "BMW Championship 2026 odds, picks, predictions, props: Expert fading Kurt Kitayama at St. Louis - thepress.net",
+   "link": "https://news.google.com/rss/articles/CBMijgJBVV95cUxOckg1a2tFNWhEVVpROGE1UHgtcUlaWURmeFphNFI3ZXM3RmgyMExOd0VyY3d6LXA1aFdhdUM4Ym1OU203ZDdkN2lOd1Fwb1BaZUtHbVYtcTNtelNtMVhYTjhXR3BDUUE4MVpSUGhEZWRUcEVVNGZpWXBrdlNldTBWdXR4Vk1lQ1I1SXVxY3BEWV9ITk03SXp5anNnejkwcnQzc05EV2h5WkItSFJnbFlKeFJLaTNjZmZlWVV0VkhzRHgzQ3VHUkEyWE92LW1VZF96WFc5ZkdESmkza1FlVGNIUG5sRXZSMlp4cmVDU0FKOEs1RHY1RmtzYkNiY3pCcHgwODZUSDlDMmU2eF9ZcXc?oc=5",
+   "summary": "BMW Championship 2026 odds, picks, predictions, props: Expert fading Kurt Kitayama at St. Louis thepress.net",
+   "published": "Wed, 19 Aug 2026 14:46:52 GMT",
+   "source": "Google News: BMW Championship picks",
+   "kind": "news",
+   "golfers": [
+    "Kurt Kitayama"
+   ]
+  },
+  {
+   "title": "Viktor Hovland among our betting favorites to win 2026 BMW Championship - Golfweek",
+   "link": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxNckUwVzNJUVNCeEwtYTZzSFRnVWdPT1k4b3ZYMmlaeUU4V2FGLWVUdlJoODdlMWZZcm5GTkJ3ZDdlVHFSbmN4aTN5d21kb3FRcUpYdHZrRGVQQzJlNzBBWldxQlJLa0ZCd0tqVEtSYnN4SlByaVh5U3kxck9vbEx1ZHhpUlhwMUU5RVZOX3pDbzRDbF96bm1ia0pLNUdUQUdhMEE2ZG5RNnVfVy1iY2d6UUpTNUw5dkRHLUhZ?oc=5",
+   "summary": "Viktor Hovland among our betting favorites to win 2026 BMW Championship Golfweek",
+   "published": "Wed, 19 Aug 2026 14:20:00 GMT",
+   "source": "Google News: BMW Championship picks",
+   "kind": "news",
+   "golfers": [
+    "Viktor Hovland"
+   ]
+  },
   {
    "title": "BMW Championship Predictions & Odds 2026: Fading Scottie Scheffler Responsibly",
    "link": "https://sports.yahoo.com/articles/bmw-championship-odds-predictions-preview-131500993.html",
@@ -293,9 +320,9 @@
    ]
   },
   {
-   "title": "BMW Championship picks 2026: Sooner or later, Sam Burns is going to win - Yahoo Sports",
+   "title": "BMW Championship picks 2026: Sooner or later, Sam Burns is going to win - sports.yahoo.com",
    "link": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxNWldLWndFZmFyb3Vxbl8yS2pxd281VW9UMVlIc2M2Vml3ZV9qWTZnUEVIeFktNTdjcXNDeExweVdSZWxxeXBXVjBlbU5EcWVBck5RUFBkejl1RHRLMUswSWNieWIyYWtDNWEycVAzSXpXcVUtS3pZbUszQWdYZFBVNUlabWZpcng5UUs4?oc=5",
-   "summary": "BMW Championship picks 2026: Sooner or later, Sam Burns is going to win Yahoo Sports",
+   "summary": "BMW Championship picks 2026: Sooner or later, Sam Burns is going to win sports.yahoo.com",
    "published": "Wed, 19 Aug 2026 01:03:00 GMT",
    "source": "Google News: BMW Championship DFS",
    "kind": "news",
@@ -315,9 +342,9 @@
    ]
   },
   {
-   "title": "BMW Championship Picks: Scheffler Leads Star-Studded Field At Bellerive - Yahoo Sports",
+   "title": "BMW Championship Picks: Scheffler Leads Star-Studded Field At Bellerive - sports.yahoo.com",
    "link": "https://news.google.com/rss/articles/CBMikAFBVV95cUxOc1lGdzRRLWhaSTVyLWJ0Xy1MVGZBTmdXVW5STDR3OF9RNjZ1OHQyUmU5bFVVMTlqd0d5UzdKTklfVlRPYzU0dUpjTUVuckFkT004Y2xKb3lsRkN5NXpZYkhsREI5UGczNDB2Mm9jalF2dkNtUjdFZTV2c0VNXzZEY3QyaVdpeGwwQnZLM0E4eko?oc=5",
-   "summary": "BMW Championship Picks: Scheffler Leads Star-Studded Field At Bellerive Yahoo Sports",
+   "summary": "BMW Championship Picks: Scheffler Leads Star-Studded Field At Bellerive sports.yahoo.com",
    "published": "Wed, 19 Aug 2026 00:51:00 GMT",
    "source": "Google News: BMW Championship picks",
    "kind": "news",
@@ -326,9 +353,9 @@
    ]
   },
   {
-   "title": "BMW Championship DFS picks 2026: My case for Sam Burns - Golf Digest",
+   "title": "BMW Championship DFS picks 2026: My case for Sam Burns - golfdigest.com",
    "link": "https://news.google.com/rss/articles/CBMickFVX3lxTE5LVFhpa1FtVF9tTWd5OUc4U1k2Q1NuUkxiX19hdTZ3OF94Zy1XOW9qZzVDRzVtMEtiZjQwU1lud1JMSEpwQWk3ZkNuSkVHOVJZQWlSc0VBemdZOFItSGNERjlSRTJmYXFaaGt4MVZOVzFqUQ?oc=5",
-   "summary": "BMW Championship DFS picks 2026: My case for Sam Burns Golf Digest",
+   "summary": "BMW Championship DFS picks 2026: My case for Sam Burns golfdigest.com",
    "published": "Tue, 18 Aug 2026 22:33:54 GMT",
    "source": "Google News: BMW Championship DFS",
    "kind": "news",
@@ -345,6 +372,18 @@
    "kind": "news",
    "golfers": [
     "Scottie Scheffler"
+   ]
+  },
+  {
+   "title": "Bolton: Rory McIlroy, Scottie Scheffler among top players for fantasy league chasers - PGA Tour",
+   "link": "https://news.google.com/rss/articles/CBMi-wFBVV95cUxNNDU1MWdmS3lpR1BIZVRCOHU4Y1hLUlVSRUZNRl84M29TUlpFWlZQUzI2dVNBWV9SYmJaMHFPdXNLWjJJOWFqeVhTMG9pSS1qZVFHQklKR0dsSzE0cS10TmQ4eTJCOHVfaHV0c0pTZFNoc2JVbEZ5dlptY2Z0ZEdveVg4Vjc4LWc3S1R6dkhBN1pyZGZyOTlnaGd0WDBmU0gyclNqX25IeVNrR0oxSDc0QkFRQTJiUWYtX0pFZm5US3d0WndBeG5UbDFLY1l1UjhmZDUtMFJ6TUN6MHRLbFoxLVdfRU5Tb0V6aGYxY2xrRkVSakhhMVNQU212VQ?oc=5",
+   "summary": "Bolton: Rory McIlroy, Scottie Scheffler among top players for fantasy league chasers PGA Tour",
+   "published": "Tue, 18 Aug 2026 21:29:49 GMT",
+   "source": "Google News: BMW Championship picks",
+   "kind": "news",
+   "golfers": [
+    "Scottie Scheffler",
+    "Rory McIlroy"
    ]
   },
   {
@@ -368,39 +407,6 @@
    "golfers": [
     "Scottie Scheffler",
     "Rory McIlroy"
-   ]
-  },
-  {
-   "title": "BMW Championship Predictions & Odds 2026: How to Fade Scheffler - Covers.com",
-   "link": "https://news.google.com/rss/articles/CBMiekFVX3lxTFA1T0lBZWc3bFd0UmQ0SUhBRzBiLUZDSDJJa3lNekVYR3laemFDR2k0bjB5ZWJWU0VSeUZqVTM3M1pVTlNGMmxTSWdNRTVJY3RqRUpwbEZnWkU3bEhmRENYUnZiMkNtRGM1a0c2dmlQWUY5VDdHendCY0Rn?oc=5",
-   "summary": "BMW Championship Predictions & Odds 2026: How to Fade Scheffler Covers.com",
-   "published": "Tue, 18 Aug 2026 16:03:00 GMT",
-   "source": "Google News: BMW Championship DFS",
-   "kind": "news",
-   "golfers": [
-    "Scottie Scheffler"
-   ]
-  },
-  {
-   "title": "BMW Championship Predictions & Odds 2026: How to Fade Scheffler - Yahoo Sports",
-   "link": "https://news.google.com/rss/articles/CBMilAFBVV95cUxPeU8yVzJNVXBfQVRhdWFLVnE1ZThKYXM4eUptQWVPZHdXQ0lpUk5pZ3hsS3NCQkhrdUNwWTBsa1BRc2ozOVZYTFBfSEd6X293b0JaZVdjMTNvM3lIZ1NDTDN2YUZFLUhPRkpOQWhkYXNWMFU5M2JpMnJVSldvSDh3bE5PeVZhajQwZ1EyV3Z6MlNLZk13?oc=5",
-   "summary": "BMW Championship Predictions & Odds 2026: How to Fade Scheffler Yahoo Sports",
-   "published": "Tue, 18 Aug 2026 16:03:00 GMT",
-   "source": "Google News: BMW Championship picks",
-   "kind": "news",
-   "golfers": [
-    "Scottie Scheffler"
-   ]
-  },
-  {
-   "title": "BMW Championship Sleepers: Jake Knapp Leads Long-Shot Picks - roundtable.io",
-   "link": "https://news.google.com/rss/articles/CBMiowFBVV95cUxORGZGUHlQMEpmdzdwaTdPV1BWbnUtTDRMbTRURWduMWM5U1pRUE9yTlJmbFU1OExtUWpFM01wWkJoSU0yNnV0dFUxQjc3bHVmNDVnLVFOQk9QS0NobFk4N1hoemdlQlowRC1IeHZLdzc0MEpraDUtS1Y3V3dSeFRlREU2TzFKQTBzdEVJaE05d1BPODNhQk4zVGd3RENnMXBMVzNN?oc=5",
-   "summary": "BMW Championship Sleepers: Jake Knapp Leads Long-Shot Picks roundtable.io",
-   "published": "Tue, 18 Aug 2026 15:21:33 GMT",
-   "source": "Google News: BMW Championship picks",
-   "kind": "news",
-   "golfers": [
-    "Jake Knapp"
    ]
   },
   {
@@ -449,18 +455,6 @@
    ]
   },
   {
-   "title": "BMW Championship Picks: Scottie Scheffler & Adam Scott - 247Sports",
-   "link": "https://news.google.com/rss/articles/CBMisAFBVV95cUxOLWJZQktJVDQxeUpFbGExa2hiSG1MNDJXanFDQVNoa01LbFJjbVBvSzBXZzFLZk1VZHRDREktV1c3c2xHeHZoUmVFeVVrVE5vcVRDRGFDYU1vWm9XMkY1TTNKcm1ESmlnR3ZORmMzN196Z1Bwa1hNbUxaS2h6VGc0bl9xU1hJQ3UyZ3VyRG93VHVqNGZZVExMSmlKMXo3d09ReV81WERPSnd5eWZMTkIxQg?oc=5",
-   "summary": "BMW Championship Picks: Scottie Scheffler & Adam Scott 247Sports",
-   "published": "Mon, 17 Aug 2026 20:04:00 GMT",
-   "source": "Google News: BMW Championship picks",
-   "kind": "news",
-   "golfers": [
-    "Scottie Scheffler",
-    "Adam Scott"
-   ]
-  },
-  {
    "title": "Odds Outlook: Expect top 2026 performers Cameron Young, Matt Fitzpatrick to contend at BMW Championship - PGA Tour",
    "link": "https://news.google.com/rss/articles/CBMi3wFBVV95cUxPZHFlZW9UaUtIWUF0SHRzeEdnR2pNb1UyaUY3Z2kxVURTVHZwanFwNzU0WnMycDlSUE11RVRYM1NPZzNyVlZyZ2Fkb2FEMWowa01QRVVuMUwtRUxHTldzM0ctZzNBZzFwcE02elpjNmpPQm5zZXVpNWotRkxZTXZZcW1wREJRVEFBQWpKR2hWN0tTUWg3ZlJteTBwb19VZjF6T1FqTkZKZTg4MWhOaXFZMDBkRlJ6V0dSZEJsUFFEeG5sSjJwclByUTFLNy1iZWVYNS1PdU81OE1iZ3FTT3JN?oc=5",
    "summary": "Odds Outlook: Expect top 2026 performers Cameron Young, Matt Fitzpatrick to contend at BMW Championship PGA Tour",
@@ -470,17 +464,6 @@
    "golfers": [
     "Cameron Young",
     "Matt Fitzpatrick"
-   ]
-  },
-  {
-   "title": "BMW Championship DFS & Betting Picks | Scottie Scheffler & FedEx Cup Playoffs - t.co",
-   "link": "https://news.google.com/rss/articles/CBMiO0FVX3lxTE4zdGJweFFOSm5Zbm02bDRoNjFoZ25HUWpOVXVGY2NhUHJDUnBra1hpMzFGZzJvZEFkZ0Q0?oc=5",
-   "summary": "BMW Championship DFS & Betting Picks | Scottie Scheffler & FedEx Cup Playoffs t.co",
-   "published": "Mon, 17 Aug 2026 17:21:19 GMT",
-   "source": "Google News: BMW Championship DFS",
-   "kind": "news",
-   "golfers": [
-    "Scottie Scheffler"
    ]
   },
   {
@@ -539,9 +522,9 @@
    ]
   },
   {
-   "title": "After opening in 82, Robert MacIntyre withdraws before Round 2 in Memphis - Yahoo Sports",
+   "title": "After opening in 82, Robert MacIntyre withdraws before Round 2 in Memphis - sports.yahoo.com",
    "link": "https://news.google.com/rss/articles/CBMijwFBVV95cUxPcHJkSGlJRThPcjByQ0FkdzZIWmRjWUhCZjl2eFJ4T2xtcjBxZXpLUGQ4N2x5WGY4QnRlR2FuVDdXVHhDTjFReUZUMDVTcFFoWHZubzhLS04yVkVVTlVJTWkzbGNOSndJdjBsZmVWUXdHeGo4ckJmRmp4bnRIdi1lYXdJVU9Ca0tfLUNuZWJORQ?oc=5",
-   "summary": "After opening in 82, Robert MacIntyre withdraws before Round 2 in Memphis Yahoo Sports",
+   "summary": "After opening in 82, Robert MacIntyre withdraws before Round 2 in Memphis sports.yahoo.com",
    "published": "Fri, 14 Aug 2026 15:11:24 GMT",
    "source": "Google News: BMW Championship WD",
    "kind": "news",
