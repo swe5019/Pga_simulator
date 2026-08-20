@@ -1,19 +1,19 @@
 {
- "updatedUtc": "2026-08-20T19:00:30Z",
+ "updatedUtc": "2026-08-20T21:44:49Z",
  "slate": "BMW_2026",
  "event": "BMW Championship",
  "counts": {
-  "items": 27,
-  "golfersMentioned": 13,
-  "news": 27,
+  "items": 25,
+  "golfersMentioned": 14,
+  "news": 25,
   "chatter": 0
  },
  "sources": [
   {
    "source": "RotoWire Golf",
-   "ok": true,
-   "items": 1,
-   "error": null
+   "ok": false,
+   "items": 0,
+   "error": "no items"
   },
   {
    "source": "RotoBaller Golf",
@@ -157,9 +157,9 @@
  "mentions": [
   {
    "name": "Scottie Scheffler",
-   "news": 9,
+   "news": 6,
    "chatter": 0,
-   "total": 9
+   "total": 6
   },
   {
    "name": "Sam Burns",
@@ -196,6 +196,12 @@
    "news": 2,
    "chatter": 0,
    "total": 2
+  },
+  {
+   "name": "Wyndham Clark",
+   "news": 1,
+   "chatter": 0,
+   "total": 1
   },
   {
    "name": "Rory McIlroy",
@@ -236,6 +242,17 @@
  ],
  "items": [
   {
+   "title": "Rookie Fantasy Football Rankings: Top 100 Players (2026)",
+   "link": "https://www.rotoballer.com/rookie-fantasy-football-rankings-top-100-2026/1912688",
+   "summary": "The wait is almost over! Soon, we'll see a new batch of players make their regular-season debuts, and it's time to crush those last-minute rookie drafts. We're back with our freshly-updated top 100 fantasy football rookie rankings for 2026. These updated 2026 rookie rankings are put together by Matt Donnelly, Phil Clark, Jackson Sparks, and Andrew [&#8230;]",
+   "published": "Thu, 20 Aug 2026 18:56:56 +0000",
+   "source": "RotoBaller",
+   "kind": "news",
+   "golfers": [
+    "Wyndham Clark"
+   ]
+  },
+  {
    "title": "Bet on a Brian Thomas Jr. Bounce Back in Fantasy Football Drafts?",
    "link": "https://www.fantasylabs.com/articles/bet-on-a-brian-thomas-jr-bounce-back-in-fantasy-football-drafts/",
    "summary": "The Jaguars possess arguably the most interesting wide receiver group in all of football. They have four potential contributors at the... The post Bet on a Brian Thomas Jr. Bounce Back in Fantasy Football Drafts? appeared first on FantasyLabs .",
@@ -244,17 +261,6 @@
    "kind": "news",
    "golfers": [
     "Justin Thomas"
-   ]
-  },
-  {
-   "title": "Scottie Scheffler suggests if he\u2019d want Bryson DeChambeau and Jon Rahm back on the PGA Tour",
-   "link": "https://sports.yahoo.com/articles/scottie-scheffler-suggests-d-want-103000793.html",
-   "summary": "LIV Golf could well be playing their last event this week. When the Saudi Public Investment Fund withdrew support for LIV this year, they had months to secure new investment for the 2027 season.",
-   "published": "Thu, 20 Aug 2026 10:30:00 +0000",
-   "source": "Yahoo Golf",
-   "kind": "news",
-   "golfers": [
-    "Scottie Scheffler"
    ]
   },
   {
@@ -394,17 +400,6 @@
    ]
   },
   {
-   "title": "BMW Championship Picks: Scheffler Leads Star-Studded Field At Bellerive - Forbes",
-   "link": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxOb2VkR0NaSURjUzhmNnNudnNBQTBmTkdLblZ5b19nNll4ZzBFSkRMbU5KYXFjZEtJbG4yVml1N2UtMkJhX0xrY0pxWmliblpDaWwtQW9pTGNyYkQyS21hbGlEZGZRTEoweEZaa1F0cTBURUlHZ3pvWlhrUFRCcTFxVWFQSGc4WkZ1NlFrNUpVaUw5SEVXMldNSFJ0bHdWYWVwdXV3dU5lX3FhTmN2bmVlN2VuelJxTzRPLWY0?oc=5",
-   "summary": "BMW Championship Picks: Scheffler Leads Star-Studded Field At Bellerive Forbes",
-   "published": "Wed, 19 Aug 2026 00:51:26 GMT",
-   "source": "Google News: BMW Championship picks",
-   "kind": "news",
-   "golfers": [
-    "Scottie Scheffler"
-   ]
-  },
-  {
    "title": "BMW Championship Picks: Scheffler Leads Star-Studded Field At Bellerive - Yahoo Sports",
    "link": "https://news.google.com/rss/articles/CBMikAFBVV95cUxOc1lGdzRRLWhaSTVyLWJ0Xy1MVGZBTmdXVW5STDR3OF9RNjZ1OHQyUmU5bFVVMTlqd0d5UzdKTklfVlRPYzU0dUpjTUVuckFkT004Y2xKb3lsRkN5NXpZYkhsREI5UGczNDB2Mm9jalF2dkNtUjdFZTV2c0VNXzZEY3QyaVdpeGwwQnZLM0E4eko?oc=5",
    "summary": "BMW Championship Picks: Scheffler Leads Star-Studded Field At Bellerive Yahoo Sports",
@@ -469,17 +464,6 @@
    "golfers": [
     "Cameron Young",
     "Matt Fitzpatrick"
-   ]
-  },
-  {
-   "title": "BMW Championship Odds: Scheffler And The Field - OddsShopper",
-   "link": "https://news.google.com/rss/articles/CBMigwFBVV95cUxQcnZmTU5HWmQ4ckxLZXQ1OWtYSU9VanlDYmZsR1VlNU9TYWJaYkVDU1ZiS1QtUjNqX1h3b2d4QVUteUhRSkJld3FYZEEzOU5fY1JwX0VROG82YlN1OU4yeXhRRGZzSV94cnJ2WmcwVHhxWmROMUpKYjVTYzFFZXZjZktpYw?oc=5",
-   "summary": "BMW Championship Odds: Scheffler And The Field OddsShopper",
-   "published": "Mon, 17 Aug 2026 16:07:15 GMT",
-   "source": "Google News: BMW Championship DFS",
-   "kind": "news",
-   "golfers": [
-    "Scottie Scheffler"
    ]
   },
   {
