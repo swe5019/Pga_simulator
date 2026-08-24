@@ -1,5 +1,5 @@
 {
- "updatedUtc": "2026-08-24T15:32:21Z",
+ "updatedUtc": "2026-08-24T19:23:44Z",
  "count": 29,
  "events": [
   {
@@ -29,11 +29,11 @@
    "file": "history/BMW_2026.json",
    "date": "2026-08-20 00:00:00",
    "hasPredicted": true,
-   "hasActual": false,
-   "maePct": null,
-   "colabMaePct": null,
-   "comparedPlayers": null,
-   "updatedUtc": "2026-08-24T15:32:21Z"
+   "hasActual": true,
+   "maePct": 4.802,
+   "colabMaePct": 3.899,
+   "comparedPlayers": 50,
+   "updatedUtc": "2026-08-24T19:23:44Z"
   },
   {
    "tournament": "CADILLAC_2026",
@@ -196,7 +196,7 @@
    "hasPredicted": false,
    "hasActual": true,
    "maePct": null,
-   "colabMaePct": 6.186,
+   "colabMaePct": 5.785,
    "comparedPlayers": null,
    "updatedUtc": "2026-06-25T15:52:16Z"
   },
@@ -253,7 +253,7 @@
    "maePct": 2.958,
    "colabMaePct": 2.928,
    "comparedPlayers": 72,
-   "updatedUtc": "2026-08-24T15:32:21Z"
+   "updatedUtc": "2026-08-24T19:23:44Z"
   },
   {
    "tournament": "TRUIST_2026",
