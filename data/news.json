@@ -1,11 +1,11 @@
 {
- "updatedUtc": "2026-08-24T15:56:55Z",
+ "updatedUtc": "2026-08-24T19:00:57Z",
  "slate": "BMW_2026",
- "event": "BMW Championship",
+ "event": "TOUR Championship",
  "counts": {
-  "items": 31,
-  "golfersMentioned": 18,
-  "news": 31,
+  "items": 25,
+  "golfersMentioned": 14,
+  "news": 25,
   "chatter": 0
  },
  "sources": [
@@ -106,19 +106,19 @@
    "error": null
   },
   {
-   "source": "Google News: BMW Championship DFS",
+   "source": "Google News: TOUR Championship DFS",
    "ok": true,
    "items": 100,
    "error": null
   },
   {
-   "source": "Google News: BMW Championship picks",
+   "source": "Google News: TOUR Championship picks",
    "ok": true,
    "items": 100,
    "error": null
   },
   {
-   "source": "Google News: BMW Championship WD",
+   "source": "Google News: TOUR Championship WD",
    "ok": true,
    "items": 100,
    "error": null
@@ -157,18 +157,18 @@
  "mentions": [
   {
    "name": "Scottie Scheffler",
-   "news": 11,
+   "news": 9,
    "chatter": 0,
-   "total": 11
+   "total": 9
   },
   {
-   "name": "Sam Burns",
+   "name": "Justin Rose",
    "news": 4,
    "chatter": 0,
    "total": 4
   },
   {
-   "name": "Ludvig Aberg",
+   "name": "Robert MacIntyre",
    "news": 3,
    "chatter": 0,
    "total": 3
@@ -180,67 +180,13 @@
    "total": 2
   },
   {
-   "name": "Kurt Kitayama",
+   "name": "Sam Burns",
    "news": 2,
    "chatter": 0,
    "total": 2
-  },
-  {
-   "name": "Viktor Hovland",
-   "news": 2,
-   "chatter": 0,
-   "total": 2
-  },
-  {
-   "name": "Tommy Fleetwood",
-   "news": 1,
-   "chatter": 0,
-   "total": 1
-  },
-  {
-   "name": "Robert MacIntyre",
-   "news": 1,
-   "chatter": 0,
-   "total": 1
-  },
-  {
-   "name": "Michael Brennan",
-   "news": 1,
-   "chatter": 0,
-   "total": 1
-  },
-  {
-   "name": "Wyndham Clark",
-   "news": 1,
-   "chatter": 0,
-   "total": 1
-  },
-  {
-   "name": "Michael Thorbjornsen",
-   "news": 1,
-   "chatter": 0,
-   "total": 1
-  },
-  {
-   "name": "Gary Woodland",
-   "news": 1,
-   "chatter": 0,
-   "total": 1
-  },
-  {
-   "name": "Russell Henley",
-   "news": 1,
-   "chatter": 0,
-   "total": 1
   },
   {
    "name": "Rory McIlroy",
-   "news": 1,
-   "chatter": 0,
-   "total": 1
-  },
-  {
-   "name": "Collin Morikawa",
    "news": 1,
    "chatter": 0,
    "total": 1
@@ -252,7 +198,37 @@
    "total": 1
   },
   {
-   "name": "Justin Thomas",
+   "name": "Tom Kim",
+   "news": 1,
+   "chatter": 0,
+   "total": 1
+  },
+  {
+   "name": "Tommy Fleetwood",
+   "news": 1,
+   "chatter": 0,
+   "total": 1
+  },
+  {
+   "name": "Collin Morikawa",
+   "news": 1,
+   "chatter": 0,
+   "total": 1
+  },
+  {
+   "name": "Viktor Hovland",
+   "news": 1,
+   "chatter": 0,
+   "total": 1
+  },
+  {
+   "name": "Ludvig Aberg",
+   "news": 1,
+   "chatter": 0,
+   "total": 1
+  },
+  {
+   "name": "Kurt Kitayama",
    "news": 1,
    "chatter": 0,
    "total": 1
@@ -265,6 +241,97 @@
   }
  ],
  "items": [
+  {
+   "title": "Khang, Duncan and Zhang named as Stanford's Solheim Cup captains' picks",
+   "link": "https://www.skysports.com/golf/news/12040/13576684/solheim-cup-2026-angela-stanford-names-megan-khang-rose-zhang-and-lindy-duncan-as-captains-picks-as-team-usa-squad-confirmed",
+   "summary": "Megan Khang, Rose Zhang and Lindy Duncan have been named as Angela Stanford's three captains' picks for next month's Solheim Cup, as Team USA's full 12-player squad was officially confirmed on Monday.",
+   "published": "Mon, 24 Aug 2026 18:35:00 BST",
+   "source": "Sky Sports Golf",
+   "kind": "news",
+   "golfers": [
+    "Justin Rose"
+   ]
+  },
+  {
+   "title": "Robert MacIntyre reveals injury that nearly derailed his Tour Championship bid - dailyclubgolf.com",
+   "link": "https://news.google.com/rss/articles/CBMitAFBVV95cUxQY0RTR18tTGdIUkFzWElBSHVHZ2duZnR6S25FdXJHSnphMlM5a2FyamJBc2M4U1NZSWhsb1RVSG5qWUY4dWNHNWZzcFZwX1RtSTRWVGVvNzVIV2RjNnk1QW9CbzdBLTlWRER1T2FnaEkzMjNlbG0ybnVfak9HaHBBbElGbkFzOGVhTl9CUi1RRmdxajNqTTFIMU94bkgyVkVUczVSckVhVmluYWNwU3h1ZFpUZEQ?oc=5",
+   "summary": "Robert MacIntyre reveals injury that nearly derailed his Tour Championship bid dailyclubgolf.com",
+   "published": "Mon, 24 Aug 2026 18:11:45 GMT",
+   "source": "Google News: TOUR Championship WD",
+   "kind": "news",
+   "golfers": [
+    "Robert MacIntyre"
+   ]
+  },
+  {
+   "title": "Tour Championship Odds, Picks & Predictions for East Lake Golf Club (2026)",
+   "link": "https://sports.yahoo.com/articles/tour-championship-odds-picks-predictions-180200959.html",
+   "summary": "The 2026 Tour Championship odds list Scottie Scheffler as the favorite with a 21% win probability at Kalshi, as we offer our best early picks to win.",
+   "published": "Mon, 24 Aug 2026 18:02:00 +0000",
+   "source": "Yahoo Golf",
+   "kind": "news",
+   "golfers": [
+    "Scottie Scheffler"
+   ]
+  },
+  {
+   "title": "U.S. Solheim Cup team finalizes roster with 3 captain's picks",
+   "link": "https://golf.com/news/us-solheim-cup-captains-picks-2026/",
+   "summary": "U.S. Solheim Cup captain Angela Stanford selected Rose Zhang, Megan Khang and Lindy Duncan to round out her team for The Netherlands. The post U.S. Solheim Cup team finalizes roster with 3 captain&#8217;s picks appeared first on Golf .",
+   "published": "Mon, 24 Aug 2026 17:55:21 +0000",
+   "source": "Golf.com",
+   "kind": "news",
+   "golfers": [
+    "Justin Rose"
+   ]
+  },
+  {
+   "title": "Solheim Cup Team USA 2026: Angela Stanford Names Wildcard Picks To Complete Line-Up",
+   "link": "https://www.golfmonthly.com/news/solheim-cup-team-usa-2026-angela-stanford-names-wildcard-picks-to-complete-line-up",
+   "summary": "Angela Stanford completed her Team USA Solheim Cup squad by naming Megan Khang, Rose Zhang and Lindy Duncan as her three wildcard picks.",
+   "published": "Mon, 24 Aug 2026 17:54:15 +0000",
+   "source": "Golf Monthly",
+   "kind": "news",
+   "golfers": [
+    "Justin Rose"
+   ]
+  },
+  {
+   "title": "U.S. Solheim Cup team names Megan Khang, Rose Zhang and Lindy Duncan as final picks",
+   "link": "https://sports.yahoo.com/articles/u-solheim-cup-team-names-174604669.html",
+   "summary": "U.S. captain Angela Stanford has unveiled the 12-woman team that will take on Europe in The Netherlands next month in the 20th edition of the Solheim Cup. The nine automatic qualifying spots have gone to world No 1 Nelly Korda along with Lauren Coughlin (world No 18), Auston Kim (22), Angel Yin (25), Jennifer Kupcho (31), Yealimi Noh (39), Andrea Lee (40), Allisen Corpuz (45) and Alison Lee (55). ",
+   "published": "Mon, 24 Aug 2026 17:46:04 +0000",
+   "source": "Yahoo Golf",
+   "kind": "news",
+   "golfers": [
+    "Justin Rose"
+   ]
+  },
+  {
+   "title": "Odds Outlook: Scottie Scheffler favored over Rory McIlroy to win FedExCup - PGA Tour",
+   "link": "https://news.google.com/rss/articles/CBMikAJBVV95cUxQSnY2SjhibzFqTG5sY21YU3lJYlFtME13MlZqeE5RMUlDbVU5eU8tNFdIVUY5RGRMLWFFSDNhdGQtQ3ZXaVh2T3pYcXhqaEwyM25iLTRvUjJCT3pOT0tmVzFudFJtMk5Gd2RzT1JaM2szdlk5UGhsWFVEaDNZY194dVdQclJXU3VDQlREMVlRT2F2UXhmTmlUTThEWHNoMTAxVFhoVWtaMW52ckNWb3ZKUExvanJMbUpLbjBWZTA1ZzBXS0pkTWVEUDQ0MGhhRHp3bWkwV0w5LVJ4YnRyam5rei0xMkdqUk44R3BOTFJUZUFxSlVScm5fMEZ4OEkzRXdMRTVKVGpmcnRsTS12QW1ncQ?oc=5",
+   "summary": "Odds Outlook: Scottie Scheffler favored over Rory McIlroy to win FedExCup PGA Tour",
+   "published": "Mon, 24 Aug 2026 17:16:38 GMT",
+   "source": "Google News: TOUR Championship picks",
+   "kind": "news",
+   "golfers": [
+    "Scottie Scheffler",
+    "Rory McIlroy"
+   ]
+  },
+  {
+   "title": "The TOUR Championship Golf Picks, Odds: Bet Scottie Scheffler, Patrick Cantlay, Tom Kim - Bleacher Nation",
+   "link": "https://news.google.com/rss/articles/CBMizwFBVV95cUxQOU9Hal8zeTYyRm5tVzBwRFRfald2V0JnWEpxclRfR3h2ZkFpV09iUkkzb1E2N1MyOGF4R2RwZ1R4QlZXa3Q5YUZVYUJwdTAzMklFWEh6bEd1d3FMM19PNGdESDRINTRFRlRYX1UwUmIzXzF0b3JXNFZnbFlrbGFlb0NRUDZ2VDQxZU9DNkJfb2pTbnhyQ213ajVlNnlIeHp1eUZUeS1zWEpxMVY1R2hjWnJQdGFCUDFIWVpNR1JWZ2xNY2liVVVPN2lIVDhYMXc?oc=5",
+   "summary": "The TOUR Championship Golf Picks, Odds: Bet Scottie Scheffler, Patrick Cantlay, Tom Kim Bleacher Nation",
+   "published": "Mon, 24 Aug 2026 17:05:45 GMT",
+   "source": "Google News: TOUR Championship picks",
+   "kind": "news",
+   "golfers": [
+    "Patrick Cantlay",
+    "Tom Kim",
+    "Scottie Scheffler"
+   ]
+  },
   {
    "title": "Corbin Young's Fantasy Football Bold Predictions: Player Outlooks and Analysis (2026)",
    "link": "https://www.rotoballer.com/6-fantasy-football-bold-predictions-corbin-youngs-picks-2026/1912352",
@@ -303,7 +370,7 @@
    "link": "https://news.google.com/rss/articles/CBMigwFBVV95cUxNV2szWmZrYUJMOFE4eHZxMENHZS1NMjhIT1J4Yk1qOC1pTEoyUmlweFBQUnp2WEZRQzQ3Q3lSaEZpelJRVEZ6ckt0Njd6SDY5ZF9CMHZxdjkxS0VScXpoZzBtTXFYTzk2Zi10YXl3VG90dy1pYUV2YVRlQ0t0bkJ1a00yOA?oc=5",
    "summary": "2026 Tour Championship odds: Scottie Scheffler heads into finale as favorite GOLF.com",
    "published": "Mon, 24 Aug 2026 11:32:14 GMT",
-   "source": "Google News: BMW Championship picks",
+   "source": "Google News: TOUR Championship picks",
    "kind": "news",
    "golfers": [
     "Scottie Scheffler"
@@ -321,114 +388,25 @@
    ]
   },
   {
-   "title": "'Maybe a poor decision playing': Scottie Scheffler reveals he has illness",
-   "link": "https://sports.yahoo.com/articles/maybe-a-poor-decision-playing-scottie-scheffler-reveals-he-has-illness-042035713.html",
-   "summary": "Scottie Scheffler, after the BMW Championship, revealed he has an illness and that he considered withdrawing from the event.",
-   "published": "Mon, 24 Aug 2026 04:20:35 +0000",
-   "source": "Yahoo Golf",
-   "kind": "news",
-   "golfers": [
-    "Scottie Scheffler"
-   ]
-  },
-  {
-   "title": "\u2018Maybe a poor decision playing\u2019: Scottie Scheffler reveals he has illness",
-   "link": "https://golf.com/news/maybe-poor-decision-scottie-scheffler-illness/",
-   "summary": "Scottie Scheffler, after the BMW Championship, revealed he has an illness and that he considered withdrawing from the event. The post \u2018Maybe a poor decision playing\u2019: Scottie Scheffler reveals he has illness appeared first on Golf .",
-   "published": "Mon, 24 Aug 2026 00:20:35 +0000",
-   "source": "Golf.com",
-   "kind": "news",
-   "golfers": [
-    "Scottie Scheffler"
-   ]
-  },
-  {
    "title": "Robert MacIntyre overcomes injury to reach Tour Championship thanks to 'positive sports movies' - Golfweek",
    "link": "https://news.google.com/rss/articles/CBMi9AFBVV95cUxOSFdQVHNYOGV0bkZsSVRlVk1hQVFuamxySXBVSmw2LXB6Qm12RUNMXy01TUlvYzFrVHdnQlp1X0JNTjJTdG9va3A0dlRYejVrSGdsM3F6dXI2S3Nnb3lpR2NFNUl3TkJOb1FtaVVaazFKc2lpcTVrVWpmMXg1UGNkd0VuY0FzU1BOZ0p2d2d4YnZ2eE5tLWs4d0xMYTlkZDlCaEFWa00tUHFEMkdzNHM0T1dGOTc2SVBRMmlUYVFTU3ZoSFNrODVGcER5azZrTXBqUUdlTHhlR00ybUZHN2JzY3pvWUItZmJPOERVX2VlaEpYbDlp?oc=5",
    "summary": "Robert MacIntyre overcomes injury to reach Tour Championship thanks to 'positive sports movies' Golfweek",
    "published": "Sun, 23 Aug 2026 22:55:00 GMT",
-   "source": "Google News: BMW Championship WD",
+   "source": "Google News: TOUR Championship WD",
    "kind": "news",
    "golfers": [
     "Robert MacIntyre"
    ]
   },
   {
-   "title": "What happened to Scottie Scheffler? Injury update from the BMW Championship - DraftKings Network",
-   "link": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxPanM0eUVwc1NYdS02dTZETGRRV2tVX0l6dlNWeUtBb3FwUXlDWnlRa0ViSGVyalQtaUhvU1ZQZDJTMzZ4TVllMngwZzNYaDRfWlVLWFZVRXZudV9SMzlycUMtek5BakVvYmxhN3FvQkJkVFpOREQwLTV2RUZVamNNVUUtYUZFc185dzBEQVZRaU5KVk5fbW1HX3IwWEs2TnR3VDB5b2tXSV85QWIzVTFXNkJ4eUJfSi1RdUpR?oc=5",
-   "summary": "What happened to Scottie Scheffler? Injury update from the BMW Championship DraftKings Network",
-   "published": "Sun, 23 Aug 2026 21:27:13 GMT",
-   "source": "Google News: BMW Championship DFS",
+   "title": "\u2018Like Someone Was Stabbing\u2019: Robert MacIntyre Opens Up on Agonizing Knee Injury Ahead of Tour Championship - Yahoo Sports",
+   "link": "https://news.google.com/rss/articles/CBMikgFBVV95cUxNOG5iNGZKRFpnUkdpWU5hSnF0OV9MR0xVdGNiNEQ4TGhlSzlycTh6eDZ4UGEyVDhvWjZZUFpPUmg5aTlYUmlIWlZhZ3UyanhoekdiTndoVzc2bmRJbmZJS0dkZC1fVXpLUW9Fc1JKR1lFZnh0UlNvS0U4Um1OLUN5VF9TYjB2dTNCQzNrMzhWdmZndw?oc=5",
+   "summary": "\u2018Like Someone Was Stabbing\u2019: Robert MacIntyre Opens Up on Agonizing Knee Injury Ahead of Tour Championship Yahoo Sports",
+   "published": "Sun, 23 Aug 2026 22:34:12 GMT",
+   "source": "Google News: TOUR Championship WD",
    "kind": "news",
    "golfers": [
-    "Scottie Scheffler"
-   ]
-  },
-  {
-   "title": "2026 BMW Championship Top DFS Picks & Round 4 Live Bets: Back Brennan For Top 10 Finish - Lineups",
-   "link": "https://news.google.com/rss/articles/CBMiugFBVV95cUxQcDNNOUV6MTZLVmtVamRFRWFsT0I2OFJRMXBJa2ZqTlUwakRIZ2tITVVrVE85cUU0d1ltVjE2VkJ0Y0d2NXVyMTFSNU41elRma2JoY2RNazJBRGZocDFfRkdMWG1IT3pMd3ZOR2tnY2o2bmpTVUFXWGFHaTVtak9KazBRMmlSRGp1QkdrSFBoTmdDY3pMZmgzbkM5SEE0aHJXLTBjS3pHTy1xNnVQYm1rQ1JBb0FBYTJDd2c?oc=5",
-   "summary": "2026 BMW Championship Top DFS Picks & Round 4 Live Bets: Back Brennan For Top 10 Finish Lineups",
-   "published": "Sun, 23 Aug 2026 00:35:42 GMT",
-   "source": "Google News: BMW Championship DFS",
-   "kind": "news",
-   "golfers": [
-    "Michael Brennan"
-   ]
-  },
-  {
-   "title": "Wyndham Clark Makes Personal Admission About Self-Inflicted Injury - heavy.com",
-   "link": "https://news.google.com/rss/articles/CBMifkFVX3lxTE1uOHdoaXo2MlVrZUd4M1Q5QWpkaEU1cklVMGNxN1NuRkhzUVpyNGF4bm1lT2s0WTk5RU1fd3hINVRtZTlRNlNSZldNNmlfdm1qNFFZV3lCN0R5dVdEQzVKVE5TaV9jME5EQ3pmQkE0SF9CX0dtT2hncnU0cjdydw?oc=5",
-   "summary": "Wyndham Clark Makes Personal Admission About Self-Inflicted Injury heavy.com",
-   "published": "Sat, 22 Aug 2026 11:55:18 GMT",
-   "source": "Google News: BMW Championship WD",
-   "kind": "news",
-   "golfers": [
-    "Wyndham Clark"
-   ]
-  },
-  {
-   "title": "2026 BMW Championship Top DFS Plays & Round 3 Live Bets: Thorbjornsen to Finish Top 10? - Lineups",
-   "link": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxOUGpNdV9jOGZzZHFQQ1FZQ2puM0JQcG80Qm5BMzJHVnR6R1B2Z2gwWlJoNFhTVHlubXRzbjJXQlhRQk1RdGhkck9SbW5Ja2FvR1BabjlBV2tEYlR0V09waGxLS2N1LXdEUU9aVHVfR2FORVQ1Ti1oX29FdGFoQkY4WWQ5OG5UZzhuMEtyRld6Y0FzLVRzd190bnQ4SkVtUEF4MHlqZmxhMGlVVjl0UUhlQnFKOGxUV2JV?oc=5",
-   "summary": "2026 BMW Championship Top DFS Plays & Round 3 Live Bets: Thorbjornsen to Finish Top 10? Lineups",
-   "published": "Sat, 22 Aug 2026 00:30:56 GMT",
-   "source": "Google News: BMW Championship DFS",
-   "kind": "news",
-   "golfers": [
-    "Michael Thorbjornsen"
-   ]
-  },
-  {
-   "title": "2026 BMW Championship Top DFS Plays & Round 2 Live Bets: Woodland Worth a Look? - Lineups",
-   "link": "https://news.google.com/rss/articles/CBMirgFBVV95cUxNUDI4Zjh2NzdkWlRWMVpzLXVvd18zLURUeFpCOEJjUU1DZ2o3ZHFQY3NZTktHX2NEbHNNaFhvbDJxejZZa1dBeE5JZjlGbHJ0eXVES0UyUmJsYUFCU0VYblgyV2RMYk1BcWFwYnZscXgtNG5MWVcwdTI4cFQ1WjNYSm8yWlBhYlpkU3R3cm5Xb2ZZTVY4b0ZiX0V1LVBsNUJMOWs5ZlZaSEt1OGpvbXc?oc=5",
-   "summary": "2026 BMW Championship Top DFS Plays & Round 2 Live Bets: Woodland Worth a Look? Lineups",
-   "published": "Fri, 21 Aug 2026 00:00:49 GMT",
-   "source": "Google News: BMW Championship DFS",
-   "kind": "news",
-   "golfers": [
-    "Gary Woodland"
-   ]
-  },
-  {
-   "title": "BMW Championship Long Shot Predictions & Sleeper Picks: Take a Shot on Henley - Yahoo Sports",
-   "link": "https://news.google.com/rss/articles/CBMikAFBVV95cUxPQkVOcG9XWDllYzhRV0xaSGxvdFJOemYwNlIwS1hUbC1yVVF4aFgwRE1CXzBuMmdvNGRYQ1N2MnhRQzFPN2hKZHZZNUFaS2lYY1JRcGRaVUtoSE1DSW5aUGlRckdBajE5NER0TnJxTWRhZHdDdExjOThidzAwd2xCVXpCZDl4QklXVGo5NnBSbjc?oc=5",
-   "summary": "BMW Championship Long Shot Predictions & Sleeper Picks: Take a Shot on Henley Yahoo Sports",
-   "published": "Thu, 20 Aug 2026 12:19:00 GMT",
-   "source": "Google News: BMW Championship picks",
-   "kind": "news",
-   "golfers": [
-    "Russell Henley"
-   ]
-  },
-  {
-   "title": "2026 BMW Championship predictions, odds: Scottie Scheffler, Rory McIlroy lead 50-man field into St. Louis - CBS Sports",
-   "link": "https://news.google.com/rss/articles/CBMitAFBVV95cUxPclAzNjhzU2dLbjBDMmtfWG1MT0pjSHpUaUs3dDVZeGFXU0h4VElTZ0t1QXVrTlljN2x6VE1sTzE1dW4xdzU5V2p4YjlLTHpNUnJLMS0tYVctb2Q4dnhGdjQ4QjRTS1hiNkFaVjlhcXVKOXVLTzUzSF9Mc3NkS2p0NVpSQjhsSnpZdkNNY3c2eE05TkpkOExYNVB4QUgwcktGOFhDajUzNmJ1QlA5eUk4SmNuclc?oc=5",
-   "summary": "2026 BMW Championship predictions, odds: Scottie Scheffler, Rory McIlroy lead 50-man field into St. Louis CBS Sports",
-   "published": "Wed, 19 Aug 2026 17:47:00 GMT",
-   "source": "Google News: BMW Championship DFS",
-   "kind": "news",
-   "golfers": [
-    "Scottie Scheffler",
-    "Rory McIlroy"
+    "Robert MacIntyre"
    ]
   },
   {
@@ -436,7 +414,7 @@
    "link": "https://news.google.com/rss/articles/CBMivwFBVV95cUxQbE9URF9aNjlFSU1xbS1vbFQ3UXJ2SE1RVlNmUXlZWFV3UVhTYVJiTHdtWGVJUy1MMWtKQzRaM1dwNXF2TmFySk95c0ppZ3pLX0NCLXVrU0hoSVpSaThrN29oV0J2WWpTSUNqa2dGSkNteEw1OGFoT0pmVDJSOGFEOVIyYXdxS1FBVnpaMlRqd3Z4VjNsdEk3RHdSZjJPM0ZFQlJiTk1iaEVnTnNFLTNCLUNfOE10bTZLbUNSOC13Yw?oc=5",
    "summary": "BMW Championship Picks, Winner Predictions This Week: Kim, Collin Morikawa, More PrizePicks",
    "published": "Wed, 19 Aug 2026 16:06:20 GMT",
-   "source": "Google News: BMW Championship picks",
+   "source": "Google News: TOUR Championship picks",
    "kind": "news",
    "golfers": [
     "Collin Morikawa"
@@ -447,21 +425,10 @@
    "link": "https://news.google.com/rss/articles/CBMijwJBVV95cUxNdzd5RW1YRHFFWjBDV1NnTG1zblZTWWtQa2RBd29EVUJkMTZhTnBVbUVXZ25admhsOWRmdzJmaTdtdDAyLWlyTVhPRVRrNWN0UUgtb25lR1RvaEVQay1ULW5fSm9OaVkzU1NhSWhiZWpaUml3U0dzUFJreE0wM252RE8yLVI4T0dkMDFVeFRxU0V2MGFxV0ZIWFc4TVR6dlN1WW90OW9PZExTT1lFSmpLU0Y5eWlWSXFZY0F6TGhUVzlySW9Ma2s4N0JJekNfV2ROdWtRdVhiNGd5ZElOUzRJdlpzcEQ0aFBZdTBMRnRBVWtlWllaTE4wRnNZN0RiNEs0SFFQYlZ2Y3p1VnFnOHJF?oc=5",
    "summary": "BMW Championship props: Look for aggressive play to yield another top finish for Sam Burns PGA Tour",
    "published": "Wed, 19 Aug 2026 15:50:01 GMT",
-   "source": "Google News: BMW Championship DFS",
+   "source": "Google News: TOUR Championship DFS",
    "kind": "news",
    "golfers": [
     "Sam Burns"
-   ]
-  },
-  {
-   "title": "BMW Championship 2026 odds, picks, predictions, props: Expert fading Kurt Kitayama at St. Louis - CBS Sports",
-   "link": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxNbEtIVEJDbWZSblcwbk5hQmZhUmJkTUZEVlpjSUJ0ZkUxWGpXaDY2eWY1NUc4NkNvb0cwUlB5QUk2Vk5JWUwtcVVlUDBZT2RmVFFCYWo2SDhuZ1lkQ3oydmZvYlFveFhUX1RPRjV6NnAteG5SYkk0UC1JQjVPQU1IbzlDNUFleENZTjQ4TFNtMVdrVnp2ck94VzhiY3BKTkxIT0RwNzRtWmpBTTNaeTc2cmZfTUZKZkdKSEJCTm5zMkluSnoyWlF0d1dURTlWVjRBUFY1WGRRRQ?oc=5",
-   "summary": "BMW Championship 2026 odds, picks, predictions, props: Expert fading Kurt Kitayama at St. Louis CBS Sports",
-   "published": "Wed, 19 Aug 2026 14:46:52 GMT",
-   "source": "Google News: BMW Championship picks",
-   "kind": "news",
-   "golfers": [
-    "Kurt Kitayama"
    ]
   },
   {
@@ -469,34 +436,9 @@
    "link": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxNckUwVzNJUVNCeEwtYTZzSFRnVWdPT1k4b3ZYMmlaeUU4V2FGLWVUdlJoODdlMWZZcm5GTkJ3ZDdlVHFSbmN4aTN5d21kb3FRcUpYdHZrRGVQQzJlNzBBWldxQlJLa0ZCd0tqVEtSYnN4SlByaVh5U3kxck9vbEx1ZHhpUlhwMUU5RVZOX3pDbzRDbF96bm1ia0pLNUdUQUdhMEE2ZG5RNnVfVy1iY2d6UUpTNUw5dkRHLUhZ?oc=5",
    "summary": "Viktor Hovland among our betting favorites to win 2026 BMW Championship Golfweek",
    "published": "Wed, 19 Aug 2026 14:20:00 GMT",
-   "source": "Google News: BMW Championship picks",
+   "source": "Google News: TOUR Championship picks",
    "kind": "news",
    "golfers": [
-    "Viktor Hovland"
-   ]
-  },
-  {
-   "title": "2026 BMW Championship golf odds: Ex-winners Justin Thomas, Patrick Cantlay need better than Top 10s to advance - CBS Sports",
-   "link": "https://news.google.com/rss/articles/CBMi4gFBVV95cUxQZFR1bkdwaG5TWVRKbGlUc1hsUG4xekwzTkZrczhnWmRWUzEzbnkxUlphSS1Pd0YzbDh5YnZ4UjJqX2VpcUdvRmFwdTE5UF8wNDFUWGNFQVJJY2RSR0JlVXVnZ29uVEZISl9qV0dJQnhEMVZDMFVqTmZRcW1vMUJKdmxIVmFxRDJuNFREY1BOSW5RRmZfYlQ3T0E4NlBzU2dVNzViaktvQWw2TTdua1otdkMwMjNEOUZIcmFadFdwckUtZ29Jc3RxSGlNRzJsYTJZVHlrdFVJaTJiQlNSZ0lrd19n?oc=5",
-   "summary": "2026 BMW Championship golf odds: Ex-winners Justin Thomas, Patrick Cantlay need better than Top 10s to advance CBS Sports",
-   "published": "Wed, 19 Aug 2026 12:59:42 GMT",
-   "source": "Google News: BMW Championship DFS",
-   "kind": "news",
-   "golfers": [
-    "Patrick Cantlay",
-    "Justin Thomas"
-   ]
-  },
-  {
-   "title": "BMW Championship Picks, Props, Predictions: Betting Sam Burns, Viktor Hovland and Ludvig Aberg - Sports Illustrated",
-   "link": "https://news.google.com/rss/articles/CBMiygFBVV95cUxQRmJ1SnoxUTlmeUhDbHZXcjVHbFVrYkpJUjYxbTdOeUE1MFNoRlo3NmpneEFxMTV0WjBGbkRqcnByTnp6a2NtTWhXRTZTeUlmdmJvX1NWS1dycDVRSHBmak5qYW4yR3UwWVdzMHczUlVTYUNIRTFtblRzdXNLSFJVNTk4eVVaUmt5a3VUWEhmYzhUdzU5NG5VM3h0T0VhbUxfbWplT3hRUWxQbjNBcVFHZ014YkZ4VlRvWENtS2FxbTA5R1NSUlQ0Wkp3?oc=5",
-   "summary": "BMW Championship Picks, Props, Predictions: Betting Sam Burns, Viktor Hovland and Ludvig Aberg Sports Illustrated",
-   "published": "Wed, 19 Aug 2026 11:00:03 GMT",
-   "source": "Google News: BMW Championship picks",
-   "kind": "news",
-   "golfers": [
-    "Ludvig Aberg",
-    "Sam Burns",
     "Viktor Hovland"
    ]
   },
@@ -505,32 +447,10 @@
    "link": "https://news.google.com/rss/articles/CBMiogFBVV95cUxQcFREWHdNZjFpbXpxc0kxM2tjdjFiWlItMlhwVGRFUmFmVjFlTDZ3ZjV3VEoxczE5eW5hNXpnZTI3d3ZtTmw3cmVsWHRuYXdRWDdlTjNsN2lvNWdFZmZjbDJPZVltLXZGWEg2WGJna2dnS1JSb25fdXh4UzNwRUFvUzU1UGpZT3VUSEluNVNfLWJLeURTLThjUFBiR1d1U3JBQkE?oc=5",
    "summary": "2026 BMW Championship odds, picks, DFS: Ludvig Aberg is in FedEx Cup Playoff form The New York Times",
    "published": "Wed, 19 Aug 2026 09:00:51 GMT",
-   "source": "Google News: BMW Championship DFS",
+   "source": "Google News: TOUR Championship DFS",
    "kind": "news",
    "golfers": [
     "Ludvig Aberg"
-   ]
-  },
-  {
-   "title": "BMW Championship DFS picks 2026: My case for Sam Burns - Australian Golf Digest",
-   "link": "https://news.google.com/rss/articles/CBMifEFVX3lxTE9QQzd2OWItZWduYm9vaVBQTjRNeXhKSnJRMExnYnZSZDhnV3lRX2s3RWh1YW9lQlJfSV92bjJiNGRpU2xuaEhuNGZpQ2F4SkI4QVFkaFVmWkRJZTZDSU5ScmprWG5JTEJXU1paZ2ZXNmRLS2czY2ZNZ2hRRE8?oc=5",
-   "summary": "BMW Championship DFS picks 2026: My case for Sam Burns Australian Golf Digest",
-   "published": "Wed, 19 Aug 2026 02:13:50 GMT",
-   "source": "Google News: BMW Championship DFS",
-   "kind": "news",
-   "golfers": [
-    "Sam Burns"
-   ]
-  },
-  {
-   "title": "BMW Championship picks 2026: Sooner or later, Sam Burns is going to win - Yahoo Sports",
-   "link": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxNWldLWndFZmFyb3Vxbl8yS2pxd281VW9UMVlIc2M2Vml3ZV9qWTZnUEVIeFktNTdjcXNDeExweVdSZWxxeXBXVjBlbU5EcWVBck5RUFBkejl1RHRLMUswSWNieWIyYWtDNWEycVAzSXpXcVUtS3pZbUszQWdYZFBVNUlabWZpcng5UUs4?oc=5",
-   "summary": "BMW Championship picks 2026: Sooner or later, Sam Burns is going to win Yahoo Sports",
-   "published": "Wed, 19 Aug 2026 01:03:10 GMT",
-   "source": "Google News: BMW Championship DFS",
-   "kind": "news",
-   "golfers": [
-    "Sam Burns"
    ]
   },
   {
@@ -538,7 +458,7 @@
    "link": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxOb2VkR0NaSURjUzhmNnNudnNBQTBmTkdLblZ5b19nNll4ZzBFSkRMbU5KYXFjZEtJbG4yVml1N2UtMkJhX0xrY0pxWmliblpDaWwtQW9pTGNyYkQyS21hbGlEZGZRTEoweEZaa1F0cTBURUlHZ3pvWlhrUFRCcTFxVWFQSGc4WkZ1NlFrNUpVaUw5SEVXMldNSFJ0bHdWYWVwdXV3dU5lX3FhTmN2bmVlN2VuelJxTzRPLWY0?oc=5",
    "summary": "BMW Championship Picks: Scheffler Leads Star-Studded Field At Bellerive Forbes",
    "published": "Wed, 19 Aug 2026 00:51:26 GMT",
-   "source": "Google News: BMW Championship picks",
+   "source": "Google News: TOUR Championship picks",
    "kind": "news",
    "golfers": [
     "Scottie Scheffler"
@@ -549,21 +469,21 @@
    "link": "https://news.google.com/rss/articles/CBMikAFBVV95cUxOc1lGdzRRLWhaSTVyLWJ0Xy1MVGZBTmdXVW5STDR3OF9RNjZ1OHQyUmU5bFVVMTlqd0d5UzdKTklfVlRPYzU0dUpjTUVuckFkT004Y2xKb3lsRkN5NXpZYkhsREI5UGczNDB2Mm9jalF2dkNtUjdFZTV2c0VNXzZEY3QyaVdpeGwwQnZLM0E4eko?oc=5",
    "summary": "BMW Championship Picks: Scheffler Leads Star-Studded Field At Bellerive Yahoo Sports",
    "published": "Wed, 19 Aug 2026 00:51:00 GMT",
-   "source": "Google News: BMW Championship picks",
+   "source": "Google News: TOUR Championship picks",
    "kind": "news",
    "golfers": [
     "Scottie Scheffler"
    ]
   },
   {
-   "title": "Ludvig Aberg Features Fantasy Golf Picks (DraftKings) at the BMW Championship - Sports Illustrated",
-   "link": "https://news.google.com/rss/articles/CBMisgFBVV95cUxNaTIwSzg4YVJRNks2RnYtY3U4VGcwLTBrWjhqSjZCSXlJTnBLY0pMd3NEbG9Ga0lEM2lLMGxqZU1Gc0d2enFGRWZ4QURoY01TZ2lfV2h1dGhuYVJ0RUM2T200RFZXZFhIVElja3QyaDhkakNkUkF4WXJLcVhRZGNCUDlYeDU5Q0tsa09vclotN0w5QTRUM3p1YS13Qi0wNURQVjVtWmRWcVZpZjNSbkpuVHNR?oc=5",
-   "summary": "Ludvig Aberg Features Fantasy Golf Picks (DraftKings) at the BMW Championship Sports Illustrated",
-   "published": "Tue, 18 Aug 2026 18:23:52 GMT",
-   "source": "Google News: BMW Championship DFS",
+   "title": "BMW Championship DFS picks 2026: My case for Sam Burns - Golf Digest",
+   "link": "https://news.google.com/rss/articles/CBMickFVX3lxTE5LVFhpa1FtVF9tTWd5OUc4U1k2Q1NuUkxiX19hdTZ3OF94Zy1XOW9qZzVDRzVtMEtiZjQwU1lud1JMSEpwQWk3ZkNuSkVHOVJZQWlSc0VBemdZOFItSGNERjlSRTJmYXFaaGt4MVZOVzFqUQ?oc=5",
+   "summary": "BMW Championship DFS picks 2026: My case for Sam Burns Golf Digest",
+   "published": "Tue, 18 Aug 2026 22:33:54 GMT",
+   "source": "Google News: TOUR Championship DFS",
    "kind": "news",
    "golfers": [
-    "Ludvig Aberg"
+    "Sam Burns"
    ]
   },
   {
@@ -571,7 +491,7 @@
    "link": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxQbWppekpGUUc3Mmdrd1dqLTZEdlo3SUh3S09EZlFuNkE5VVAyUG14cGtKbm9XQ294T3lvR2dRNTItalZZV3dla3ljVFdlOVZvaFgyTmxNUTJIZXkzVEEzTWpWdDFWRW91WG9QX1hpSVFhR0YtSWZGNU1pRUZVYnFjM3RkMVhnN21EUTRVTDJyYVYtVnFrQi1EaTVxQndVZ3R3WWxvS3NEWE1nQmxSd1M0dFhPUUNOTl9nYy1F?oc=5",
    "summary": "BMW Championship Betting Tips: Two players to take on short-priced Scheffler at Bellerive Golfmagic",
    "published": "Tue, 18 Aug 2026 14:20:00 GMT",
-   "source": "Google News: BMW Championship picks",
+   "source": "Google News: TOUR Championship picks",
    "kind": "news",
    "golfers": [
     "Scottie Scheffler"
@@ -582,7 +502,7 @@
    "link": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxOdFBLSG1RM1JxN3RrbTlYQVdBSWxKanQtOGI3WHRHemswemVXbEhaU2V0QXdMZ0o4X3AxU3ViT1gtR1pJaThMNDZ0UGFwLXhWWEw4aEdkZEhkaGdBeFBCS1Z6NGJKQmdhWmNFR0h0YTZLaDBPRXJxRlktRFNQMXo0MjU4d1hpNzVZRkNkeC1xUldOZEJNaUh6SnFCeFBDNEdVbld0WmIxQU53UElPUUl6a09HUWJkT0lt?oc=5",
    "summary": "2026 BMW Championship Odds: Four Longshots & PGA Tour Sleepers, Including Kurt Kitayama Lineups",
    "published": "Tue, 18 Aug 2026 13:56:44 GMT",
-   "source": "Google News: BMW Championship DFS",
+   "source": "Google News: TOUR Championship DFS",
    "kind": "news",
    "golfers": [
     "Kurt Kitayama"
@@ -593,22 +513,11 @@
    "link": "https://news.google.com/rss/articles/CBMi3wFBVV95cUxPZHFlZW9UaUtIWUF0SHRzeEdnR2pNb1UyaUY3Z2kxVURTVHZwanFwNzU0WnMycDlSUE11RVRYM1NPZzNyVlZyZ2Fkb2FEMWowa01QRVVuMUwtRUxHTldzM0ctZzNBZzFwcE02elpjNmpPQm5zZXVpNWotRkxZTXZZcW1wREJRVEFBQWpKR2hWN0tTUWg3ZlJteTBwb19VZjF6T1FqTkZKZTg4MWhOaXFZMDBkRlJ6V0dSZEJsUFFEeG5sSjJwclByUTFLNy1iZWVYNS1PdU81OE1iZ3FTT3JN?oc=5",
    "summary": "Odds Outlook: Expect top 2026 performers Cameron Young, Matt Fitzpatrick to contend at BMW Championship PGA Tour",
    "published": "Mon, 17 Aug 2026 19:03:59 GMT",
-   "source": "Google News: BMW Championship DFS",
+   "source": "Google News: TOUR Championship DFS",
    "kind": "news",
    "golfers": [
     "Cameron Young",
     "Matt Fitzpatrick"
-   ]
-  },
-  {
-   "title": "2026 BMW Championship odds: Scottie Scheffler huge favorite in St. Louis - GOLF.com",
-   "link": "https://news.google.com/rss/articles/CBMiggFBVV95cUxNNFFXNklkd3MwN0psTmlLejl2dF8wQWk0bnBMOTZLbVA4MWIwNF83U1ZGUHF6cndRWlFHTE85elJXbG0wMXVaMUNLMXBmN0ZaOGNoNFVtZlc1LUNkNWhVdV9paWZwajZwUV9ZcjlHSk53ZDlURDJFT2Z3OF90anljYkd3?oc=5",
-   "summary": "2026 BMW Championship odds: Scottie Scheffler huge favorite in St. Louis GOLF.com",
-   "published": "Mon, 17 Aug 2026 11:01:03 GMT",
-   "source": "Google News: BMW Championship picks",
-   "kind": "news",
-   "golfers": [
-    "Scottie Scheffler"
    ]
   }
  ]
