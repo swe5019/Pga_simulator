@@ -1,18 +1,18 @@
 {
- "updatedUtc": "2026-08-23T21:36:59Z",
+ "updatedUtc": "2026-08-24T01:58:45Z",
  "slate": "BMW_2026",
  "event": "BMW Championship",
  "counts": {
-  "items": 29,
-  "golfersMentioned": 19,
-  "news": 29,
+  "items": 33,
+  "golfersMentioned": 17,
+  "news": 33,
   "chatter": 0
  },
  "sources": [
   {
    "source": "RotoWire Golf",
    "ok": true,
-   "items": 1,
+   "items": 5,
    "error": null
   },
   {
@@ -157,18 +157,18 @@
  "mentions": [
   {
    "name": "Scottie Scheffler",
+   "news": 9,
+   "chatter": 0,
+   "total": 9
+  },
+  {
+   "name": "Robert MacIntyre",
    "news": 6,
    "chatter": 0,
    "total": 6
   },
   {
    "name": "Sam Burns",
-   "news": 4,
-   "chatter": 0,
-   "total": 4
-  },
-  {
-   "name": "Robert MacIntyre",
    "news": 4,
    "chatter": 0,
    "total": 4
@@ -252,18 +252,6 @@
    "total": 1
   },
   {
-   "name": "Si Woo Kim",
-   "news": 1,
-   "chatter": 0,
-   "total": 1
-  },
-  {
-   "name": "Adam Scott",
-   "news": 1,
-   "chatter": 0,
-   "total": 1
-  },
-  {
    "name": "Matt Fitzpatrick",
    "news": 1,
    "chatter": 0,
@@ -271,6 +259,72 @@
   }
  ],
  "items": [
+  {
+   "title": "\u2018Maybe a poor decision playing\u2019: Scottie Scheffler reveals he has illness",
+   "link": "https://golf.com/news/maybe-poor-decision-scottie-scheffler-illness/",
+   "summary": "Scottie Scheffler, after the BMW Championship, revealed he has an illness and that he considered withdrawing from the event. The post \u2018Maybe a poor decision playing\u2019: Scottie Scheffler reveals he has illness appeared first on Golf .",
+   "published": "Mon, 24 Aug 2026 00:20:35 +0000",
+   "source": "Golf.com",
+   "kind": "news",
+   "golfers": [
+    "Scottie Scheffler"
+   ]
+  },
+  {
+   "title": "\u2018Never Been One To Quit\u2019: Scottie Scheffler Battles Brutal Illness Through BMW Championship",
+   "link": "https://sports.yahoo.com/articles/never-one-quit-scottie-scheffler-231533405.html",
+   "summary": "When Scottie Scheffler won the St. Jude Championship last week, it appeared he had rediscovered his dominant form heading into the final stretch of the season.",
+   "published": "Sun, 23 Aug 2026 23:15:33 +0000",
+   "source": "Yahoo Golf",
+   "kind": "news",
+   "golfers": [
+    "Scottie Scheffler"
+   ]
+  },
+  {
+   "title": "Robert MacIntyre overcomes injury to reach Tour Championship thanks to 'positive sports movies' - Golfweek",
+   "link": "https://news.google.com/rss/articles/CBMi9AFBVV95cUxOSFdQVHNYOGV0bkZsSVRlVk1hQVFuamxySXBVSmw2LXB6Qm12RUNMXy01TUlvYzFrVHdnQlp1X0JNTjJTdG9va3A0dlRYejVrSGdsM3F6dXI2S3Nnb3lpR2NFNUl3TkJOb1FtaVVaazFKc2lpcTVrVWpmMXg1UGNkd0VuY0FzU1BOZ0p2d2d4YnZ2eE5tLWs4d0xMYTlkZDlCaEFWa00tUHFEMkdzNHM0T1dGOTc2SVBRMmlUYVFTU3ZoSFNrODVGcER5azZrTXBqUUdlTHhlR00ybUZHN2JzY3pvWUItZmJPOERVX2VlaEpYbDlp?oc=5",
+   "summary": "Robert MacIntyre overcomes injury to reach Tour Championship thanks to 'positive sports movies' Golfweek",
+   "published": "Sun, 23 Aug 2026 22:55:00 GMT",
+   "source": "Google News: BMW Championship WD",
+   "kind": "news",
+   "golfers": [
+    "Robert MacIntyre"
+   ]
+  },
+  {
+   "title": "Scheffler reveals illness battle during 'frustrating' PGA Tour display",
+   "link": "https://www.skysports.com/golf/live-blog/12040/13576356/bmw-championship-live-latest-scores-updates-highlights-as-rory-mcilroy-chases-wyndham-clark-for-pga-tour-victory",
+   "summary": "",
+   "published": "Sun, 23 Aug 2026 22:48:00 BST",
+   "source": "Sky Sports Golf",
+   "kind": "news",
+   "golfers": [
+    "Scottie Scheffler"
+   ]
+  },
+  {
+   "title": "\u2018Like Someone Was Stabbing\u2019: Robert MacIntyre Opens Up on Agonizing Knee Injury Ahead of Tour Championship",
+   "link": "https://sports.yahoo.com/articles/someone-stabbing-robert-macintyre-opens-223412896.html",
+   "summary": "Robert MacIntyre\u2019s knee betrayed him at the worst moment: mid-playoff push. He arrived at the St.",
+   "published": "Sun, 23 Aug 2026 22:34:12 +0000",
+   "source": "Yahoo Golf",
+   "kind": "news",
+   "golfers": [
+    "Robert MacIntyre"
+   ]
+  },
+  {
+   "title": "Scottie Scheffler caught hand, foot and mouth disease after win at FedEx St. Jude Championship",
+   "link": "https://sports.yahoo.com/golf/article/scottie-scheffler-caught-hand-foot-and-mouth-disease-after-win-at-fedex-st-jude-championship-215716324.html",
+   "summary": "Despite battling the illness this week, Scottie Scheffler still finished T12 at the BMW Championship.",
+   "published": "Sun, 23 Aug 2026 21:57:16 +0000",
+   "source": "Yahoo Golf",
+   "kind": "news",
+   "golfers": [
+    "Scottie Scheffler"
+   ]
+  },
   {
    "title": "What happened to Scottie Scheffler? Injury update from the BMW Championship - DraftKings Network",
    "link": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxPanM0eUVwc1NYdS02dTZETGRRV2tVX0l6dlNWeUtBb3FwUXlDWnlRa0ViSGVyalQtaUhvU1ZQZDJTMzZ4TVllMngwZzNYaDRfWlVLWFZVRXZudV9SMzlycUMtek5BakVvYmxhN3FvQkJkVFpOREQwLTV2RUZVamNNVUUtYUZFc185dzBEQVZRaU5KVk5fbW1HX3IwWEs2TnR3VDB5b2tXSV85QWIzVTFXNkJ4eUJfSi1RdUpR?oc=5",
@@ -485,17 +539,6 @@
    ]
   },
   {
-   "title": "Si Woo Kim Tops Fantasy Golf Picks (FanDuel) at the BMW Championship - Sports Illustrated",
-   "link": "https://news.google.com/rss/articles/CBMitAFBVV95cUxORnNmY0sxQUJ6NTBhNmM4QXlTdkd0ZEV3cjJNMjM0bTYwMHM0bEdfbjBySUlSQ1FvdS1XLXlfc04xTnpkOXYzcmpYTkFLZm5wbDdEekRHbGpZMnZmdGdvYzI4QWV0OXNMaDdEWXdrYVZ6bTRUdklMRW8yRmFDclF2eXhUdVExczd0b2RoY0hza3dPemtSTmJIdXVJcllrUXRqUFJycVgxSUJMQ2JuYjRIZ08wbjI?oc=5",
-   "summary": "Si Woo Kim Tops Fantasy Golf Picks (FanDuel) at the BMW Championship Sports Illustrated",
-   "published": "Tue, 18 Aug 2026 17:42:20 GMT",
-   "source": "Google News: BMW Championship picks",
-   "kind": "news",
-   "golfers": [
-    "Si Woo Kim"
-   ]
-  },
-  {
    "title": "BMW Championship Betting Tips: Two players to take on short-priced Scheffler at Bellerive - Golfmagic",
    "link": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxQbWppekpGUUc3Mmdrd1dqLTZEdlo3SUh3S09EZlFuNkE5VVAyUG14cGtKbm9XQ294T3lvR2dRNTItalZZV3dla3ljVFdlOVZvaFgyTmxNUTJIZXkzVEEzTWpWdDFWRW91WG9QX1hpSVFhR0YtSWZGNU1pRUZVYnFjM3RkMVhnN21EUTRVTDJyYVYtVnFrQi1EaTVxQndVZ3R3WWxvS3NEWE1nQmxSd1M0dFhPUUNOTl9nYy1F?oc=5",
    "summary": "BMW Championship Betting Tips: Two players to take on short-priced Scheffler at Bellerive Golfmagic",
@@ -515,18 +558,6 @@
    "kind": "news",
    "golfers": [
     "Kurt Kitayama"
-   ]
-  },
-  {
-   "title": "BMW Championship Picks: Scottie Scheffler & Adam Scott Stream of Golf - CBS Sports",
-   "link": "https://news.google.com/rss/articles/CBMinwFBVV95cUxNcm5DQ0l6YUNzSDg1RXdDX3FkOUJxejJvXzRhelhlM2FYbUpIWVl2ZkJZYlJ4Sy1ObXF1OWY1YVNGSURLZ2J3aXltdDBFeDNoX0RMUFowY2N5NEV4MW50QXRjdkcyUVlZT3Q4bkRtRGpmem5yNGJkdklkVDdNcTJjc0lmQmRkd1A4ZnliOXBBNkw3MGh0bzhQWDN5d0ZPaTQ?oc=5",
-   "summary": "BMW Championship Picks: Scottie Scheffler & Adam Scott Stream of Golf CBS Sports",
-   "published": "Mon, 17 Aug 2026 20:14:19 GMT",
-   "source": "Google News: BMW Championship picks",
-   "kind": "news",
-   "golfers": [
-    "Adam Scott",
-    "Scottie Scheffler"
    ]
   },
   {
