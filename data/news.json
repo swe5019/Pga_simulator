@@ -1,11 +1,11 @@
 {
- "updatedUtc": "2026-08-25T16:01:34Z",
+ "updatedUtc": "2026-08-25T18:58:09Z",
  "slate": "BMW_2026",
  "event": "TOUR Championship",
  "counts": {
-  "items": 24,
+  "items": 25,
   "golfersMentioned": 17,
-  "news": 24,
+  "news": 25,
   "chatter": 0
  },
  "sources": [
@@ -132,7 +132,7 @@
   {
    "source": "Google News: PGA WD",
    "ok": true,
-   "items": 51,
+   "items": 100,
    "error": null
   },
   {
@@ -162,19 +162,19 @@
    "total": 7
   },
   {
+   "name": "Cameron Young",
+   "news": 3,
+   "chatter": 0,
+   "total": 3
+  },
+  {
    "name": "Robert MacIntyre",
    "news": 3,
    "chatter": 0,
    "total": 3
   },
   {
-   "name": "Cameron Young",
-   "news": 2,
-   "chatter": 0,
-   "total": 2
-  },
-  {
-   "name": "Justin Rose",
+   "name": "Tom Kim",
    "news": 2,
    "chatter": 0,
    "total": 2
@@ -184,6 +184,12 @@
    "news": 2,
    "chatter": 0,
    "total": 2
+  },
+  {
+   "name": "Justin Thomas",
+   "news": 1,
+   "chatter": 0,
+   "total": 1
   },
   {
    "name": "Gary Woodland",
@@ -204,19 +210,13 @@
    "total": 1
   },
   {
-   "name": "Justin Thomas",
+   "name": "Justin Rose",
    "news": 1,
    "chatter": 0,
    "total": 1
   },
   {
    "name": "Patrick Cantlay",
-   "news": 1,
-   "chatter": 0,
-   "total": 1
-  },
-  {
-   "name": "Tom Kim",
    "news": 1,
    "chatter": 0,
    "total": 1
@@ -260,6 +260,39 @@
  ],
  "items": [
   {
+   "title": "Should I Draft Cyrus Allen, Caleb Douglas or Zachariah Branch? Fantasy Football Outlooks for Rookie WRs",
+   "link": "https://www.rotoballer.com/fantasy-football-rookie-wr-outlooks-cyrus-allen-caleb-douglas-zachariah-branch-2026/1915589",
+   "summary": "Targeting rookie wide receivers can provide your fantasy team with a high-upside lottery ticket. Over the past few seasons, many high-end rookie wideouts have quickly made an impact in the league and become league-winners like Brian Thomas Jr. in 2024 and even Emeka Egbuka for the first half of the 2025 season. However, in this [&#8230;]",
+   "published": "Tue, 25 Aug 2026 18:12:35 +0000",
+   "source": "RotoBaller",
+   "kind": "news",
+   "golfers": [
+    "Justin Thomas"
+   ]
+  },
+  {
+   "title": "Cameron Young's Scotty Cameron putter is finally coming to retail",
+   "link": "https://shopping.yahoo.com/style/accessories/articles/cameron-youngs-scotty-cameron-putter-170153175.html",
+   "summary": "Scotty Cameron is finally adding Cameron Young's Phantom 9.5R putter to the 2026 Phantom mallet putter lineup.",
+   "published": "Tue, 25 Aug 2026 17:01:53 +0000",
+   "source": "Yahoo Golf",
+   "kind": "news",
+   "golfers": [
+    "Cameron Young"
+   ]
+  },
+  {
+   "title": "TOUR Championship 2026 Predictions, Free Picks, Odds: Tom Kim Long Shot Pick - Fantasy Alarm",
+   "link": "https://news.google.com/rss/articles/CBMiywFBVV95cUxPU080TzlmZFVfQ2E1Q01ld0xsRm5rTHJBWUJRYmFzNjlNbElzTTZZQUxpR05oVmVod0l3R01OZTlocEV4TFFiaVlzUTduRHUtU0Npd0pPUHNjeUFMYnVzWUZpbUxfSkpXS3poSEtIUjg5ODhST2NyUW9FNHY5ZFZYd1Q2WnBnUzBDX2liSlFFT093cXZlOWxXa0ZjbE56WVE3S2dVSXZvWGs4dlJRNHhoQWczRzhrMFoteEVadFV6czhjamM1ZHdCengzNA?oc=5",
+   "summary": "TOUR Championship 2026 Predictions, Free Picks, Odds: Tom Kim Long Shot Pick Fantasy Alarm",
+   "published": "Tue, 25 Aug 2026 15:48:50 GMT",
+   "source": "Google News: TOUR Championship picks",
+   "kind": "news",
+   "golfers": [
+    "Tom Kim"
+   ]
+  },
+  {
    "title": "Tour Championship Picks, Odds & Predictions 2026: Scottie or Rory?",
    "link": "https://sports.yahoo.com/articles/tour-championship-odds-picks-predictions-180200959.html",
    "summary": "Our expert offers his 2026 Tour Championship picks, with Scottie Scheffler as the favorite ath a 22% win probability at Kalshi.",
@@ -271,11 +304,11 @@
    ]
   },
   {
-   "title": "Tour Championship Long Shot Predictions & Sleeper Picks: Can Woodland Finish Storybook Season?",
-   "link": "https://sports.yahoo.com/articles/tour-championship-long-shot-predictions-135800299.html",
-   "summary": "Gary Woodland fronts our Tour Championship long-shot predictions and sleeper picks with just a 1.6% win probability at Kalshi.",
-   "published": "Tue, 25 Aug 2026 13:58:00 +0000",
-   "source": "Yahoo Golf",
+   "title": "Tour Championship Long Shot Predictions & Sleeper Picks: Can Woodland Finish Storybook Season? - Yahoo Sports",
+   "link": "https://news.google.com/rss/articles/CBMikgFBVV95cUxNV2JQSlhsX1FRclpqVHlENWRSbGhQRG11MEs0RW1MT3M3SnRISGxRU0ZZZi1fa2g1OHhtUmw3cTlEV2JLQTNYZnBfYVZIdDNZM1dJeTIzclhDWk1lOHdfLUcyeE5FZmljOVRpN25TcDdvNTBJbTFpRFRURkJVRUpRWFVmd0VVVW04eEJDWE0zaHZ2Zw?oc=5",
+   "summary": "Tour Championship Long Shot Predictions & Sleeper Picks: Can Woodland Finish Storybook Season? Yahoo Sports",
+   "published": "Tue, 25 Aug 2026 13:58:00 GMT",
+   "source": "Google News: TOUR Championship picks",
    "kind": "news",
    "golfers": [
     "Gary Woodland"
@@ -307,23 +340,12 @@
    "title": "Odds Outlook: Scottie Scheffler favored over Rory McIlroy to win FedExCup - PGA Tour",
    "link": "https://news.google.com/rss/articles/CBMikAJBVV95cUxQSnY2SjhibzFqTG5sY21YU3lJYlFtME13MlZqeE5RMUlDbVU5eU8tNFdIVUY5RGRMLWFFSDNhdGQtQ3ZXaVh2T3pYcXhqaEwyM25iLTRvUjJCT3pOT0tmVzFudFJtMk5Gd2RzT1JaM2szdlk5UGhsWFVEaDNZY194dVdQclJXU3VDQlREMVlRT2F2UXhmTmlUTThEWHNoMTAxVFhoVWtaMW52ckNWb3ZKUExvanJMbUpLbjBWZTA1ZzBXS0pkTWVEUDQ0MGhhRHp3bWkwV0w5LVJ4YnRyam5rei0xMkdqUk44R3BOTFJUZUFxSlVScm5fMEZ4OEkzRXdMRTVKVGpmcnRsTS12QW1ncQ?oc=5",
    "summary": "Odds Outlook: Scottie Scheffler favored over Rory McIlroy to win FedExCup PGA Tour",
-   "published": "Tue, 25 Aug 2026 07:46:49 GMT",
-   "source": "Google News: TOUR Championship picks",
+   "published": "Tue, 25 Aug 2026 10:27:24 GMT",
+   "source": "Google News: TOUR Championship DFS",
    "kind": "news",
    "golfers": [
     "Scottie Scheffler",
     "Rory McIlroy"
-   ]
-  },
-  {
-   "title": "PGA Tour news: Justin Thomas gets emotional after FedExCup Playoffs exit",
-   "link": "https://sports.yahoo.com/articles/pga-tour-news-justin-thomas-023324040.html",
-   "summary": "It was a memorable season for Justin Thomas, to say the least. Just a few months ago, he was trying to recover from a back injury. On Sunday, he had a respectable finish at the BMW Championship at Bellerive Country Club. Thomas was among the 20 players who fell short of qualifying for the Tour Championship to cap off the FedExCup Playoffs, as only [\u2026] The post PGA Tour news: Justin Thomas gets emo",
-   "published": "Tue, 25 Aug 2026 02:33:24 +0000",
-   "source": "Yahoo Golf",
-   "kind": "news",
-   "golfers": [
-    "Justin Thomas"
    ]
   },
   {
@@ -335,17 +357,6 @@
    "kind": "news",
    "golfers": [
     "Robert MacIntyre"
-   ]
-  },
-  {
-   "title": "U.S. Solheim Cup team finalizes roster with 3 captain's picks",
-   "link": "https://golf.com/news/us-solheim-cup-captains-picks-2026/",
-   "summary": "U.S. Solheim Cup captain Angela Stanford selected Rose Zhang, Megan Khang and Lindy Duncan to round out her team for The Netherlands. The post U.S. Solheim Cup team finalizes roster with 3 captain&#8217;s picks appeared first on Golf .",
-   "published": "Mon, 24 Aug 2026 17:55:21 +0000",
-   "source": "Golf.com",
-   "kind": "news",
-   "golfers": [
-    "Justin Rose"
    ]
   },
   {
