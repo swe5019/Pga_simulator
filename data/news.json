@@ -1,11 +1,11 @@
 {
- "updatedUtc": "2026-08-26T07:09:58Z",
+ "updatedUtc": "2026-08-26T09:58:39Z",
  "slate": "BMW_2026",
  "event": "TOUR Championship",
  "counts": {
-  "items": 25,
-  "golfersMentioned": 18,
-  "news": 25,
+  "items": 27,
+  "golfersMentioned": 19,
+  "news": 27,
   "chatter": 0
  },
  "sources": [
@@ -157,9 +157,15 @@
  "mentions": [
   {
    "name": "Scottie Scheffler",
-   "news": 6,
+   "news": 7,
    "chatter": 0,
-   "total": 6
+   "total": 7
+  },
+  {
+   "name": "Wyndham Clark",
+   "news": 3,
+   "chatter": 0,
+   "total": 3
   },
   {
    "name": "Robert MacIntyre",
@@ -180,12 +186,6 @@
    "total": 2
   },
   {
-   "name": "Wyndham Clark",
-   "news": 2,
-   "chatter": 0,
-   "total": 2
-  },
-  {
    "name": "Rory McIlroy",
    "news": 2,
    "chatter": 0,
@@ -196,6 +196,12 @@
    "news": 2,
    "chatter": 0,
    "total": 2
+  },
+  {
+   "name": "Jake Knapp",
+   "news": 1,
+   "chatter": 0,
+   "total": 1
   },
   {
    "name": "Justin Thomas",
@@ -265,6 +271,29 @@
   }
  ],
  "items": [
+  {
+   "title": "Jake Knapp Undergoes Surgery After Narrowly Missing Out On Tour Championship Spot",
+   "link": "https://www.golfmonthly.com/news/jake-knapp-undergoes-surgery-after-narrowly-missing-out-on-tour-championship-spot",
+   "summary": "A ligament injury in Knapp's left thumb midway through the season halted a strong start to his year, with the American going under the knife to correct the issue",
+   "published": "Wed, 26 Aug 2026 09:03:50 +0000",
+   "source": "Golf Monthly",
+   "kind": "news",
+   "golfers": [
+    "Jake Knapp"
+   ]
+  },
+  {
+   "title": "2026 PGA Tour Championship odds, DFS picks: Can Wyndham Clark stop Scottie Scheffler? - The New York Times",
+   "link": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxPMGRXUlVPelNreXB3UDNsX3E3M0dILU92MnB5dmJGVkNTTmo5VmF0VEhHcklFSmFUZ2N0SVlGdzdpWlh2aXUxZ3Fya0kyc0Q3emw1VXBKdDhrZURrM3gwaGZxMGxRU3VkLUdCZGRFM3pleW9DYlgzQmpra18zcGZxbzY2SWdrOHJDRGoxQVBzcEpDZjdWR1RtTkN3endONTBFbW1WOEdWNV8?oc=5",
+   "summary": "2026 PGA Tour Championship odds, DFS picks: Can Wyndham Clark stop Scottie Scheffler? The New York Times",
+   "published": "Wed, 26 Aug 2026 09:00:45 GMT",
+   "source": "Google News: TOUR Championship DFS",
+   "kind": "news",
+   "golfers": [
+    "Scottie Scheffler",
+    "Wyndham Clark"
+   ]
+  },
   {
    "title": "Tour Championship Best Bets and Golf Odds",
    "link": "https://vsin.com/golf/tour-championship-best-bets-and-golf-odds-2/",
