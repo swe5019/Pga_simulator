@@ -1,11 +1,11 @@
 {
- "updatedUtc": "2026-08-25T13:43:09Z",
+ "updatedUtc": "2026-08-26T13:49:11Z",
  "tournament": "TOUR_2026",
  "event": "TOUR Championship",
  "draftGroupId": "152473",
  "contests": [
   {
-   "id": "194365449",
+   "id": "194433434",
    "name": "PGA TOUR FREE 200-Player",
    "fee": 0,
    "entries": 200,
@@ -24,6 +24,36 @@
    "name": "PGA TOUR FREE 100-Player",
    "fee": 0,
    "entries": 100,
+   "paidSpots": 1,
+   "prizePool": 0.0,
+   "tiers": [
+    {
+     "min": 1,
+     "max": 1,
+     "value": 0.0
+    }
+   ]
+  },
+  {
+   "id": "194463196",
+   "name": "PGA TOUR FREE 75-Player",
+   "fee": 0,
+   "entries": 75,
+   "paidSpots": 1,
+   "prizePool": 0.0,
+   "tiers": [
+    {
+     "min": 1,
+     "max": 1,
+     "value": 0.0
+    }
+   ]
+  },
+  {
+   "id": "194471527",
+   "name": "PGA TOUR FREE 25-Player",
+   "fee": 0,
+   "entries": 25,
    "paidSpots": 1,
    "prizePool": 0.0,
    "tiers": [
@@ -380,7 +410,7 @@
    ]
   },
   {
-   "id": "194359119",
+   "id": "194470122",
    "name": "PGA TOUR $0.25 Winner Take All [$50 to 1st]",
    "fee": 0.25,
    "entries": 237,
@@ -925,7 +955,7 @@
    ]
   },
   {
-   "id": "194359051",
+   "id": "194467454",
    "name": "PGA TOUR 10x Booster [Top 3 Win $20]",
    "fee": 2,
    "entries": 35,
@@ -936,21 +966,6 @@
      "min": 1,
      "max": 3,
      "value": 20.0
-    }
-   ]
-  },
-  {
-   "id": "194359588",
-   "name": "PGA TOUR $2 50-50",
-   "fee": 2,
-   "entries": 20,
-   "paidSpots": 10,
-   "prizePool": 36.0,
-   "tiers": [
-    {
-     "min": 1,
-     "max": 10,
-     "value": 3.6
     }
    ]
   },
@@ -2270,26 +2285,6 @@
    ]
   },
   {
-   "id": "194359645",
-   "name": "Beginner PGA TOUR $20 5-Player",
-   "fee": 20,
-   "entries": 5,
-   "paidSpots": 2,
-   "prizePool": 90.0,
-   "tiers": [
-    {
-     "min": 1,
-     "max": 1,
-     "value": 60.0
-    },
-    {
-     "min": 2,
-     "max": 2,
-     "value": 30.0
-    }
-   ]
-  },
-  {
    "id": "194359290",
    "name": "PGA TOUR SUPERSat to NFL 9-13 $100 Fantasy Football Millionaire [5x]",
    "fee": 21,
@@ -2645,21 +2640,6 @@
    ]
   },
   {
-   "id": "194359205",
-   "name": "PGA TOUR $50 Winner Take All [$500 to 1st]",
-   "fee": 50,
-   "entries": 11,
-   "paidSpots": 1,
-   "prizePool": 500.0,
-   "tiers": [
-    {
-     "min": 1,
-     "max": 1,
-     "value": 500.0
-    }
-   ]
-  },
-  {
    "id": "194356240",
    "name": "PGA TOUR $40K Up-and-Down [$10K to 1st]",
    "fee": 55,
@@ -2805,7 +2785,7 @@
    ]
   },
   {
-   "id": "194359153",
+   "id": "194359155",
    "name": "PGA TOUR $85 Winner Take All [$300 to 1st]",
    "fee": 85,
    "entries": 4,
@@ -3117,21 +3097,6 @@
   {
    "id": "194359542",
    "name": "PGA TOUR $109 3-Player",
-   "fee": 109,
-   "entries": 3,
-   "paidSpots": 1,
-   "prizePool": 300.0,
-   "tiers": [
-    {
-     "min": 1,
-     "max": 1,
-     "value": 300.0
-    }
-   ]
-  },
-  {
-   "id": "194359629",
-   "name": "Casual PGA TOUR $109 3-Player",
    "fee": 109,
    "entries": 3,
    "paidSpots": 1,
@@ -3505,7 +3470,7 @@
    ]
   },
   {
-   "id": "194359136",
+   "id": "194359134",
    "name": "PGA TOUR $267 Winner Take All [$1K to 1st]",
    "fee": 267,
    "entries": 4,
@@ -3700,7 +3665,7 @@
    ]
   },
   {
-   "id": "194359673",
+   "id": "194414769",
    "name": "PGA TOUR $1,060 Winner Take All [$3K to 1st] (Must Fill)",
    "fee": 1060,
    "entries": 3,
