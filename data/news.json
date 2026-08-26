@@ -1,19 +1,19 @@
 {
- "updatedUtc": "2026-08-25T21:45:07Z",
+ "updatedUtc": "2026-08-26T01:59:18Z",
  "slate": "BMW_2026",
  "event": "TOUR Championship",
  "counts": {
-  "items": 25,
+  "items": 24,
   "golfersMentioned": 18,
-  "news": 25,
+  "news": 24,
   "chatter": 0
  },
  "sources": [
   {
    "source": "RotoWire Golf",
-   "ok": true,
-   "items": 5,
-   "error": null
+   "ok": false,
+   "items": 0,
+   "error": "no items"
   },
   {
    "source": "RotoBaller Golf",
@@ -157,21 +157,21 @@
  "mentions": [
   {
    "name": "Scottie Scheffler",
-   "news": 7,
+   "news": 6,
    "chatter": 0,
-   "total": 7
-  },
-  {
-   "name": "Cameron Young",
-   "news": 3,
-   "chatter": 0,
-   "total": 3
+   "total": 6
   },
   {
    "name": "Robert MacIntyre",
    "news": 3,
    "chatter": 0,
    "total": 3
+  },
+  {
+   "name": "Wyndham Clark",
+   "news": 2,
+   "chatter": 0,
+   "total": 2
   },
   {
    "name": "Patrick Cantlay",
@@ -186,16 +186,16 @@
    "total": 2
   },
   {
-   "name": "Sam Burns",
+   "name": "Cameron Young",
    "news": 2,
    "chatter": 0,
    "total": 2
   },
   {
-   "name": "Wyndham Clark",
-   "news": 1,
+   "name": "Sam Burns",
+   "news": 2,
    "chatter": 0,
-   "total": 1
+   "total": 2
   },
   {
    "name": "Justin Thomas",
@@ -266,6 +266,17 @@
  ],
  "items": [
   {
+   "title": "Tour Championship picks 2026: It's a statement week for Wyndham Clark - Golf Digest",
+   "link": "https://news.google.com/rss/articles/CBMibkFVX3lxTFBMYXVSLWRqNnFrNDZuWndIUzNkRmplRVVWTEM0UzVvMEc2WUR0ZnVZcVkzSkVxamxUZ2tnTnpNdXFlZC1BeDI0Y0VJNmVDdFZyTGc3bTFxZG9yQy10SDNOUF9uMkRHaGxXcTU5M1VR?oc=5",
+   "summary": "Tour Championship picks 2026: It's a statement week for Wyndham Clark Golf Digest",
+   "published": "Wed, 26 Aug 2026 00:50:45 GMT",
+   "source": "Google News: TOUR Championship DFS",
+   "kind": "news",
+   "golfers": [
+    "Wyndham Clark"
+   ]
+  },
+  {
    "title": "In a Sports Betting World, Why Doesn't Golf Have Injury Reports?",
    "link": "https://sports.yahoo.com/articles/sports-betting-world-why-doesnt-193500738.html",
    "summary": "Scottie Scheffler was sick and bettors were unaware. Why wasn't there an injury report?",
@@ -309,17 +320,6 @@
    "kind": "news",
    "golfers": [
     "Justin Thomas"
-   ]
-  },
-  {
-   "title": "Cameron Young's Scotty Cameron putter is finally coming to retail",
-   "link": "https://shopping.yahoo.com/style/accessories/articles/cameron-youngs-scotty-cameron-putter-170153175.html",
-   "summary": "Scotty Cameron is finally adding Cameron Young's Phantom 9.5R putter to the 2026 Phantom mallet putter lineup.",
-   "published": "Tue, 25 Aug 2026 17:01:53 +0000",
-   "source": "Yahoo Golf",
-   "kind": "news",
-   "golfers": [
-    "Cameron Young"
    ]
   },
   {
@@ -488,17 +488,6 @@
    "kind": "news",
    "golfers": [
     "Ludvig Aberg"
-   ]
-  },
-  {
-   "title": "BMW Championship Picks: Scheffler Leads Star-Studded Field At Bellerive - Forbes",
-   "link": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxOb2VkR0NaSURjUzhmNnNudnNBQTBmTkdLblZ5b19nNll4ZzBFSkRMbU5KYXFjZEtJbG4yVml1N2UtMkJhX0xrY0pxWmliblpDaWwtQW9pTGNyYkQyS21hbGlEZGZRTEoweEZaa1F0cTBURUlHZ3pvWlhrUFRCcTFxVWFQSGc4WkZ1NlFrNUpVaUw5SEVXMldNSFJ0bHdWYWVwdXV3dU5lX3FhTmN2bmVlN2VuelJxTzRPLWY0?oc=5",
-   "summary": "BMW Championship Picks: Scheffler Leads Star-Studded Field At Bellerive Forbes",
-   "published": "Wed, 19 Aug 2026 00:51:26 GMT",
-   "source": "Google News: TOUR Championship picks",
-   "kind": "news",
-   "golfers": [
-    "Scottie Scheffler"
    ]
   },
   {
