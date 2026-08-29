@@ -1,11 +1,11 @@
 {
- "updatedUtc": "2026-08-28T15:24:55Z",
+ "updatedUtc": "2026-08-29T01:45:50Z",
  "slate": "TOUR_2026",
  "event": "TOUR Championship",
  "counts": {
-  "items": 39,
-  "golfersMentioned": 17,
-  "news": 39,
+  "items": 41,
+  "golfersMentioned": 18,
+  "news": 41,
   "chatter": 0
  },
  "sources": [
@@ -157,9 +157,9 @@
  "mentions": [
   {
    "name": "J.J. Spaun",
-   "news": 18,
+   "news": 20,
    "chatter": 0,
-   "total": 18
+   "total": 20
   },
   {
    "name": "Scottie Scheffler",
@@ -169,15 +169,21 @@
   },
   {
    "name": "Rory McIlroy",
-   "news": 4,
+   "news": 5,
    "chatter": 0,
-   "total": 4
+   "total": 5
   },
   {
    "name": "Tommy Fleetwood",
    "news": 3,
    "chatter": 0,
    "total": 3
+  },
+  {
+   "name": "Min Woo Lee",
+   "news": 2,
+   "chatter": 0,
+   "total": 2
   },
   {
    "name": "Gary Woodland",
@@ -205,12 +211,6 @@
   },
   {
    "name": "Robert MacIntyre",
-   "news": 2,
-   "chatter": 0,
-   "total": 2
-  },
-  {
-   "name": "Sam Burns",
    "news": 2,
    "chatter": 0,
    "total": 2
@@ -246,6 +246,12 @@
    "total": 1
   },
   {
+   "name": "Sam Burns",
+   "news": 1,
+   "chatter": 0,
+   "total": 1
+  },
+  {
    "name": "Ludvig Aberg",
    "news": 1,
    "chatter": 0,
@@ -259,6 +265,30 @@
   }
  ],
  "items": [
+  {
+   "title": "Min Woo Lee fires career-low 62 to lead Tour Championship after J.J. Spaun withdraws - dailyclubgolf.com",
+   "link": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxQN1VCMVRfZGRiZ1lhRWtzekdsQkx5SDYzTG5vVFhEc1BMc2FYd1VtSzN3ZDZmUUlnN2tCRHFoQ01YczRqRmx3OWZ3U2g0bkY4UHFpdWdFZkYxVG9MRk55YTU2SjFwcVVoTmpjYXcyaWxzc3RXVlBhWUdmc1o4bFNvMXd5bGE2bGYzTzNzSkNCNExtamNaR2VVbXQ5cnpnN3VxMjluZ2pjamU3UmtZSG9rZkRwel82T1JSaUNn?oc=5",
+   "summary": "Min Woo Lee fires career-low 62 to lead Tour Championship after J.J. Spaun withdraws dailyclubgolf.com",
+   "published": "Fri, 28 Aug 2026 16:58:30 GMT",
+   "source": "Google News: TOUR Championship WD",
+   "kind": "news",
+   "golfers": [
+    "J.J. Spaun",
+    "Min Woo Lee"
+   ]
+  },
+  {
+   "title": "Min Woo Lee fires career-low 62 to lead Tour Championship after J.J. Spaun withdraws - Yardbarker",
+   "link": "https://news.google.com/rss/articles/CBMi2AFBVV95cUxQejY3bmFhb3RxbzAyYzZmemhNa2Z5NU1icW80X0g0bThIVTJfa3I2c2wxOXhZbFF2MmVySU10WlM3aV82RFpGYUxaaHFqTmFkRUNMd0NnTTlvLUpzT0JqWHZnZlhzVWJGbS1jNk0yMFczOGt4UzNoa0xLaS1yREtQQUFjYUNqOFh5VkZyZmtrSjdzM0hzNXlBa0x0alJwX1JETkM1NkpaREk1QnUxdmNyQ1QwWXp5aXEtaHRXZy1JemRrMzFhY2ZBSE15RmRxdlZMbkMxUi1kT0w?oc=5",
+   "summary": "Min Woo Lee fires career-low 62 to lead Tour Championship after J.J. Spaun withdraws Yardbarker",
+   "published": "Fri, 28 Aug 2026 16:56:10 GMT",
+   "source": "Google News: TOUR Championship WD",
+   "kind": "news",
+   "golfers": [
+    "J.J. Spaun",
+    "Min Woo Lee"
+   ]
+  },
   {
    "title": "\"It sucks\" \u2013 J.J. Spaun reveals unusual injury that ended his PGA Tour season - Golfmagic",
    "link": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxNdkdBNmlvN2tobld3VTktQkNOSnZHRGtSM09Fc0VVNGZ0d0g1a2d1SXdxUGdnMlhGZ0FKbVFVbF85WTB0cEtoR0Z0bTVpYzZLdVJyb2NTcVE5LVRQY0pIUmVMTGtVN3VQQnFJR0RXSnFwWWM2dWp2c2RuZGxtOVp0TlJtTXB3d2FVNVFGejBkc1BUTUhvQWJ4TUpjc0xIWnJfYTE0V2hEVUdQQQ?oc=5",
@@ -275,28 +305,6 @@
    "link": "https://news.google.com/rss/articles/CBMiekFVX3lxTE5YTC1lYlZtS0ItMm93anBoZkZGR1J3Q1Qza1dtdDlDU0ZEOEFGS0FlcTExNUY4Zmg3bDhYdTMyeWJlVFk4YWR6UHdZc25BdGp2Vl91S0NjSFhLcUVrRlpVVGxhd1BFNml1TE4tN3FzZkExMXpodDhtalpB?oc=5",
    "summary": "J.J. Spaun Reveals Bizarre Cause of Injury That Ended His Season heavy.com",
    "published": "Fri, 28 Aug 2026 12:26:24 GMT",
-   "source": "Google News: TOUR Championship WD",
-   "kind": "news",
-   "golfers": [
-    "J.J. Spaun"
-   ]
-  },
-  {
-   "title": "J.J. Spaun withdraws from TOUR Championship with shoulder injury - PGA Tour",
-   "link": "https://news.google.com/rss/articles/CBMivwFBVV95cUxNOHhjeWV6MWhGNVFSdzBJWGY1czhOd1VWb0p4bU5DdmFoOWVFV0lIcTktTTlYN2lPM3RQUTRweHhlNzZkT001UHVPcWNmRVZTeFZvQnJwb0w3SFJOYkdtSGVnN0hybEstSWtZY0pNZ3B3anFfSXJNZTNycHNjSkc5YjZING1SZVFMMExQel9BY3pITkJfd1YtRTVsYTIydEFhRjVxQWpPU1lNNGZSRFNwa2lJS1o1YzJBUWtaQ3dTQQ?oc=5",
-   "summary": "J.J. Spaun withdraws from TOUR Championship with shoulder injury PGA Tour",
-   "published": "Fri, 28 Aug 2026 11:42:34 GMT",
-   "source": "Google News: TOUR Championship WD",
-   "kind": "news",
-   "golfers": [
-    "J.J. Spaun"
-   ]
-  },
-  {
-   "title": "'Knife in shoulder blade': J.J. Spaun describes pain that forced Tour Championship withdrawal - Golf Channel",
-   "link": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxQRmFLUVRYOHJycVVlQmRoZWhFY0Y0Zy1LUmM0R2l0dzJhR1d4NXB5c3MyUlRMVlpIQVI1R0F6d2oyNUlNVlNWOHpUbjVYa1VjWkVRVEpYc2IyWk9Wc181Uy1PRC1vcmo5emFOVTZQMndobHdUbmtnN0szbzh0MHhmcl9LSE1MOEhLckRLT2NranJJTlkzblBYVE5UUUdCdTFZWkVMWDBZMG4?oc=5",
-   "summary": "'Knife in shoulder blade': J.J. Spaun describes pain that forced Tour Championship withdrawal Golf Channel",
-   "published": "Fri, 28 Aug 2026 01:57:07 GMT",
    "source": "Google News: TOUR Championship WD",
    "kind": "news",
    "golfers": [
@@ -392,17 +400,6 @@
    ]
   },
   {
-   "title": "J.J. Spaun withdraws from Tour Championship with shoulder injury - ESPN",
-   "link": "https://news.google.com/rss/articles/CBMiogFBVV95cUxORlNSejJ3cDVUWTZtZ3pJS0JNelFjcWJjbEh6WkkwWGc2WUVCVWVodDF1QzNXRjRsQ2Zhbk5BVF8ybzJxb21hb0NLajVOZlVNbUNjclRKeEJnX2o2VE1ad0pHXzRvSS1QTzZRcmJhWkk3WDBmTlpQNzVQemNQN2pPdTUzZFk0eHp3WVlMLVNQa1Y5VFJJdFRGODJybjdFbmRuT0E?oc=5",
-   "summary": "J.J. Spaun withdraws from Tour Championship with shoulder injury ESPN",
-   "published": "Thu, 27 Aug 2026 17:44:08 GMT",
-   "source": "Google News: TOUR Championship WD",
-   "kind": "news",
-   "golfers": [
-    "J.J. Spaun"
-   ]
-  },
-  {
    "title": "J.J. Spaun withdraws from Tour Championship in Round 1 with shoulder injury - Yahoo Sports",
    "link": "https://news.google.com/rss/articles/CBMifkFVX3lxTE1QWnVsc1BfZXNxRm40bV9DdVhGUGdiRkdHdVUxanlEa3p2azNKY2Jia1dpOTBpZkJudElZN08tUk9tZ0JHVXFYc0tjR3VTdFYtcjBTOEdoaFlHV2tqNk9wclV2R1cxekhrUkkwWGxLZlZkejJIYXNteDZBS2xSQQ?oc=5",
    "summary": "J.J. Spaun withdraws from Tour Championship in Round 1 with shoulder injury Yahoo Sports",
@@ -436,6 +433,17 @@
    ]
   },
   {
+   "title": "J.J. Spaun withdraws from Tour Championship with shoulder injury - espn.in",
+   "link": "https://news.google.com/rss/articles/CBMingFBVV95cUxQUmVGM2t3YU1lX0FuZU1FSGMxWUc2WHRpdnJveHpwRVJVWWk2RnBCZEpoQ2hXNjBWWW54a0M1NUR4QUtBcUZtTW9ZNXJadjlNN0N5eTREbU1uLV9Nc3hXblh3b0NMTVhkdnhUMWY0emN4TzNXNkNTM1pFU01fYmxLRTdEbDZoNkQ3R1pUTXpZQ3dMaDl4V3RiRXVDdkVfQQ?oc=5",
+   "summary": "J.J. Spaun withdraws from Tour Championship with shoulder injury espn.in",
+   "published": "Thu, 27 Aug 2026 17:34:00 GMT",
+   "source": "Google News: TOUR Championship WD",
+   "kind": "news",
+   "golfers": [
+    "J.J. Spaun"
+   ]
+  },
+  {
    "title": "J.J. Spaun Withdraws Just 5 Holes Into the TOUR Championship - Yahoo Sports",
    "link": "https://news.google.com/rss/articles/CBMifkFVX3lxTE1LX0s3LUVZOUhRZUo1UnAzNlJtNDNQMEFlN3RBei15WVgtVWtGZzhqRmlFaVJZMldoQmN3SF9jQVUyQWFGeWlkOTFRek1IeGt0VGVPUk1paWEyVUo1YTY3YVA5QzlJMG5GRDVUUHNCWFp4TjR0YkpsMUZUeGtQQQ?oc=5",
    "summary": "J.J. Spaun Withdraws Just 5 Holes Into the TOUR Championship Yahoo Sports",
@@ -451,6 +459,28 @@
    "link": "https://news.google.com/rss/articles/CBMifkFVX3lxTFBYelR0YVR5SmNURjFUQVY2WDZrTkhuOUpvRElQMUVXT1c0WnU3RGFwMjhaRUNObXJ1T2YxYVhHSE9GYVF2b2IwRWxpSGtWX0hKNFRNeHFVWmsyVTlsZDVGWnhheFBVUjlHdjFzQUJ3Nl9pcXdNdDZPa0czOF9ydw?oc=5",
    "summary": "J.J. Spaun withdraws from Tour Championship after 5 holes with an injury Yahoo Sports",
    "published": "Thu, 27 Aug 2026 17:26:45 GMT",
+   "source": "Google News: TOUR Championship WD",
+   "kind": "news",
+   "golfers": [
+    "J.J. Spaun"
+   ]
+  },
+  {
+   "title": "J.J. Spaun withdraws from TOUR Championship with shoulder injury - PGA Tour",
+   "link": "https://news.google.com/rss/articles/CBMivwFBVV95cUxNOHhjeWV6MWhGNVFSdzBJWGY1czhOd1VWb0p4bU5DdmFoOWVFV0lIcTktTTlYN2lPM3RQUTRweHhlNzZkT001UHVPcWNmRVZTeFZvQnJwb0w3SFJOYkdtSGVnN0hybEstSWtZY0pNZ3B3anFfSXJNZTNycHNjSkc5YjZING1SZVFMMExQel9BY3pITkJfd1YtRTVsYTIydEFhRjVxQWpPU1lNNGZSRFNwa2lJS1o1YzJBUWtaQ3dTQQ?oc=5",
+   "summary": "J.J. Spaun withdraws from TOUR Championship with shoulder injury PGA Tour",
+   "published": "Thu, 27 Aug 2026 17:22:12 GMT",
+   "source": "Google News: TOUR Championship WD",
+   "kind": "news",
+   "golfers": [
+    "J.J. Spaun"
+   ]
+  },
+  {
+   "title": "'Knife in shoulder blade': J.J. Spaun describes pain that forced Tour Championship withdrawal - Golf Channel",
+   "link": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxQRmFLUVRYOHJycVVlQmRoZWhFY0Y0Zy1LUmM0R2l0dzJhR1d4NXB5c3MyUlRMVlpIQVI1R0F6d2oyNUlNVlNWOHpUbjVYa1VjWkVRVEpYc2IyWk9Wc181Uy1PRC1vcmo5emFOVTZQMndobHdUbmtnN0szbzh0MHhmcl9LSE1MOEhLckRLT2NranJJTlkzblBYVE5UUUdCdTFZWkVMWDBZMG4?oc=5",
+   "summary": "'Knife in shoulder blade': J.J. Spaun describes pain that forced Tour Championship withdrawal Golf Channel",
+   "published": "Thu, 27 Aug 2026 17:19:01 GMT",
    "source": "Google News: TOUR Championship WD",
    "kind": "news",
    "golfers": [
@@ -525,6 +555,17 @@
    "kind": "news",
    "golfers": [
     "Gary Woodland"
+   ]
+  },
+  {
+   "title": "Golf Picks: McIlroy Offers Value as TOUR Championship Returns to East Lake - Betway Insider",
+   "link": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxNUlFnMkREdGJKVlZiVEwwQm5ZNnU4R0xJMWlKX3llYk5SWWlxZWx0UWNvenJOd3kzWkdGdzVUdmNHa3B4RUsta3I0YjloRHo0elpmQzhWSFhUbnFFRlk1R2xONm51QWxmLVVicjluaVg2WTQ4aFh4a2t2YjF3WEZ6TGlfZGNwOVU5ZmNYdEt5ZUYzRkp2TDMwQlJ4LWg3aTdsSkFtVl80RWNldw?oc=5",
+   "summary": "Golf Picks: McIlroy Offers Value as TOUR Championship Returns to East Lake Betway Insider",
+   "published": "Wed, 26 Aug 2026 11:08:19 GMT",
+   "source": "Google News: TOUR Championship picks",
+   "kind": "news",
+   "golfers": [
+    "Rory McIlroy"
    ]
   },
   {
@@ -685,17 +726,6 @@
    "kind": "news",
    "golfers": [
     "Viktor Hovland"
-   ]
-  },
-  {
-   "title": "BMW Championship DFS picks 2026: My case for Sam Burns - Golf Digest",
-   "link": "https://news.google.com/rss/articles/CBMickFVX3lxTE5LVFhpa1FtVF9tTWd5OUc4U1k2Q1NuUkxiX19hdTZ3OF94Zy1XOW9qZzVDRzVtMEtiZjQwU1lud1JMSEpwQWk3ZkNuSkVHOVJZQWlSc0VBemdZOFItSGNERjlSRTJmYXFaaGt4MVZOVzFqUQ?oc=5",
-   "summary": "BMW Championship DFS picks 2026: My case for Sam Burns Golf Digest",
-   "published": "Tue, 18 Aug 2026 22:33:54 GMT",
-   "source": "Google News: TOUR Championship DFS",
-   "kind": "news",
-   "golfers": [
-    "Sam Burns"
    ]
   }
  ]
