@@ -1,11 +1,11 @@
 {
- "updatedUtc": "2026-08-29T10:07:29Z",
+ "updatedUtc": "2026-08-29T16:44:26Z",
  "slate": "TOUR_2026",
  "event": "TOUR Championship",
  "counts": {
-  "items": 41,
+  "items": 39,
   "golfersMentioned": 17,
-  "news": 41,
+  "news": 39,
   "chatter": 0
  },
  "sources": [
@@ -157,9 +157,9 @@
  "mentions": [
   {
    "name": "J.J. Spaun",
-   "news": 21,
+   "news": 22,
    "chatter": 0,
-   "total": 21
+   "total": 22
   },
   {
    "name": "Scottie Scheffler",
@@ -168,25 +168,25 @@
    "total": 5
   },
   {
-   "name": "Rory McIlroy",
-   "news": 5,
+   "name": "Tommy Fleetwood",
+   "news": 4,
    "chatter": 0,
-   "total": 5
+   "total": 4
   },
   {
-   "name": "Tommy Fleetwood",
+   "name": "Rory McIlroy",
+   "news": 4,
+   "chatter": 0,
+   "total": 4
+  },
+  {
+   "name": "Wyndham Clark",
    "news": 3,
    "chatter": 0,
    "total": 3
   },
   {
    "name": "Min Woo Lee",
-   "news": 2,
-   "chatter": 0,
-   "total": 2
-  },
-  {
-   "name": "Gary Woodland",
    "news": 2,
    "chatter": 0,
    "total": 2
@@ -204,19 +204,25 @@
    "total": 2
   },
   {
-   "name": "Wyndham Clark",
-   "news": 2,
-   "chatter": 0,
-   "total": 2
-  },
-  {
    "name": "Robert MacIntyre",
    "news": 2,
    "chatter": 0,
    "total": 2
   },
   {
+   "name": "Cameron Young",
+   "news": 1,
+   "chatter": 0,
+   "total": 1
+  },
+  {
    "name": "Ryan Gerard",
+   "news": 1,
+   "chatter": 0,
+   "total": 1
+  },
+  {
+   "name": "Gary Woodland",
    "news": 1,
    "chatter": 0,
    "total": 1
@@ -228,13 +234,13 @@
    "total": 1
   },
   {
-   "name": "Xander Schauffele",
+   "name": "Ludvig Aberg",
    "news": 1,
    "chatter": 0,
    "total": 1
   },
   {
-   "name": "Justin Rose",
+   "name": "Xander Schauffele",
    "news": 1,
    "chatter": 0,
    "total": 1
@@ -250,15 +256,22 @@
    "news": 1,
    "chatter": 0,
    "total": 1
-  },
-  {
-   "name": "Sam Burns",
-   "news": 1,
-   "chatter": 0,
-   "total": 1
   }
  ],
  "items": [
+  {
+   "title": "Cameron Young Gambles On New Putter At Tour Championship",
+   "link": "https://sports.yahoo.com/articles/cameron-young-gambles-putter-tour-145731615.html",
+   "summary": "Cameron Young switches putters mid-tournament, Tommy Fleetwood follows suit, and JJ Spaun withdraws as the Tour Championship unfolds at East Lake.",
+   "published": "Sat, 29 Aug 2026 14:57:31 +0000",
+   "source": "Yahoo Golf",
+   "kind": "news",
+   "golfers": [
+    "Cameron Young",
+    "Tommy Fleetwood",
+    "J.J. Spaun"
+   ]
+  },
   {
    "title": "Tour Championship odds update: Ryan Gerard surges into lead as new value picks emerge at East Lake - MassLive.com",
    "link": "https://news.google.com/rss/articles/CBMi2wFBVV95cUxPQ0NzSlZzT1Ntamd5dG5VaUdON0YzcjlUTXRnQnd3YkdSeWMwT1BvX3QzLWZMRnVJMW1SRkxpVEx6UnJrbWZFdlotd2NGNnc0b2NKejRQUDNsY0ZNeUZsUmRZTWJyQXVuU2M1Tl9BUXhPd1R2UTM2Wi03YzlYcnNtTzUxcXRxZEdoZXRDbng5WVc1ZGJfcy1QODN4YVhSX0V2X3dMNzFCbWo0ZjhaMEpBZGdYYVlkR2h5ZzM5b19iQzB1RVVRaF83bS1Wd05YSW4zbUlrYlQxelhrd28?oc=5",
@@ -332,6 +345,17 @@
    "link": "https://news.google.com/rss/articles/CBMiekFVX3lxTE5YTC1lYlZtS0ItMm93anBoZkZGR1J3Q1Qza1dtdDlDU0ZEOEFGS0FlcTExNUY4Zmg3bDhYdTMyeWJlVFk4YWR6UHdZc25BdGp2Vl91S0NjSFhLcUVrRlpVVGxhd1BFNml1TE4tN3FzZkExMXpodDhtalpB?oc=5",
    "summary": "J.J. Spaun Reveals Bizarre Cause of Injury That Ended His Season heavy.com",
    "published": "Fri, 28 Aug 2026 12:26:24 GMT",
+   "source": "Google News: TOUR Championship WD",
+   "kind": "news",
+   "golfers": [
+    "J.J. Spaun"
+   ]
+  },
+  {
+   "title": "J.J. Spaun withdraws from TOUR Championship with shoulder injury - PGA Tour",
+   "link": "https://news.google.com/rss/articles/CBMivwFBVV95cUxNOHhjeWV6MWhGNVFSdzBJWGY1czhOd1VWb0p4bU5DdmFoOWVFV0lIcTktTTlYN2lPM3RQUTRweHhlNzZkT001UHVPcWNmRVZTeFZvQnJwb0w3SFJOYkdtSGVnN0hybEstSWtZY0pNZ3B3anFfSXJNZTNycHNjSkc5YjZING1SZVFMMExQel9BY3pITkJfd1YtRTVsYTIydEFhRjVxQWpPU1lNNGZSRFNwa2lJS1o1YzJBUWtaQ3dTQQ?oc=5",
+   "summary": "J.J. Spaun withdraws from TOUR Championship with shoulder injury PGA Tour",
+   "published": "Fri, 28 Aug 2026 11:37:06 GMT",
    "source": "Google News: TOUR Championship WD",
    "kind": "news",
    "golfers": [
@@ -416,6 +440,17 @@
    ]
   },
   {
+   "title": "J.J. Spaun withdraws from Tour Championship with shoulder injury - ESPN",
+   "link": "https://news.google.com/rss/articles/CBMiogFBVV95cUxORlNSejJ3cDVUWTZtZ3pJS0JNelFjcWJjbEh6WkkwWGc2WUVCVWVodDF1QzNXRjRsQ2Zhbk5BVF8ybzJxb21hb0NLajVOZlVNbUNjclRKeEJnX2o2VE1ad0pHXzRvSS1QTzZRcmJhWkk3WDBmTlpQNzVQemNQN2pPdTUzZFk0eHp3WVlMLVNQa1Y5VFJJdFRGODJybjdFbmRuT0E?oc=5",
+   "summary": "J.J. Spaun withdraws from Tour Championship with shoulder injury ESPN",
+   "published": "Thu, 27 Aug 2026 17:44:08 GMT",
+   "source": "Google News: TOUR Championship WD",
+   "kind": "news",
+   "golfers": [
+    "J.J. Spaun"
+   ]
+  },
+  {
    "title": "J.J. Spaun withdraws from Tour Championship in Round 1 with shoulder injury - Yahoo Sports",
    "link": "https://news.google.com/rss/articles/CBMifkFVX3lxTE1QWnVsc1BfZXNxRm40bV9DdVhGUGdiRkdHdVUxanlEa3p2azNKY2Jia1dpOTBpZkJudElZN08tUk9tZ0JHVXFYc0tjR3VTdFYtcjBTOEdoaFlHV2tqNk9wclV2R1cxekhrUkkwWGxLZlZkejJIYXNteDZBS2xSQQ?oc=5",
    "summary": "J.J. Spaun withdraws from Tour Championship in Round 1 with shoulder injury Yahoo Sports",
@@ -449,17 +484,6 @@
    ]
   },
   {
-   "title": "J.J. Spaun withdraws from Tour Championship with shoulder injury - espn.in",
-   "link": "https://news.google.com/rss/articles/CBMingFBVV95cUxQUmVGM2t3YU1lX0FuZU1FSGMxWUc2WHRpdnJveHpwRVJVWWk2RnBCZEpoQ2hXNjBWWW54a0M1NUR4QUtBcUZtTW9ZNXJadjlNN0N5eTREbU1uLV9Nc3hXblh3b0NMTVhkdnhUMWY0emN4TzNXNkNTM1pFU01fYmxLRTdEbDZoNkQ3R1pUTXpZQ3dMaDl4V3RiRXVDdkVfQQ?oc=5",
-   "summary": "J.J. Spaun withdraws from Tour Championship with shoulder injury espn.in",
-   "published": "Thu, 27 Aug 2026 17:34:00 GMT",
-   "source": "Google News: TOUR Championship WD",
-   "kind": "news",
-   "golfers": [
-    "J.J. Spaun"
-   ]
-  },
-  {
    "title": "J.J. Spaun Withdraws Just 5 Holes Into the TOUR Championship - Yahoo Sports",
    "link": "https://news.google.com/rss/articles/CBMifkFVX3lxTE1LX0s3LUVZOUhRZUo1UnAzNlJtNDNQMEFlN3RBei15WVgtVWtGZzhqRmlFaVJZMldoQmN3SF9jQVUyQWFGeWlkOTFRek1IeGt0VGVPUk1paWEyVUo1YTY3YVA5QzlJMG5GRDVUUHNCWFp4TjR0YkpsMUZUeGtQQQ?oc=5",
    "summary": "J.J. Spaun Withdraws Just 5 Holes Into the TOUR Championship Yahoo Sports",
@@ -475,17 +499,6 @@
    "link": "https://news.google.com/rss/articles/CBMifkFVX3lxTFBYelR0YVR5SmNURjFUQVY2WDZrTkhuOUpvRElQMUVXT1c0WnU3RGFwMjhaRUNObXJ1T2YxYVhHSE9GYVF2b2IwRWxpSGtWX0hKNFRNeHFVWmsyVTlsZDVGWnhheFBVUjlHdjFzQUJ3Nl9pcXdNdDZPa0czOF9ydw?oc=5",
    "summary": "J.J. Spaun withdraws from Tour Championship after 5 holes with an injury Yahoo Sports",
    "published": "Thu, 27 Aug 2026 17:26:45 GMT",
-   "source": "Google News: TOUR Championship WD",
-   "kind": "news",
-   "golfers": [
-    "J.J. Spaun"
-   ]
-  },
-  {
-   "title": "J.J. Spaun withdraws from TOUR Championship with shoulder injury - PGA Tour",
-   "link": "https://news.google.com/rss/articles/CBMivwFBVV95cUxNOHhjeWV6MWhGNVFSdzBJWGY1czhOd1VWb0p4bU5DdmFoOWVFV0lIcTktTTlYN2lPM3RQUTRweHhlNzZkT001UHVPcWNmRVZTeFZvQnJwb0w3SFJOYkdtSGVnN0hybEstSWtZY0pNZ3B3anFfSXJNZTNycHNjSkc5YjZING1SZVFMMExQel9BY3pITkJfd1YtRTVsYTIydEFhRjVxQWpPU1lNNGZSRFNwa2lJS1o1YzJBUWtaQ3dTQQ?oc=5",
-   "summary": "J.J. Spaun withdraws from TOUR Championship with shoulder injury PGA Tour",
-   "published": "Thu, 27 Aug 2026 17:22:12 GMT",
    "source": "Google News: TOUR Championship WD",
    "kind": "news",
    "golfers": [
@@ -541,6 +554,18 @@
    ]
   },
   {
+   "title": "Wyndham Clark or Ludvig Aberg? Our Tour Championship prop bet picks - Central Oregon Daily",
+   "link": "https://news.google.com/rss/articles/CBMi7wFBVV95cUxOV0xiRERpb3QzM1lPWEZwWC1MdW40OTdLSm0zb292amNERWpSZkFfRmNPVWV3VXVJR3ZpZHdaTzQ4dnNqUWEtRlYtcGlNcmFJRXRwZVVIZnUxdjlnMkR3YkhIcFNtQ0p0Y25vSDNabUpsOEM0djlKY1UtRTBOenI2Q19NUWlWVnJESWh5dExaTFRrRU5FMWxpbDJpR2g2OC1tRTNwXzh4TVhoQzVUanowTjM4UXVlcmRBSXB0OHZ4UkdLS2dWRDhwZWVQcU1ielNQclRRQ3hBRFJBTGN2VFFjNWJoTndBbVdUSDhNMUh6TQ?oc=5",
+   "summary": "Wyndham Clark or Ludvig Aberg? Our Tour Championship prop bet picks Central Oregon Daily",
+   "published": "Wed, 26 Aug 2026 18:35:55 GMT",
+   "source": "Google News: TOUR Championship picks",
+   "kind": "news",
+   "golfers": [
+    "Wyndham Clark",
+    "Ludvig Aberg"
+   ]
+  },
+  {
    "title": "Tour Championship 2026 odds, picks, predictions, props: Expert fading Tommy Fleetwood at Atlanta - CBS Sports",
    "link": "https://news.google.com/rss/articles/CBMizAFBVV95cUxQakUtWVVYMXFDYVBTQWZ1MUxROEoydEJFaVlOVjRyQlBsZ3VYODZGNFk4dHdwVlhZSmxSbGt4V1RrYWR5cjRzNk00X3lud00wZHQ4TWsyNGkzX05DUkFCRjYwTk9hUFhoNlVqNVJYajNBblJoLXcxUDZMXzFCT3FycGZNenpSRFlNeU81aTBpVGhYNGZaSGVUbG9aU0dReFpadm9KaEduQzNGMTZSRHcza1p4RFhMTWhscXJ4dFRKNVp3V1VwNlZxelM0emo?oc=5",
    "summary": "Tour Championship 2026 odds, picks, predictions, props: Expert fading Tommy Fleetwood at Atlanta CBS Sports",
@@ -556,28 +581,6 @@
    "link": "https://news.google.com/rss/articles/CBMixgFBVV95cUxNS1ZTMlFHMFZkVENCT1c3cnJHNVB0dHhTZXR2RUJzNTFicmZHUnNLUHYyUWNwby1mblhvRTY5N0t0akR2eTJqeHVuOV9GeDd0S1FRS1dYZ0xwZ0NXMlBwZnBPMHY1cDFpSG5qeGpCcEtkcWVTdld6UFUzRnY3NGYzdnNhTnpFUFBfRVZLdmt0OURUd3gwSktMbEZvbTM3WW5mMUZEMVRxMjNIRHhQQnlkVm5UNFpQQTNWbkk3LUFCa1VGXzEzSHc?oc=5",
    "summary": "PGA Tour Championship Picks, Winner Predictions This Week: Rory McIlroy, More PrizePicks",
    "published": "Wed, 26 Aug 2026 16:00:27 GMT",
-   "source": "Google News: TOUR Championship picks",
-   "kind": "news",
-   "golfers": [
-    "Rory McIlroy"
-   ]
-  },
-  {
-   "title": "Tour Championship Long Shot Picks & Sleepers: Can Woodland Finish Storybook Season? - Yahoo Sports",
-   "link": "https://news.google.com/rss/articles/CBMikgFBVV95cUxNV2JQSlhsX1FRclpqVHlENWRSbGhQRG11MEs0RW1MT3M3SnRISGxRU0ZZZi1fa2g1OHhtUmw3cTlEV2JLQTNYZnBfYVZIdDNZM1dJeTIzclhDWk1lOHdfLUcyeE5FZmljOVRpN25TcDdvNTBJbTFpRFRURkJVRUpRWFVmd0VVVW04eEJDWE0zaHZ2Zw?oc=5",
-   "summary": "Tour Championship Long Shot Picks & Sleepers: Can Woodland Finish Storybook Season? Yahoo Sports",
-   "published": "Wed, 26 Aug 2026 12:56:00 GMT",
-   "source": "Google News: TOUR Championship picks",
-   "kind": "news",
-   "golfers": [
-    "Gary Woodland"
-   ]
-  },
-  {
-   "title": "Golf Picks: McIlroy Offers Value as TOUR Championship Returns to East Lake - Betway Insider",
-   "link": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxNUlFnMkREdGJKVlZiVEwwQm5ZNnU4R0xJMWlKX3llYk5SWWlxZWx0UWNvenJOd3kzWkdGdzVUdmNHa3B4RUsta3I0YjloRHo0elpmQzhWSFhUbnFFRlk1R2xONm51QWxmLVVicjluaVg2WTQ4aFh4a2t2YjF3WEZ6TGlfZGNwOVU5ZmNYdEt5ZUYzRkp2TDMwQlJ4LWg3aTdsSkFtVl80RWNldw?oc=5",
-   "summary": "Golf Picks: McIlroy Offers Value as TOUR Championship Returns to East Lake Betway Insider",
-   "published": "Wed, 26 Aug 2026 11:08:19 GMT",
    "source": "Google News: TOUR Championship picks",
    "kind": "news",
    "golfers": [
@@ -654,17 +657,6 @@
    ]
   },
   {
-   "title": "Solheim Cup Team USA 2026: Angela Stanford Names Wildcard Picks To Complete Line-Up",
-   "link": "https://www.golfmonthly.com/news/solheim-cup-team-usa-2026-angela-stanford-names-wildcard-picks-to-complete-line-up",
-   "summary": "Angela Stanford completed her Team USA Solheim Cup squad by naming Megan Khang, Rose Zhang and Lindy Duncan as her three wildcard picks.",
-   "published": "Mon, 24 Aug 2026 17:54:15 +0000",
-   "source": "Golf Monthly",
-   "kind": "news",
-   "golfers": [
-    "Justin Rose"
-   ]
-  },
-  {
    "title": "Odds Outlook: Scottie Scheffler favored over Rory McIlroy to win FedExCup - PGA Tour",
    "link": "https://news.google.com/rss/articles/CBMikAJBVV95cUxQSnY2SjhibzFqTG5sY21YU3lJYlFtME13MlZqeE5RMUlDbVU5eU8tNFdIVUY5RGRMLWFFSDNhdGQtQ3ZXaVh2T3pYcXhqaEwyM25iLTRvUjJCT3pOT0tmVzFudFJtMk5Gd2RzT1JaM2szdlk5UGhsWFVEaDNZY194dVdQclJXU3VDQlREMVlRT2F2UXhmTmlUTThEWHNoMTAxVFhoVWtaMW52ckNWb3ZKUExvanJMbUpLbjBWZTA1ZzBXS0pkTWVEUDQ0MGhhRHp3bWkwV0w5LVJ4YnRyam5rei0xMkdqUk44R3BOTFJUZUFxSlVScm5fMEZ4OEkzRXdMRTVKVGpmcnRsTS12QW1ncQ?oc=5",
    "summary": "Odds Outlook: Scottie Scheffler favored over Rory McIlroy to win FedExCup PGA Tour",
@@ -709,17 +701,6 @@
    "kind": "news",
    "golfers": [
     "Robert MacIntyre"
-   ]
-  },
-  {
-   "title": "BMW Championship props: Look for aggressive play to yield another top finish for Sam Burns - PGA Tour",
-   "link": "https://news.google.com/rss/articles/CBMijwJBVV95cUxNdzd5RW1YRHFFWjBDV1NnTG1zblZTWWtQa2RBd29EVUJkMTZhTnBVbUVXZ25admhsOWRmdzJmaTdtdDAyLWlyTVhPRVRrNWN0UUgtb25lR1RvaEVQay1ULW5fSm9OaVkzU1NhSWhiZWpaUml3U0dzUFJreE0wM252RE8yLVI4T0dkMDFVeFRxU0V2MGFxV0ZIWFc4TVR6dlN1WW90OW9PZExTT1lFSmpLU0Y5eWlWSXFZY0F6TGhUVzlySW9Ma2s4N0JJekNfV2ROdWtRdVhiNGd5ZElOUzRJdlpzcEQ0aFBZdTBMRnRBVWtlWllaTE4wRnNZN0RiNEs0SFFQYlZ2Y3p1VnFnOHJF?oc=5",
-   "summary": "BMW Championship props: Look for aggressive play to yield another top finish for Sam Burns PGA Tour",
-   "published": "Wed, 19 Aug 2026 15:50:01 GMT",
-   "source": "Google News: TOUR Championship DFS",
-   "kind": "news",
-   "golfers": [
-    "Sam Burns"
    ]
   }
  ]
