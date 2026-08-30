@@ -1,19 +1,19 @@
 {
- "updatedUtc": "2026-08-30T16:42:30Z",
+ "updatedUtc": "2026-08-30T21:08:05Z",
  "slate": "TOUR_2026",
  "event": "TOUR Championship",
  "counts": {
-  "items": 37,
+  "items": 36,
   "golfersMentioned": 14,
-  "news": 37,
+  "news": 36,
   "chatter": 0
  },
  "sources": [
   {
    "source": "RotoWire Golf",
-   "ok": false,
-   "items": 0,
-   "error": "no items"
+   "ok": true,
+   "items": 2,
+   "error": null
   },
   {
    "source": "RotoBaller Golf",
@@ -157,9 +157,9 @@
  "mentions": [
   {
    "name": "J.J. Spaun",
-   "news": 21,
+   "news": 20,
    "chatter": 0,
-   "total": 21
+   "total": 20
   },
   {
    "name": "Scottie Scheffler",
@@ -245,7 +245,7 @@
    "title": "Jamie Calandro's 2026 Fantasy Football Draft Guide",
    "link": "https://www.rotoballer.com/jamie-calandros-2026-fantasy-football-draft-guide/1918259",
    "summary": "Everyone has their favorite approach to drafting their teams in this wonderful game of fantasy football. The fact that each year is so different makes it even more challenging (and fun) to get into it. The expansion of types of games and league sizes, and community efforts like the Scott Fish Bowl and the Fantasy [&#8230;]",
-   "published": "Sun, 30 Aug 2026 13:55:53 +0000",
+   "published": "Sun, 30 Aug 2026 19:00:53 +0000",
    "source": "RotoBaller",
    "kind": "news",
    "golfers": [
@@ -303,6 +303,17 @@
    "link": "https://news.google.com/rss/articles/CBMiekFVX3lxTE5YTC1lYlZtS0ItMm93anBoZkZGR1J3Q1Qza1dtdDlDU0ZEOEFGS0FlcTExNUY4Zmg3bDhYdTMyeWJlVFk4YWR6UHdZc25BdGp2Vl91S0NjSFhLcUVrRlpVVGxhd1BFNml1TE4tN3FzZkExMXpodDhtalpB?oc=5",
    "summary": "J.J. Spaun Reveals Bizarre Cause of Injury That Ended His Season heavy.com",
    "published": "Fri, 28 Aug 2026 12:26:24 GMT",
+   "source": "Google News: TOUR Championship WD",
+   "kind": "news",
+   "golfers": [
+    "J.J. Spaun"
+   ]
+  },
+  {
+   "title": "J.J. Spaun withdraws from TOUR Championship with shoulder injury - PGA Tour",
+   "link": "https://news.google.com/rss/articles/CBMivwFBVV95cUxNOHhjeWV6MWhGNVFSdzBJWGY1czhOd1VWb0p4bU5DdmFoOWVFV0lIcTktTTlYN2lPM3RQUTRweHhlNzZkT001UHVPcWNmRVZTeFZvQnJwb0w3SFJOYkdtSGVnN0hybEstSWtZY0pNZ3B3anFfSXJNZTNycHNjSkc5YjZING1SZVFMMExQel9BY3pITkJfd1YtRTVsYTIydEFhRjVxQWpPU1lNNGZSRFNwa2lJS1o1YzJBUWtaQ3dTQQ?oc=5",
+   "summary": "J.J. Spaun withdraws from TOUR Championship with shoulder injury PGA Tour",
+   "published": "Fri, 28 Aug 2026 11:37:06 GMT",
    "source": "Google News: TOUR Championship WD",
    "kind": "news",
    "golfers": [
@@ -376,21 +387,10 @@
    ]
   },
   {
-   "title": "J.J. Spaun withdraws from Tour Championship in Round 1 with shoulder injury - NBC Sports",
-   "link": "https://news.google.com/rss/articles/CBMirwFBVV95cUxQaTBhRWk2Nl9odEFyU2E5OTNaOFl0T3VLZ2JJZ0t6T0duX2lmNTNUcGpxMnNTWUtQTmlvemU4eTNvNFAxeG9CcTYwZ2d2Z0FSejloQ3Q1VEhwQ3RFMm1zVUN0bk1maDg3X2Rwbm9rQVIxV3U0ZWVmZWxDNDUxUEtRRERxWE5iMjJwb2NCY2pUQnU3c3V3SUZMSzFWcC1UOTBqdkkyUXBGZjZ2bGNPRDVJ?oc=5",
-   "summary": "J.J. Spaun withdraws from Tour Championship in Round 1 with shoulder injury NBC Sports",
-   "published": "Thu, 27 Aug 2026 17:51:07 GMT",
-   "source": "Google News: TOUR Championship WD",
-   "kind": "news",
-   "golfers": [
-    "J.J. Spaun"
-   ]
-  },
-  {
-   "title": "J.J. Spaun withdraws from Tour Championship with shoulder injury - ESPN",
-   "link": "https://news.google.com/rss/articles/CBMiogFBVV95cUxORlNSejJ3cDVUWTZtZ3pJS0JNelFjcWJjbEh6WkkwWGc2WUVCVWVodDF1QzNXRjRsQ2Zhbk5BVF8ybzJxb21hb0NLajVOZlVNbUNjclRKeEJnX2o2VE1ad0pHXzRvSS1QTzZRcmJhWkk3WDBmTlpQNzVQemNQN2pPdTUzZFk0eHp3WVlMLVNQa1Y5VFJJdFRGODJybjdFbmRuT0E?oc=5",
-   "summary": "J.J. Spaun withdraws from Tour Championship with shoulder injury ESPN",
-   "published": "Thu, 27 Aug 2026 17:44:08 GMT",
+   "title": "J.J. Spaun withdraws from Tour Championship in Round 1 with shoulder injury - Yahoo Sports",
+   "link": "https://news.google.com/rss/articles/CBMifkFVX3lxTE1QWnVsc1BfZXNxRm40bV9DdVhGUGdiRkdHdVUxanlEa3p2azNKY2Jia1dpOTBpZkJudElZN08tUk9tZ0JHVXFYc0tjR3VTdFYtcjBTOEdoaFlHV2tqNk9wclV2R1cxekhrUkkwWGxLZlZkejJIYXNteDZBS2xSQQ?oc=5",
+   "summary": "J.J. Spaun withdraws from Tour Championship in Round 1 with shoulder injury Yahoo Sports",
+   "published": "Thu, 27 Aug 2026 17:42:33 GMT",
    "source": "Google News: TOUR Championship WD",
    "kind": "news",
    "golfers": [
@@ -446,17 +446,6 @@
    "link": "https://news.google.com/rss/articles/CBMifkFVX3lxTFBYelR0YVR5SmNURjFUQVY2WDZrTkhuOUpvRElQMUVXT1c0WnU3RGFwMjhaRUNObXJ1T2YxYVhHSE9GYVF2b2IwRWxpSGtWX0hKNFRNeHFVWmsyVTlsZDVGWnhheFBVUjlHdjFzQUJ3Nl9pcXdNdDZPa0czOF9ydw?oc=5",
    "summary": "J.J. Spaun withdraws from Tour Championship after 5 holes with an injury Yahoo Sports",
    "published": "Thu, 27 Aug 2026 17:26:45 GMT",
-   "source": "Google News: TOUR Championship WD",
-   "kind": "news",
-   "golfers": [
-    "J.J. Spaun"
-   ]
-  },
-  {
-   "title": "J.J. Spaun withdraws from TOUR Championship with shoulder injury - PGA Tour",
-   "link": "https://news.google.com/rss/articles/CBMivwFBVV95cUxNOHhjeWV6MWhGNVFSdzBJWGY1czhOd1VWb0p4bU5DdmFoOWVFV0lIcTktTTlYN2lPM3RQUTRweHhlNzZkT001UHVPcWNmRVZTeFZvQnJwb0w3SFJOYkdtSGVnN0hybEstSWtZY0pNZ3B3anFfSXJNZTNycHNjSkc5YjZING1SZVFMMExQel9BY3pITkJfd1YtRTVsYTIydEFhRjVxQWpPU1lNNGZSRFNwa2lJS1o1YzJBUWtaQ3dTQQ?oc=5",
-   "summary": "J.J. Spaun withdraws from TOUR Championship with shoulder injury PGA Tour",
-   "published": "Thu, 27 Aug 2026 17:22:12 GMT",
    "source": "Google News: TOUR Championship WD",
    "kind": "news",
    "golfers": [
