@@ -1,19 +1,19 @@
 {
- "updatedUtc": "2026-09-01T18:32:54Z",
+ "updatedUtc": "2026-09-01T23:19:57Z",
  "slate": "TOUR_2026",
  "event": "Omega European Masters",
  "counts": {
-  "items": 18,
-  "golfersMentioned": 2,
-  "news": 18,
+  "items": 16,
+  "golfersMentioned": 4,
+  "news": 16,
   "chatter": 0
  },
  "sources": [
   {
    "source": "RotoWire Golf",
-   "ok": true,
-   "items": 5,
-   "error": null
+   "ok": false,
+   "items": 0,
+   "error": "no items"
   },
   {
    "source": "RotoBaller Golf",
@@ -108,19 +108,19 @@
   {
    "source": "Google News: Omega European Masters DFS",
    "ok": true,
-   "items": 8,
+   "items": 7,
    "error": null
   },
   {
    "source": "Google News: Omega European Masters picks",
    "ok": true,
-   "items": 52,
+   "items": 54,
    "error": null
   },
   {
    "source": "Google News: Omega European Masters WD",
    "ok": true,
-   "items": 28,
+   "items": 32,
    "error": null
   },
   {
@@ -157,18 +157,52 @@
  "mentions": [
   {
    "name": "J.J. Spaun",
-   "news": 9,
+   "news": 7,
    "chatter": 0,
-   "total": 9
+   "total": 7
+  },
+  {
+   "name": "Cameron Young",
+   "news": 1,
+   "chatter": 0,
+   "total": 1
+  },
+  {
+   "name": "Min Woo Lee",
+   "news": 1,
+   "chatter": 0,
+   "total": 1
   },
   {
    "name": "Robert MacIntyre",
-   "news": 2,
+   "news": 1,
    "chatter": 0,
-   "total": 2
+   "total": 1
   }
  ],
  "items": [
+  {
+   "title": "3 biggest surprises from U.S. Presidents Cup picks",
+   "link": "https://golf.com/news/us-presidents-cup-team-surprises/",
+   "summary": "A snub, a sleeper and a talented young star highlighted U.S. captain Brandt Snedeker's picks for the upcoming Presidents Cup. The post 3 biggest surprises from U.S. Presidents Cup picks appeared first on Golf .",
+   "published": "Tue, 01 Sep 2026 22:23:50 +0000",
+   "source": "Golf.com",
+   "kind": "news",
+   "golfers": [
+    "Cameron Young"
+   ]
+  },
+  {
+   "title": "Min Woo Lee Helped Design PAYNTR Golf\u2019s New CHEF RX RS",
+   "link": "https://sports.yahoo.com/articles/min-woo-lee-helped-design-174110150.html",
+   "summary": "The $240 signature model pairs full-grain leather, a Fast Twist insert system and a propulsion plate in a shoe Lee helped develop and wear-test.",
+   "published": "Tue, 01 Sep 2026 17:41:10 +0000",
+   "source": "Yahoo Golf",
+   "kind": "news",
+   "golfers": [
+    "Min Woo Lee"
+   ]
+  },
   {
    "title": "Golf betting tips: Omega European Masters 2026 preview and odds - The Telegraph",
    "link": "https://news.google.com/rss/articles/CBMiigFBVV95cUxOVEhKSVh0Q0xmd21GU003VFlpQ2ZkcXU5MnJqNVQ2TmZVeHIyS01CN0NsT082ejZjQ2JoWF83Sml3RHQzX3NPNVpGWi1NMzNTSEt3UlpQRjR3VmphR05LcVJfNGxuVnZaUGo0cUI0YmpQTjJDLWdBOFBaRzBSdm11TG51bnY5UlVuaVE?oc=5",
@@ -188,9 +222,9 @@
    "golfers": []
   },
   {
-   "title": "Omega European Masters 2026 Tips, Picks & Predictions - Betfred Insights",
+   "title": "Omega European Masters 2026 Tips: Five Each-Way Picks for Switzerland - Betfred Insights",
    "link": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxQa2FZYk5UTnlCWlNha05LTmktUEhNNHYwSDlIU2Jab3BXQlRYdnB1OXNwcThvc1pua0VIS0FMbnRPVmhXVFEtejRwWXB0NlVKeXlOMzVWWUU0REkxZTRpUTVPbVpnV25LeTdyTjNIeWliOFRRNFFzRnBQbkdYbDNMcThhTy1kXzBKb0dwZmlrYUEycm5GUjIyZzcxWE05TG5TYVYzQjk5QTNybUU?oc=5",
-   "summary": "Omega European Masters 2026 Tips, Picks & Predictions Betfred Insights",
+   "summary": "Omega European Masters 2026 Tips: Five Each-Way Picks for Switzerland Betfred Insights",
    "published": "Tue, 01 Sep 2026 12:43:01 GMT",
    "source": "Google News: Omega European Masters picks",
    "kind": "news",
@@ -206,27 +240,18 @@
    "golfers": []
   },
   {
-   "title": "2026 Omega European Masters Betting Tips & Predictions - GoBet.com.au",
+   "title": "2026 Omega European Masters Betting Tips & Predictions - gobet.com.au",
    "link": "https://news.google.com/rss/articles/CBMicEFVX3lxTE8yQ2t4bVdKc2Y3djhDdmFPdnZSa1owLWlxaHBPNXhQVGE5RFdsYnJLVk8zVEprSDBQVWFxQkhLUmRPYlROUG1mSnRSalZHYzUxMS1CQUh2ZldPWVY0cW5tNy1Rc09VRGVUbjA3RTFwZE4?oc=5",
-   "summary": "2026 Omega European Masters Betting Tips & Predictions GoBet.com.au",
+   "summary": "2026 Omega European Masters Betting Tips & Predictions gobet.com.au",
    "published": "Tue, 01 Sep 2026 08:13:55 GMT",
-   "source": "Google News: Omega European Masters WD",
-   "kind": "news",
-   "golfers": []
-  },
-  {
-   "title": "2026 Omega European Masters betting tips \u2013 including a 140/1 shot in fine form - todays-golfer.com",
-   "link": "https://news.google.com/rss/articles/CBMingFBVV95cUxNQU1lZDJmQ09Mc3RXVnN4TUJHYWd4Vm4yZzN2NVVwSWFOWGZRQnEtSTE0ZVVJRVBZMXB1QzltVkNVNklIRHlPNDRTbXJuanY5cFJOd1Rfckh4T3hFS1JEYi1sWlZJMUR2MEN2WU9DYUxYYXZTZ1ZCcndXMDNEVjlsbzFnX2M0b2s3MjI5dTZBdWxLM1oyYVY5ZkpCeVJJUQ?oc=5",
-   "summary": "2026 Omega European Masters betting tips \u2013 including a 140/1 shot in fine form todays-golfer.com",
-   "published": "Mon, 31 Aug 2026 17:42:54 GMT",
    "source": "Google News: Omega European Masters picks",
    "kind": "news",
    "golfers": []
   },
   {
-   "title": "Omega European Masters 2026 preview, picks & analysis - Golfshake.com",
+   "title": "Omega European Masters 2026 preview, picks & analysis - golfshake.com",
    "link": "https://news.google.com/rss/articles/CBMingFBVV95cUxOZHdmS2NPbEcxSk95dHo2NWF0UHZRd2lfT3hJa0E0cDNCbDBJaDRSZTVibXdWTG9XbGZ0a0dXQ0R0dWNnRUEzRjN3VTFzQzBrbWxDNGNmRGd4VVBmMmd1V2MwOGxBNVBtRzQzRExEOWNHSlJhVUgwTldpVUVqNUVnQml5UWVseTJEamFweHNHRUx6WVpOTWZYUWw2bjlZdw?oc=5",
-   "summary": "Omega European Masters 2026 preview, picks & analysis Golfshake.com",
+   "summary": "Omega European Masters 2026 preview, picks & analysis golfshake.com",
    "published": "Mon, 31 Aug 2026 10:49:46 GMT",
    "source": "Google News: Omega European Masters picks",
    "kind": "news",
@@ -248,28 +273,6 @@
    "link": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxNdkdBNmlvN2tobld3VTktQkNOSnZHRGtSM09Fc0VVNGZ0d0g1a2d1SXdxUGdnMlhGZ0FKbVFVbF85WTB0cEtoR0Z0bTVpYzZLdVJyb2NTcVE5LVRQY0pIUmVMTGtVN3VQQnFJR0RXSnFwWWM2dWp2c2RuZGxtOVp0TlJtTXB3d2FVNVFGejBkc1BUTUhvQWJ4TUpjc0xIWnJfYTE0V2hEVUdQQQ?oc=5",
    "summary": "\"It sucks\" \u2013 J.J. Spaun reveals unusual injury that ended his PGA Tour season Golfmagic",
    "published": "Fri, 28 Aug 2026 12:45:50 GMT",
-   "source": "Google News: PGA WD",
-   "kind": "news",
-   "golfers": [
-    "J.J. Spaun"
-   ]
-  },
-  {
-   "title": "J.J. Spaun withdraws from TOUR Championship with shoulder injury - PGA Tour",
-   "link": "https://news.google.com/rss/articles/CBMivwFBVV95cUxNOHhjeWV6MWhGNVFSdzBJWGY1czhOd1VWb0p4bU5DdmFoOWVFV0lIcTktTTlYN2lPM3RQUTRweHhlNzZkT001UHVPcWNmRVZTeFZvQnJwb0w3SFJOYkdtSGVnN0hybEstSWtZY0pNZ3B3anFfSXJNZTNycHNjSkc5YjZING1SZVFMMExQel9BY3pITkJfd1YtRTVsYTIydEFhRjVxQWpPU1lNNGZSRFNwa2lJS1o1YzJBUWtaQ3dTQQ?oc=5",
-   "summary": "J.J. Spaun withdraws from TOUR Championship with shoulder injury PGA Tour",
-   "published": "Fri, 28 Aug 2026 11:37:06 GMT",
-   "source": "Google News: PGA WD",
-   "kind": "news",
-   "golfers": [
-    "J.J. Spaun"
-   ]
-  },
-  {
-   "title": "J.J. Spaun withdraws from Tour Championship after 5 holes with an injury - Golfweek",
-   "link": "https://news.google.com/rss/articles/CBMiywFBVV95cUxPcFBkN1RxUWZwV0FYRWpkSkNpVUhEQzFwd1FGZkdKVVMwM1NJLW4wbklrQXpFSXkwV3ZtbWRTeGgwV213bmNaYlh4UEpHd2kwc1ZCS3FCZmVqQkpac0s2SWtUQ0lzMFF2MXo1enR2ZWM0dmFaUl9LWnZfQXd1QWZsVVpKMDJiR2pNYnJuTWpfSXhQeXlUYWs1SE90X1EwcnBDZlJUYThRSFJhUjNYaG16c2JPSDBsNFg2TC1GV2JvN3FQcDdUNlVLSWdHcw?oc=5",
-   "summary": "J.J. Spaun withdraws from Tour Championship after 5 holes with an injury Golfweek",
-   "published": "Fri, 28 Aug 2026 00:28:00 GMT",
    "source": "Google News: PGA WD",
    "kind": "news",
    "golfers": [
@@ -310,9 +313,9 @@
    ]
   },
   {
-   "title": "Spaun leaves course, withdraws with shoulder injury - Golf Channel",
+   "title": "Spaun leaves course, withdraws with shoulder injury - golfchannel.com",
    "link": "https://news.google.com/rss/articles/CBMimAFBVV95cUxPT0hkdFFvaktzTWUtVFB5TWFsU3IzajVEa19ZRkNyS04yY2J3SnJkWGRrN1RzNHRZMS15MV84NEl4Qm5Ud3RyQ01OQUVtM0hxMnBBS3FqdEY4X0I1dy01S1ZhOTQxZzJOOWtURDMxS3daT1ZZVFZGU0R4XzBGQVJPS0JfN01aSW9GVjhid0ZUaUk5LVBiMW5jeQ?oc=5",
-   "summary": "Spaun leaves course, withdraws with shoulder injury Golf Channel",
+   "summary": "Spaun leaves course, withdraws with shoulder injury golfchannel.com",
    "published": "Thu, 27 Aug 2026 17:33:51 GMT",
    "source": "Google News: PGA WD",
    "kind": "news",
@@ -321,25 +324,14 @@
    ]
   },
   {
-   "title": "J.J. Spaun withdraws from Tour Championship after 5 holes with an injury - Yahoo Sports",
-   "link": "https://news.google.com/rss/articles/CBMifkFVX3lxTFBYelR0YVR5SmNURjFUQVY2WDZrTkhuOUpvRElQMUVXT1c0WnU3RGFwMjhaRUNObXJ1T2YxYVhHSE9GYVF2b2IwRWxpSGtWX0hKNFRNeHFVWmsyVTlsZDVGWnhheFBVUjlHdjFzQUJ3Nl9pcXdNdDZPa0czOF9ydw?oc=5",
-   "summary": "J.J. Spaun withdraws from Tour Championship after 5 holes with an injury Yahoo Sports",
-   "published": "Thu, 27 Aug 2026 17:26:45 GMT",
+   "title": "'Knife in shoulder blade': J.J. Spaun describes pain that forced Tour Championship withdrawal - golfchannel.com",
+   "link": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxQRmFLUVRYOHJycVVlQmRoZWhFY0Y0Zy1LUmM0R2l0dzJhR1d4NXB5c3MyUlRMVlpIQVI1R0F6d2oyNUlNVlNWOHpUbjVYa1VjWkVRVEpYc2IyWk9Wc181Uy1PRC1vcmo5emFOVTZQMndobHdUbmtnN0szbzh0MHhmcl9LSE1MOEhLckRLT2NranJJTlkzblBYVE5UUUdCdTFZWkVMWDBZMG4?oc=5",
+   "summary": "'Knife in shoulder blade': J.J. Spaun describes pain that forced Tour Championship withdrawal golfchannel.com",
+   "published": "Thu, 27 Aug 2026 17:19:01 GMT",
    "source": "Google News: PGA WD",
    "kind": "news",
    "golfers": [
     "J.J. Spaun"
-   ]
-  },
-  {
-   "title": "Robert MacIntyre offers injury update after feeling \u2018stabbing\u2019 pain - bunkered.co.uk",
-   "link": "https://news.google.com/rss/articles/CBMipgFBVV95cUxPMTVERml2eE9wSTg4Yi1xU0laSEptcXhfV1NUZUVhNlRydDlMTXNFUU5DM25udWFUUjFFbGRta0dhLVIzMTBmNU55ajdSekpKaGYxeHNCVzB6QzNJUXE5SDA0S0tSc2NyUmxpVlNtUFR6SkRyaEN1dlc1Z3BHcEUwN0wwbmVKeWpvci1YQnFYemdsYlNJVTFYVnhCZFlKOUtGYnU5QUhn?oc=5",
-   "summary": "Robert MacIntyre offers injury update after feeling \u2018stabbing\u2019 pain bunkered.co.uk",
-   "published": "Mon, 24 Aug 2026 11:31:23 GMT",
-   "source": "Google News: PGA WD",
-   "kind": "news",
-   "golfers": [
-    "Robert MacIntyre"
    ]
   },
   {
