@@ -1,11 +1,11 @@
 {
- "updatedUtc": "2026-08-31T20:50:51Z",
+ "updatedUtc": "2026-09-01T00:38:16Z",
  "slate": "TOUR_2026",
  "event": "Omega European Masters",
  "counts": {
-  "items": 18,
+  "items": 17,
   "golfersMentioned": 5,
-  "news": 18,
+  "news": 17,
   "chatter": 0
  },
  "sources": [
@@ -114,13 +114,13 @@
   {
    "source": "Google News: Omega European Masters picks",
    "ok": true,
-   "items": 46,
+   "items": 51,
    "error": null
   },
   {
    "source": "Google News: Omega European Masters WD",
    "ok": true,
-   "items": 22,
+   "items": 23,
    "error": null
   },
   {
@@ -168,25 +168,37 @@
    "total": 2
   },
   {
+   "name": "Wyndham Clark",
+   "news": 1,
+   "chatter": 0,
+   "total": 1
+  },
+  {
+   "name": "Matt Fitzpatrick",
+   "news": 1,
+   "chatter": 0,
+   "total": 1
+  },
+  {
    "name": "Cameron Young",
-   "news": 1,
-   "chatter": 0,
-   "total": 1
-  },
-  {
-   "name": "Adam Scott",
-   "news": 1,
-   "chatter": 0,
-   "total": 1
-  },
-  {
-   "name": "Scottie Scheffler",
    "news": 1,
    "chatter": 0,
    "total": 1
   }
  ],
  "items": [
+  {
+   "title": "\u2018We Are Concerned\u2019: PGA Tour Sounds Alarm As Fan Behavior Sparks Major Warning",
+   "link": "https://sports.yahoo.com/articles/concerned-pga-tour-sounds-alarm-214912166.html",
+   "summary": "Many have voiced concerns that the rise of legalized sports betting has negatively affected behavior among golf galleries. Among those who have spoken out about the issue are golfers Jordan Spieth, Matt Fitzpatrick, and Wyndham Clark.",
+   "published": "Mon, 31 Aug 2026 21:49:12 +0000",
+   "source": "Yahoo Golf",
+   "kind": "news",
+   "golfers": [
+    "Wyndham Clark",
+    "Matt Fitzpatrick"
+   ]
+  },
   {
    "title": "2026 Omega European Masters betting tips \u2013 including a 140/1 shot in fine form - Today's Golfer",
    "link": "https://news.google.com/rss/articles/CBMingFBVV95cUxNQU1lZDJmQ09Mc3RXVnN4TUJHYWd4Vm4yZzN2NVVwSWFOWGZRQnEtSTE0ZVVJRVBZMXB1QzltVkNVNklIRHlPNDRTbXJuanY5cFJOd1Rfckh4T3hFS1JEYi1sWlZJMUR2MEN2WU9DYUxYYXZTZ1ZCcndXMDNEVjlsbzFnX2M0b2s3MjI5dTZBdWxLM1oyYVY5ZkpCeVJJUQ?oc=5",
@@ -208,17 +220,6 @@
    ]
   },
   {
-   "title": "Jamie Calandro's 2026 Fantasy Football Draft Guide",
-   "link": "https://www.rotoballer.com/jamie-calandros-2026-fantasy-football-draft-guide/1918259",
-   "summary": "Everyone has their favorite approach to drafting their teams in this wonderful game of fantasy football. The fact that each year is so different makes it even more challenging (and fun) to get into it. The expansion of types of games and league sizes, and community efforts like the Scott Fish Bowl and the Fantasy [&#8230;]",
-   "published": "Mon, 31 Aug 2026 13:34:53 +0000",
-   "source": "RotoBaller",
-   "kind": "news",
-   "golfers": [
-    "Adam Scott"
-   ]
-  },
-  {
    "title": "Omega European Masters 2026 preview, picks & analysis - Golfshake.com",
    "link": "https://news.google.com/rss/articles/CBMingFBVV95cUxOZHdmS2NPbEcxSk95dHo2NWF0UHZRd2lfT3hJa0E0cDNCbDBJaDRSZTVibXdWTG9XbGZ0a0dXQ0R0dWNnRUEzRjN3VTFzQzBrbWxDNGNmRGd4VVBmMmd1V2MwOGxBNVBtRzQzRExEOWNHSlJhVUgwTldpVUVqNUVnQml5UWVseTJEamFweHNHRUx6WVpOTWZYUWw2bjlZdw?oc=5",
    "summary": "Omega European Masters 2026 preview, picks & analysis Golfshake.com",
@@ -226,17 +227,6 @@
    "source": "Google News: Omega European Masters picks",
    "kind": "news",
    "golfers": []
-  },
-  {
-   "title": "Tour Confidential: Scheffler wins, captain's picks, Good Good controversy",
-   "link": "https://golf.com/news/scottie-scheffler-captains-picks-tour-confidential/",
-   "summary": "This week's Tour Confidential breaks down Scottie Scheffler's latest win, what Team USA should look like and the Good Good ad fallout. The post Tour Confidential: Scheffler wins, captain&#8217;s picks, Good Good controversy appeared first on Golf .",
-   "published": "Mon, 31 Aug 2026 00:46:54 +0000",
-   "source": "Golf.com",
-   "kind": "news",
-   "golfers": [
-    "Scottie Scheffler"
-   ]
   },
   {
    "title": "European Soccer Picks Today: August 29-31",
@@ -263,6 +253,17 @@
    "link": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxNdkdBNmlvN2tobld3VTktQkNOSnZHRGtSM09Fc0VVNGZ0d0g1a2d1SXdxUGdnMlhGZ0FKbVFVbF85WTB0cEtoR0Z0bTVpYzZLdVJyb2NTcVE5LVRQY0pIUmVMTGtVN3VQQnFJR0RXSnFwWWM2dWp2c2RuZGxtOVp0TlJtTXB3d2FVNVFGejBkc1BUTUhvQWJ4TUpjc0xIWnJfYTE0V2hEVUdQQQ?oc=5",
    "summary": "\"It sucks\" \u2013 J.J. Spaun reveals unusual injury that ended his PGA Tour season Golfmagic",
    "published": "Fri, 28 Aug 2026 12:45:50 GMT",
+   "source": "Google News: PGA WD",
+   "kind": "news",
+   "golfers": [
+    "J.J. Spaun"
+   ]
+  },
+  {
+   "title": "J.J. Spaun withdraws from TOUR Championship with shoulder injury - PGA Tour",
+   "link": "https://news.google.com/rss/articles/CBMivwFBVV95cUxNOHhjeWV6MWhGNVFSdzBJWGY1czhOd1VWb0p4bU5DdmFoOWVFV0lIcTktTTlYN2lPM3RQUTRweHhlNzZkT001UHVPcWNmRVZTeFZvQnJwb0w3SFJOYkdtSGVnN0hybEstSWtZY0pNZ3B3anFfSXJNZTNycHNjSkc5YjZING1SZVFMMExQel9BY3pITkJfd1YtRTVsYTIydEFhRjVxQWpPU1lNNGZSRFNwa2lJS1o1YzJBUWtaQ3dTQQ?oc=5",
+   "summary": "J.J. Spaun withdraws from TOUR Championship with shoulder injury PGA Tour",
+   "published": "Fri, 28 Aug 2026 11:37:06 GMT",
    "source": "Google News: PGA WD",
    "kind": "news",
    "golfers": [
@@ -325,17 +326,6 @@
    ]
   },
   {
-   "title": "J.J. Spaun withdraws from TOUR Championship with shoulder injury - PGA Tour",
-   "link": "https://news.google.com/rss/articles/CBMivwFBVV95cUxNOHhjeWV6MWhGNVFSdzBJWGY1czhOd1VWb0p4bU5DdmFoOWVFV0lIcTktTTlYN2lPM3RQUTRweHhlNzZkT001UHVPcWNmRVZTeFZvQnJwb0w3SFJOYkdtSGVnN0hybEstSWtZY0pNZ3B3anFfSXJNZTNycHNjSkc5YjZING1SZVFMMExQel9BY3pITkJfd1YtRTVsYTIydEFhRjVxQWpPU1lNNGZSRFNwa2lJS1o1YzJBUWtaQ3dTQQ?oc=5",
-   "summary": "J.J. Spaun withdraws from TOUR Championship with shoulder injury PGA Tour",
-   "published": "Thu, 27 Aug 2026 17:22:12 GMT",
-   "source": "Google News: PGA WD",
-   "kind": "news",
-   "golfers": [
-    "J.J. Spaun"
-   ]
-  },
-  {
    "title": "'Knife in shoulder blade': J.J. Spaun describes pain that forced Tour Championship withdrawal - Golf Channel",
    "link": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxQRmFLUVRYOHJycVVlQmRoZWhFY0Y0Zy1LUmM0R2l0dzJhR1d4NXB5c3MyUlRMVlpIQVI1R0F6d2oyNUlNVlNWOHpUbjVYa1VjWkVRVEpYc2IyWk9Wc181Uy1PRC1vcmo5emFOVTZQMndobHdUbmtnN0szbzh0MHhmcl9LSE1MOEhLckRLT2NranJJTlkzblBYVE5UUUdCdTFZWkVMWDBZMG4?oc=5",
    "summary": "'Knife in shoulder blade': J.J. Spaun describes pain that forced Tour Championship withdrawal Golf Channel",
@@ -370,7 +360,7 @@
    "title": "Robert MacIntyre overcomes injury to reach Tour Championship thanks to 'positive sports movies' - Golfweek",
    "link": "https://news.google.com/rss/articles/CBMi9AFBVV95cUxOSFdQVHNYOGV0bkZsSVRlVk1hQVFuamxySXBVSmw2LXB6Qm12RUNMXy01TUlvYzFrVHdnQlp1X0JNTjJTdG9va3A0dlRYejVrSGdsM3F6dXI2S3Nnb3lpR2NFNUl3TkJOb1FtaVVaazFKc2lpcTVrVWpmMXg1UGNkd0VuY0FzU1BOZ0p2d2d4YnZ2eE5tLWs4d0xMYTlkZDlCaEFWa00tUHFEMkdzNHM0T1dGOTc2SVBRMmlUYVFTU3ZoSFNrODVGcER5azZrTXBqUUdlTHhlR00ybUZHN2JzY3pvWUItZmJPOERVX2VlaEpYbDlp?oc=5",
    "summary": "Robert MacIntyre overcomes injury to reach Tour Championship thanks to 'positive sports movies' Golfweek",
-   "published": "Sun, 23 Aug 2026 22:55:00 GMT",
+   "published": "Sun, 23 Aug 2026 07:00:00 GMT",
    "source": "Google News: PGA WD",
    "kind": "news",
    "golfers": [
