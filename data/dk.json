@@ -1,11 +1,11 @@
 {
- "updatedUtc": "2026-09-01T22:55:27Z",
+ "updatedUtc": "2026-09-02T16:56:53Z",
  "tournament": "OMEGA_EUROPEAN_MASTERS_2026",
  "date": "9/3/26",
  "event": "Omega European Masters",
  "draftGroupId": "152925",
  "isShowdown": false,
- "count": 156,
+ "count": 157,
  "players": [
   {
    "name": "Matt Wallace",
@@ -927,8 +927,8 @@
   {
    "name": "Andrew Wilson",
    "salary": 6200,
-   "status": "",
-   "out": false,
+   "status": "OUT",
+   "out": true,
    "dkId": 43996732
   },
   {
@@ -1098,6 +1098,13 @@
    "status": "",
    "out": false,
    "dkId": 43996756
+  },
+  {
+   "name": "Anton Mostrom",
+   "salary": 6000,
+   "status": "",
+   "out": false,
+   "dkId": 44013859
   }
  ]
 }
