@@ -1,11 +1,11 @@
 {
- "updatedUtc": "2026-09-03T23:17:56Z",
+ "updatedUtc": "2026-09-04T04:36:35Z",
  "slate": "TOUR_2026",
  "event": "Omega European Masters",
  "counts": {
-  "items": 15,
+  "items": 11,
   "golfersMentioned": 1,
-  "news": 15,
+  "news": 11,
   "chatter": 0
  },
  "sources": [
@@ -13,7 +13,7 @@
    "source": "RotoWire Golf",
    "ok": false,
    "items": 0,
-   "error": "HTTP 503"
+   "error": "no items"
   },
   {
    "source": "RotoBaller Golf",
@@ -114,13 +114,13 @@
   {
    "source": "Google News: Omega European Masters picks",
    "ok": true,
-   "items": 56,
+   "items": 60,
    "error": null
   },
   {
    "source": "Google News: Omega European Masters WD",
    "ok": true,
-   "items": 47,
+   "items": 53,
    "error": null
   },
   {
@@ -132,7 +132,7 @@
   {
    "source": "Google News: PGA WD",
    "ok": true,
-   "items": 100,
+   "items": 53,
    "error": null
   },
   {
@@ -157,9 +157,9 @@
  "mentions": [
   {
    "name": "J.J. Spaun",
-   "news": 6,
+   "news": 2,
    "chatter": 0,
-   "total": 6
+   "total": 2
   }
  ],
  "items": [
@@ -227,9 +227,9 @@
    "golfers": []
   },
   {
-   "title": "2026 Omega European Masters betting tips \u2013 including a 140/1 shot in fine form - todays-golfer.com",
+   "title": "2026 Omega European Masters betting tips \u2013 including a 140/1 shot in fine form - Today's Golfer",
    "link": "https://news.google.com/rss/articles/CBMingFBVV95cUxNQU1lZDJmQ09Mc3RXVnN4TUJHYWd4Vm4yZzN2NVVwSWFOWGZRQnEtSTE0ZVVJRVBZMXB1QzltVkNVNklIRHlPNDRTbXJuanY5cFJOd1Rfckh4T3hFS1JEYi1sWlZJMUR2MEN2WU9DYUxYYXZTZ1ZCcndXMDNEVjlsbzFnX2M0b2s3MjI5dTZBdWxLM1oyYVY5ZkpCeVJJUQ?oc=5",
-   "summary": "2026 Omega European Masters betting tips \u2013 including a 140/1 shot in fine form todays-golfer.com",
+   "summary": "2026 Omega European Masters betting tips \u2013 including a 140/1 shot in fine form Today's Golfer",
    "published": "Mon, 31 Aug 2026 17:42:54 GMT",
    "source": "Google News: Omega European Masters picks",
    "kind": "news",
@@ -245,28 +245,6 @@
    "golfers": []
   },
   {
-   "title": "J.J. Spaun withdraws from TOUR Championship with shoulder injury - PGA Tour",
-   "link": "https://news.google.com/rss/articles/CBMivwFBVV95cUxNOHhjeWV6MWhGNVFSdzBJWGY1czhOd1VWb0p4bU5DdmFoOWVFV0lIcTktTTlYN2lPM3RQUTRweHhlNzZkT001UHVPcWNmRVZTeFZvQnJwb0w3SFJOYkdtSGVnN0hybEstSWtZY0pNZ3B3anFfSXJNZTNycHNjSkc5YjZING1SZVFMMExQel9BY3pITkJfd1YtRTVsYTIydEFhRjVxQWpPU1lNNGZSRFNwa2lJS1o1YzJBUWtaQ3dTQQ?oc=5",
-   "summary": "J.J. Spaun withdraws from TOUR Championship with shoulder injury PGA Tour",
-   "published": "Fri, 28 Aug 2026 11:37:06 GMT",
-   "source": "Google News: PGA WD",
-   "kind": "news",
-   "golfers": [
-    "J.J. Spaun"
-   ]
-  },
-  {
-   "title": "J.J. Spaun withdraws from Tour Championship after 5 holes with an injury - Golfweek",
-   "link": "https://news.google.com/rss/articles/CBMiywFBVV95cUxPcFBkN1RxUWZwV0FYRWpkSkNpVUhEQzFwd1FGZkdKVVMwM1NJLW4wbklrQXpFSXkwV3ZtbWRTeGgwV213bmNaYlh4UEpHd2kwc1ZCS3FCZmVqQkpac0s2SWtUQ0lzMFF2MXo1enR2ZWM0dmFaUl9LWnZfQXd1QWZsVVpKMDJiR2pNYnJuTWpfSXhQeXlUYWs1SE90X1EwcnBDZlJUYThRSFJhUjNYaG16c2JPSDBsNFg2TC1GV2JvN3FQcDdUNlVLSWdHcw?oc=5",
-   "summary": "J.J. Spaun withdraws from Tour Championship after 5 holes with an injury Golfweek",
-   "published": "Fri, 28 Aug 2026 00:28:00 GMT",
-   "source": "Google News: PGA WD",
-   "kind": "news",
-   "golfers": [
-    "J.J. Spaun"
-   ]
-  },
-  {
    "title": "JJ Spaun Withdraws From Tour Championship With Shoulder Injury",
    "link": "https://www.golfmonthly.com/news/jj-spaun-withdraws-tour-championship",
    "summary": "The 2025 US Open champion played five holes of the opening round at East Lake before calling it a day",
@@ -278,32 +256,10 @@
    ]
   },
   {
-   "title": "J.J. Spaun withdraws from 2026 Tour Championship with shoulder injury - USA Today",
-   "link": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxPeXEyMTQzWlJfeFYxVl93ZFFvWUI4Rm5lYVIxbDlwQjVlVF9xUVN5WjdLQ09pTGRrVHktcFVKd3JkVmlqQ2tCMjJsMUlEU2lrTjgtRzBvalVXX3gxRzZEOEtNUXczN242Q0JiZGd4MXhvV0drOXo2bHFDZHczbTN2Vld0NXIzQk52dzlWeE9YOEtSX2d1QmNneEZYZXZjUEpCcDRkWFBldmh2OFlPd0kwcGx3ZzNuVVc3?oc=5",
-   "summary": "J.J. Spaun withdraws from 2026 Tour Championship with shoulder injury USA Today",
-   "published": "Thu, 27 Aug 2026 19:05:00 GMT",
-   "source": "Google News: PGA WD",
-   "kind": "news",
-   "golfers": [
-    "J.J. Spaun"
-   ]
-  },
-  {
-   "title": "J.J. Spaun withdraws from Tour Championship with shoulder injury - espn.com",
-   "link": "https://news.google.com/rss/articles/CBMinwFBVV95cUxOTlFvVThPS19jVnZHMVg5TDZjWXI5T3ZpQXA3QXZCYmhpVW1uN1J3VElveFVDNTBHNTJvaFpGZXlrbjVGbWJrdlRxQ1VHNGlvUkRHZmZkcWIzRTBMQXNhWGZ0QTFUY3dVeW80VEJILTF6UzhVSTdYZ1pDcmI0X0gzM1MySjFuajZYdVF0aHZqX3djVUxjeVFab2FoNWYyQ1U?oc=5",
-   "summary": "J.J. Spaun withdraws from Tour Championship with shoulder injury espn.com",
-   "published": "Thu, 27 Aug 2026 17:34:00 GMT",
-   "source": "Google News: PGA WD",
-   "kind": "news",
-   "golfers": [
-    "J.J. Spaun"
-   ]
-  },
-  {
-   "title": "Spaun leaves course, withdraws with shoulder injury - Golf Channel",
-   "link": "https://news.google.com/rss/articles/CBMimAFBVV95cUxPT0hkdFFvaktzTWUtVFB5TWFsU3IzajVEa19ZRkNyS04yY2J3SnJkWGRrN1RzNHRZMS15MV84NEl4Qm5Ud3RyQ01OQUVtM0hxMnBBS3FqdEY4X0I1dy01S1ZhOTQxZzJOOWtURDMxS3daT1ZZVFZGU0R4XzBGQVJPS0JfN01aSW9GVjhid0ZUaUk5LVBiMW5jeQ?oc=5",
-   "summary": "Spaun leaves course, withdraws with shoulder injury Golf Channel",
-   "published": "Thu, 27 Aug 2026 17:33:51 GMT",
+   "title": "J.J. Spaun withdraws from TOUR Championship with shoulder injury - PGA Tour",
+   "link": "https://news.google.com/rss/articles/CBMivwFBVV95cUxNOHhjeWV6MWhGNVFSdzBJWGY1czhOd1VWb0p4bU5DdmFoOWVFV0lIcTktTTlYN2lPM3RQUTRweHhlNzZkT001UHVPcWNmRVZTeFZvQnJwb0w3SFJOYkdtSGVnN0hybEstSWtZY0pNZ3B3anFfSXJNZTNycHNjSkc5YjZING1SZVFMMExQel9BY3pITkJfd1YtRTVsYTIydEFhRjVxQWpPU1lNNGZSRFNwa2lJS1o1YzJBUWtaQ3dTQQ?oc=5",
+   "summary": "J.J. Spaun withdraws from TOUR Championship with shoulder injury PGA Tour",
+   "published": "Thu, 27 Aug 2026 17:22:12 GMT",
    "source": "Google News: PGA WD",
    "kind": "news",
    "golfers": [
