@@ -1,11 +1,11 @@
 {
- "updatedUtc": "2026-09-04T16:22:58Z",
+ "updatedUtc": "2026-09-04T20:46:57Z",
  "slate": "TOUR_2026",
  "event": "Omega European Masters",
  "counts": {
-  "items": 20,
-  "golfersMentioned": 2,
-  "news": 20,
+  "items": 21,
+  "golfersMentioned": 4,
+  "news": 21,
   "chatter": 0
  },
  "sources": [
@@ -107,20 +107,20 @@
   },
   {
    "source": "Google News: Omega European Masters DFS",
-   "ok": true,
-   "items": 13,
-   "error": null
+   "ok": false,
+   "items": 0,
+   "error": "no items"
   },
   {
    "source": "Google News: Omega European Masters picks",
    "ok": true,
-   "items": 65,
+   "items": 64,
    "error": null
   },
   {
    "source": "Google News: Omega European Masters WD",
    "ok": true,
-   "items": 57,
+   "items": 23,
    "error": null
   },
   {
@@ -166,29 +166,53 @@
    "news": 2,
    "chatter": 0,
    "total": 2
+  },
+  {
+   "name": "Adam Scott",
+   "news": 1,
+   "chatter": 0,
+   "total": 1
+  },
+  {
+   "name": "Sam Burns",
+   "news": 1,
+   "chatter": 0,
+   "total": 1
   }
  ],
  "items": [
   {
-   "title": "Clubs to be offered incentives to play more Scottish youngsters",
-   "link": "https://www.skysports.com/football/news/12040/13581358/scottish-fa-summit-spfl-clubs-to-be-offered-incentives-to-play-more-home-grown-youth-players",
-   "summary": "The Scottish FA is proposing financial incentives for clubs to play more young home-grown footballers.",
-   "published": "Fri, 04 Sep 2026 14:00:00 BST",
-   "source": "Sky Sports Golf",
+   "title": "Why Charlie Woods' NIL deal with TaylorMade is about much more than golf clubs",
+   "link": "https://sports.yahoo.com/articles/why-charlie-woods-nil-deal-192837593.html",
+   "summary": "TaylorMade signed Charlie Woods to an NIL deal, betting on the young golfer's massive future audience potential.",
+   "published": "Fri, 04 Sep 2026 19:28:37 +0000",
+   "source": "Yahoo Golf",
    "kind": "news",
    "golfers": [
     "Cameron Young"
    ]
   },
   {
-   "title": "Top-5 MLB Pitching Prospects To Stash For Fantasy Baseball Redraft Leagues - Week 24",
-   "link": "https://www.rotoballer.com/top-5-pitching-prospects-to-stash-for-fantasy-baseball-week-24-2026/1921817",
-   "summary": "Welcome back to our list of the top starting pitcher prospects to stash for Week 24 of the 2026 MLB season. With only a month left in the season, teams are expected to call up some of their young prospects as part of the September roster expansion. Since this is the final pitching prospect stash [&#8230;]",
-   "published": "Fri, 04 Sep 2026 13:55:55 +0000",
-   "source": "RotoBaller",
+   "title": "Bet on a Bounce-Back for Mark Andrews in Fantasy Football?",
+   "link": "https://www.fantasylabs.com/articles/bet-on-a-bounce-back-for-mark-andrews-in-fantasy-football/",
+   "summary": "The tight end position has had a massive influx of young talent in recent years. Brock Bowers and Trey McBride have... The post Bet on a Bounce-Back for Mark Andrews in Fantasy Football? appeared first on FantasyLabs .",
+   "published": "Fri, 04 Sep 2026 19:16:06 +0000",
+   "source": "FantasyLabs",
    "kind": "news",
    "golfers": [
     "Cameron Young"
+   ]
+  },
+  {
+   "title": "EPL DFS Lineup Picks for DraftKings And FanDuel (9/5/26) - English Premier League Soccer Matchweek 3",
+   "link": "https://www.rotoballer.com/epl-dfs-lineup-picks-for-draftkings-and-fanduel-matchweek-three-english-premier-league-soccer/1923335",
+   "summary": "Welcome back to \"The Kick-Off!\" and welcome to the 2026-27 season! The World Cup has come and gone, and the dreadful break from European soccer is over! Plenty of movement in the off-season for several clubs makes this season even more exciting than last year! Will your club reach stardom and win the coveted English [&#8230;]",
+   "published": "Fri, 04 Sep 2026 18:09:15 +0000",
+   "source": "RotoBaller",
+   "kind": "news",
+   "golfers": [
+    "Adam Scott",
+    "Sam Burns"
    ]
   },
   {
@@ -246,9 +270,9 @@
    "golfers": []
   },
   {
-   "title": "2026 Omega European Masters Betting Tips & Predictions - GoBet.com.au",
+   "title": "2026 Omega European Masters Betting Tips & Predictions - gobet.com.au",
    "link": "https://news.google.com/rss/articles/CBMicEFVX3lxTE8yQ2t4bVdKc2Y3djhDdmFPdnZSa1owLWlxaHBPNXhQVGE5RFdsYnJLVk8zVEprSDBQVWFxQkhLUmRPYlROUG1mSnRSalZHYzUxMS1CQUh2ZldPWVY0cW5tNy1Rc09VRGVUbjA3RTFwZE4?oc=5",
-   "summary": "2026 Omega European Masters Betting Tips & Predictions GoBet.com.au",
+   "summary": "2026 Omega European Masters Betting Tips & Predictions gobet.com.au",
    "published": "Tue, 01 Sep 2026 08:13:55 GMT",
    "source": "Google News: Omega European Masters picks",
    "kind": "news",
@@ -288,17 +312,6 @@
    "link": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxNdkdBNmlvN2tobld3VTktQkNOSnZHRGtSM09Fc0VVNGZ0d0g1a2d1SXdxUGdnMlhGZ0FKbVFVbF85WTB0cEtoR0Z0bTVpYzZLdVJyb2NTcVE5LVRQY0pIUmVMTGtVN3VQQnFJR0RXSnFwWWM2dWp2c2RuZGxtOVp0TlJtTXB3d2FVNVFGejBkc1BUTUhvQWJ4TUpjc0xIWnJfYTE0V2hEVUdQQQ?oc=5",
    "summary": "\"It sucks\" \u2013 J.J. Spaun reveals unusual injury that ended his PGA Tour season Golfmagic",
    "published": "Fri, 28 Aug 2026 12:45:50 GMT",
-   "source": "Google News: PGA WD",
-   "kind": "news",
-   "golfers": [
-    "J.J. Spaun"
-   ]
-  },
-  {
-   "title": "J.J. Spaun withdraws from 2026 Tour Championship with shoulder injury - usatoday.com",
-   "link": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxPeXEyMTQzWlJfeFYxVl93ZFFvWUI4Rm5lYVIxbDlwQjVlVF9xUVN5WjdLQ09pTGRrVHktcFVKd3JkVmlqQ2tCMjJsMUlEU2lrTjgtRzBvalVXX3gxRzZEOEtNUXczN242Q0JiZGd4MXhvV0drOXo2bHFDZHczbTN2Vld0NXIzQk52dzlWeE9YOEtSX2d1QmNneEZYZXZjUEpCcDRkWFBldmh2OFlPd0kwcGx3ZzNuVVc3?oc=5",
-   "summary": "J.J. Spaun withdraws from 2026 Tour Championship with shoulder injury usatoday.com",
-   "published": "Thu, 27 Aug 2026 19:05:00 GMT",
    "source": "Google News: PGA WD",
    "kind": "news",
    "golfers": [
@@ -364,6 +377,17 @@
    "title": "J.J. Spaun withdraws from Tour Championship after 5 holes with an injury - Golfweek",
    "link": "https://news.google.com/rss/articles/CBMiywFBVV95cUxPcFBkN1RxUWZwV0FYRWpkSkNpVUhEQzFwd1FGZkdKVVMwM1NJLW4wbklrQXpFSXkwV3ZtbWRTeGgwV213bmNaYlh4UEpHd2kwc1ZCS3FCZmVqQkpac0s2SWtUQ0lzMFF2MXo1enR2ZWM0dmFaUl9LWnZfQXd1QWZsVVpKMDJiR2pNYnJuTWpfSXhQeXlUYWs1SE90X1EwcnBDZlJUYThRSFJhUjNYaG16c2JPSDBsNFg2TC1GV2JvN3FQcDdUNlVLSWdHcw?oc=5",
    "summary": "J.J. Spaun withdraws from Tour Championship after 5 holes with an injury Golfweek",
+   "published": "Thu, 27 Aug 2026 07:00:00 GMT",
+   "source": "Google News: PGA WD",
+   "kind": "news",
+   "golfers": [
+    "J.J. Spaun"
+   ]
+  },
+  {
+   "title": "J.J. Spaun withdraws from 2026 Tour Championship with shoulder injury - USA Today",
+   "link": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxPeXEyMTQzWlJfeFYxVl93ZFFvWUI4Rm5lYVIxbDlwQjVlVF9xUVN5WjdLQ09pTGRrVHktcFVKd3JkVmlqQ2tCMjJsMUlEU2lrTjgtRzBvalVXX3gxRzZEOEtNUXczN242Q0JiZGd4MXhvV0drOXo2bHFDZHczbTN2Vld0NXIzQk52dzlWeE9YOEtSX2d1QmNneEZYZXZjUEpCcDRkWFBldmh2OFlPd0kwcGx3ZzNuVVc3?oc=5",
+   "summary": "J.J. Spaun withdraws from 2026 Tour Championship with shoulder injury USA Today",
    "published": "Thu, 27 Aug 2026 07:00:00 GMT",
    "source": "Google News: PGA WD",
    "kind": "news",
