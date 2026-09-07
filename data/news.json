@@ -1,11 +1,11 @@
 {
- "updatedUtc": "2026-09-07T12:36:26Z",
+ "updatedUtc": "2026-09-07T19:10:56Z",
  "slate": "TOUR_2026",
- "event": "Omega European Masters",
+ "event": "Amgen Irish Open",
  "counts": {
-  "items": 10,
-  "golfersMentioned": 1,
-  "news": 10,
+  "items": 7,
+  "golfersMentioned": 2,
+  "news": 7,
   "chatter": 0
  },
  "sources": [
@@ -106,21 +106,21 @@
    "error": null
   },
   {
-   "source": "Google News: Omega European Masters DFS",
+   "source": "Google News: Amgen Irish Open DFS",
    "ok": true,
-   "items": 29,
+   "items": 10,
    "error": null
   },
   {
-   "source": "Google News: Omega European Masters picks",
+   "source": "Google News: Amgen Irish Open picks",
    "ok": true,
-   "items": 65,
+   "items": 49,
    "error": null
   },
   {
-   "source": "Google News: Omega European Masters WD",
+   "source": "Google News: Amgen Irish Open WD",
    "ok": true,
-   "items": 60,
+   "items": 46,
    "error": null
   },
   {
@@ -156,6 +156,12 @@
  ],
  "mentions": [
   {
+   "name": "Rory McIlroy",
+   "news": 2,
+   "chatter": 0,
+   "total": 2
+  },
+  {
    "name": "Cameron Young",
    "news": 1,
    "chatter": 0,
@@ -163,6 +169,64 @@
   }
  ],
  "items": [
+  {
+   "title": "Irish Open 2026 Tips, Picks & Betting Predictions - Betfred Insights",
+   "link": "https://news.google.com/rss/articles/CBMimwFBVV95cUxQWGM4VURJaW4xd2lJdnJqX0gzYy1rcFJSeGJiWWxrSTFPZ09EMGc1X083NkJSNlhUaUxWTzVWM2F5bVVTNXJKMS1BeVBDNktsN3hfT2RHTl9vYk4yTVQ2RmtjaGRqX1ZRQVJlZ0lxYUxZUnZGdHRlS1VVNUFpUWJmbnY0ZEpONUdLMlRKeTJONEJtdHJfVXFDT3hkWQ?oc=5",
+   "summary": "Irish Open 2026 Tips, Picks & Betting Predictions Betfred Insights",
+   "published": "Mon, 07 Sep 2026 15:46:06 GMT",
+   "source": "Google News: Amgen Irish Open picks",
+   "kind": "news",
+   "golfers": []
+  },
+  {
+   "title": "2026 Amgen Irish Open betting tips \u2013 including a 100/1 shot with tournament form - Today's Golfer",
+   "link": "https://news.google.com/rss/articles/CBMilgFBVV95cUxOc1J3OGNHZURxeWsyVjZUSnF1RkwxWVhtWlN3bjVVS0VIeE5rbm9wbE03dE9tT2ZQTWlVUkViYTRHdW9RZHdxcjM4WmJPcEt2TGtGODdVZkc2OHdmRU1yTDlpTXRLbDJZenFVOEpPeGhjeUlLXzJESWZqUTBnZVcxaGlBdHBvVE1DSEVlLWFHOVlrT0FQU2c?oc=5",
+   "summary": "2026 Amgen Irish Open betting tips \u2013 including a 100/1 shot with tournament form Today's Golfer",
+   "published": "Mon, 07 Sep 2026 15:39:10 GMT",
+   "source": "Google News: Amgen Irish Open picks",
+   "kind": "news",
+   "golfers": []
+  },
+  {
+   "title": "Bazza's Best Bets At The Irish Open 2026: Fan Favorite To Fire (And It's Not McIlroy)",
+   "link": "https://www.golfmonthly.com/betting/bazzas-best-bets-irish-open-2026",
+   "summary": "The Irish Open heads to Trump International Golf Links, the tournament's 7th host venue in 10 years, and our resident betting expert fancies a home favorite",
+   "published": "Mon, 07 Sep 2026 14:48:29 +0000",
+   "source": "Golf Monthly",
+   "kind": "news",
+   "golfers": [
+    "Rory McIlroy"
+   ]
+  },
+  {
+   "title": "Bazza's Best Bets At The Irish Open 2026: Fan Favorite To Fire (And It's Not McIlroy) - Golf Monthly",
+   "link": "https://news.google.com/rss/articles/CBMid0FVX3lxTE1FbXp2bFFBeS01bFBXNnlaUmV6RHpUNnc2eDd3YmNHR1NsVnhTbl93X0ItRnZGaFIyZWFWRVpqNTg3RXVXZ2NtdUZHNUN1YzlTamx5cGZJOXpTZ3NSQzR6R1Z2enYtZHgxam1Iei02SVZLWVNGLXhN?oc=5",
+   "summary": "Bazza's Best Bets At The Irish Open 2026: Fan Favorite To Fire (And It's Not McIlroy) Golf Monthly",
+   "published": "Mon, 07 Sep 2026 14:48:29 GMT",
+   "source": "Google News: Amgen Irish Open picks",
+   "kind": "news",
+   "golfers": [
+    "Rory McIlroy"
+   ]
+  },
+  {
+   "title": "2026 Amgen Irish Open: DP World Tour betting odds, futures picks and winner tips - thegolfnewsnet.com",
+   "link": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxNbFRWaUdfOWNUa0g5emJNa1YybXhDXzlFLXBjelZtTjRTdmJCQUtHcDVEYl9kMlprWTJNWlEzZ29lVnBwamUxSzFaMWFJZVJTNUJNR1VSN0RRMFFsbzVCWXFkME5Zd05IQTh5eXIzdGNYYUR3NjFhZlJSM2lwcS1WUlJEU1ZFTWVPazFra0p4ZjhWM3RWMm9wclpHd1NQUlljU1hFN05OVUZIZEl6clJoY1dXdGowZnQ0MTV0SEY3NG8xeWt1UF9oSWFnd1F5bTRHaGlPbHpaZw?oc=5",
+   "summary": "2026 Amgen Irish Open: DP World Tour betting odds, futures picks and winner tips thegolfnewsnet.com",
+   "published": "Mon, 07 Sep 2026 14:24:18 GMT",
+   "source": "Google News: Amgen Irish Open picks",
+   "kind": "news",
+   "golfers": []
+  },
+  {
+   "title": "Amgen Irish Open 2026 preview, picks & analysis - Golfshake.com",
+   "link": "https://news.google.com/rss/articles/CBMilgFBVV95cUxQSEtrLWdvZGtoODYybmJjc2ZqQ0xtZnJPaDZyWVVHVUI0UDNCVmxLV0x6dnJPejBxd3JiY3FjZHRReVpsWnFGLXdHWkVxVWZ4SzUtX3hsVFkxXzhBMU1rbkhwUTZodlBVQVpJS1dCdGtRcDNtREd4T0VHNFJOVlMweERqWi1vRlhMcVFzVTA4X1BtUXRxR1E?oc=5",
+   "summary": "Amgen Irish Open 2026 preview, picks & analysis Golfshake.com",
+   "published": "Mon, 07 Sep 2026 10:53:52 GMT",
+   "source": "Google News: Amgen Irish Open picks",
+   "kind": "news",
+   "golfers": []
+  },
   {
    "title": "Bet on a Bounce-Back for Mark Andrews in Fantasy Football?",
    "link": "https://www.fantasylabs.com/articles/bet-on-a-bounce-back-for-mark-andrews-in-fantasy-football/",
@@ -173,87 +237,6 @@
    "golfers": [
     "Cameron Young"
    ]
-  },
-  {
-   "title": "Golf betting tips: Omega European Masters 2026 preview and odds - The Telegraph",
-   "link": "https://news.google.com/rss/articles/CBMiigFBVV95cUxOVEhKSVh0Q0xmd21GU003VFlpQ2ZkcXU5MnJqNVQ2TmZVeHIyS01CN0NsT082ejZjQ2JoWF83Sml3RHQzX3NPNVpGWi1NMzNTSEt3UlpQRjR3VmphR05LcVJfNGxuVnZaUGo0cUI0YmpQTjJDLWdBOFBaRzBSdm11TG51bnY5UlVuaVE?oc=5",
-   "summary": "Golf betting tips: Omega European Masters 2026 preview and odds The Telegraph",
-   "published": "Wed, 02 Sep 2026 13:45:00 GMT",
-   "source": "Google News: Omega European Masters picks",
-   "kind": "news",
-   "golfers": []
-  },
-  {
-   "title": "Omega European Masters 2026 FRL Tips: 45/1 to 110/1 Picks - Betfred Insights",
-   "link": "https://news.google.com/rss/articles/CBMijgFBVV95cUxQSktocjl2WVZINTQ1WU5uRzg3d1NXd010Mkl1OXJRQXd5RHotNlpEVVVqeDBxekplUlpiNVRLQjVGenB2azZRZW8xaEtCdUo0c2phRUJ4OFdMeUN2c0h6MmxzaVlhNFhhMWVrSVRDai13UmNCX21zNXRsQTdsdjEzRzJVdm40U0VscktQRzJR?oc=5",
-   "summary": "Omega European Masters 2026 FRL Tips: 45/1 to 110/1 Picks Betfred Insights",
-   "published": "Wed, 02 Sep 2026 10:23:00 GMT",
-   "source": "Google News: Omega European Masters picks",
-   "kind": "news",
-   "golfers": []
-  },
-  {
-   "title": "Omega European Masters 2026 Preview and Best Bets: Ginger Joe\u2019s Squad - The Sports Geek",
-   "link": "https://news.google.com/rss/articles/CBMilgFBVV95cUxOQXZmUDlxcjhONlZBMHJEWlFiLTM1OTlGMFN6dGgzWFhueFZIcFlyT1dBcEstSnNDb2hrZXI4MDRDQ2xWdm9TdDd1dXpsZV9sOHNORHNiSFZ0bnhWbjVFSjBkeTUzMGR1Rk5uNkJYbWpnUTZCOFEwV3lQeVpBQ3VDQXNZbHN2dUZkaFk4ZUdTSkRuYkFyU3c?oc=5",
-   "summary": "Omega European Masters 2026 Preview and Best Bets: Ginger Joe\u2019s Squad The Sports Geek",
-   "published": "Wed, 02 Sep 2026 04:28:46 GMT",
-   "source": "Google News: Omega European Masters picks",
-   "kind": "news",
-   "golfers": []
-  },
-  {
-   "title": "Niall Lyons Golf Betting Tips for the 2026 Omega European Masters - Oddschecker",
-   "link": "https://news.google.com/rss/articles/CBMisgFBVV95cUxQWVRucUN6VjdnRmJ2Ti10RkZ5V2NUdWV2a2FrMk5qYmhLQl96S2psN0h4OVk1ZDg4b0dmdC16cFU1S0lnZ215SnlISjdXWFA4eDR4aWl0Z1lnanVXRTVEdVpqUHhPMGR5MFdGMzE0OWQxT2RlMVRuSGQtbzB2cjdzTmZEWDU0eHJ5aVNzSThOdUZZcnNjMWlXZTdBbnVmdzZ5U013X1dIZHpXTVRVVFBsVVd3?oc=5",
-   "summary": "Niall Lyons Golf Betting Tips for the 2026 Omega European Masters Oddschecker",
-   "published": "Tue, 01 Sep 2026 12:45:00 GMT",
-   "source": "Google News: Omega European Masters picks",
-   "kind": "news",
-   "golfers": []
-  },
-  {
-   "title": "Omega European Masters 2026 Tips, Picks & Predictions - Betfred Insights",
-   "link": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxQa2FZYk5UTnlCWlNha05LTmktUEhNNHYwSDlIU2Jab3BXQlRYdnB1OXNwcThvc1pua0VIS0FMbnRPVmhXVFEtejRwWXB0NlVKeXlOMzVWWUU0REkxZTRpUTVPbVpnV25LeTdyTjNIeWliOFRRNFFzRnBQbkdYbDNMcThhTy1kXzBKb0dwZmlrYUEycm5GUjIyZzcxWE05TG5TYVYzQjk5QTNybUU?oc=5",
-   "summary": "Omega European Masters 2026 Tips, Picks & Predictions Betfred Insights",
-   "published": "Tue, 01 Sep 2026 12:43:01 GMT",
-   "source": "Google News: Omega European Masters picks",
-   "kind": "news",
-   "golfers": []
-  },
-  {
-   "title": "Omega European Masters Betting Tips & Preview - 4 best bets for the Swiss title - freetips.com",
-   "link": "https://news.google.com/rss/articles/CBMifEFVX3lxTE4zeklxNzllTHR1MXlVdHZ4cF96OHZtUFRJTWxDcG90T3BsMjlBaFVTemxFNXNaRVVXQ1c0UFAyektKZU4yVldxN2NrWERKcmRRNGVIUkxwdmQtckVMNUZfd1hzUmxEdTN1NnpaSG0xWkdTUjFxUGN6X0ZiWUY?oc=5",
-   "summary": "Omega European Masters Betting Tips & Preview - 4 best bets for the Swiss title freetips.com",
-   "published": "Tue, 01 Sep 2026 10:19:11 GMT",
-   "source": "Google News: Omega European Masters picks",
-   "kind": "news",
-   "golfers": []
-  },
-  {
-   "title": "2026 Omega European Masters Betting Tips & Predictions - GoBet.com.au",
-   "link": "https://news.google.com/rss/articles/CBMicEFVX3lxTE8yQ2t4bVdKc2Y3djhDdmFPdnZSa1owLWlxaHBPNXhQVGE5RFdsYnJLVk8zVEprSDBQVWFxQkhLUmRPYlROUG1mSnRSalZHYzUxMS1CQUh2ZldPWVY0cW5tNy1Rc09VRGVUbjA3RTFwZE4?oc=5",
-   "summary": "2026 Omega European Masters Betting Tips & Predictions GoBet.com.au",
-   "published": "Tue, 01 Sep 2026 08:13:55 GMT",
-   "source": "Google News: Omega European Masters picks",
-   "kind": "news",
-   "golfers": []
-  },
-  {
-   "title": "2026 Omega European Masters betting tips \u2013 including a 140/1 shot in fine form - Today's Golfer",
-   "link": "https://news.google.com/rss/articles/CBMingFBVV95cUxNQU1lZDJmQ09Mc3RXVnN4TUJHYWd4Vm4yZzN2NVVwSWFOWGZRQnEtSTE0ZVVJRVBZMXB1QzltVkNVNklIRHlPNDRTbXJuanY5cFJOd1Rfckh4T3hFS1JEYi1sWlZJMUR2MEN2WU9DYUxYYXZTZ1ZCcndXMDNEVjlsbzFnX2M0b2s3MjI5dTZBdWxLM1oyYVY5ZkpCeVJJUQ?oc=5",
-   "summary": "2026 Omega European Masters betting tips \u2013 including a 140/1 shot in fine form Today's Golfer",
-   "published": "Mon, 31 Aug 2026 17:42:54 GMT",
-   "source": "Google News: Omega European Masters picks",
-   "kind": "news",
-   "golfers": []
-  },
-  {
-   "title": "Omega European Masters 2026 preview, picks & analysis - Golfshake.com",
-   "link": "https://news.google.com/rss/articles/CBMingFBVV95cUxOZHdmS2NPbEcxSk95dHo2NWF0UHZRd2lfT3hJa0E0cDNCbDBJaDRSZTVibXdWTG9XbGZ0a0dXQ0R0dWNnRUEzRjN3VTFzQzBrbWxDNGNmRGd4VVBmMmd1V2MwOGxBNVBtRzQzRExEOWNHSlJhVUgwTldpVUVqNUVnQml5UWVseTJEamFweHNHRUx6WVpOTWZYUWw2bjlZdw?oc=5",
-   "summary": "Omega European Masters 2026 preview, picks & analysis Golfshake.com",
-   "published": "Mon, 31 Aug 2026 10:49:46 GMT",
-   "source": "Google News: Omega European Masters picks",
-   "kind": "news",
-   "golfers": []
   }
  ]
 }
