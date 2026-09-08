@@ -1,11 +1,11 @@
 {
- "updatedUtc": "2026-09-08T11:21:51Z",
+ "updatedUtc": "2026-09-08T16:39:46Z",
  "slate": "TOUR_2026",
  "event": "Amgen Irish Open",
  "counts": {
-  "items": 7,
-  "golfersMentioned": 2,
-  "news": 7,
+  "items": 9,
+  "golfersMentioned": 3,
+  "news": 9,
   "chatter": 0
  },
  "sources": [
@@ -101,14 +101,14 @@
   },
   {
    "source": "GolfWRX",
-   "ok": true,
-   "items": 25,
-   "error": null
+   "ok": false,
+   "items": 0,
+   "error": "URLError ([SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: certificate has expired (_ssl.c:1010))"
   },
   {
    "source": "Google News: Amgen Irish Open DFS",
    "ok": true,
-   "items": 19,
+   "items": 22,
    "error": null
   },
   {
@@ -120,7 +120,7 @@
   {
    "source": "Google News: Amgen Irish Open WD",
    "ok": true,
-   "items": 45,
+   "items": 48,
    "error": null
   },
   {
@@ -157,9 +157,15 @@
  "mentions": [
   {
    "name": "Rory McIlroy",
-   "news": 2,
+   "news": 4,
    "chatter": 0,
-   "total": 2
+   "total": 4
+  },
+  {
+   "name": "Scottie Scheffler",
+   "news": 1,
+   "chatter": 0,
+   "total": 1
   },
   {
    "name": "Cameron Young",
@@ -170,6 +176,29 @@
  ],
  "items": [
   {
+   "title": "Amgen Irish Open Betting Tips: Expert Picks to take on Rory McIlroy at Trump Doonbeg - Golfmagic",
+   "link": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxPNE1oaExyZURCUFFtMEhNR3ZLVTVaZVdWalZhYjdQRHJyd1JOVGcxbllIRWZOUFc2c1g5emRSeGN0ODZLNEtGRWtqdTFqemJQenVScVJoY3RqdGRKaGxPTDhnU1NEYlZ0a2FWNE9EMFJmekNEdWtia2FDLVN0Y3J1YzdLSEVlT2Fvb3lqMVBuUjJHRENGTDZlbW5vTWQ3UnU2Q2xuRlNnVWhXUk11ZFlfVkNfcGhoX1JhTkhj?oc=5",
+   "summary": "Amgen Irish Open Betting Tips: Expert Picks to take on Rory McIlroy at Trump Doonbeg Golfmagic",
+   "published": "Tue, 08 Sep 2026 15:35:00 GMT",
+   "source": "Google News: Amgen Irish Open picks",
+   "kind": "news",
+   "golfers": [
+    "Rory McIlroy"
+   ]
+  },
+  {
+   "title": "The reason why Seve Ballesteros was once disqualified from the Irish Open",
+   "link": "https://sports.yahoo.com/articles/reason-why-seve-ballesteros-once-143000743.html",
+   "summary": "Seve Ballesteros was must-see TV in his golfing prime. Whether it was the magic he continually brought to the course, or the controversy that tended to follow him off the course, you simply could not take your eyes away from the Spaniard.",
+   "published": "Tue, 08 Sep 2026 14:30:00 +0000",
+   "source": "Yahoo Golf",
+   "kind": "news",
+   "golfers": [
+    "Scottie Scheffler",
+    "Rory McIlroy"
+   ]
+  },
+  {
    "title": "Irish Open 2026 Tips, Picks & Betting Predictions - Betfred Insights",
    "link": "https://news.google.com/rss/articles/CBMimwFBVV95cUxQWGM4VURJaW4xd2lJdnJqX0gzYy1rcFJSeGJiWWxrSTFPZ09EMGc1X083NkJSNlhUaUxWTzVWM2F5bVVTNXJKMS1BeVBDNktsN3hfT2RHTl9vYk4yTVQ2RmtjaGRqX1ZRQVJlZ0lxYUxZUnZGdHRlS1VVNUFpUWJmbnY0ZEpONUdLMlRKeTJONEJtdHJfVXFDT3hkWQ?oc=5",
    "summary": "Irish Open 2026 Tips, Picks & Betting Predictions Betfred Insights",
@@ -179,9 +208,9 @@
    "golfers": []
   },
   {
-   "title": "2026 Amgen Irish Open betting tips \u2013 including a 100/1 shot with tournament form - todays-golfer.com",
+   "title": "2026 Amgen Irish Open betting tips \u2013 including a 100/1 shot with tournament form - Today's Golfer",
    "link": "https://news.google.com/rss/articles/CBMilgFBVV95cUxOc1J3OGNHZURxeWsyVjZUSnF1RkwxWVhtWlN3bjVVS0VIeE5rbm9wbE03dE9tT2ZQTWlVUkViYTRHdW9RZHdxcjM4WmJPcEt2TGtGODdVZkc2OHdmRU1yTDlpTXRLbDJZenFVOEpPeGhjeUlLXzJESWZqUTBnZVcxaGlBdHBvVE1DSEVlLWFHOVlrT0FQU2c?oc=5",
-   "summary": "2026 Amgen Irish Open betting tips \u2013 including a 100/1 shot with tournament form todays-golfer.com",
+   "summary": "2026 Amgen Irish Open betting tips \u2013 including a 100/1 shot with tournament form Today's Golfer",
    "published": "Mon, 07 Sep 2026 15:39:10 GMT",
    "source": "Google News: Amgen Irish Open picks",
    "kind": "news",
