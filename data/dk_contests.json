@@ -1,5 +1,5 @@
 {
- "updatedUtc": "2026-09-07T18:02:02Z",
+ "updatedUtc": "2026-09-08T16:59:16Z",
  "tournament": "AMGEN_IRISH_2026",
  "event": "Amgen Irish Open",
  "draftGroupId": "153278",
@@ -9,6 +9,21 @@
    "name": "DP World Tour FREE 100-Player",
    "fee": 0,
    "entries": 100,
+   "paidSpots": 1,
+   "prizePool": 0.0,
+   "tiers": [
+    {
+     "min": 1,
+     "max": 1,
+     "value": 0.0
+    }
+   ]
+  },
+  {
+   "id": "195303579",
+   "name": "DP World Tour FREE 50-Player",
+   "fee": 0,
+   "entries": 50,
    "paidSpots": 1,
    "prizePool": 0.0,
    "tiers": [
@@ -245,7 +260,7 @@
    ]
   },
   {
-   "id": "195252845",
+   "id": "195356764",
    "name": "DP World Tour $100 Divot [Single Entry]",
    "fee": 1,
    "entries": 118,
@@ -295,6 +310,51 @@
    ]
   },
   {
+   "id": "195363021",
+   "name": "DP World Tour $1 Double Up",
+   "fee": 1,
+   "entries": 23,
+   "paidSpots": 10,
+   "prizePool": 20.0,
+   "tiers": [
+    {
+     "min": 1,
+     "max": 10,
+     "value": 2.0
+    }
+   ]
+  },
+  {
+   "id": "195363146",
+   "name": "DP World Tour $1 50-50",
+   "fee": 1,
+   "entries": 20,
+   "paidSpots": 10,
+   "prizePool": 18.0,
+   "tiers": [
+    {
+     "min": 1,
+     "max": 10,
+     "value": 1.8
+    }
+   ]
+  },
+  {
+   "id": "195363132",
+   "name": "DP World Tour $2 50-50",
+   "fee": 2,
+   "entries": 20,
+   "paidSpots": 10,
+   "prizePool": 36.0,
+   "tiers": [
+    {
+     "min": 1,
+     "max": 10,
+     "value": 3.6
+    }
+   ]
+  },
+  {
    "id": "195257398",
    "name": "DP World Tour $2 13-Player (Top 3 Win)",
    "fee": 2,
@@ -320,17 +380,62 @@
    ]
   },
   {
-   "id": "195256674",
-   "name": "DP World Tour $2 6-Player (Winner Takes All)",
+   "id": "195353236",
+   "name": "DP World Tour $2 11-Player (Winner Takes All)",
    "fee": 2,
-   "entries": 6,
+   "entries": 11,
    "paidSpots": 1,
-   "prizePool": 10.8,
+   "prizePool": 19.8,
    "tiers": [
     {
      "min": 1,
      "max": 1,
-     "value": 10.8
+     "value": 19.8
+    }
+   ]
+  },
+  {
+   "id": "195363139",
+   "name": "DP World Tour $2 10-Player",
+   "fee": 2,
+   "entries": 10,
+   "paidSpots": 3,
+   "prizePool": 18.0,
+   "tiers": [
+    {
+     "min": 1,
+     "max": 1,
+     "value": 10.0
+    },
+    {
+     "min": 2,
+     "max": 2,
+     "value": 5.0
+    },
+    {
+     "min": 3,
+     "max": 3,
+     "value": 3.0
+    }
+   ]
+  },
+  {
+   "id": "195363138",
+   "name": "Beginner DP World Tour $2 5-Player",
+   "fee": 2,
+   "entries": 5,
+   "paidSpots": 2,
+   "prizePool": 9.0,
+   "tiers": [
+    {
+     "min": 1,
+     "max": 1,
+     "value": 6.0
+    },
+    {
+     "min": 2,
+     "max": 2,
+     "value": 3.0
     }
    ]
   },
@@ -391,6 +496,51 @@
      "min": 17,
      "max": 21,
      "value": 8.0
+    }
+   ]
+  },
+  {
+   "id": "195363022",
+   "name": "DP World Tour $3 Double Up",
+   "fee": 3,
+   "entries": 23,
+   "paidSpots": 10,
+   "prizePool": 60.0,
+   "tiers": [
+    {
+     "min": 1,
+     "max": 10,
+     "value": 6.0
+    }
+   ]
+  },
+  {
+   "id": "195363191",
+   "name": "Beginner DP World Tour $3 50-50",
+   "fee": 3,
+   "entries": 4,
+   "paidSpots": 2,
+   "prizePool": 10.8,
+   "tiers": [
+    {
+     "min": 1,
+     "max": 2,
+     "value": 5.4
+    }
+   ]
+  },
+  {
+   "id": "195363179",
+   "name": "Casual DP World Tour $3 50-50",
+   "fee": 3,
+   "entries": 4,
+   "paidSpots": 2,
+   "prizePool": 10.8,
+   "tiers": [
+    {
+     "min": 1,
+     "max": 2,
+     "value": 5.4
     }
    ]
   },
@@ -570,17 +720,72 @@
    ]
   },
   {
-   "id": "195261448",
-   "name": "DP World Tour $5 5-Player (Winner Takes All)",
+   "id": "195363023",
+   "name": "DP World Tour $5 Double Up",
    "fee": 5,
-   "entries": 5,
-   "paidSpots": 1,
-   "prizePool": 22.5,
+   "entries": 23,
+   "paidSpots": 10,
+   "prizePool": 100.0,
+   "tiers": [
+    {
+     "min": 1,
+     "max": 10,
+     "value": 10.0
+    }
+   ]
+  },
+  {
+   "id": "195363025",
+   "name": "DP World Tour $10 Double Up",
+   "fee": 10,
+   "entries": 11,
+   "paidSpots": 5,
+   "prizePool": 100.0,
+   "tiers": [
+    {
+     "min": 1,
+     "max": 5,
+     "value": 20.0
+    }
+   ]
+  },
+  {
+   "id": "195363113",
+   "name": "DP World Tour $10 50-50",
+   "fee": 10,
+   "entries": 10,
+   "paidSpots": 5,
+   "prizePool": 90.0,
+   "tiers": [
+    {
+     "min": 1,
+     "max": 5,
+     "value": 18.0
+    }
+   ]
+  },
+  {
+   "id": "195363114",
+   "name": "DP World Tour $10 10-Player",
+   "fee": 10,
+   "entries": 10,
+   "paidSpots": 3,
+   "prizePool": 90.0,
    "tiers": [
     {
      "min": 1,
      "max": 1,
-     "value": 22.5
+     "value": 50.0
+    },
+    {
+     "min": 2,
+     "max": 2,
+     "value": 25.0
+    },
+    {
+     "min": 3,
+     "max": 3,
+     "value": 15.0
     }
    ]
   },
@@ -636,6 +841,106 @@
      "min": 9,
      "max": 9,
      "value": 25.0
+    }
+   ]
+  },
+  {
+   "id": "195363109",
+   "name": "DP World Tour $20 50-50",
+   "fee": 20,
+   "entries": 10,
+   "paidSpots": 5,
+   "prizePool": 180.0,
+   "tiers": [
+    {
+     "min": 1,
+     "max": 5,
+     "value": 36.0
+    }
+   ]
+  },
+  {
+   "id": "195363110",
+   "name": "DP World Tour $20 10-Player",
+   "fee": 20,
+   "entries": 10,
+   "paidSpots": 3,
+   "prizePool": 180.0,
+   "tiers": [
+    {
+     "min": 1,
+     "max": 1,
+     "value": 90.0
+    },
+    {
+     "min": 2,
+     "max": 2,
+     "value": 55.0
+    },
+    {
+     "min": 3,
+     "max": 3,
+     "value": 35.0
+    }
+   ]
+  },
+  {
+   "id": "195363189",
+   "name": "Beginner DP World Tour $20 5-Player",
+   "fee": 20,
+   "entries": 5,
+   "paidSpots": 2,
+   "prizePool": 90.0,
+   "tiers": [
+    {
+     "min": 1,
+     "max": 1,
+     "value": 60.0
+    },
+    {
+     "min": 2,
+     "max": 2,
+     "value": 30.0
+    }
+   ]
+  },
+  {
+   "id": "195363178",
+   "name": "Casual DP World Tour $20 5-Player",
+   "fee": 20,
+   "entries": 5,
+   "paidSpots": 2,
+   "prizePool": 90.0,
+   "tiers": [
+    {
+     "min": 1,
+     "max": 1,
+     "value": 60.0
+    },
+    {
+     "min": 2,
+     "max": 2,
+     "value": 30.0
+    }
+   ]
+  },
+  {
+   "id": "195363107",
+   "name": "DP World Tour $20 5-Player",
+   "fee": 20,
+   "entries": 5,
+   "paidSpots": 2,
+   "prizePool": 90.0,
+   "tiers": [
+    {
+     "min": 1,
+     "max": 1,
+     "value": 60.0
+    },
+    {
+     "min": 2,
+     "max": 2,
+     "value": 30.0
     }
    ]
   },
@@ -740,6 +1045,21 @@
    ]
   },
   {
+   "id": "195363203",
+   "name": "DP World Tour $25 Double Up",
+   "fee": 25,
+   "entries": 22,
+   "paidSpots": 10,
+   "prizePool": 500.0,
+   "tiers": [
+    {
+     "min": 1,
+     "max": 10,
+     "value": 50.0
+    }
+   ]
+  },
+  {
    "id": "195252837",
    "name": "DP World Tour $600 Dogleg",
    "fee": 33,
@@ -775,17 +1095,87 @@
    ]
   },
   {
-   "id": "195252847",
+   "id": "195363201",
    "name": "DP World Tour $50 Double Up",
    "fee": 50,
-   "entries": 11,
-   "paidSpots": 5,
-   "prizePool": 500.0,
+   "entries": 22,
+   "paidSpots": 10,
+   "prizePool": 1000.0,
    "tiers": [
     {
      "min": 1,
-     "max": 5,
+     "max": 10,
      "value": 100.0
+    }
+   ]
+  },
+  {
+   "id": "195363175",
+   "name": "Casual DP World Tour $50 5-Player",
+   "fee": 50,
+   "entries": 5,
+   "paidSpots": 2,
+   "prizePool": 225.0,
+   "tiers": [
+    {
+     "min": 1,
+     "max": 1,
+     "value": 150.0
+    },
+    {
+     "min": 2,
+     "max": 2,
+     "value": 75.0
+    }
+   ]
+  },
+  {
+   "id": "195363102",
+   "name": "DP World Tour $50 5-Player",
+   "fee": 50,
+   "entries": 5,
+   "paidSpots": 2,
+   "prizePool": 225.0,
+   "tiers": [
+    {
+     "min": 1,
+     "max": 1,
+     "value": 150.0
+    },
+    {
+     "min": 2,
+     "max": 2,
+     "value": 75.0
+    }
+   ]
+  },
+  {
+   "id": "195363176",
+   "name": "Casual DP World Tour $50 50-50",
+   "fee": 50,
+   "entries": 4,
+   "paidSpots": 2,
+   "prizePool": 180.0,
+   "tiers": [
+    {
+     "min": 1,
+     "max": 2,
+     "value": 90.0
+    }
+   ]
+  },
+  {
+   "id": "195363032",
+   "name": "DP World Tour $85 Winner Take All [$300 to 1st]",
+   "fee": 85,
+   "entries": 4,
+   "paidSpots": 1,
+   "prizePool": 300.0,
+   "tiers": [
+    {
+     "min": 1,
+     "max": 1,
+     "value": 300.0
     }
    ]
   },
@@ -845,6 +1235,246 @@
    ]
   },
   {
+   "id": "195357499",
+   "name": "DP World Tour $109 5-Player (Winner Takes All)",
+   "fee": 109,
+   "entries": 5,
+   "paidSpots": 1,
+   "prizePool": 500.0,
+   "tiers": [
+    {
+     "min": 1,
+     "max": 1,
+     "value": 500.0
+    }
+   ]
+  },
+  {
+   "id": "195363172",
+   "name": "Casual DP World Tour $109 5-Player",
+   "fee": 109,
+   "entries": 5,
+   "paidSpots": 2,
+   "prizePool": 500.0,
+   "tiers": [
+    {
+     "min": 1,
+     "max": 1,
+     "value": 340.0
+    },
+    {
+     "min": 2,
+     "max": 2,
+     "value": 160.0
+    }
+   ]
+  },
+  {
+   "id": "195363101",
+   "name": "DP World Tour $109 5-Player",
+   "fee": 109,
+   "entries": 5,
+   "paidSpots": 2,
+   "prizePool": 500.0,
+   "tiers": [
+    {
+     "min": 1,
+     "max": 1,
+     "value": 340.0
+    },
+    {
+     "min": 2,
+     "max": 2,
+     "value": 160.0
+    }
+   ]
+  },
+  {
+   "id": "195363098",
+   "name": "DP World Tour $109 50-50",
+   "fee": 109,
+   "entries": 4,
+   "paidSpots": 2,
+   "prizePool": 400.0,
+   "tiers": [
+    {
+     "min": 1,
+     "max": 2,
+     "value": 200.0
+    }
+   ]
+  },
+  {
+   "id": "195363173",
+   "name": "Casual DP World Tour $109 3-Player",
+   "fee": 109,
+   "entries": 3,
+   "paidSpots": 1,
+   "prizePool": 300.0,
+   "tiers": [
+    {
+     "min": 1,
+     "max": 1,
+     "value": 300.0
+    }
+   ]
+  },
+  {
+   "id": "195363099",
+   "name": "DP World Tour $109 3-Player",
+   "fee": 109,
+   "entries": 3,
+   "paidSpots": 1,
+   "prizePool": 300.0,
+   "tiers": [
+    {
+     "min": 1,
+     "max": 1,
+     "value": 300.0
+    }
+   ]
+  },
+  {
+   "id": "195363090",
+   "name": "DP World Tour $215 5-Player",
+   "fee": 215,
+   "entries": 5,
+   "paidSpots": 2,
+   "prizePool": 1000.0,
+   "tiers": [
+    {
+     "min": 1,
+     "max": 1,
+     "value": 700.0
+    },
+    {
+     "min": 2,
+     "max": 2,
+     "value": 300.0
+    }
+   ]
+  },
+  {
+   "id": "195363095",
+   "name": "DP World Tour $215 50-50",
+   "fee": 215,
+   "entries": 4,
+   "paidSpots": 2,
+   "prizePool": 800.0,
+   "tiers": [
+    {
+     "min": 1,
+     "max": 2,
+     "value": 400.0
+    }
+   ]
+  },
+  {
+   "id": "195363096",
+   "name": "DP World Tour $215 3-Player",
+   "fee": 215,
+   "entries": 3,
+   "paidSpots": 1,
+   "prizePool": 600.0,
+   "tiers": [
+    {
+     "min": 1,
+     "max": 1,
+     "value": 600.0
+    }
+   ]
+  },
+  {
+   "id": "195363027",
+   "name": "DP World Tour $267 Winner Take All [$1K to 1st]",
+   "fee": 267,
+   "entries": 4,
+   "paidSpots": 1,
+   "prizePool": 1000.0,
+   "tiers": [
+    {
+     "min": 1,
+     "max": 1,
+     "value": 1000.0
+    }
+   ]
+  },
+  {
+   "id": "195363209",
+   "name": "DP World Tour $267 Winner Take All [$1K to 1st] (Must Fill)",
+   "fee": 267,
+   "entries": 4,
+   "paidSpots": 1,
+   "prizePool": 1000.0,
+   "tiers": [
+    {
+     "min": 1,
+     "max": 1,
+     "value": 1000.0
+    }
+   ]
+  },
+  {
+   "id": "195363215",
+   "name": "DP World Tour $530 Winner Take All [Must Fill]",
+   "fee": 530,
+   "entries": 4,
+   "paidSpots": 1,
+   "prizePool": 2000.0,
+   "tiers": [
+    {
+     "min": 1,
+     "max": 1,
+     "value": 2000.0
+    }
+   ]
+  },
+  {
+   "id": "195292204",
+   "name": "DP World Tour $530 4-Player (Winner Takes All)",
+   "fee": 530,
+   "entries": 4,
+   "paidSpots": 1,
+   "prizePool": 2000.0,
+   "tiers": [
+    {
+     "min": 1,
+     "max": 1,
+     "value": 2000.0
+    }
+   ]
+  },
+  {
+   "id": "195363094",
+   "name": "DP World Tour $530 50-50",
+   "fee": 530,
+   "entries": 4,
+   "paidSpots": 2,
+   "prizePool": 2000.0,
+   "tiers": [
+    {
+     "min": 1,
+     "max": 2,
+     "value": 1000.0
+    }
+   ]
+  },
+  {
+   "id": "195363093",
+   "name": "DP World Tour $530 3-Player",
+   "fee": 530,
+   "entries": 3,
+   "paidSpots": 1,
+   "prizePool": 1500.0,
+   "tiers": [
+    {
+     "min": 1,
+     "max": 1,
+     "value": 1500.0
+    }
+   ]
+  },
+  {
    "id": "195252835",
    "name": "DP World Tour $15K Signature Hole [Single Entry]",
    "fee": 555,
@@ -880,6 +1510,81 @@
    ]
   },
   {
+   "id": "195363036",
+   "name": "DP World Tour $555 Winner Take All [$2K to 1st]",
+   "fee": 555,
+   "entries": 4,
+   "paidSpots": 1,
+   "prizePool": 2000.0,
+   "tiers": [
+    {
+     "min": 1,
+     "max": 1,
+     "value": 2000.0
+    }
+   ]
+  },
+  {
+   "id": "195363091",
+   "name": "DP World Tour $1,060 50-50",
+   "fee": 1060,
+   "entries": 4,
+   "paidSpots": 2,
+   "prizePool": 4000.0,
+   "tiers": [
+    {
+     "min": 1,
+     "max": 2,
+     "value": 2000.0
+    }
+   ]
+  },
+  {
+   "id": "195363217",
+   "name": "DP World Tour $1,060 Winner Take All [$3K to 1st] (Must Fill)",
+   "fee": 1060,
+   "entries": 3,
+   "paidSpots": 1,
+   "prizePool": 3000.0,
+   "tiers": [
+    {
+     "min": 1,
+     "max": 1,
+     "value": 3000.0
+    }
+   ]
+  },
+  {
+   "id": "195359892",
+   "name": "DP World Tour $1,060 3-Player (Winner Takes All)",
+   "fee": 1060,
+   "entries": 3,
+   "paidSpots": 1,
+   "prizePool": 3000.0,
+   "tiers": [
+    {
+     "min": 1,
+     "max": 1,
+     "value": 3000.0
+    }
+   ]
+  },
+  {
+   "id": "195363092",
+   "name": "DP World Tour $1,060 3-Player",
+   "fee": 1060,
+   "entries": 3,
+   "paidSpots": 1,
+   "prizePool": 3000.0,
+   "tiers": [
+    {
+     "min": 1,
+     "max": 1,
+     "value": 3000.0
+    }
+   ]
+  },
+  {
    "id": "195252834",
    "name": "DP World Tour $5.7K Country Club [Single Entry]",
    "fee": 1500,
@@ -891,6 +1596,111 @@
      "min": 1,
      "max": 1,
      "value": 5700.0
+    }
+   ]
+  },
+  {
+   "id": "195363213",
+   "name": "DP World Tour $2,120 50-50",
+   "fee": 2120,
+   "entries": 4,
+   "paidSpots": 2,
+   "prizePool": 8000.0,
+   "tiers": [
+    {
+     "min": 1,
+     "max": 2,
+     "value": 4000.0
+    }
+   ]
+  },
+  {
+   "id": "195363212",
+   "name": "DP World Tour $2,120 3-Player",
+   "fee": 2120,
+   "entries": 3,
+   "paidSpots": 1,
+   "prizePool": 6000.0,
+   "tiers": [
+    {
+     "min": 1,
+     "max": 1,
+     "value": 6000.0
+    }
+   ]
+  },
+  {
+   "id": "195363214",
+   "name": "DP World Tour $20K Thunderdome [Must Fill]",
+   "fee": 5300,
+   "entries": 4,
+   "paidSpots": 1,
+   "prizePool": 20000.0,
+   "tiers": [
+    {
+     "min": 1,
+     "max": 1,
+     "value": 20000.0
+    }
+   ]
+  },
+  {
+   "id": "195363155",
+   "name": "DP World Tour $5,300 50-50",
+   "fee": 5300,
+   "entries": 4,
+   "paidSpots": 2,
+   "prizePool": 20000.0,
+   "tiers": [
+    {
+     "min": 1,
+     "max": 2,
+     "value": 10000.0
+    }
+   ]
+  },
+  {
+   "id": "195363153",
+   "name": "DP World Tour $5,300 3-Player",
+   "fee": 5300,
+   "entries": 3,
+   "paidSpots": 1,
+   "prizePool": 15000.0,
+   "tiers": [
+    {
+     "min": 1,
+     "max": 1,
+     "value": 15000.0
+    }
+   ]
+  },
+  {
+   "id": "195363211",
+   "name": "DP World Tour $50K Nosebleed Section [Must Fill]",
+   "fee": 10600,
+   "entries": 5,
+   "paidSpots": 1,
+   "prizePool": 50000.0,
+   "tiers": [
+    {
+     "min": 1,
+     "max": 1,
+     "value": 50000.0
+    }
+   ]
+  },
+  {
+   "id": "195363154",
+   "name": "DP World Tour $10,600 3-Player",
+   "fee": 10600,
+   "entries": 3,
+   "paidSpots": 1,
+   "prizePool": 30000.0,
+   "tiers": [
+    {
+     "min": 1,
+     "max": 1,
+     "value": 30000.0
     }
    ]
   }
