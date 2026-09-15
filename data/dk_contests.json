@@ -1,5 +1,5 @@
 {
- "updatedUtc": "2026-09-14T18:18:07Z",
+ "updatedUtc": "2026-09-15T17:26:04Z",
  "tournament": "BILTMORE_ASHEVILLE_2026",
  "event": "Biltmore Championship Asheville",
  "draftGroupId": "153546",
@@ -9,6 +9,51 @@
    "name": "PGA TOUR FREE 100-Player",
    "fee": 0,
    "entries": 100,
+   "paidSpots": 1,
+   "prizePool": 0.0,
+   "tiers": [
+    {
+     "min": 1,
+     "max": 1,
+     "value": 0.0
+    }
+   ]
+  },
+  {
+   "id": "195691977",
+   "name": "PGA TOUR FREE 25-Player",
+   "fee": 0,
+   "entries": 25,
+   "paidSpots": 1,
+   "prizePool": 0.0,
+   "tiers": [
+    {
+     "min": 1,
+     "max": 1,
+     "value": 0.0
+    }
+   ]
+  },
+  {
+   "id": "195671235",
+   "name": "PGA TOUR FREE 20-Player",
+   "fee": 0,
+   "entries": 20,
+   "paidSpots": 1,
+   "prizePool": 0.0,
+   "tiers": [
+    {
+     "min": 1,
+     "max": 1,
+     "value": 0.0
+    }
+   ]
+  },
+  {
+   "id": "195671213",
+   "name": "PGA TOUR FREE 10-Player x2",
+   "fee": 0,
+   "entries": 10,
    "paidSpots": 1,
    "prizePool": 0.0,
    "tiers": [
@@ -201,6 +246,21 @@
      "min": 371,
      "max": 1104,
      "value": 0.5
+    }
+   ]
+  },
+  {
+   "id": "195667415",
+   "name": "PGA TOUR $0.25 Winner Take All [$50 to 1st]",
+   "fee": 0.25,
+   "entries": 237,
+   "paidSpots": 1,
+   "prizePool": 50.0,
+   "tiers": [
+    {
+     "min": 1,
+     "max": 1,
+     "value": 50.0
     }
    ]
   },
@@ -460,6 +520,61 @@
    ]
   },
   {
+   "id": "195667429",
+   "name": "PGA TOUR $1 Winner Take All [$100 to 1st]",
+   "fee": 1,
+   "entries": 118,
+   "paidSpots": 1,
+   "prizePool": 100.0,
+   "tiers": [
+    {
+     "min": 1,
+     "max": 1,
+     "value": 100.0
+    }
+   ]
+  },
+  {
+   "id": "195667409",
+   "name": "PGA TOUR $1 Double Up",
+   "fee": 1,
+   "entries": 62,
+   "paidSpots": 27,
+   "prizePool": 54.0,
+   "tiers": [
+    {
+     "min": 1,
+     "max": 27,
+     "value": 2.0
+    }
+   ]
+  },
+  {
+   "id": "195692858",
+   "name": "PGA TOUR $1 40-Player (Top 3 Win)",
+   "fee": 1,
+   "entries": 40,
+   "paidSpots": 3,
+   "prizePool": 36.0,
+   "tiers": [
+    {
+     "min": 1,
+     "max": 1,
+     "value": 18.0
+    },
+    {
+     "min": 2,
+     "max": 2,
+     "value": 10.8
+    },
+    {
+     "min": 3,
+     "max": 3,
+     "value": 7.2
+    }
+   ]
+  },
+  {
    "id": "195660982",
    "name": "PGA TOUR Single Entry $2 Double Up",
    "fee": 2,
@@ -471,6 +586,51 @@
      "min": 1,
      "max": 50,
      "value": 4.0
+    }
+   ]
+  },
+  {
+   "id": "195667398",
+   "name": "PGA TOUR 10x Booster [Top 5 Win $20]",
+   "fee": 2,
+   "entries": 59,
+   "paidSpots": 5,
+   "prizePool": 100.0,
+   "tiers": [
+    {
+     "min": 1,
+     "max": 5,
+     "value": 20.0
+    }
+   ]
+  },
+  {
+   "id": "195667393",
+   "name": "PGA TOUR 10x Booster [Top 3 Win $20]",
+   "fee": 2,
+   "entries": 35,
+   "paidSpots": 3,
+   "prizePool": 60.0,
+   "tiers": [
+    {
+     "min": 1,
+     "max": 3,
+     "value": 20.0
+    }
+   ]
+  },
+  {
+   "id": "195669914",
+   "name": "PGA TOUR $2 50-50",
+   "fee": 2,
+   "entries": 20,
+   "paidSpots": 10,
+   "prizePool": 36.0,
+   "tiers": [
+    {
+     "min": 1,
+     "max": 10,
+     "value": 3.6
     }
    ]
   },
@@ -591,6 +751,46 @@
      "min": 382,
      "max": 651,
      "value": 5.0
+    }
+   ]
+  },
+  {
+   "id": "195667413",
+   "name": "PGA TOUR $3 Double Up",
+   "fee": 3,
+   "entries": 39,
+   "paidSpots": 17,
+   "prizePool": 102.0,
+   "tiers": [
+    {
+     "min": 1,
+     "max": 17,
+     "value": 6.0
+    }
+   ]
+  },
+  {
+   "id": "195677814",
+   "name": "PGA TOUR $3 15-Player (Top 3 Win)",
+   "fee": 3,
+   "entries": 15,
+   "paidSpots": 3,
+   "prizePool": 40.5,
+   "tiers": [
+    {
+     "min": 1,
+     "max": 1,
+     "value": 20.25
+    },
+    {
+     "min": 2,
+     "max": 2,
+     "value": 12.15
+    },
+    {
+     "min": 3,
+     "max": 3,
+     "value": 8.1
     }
    ]
   },
@@ -820,17 +1020,17 @@
    ]
   },
   {
-   "id": "195661193",
-   "name": "PGA TOUR $5 19-Player (Winner Takes All)",
+   "id": "195667400",
+   "name": "PGA TOUR 10x Booster [Top 5 Win $50]",
    "fee": 5,
-   "entries": 19,
-   "paidSpots": 1,
-   "prizePool": 85.5,
+   "entries": 59,
+   "paidSpots": 5,
+   "prizePool": 250.0,
    "tiers": [
     {
      "min": 1,
-     "max": 1,
-     "value": 85.5
+     "max": 5,
+     "value": 50.0
     }
    ]
   },
@@ -915,6 +1115,36 @@
     {
      "min": 1,
      "max": 50,
+     "value": 20.0
+    }
+   ]
+  },
+  {
+   "id": "195667401",
+   "name": "PGA TOUR 10x Booster [Top 3 Win $100]",
+   "fee": 10,
+   "entries": 35,
+   "paidSpots": 3,
+   "prizePool": 300.0,
+   "tiers": [
+    {
+     "min": 1,
+     "max": 3,
+     "value": 100.0
+    }
+   ]
+  },
+  {
+   "id": "195667395",
+   "name": "PGA TOUR $10 Double Up",
+   "fee": 10,
+   "entries": 23,
+   "paidSpots": 10,
+   "prizePool": 200.0,
+   "tiers": [
+    {
+     "min": 1,
+     "max": 10,
      "value": 20.0
     }
    ]
@@ -1006,6 +1236,101 @@
      "min": 121,
      "max": 170,
      "value": 18.0
+    }
+   ]
+  },
+  {
+   "id": "195667394",
+   "name": "PGA TOUR $20 Winner Take All [$175 to 1st]",
+   "fee": 20,
+   "entries": 10,
+   "paidSpots": 1,
+   "prizePool": 175.0,
+   "tiers": [
+    {
+     "min": 1,
+     "max": 1,
+     "value": 175.0
+    }
+   ]
+  },
+  {
+   "id": "195669897",
+   "name": "PGA TOUR $20 50-50",
+   "fee": 20,
+   "entries": 10,
+   "paidSpots": 5,
+   "prizePool": 180.0,
+   "tiers": [
+    {
+     "min": 1,
+     "max": 5,
+     "value": 36.0
+    }
+   ]
+  },
+  {
+   "id": "195669898",
+   "name": "PGA TOUR $20 10-Player",
+   "fee": 20,
+   "entries": 10,
+   "paidSpots": 3,
+   "prizePool": 180.0,
+   "tiers": [
+    {
+     "min": 1,
+     "max": 1,
+     "value": 90.0
+    },
+    {
+     "min": 2,
+     "max": 2,
+     "value": 55.0
+    },
+    {
+     "min": 3,
+     "max": 3,
+     "value": 35.0
+    }
+   ]
+  },
+  {
+   "id": "195669959",
+   "name": "Beginner PGA TOUR $20 5-Player",
+   "fee": 20,
+   "entries": 5,
+   "paidSpots": 2,
+   "prizePool": 90.0,
+   "tiers": [
+    {
+     "min": 1,
+     "max": 1,
+     "value": 60.0
+    },
+    {
+     "min": 2,
+     "max": 2,
+     "value": 30.0
+    }
+   ]
+  },
+  {
+   "id": "195669951",
+   "name": "Casual PGA TOUR $20 5-Player",
+   "fee": 20,
+   "entries": 5,
+   "paidSpots": 2,
+   "prizePool": 90.0,
+   "tiers": [
+    {
+     "min": 1,
+     "max": 1,
+     "value": 60.0
+    },
+    {
+     "min": 2,
+     "max": 2,
+     "value": 30.0
     }
    ]
   },
@@ -1140,6 +1465,21 @@
    ]
   },
   {
+   "id": "195669970",
+   "name": "PGA TOUR $25 Double Up",
+   "fee": 25,
+   "entries": 22,
+   "paidSpots": 10,
+   "prizePool": 500.0,
+   "tiers": [
+    {
+     "min": 1,
+     "max": 10,
+     "value": 50.0
+    }
+   ]
+  },
+  {
    "id": "195660970",
    "name": "PGA TOUR $8K Dogleg [Single Entry]",
    "fee": 33,
@@ -1225,6 +1565,56 @@
    ]
   },
   {
+   "id": "195667402",
+   "name": "PGA TOUR $50 Double Up",
+   "fee": 50,
+   "entries": 22,
+   "paidSpots": 10,
+   "prizePool": 1000.0,
+   "tiers": [
+    {
+     "min": 1,
+     "max": 10,
+     "value": 100.0
+    }
+   ]
+  },
+  {
+   "id": "195667427",
+   "name": "PGA TOUR $50 Winner Take All [$500 to 1st]",
+   "fee": 50,
+   "entries": 11,
+   "paidSpots": 1,
+   "prizePool": 500.0,
+   "tiers": [
+    {
+     "min": 1,
+     "max": 1,
+     "value": 500.0
+    }
+   ]
+  },
+  {
+   "id": "195669948",
+   "name": "Casual PGA TOUR $50 5-Player",
+   "fee": 50,
+   "entries": 5,
+   "paidSpots": 2,
+   "prizePool": 225.0,
+   "tiers": [
+    {
+     "min": 1,
+     "max": 1,
+     "value": 150.0
+    },
+    {
+     "min": 2,
+     "max": 2,
+     "value": 75.0
+    }
+   ]
+  },
+  {
    "id": "195660958",
    "name": "PGA TOUR $5K Up-And-Down [$1.5K to 1st]",
    "fee": 55,
@@ -1271,6 +1661,21 @@
      "min": 14,
      "max": 26,
      "value": 100.0
+    }
+   ]
+  },
+  {
+   "id": "195667421",
+   "name": "PGA TOUR $85 Winner Take All [$300 to 1st]",
+   "fee": 85,
+   "entries": 4,
+   "paidSpots": 1,
+   "prizePool": 300.0,
+   "tiers": [
+    {
+     "min": 1,
+     "max": 1,
+     "value": 300.0
     }
    ]
   },
@@ -1385,17 +1790,82 @@
    ]
   },
   {
-   "id": "195660974",
+   "id": "195696649",
    "name": "PGA TOUR Single Entry $100 Double Up",
    "fee": 100,
-   "entries": 22,
-   "paidSpots": 10,
-   "prizePool": 2000.0,
+   "entries": 33,
+   "paidSpots": 15,
+   "prizePool": 3000.0,
    "tiers": [
     {
      "min": 1,
-     "max": 10,
+     "max": 15,
      "value": 200.0
+    }
+   ]
+  },
+  {
+   "id": "195669945",
+   "name": "Casual PGA TOUR $109 5-Player",
+   "fee": 109,
+   "entries": 5,
+   "paidSpots": 2,
+   "prizePool": 500.0,
+   "tiers": [
+    {
+     "min": 1,
+     "max": 1,
+     "value": 340.0
+    },
+    {
+     "min": 2,
+     "max": 2,
+     "value": 160.0
+    }
+   ]
+  },
+  {
+   "id": "195669887",
+   "name": "PGA TOUR $109 50-50",
+   "fee": 109,
+   "entries": 4,
+   "paidSpots": 2,
+   "prizePool": 400.0,
+   "tiers": [
+    {
+     "min": 1,
+     "max": 2,
+     "value": 200.0
+    }
+   ]
+  },
+  {
+   "id": "195669888",
+   "name": "PGA TOUR $109 3-Player",
+   "fee": 109,
+   "entries": 3,
+   "paidSpots": 1,
+   "prizePool": 300.0,
+   "tiers": [
+    {
+     "min": 1,
+     "max": 1,
+     "value": 300.0
+    }
+   ]
+  },
+  {
+   "id": "195669946",
+   "name": "Casual PGA TOUR $109 3-Player",
+   "fee": 109,
+   "entries": 3,
+   "paidSpots": 1,
+   "prizePool": 300.0,
+   "tiers": [
+    {
+     "min": 1,
+     "max": 1,
+     "value": 300.0
     }
    ]
   },
@@ -1550,6 +2020,36 @@
    ]
   },
   {
+   "id": "195669884",
+   "name": "PGA TOUR $215 50-50",
+   "fee": 215,
+   "entries": 4,
+   "paidSpots": 2,
+   "prizePool": 800.0,
+   "tiers": [
+    {
+     "min": 1,
+     "max": 2,
+     "value": 400.0
+    }
+   ]
+  },
+  {
+   "id": "195669885",
+   "name": "PGA TOUR $215 3-Player",
+   "fee": 215,
+   "entries": 3,
+   "paidSpots": 1,
+   "prizePool": 600.0,
+   "tiers": [
+    {
+     "min": 1,
+     "max": 1,
+     "value": 600.0
+    }
+   ]
+  },
+  {
    "id": "195660966",
    "name": "PGA TOUR $30K Par 4 [4 Entry Max]",
    "fee": 250,
@@ -1615,6 +2115,81 @@
    ]
   },
   {
+   "id": "195669975",
+   "name": "PGA TOUR $267 Winner Take All [$1K to 1st] (Must Fill)",
+   "fee": 267,
+   "entries": 4,
+   "paidSpots": 1,
+   "prizePool": 1000.0,
+   "tiers": [
+    {
+     "min": 1,
+     "max": 1,
+     "value": 1000.0
+    }
+   ]
+  },
+  {
+   "id": "195695905",
+   "name": "PGA TOUR $267 Winner Take All [$1K to 1st]",
+   "fee": 267,
+   "entries": 4,
+   "paidSpots": 1,
+   "prizePool": 1000.0,
+   "tiers": [
+    {
+     "min": 1,
+     "max": 1,
+     "value": 1000.0
+    }
+   ]
+  },
+  {
+   "id": "195669981",
+   "name": "PGA TOUR $530 Winner Take All [Must Fill]",
+   "fee": 530,
+   "entries": 4,
+   "paidSpots": 1,
+   "prizePool": 2000.0,
+   "tiers": [
+    {
+     "min": 1,
+     "max": 1,
+     "value": 2000.0
+    }
+   ]
+  },
+  {
+   "id": "195669883",
+   "name": "PGA TOUR $530 50-50",
+   "fee": 530,
+   "entries": 4,
+   "paidSpots": 2,
+   "prizePool": 2000.0,
+   "tiers": [
+    {
+     "min": 1,
+     "max": 2,
+     "value": 1000.0
+    }
+   ]
+  },
+  {
+   "id": "195669882",
+   "name": "PGA TOUR $530 3-Player",
+   "fee": 530,
+   "entries": 3,
+   "paidSpots": 1,
+   "prizePool": 1500.0,
+   "tiers": [
+    {
+     "min": 1,
+     "max": 1,
+     "value": 1500.0
+    }
+   ]
+  },
+  {
    "id": "195660954",
    "name": "PGA TOUR $150K Signature Hole [$50K to 1st]",
    "fee": 555,
@@ -1670,6 +2245,66 @@
    ]
   },
   {
+   "id": "195667425",
+   "name": "PGA TOUR $555 Winner Take All [$2K to 1st]",
+   "fee": 555,
+   "entries": 4,
+   "paidSpots": 1,
+   "prizePool": 2000.0,
+   "tiers": [
+    {
+     "min": 1,
+     "max": 1,
+     "value": 2000.0
+    }
+   ]
+  },
+  {
+   "id": "195669880",
+   "name": "PGA TOUR $1,060 50-50",
+   "fee": 1060,
+   "entries": 4,
+   "paidSpots": 2,
+   "prizePool": 4000.0,
+   "tiers": [
+    {
+     "min": 1,
+     "max": 2,
+     "value": 2000.0
+    }
+   ]
+  },
+  {
+   "id": "195669983",
+   "name": "PGA TOUR $1,060 Winner Take All [$3K to 1st] (Must Fill)",
+   "fee": 1060,
+   "entries": 3,
+   "paidSpots": 1,
+   "prizePool": 3000.0,
+   "tiers": [
+    {
+     "min": 1,
+     "max": 1,
+     "value": 3000.0
+    }
+   ]
+  },
+  {
+   "id": "195669881",
+   "name": "PGA TOUR $1,060 3-Player",
+   "fee": 1060,
+   "entries": 3,
+   "paidSpots": 1,
+   "prizePool": 3000.0,
+   "tiers": [
+    {
+     "min": 1,
+     "max": 1,
+     "value": 3000.0
+    }
+   ]
+  },
+  {
    "id": "195660953",
    "name": "PGA TOUR $17K Country Club [$10K to 1st]",
    "fee": 1500,
@@ -1691,6 +2326,141 @@
      "min": 3,
      "max": 3,
      "value": 2500.0
+    }
+   ]
+  },
+  {
+   "id": "195669979",
+   "name": "PGA TOUR $2,120 50-50",
+   "fee": 2120,
+   "entries": 4,
+   "paidSpots": 2,
+   "prizePool": 8000.0,
+   "tiers": [
+    {
+     "min": 1,
+     "max": 2,
+     "value": 4000.0
+    }
+   ]
+  },
+  {
+   "id": "195690186",
+   "name": "PGA TOUR $2,120 3-Player",
+   "fee": 2120,
+   "entries": 3,
+   "paidSpots": 1,
+   "prizePool": 6000.0,
+   "tiers": [
+    {
+     "min": 1,
+     "max": 1,
+     "value": 6000.0
+    }
+   ]
+  },
+  {
+   "id": "195669980",
+   "name": "PGA TOUR $20K Thunderdome [Must Fill]",
+   "fee": 5300,
+   "entries": 4,
+   "paidSpots": 1,
+   "prizePool": 20000.0,
+   "tiers": [
+    {
+     "min": 1,
+     "max": 1,
+     "value": 20000.0
+    }
+   ]
+  },
+  {
+   "id": "195669936",
+   "name": "PGA TOUR $5,300 50-50",
+   "fee": 5300,
+   "entries": 4,
+   "paidSpots": 2,
+   "prizePool": 20000.0,
+   "tiers": [
+    {
+     "min": 1,
+     "max": 2,
+     "value": 10000.0
+    }
+   ]
+  },
+  {
+   "id": "195669934",
+   "name": "PGA TOUR $5,300 3-Player",
+   "fee": 5300,
+   "entries": 3,
+   "paidSpots": 1,
+   "prizePool": 15000.0,
+   "tiers": [
+    {
+     "min": 1,
+     "max": 1,
+     "value": 15000.0
+    }
+   ]
+  },
+  {
+   "id": "195669977",
+   "name": "PGA TOUR $50K Nosebleed Section [Must Fill]",
+   "fee": 10600,
+   "entries": 5,
+   "paidSpots": 1,
+   "prizePool": 50000.0,
+   "tiers": [
+    {
+     "min": 1,
+     "max": 1,
+     "value": 50000.0
+    }
+   ]
+  },
+  {
+   "id": "195669935",
+   "name": "PGA TOUR $10,600 3-Player",
+   "fee": 10600,
+   "entries": 3,
+   "paidSpots": 1,
+   "prizePool": 30000.0,
+   "tiers": [
+    {
+     "min": 1,
+     "max": 1,
+     "value": 30000.0
+    }
+   ]
+  },
+  {
+   "id": "195669973",
+   "name": "PGA TOUR $100K Heavy Hitter [Must Fill]",
+   "fee": 26200,
+   "entries": 4,
+   "paidSpots": 1,
+   "prizePool": 100000.0,
+   "tiers": [
+    {
+     "min": 1,
+     "max": 1,
+     "value": 100000.0
+    }
+   ]
+  },
+  {
+   "id": "195669974",
+   "name": "PGA TOUR $75K Heavy Hitter [Must Fill]",
+   "fee": 26200,
+   "entries": 3,
+   "paidSpots": 1,
+   "prizePool": 75000.0,
+   "tiers": [
+    {
+     "min": 1,
+     "max": 1,
+     "value": 75000.0
     }
    ]
   }
