@@ -1,11 +1,11 @@
 {
- "updatedUtc": "2026-09-16T11:38:07Z",
- "slate": "TOUR_2026",
+ "updatedUtc": "2026-09-16T16:59:50Z",
+ "slate": "BILTMORE_2026",
  "event": "Biltmore Championship Asheville",
  "counts": {
-  "items": 69,
-  "golfersMentioned": 14,
-  "news": 69,
+  "items": 77,
+  "golfersMentioned": 39,
+  "news": 77,
   "chatter": 0
  },
  "sources": [
@@ -108,19 +108,19 @@
   {
    "source": "Google News: Biltmore Championship Asheville DFS",
    "ok": true,
-   "items": 62,
+   "items": 61,
    "error": null
   },
   {
    "source": "Google News: Biltmore Championship Asheville picks",
    "ok": true,
-   "items": 61,
+   "items": 57,
    "error": null
   },
   {
    "source": "Google News: Biltmore Championship Asheville WD",
    "ok": true,
-   "items": 64,
+   "items": 66,
    "error": null
   },
   {
@@ -156,85 +156,241 @@
  ],
  "mentions": [
   {
-   "name": "Jacob Bridgeman",
-   "news": 8,
+   "name": "Davis Thompson",
+   "news": 9,
    "chatter": 0,
-   "total": 8
+   "total": 9
   },
   {
-   "name": "Cameron Young",
+   "name": "Cameron Davis",
+   "news": 9,
+   "chatter": 0,
+   "total": 9
+  },
+  {
+   "name": "Benjamin James",
    "news": 6,
    "chatter": 0,
    "total": 6
   },
   {
-   "name": "Scottie Scheffler",
+   "name": "Seamus Power",
+   "news": 6,
+   "chatter": 0,
+   "total": 6
+  },
+  {
+   "name": "Jackson Koivun",
+   "news": 6,
+   "chatter": 0,
+   "total": 6
+  },
+  {
+   "name": "Jacob Bridgeman",
+   "news": 6,
+   "chatter": 0,
+   "total": 6
+  },
+  {
+   "name": "Luke List",
+   "news": 5,
+   "chatter": 0,
+   "alert": "wd",
+   "alertHeadline": "Biltmore Championship Field 2026: Full Player List, Withdrawals - Yahoo Sports",
+   "alertLink": "https://news.google.com/rss/articles/CBMijwFBVV95cUxOcnlIcUtOd3NqeUlEQjBSSldJYXNnSVM1UVBwUTZZWFItQWdXdlJRMW1NQmh1NzhJN3lQSDNQTElnazZyRm5kMlQ3aGQyYXZKd2RRWS1KQUFWdWZJak45cUktZENyMlp6c0RwMVhTakVXa01YZ081cGhkdG1sRHk5LTl5eEg4TE1EUEEtd1JVMA?oc=5",
+   "total": 5
+  },
+  {
+   "name": "Jackson Suber",
+   "news": 5,
+   "chatter": 0,
+   "total": 5
+  },
+  {
+   "name": "J.T. Poston",
+   "news": 4,
+   "chatter": 0,
+   "total": 4
+  },
+  {
+   "name": "Billy Horschel",
+   "news": 4,
+   "chatter": 0,
+   "total": 4
+  },
+  {
+   "name": "Blades Brown",
+   "news": 3,
+   "chatter": 0,
+   "total": 3
+  },
+  {
+   "name": "Paul Peterson",
+   "news": 3,
+   "chatter": 0,
+   "total": 3
+  },
+  {
+   "name": "Rasmus Hojgaard",
+   "news": 3,
+   "chatter": 0,
+   "total": 3
+  },
+  {
+   "name": "Ben Kohles",
+   "news": 3,
+   "chatter": 0,
+   "total": 3
+  },
+  {
+   "name": "Nick Taylor",
+   "news": 3,
+   "chatter": 0,
+   "total": 3
+  },
+  {
+   "name": "Mark Hubbard",
    "news": 2,
    "chatter": 0,
    "total": 2
   },
   {
-   "name": "Adam Scott",
+   "name": "Doug Ghim",
+   "news": 2,
+   "chatter": 0,
+   "total": 2
+  },
+  {
+   "name": "Ryo Hisatsune",
+   "news": 2,
+   "chatter": 0,
+   "total": 2
+  },
+  {
+   "name": "Corey Conners",
+   "news": 2,
+   "chatter": 0,
+   "total": 2
+  },
+  {
+   "name": "Christiaan Bezuidenhout",
+   "news": 2,
+   "chatter": 0,
+   "total": 2
+  },
+  {
+   "name": "Nicolas Echavarria",
+   "news": 2,
+   "chatter": 0,
+   "total": 2
+  },
+  {
+   "name": "Davis Chatfield",
+   "news": 2,
+   "chatter": 0,
+   "total": 2
+  },
+  {
+   "name": "Lucas Glover",
+   "news": 2,
+   "chatter": 0,
+   "total": 2
+  },
+  {
+   "name": "Brendan Valdes",
+   "news": 2,
+   "chatter": 0,
+   "total": 2
+  },
+  {
+   "name": "Marco Penge",
+   "news": 2,
+   "chatter": 0,
+   "total": 2
+  },
+  {
+   "name": "Kevin Yu",
+   "news": 2,
+   "chatter": 0,
+   "total": 2
+  },
+  {
+   "name": "Taylor Moore",
    "news": 1,
    "chatter": 0,
    "total": 1
   },
   {
-   "name": "Wyndham Clark",
+   "name": "Justin Lower",
    "news": 1,
    "chatter": 0,
    "total": 1
   },
   {
-   "name": "Russell Henley",
+   "name": "Taylor Pendrith",
    "news": 1,
    "chatter": 0,
    "total": 1
   },
   {
-   "name": "Viktor Hovland",
+   "name": "Rico Hoey",
    "news": 1,
    "chatter": 0,
    "total": 1
   },
   {
-   "name": "Ludvig Aberg",
+   "name": "Mackenzie Hughes",
    "news": 1,
    "chatter": 0,
    "total": 1
   },
   {
-   "name": "Hideki Matsuyama",
+   "name": "Kevin Roy",
    "news": 1,
    "chatter": 0,
    "total": 1
   },
   {
-   "name": "Ryan Gerard",
+   "name": "Andrew Novak",
    "news": 1,
    "chatter": 0,
    "total": 1
   },
   {
-   "name": "Rory McIlroy",
+   "name": "Chris Kirk",
    "news": 1,
    "chatter": 0,
    "total": 1
   },
   {
-   "name": "Justin Rose",
+   "name": "Joel Dahmen",
    "news": 1,
    "chatter": 0,
    "total": 1
   },
   {
-   "name": "Collin Morikawa",
+   "name": "Emiliano Grillo",
    "news": 1,
    "chatter": 0,
    "total": 1
   },
   {
-   "name": "Ryan Fox",
+   "name": "Cameron Champ",
+   "news": 1,
+   "chatter": 0,
+   "alert": "wd",
+   "alertHeadline": "Justin Thomas Withdraws from Biltmore Championship, Cameron Champ Takes His Place - SSBCrack",
+   "alertLink": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxQcnM1cVV4U20zNXVlWS16cklpdEEwN09kMkN2UE91LVlVQS1BcEF5NkttVEdhZGtESzlEU2JSbnppRzZUZG56U2lNWXhtWjJoWHFpQ2ptb1QxME1jQUFCSnlsZ0tjM3hPLWI1d2EzQlI1ekZMR1V0RmE4dlp3WGV1Ry0tak96aFlpeDFMa0JqUEdPUksyakhqX19FRUVtRzJIVjladGZqYUZlUEE?oc=5",
+   "total": 1
+  },
+  {
+   "name": "Fabian Gomez",
+   "news": 1,
+   "chatter": 0,
+   "total": 1
+  },
+  {
+   "name": "Tony Finau",
    "news": 1,
    "chatter": 0,
    "total": 1
@@ -242,13 +398,126 @@
  ],
  "items": [
   {
-   "title": "Biltmore Championship picks 2026: We\u2019re high on the \u2018other\u2019 Jackson - Australian Golf Digest",
-   "link": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxOX2lVSFhjaWRtSGgxQnF0bHhnc2ZXV0haOGhjejYyLV8xU1cxSlJkNXdiRFNHV3poWXF6NEFBOXpsTjA5UFhXbExqejBaS2VwLVJXQnFqUE55ZUloYTFTVHNxdUZvcVZIUFZaUW5GT1BlcU80MHdhcDVLTGJWREZkVElqbEJNMzR6ckg4?oc=5",
-   "summary": "Biltmore Championship picks 2026: We\u2019re high on the \u2018other\u2019 Jackson Australian Golf Digest",
-   "published": "Wed, 16 Sep 2026 11:13:54 GMT",
+   "title": "Draftkings odds: Which 72-hole matchups to pick at Biltmore Championship Asheville - PGA Tour",
+   "link": "https://news.google.com/rss/articles/CBMiywFBVV95cUxNVkMwZ0RlMUJWU29kbXhCRTUxNVEyQzhPLXVfV0RUdW9BU3lmSXVIa29WYnV1LW1rY3pqZXptNjVyemMwbUlMd0FMWFhKTjI0NnFqamhUQlhVc0NObTZ1NHA4NURoLUswNzlnZDdVVGU0eXloaUdIVllObFVKZ1JrbmhpZEo3T1NVOS1uV2ZhamlhNV9pY2xxNmpNRDlQVEY1U3lUTTkzVF9hVmx6WHhwRUp4dnFOYVlyTW51X3MtU2N0V0tpMkdYdUNoNA?oc=5",
+   "summary": "Draftkings odds: Which 72-hole matchups to pick at Biltmore Championship Asheville PGA Tour",
+   "published": "Wed, 16 Sep 2026 16:16:40 GMT",
    "source": "Google News: Biltmore Championship Asheville DFS",
    "kind": "news",
    "golfers": []
+  },
+  {
+   "title": "Biltmore Championship Betting Card: PGA Odds & Picks - Lineups",
+   "link": "https://news.google.com/rss/articles/CBMivgFBVV95cUxPbXp5Y1lLZHJtZ1ZVVE9CNi1aR2lHbmtsZTg4Z0VQV0Z3RjUxeV95S2Z6SzBXZ3RrMURtYXh0U2pkUVE3d004SmhDRGN6MUF4MDZVRHEzeGkzY0NzM0VvRjdzdlRhWmFjUnNMaWVCekU5UVNZckhNVmtYNWpWOVE1cVZEUEU2b3VYNjk3UTl2eGE1WThYcXppWTViTUdMYUV2WVQ3anNsd19FNGhLRmZ4a19aNS1FUmVkc3QxaTBn?oc=5",
+   "summary": "Biltmore Championship Betting Card: PGA Odds & Picks Lineups",
+   "published": "Wed, 16 Sep 2026 15:57:48 GMT",
+   "source": "Google News: Biltmore Championship Asheville DFS",
+   "kind": "news",
+   "golfers": []
+  },
+  {
+   "title": "Fantasy Football Risers and Fallers - Week 2 (2026)",
+   "link": "https://www.rotoballer.com/fantasy-football-sleepers-busts-risers-and-fallers-for-week-2-2026/1930555",
+   "summary": "Welcome to the Wednesday after Week 1, the time to victory-lap your initially successful sleepers and breakouts while panicking about the busts. Week 1 is a time to watch for usage and opportunities. Some risers, like Chuba Hubbard, triumphed over position competition. Some fallers, like Travis Etienne Jr., were nowhere close to a bellcow title. [&#8230;]",
+   "published": "Wed, 16 Sep 2026 15:25:20 +0000",
+   "source": "RotoBaller",
+   "kind": "news",
+   "golfers": [
+    "Mark Hubbard"
+   ]
+  },
+  {
+   "title": "Lions vs. Bills TNF Start 'Em, Sit 'Em: Jahmyr Gibbs Amon-Ra St. Brown, Jared Goff, Josh Allen, James Cook, Dalton Kincaid, D.J. Moore and More",
+   "link": "https://www.rotoballer.com/fantasy-football-start-em-sit-em-thursday-lions-vs-bills-week-2-2026/1932418",
+   "summary": "Week 2 of the 2026 NFL and fantasy football season kicks off Thursday night with what is probably the best game on the entire schedule. The Buffalo Bills and Detroit Lions both escaped Week 1 with dramatic wins, but they did it in very different ways. Buffalo went into Houston and beat the Texans 36-31 [&#8230;]",
+   "published": "Wed, 16 Sep 2026 15:23:54 +0000",
+   "source": "RotoBaller",
+   "kind": "news",
+   "golfers": [
+    "Benjamin James",
+    "Blades Brown",
+    "Taylor Moore"
+   ]
+  },
+  {
+   "title": "Fact or Fiction: Fantasy Football Outlooks for Bryce Young, Chuba Hubbard, Kyle Monangai, Jalen Coker, Mike Gesicki",
+   "link": "https://www.rotoballer.com/fantasy-football-start-em-sit-em-picks-bryce-young-chuba-hubbard-kyle-monangai-jalen-coker-mike-gesicki/1932100",
+   "summary": "The 2026 NFL season has begun at long last, and it has already treated us to some great matchups. The Bills left Houston with a high-scoring 36-31 victory, the Lions survived a late Saints rally to triumph 31-30 in overtime, and Philadelphia defeated Washington 24-22 to notch an early divisional win. Week 1 is also [&#8230;]",
+   "published": "Wed, 16 Sep 2026 15:20:53 +0000",
+   "source": "RotoBaller",
+   "kind": "news",
+   "golfers": [
+    "Mark Hubbard"
+   ]
+  },
+  {
+   "title": "Biltmore Championship 2026: Odds, favorites for Asheville - Golf Channel",
+   "link": "https://news.google.com/rss/articles/CBMimwFBVV95cUxPdDJxTkYxUjhGTFl2X2tjZl81ZUI2ODRXZnNZbHRRbms3WWlSMTlsMW9rS05iSmRYVlVwRy1kdmp0S0J1VWE5MnBHMnVCYzBxcVJmQ0J0ajk5VWl3NHNqYXVqSHp0NEN5bzF5VTY1OUtVclJZR0hVTjdDSzkwN2ZyVDhhb3dGZkxSQnhvbG43N1ZZTHhMTUlEdjVYRQ?oc=5",
+   "summary": "Biltmore Championship 2026: Odds, favorites for Asheville Golf Channel",
+   "published": "Wed, 16 Sep 2026 15:17:02 GMT",
+   "source": "Google News: Biltmore Championship Asheville DFS",
+   "kind": "news",
+   "golfers": []
+  },
+  {
+   "title": "Biltmore Championship Asheville props: Back North Carolina native J.T. Poston at The Cliffs - PGA Tour",
+   "link": "https://news.google.com/rss/articles/CBMi7wFBVV95cUxQNGV4TE1BUHJSckJVcjVCNUx0dEpKcHVfamNMQ1ZicTJ0Q1daLUhFbGlhNDNnVXVHSGhpdzN5NWJSUTBPbnlvV1AwQ215V0s1QVpGOHBEMk1yN3BjSGNKVjFKRmNMb1JDaTh0ZFRPa3F3T054T1c4RUFuMkd1cFU0ZVJOYmw3Y1N3NlNZdDlpR1ZubUxuS3RncmRDZXhkSFZuUEczV1FxT3ZlMExRS2NUbHI0Z2JXY0Z1YkhwdGl2MUhVVTVjWTJiaEx1LUtvWjFhLXhYaXpOUnlnZFRUb25Oa2s3b01LWElfc3p2dU83RQ?oc=5",
+   "summary": "Biltmore Championship Asheville props: Back North Carolina native J.T. Poston at The Cliffs PGA Tour",
+   "published": "Wed, 16 Sep 2026 15:12:03 GMT",
+   "source": "Google News: Biltmore Championship Asheville DFS",
+   "kind": "news",
+   "golfers": [
+    "J.T. Poston"
+   ]
+  },
+  {
+   "title": "2026 Biltmore Championship Asheville odds, picks: Surprising predictions by model that's nailed 17 majors - CBS Sports",
+   "link": "https://news.google.com/rss/articles/CBMi3AFBVV95cUxQeE1XOHZVODcwakhEQ3N1SFpVTm9CQlIzVG16aFFiZWFXMUR6M0dvUC12WS0wb1hTZlVKQV9KVHkzUlhGZlE4WldEeGV6T2xEdlctV2VUaDc1S2xlc2x6eFQzRWRYM0xkTmYwc1NRbmdZV1ZsczB2QnFGOGY2WFhlOWwzMmJ5UGJ6ZnloVWp5X2JSUlNES2E5NTV5MjV5U2FIb19KWWNTTlRLRGdSZllGX0poVzhfWmsxUUdxd2steElKdFF1Y2RtdUR3YUtjekJLUm41SWFpcEwxcUJF?oc=5",
+   "summary": "2026 Biltmore Championship Asheville odds, picks: Surprising predictions by model that's nailed 17 majors CBS Sports",
+   "published": "Wed, 16 Sep 2026 13:48:04 GMT",
+   "source": "Google News: Biltmore Championship Asheville picks",
+   "kind": "news",
+   "golfers": []
+  },
+  {
+   "title": "Biltmore Championship: Top PGA DFS Picks, Values, and Sleepers for Large-Field Tournaments on DraftKings",
+   "link": "https://www.fantasylabs.com/articles/biltmore-championship-top-pga-dfs-picks-values-and-sleepers-for-large-field-tournaments-on-draftkings-2026/",
+   "summary": "The PGA TOUR is gearing up for the Presidents Cup next week by starting the eight FedExCup Fall tournaments with a... The post Biltmore Championship: Top PGA DFS Picks, Values, and Sleepers for Large-Field Tournaments on DraftKings appeared first on FantasyLabs .",
+   "published": "Wed, 16 Sep 2026 13:27:37 +0000",
+   "source": "FantasyLabs",
+   "kind": "news",
+   "golfers": [
+    "Benjamin James",
+    "Doug Ghim",
+    "Davis Thompson",
+    "Seamus Power",
+    "Cameron Davis",
+    "Justin Lower",
+    "Luke List"
+   ]
+  },
+  {
+   "title": "PGA Tour Biltmore Championship Asheville odds: USA Presidents Cup players Bridgeman, Koivun top Fall field - CBS Sports",
+   "link": "https://news.google.com/rss/articles/CBMi3AFBVV95cUxQTVk2dDVydHNCQW8yQ05HVlpDNWNaTFBxWUNzdlFZY2tEZG1iNXV0Q0NVT1ZxTHhSb3pkeE5pR2QzMWg3TUpLQ1h5N2ZxcW5kY3JLQWlvdVJuOHVlcTcyYXVUcUZneFQ1RUljODRfaUhXSjRBbzc3Wk44TkpsbEotTDNZRUhBVm5jcmprdVM4a0FQNHR6UVc1UDBZUE5CbzkwSVFkbGlVUnpCVTdJTjZHT0xyMVFTRS10TXhJVkN0em9wMkR6a096QjZBa1phd28xdDdBbkRXWVk1OFZF?oc=5",
+   "summary": "PGA Tour Biltmore Championship Asheville odds: USA Presidents Cup players Bridgeman, Koivun top Fall field CBS Sports",
+   "published": "Wed, 16 Sep 2026 13:03:53 GMT",
+   "source": "Google News: Biltmore Championship Asheville DFS",
+   "kind": "news",
+   "golfers": [
+    "Jackson Koivun",
+    "Jacob Bridgeman"
+   ]
+  },
+  {
+   "title": "2026 Biltmore Championship Asheville odds: PGA Tour rookie makes betting favorite debut",
+   "link": "https://golf.com/news/2026-biltmore-championship-asheville-odds-rookie-favorite/",
+   "summary": "The 2026 Biltmore Championship Asheville odds have PGA Tour rookie Jackson Koivun as a narrow betting favorite to win the FedEx Fall event. The post 2026 Biltmore Championship Asheville odds: PGA Tour rookie makes betting favorite debut appeared first on Golf .",
+   "published": "Wed, 16 Sep 2026 12:37:52 +0000",
+   "source": "Golf.com",
+   "kind": "news",
+   "golfers": [
+    "Jackson Koivun"
+   ]
   },
   {
    "title": "Biltmore Championship predictions: PGA Pro\u2019s best bets, odds, expert picks for tournament's debut - sportingnews.com",
@@ -267,27 +536,38 @@
    "source": "Yahoo Golf",
    "kind": "news",
    "golfers": [
-    "Cameron Young",
-    "Adam Scott",
-    "Wyndham Clark",
-    "Russell Henley",
-    "Viktor Hovland",
-    "Scottie Scheffler",
-    "Ludvig Aberg",
-    "Hideki Matsuyama",
-    "Jacob Bridgeman",
-    "Ryan Gerard"
+    "Jackson Suber"
    ]
   },
   {
-   "title": "BMW PGA Championship Best Bets and Golf Odds",
-   "link": "https://vsin.com/golf/bmw-pga-championship-best-bets-and-golf-odds-2/",
-   "summary": "BMW PGA Championship Best Bets and Golf Odds: The DP World Tour heads to its home base of the Wentworth Club in Surrey, England, to host one of its flagship annual events, the BMW PGA Championship.&#160; Just about all of Europe&#8217;s elite players are in the field this week, including 2014 winner Rory McIlroy (10-1).&#160; [&#8230;] The post BMW PGA Championship Best Bets and Golf Odds appeared",
-   "published": "Wed, 16 Sep 2026 07:35:00 +0000",
+   "title": "Biltmore Championship picks 2026: We're high on the 'other' Jackson - Yahoo Sports",
+   "link": "https://news.google.com/rss/articles/CBMijwFBVV95cUxNYXFZdDh1SDZ3RF9JSlh5ZUJhRURPV2czN3JkU2ZzTWxJZGRZTktUNG8xd3dKVVZ6aG1IX3dhZGNrOWhqY0hRSENjXzZFMWgyZEVwS0xNb1N2WUJTSHBGY25jSVlRaWYxb09TQW90LWMyN2E1c05YdXEtUjNVYkNtRWhvVkVyVDNscEhhd3Z4aw?oc=5",
+   "summary": "Biltmore Championship picks 2026: We're high on the 'other' Jackson Yahoo Sports",
+   "published": "Wed, 16 Sep 2026 10:44:53 GMT",
+   "source": "Google News: Biltmore Championship Asheville DFS",
+   "kind": "news",
+   "golfers": []
+  },
+  {
+   "title": "College Football Top Plays Based on Betting Splits, Power Ratings and Trends \u2013 Week 3",
+   "link": "https://vsin.com/college-football/college-football-top-plays-based-on-betting-splits-power-ratings-and-trends-week-3-3/",
+   "summary": "Week 3 College Football Betting Trends: The following is a collection of analytical data, betting systems and strength ratings featured on VSiN and qualified for the college football games of Week 3. This report is meant to emulate the process that Steve Makinen and other members of the VSiN Analytics team undergo when handicapping each [&#8230;] The post College Football Top Plays Based on Bettin",
+   "published": "Wed, 16 Sep 2026 07:37:25 +0000",
    "source": "VSiN",
    "kind": "news",
    "golfers": [
-    "Rory McIlroy"
+    "Seamus Power"
+   ]
+  },
+  {
+   "title": "MLB Picks Today: Greg Peterson Best Bets Wednesday, September 16",
+   "link": "https://vsin.com/mlb/mlb-picks-today-greg-peterson-best-bets-wednesday-september-16/",
+   "summary": "MLB Picks Today: Expert baseball handicapper Greg Peterson shares his top MLB picks today for Wednesday, September 16. Check out Greg\u2019s&#160;Daily MLB Lines&#160;and his&#160;Baseball Betting Show Podcast. Also, check out our&#160;MLB Betting Splits and tools from our friends at Ballpark Pal, including Strikeout Prop Projections and the MLB YRFI Report. Our Opta AI MLB Player [&#8230;] The post ML",
+   "published": "Wed, 16 Sep 2026 07:37:13 +0000",
+   "source": "VSiN",
+   "kind": "news",
+   "golfers": [
+    "Paul Peterson"
    ]
   },
   {
@@ -298,28 +578,48 @@
    "source": "VSiN",
    "kind": "news",
    "golfers": [
-    "Cameron Young",
-    "Justin Rose",
-    "Jacob Bridgeman"
+    "Jackson Koivun",
+    "Jacob Bridgeman",
+    "Ryo Hisatsune",
+    "Benjamin James",
+    "Corey Conners",
+    "Doug Ghim",
+    "Rasmus Hojgaard",
+    "J.T. Poston",
+    "Jackson Suber",
+    "Christiaan Bezuidenhout",
+    "Davis Thompson",
+    "Billy Horschel",
+    "Ben Kohles",
+    "Taylor Pendrith",
+    "Nick Taylor",
+    "Nicolas Echavarria",
+    "Davis Chatfield",
+    "Seamus Power",
+    "Paul Peterson",
+    "Cameron Davis",
+    "Luke List"
    ]
   },
   {
-   "title": "Biltmore Championship Asheville Best Bets and Golf Odds - vsin.com",
+   "title": "Biltmore Championship Asheville Best Bets and Golf Odds - VSiN",
    "link": "https://news.google.com/rss/articles/CBMihAFBVV95cUxOWnNDd0JKcUFwejRoU2lWMVEzM18wd0VXNmdZR083RFJXSFB6ZmtzUU13WlMtbFlNUWRyWVVKOFpFeXRaOGtmZWhnb2FJM3VxLUVneDNsOGlFQk1wSVhtRUhELTIweDFPQWR2VHh6NF9XZllTa2ttRE4wOWxZd2c5Tkg3VzY?oc=5",
-   "summary": "Biltmore Championship Asheville Best Bets and Golf Odds vsin.com",
+   "summary": "Biltmore Championship Asheville Best Bets and Golf Odds VSiN",
    "published": "Wed, 16 Sep 2026 07:34:00 GMT",
    "source": "Google News: Biltmore Championship Asheville DFS",
    "kind": "news",
    "golfers": []
   },
   {
-   "title": "Expert Picks: Who's trending into Asheville for inaugural Biltmore Championship? - PGA Tour",
-   "link": "https://news.google.com/rss/articles/CBMi7AFBVV95cUxQVTZwX3Z6MGtkMlpKQzZrRTNvMnVQWkJYMlJCVzkxWVhkTV84TFE1dU01YzJOSjZTbEwtR1A4YllzYjVaOTZWQktZX0V5Z2tfdDJQVWdHMXlPVkxjdDMxenYxdlROUmNfRjltYlBfWkJzTnAtQ2t5Nnc0dmlkX0o2cVZzM2U1akZiWEpYQzN0MVY2U2FwbGp0U0pZdnYzWW5TV3BZc1RWSTJ6OGVIWkRnc3o3UzQzNnVuRE5rRlRUSUpCRmFuMlpod1Q2Sngtcl9pd0M1Y1M5azFTZDhSSE5WUGU0Y3Nkd2pkcXlYYw?oc=5",
-   "summary": "Expert Picks: Who's trending into Asheville for inaugural Biltmore Championship? PGA Tour",
-   "published": "Wed, 16 Sep 2026 05:27:16 GMT",
-   "source": "Google News: Biltmore Championship Asheville DFS",
+   "title": "College Football Week 3 Picks: Syracuse vs. Pitt",
+   "link": "https://vsin.com/college-football/college-football-week-3-picks-syracuse-vs-pitt/",
+   "summary": "Syracuse vs. Pitt We\u2019re still a few weeks away from Tuesday and Wednesday games featuring the Sun Belt and Conference USA, plus we\u2019ll have MACtion further down the line, but we aren\u2019t empty-handed in terms of weeknight games in Week 3. In fact, we get a Power Four matchup with Syracuse vs. Pitt, as the [&#8230;] The post College Football Week 3 Picks: Syracuse vs. Pitt appeared first on VSiN .",
+   "published": "Wed, 16 Sep 2026 07:26:00 +0000",
+   "source": "VSiN",
    "kind": "news",
-   "golfers": []
+   "golfers": [
+    "Seamus Power"
+   ]
   },
   {
    "title": "Golf picks: Biltmore Championship predictions & Asheville best bets from Joe Champion - Pickswise",
@@ -338,8 +638,18 @@
    "source": "Yahoo Golf",
    "kind": "news",
    "golfers": [
-    "Cameron Young",
-    "Jacob Bridgeman"
+    "Jackson Koivun",
+    "Jacob Bridgeman",
+    "Benjamin James",
+    "Rasmus Hojgaard",
+    "Jackson Suber",
+    "Davis Thompson",
+    "Billy Horschel",
+    "Nick Taylor",
+    "Lucas Glover",
+    "Cameron Davis",
+    "Luke List",
+    "Brendan Valdes"
    ]
   },
   {
@@ -352,15 +662,6 @@
    "golfers": []
   },
   {
-   "title": "Biltmore Championship 2026: Odds, favorites for Asheville - Golf Channel",
-   "link": "https://news.google.com/rss/articles/CBMimwFBVV95cUxPdDJxTkYxUjhGTFl2X2tjZl81ZUI2ODRXZnNZbHRRbms3WWlSMTlsMW9rS05iSmRYVlVwRy1kdmp0S0J1VWE5MnBHMnVCYzBxcVJmQ0J0ajk5VWl3NHNqYXVqSHp0NEN5bzF5VTY1OUtVclJZR0hVTjdDSzkwN2ZyVDhhb3dGZkxSQnhvbG43N1ZZTHhMTUlEdjVYRQ?oc=5",
-   "summary": "Biltmore Championship 2026: Odds, favorites for Asheville Golf Channel",
-   "published": "Tue, 15 Sep 2026 23:19:04 GMT",
-   "source": "Google News: Biltmore Championship Asheville DFS",
-   "kind": "news",
-   "golfers": []
-  },
-  {
    "title": "Biltmore Championship First-Round Leader Picks: FRL Predictions for The Cliffs at Walnut Cove",
    "link": "https://sports.yahoo.com/articles/biltmore-championship-first-round-leader-220436393.html",
    "summary": "This week, we head to The Cliffs at Walnut Cove in Asheville, North Carolina, for the first PGA tournament in Asheville since the 1940s. While many golfers look to get",
@@ -368,8 +669,18 @@
    "source": "Yahoo Golf",
    "kind": "news",
    "golfers": [
-    "Cameron Young",
-    "Jacob Bridgeman"
+    "Jackson Koivun",
+    "Jacob Bridgeman",
+    "Marco Penge",
+    "Benjamin James",
+    "Rasmus Hojgaard",
+    "Jackson Suber",
+    "Davis Thompson",
+    "Billy Horschel",
+    "Lucas Glover",
+    "Cameron Davis",
+    "Luke List",
+    "Brendan Valdes"
    ]
   },
   {
@@ -380,17 +691,6 @@
    "source": "Google News: Biltmore Championship Asheville DFS",
    "kind": "news",
    "golfers": []
-  },
-  {
-   "title": "Biltmore Championship Odds, Picks And Best Bets For Asheville",
-   "link": "https://sports.yahoo.com/articles/biltmore-championship-odds-picks-best-220041324.html",
-   "summary": "Ben James, Jacob Bridgeman and Rasmus H\u00f8jgaard headline the best bets as the PGA Tour opens its FedExCup Fall at a brand-new Asheville venue this week.",
-   "published": "Tue, 15 Sep 2026 22:00:41 +0000",
-   "source": "Yahoo Golf",
-   "kind": "news",
-   "golfers": [
-    "Jacob Bridgeman"
-   ]
   },
   {
    "title": "Biltmore Championship Odds, Picks And Best Bets For Asheville - Yahoo Sports",
@@ -420,11 +720,20 @@
    "golfers": []
   },
   {
-   "title": "2026 Biltmore Championship Asheville prop bet picks and PGA Tour predictions - Central Oregon Daily",
-   "link": "https://news.google.com/rss/articles/CBMi_AFBVV95cUxPSGJBeHk5RGhkbGZpWmNpUXI5UTRJcXFXZHRscmVPdmMtdXBXYl93UDV1aGhxMFFmWmFnUjNuNzNpZi1HRkZFam1MeGVjQzM0TS0xTmRTdDA4eHRWVnJ1eGlEWlNkVGJTeGZkcTFudmVuOW1TSUdyZkppbnoyUkx4Yk51VGpkZkEwekxXS2dZMDlWMnUyZVg0bFQ4aUhDb19YeFBHTGtqdFlOZGpxbFNXNlRyRHR1V0c5c0tPQU1WcGJWWmp4OEZBOGRvN3dueGN0dVQ5OFpWZXY2bFBnVmJjei1yU1dtb3RxVVQ0WWhQY2h6QVp0VUdFcVZicGM?oc=5",
-   "summary": "2026 Biltmore Championship Asheville prop bet picks and PGA Tour predictions Central Oregon Daily",
-   "published": "Tue, 15 Sep 2026 20:53:16 GMT",
+   "title": "2026 Biltmore Championship Asheville prop bet picks and PGA Tour predictions - Sportsbook Wire",
+   "link": "https://news.google.com/rss/articles/CBMi5wFBVV95cUxOTjVuTEk5OUdxaXhzdWhCUWYtQVJmaWl1R0w0M2MtS25oeTVEUjRzaEltTmx3SllaTmw2a1pqMU9hVWdlSmxLVlVLWDNmS3I3VjB0YXFxZ1dVRWxBdkxjclVoTUZKUWxOUjRsNVRLVG9xTkdsNHlSYUpIWVBQazdCc1RxRHlUREZJY2QyZnZMdm1YdF9OVUJQM2s5ekRCcXJTdnQtUTFmMmswaEo4dVV3ZFhOb2UyZmZmaHIzcF9pWDdhaDh1V1JHR1F1S211UVJja2tLTWlLOFpCbFRIMVBfRUJnc2JhQjQ?oc=5",
+   "summary": "2026 Biltmore Championship Asheville prop bet picks and PGA Tour predictions Sportsbook Wire",
+   "published": "Tue, 15 Sep 2026 20:31:52 GMT",
    "source": "Google News: Biltmore Championship Asheville picks",
+   "kind": "news",
+   "golfers": []
+  },
+  {
+   "title": "Expert Picks: Who's trending into Asheville for inaugural Biltmore Championship? - PGA Tour",
+   "link": "https://news.google.com/rss/articles/CBMi7AFBVV95cUxQVTZwX3Z6MGtkMlpKQzZrRTNvMnVQWkJYMlJCVzkxWVhkTV84TFE1dU01YzJOSjZTbEwtR1A4YllzYjVaOTZWQktZX0V5Z2tfdDJQVWdHMXlPVkxjdDMxenYxdlROUmNfRjltYlBfWkJzTnAtQ2t5Nnc0dmlkX0o2cVZzM2U1akZiWEpYQzN0MVY2U2FwbGp0U0pZdnYzWW5TV3BZc1RWSTJ6OGVIWkRnc3o3UzQzNnVuRE5rRlRUSUpCRmFuMlpod1Q2Sngtcl9pd0M1Y1M5azFTZDhSSE5WUGU0Y3Nkd2pkcXlYYw?oc=5",
+   "summary": "Expert Picks: Who's trending into Asheville for inaugural Biltmore Championship? PGA Tour",
+   "published": "Tue, 15 Sep 2026 20:30:27 GMT",
+   "source": "Google News: Biltmore Championship Asheville DFS",
    "kind": "news",
    "golfers": []
   },
@@ -435,7 +744,14 @@
    "published": "Tue, 15 Sep 2026 19:46:19 +0000",
    "source": "Golf.com",
    "kind": "news",
-   "golfers": []
+   "golfers": [
+    "Kevin Yu",
+    "Jackson Suber",
+    "Davis Thompson",
+    "Rico Hoey",
+    "Mackenzie Hughes",
+    "Cameron Davis"
+   ]
   },
   {
    "title": "Biltmore Championship Asheville betting guide: 5 picks our expert loves this week - GOLF.com",
@@ -456,34 +772,13 @@
    "golfers": []
   },
   {
-   "title": "Biltmore Championship Preview, Predictions, Picks, Odds for The Cliffs at Walnut Cove - Yahoo Sports",
-   "link": "https://news.google.com/rss/articles/CBMinAFBVV95cUxNRE1mNDdsdy1zbVlZTmZ5eXNlTE1nbTFhOG8tNi1GSkduRDNiaTF2dGQtQTlBTC1ZWnBTcWVHNHdxYVM5RWxkS3hvbVBfWS10dEVMSG9GWWFPZlpTTGRKSUE3cVBiUktSY2tVZEJ1R0xIS05nOFRsTHFPbGZ0Nlo2YkRQTm1TR1dZa0xUUGRIVkh4Q2xoU1QxRlpLMk4?oc=5",
-   "summary": "Biltmore Championship Preview, Predictions, Picks, Odds for The Cliffs at Walnut Cove Yahoo Sports",
-   "published": "Tue, 15 Sep 2026 18:42:27 GMT",
-   "source": "Google News: Biltmore Championship Asheville picks",
-   "kind": "news",
-   "golfers": []
-  },
-  {
    "title": "Sleeper Picks: Haotong Li among value plays at Biltmore Championship Asheville - PGA Tour",
    "link": "https://news.google.com/rss/articles/CBMi_gFBVV95cUxNbXBoc09Hd2E4Y2NPOS1EdkNISkNTX0cwSVU5RXhZQWg1NkwyTDN0OXFONjdEMkVueVlyNXZlWWlJc2NBY3FwdEV0NU5xS3p5NGtpelA5NVdFQXNiMHFtdlFCc3FIUWxPTF9vTHNoWmlhZ1JxdG01cnJod2s5WGJLUS1RWmtGLWdjd0ZwQTA5M1VFcVBZajlObGt3NTNYQi1xczNKZFpQbmE0cE9NOWFjWUE1V0lhcEdZbmthNXIyaWhVeXFvRjVkU2JGdC1LQXF6ZGJXVXZrczhwTFdMYndxc3RfUFJjMEFKejNsc3dSby1OYzB4dFRQdDdHUjREdw?oc=5",
    "summary": "Sleeper Picks: Haotong Li among value plays at Biltmore Championship Asheville PGA Tour",
-   "published": "Tue, 15 Sep 2026 18:23:42 GMT",
-   "source": "Google News: Biltmore Championship Asheville DFS",
+   "published": "Tue, 15 Sep 2026 18:49:56 GMT",
+   "source": "Google News: Biltmore Championship Asheville picks",
    "kind": "news",
    "golfers": []
-  },
-  {
-   "title": "Biltmore Championship DFS picks 2026: Davis Thompson has the right recipe for Asheville",
-   "link": "https://sports.yahoo.com/articles/biltmore-championship-dfs-picks-2026-175853402.html",
-   "summary": "Editor's Note: This article is published in partnership with Betsperts Golf, a Golf Digest content partner.",
-   "published": "Tue, 15 Sep 2026 17:58:53 +0000",
-   "source": "Yahoo Golf",
-   "kind": "news",
-   "golfers": [
-    "Cameron Young",
-    "Jacob Bridgeman"
-   ]
   },
   {
    "title": "Biltmore Championship DFS picks 2026: Davis Thompson has the right recipe for Asheville - Golf Digest",
@@ -492,7 +787,10 @@
    "published": "Tue, 15 Sep 2026 17:58:53 GMT",
    "source": "Google News: Biltmore Championship Asheville DFS",
    "kind": "news",
-   "golfers": []
+   "golfers": [
+    "Davis Thompson",
+    "Cameron Davis"
+   ]
   },
   {
    "title": "Biltmore Championship DFS picks 2026: Davis Thompson has the right recipe for Asheville - Yahoo Sports",
@@ -501,7 +799,10 @@
    "published": "Tue, 15 Sep 2026 17:58:53 GMT",
    "source": "Google News: Biltmore Championship Asheville WD",
    "kind": "news",
-   "golfers": []
+   "golfers": [
+    "Davis Thompson",
+    "Cameron Davis"
+   ]
   },
   {
    "title": "2026 Biltmore Championship Asheville Picks: Golf Best Bets on DraftKings Sportsbook - DraftKings Network",
@@ -529,7 +830,18 @@
    "source": "FantasyLabs",
    "kind": "news",
    "golfers": [
-    "Jacob Bridgeman"
+    "Jacob Bridgeman",
+    "Kevin Yu",
+    "J.T. Poston",
+    "Kevin Roy",
+    "Davis Thompson",
+    "Andrew Novak",
+    "Ben Kohles",
+    "Chris Kirk",
+    "Davis Chatfield",
+    "Joel Dahmen",
+    "Seamus Power",
+    "Cameron Davis"
    ]
   },
   {
@@ -557,16 +869,22 @@
    "published": "Tue, 15 Sep 2026 14:57:19 GMT",
    "source": "Google News: Biltmore Championship Asheville DFS",
    "kind": "news",
-   "golfers": []
+   "golfers": [
+    "Emiliano Grillo"
+   ]
   },
   {
-   "title": "The Biltmore Championship Asheville Golf Picks, Odds: Bet Blades Brown, Ben Kohles, Ben James - Bleacher Nation",
+   "title": "The Biltmore Championship Asheville Golf Picks, Odds: Bet Blades Brown, Ben Kohles, Ben James - bleachernation.com",
    "link": "https://news.google.com/rss/articles/CBMiggFBVV95cUxOeWFoQVBQWUJ3TC1lOUVZbVBoQlNLdEZhSUZaVXdQSHBNSkwzVjJEeDV6QW1XN1pjZTFBbFdYTmFEV1FwRVZwLVN5WG5TRHpYUWUzRnRRSzdjcFpaNDNEX252YnFsM2tVdzMzSXlmMXlQYXMzcmpPTkhDV0lqMzdOUjl3?oc=5",
-   "summary": "The Biltmore Championship Asheville Golf Picks, Odds: Bet Blades Brown, Ben Kohles, Ben James Bleacher Nation",
+   "summary": "The Biltmore Championship Asheville Golf Picks, Odds: Bet Blades Brown, Ben Kohles, Ben James bleachernation.com",
    "published": "Tue, 15 Sep 2026 14:25:51 GMT",
    "source": "Google News: Biltmore Championship Asheville DFS",
    "kind": "news",
-   "golfers": []
+   "golfers": [
+    "Benjamin James",
+    "Blades Brown",
+    "Ben Kohles"
+   ]
   },
   {
    "title": "DraftKings PGA DFS Lineup Picks for the Biltmore Championship Asheville (2026) - RotoBaller",
@@ -574,15 +892,6 @@
    "summary": "DraftKings PGA DFS Lineup Picks for the Biltmore Championship Asheville (2026) RotoBaller",
    "published": "Tue, 15 Sep 2026 14:15:24 GMT",
    "source": "Google News: Biltmore Championship Asheville DFS",
-   "kind": "news",
-   "golfers": []
-  },
-  {
-   "title": "Biltmore Championship Asheville Betting Preview: Who to Target as Fall Season Kicks Off? - BetMGM",
-   "link": "https://news.google.com/rss/articles/CBMi2gFBVV95cUxOcWJoaWRmUWtJZHVjVU1CZEUxWkpfRFh6V2h6SGFhRFB6R3J0RlZXWVROYXREMjdJczVhTVNMbGktTEFOcmFkT05Mdk5Zbl9rTl9sS3dTdlpCUklxc3VscnVjNkVMSFd5VXJNZk0wSWpDcUQ3RWY2YktUbm5TRDVrTll0aG9fWWFmdUNndEN2WkpSekdQc0xhUkpRSXJNOXZKNzNDYmw3M2RhdXF5UFJuT1RaOFNMdVNETThtdlhDVE1hRnY2YjhOV0hnVkNOYklPeFRBRmMydy1TUQ?oc=5",
-   "summary": "Biltmore Championship Asheville Betting Preview: Who to Target as Fall Season Kicks Off? BetMGM",
-   "published": "Tue, 15 Sep 2026 13:55:53 GMT",
-   "source": "Google News: Biltmore Championship Asheville WD",
    "kind": "news",
    "golfers": []
   },
@@ -620,7 +929,10 @@
    "published": "Tue, 15 Sep 2026 10:02:02 GMT",
    "source": "Google News: Biltmore Championship Asheville DFS",
    "kind": "news",
-   "golfers": []
+   "golfers": [
+    "Davis Thompson",
+    "Cameron Davis"
+   ]
   },
   {
    "title": "Biltmore Championship Asheville 2026 Tips, Picks & Betting Predictions - Betfred Insights",
@@ -632,10 +944,28 @@
    "golfers": []
   },
   {
-   "title": "2026 Biltmore Championship Asheville: Expert picks, PGA Tour field rankings and fantasy golf tips - thegolfnewsnet.com",
+   "title": "2026 Biltmore Championship Asheville: Expert picks, PGA Tour field rankings and fantasy golf tips - Golf News Net",
    "link": "https://news.google.com/rss/articles/CBMi7gFBVV95cUxNV0dmX0ZKVXBPOVhWOU1BTE1PZHc0NUpMNTRyOHIwS1Q5a0tMSkNrTDZ3ZUVJM0ZNV3BsdFZYUm1LTzhZMVd5MFpCelV5WjRkcnFvMkJMeTZrZ1VvN0RDX0RnWjRSZG5nRHlQTl9zQTVXLTUtSFV4RFFzUkhyYlhJX0ZVdlJVSEs4ZzR5ZE9QeUNlck41amhnWEVXR0s4STd2eDNraGctS1otaHFhMGQ0UEs0WTJXWThRdnRhclpxaGpZeW1hVkE2Nlh5dWEzLVA2OUhzV3lHZW9NVklEV2lMZUI0X0tma3QxVzVyQ213?oc=5",
-   "summary": "2026 Biltmore Championship Asheville: Expert picks, PGA Tour field rankings and fantasy golf tips thegolfnewsnet.com",
+   "summary": "2026 Biltmore Championship Asheville: Expert picks, PGA Tour field rankings and fantasy golf tips Golf News Net",
    "published": "Tue, 15 Sep 2026 08:43:21 GMT",
+   "source": "Google News: Biltmore Championship Asheville DFS",
+   "kind": "news",
+   "golfers": []
+  },
+  {
+   "title": "Thomas Pulls Out of Inaugural Biltmore Championship Without Explanation - golfpost.com",
+   "link": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxPamxLOWt1QVdiVmNXWWJCVERBNHpGUGpLaFpQX3RtNkpKalpadVNBTlBNeHZmNVlwdkJhby1TbFhrdnhtZGc2NGFZd1lZdmJJWXEwWDFGMGJ4WEpMS19PR0RGUDg2bnVucHJQZXpNUmR1QjRyNjNRdWVjQjl2dXZVazFQWlZXZU1IWnVQQjViT01qR1pFMm80Sjc5dGw5a0NIcDUzY0pDZzEtMjQ?oc=5",
+   "summary": "Thomas Pulls Out of Inaugural Biltmore Championship Without Explanation golfpost.com",
+   "published": "Tue, 15 Sep 2026 07:07:39 GMT",
+   "source": "Google News: Biltmore Championship Asheville WD",
+   "kind": "news",
+   "golfers": []
+  },
+  {
+   "title": "2026 Biltmore Championship Asheville Prediction & Preview - ATS.io",
+   "link": "https://news.google.com/rss/articles/CBMiggFBVV95cUxPY2F3cV9nOEdHTXc5T2JRQVB0SEhWLUtEN1BuQlFOcVR4eWJXMEQ1WEJQeG95cUtFZFd5aVNUeUU3R0ViY2ZWZDJldU5PWUxzc1ZqYy1NX1YwOVYyNVpxQ0pyYldzYk1QYk1tZi1NZDd6cVFqZklwckVSZHgxTEx2VWN3?oc=5",
+   "summary": "2026 Biltmore Championship Asheville Prediction & Preview ATS.io",
+   "published": "Tue, 15 Sep 2026 07:00:00 GMT",
    "source": "Google News: Biltmore Championship Asheville DFS",
    "kind": "news",
    "golfers": []
@@ -659,14 +989,25 @@
    "golfers": []
   },
   {
-   "title": "Collin Morikawa Reveals His Secret To Success During Injury-Plagued Season - Yahoo Sports",
-   "link": "https://news.google.com/rss/articles/CBMikAFBVV95cUxPRTRVSGtBSVBrUHBiYU55US1zU0xsaU1uNG1nNHFkZ2tXOVJWX3NUU3JlZG9hM1hYUHlQQ0J4QVkzTVpKaTdQeUhPQ3NKbk54T3hGUWRfNkZ5TEphNTRTNGl4UzMwemE4ZzJLNmRZeXFYblVGTDVWQUJleW51LVNHN2dob216NDJhUUZYcGYxQzE?oc=5",
-   "summary": "Collin Morikawa Reveals His Secret To Success During Injury-Plagued Season Yahoo Sports",
-   "published": "Tue, 15 Sep 2026 01:52:00 GMT",
-   "source": "Google News: PGA WD",
+   "title": "MLB Picks Today: Greg Peterson Best Bets Tuesday, September 15",
+   "link": "https://vsin.com/mlb/mlb-picks-today-greg-peterson-best-bets-tuesday-september-15/",
+   "summary": "MLB Picks Today: Expert baseball handicapper Greg Peterson shares his top MLB picks today for Tuesday, September 15. Check out Greg\u2019s&#160;Daily MLB Lines&#160;and his&#160;Baseball Betting Show Podcast. Also, check out our&#160;MLB Betting Splits and tools from our friends at Ballpark Pal, including Strikeout Prop Projections and the MLB YRFI Report. Our Opta AI MLB Player [&#8230;] The post MLB ",
+   "published": "Tue, 15 Sep 2026 02:23:16 +0000",
+   "source": "VSiN",
    "kind": "news",
    "golfers": [
-    "Collin Morikawa"
+    "Paul Peterson"
+   ]
+  },
+  {
+   "title": "Week 3 College Football Hub: Picks, Best Bets, and Previews",
+   "link": "https://vsin.com/college-football/week-3-college-football-hub-picks-best-bets-and-previews/",
+   "summary": "Week 3 College Football Hub Conference play is the big story in Week 3, as we have some bangers in the Power Conferences, starting off with Houston vs. Texas Tech on Friday night. LSU vs. Ole Miss and SMU vs. Louisville are two of Saturday&#8217;s big tilts. We have a lot of paycheck games on [&#8230;] The post Week 3 College Football Hub: Picks, Best Bets, and Previews appeared first on VSiN .",
+   "published": "Tue, 15 Sep 2026 02:23:00 +0000",
+   "source": "VSiN",
+   "kind": "news",
+   "golfers": [
+    "Seamus Power"
    ]
   },
   {
@@ -710,14 +1051,17 @@
    "link": "https://news.google.com/rss/articles/CBMijwFBVV95cUxOcnlIcUtOd3NqeUlEQjBSSldJYXNnSVM1UVBwUTZZWFItQWdXdlJRMW1NQmh1NzhJN3lQSDNQTElnazZyRm5kMlQ3aGQyYXZKd2RRWS1KQUFWdWZJak45cUktZENyMlp6c0RwMVhTakVXa01YZ081cGhkdG1sRHk5LTl5eEg4TE1EUEEtd1JVMA?oc=5",
    "summary": "Biltmore Championship Field 2026: Full Player List, Withdrawals Yahoo Sports",
    "published": "Mon, 14 Sep 2026 20:57:05 GMT",
-   "source": "Google News: Biltmore Championship Asheville DFS",
+   "source": "Google News: Biltmore Championship Asheville picks",
    "kind": "news",
-   "golfers": []
+   "golfers": [
+    "Luke List"
+   ],
+   "alert": "wd"
   },
   {
-   "title": "2026 Biltmore Championship Asheville: PGA Tour betting odds, futures picks and winner tips - thegolfnewsnet.com",
+   "title": "2026 Biltmore Championship Asheville: PGA Tour betting odds, futures picks and winner tips - Golf News Net",
    "link": "https://news.google.com/rss/articles/CBMi5AFBVV95cUxQRlRJNlBUUGxfWmp3Tm1PdGJ6dnlLaHVyZ0xJeHpQLXlpMEZGeHpFcGJ2RThKZGhrR0EyT0lYNjRwY0tjamRoZjIzcUpvTDZ2Xy1MWFB1b2VoM3Y4aGdHRkZsejJjUVk1RzhraWZNMHRsY2lUbk1PZHBpXzZNSDhfTWMxUmdCYjluX2MyYzQzRlVQVGw1VjBhVXJfT1VHNXZUNFNaWnYxbUdTcVBhU285SkpZWlJxNWlwTjVidW1GSzdLQ19ueFpfajhLUzhTSUYxX1NlSngyeURjYVJRd1pSMnU0RHo?oc=5",
-   "summary": "2026 Biltmore Championship Asheville: PGA Tour betting odds, futures picks and winner tips thegolfnewsnet.com",
+   "summary": "2026 Biltmore Championship Asheville: PGA Tour betting odds, futures picks and winner tips Golf News Net",
    "published": "Mon, 14 Sep 2026 20:01:43 GMT",
    "source": "Google News: Biltmore Championship Asheville picks",
    "kind": "news",
@@ -733,22 +1077,16 @@
    "golfers": []
   },
   {
-   "title": "Biltmore Championship Field 2026: Full Player List, Withdrawals - heavy.com",
-   "link": "https://news.google.com/rss/articles/CBMijgFBVV95cUxNTmdDel94M2p3MFpPUnd6U2ROaFg4NmRZdTdaYlMyT1dEcm44bVlEZTdEazVIN2xUSURWNG1OVmhQQ3JqTzBOUTRmLU9xYXJob2t4NTlsMEhZRG8tQnZULTRlMVdzZG1qNkxxSDJIZ3kxY0ZNRXNGUzIwZ3hXWmc3elNXTjNGbVlDTlhab01n?oc=5",
-   "summary": "Biltmore Championship Field 2026: Full Player List, Withdrawals heavy.com",
-   "published": "Mon, 14 Sep 2026 19:05:02 GMT",
-   "source": "Google News: Biltmore Championship Asheville WD",
-   "kind": "news",
-   "golfers": []
-  },
-  {
    "title": "Justin Thomas Withdraws from Biltmore Championship, Cameron Champ Takes His Place - SSBCrack",
    "link": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxQcnM1cVV4U20zNXVlWS16cklpdEEwN09kMkN2UE91LVlVQS1BcEF5NkttVEdhZGtESzlEU2JSbnppRzZUZG56U2lNWXhtWjJoWHFpQ2ptb1QxME1jQUFCSnlsZ0tjM3hPLWI1d2EzQlI1ekZMR1V0RmE4dlp3WGV1Ry0tak96aFlpeDFMa0JqUEdPUksyakhqX19FRUVtRzJIVjladGZqYUZlUEE?oc=5",
    "summary": "Justin Thomas Withdraws from Biltmore Championship, Cameron Champ Takes His Place SSBCrack",
    "published": "Mon, 14 Sep 2026 17:08:44 GMT",
    "source": "Google News: Biltmore Championship Asheville WD",
    "kind": "news",
-   "golfers": []
+   "golfers": [
+    "Cameron Champ"
+   ],
+   "alert": "wd"
   },
   {
    "title": "2026 Biltmore Championship Asheville odds, picks: Surprising predictions by model that's nailed 17 majors - thepress.net",
@@ -764,7 +1102,7 @@
    "link": "https://news.google.com/rss/articles/CBMi6wFBVV95cUxPenIyemtkYkVjQVFyMUlBVjBMNE82QUpPclRTS293YUJuQkFMaGRkWVg5ZXdiR0VFWU4xSUNaS3BPWnRKeFZvaEVLOUdSMV9URlBMbzNOY25NNjN4LUNFNFFXUV85WkN2aDJ2Rl94YkdhNGppTV8xSjJjVllFMEI5X1E3WGFqRlZHVkQ4R05EMngybEp4Tjh3NkRmMkhqMWdUUl9TM1hFamxSSGJTamg4ZkdFMXRoRG4zVG5lbmF0TWEwTXRKNTBJZTFkV0NqYk1zZFhIUjBOamh3UVUxZWRLWmdXTFRndVJfVE5j?oc=5",
    "summary": "2026 Biltmore Championship Asheville odds, picks: Proven golf model reveals projected leaderboard, surprising predictions SportsLine",
    "published": "Mon, 14 Sep 2026 15:54:36 GMT",
-   "source": "Google News: Biltmore Championship Asheville DFS",
+   "source": "Google News: Biltmore Championship Asheville picks",
    "kind": "news",
    "golfers": []
   },
@@ -782,16 +1120,7 @@
    "link": "https://news.google.com/rss/articles/CBMimgFBVV95cUxPSm4tWWsxZzBXOE5hQjB2b1RFNTBpVHlzTGxOYjRvc19QUC1JbEp3NW9hQWptemkyTV9pYTlsSjhTVTItb2RaVU9nTEt0bXNpdnRlVUNpVFZ2YnA4NUlWdVBsbW1CYVM4a083U3JSMWQ1RHhzRGxFdmQ1eS1CZGxGRGNFT3c1R29NREtvY3hFUlR1VVU3aTFSem9B?oc=5",
    "summary": "Justin Thomas withdraws from Biltmore Championship Asheville Yahoo Sports",
    "published": "Mon, 14 Sep 2026 15:31:45 GMT",
-   "source": "Google News: Biltmore Championship Asheville DFS",
-   "kind": "news",
-   "golfers": []
-  },
-  {
-   "title": "Biltmore Championship Asheville 2026 Odds, Past Winners, Best Course History - BetMGM",
-   "link": "https://news.google.com/rss/articles/CBMiugFBVV95cUxNblIwOTk5R3R1OUxCZnJVUlY0STAyczZpenZfWHpzT1dRSmtPUlVhUTY2TUdudHQ4bFZvT09KaXp5b3ZzZlVPR01HZUFERll0dVpvY2xDd3FQaE1SXzNWY1Z5czQzaWRmdURUMlVlbWl3dkk4emdWWXRaOEdTck1rZVJDdG4yUGV6UmFOVmtSOEVzV1I2SlZyS0NNcVBpckRJZ0JCOXloOGN3UlMtb0locWZVWk56cWJReGc?oc=5",
-   "summary": "Biltmore Championship Asheville 2026 Odds, Past Winners, Best Course History BetMGM",
-   "published": "Mon, 14 Sep 2026 14:46:37 GMT",
-   "source": "Google News: Biltmore Championship Asheville WD",
+   "source": "Google News: Biltmore Championship Asheville picks",
    "kind": "news",
    "golfers": []
   },
@@ -811,7 +1140,9 @@
    "published": "Mon, 14 Sep 2026 13:52:11 GMT",
    "source": "Google News: Biltmore Championship Asheville picks",
    "kind": "news",
-   "golfers": []
+   "golfers": [
+    "Fabian Gomez"
+   ]
   },
   {
    "title": "2026 Biltmore Championship Asheville Preview: Everything To Know About The Cliffs At Walnut Cove - Lineups",
@@ -830,9 +1161,18 @@
    "source": "Golf Monthly",
    "kind": "news",
    "golfers": [
-    "Cameron Young",
-    "Scottie Scheffler",
-    "Jacob Bridgeman"
+    "Jackson Koivun",
+    "Jacob Bridgeman",
+    "Marco Penge",
+    "Ryo Hisatsune",
+    "Corey Conners",
+    "Blades Brown",
+    "J.T. Poston",
+    "Christiaan Bezuidenhout",
+    "Billy Horschel",
+    "Nick Taylor",
+    "Nicolas Echavarria",
+    "Tony Finau"
    ]
   },
   {
@@ -852,17 +1192,6 @@
    "source": "Google News: Biltmore Championship Asheville WD",
    "kind": "news",
    "golfers": []
-  },
-  {
-   "title": "This Unreleased Driver Is Chalking Up Massive Tour Wins... But When Can You Get It?",
-   "link": "https://www.golfmonthly.com/features/this-unreleased-driver-is-chalking-up-massive-tour-wins-but-when-can-you-get-it",
-   "summary": "Major champions like Ryan Fox and Shane Lowry are putting Srixon's unreleased driver straight into play - here\u2019s when full specs drop and when you can get fitted\u2026",
-   "published": "Mon, 14 Sep 2026 11:07:45 +0000",
-   "source": "Golf Monthly",
-   "kind": "news",
-   "golfers": [
-    "Ryan Fox"
-   ]
   },
   {
    "title": "Biltmore Championship Asheville 2026 preview, picks & analysis - Golfshake.com",
