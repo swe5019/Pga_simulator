@@ -1,11 +1,11 @@
 {
- "updatedUtc": "2026-09-19T15:54:16Z",
+ "updatedUtc": "2026-09-19T20:42:54Z",
  "slate": "BILTMORE_2026",
  "event": "Biltmore Championship Asheville",
  "counts": {
-  "items": 77,
-  "golfersMentioned": 13,
-  "news": 77,
+  "items": 80,
+  "golfersMentioned": 20,
+  "news": 80,
   "chatter": 0
  },
  "sources": [
@@ -108,19 +108,19 @@
   {
    "source": "Google News: Biltmore Championship Asheville DFS",
    "ok": true,
-   "items": 65,
+   "items": 67,
    "error": null
   },
   {
    "source": "Google News: Biltmore Championship Asheville picks",
    "ok": true,
-   "items": 68,
+   "items": 67,
    "error": null
   },
   {
    "source": "Google News: Biltmore Championship Asheville WD",
    "ok": true,
-   "items": 69,
+   "items": 65,
    "error": null
   },
   {
@@ -156,22 +156,34 @@
  ],
  "mentions": [
   {
-   "name": "Luke List",
+   "name": "Blades Brown",
    "news": 3,
    "chatter": 0,
-   "alert": "wd",
-   "alertHeadline": "Biltmore Championship Field 2026: Full Player List, Withdrawals - Yahoo Sports",
-   "alertLink": "https://news.google.com/rss/articles/CBMijwFBVV95cUxOcnlIcUtOd3NqeUlEQjBSSldJYXNnSVM1UVBwUTZZWFItQWdXdlJRMW1NQmh1NzhJN3lQSDNQTElnazZyRm5kMlQ3aGQyYXZKd2RRWS1KQUFWdWZJak45cUktZENyMlp6c0RwMVhTakVXa01YZ081cGhkdG1sRHk5LTl5eEg4TE1EUEEtd1JVMA?oc=5",
    "total": 3
   },
   {
-   "name": "Seamus Power",
+   "name": "Tyler Jones",
    "news": 2,
    "chatter": 0,
    "total": 2
   },
   {
-   "name": "Blades Brown",
+   "name": "Eric Cole",
+   "news": 2,
+   "chatter": 0,
+   "total": 2
+  },
+  {
+   "name": "Luke List",
+   "news": 2,
+   "chatter": 0,
+   "alert": "wd",
+   "alertHeadline": "Biltmore Championship Field 2026: Full Player List, Withdrawals - Yahoo Sports",
+   "alertLink": "https://news.google.com/rss/articles/CBMijwFBVV95cUxOcnlIcUtOd3NqeUlEQjBSSldJYXNnSVM1UVBwUTZZWFItQWdXdlJRMW1NQmh1NzhJN3lQSDNQTElnazZyRm5kMlQ3aGQyYXZKd2RRWS1KQUFWdWZJak45cUktZENyMlp6c0RwMVhTakVXa01YZ081cGhkdG1sRHk5LTl5eEg4TE1EUEEtd1JVMA?oc=5",
+   "total": 2
+  },
+  {
+   "name": "Seamus Power",
    "news": 2,
    "chatter": 0,
    "total": 2
@@ -189,13 +201,40 @@
    "total": 2
   },
   {
-   "name": "Cameron Champ",
-   "news": 2,
+   "name": "Nick Taylor",
+   "news": 1,
    "chatter": 0,
-   "alert": "wd",
-   "alertHeadline": "Justin Thomas Withdraws from Biltmore Championship, Cameron Champ Takes His Place - SSBCrack",
-   "alertLink": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxQcnM1cVV4U20zNXVlWS16cklpdEEwN09kMkN2UE91LVlVQS1BcEF5NkttVEdhZGtESzlEU2JSbnppRzZUZG56U2lNWXhtWjJoWHFpQ2ptb1QxME1jQUFCSnlsZ0tjM3hPLWI1d2EzQlI1ekZMR1V0RmE4dlp3WGV1Ry0tak96aFlpeDFMa0JqUEdPUksyakhqX19FRUVtRzJIVjladGZqYUZlUEE?oc=5",
-   "total": 2
+   "total": 1
+  },
+  {
+   "name": "Max Greyserman",
+   "news": 1,
+   "chatter": 0,
+   "total": 1
+  },
+  {
+   "name": "Ricky Castillo",
+   "news": 1,
+   "chatter": 0,
+   "total": 1
+  },
+  {
+   "name": "Nicolas Echavarria",
+   "news": 1,
+   "chatter": 0,
+   "total": 1
+  },
+  {
+   "name": "Kevin Kisner",
+   "news": 1,
+   "chatter": 0,
+   "total": 1
+  },
+  {
+   "name": "Alejandro Tosti",
+   "news": 1,
+   "chatter": 0,
+   "total": 1
   },
   {
    "name": "Paul Peterson",
@@ -208,7 +247,7 @@
    "news": 1,
    "chatter": 0,
    "alert": "wd",
-   "alertHeadline": "Lanto Griffin WD From Biltmore Championship Asheville With Back Injury - ontapsportsnet.com",
+   "alertHeadline": "Lanto Griffin WD From Biltmore Championship Asheville With Back Injury - On Tap Sports Net",
    "alertLink": "https://news.google.com/rss/articles/CBMimAFBVV95cUxPTXFuZUZyazdkYnhvRnkyVDFBVzlJVlA3NFJ1bXUyQjRVdGR3SFBHdVVHT0hlYk1kMERXekFqNUs4dzJzcXctS0N2UEpiYkRVT2syNzc3SkZPbUFORmdEZDNnOHFfbnlwNGoteXc5TnNOUFMzWnY4am45Z011TmxaQUlBRXRmdGFXTTlZN2pNdjFYcWI4U1Rsbw?oc=5",
    "total": 1
   },
@@ -245,21 +284,81 @@
  ],
  "items": [
   {
+   "title": "Who Should I Start for Fantasy Football Week 2? Terrance Ferguson, Trey McBride, Gunnar Helm, Greg Dulcich, Noah Fant, Mason Taylor, Oronde Gadsden, Theo Johnson, Ben Sinnott",
+   "link": "https://www.rotoballer.com/who-should-i-start-for-week-2-terrance-ferguson-trey-mcbride-gunnar-helm-greg-dulcich-noah-fant-mason-taylor-oronde-gadsden-ii-theo-johnson-ben-sinnott/1945254",
+   "summary": "Who Should I Start? Who Should I Sit? Some of the most common Week 2 fantasy football lineup decisions involve players like Terrance Ferguson, Trey McBride, Gunnar Helm, Greg Dulcich, Noah Fant, Mason Taylor, Oronde Gadsden, Theo Johnson, and Ben Sinnott. However, don't worry, we are here to help you make these decisions and build [&#8230;]",
+   "published": "Sat, 19 Sep 2026 19:32:34 +0000",
+   "source": "RotoBaller",
+   "kind": "news",
+   "golfers": [
+    "Nick Taylor"
+   ]
+  },
+  {
+   "title": "Warrington beat Hull KR to set up semi against Leeds as Hiku sees red",
+   "link": "https://www.skysports.com/rugby-league/warrington-vs-hull-k-r/report/63346",
+   "summary": "Warrington Wolves set up a Super League semi-final with Leeds Rhinos after a 35-12 victory over reigning champions Hull KR in their eliminator showdown at the Halliwell Jones Stadium.",
+   "published": "Sat, 19 Sep 2026 19:30:00 BST",
+   "source": "Sky Sports Golf",
+   "kind": "news",
+   "golfers": [
+    "Tyler Jones"
+   ]
+  },
+  {
+   "title": "Who Should I Start for Fantasy Football Week 2? Chase Brown, De'Von Achane, Denzel Boston, Saquon Barkley, Kayshon Boutte, Adonai Mitchell, Emmett Johnson, Tyjae Spears, Pat Bryant",
+   "link": "https://www.rotoballer.com/who-should-i-start-for-week-2-chase-brown-devon-achane-denzel-boston-saquon-barkley-kayshon-boutte-adonai-mitchell-emmett-johnson-tyjae-spears-pat-bryant/1945224",
+   "summary": "Who Should I Start? Who Should I Sit? Some of the most common Week 2 fantasy football lineup decisions involve players like Chase Brown, De'Von Achane, Denzel Boston, Saquon Barkley, Kayshon Boutte, Adonai Mitchell, Emmett Johnson, Tyjae Spears, and Pat Bryant. However, don't worry, we are here to help you make these decisions and build [&#8230;]",
+   "published": "Sat, 19 Sep 2026 19:04:55 +0000",
+   "source": "RotoBaller",
+   "kind": "news",
+   "golfers": [
+    "Blades Brown"
+   ]
+  },
+  {
+   "title": "Who Should I Start for Fantasy Football Week 2? Colston Loveland, Kenyon Sadiq, Evan Engram, David Njoku, AJ Barner, Cade Otton, Cole Kmet, Darren Waller, Brock Bowers, Colby Parkinson",
+   "link": "https://www.rotoballer.com/who-should-i-start-for-week-2-colston-loveland-kenyon-sadiq-evan-engram-david-njoku-aj-barner-cade-otton-cole-kmet-darren-waller-brock-bowers-colby-parkinson/1945222",
+   "summary": "Who Should I Start? Who Should I Sit? Some of the most common Week 2 fantasy football lineup decisions involve players like Colston Loveland, Kenyon Sadiq, Evan Engram, David Njoku, AJ Barner, Cade Otton, Cole Kmet, Darren Waller, Brock Bowers, and Colby Parkinson. However, don't worry, we are here to help you make these decisions [&#8230;]",
+   "published": "Sat, 19 Sep 2026 18:50:35 +0000",
+   "source": "RotoBaller",
+   "kind": "news",
+   "golfers": [
+    "Eric Cole"
+   ]
+  },
+  {
+   "title": "Key Starters and Tough Calls - Lineup Spotlights for Fantasy Football Week 2 Include De'Von Achane, Jadarian Price, Aaron Jones, Jaylen Waddle, Kayshon Boutte",
+   "link": "https://www.rotoballer.com/key-fantasy-football-starts-and-sits-for-week-2-2026/1944565",
+   "summary": "Our Key Starters and Tough Calls feature for Week 2 of the 2026 season helps you to make those tough lineup calls. Scott Engel's Week 2 Lineup Spotlights column examines key players to start or sit. \"The King\" takes a deeper look at players who may be causing some fantasy anxiety. The fantasy football players [&#8230;]",
+   "published": "Sat, 19 Sep 2026 16:30:21 +0000",
+   "source": "RotoBaller",
+   "kind": "news",
+   "golfers": [
+    "Tyler Jones"
+   ]
+  },
+  {
+   "title": "Golf Fans All Issue the Same Complaint As PGA Tour Pro Faces Hateful Comment After Struggling at Biltmore Championship",
+   "link": "https://sports.yahoo.com/articles/golf-fans-issue-same-complaint-155726415.html",
+   "summary": "Sports betting continues to grow in golf, but its impact on the sport and its players has also drawn growing criticism. That tension was on full display during the Biltmore Championship at The Cliffs at Walnut Cove in Arden, where Scratch\u2019s Claire Rogers revealed that a player was targeted by a fan after struggling during the event.",
+   "published": "Sat, 19 Sep 2026 15:57:26 +0000",
+   "source": "Yahoo Golf",
+   "kind": "news",
+   "golfers": [
+    "Eric Cole",
+    "Max Greyserman",
+    "Ricky Castillo",
+    "Nicolas Echavarria",
+    "Kevin Kisner",
+    "Alejandro Tosti"
+   ]
+  },
+  {
    "title": "Weekend Players To Cut for Week 2 Lineups - Jordan Mason, Carnell Tate, Josh Jacobs, Makai Lemon, De'Zhaun Stribling, Kyler Murray",
    "link": "https://www.rotoballer.com/weekend-cut-list-rankings-fantasy-football-drops-week-2-2026/1934533",
    "summary": "Welcome back, RotoBallers, to our Weekend Cut List Rankings for fantasy football Week 2 of the 2026 NFL season. The opening week is already behind us, and the first game of Week 2 is in the books. Even though it's still early, managers should not wait too long to cut underperforming players. Below, we will look [&#8230;]",
    "published": "Sat, 19 Sep 2026 15:15:02 +0000",
-   "source": "RotoBaller",
-   "kind": "news",
-   "golfers": [
-    "Luke List"
-   ]
-  },
-  {
-   "title": "Wide Receiver Start 'Em, Sit 'Em Picks for Fantasy Football Week 2 (2026)",
-   "link": "https://www.rotoballer.com/wide-receiver-start-em-sit-em-picks-for-fantasy-football-week-2-2026/1934043",
-   "summary": "Week 2 has officially arrived, and fantasy managers have more clarity on their rosters. At the wide receiver position, several wild Week 1 developments either helped teams win or left managers searching for answers. Last week, this list had some great calls, including Parker Washington as a start and DK Metcalf and Brian Thomas Jr. [&#8230;]",
-   "published": "Sat, 19 Sep 2026 14:40:56 +0000",
    "source": "RotoBaller",
    "kind": "news",
    "golfers": [
@@ -318,9 +417,9 @@
    "golfers": []
   },
   {
-   "title": "Lanto Griffin WD From Biltmore Championship Asheville With Back Injury - ontapsportsnet.com",
+   "title": "Lanto Griffin WD From Biltmore Championship Asheville With Back Injury - On Tap Sports Net",
    "link": "https://news.google.com/rss/articles/CBMimAFBVV95cUxPTXFuZUZyazdkYnhvRnkyVDFBVzlJVlA3NFJ1bXUyQjRVdGR3SFBHdVVHT0hlYk1kMERXekFqNUs4dzJzcXctS0N2UEpiYkRVT2syNzc3SkZPbUFORmdEZDNnOHFfbnlwNGoteXc5TnNOUFMzWnY4am45Z011TmxaQUlBRXRmdGFXTTlZN2pNdjFYcWI4U1Rsbw?oc=5",
-   "summary": "Lanto Griffin WD From Biltmore Championship Asheville With Back Injury ontapsportsnet.com",
+   "summary": "Lanto Griffin WD From Biltmore Championship Asheville With Back Injury On Tap Sports Net",
    "published": "Fri, 18 Sep 2026 16:53:55 GMT",
    "source": "Google News: Biltmore Championship Asheville WD",
    "kind": "news",
@@ -355,7 +454,7 @@
    "title": "Biltmore Championship Round 2: Expert Predictions, Picks, Odds for Friday, September 18 - Yahoo Sports",
    "link": "https://news.google.com/rss/articles/CBMijgFBVV95cUxOMFlyd3Z4RGFFb0RRb0xpSFlIRkVxcVZGakNkU0lsYzduemRlaHE5Y3pvTWFMQ21rWjltYkZSaWdmSExoNEFMalBCX081MWhsV21EaFpCMlN1ajZzQ2dPMzQ0SGJUdkFJeXpGeWNUTnFBQjBpdWFxTEtQWndPUFdCNm4tTTdQZXc2ZF9nU0tB?oc=5",
    "summary": "Biltmore Championship Round 2: Expert Predictions, Picks, Odds for Friday, September 18 Yahoo Sports",
-   "published": "Fri, 18 Sep 2026 01:10:00 GMT",
+   "published": "Fri, 18 Sep 2026 01:10:42 GMT",
    "source": "Google News: Biltmore Championship Asheville picks",
    "kind": "news",
    "golfers": []
@@ -435,9 +534,9 @@
    "golfers": []
   },
   {
-   "title": "DraftKings Core Four: PGA DFS - 2026 Biltmore Championship Asheville (Premium Content) - rotoballer.com",
+   "title": "DraftKings Core Four: PGA DFS - 2026 Biltmore Championship Asheville (Premium Content) - RotoBaller",
    "link": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxQRDJkVDd4UXlkZmduYldYYTQzdmVmZVZEOTFOU1F2UnJFX2YtbWFVNHktWHZKUE9MV2trWEhqTnBvdks1WUZFTGhsckh4WUk2dGtzMk5ScENxWHd4anBQM0lQcGU5cjNYN1hLSV9meGZDb3JmS1c1eUZYN0FNM0JNUlpLcEIxeEppTk8zWUE1alhrTE5VOXpsS0lsdnlwZEpTZEYtQWtOeko5Y2UySTRYT21EakZDb1hOT2dUTm9LS0Q0dmM?oc=5",
-   "summary": "DraftKings Core Four: PGA DFS - 2026 Biltmore Championship Asheville (Premium Content) rotoballer.com",
+   "summary": "DraftKings Core Four: PGA DFS - 2026 Biltmore Championship Asheville (Premium Content) RotoBaller",
    "published": "Wed, 16 Sep 2026 19:35:00 GMT",
    "source": "Google News: Biltmore Championship Asheville DFS",
    "kind": "news",
@@ -462,9 +561,9 @@
    "golfers": []
   },
   {
-   "title": "2026 Biltmore Championship Asheville: Picks, predictions for The Cliffs at Walnut Cove - Pro Golf Now",
+   "title": "2026 Biltmore Championship Asheville: Picks, predictions for The Cliffs at Walnut Cove - progolfnow.com",
    "link": "https://news.google.com/rss/articles/CBMioAFBVV95cUxNMUp5aDJwd3RsU0xXTjlaYkZST0xjQVMxaU9rby1aUC1lbGF3dVVrMXhhWUhpbGQ0bDNnTHZOcnNob1Z4MlFZekNOanIyenY4QUpDTUxvUzdqVjNWU2h6bWxFUUV0Q2ZpSGltSTk3UDM1WVg0T0tCb2ZnazZuYkNHZ2FCUk9wN0Mxb003TVY0MjFzVG92Z0o1REdTSzFjbEgx?oc=5",
-   "summary": "2026 Biltmore Championship Asheville: Picks, predictions for The Cliffs at Walnut Cove Pro Golf Now",
+   "summary": "2026 Biltmore Championship Asheville: Picks, predictions for The Cliffs at Walnut Cove progolfnow.com",
    "published": "Wed, 16 Sep 2026 18:00:03 GMT",
    "source": "Google News: Biltmore Championship Asheville picks",
    "kind": "news",
@@ -561,9 +660,9 @@
    "golfers": []
   },
   {
-   "title": "Patrick's PGA Betting Picks: 2026 Biltmore Championship Asheville (Premium) - rotoballer.com",
+   "title": "Patrick's PGA Betting Picks: 2026 Biltmore Championship Asheville (Premium) - RotoBaller",
    "link": "https://news.google.com/rss/articles/CBMitgFBVV95cUxOY0xJOVhOQzJlaDlPWFk4RTMxUGM1NlJCZGNubUdRWHZKZXRlOUZac2p5S0ZOSVJsQUs5SXNkWHpqUDYybF9OZDduclI1UVBBbm5GWnl3TWE0TU5LeDlDcEZrVWJkanFfWnFETkhielpTajlld0ZiOFNZRUUyQjZkblZhbUdtcUZHZ3lHamFKRk1admRQVFZRMEZJdi1KUWJDV3JNV2VUa3hoM1h1bzhxTE9TWTFxdw?oc=5",
-   "summary": "Patrick's PGA Betting Picks: 2026 Biltmore Championship Asheville (Premium) rotoballer.com",
+   "summary": "Patrick's PGA Betting Picks: 2026 Biltmore Championship Asheville (Premium) RotoBaller",
    "published": "Wed, 16 Sep 2026 00:10:46 GMT",
    "source": "Google News: Biltmore Championship Asheville picks",
    "kind": "news",
@@ -690,9 +789,9 @@
    "golfers": []
   },
   {
-   "title": "DraftKings PGA DFS Value Plays - 2026 Biltmore Championship Asheville (Premium Content) - rotoballer.com",
+   "title": "DraftKings PGA DFS Value Plays - 2026 Biltmore Championship Asheville (Premium Content) - RotoBaller",
    "link": "https://news.google.com/rss/articles/CBMixgFBVV95cUxOTDFER0o3b1pXUE9UTzN5UmFYSXpqY09xbUVrZDNCQjdNZENtMF9uWVI2UUVSQ3V4NDZiMGxwUjE0NGtxc1RKaHk2X0R5a21wb2hLcU93eU90WlRKbktyZm1lS2JyLXVxX0lWcm1LNVk4c2Q3QmZxRmNqNFN3dkpGN2Z4eGxsZDRzODF6MExyeTRCUWExZlBuTlhaQmNuMnVIam5PLUh3OHFuSVVKaDRuVXViWUxvUlRhTnhfUVF4Y2xBUDFSLVE?oc=5",
-   "summary": "DraftKings PGA DFS Value Plays - 2026 Biltmore Championship Asheville (Premium Content) rotoballer.com",
+   "summary": "DraftKings PGA DFS Value Plays - 2026 Biltmore Championship Asheville (Premium Content) RotoBaller",
    "published": "Tue, 15 Sep 2026 15:58:28 GMT",
    "source": "Google News: Biltmore Championship Asheville DFS",
    "kind": "news",
@@ -723,18 +822,18 @@
    ]
   },
   {
-   "title": "DraftKings PGA DFS Lineup Picks for the Biltmore Championship Asheville (2026) - rotoballer.com",
+   "title": "DraftKings PGA DFS Lineup Picks for the Biltmore Championship Asheville (2026) - RotoBaller",
    "link": "https://news.google.com/rss/articles/CBMisAFBVV95cUxNZ1E2YkRNdUJacDJBS3J4TkU1eXUtODB3akRhTUdJVUxpSGg2NFZ2aUU5V3pxQm1IVHBDODliSGZtSXhVcFV3ZkpZR00wLU1OcE1jSlY5YzBPQ2xpVWRkVUsxa0ZiU0V4Z1pRMjBvUjd2NDBwYnFzdHR6RkltVS1sbHlRSHB6TFBFOWxOVS1jQl9WRTl0dGdsQ1VuYVE5d0FBalE1RGRFRjE0RjFtT0VZeg?oc=5",
-   "summary": "DraftKings PGA DFS Lineup Picks for the Biltmore Championship Asheville (2026) rotoballer.com",
+   "summary": "DraftKings PGA DFS Lineup Picks for the Biltmore Championship Asheville (2026) RotoBaller",
    "published": "Tue, 15 Sep 2026 14:15:24 GMT",
    "source": "Google News: Biltmore Championship Asheville DFS",
    "kind": "news",
    "golfers": []
   },
   {
-   "title": "2026 Biltmore Championship Asheville PGA Fantasy and Betting Preview: Key Stats, Course Breakdown, TV Times - rotoballer.com",
+   "title": "2026 Biltmore Championship Asheville PGA Fantasy and Betting Preview: Key Stats, Course Breakdown, TV Times - RotoBaller",
    "link": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxPdFNwdFBzN2xZM1dfb0x3RFMxQ2VpSTJBRVVfNjAzaWs1RUhlWFMyNVZDWWplQlo0alh6dVVJSEpPRV95Qm9iZE1EU1ExRENSVXdLbmFPczBSdlE5MG1jUUc5c1NETGRLUXZHeFF5M2xnU2xZUTJ6SUdocDJJeGVpUUdsQzZFQThhZEdUTnYzUTB6d0FzaENUTFdHcl9OUHJreUZ2cExKcHFWQnhOMTlsZmRGVG85dzVxYWNsaWcyUlZXQVl2cGl0amwydGs1Y0NucklCQmZR?oc=5",
-   "summary": "2026 Biltmore Championship Asheville PGA Fantasy and Betting Preview: Key Stats, Course Breakdown, TV Times rotoballer.com",
+   "summary": "2026 Biltmore Championship Asheville PGA Fantasy and Betting Preview: Key Stats, Course Breakdown, TV Times RotoBaller",
    "published": "Tue, 15 Sep 2026 12:00:59 GMT",
    "source": "Google News: Biltmore Championship Asheville DFS",
    "kind": "news",
@@ -781,7 +880,7 @@
    "link": "https://news.google.com/rss/articles/CBMiigFBVV95cUxOdEhINUlPbG1LYzdQRHdyS1FGay1jM0JvUVBvVDBXU0RQVE00NGxTLWVDTXJ5TWNIV3VJNFpuSFpxRExuMGFXR2t6QW9PajZqZ2lILUVtTVE5NUI5LVE3aExScnQzM3pmYnl0TGtfc3pJSXRfc3FkeFUycnJldGQ3UFMxdGNnNThyOXc?oc=5",
    "summary": "Biltmore Championship Odds: The Favorite Has One Career Win OddsShopper",
    "published": "Tue, 15 Sep 2026 04:07:30 GMT",
-   "source": "Google News: Biltmore Championship Asheville DFS",
+   "source": "Google News: Biltmore Championship Asheville WD",
    "kind": "news",
    "golfers": []
   },
@@ -855,25 +954,22 @@
    "golfers": []
   },
   {
-   "title": "Biltmore Championship Asheville Picks, Predictions & Odds For 2026 - sportsbettingdime.com",
+   "title": "Biltmore Championship Asheville Picks, Predictions & Odds For 2026 - Sports Betting Dime",
    "link": "https://news.google.com/rss/articles/CBMirAFBVV95cUxNX0VzZ0J4QmxieUdvYjFITW44TzdIVnQxcFZNMFMzUlo1ZjNQeTR1d18yTWhMdUFFeG5XWVVUNkR6akV2ZUxhd1NqNmVuZ0tZUHotY2x1Q1RpaUxqcEptMFNzUHNIRDZ5X08waFpVMTR2UUdEOG1aVlYybmI5MlFIQWI2aFgtdXowVHhRN0pDOGVWTUdTbHY2NHJVenZQeFdnVWRzN3dNcGFRSUZT?oc=5",
-   "summary": "Biltmore Championship Asheville Picks, Predictions & Odds For 2026 sportsbettingdime.com",
+   "summary": "Biltmore Championship Asheville Picks, Predictions & Odds For 2026 Sports Betting Dime",
    "published": "Mon, 14 Sep 2026 19:42:00 GMT",
    "source": "Google News: Biltmore Championship Asheville picks",
    "kind": "news",
    "golfers": []
   },
   {
-   "title": "Justin Thomas Withdraws from Biltmore Championship, Cameron Champ Takes His Place - SSBCrack",
-   "link": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxQcnM1cVV4U20zNXVlWS16cklpdEEwN09kMkN2UE91LVlVQS1BcEF5NkttVEdhZGtESzlEU2JSbnppRzZUZG56U2lNWXhtWjJoWHFpQ2ptb1QxME1jQUFCSnlsZ0tjM3hPLWI1d2EzQlI1ekZMR1V0RmE4dlp3WGV1Ry0tak96aFlpeDFMa0JqUEdPUksyakhqX19FRUVtRzJIVjladGZqYUZlUEE?oc=5",
-   "summary": "Justin Thomas Withdraws from Biltmore Championship, Cameron Champ Takes His Place SSBCrack",
-   "published": "Mon, 14 Sep 2026 17:08:44 GMT",
-   "source": "Google News: Biltmore Championship Asheville WD",
+   "title": "2026 Biltmore Championship Asheville odds, picks: Surprising predictions by model that's nailed 17 majors - thepress.net",
+   "link": "https://news.google.com/rss/articles/CBMingJBVV95cUxNSjNrTThZd3RNcG8za0x6XzlDS2FPOXJXbEF3dUhtTXFTdE5ORDJjWTNubWE0Z2JhcVBPTEVyNmlUMlZydHJ1OExUNU9DbU92ZkFGZE9MTlgtSVgwbGdQZnp0UWRiMFNKM2taWWx2Tk5ZNnlFcWlWMnp6NGk2djRlQU9LX3F2TTlQX3BDR190OVlkeEo3UGhtQ3NiekFrVmQ1LV9raWNFanJJSVJJdl9MT1lNb0VjOXJQbHNnQ1VLUDNWU011UzhGTGpELXZIVWNrOG5OTFNDUnl0UFRmNGgtdmM1dFYtajFuV0cyWmlmWUIwT0ZGb2lab2ZHdTk3ZkNLUm1Cd0tRYkt4elYxN1JNU24xeXlwVFhBNzQya3FB?oc=5",
+   "summary": "2026 Biltmore Championship Asheville odds, picks: Surprising predictions by model that's nailed 17 majors thepress.net",
+   "published": "Mon, 14 Sep 2026 16:08:50 GMT",
+   "source": "Google News: Biltmore Championship Asheville picks",
    "kind": "news",
-   "golfers": [
-    "Cameron Champ"
-   ],
-   "alert": "wd"
+   "golfers": []
   },
   {
    "title": "2026 Biltmore Championship Asheville odds, picks: Proven golf model reveals projected leaderboard, surprising predictions - SportsLine",
@@ -935,26 +1031,6 @@
    "summary": "Biltmore Championship Asheville 2026 preview, picks & analysis Golfshake.com",
    "published": "Mon, 14 Sep 2026 10:12:31 GMT",
    "source": "Google News: Biltmore Championship Asheville picks",
-   "kind": "news",
-   "golfers": []
-  },
-  {
-   "title": "Multiple major champ withdraws from inaugural PGA Tour event - Golfmagic",
-   "link": "https://news.google.com/rss/articles/CBMimwFBVV95cUxNSFB1VThVYmJZT0lLTlZkVU1QdkpGaXh4bkg2T1VlVUxfZzlnZFRDN1lHRnU3dWhPelgwNGVVQWNtVnJxODFQckY0UDVpdUxwbkJPdUZRdGRPUjdsZ1NVN0JaRDZSWS1adlZNRFB4WEh6RzdvTS1xRWFFdjg2amU4Q0tlckUyTXAyR3NvaEpkWGtRVmgwTEdEN211UQ?oc=5",
-   "summary": "Multiple major champ withdraws from inaugural PGA Tour event Golfmagic",
-   "published": "Mon, 14 Sep 2026 09:15:49 GMT",
-   "source": "Google News: Biltmore Championship Asheville WD",
-   "kind": "news",
-   "golfers": [
-    "Cameron Champ"
-   ]
-  },
-  {
-   "title": "Justin Thomas withdraws from Biltmore Championship, fall series opener - Yardbarker",
-   "link": "https://news.google.com/rss/articles/CBMixwFBVV95cUxPX1ZLcU1aUElBaUduZkxibzkyd3RlTlBNaXEzdWRWSUhLQ2czVjFhOWZqUHJYa2pldTZzTEFUNVpPMlZlczBHUnBUVXEwc2xLWUtQdzJRUFFHd0Zfd1RnMVgzY2RwQWIyU2wzWkNQNFhtZTl2NDRqak5veU9zRGxfaW91TmZYaVZrUnRWTGxkY0g3WExIbW1pOVZkRlA4RXVENE1tOGQ0OW02REd0NmVIb192RWtoOS1KY05nR2pvY2Z6cXR1cjg4?oc=5",
-   "summary": "Justin Thomas withdraws from Biltmore Championship, fall series opener Yardbarker",
-   "published": "Mon, 14 Sep 2026 00:31:03 GMT",
-   "source": "Google News: Biltmore Championship Asheville WD",
    "kind": "news",
    "golfers": []
   },
