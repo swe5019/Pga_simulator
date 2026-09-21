@@ -1,5 +1,5 @@
 {
- "updatedUtc": "2026-09-21T00:43:51Z",
+ "updatedUtc": "2026-09-21T16:44:18Z",
  "count": 31,
  "events": [
   {
@@ -29,11 +29,11 @@
    "file": "history/BILTMORE_2026.json",
    "date": "2026-09-17 00:00:00",
    "hasPredicted": true,
-   "hasActual": false,
-   "maePct": null,
-   "colabMaePct": null,
-   "comparedPlayers": null,
-   "updatedUtc": "2026-09-21T00:43:51Z"
+   "hasActual": true,
+   "maePct": 2.392,
+   "colabMaePct": 2.504,
+   "comparedPlayers": 132,
+   "updatedUtc": "2026-09-21T16:44:18Z"
   },
   {
    "tournament": "BMW_2026",
@@ -207,7 +207,7 @@
    "hasPredicted": false,
    "hasActual": true,
    "maePct": null,
-   "colabMaePct": 5.785,
+   "colabMaePct": 2.878,
    "comparedPlayers": null,
    "updatedUtc": "2026-06-25T15:52:16Z"
   },
@@ -275,7 +275,7 @@
    "maePct": 2.958,
    "colabMaePct": 2.928,
    "comparedPlayers": 72,
-   "updatedUtc": "2026-09-21T00:43:51Z"
+   "updatedUtc": "2026-09-21T16:44:18Z"
   },
   {
    "tournament": "TRUIST_2026",
