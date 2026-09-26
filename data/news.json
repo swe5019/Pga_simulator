@@ -1,19 +1,19 @@
 {
- "updatedUtc": "2026-09-26T11:27:26Z",
+ "updatedUtc": "2026-09-26T16:25:40Z",
  "slate": "BILTMORE_2026",
  "event": "Biltmore Championship Asheville",
  "counts": {
-  "items": 22,
-  "golfersMentioned": 5,
-  "news": 22,
+  "items": 23,
+  "golfersMentioned": 10,
+  "news": 23,
   "chatter": 0
  },
  "sources": [
   {
    "source": "RotoWire Golf",
-   "ok": false,
-   "items": 0,
-   "error": "no items"
+   "ok": true,
+   "items": 1,
+   "error": null
   },
   {
    "source": "RotoBaller Golf",
@@ -108,19 +108,19 @@
   {
    "source": "Google News: Biltmore Championship Asheville DFS",
    "ok": true,
-   "items": 49,
+   "items": 52,
    "error": null
   },
   {
    "source": "Google News: Biltmore Championship Asheville picks",
    "ok": true,
-   "items": 71,
+   "items": 72,
    "error": null
   },
   {
    "source": "Google News: Biltmore Championship Asheville WD",
    "ok": true,
-   "items": 74,
+   "items": 75,
    "error": null
   },
   {
@@ -162,6 +162,30 @@
    "total": 3
   },
   {
+   "name": "Luke List",
+   "news": 1,
+   "chatter": 0,
+   "total": 1
+  },
+  {
+   "name": "Eric Cole",
+   "news": 1,
+   "chatter": 0,
+   "total": 1
+  },
+  {
+   "name": "Troy Merritt",
+   "news": 1,
+   "chatter": 0,
+   "total": 1
+  },
+  {
+   "name": "Taylor Moore",
+   "news": 1,
+   "chatter": 0,
+   "total": 1
+  },
+  {
    "name": "Paul Peterson",
    "news": 1,
    "chatter": 0,
@@ -184,9 +208,62 @@
    "news": 1,
    "chatter": 0,
    "total": 1
+  },
+  {
+   "name": "Lanto Griffin",
+   "news": 1,
+   "chatter": 0,
+   "alert": "wd",
+   "alertHeadline": "Lanto Griffin WD From Biltmore Championship Asheville With Back Injury - On Tap Sports Net",
+   "alertLink": "https://news.google.com/rss/articles/CBMimAFBVV95cUxPTXFuZUZyazdkYnhvRnkyVDFBVzlJVlA3NFJ1bXUyQjRVdGR3SFBHdVVHT0hlYk1kMERXekFqNUs4dzJzcXctS0N2UEpiYkRVT2syNzc3SkZPbUFORmdEZDNnOHFfbnlwNGoteXc5TnNOUFMzWnY4am45Z011TmxaQUlBRXRmdGFXTTlZN2pNdjFYcWI4U1Rsbw?oc=5",
+   "total": 1
   }
  ],
  "items": [
+  {
+   "title": "Weekend Players To Cut for Week 3 Lineups - Jonathon Brooks, Alec Pierce, Marvin Harrison, Kenny Gainwell, Jakobi Meyers, Jonah Coleman",
+   "link": "https://www.rotoballer.com/weekend-cut-list-rankings-fantasy-football-drops-week-3-2026/1949800",
+   "summary": "Welcome back, RotoBallers, to our Weekend Cut List Rankings for fantasy football Week 3 of the 2026 NFL season. With [&#8230;]",
+   "published": "Sat, 26 Sep 2026 15:30:46 +0000",
+   "source": "RotoBaller",
+   "kind": "news",
+   "golfers": [
+    "Luke List"
+   ]
+  },
+  {
+   "title": "Who Should I Start for Fantasy Football Week 3? Juwan Johnson, Oronde Gadsden II, Michael Mayer, Cade Otton, Trey McBride, Greg Dulcich, Evan Engram, Zach Ertz, Cole Kmet",
+   "link": "https://www.rotoballer.com/who-should-i-start-for-week-3-juwan-johnson-oronde-gadsden-ii-michael-mayer-cade-otton-trey-mcbride-greg-dulcich-evan-engram-zach-ertz-cole-kmet/1951233",
+   "summary": "Who Should I Start? Who Should I Sit? Some of the most common Week 3 fantasy football lineup decisions involve [&#8230;]",
+   "published": "Sat, 26 Sep 2026 14:52:01 +0000",
+   "source": "RotoBaller",
+   "kind": "news",
+   "golfers": [
+    "Eric Cole"
+   ]
+  },
+  {
+   "title": "Who Should I Start for Fantasy Football Week 3? Kaelon Black, Malik Nabers, Jacory Croskey-Merritt, Emmett Johnson, Zay Flowers, Keon Coleman, Breece Hall, Tank Bigsby, Tyler Allgeier",
+   "link": "https://www.rotoballer.com/who-should-i-start-for-week-3-kaelon-black-malik-nabers-jacory-croskey-merritt-emmett-johnson-zay-flowers-keon-coleman-breece-hall-tank-bigsby-tyler-allgeier/1951232",
+   "summary": "Who Should I Start? Who Should I Sit? Some of the most common Week 3 fantasy football lineup decisions involve [&#8230;]",
+   "published": "Sat, 26 Sep 2026 14:45:59 +0000",
+   "source": "RotoBaller",
+   "kind": "news",
+   "golfers": [
+    "Troy Merritt"
+   ]
+  },
+  {
+   "title": "Who Should I Start for Fantasy Football Week 3? Jadarian Price, DJ Moore, Alvin Kamara, Carnell Tate, Jordan Addison, Jeremiyah Love, Javonte Williams, Cam Skattebo, Woody Marks",
+   "link": "https://www.rotoballer.com/who-should-i-start-for-week-3-jadarian-price-dj-moore-alvin-kamara-carnell-tate-jordan-addison-jeremiyah-love-javonte-williams-cam-skattebo-woody-marks/1951230",
+   "summary": "Who Should I Start? Who Should I Sit? Some of the most common Week 3 fantasy football lineup decisions involve [&#8230;]",
+   "published": "Sat, 26 Sep 2026 14:33:49 +0000",
+   "source": "RotoBaller",
+   "kind": "news",
+   "golfers": [
+    "Taylor Moore"
+   ]
+  },
   {
    "title": "MLB Picks Today: Greg Peterson Best Bets Saturday, September 26",
    "link": "https://vsin.com/mlb/mlb-picks-today-greg-peterson-best-bets-saturday-september-26/",
@@ -282,6 +359,18 @@
    "golfers": []
   },
   {
+   "title": "Lanto Griffin WD From Biltmore Championship Asheville With Back Injury - On Tap Sports Net",
+   "link": "https://news.google.com/rss/articles/CBMimAFBVV95cUxPTXFuZUZyazdkYnhvRnkyVDFBVzlJVlA3NFJ1bXUyQjRVdGR3SFBHdVVHT0hlYk1kMERXekFqNUs4dzJzcXctS0N2UEpiYkRVT2syNzc3SkZPbUFORmdEZDNnOHFfbnlwNGoteXc5TnNOUFMzWnY4am45Z011TmxaQUlBRXRmdGFXTTlZN2pNdjFYcWI4U1Rsbw?oc=5",
+   "summary": "Lanto Griffin WD From Biltmore Championship Asheville With Back Injury On Tap Sports Net",
+   "published": "Fri, 18 Sep 2026 17:13:48 GMT",
+   "source": "Google News: Biltmore Championship Asheville WD",
+   "kind": "news",
+   "golfers": [
+    "Lanto Griffin"
+   ],
+   "alert": "wd"
+  },
+  {
    "title": "Biltmore Championship Asheville Picks, Prediction, Odds, and Line Movement for Thursday September 17 2026 - Winners & Whiners",
    "link": "https://news.google.com/rss/articles/CBMi4AFBVV95cUxQMWlHc2RMNEtBa242Q0VDeS1ITUhwWk5NUTN0eWRVSS1SMHVVRmUwa1FzN1VFc1pfeGRYWC03UndQRHhPMnpoeE1BT0pUWHI5WThQQjltRGlIZ0NwcHFRUHpXUm9xVlUyM1Z6dXFUaV9HMmJtVHYzdEt6Y25JU3BuaFpUZUV4TW5EbGF1dktjdTdfbXBkcE9SNnhPT2VKcFJMejRVTUNqZks0Tm5aek51RU9DaWpYajlxZmhkMTJjbUlEQ2dQSnR3a2FDREhSRFQ5SG8zbURuelVOWjdZdHZXeA?oc=5",
    "summary": "Biltmore Championship Asheville Picks, Prediction, Odds, and Line Movement for Thursday September 17 2026 Winners & Whiners",
@@ -336,9 +425,9 @@
    "golfers": []
   },
   {
-   "title": "DraftKings Core Four: PGA DFS - 2026 Biltmore Championship Asheville (Premium Content) - rotoballer.com",
+   "title": "DraftKings Core Four: PGA DFS - 2026 Biltmore Championship Asheville (Premium Content) - RotoBaller",
    "link": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxQRDJkVDd4UXlkZmduYldYYTQzdmVmZVZEOTFOU1F2UnJFX2YtbWFVNHktWHZKUE9MV2trWEhqTnBvdks1WUZFTGhsckh4WUk2dGtzMk5ScENxWHd4anBQM0lQcGU5cjNYN1hLSV9meGZDb3JmS1c1eUZYN0FNM0JNUlpLcEIxeEppTk8zWUE1alhrTE5VOXpsS0lsdnlwZEpTZEYtQWtOeko5Y2UySTRYT21EakZDb1hOT2dUTm9LS0Q0dmM?oc=5",
-   "summary": "DraftKings Core Four: PGA DFS - 2026 Biltmore Championship Asheville (Premium Content) rotoballer.com",
+   "summary": "DraftKings Core Four: PGA DFS - 2026 Biltmore Championship Asheville (Premium Content) RotoBaller",
    "published": "Wed, 16 Sep 2026 19:35:00 GMT",
    "source": "Google News: Biltmore Championship Asheville DFS",
    "kind": "news",
@@ -358,42 +447,6 @@
    "link": "https://news.google.com/rss/articles/CBMioAFBVV95cUxNMUp5aDJwd3RsU0xXTjlaYkZST0xjQVMxaU9rby1aUC1lbGF3dVVrMXhhWUhpbGQ0bDNnTHZOcnNob1Z4MlFZekNOanIyenY4QUpDTUxvUzdqVjNWU2h6bWxFUUV0Q2ZpSGltSTk3UDM1WVg0T0tCb2ZnazZuYkNHZ2FCUk9wN0Mxb003TVY0MjFzVG92Z0o1REdTSzFjbEgx?oc=5",
    "summary": "2026 Biltmore Championship Asheville: Picks, predictions for The Cliffs at Walnut Cove Pro Golf Now",
    "published": "Wed, 16 Sep 2026 18:00:03 GMT",
-   "source": "Google News: Biltmore Championship Asheville picks",
-   "kind": "news",
-   "golfers": []
-  },
-  {
-   "title": "Draftkings odds: Which 72-hole matchups to pick at Biltmore Championship Asheville - PGA Tour",
-   "link": "https://news.google.com/rss/articles/CBMiywFBVV95cUxNVkMwZ0RlMUJWU29kbXhCRTUxNVEyQzhPLXVfV0RUdW9BU3lmSXVIa29WYnV1LW1rY3pqZXptNjVyemMwbUlMd0FMWFhKTjI0NnFqamhUQlhVc0NObTZ1NHA4NURoLUswNzlnZDdVVGU0eXloaUdIVllObFVKZ1JrbmhpZEo3T1NVOS1uV2ZhamlhNV9pY2xxNmpNRDlQVEY1U3lUTTkzVF9hVmx6WHhwRUp4dnFOYVlyTW51X3MtU2N0V0tpMkdYdUNoNA?oc=5",
-   "summary": "Draftkings odds: Which 72-hole matchups to pick at Biltmore Championship Asheville PGA Tour",
-   "published": "Wed, 16 Sep 2026 16:15:47 GMT",
-   "source": "Google News: Biltmore Championship Asheville DFS",
-   "kind": "news",
-   "golfers": []
-  },
-  {
-   "title": "Biltmore Championship 2026: Odds, favorites for Asheville - Golf Channel",
-   "link": "https://news.google.com/rss/articles/CBMimwFBVV95cUxPdDJxTkYxUjhGTFl2X2tjZl81ZUI2ODRXZnNZbHRRbms3WWlSMTlsMW9rS05iSmRYVlVwRy1kdmp0S0J1VWE5MnBHMnVCYzBxcVJmQ0J0ajk5VWl3NHNqYXVqSHp0NEN5bzF5VTY1OUtVclJZR0hVTjdDSzkwN2ZyVDhhb3dGZkxSQnhvbG43N1ZZTHhMTUlEdjVYRQ?oc=5",
-   "summary": "Biltmore Championship 2026: Odds, favorites for Asheville Golf Channel",
-   "published": "Wed, 16 Sep 2026 15:17:02 GMT",
-   "source": "Google News: Biltmore Championship Asheville DFS",
-   "kind": "news",
-   "golfers": []
-  },
-  {
-   "title": "2026 Biltmore Championship Asheville odds, picks: Proven golf model reveals projected leaderboard, surprising predictions - SportsLine",
-   "link": "https://news.google.com/rss/articles/CBMi6wFBVV95cUxPenIyemtkYkVjQVFyMUlBVjBMNE82QUpPclRTS293YUJuQkFMaGRkWVg5ZXdiR0VFWU4xSUNaS3BPWnRKeFZvaEVLOUdSMV9URlBMbzNOY25NNjN4LUNFNFFXUV85WkN2aDJ2Rl94YkdhNGppTV8xSjJjVllFMEI5X1E3WGFqRlZHVkQ4R05EMngybEp4Tjh3NkRmMkhqMWdUUl9TM1hFamxSSGJTamg4ZkdFMXRoRG4zVG5lbmF0TWEwTXRKNTBJZTFkV0NqYk1zZFhIUjBOamh3UVUxZWRLWmdXTFRndVJfVE5j?oc=5",
-   "summary": "2026 Biltmore Championship Asheville odds, picks: Proven golf model reveals projected leaderboard, surprising predictions SportsLine",
-   "published": "Wed, 16 Sep 2026 14:40:36 GMT",
-   "source": "Google News: Biltmore Championship Asheville picks",
-   "kind": "news",
-   "golfers": []
-  },
-  {
-   "title": "Biltmore Championship Asheville Picks and PGA Prop Bets | 9/17/2026 - BetUS",
-   "link": "https://news.google.com/rss/articles/CBMixwFBVV95cUxNcnViVG8teXpUM1Q5MVVuVGNsbld0dTU3TjFmcmZSOEpmMktvSE5OQmpxZmU2djIwdldxekY0WEhEQTVJMF9wTWlJTm9OZlBHaFVnajA4eTZoR0luaXNpdHhmS01SdmVHVHNfX01fdEc1TEswc3BLYks5S09rUnNiUHNnX1lueUlQUUtiMU94aFRTcmo2OVlOUHdiTEdGMnM1U250Z2hIOWxRTURMU3ZrUlhneWQxRTJkdFpGUW5FZFhDVkZQeXpB?oc=5",
-   "summary": "Biltmore Championship Asheville Picks and PGA Prop Bets | 9/17/2026 BetUS",
-   "published": "Wed, 16 Sep 2026 12:00:53 GMT",
    "source": "Google News: Biltmore Championship Asheville picks",
    "kind": "news",
    "golfers": []
