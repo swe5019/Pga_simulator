@@ -1,11 +1,11 @@
 {
- "updatedUtc": "2026-09-27T16:59:43Z",
+ "updatedUtc": "2026-09-27T21:22:40Z",
  "slate": "BILTMORE_2026",
  "event": "Biltmore Championship Asheville",
  "counts": {
-  "items": 9,
+  "items": 10,
   "golfersMentioned": 8,
-  "news": 9,
+  "news": 10,
   "chatter": 0
  },
  "sources": [
@@ -114,7 +114,7 @@
   {
    "source": "Google News: Biltmore Championship Asheville picks",
    "ok": true,
-   "items": 69,
+   "items": 70,
    "error": null
   },
   {
@@ -156,6 +156,12 @@
  ],
  "mentions": [
   {
+   "name": "Seamus Power",
+   "news": 2,
+   "chatter": 0,
+   "total": 2
+  },
+  {
    "name": "Tyler Jones",
    "news": 1,
    "chatter": 0,
@@ -169,12 +175,6 @@
   },
   {
    "name": "Paul Peterson",
-   "news": 1,
-   "chatter": 0,
-   "total": 1
-  },
-  {
-   "name": "Seamus Power",
    "news": 1,
    "chatter": 0,
    "total": 1
@@ -208,6 +208,17 @@
   }
  ],
  "items": [
+  {
+   "title": "Week 5 College Football Power Ratings and Projections for Every Game",
+   "link": "https://vsin.com/college-football/week-5-college-football-power-ratings-and-projections-for-every-game/",
+   "summary": "Week 5 College Football Power Ratings Just about every game in Week 5 is a conference clash, as we have a smattering of random matchups, but the rubber is going to meet the road for lots of teams this week and beyond. This is not a commentary on any of these teams, but looking at [&#8230;] The post Week 5 College Football Power Ratings and Projections for Every Game appeared first on VSiN .",
+   "published": "Sun, 27 Sep 2026 20:38:36 +0000",
+   "source": "VSiN",
+   "kind": "news",
+   "golfers": [
+    "Seamus Power"
+   ]
+  },
   {
    "title": "Who Should I Start for Fantasy Football Week 3? Devaughn Vele, Tre Tucker, Deebo Samuel Sr., Rashod Bateman, Mike Evans, Michael Wilson, Aaron Jones Sr., Emeka Egbuka, Bucky Irving",
    "link": "https://www.rotoballer.com/who-should-i-start-for-week-3-devaughn-vele-tre-tucker-deebo-samuel-sr-rashod-bateman-mike-evans-michael-wilson-aaron-jones-sr-emeka-egbuka-bucky-irving/1951559",
