@@ -1,11 +1,11 @@
 {
- "updatedUtc": "2026-09-26T23:38:42Z",
+ "updatedUtc": "2026-09-27T05:20:57Z",
  "slate": "BILTMORE_2026",
  "event": "Biltmore Championship Asheville",
  "counts": {
-  "items": 14,
+  "items": 12,
   "golfersMentioned": 7,
-  "news": 14,
+  "news": 12,
   "chatter": 0
  },
  "sources": [
@@ -61,7 +61,7 @@
    "source": "SportsGrid",
    "ok": false,
    "items": 0,
-   "error": "TimeoutError"
+   "error": "HTTP 404"
   },
   {
    "source": "Yahoo Golf",
@@ -108,7 +108,7 @@
   {
    "source": "Google News: Biltmore Championship Asheville DFS",
    "ok": true,
-   "items": 52,
+   "items": 53,
    "error": null
   },
   {
@@ -120,7 +120,7 @@
   {
    "source": "Google News: Biltmore Championship Asheville WD",
    "ok": true,
-   "items": 74,
+   "items": 73,
    "error": null
   },
   {
@@ -156,19 +156,19 @@
  ],
  "mentions": [
   {
-   "name": "Seamus Power",
-   "news": 3,
+   "name": "Paul Peterson",
+   "news": 2,
    "chatter": 0,
-   "total": 3
+   "total": 2
   },
   {
-   "name": "Danny Walker",
+   "name": "Seamus Power",
    "news": 1,
    "chatter": 0,
    "total": 1
   },
   {
-   "name": "Paul Peterson",
+   "name": "Danny Walker",
    "news": 1,
    "chatter": 0,
    "total": 1
@@ -203,6 +203,28 @@
  ],
  "items": [
   {
+   "title": "MLB Picks Today: Greg Peterson Best Bets Sunday, September 27",
+   "link": "https://vsin.com/mlb/mlb-picks-today-greg-peterson-best-bets-sunday-september-27/",
+   "summary": "MLB Picks Today: Expert baseball handicapper Greg Peterson shares his top MLB picks today for Sunday, September 27. Check out Greg\u2019s&#160;Daily MLB Lines&#160;and his&#160;Baseball Betting Show Podcast. Also, check out our&#160;MLB Betting Splits and tools from our friends at Ballpark Pal, including Strikeout Prop Projections and the MLB YRFI Report. Our Opta AI MLB Player [&#8230;] The post MLB P",
+   "published": "Sun, 27 Sep 2026 00:15:37 +0000",
+   "source": "VSiN",
+   "kind": "news",
+   "golfers": [
+    "Paul Peterson"
+   ]
+  },
+  {
+   "title": "NFL Top Plays Based on Betting Splits, Power Ratings and Trends \u2013 Week 3",
+   "link": "https://vsin.com/nfl/nfl-top-plays-based-on-betting-splits-power-ratings-and-trends-for-week-3/",
+   "summary": "Week 3 NFL Betting Trends: The following NFL betting trends are a collection of analytical data, betting systems and strength ratings featured on VSiN and qualified for the NFL games of Week 3. This report is meant to emulate the process that Steve Makinen and other members of the VSiN Analytics team undergo when handicapping [&#8230;] The post NFL Top Plays Based on Betting Splits, Power Ratings ",
+   "published": "Sat, 26 Sep 2026 23:45:00 +0000",
+   "source": "VSiN",
+   "kind": "news",
+   "golfers": [
+    "Seamus Power"
+   ]
+  },
+  {
    "title": "Running Back Matchups to Target in Week 3 - Derrick Henry, Kenneth Walker III, Ashton Jeanty",
    "link": "https://www.rotoballer.com/nfl-dfs-picks-running-backs-to-target-in-week-3-2026/1947590",
    "summary": "It's the weekend - you made it! Now you're ready to start building DFS lineups, placing prop bets, and adjusting [&#8230;]",
@@ -222,39 +244,6 @@
    "kind": "news",
    "golfers": [
     "Paul Peterson"
-   ]
-  },
-  {
-   "title": "College Football Picks for This Week: Week 4",
-   "link": "https://vsin.com/college-football/college-football-picks-for-this-week-week-4/",
-   "summary": "I mentioned earlier this week in my Week 4 college football power ratings article that this was the week where I was really digging in. I would either prove myself right or wrong on a variety of teams out there based on the lines where my numbers were different from the market\u2019s. Some of those [&#8230;] The post College Football Picks for This Week: Week 4 appeared first on VSiN .",
-   "published": "Fri, 25 Sep 2026 23:52:00 +0000",
-   "source": "VSiN",
-   "kind": "news",
-   "golfers": [
-    "Seamus Power"
-   ]
-  },
-  {
-   "title": "College Football Top Plays Based on Betting Splits, Power Ratings and Trends \u2013 Week 4",
-   "link": "https://vsin.com/college-football/college-football-top-plays-based-on-betting-splits-power-ratings-and-trends-for-week-4/",
-   "summary": "Week 4 College Football Betting Trends: The following college football betting trends are a collection of analytical data, betting systems and strength ratings featured on VSiN and qualified for the college football games of Week 4. This report is meant to emulate the process that Steve Makinen and other members of the VSiN Analytics team [&#8230;] The post College Football Top Plays Based on Bett",
-   "published": "Fri, 25 Sep 2026 23:51:00 +0000",
-   "source": "VSiN",
-   "kind": "news",
-   "golfers": [
-    "Seamus Power"
-   ]
-  },
-  {
-   "title": "Week 4 College Football Power Ratings and Projections for Every Game",
-   "link": "https://vsin.com/college-football/week-4-college-football-power-ratings-and-projections-for-every-game/",
-   "summary": "Week 4 College Football Power Ratings This is going to be a big week for me and for a lot of people out there. I have a lot more discrepancies in my lines than I\u2019ve had in any other week and I\u2019m assuming that a lot of other people who make their own numbers are [&#8230;] The post Week 4 College Football Power Ratings and Projections for Every Game appeared first on VSiN .",
-   "published": "Fri, 25 Sep 2026 23:50:00 +0000",
-   "source": "VSiN",
-   "kind": "news",
-   "golfers": [
-    "Seamus Power"
    ]
   },
   {
@@ -334,15 +323,6 @@
    "summary": "2026 Biltmore Championship Asheville: Top DraftKings Showdown Plays & Live Bets Ahead of Round 2 Lineups",
    "published": "Thu, 17 Sep 2026 07:00:00 GMT",
    "source": "Google News: Biltmore Championship Asheville DFS",
-   "kind": "news",
-   "golfers": []
-  },
-  {
-   "title": "Biltmore Championship Asheville Best Bets and Golf Odds - VSiN",
-   "link": "https://news.google.com/rss/articles/CBMihAFBVV95cUxOWnNDd0JKcUFwejRoU2lWMVEzM18wd0VXNmdZR083RFJXSFB6ZmtzUU13WlMtbFlNUWRyWVVKOFpFeXRaOGtmZWhnb2FJM3VxLUVneDNsOGlFQk1wSVhtRUhELTIweDFPQWR2VHh6NF9XZllTa2ttRE4wOWxZd2c5Tkg3VzY?oc=5",
-   "summary": "Biltmore Championship Asheville Best Bets and Golf Odds VSiN",
-   "published": "Thu, 17 Sep 2026 01:06:00 GMT",
-   "source": "Google News: Biltmore Championship Asheville picks",
    "kind": "news",
    "golfers": []
   }
