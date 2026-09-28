@@ -22,9 +22,27 @@ import json
 import os
 import re
 import sys
+import time
 import urllib.request
 
-UA = {"User-Agent": "Mozilla/5.0 (compatible; birdie-dfs/1.0)"}
+# DraftKings sits behind Akamai, which blocks obvious bot User-Agents. The old
+# "Mozilla/5.0 (compatible; birdie-dfs/1.0)" string started getting 403 "Access
+# Denied" on api.draftkings.com while the www lobby endpoint still allowed it,
+# which made the break look like a partial outage rather than a bot filter.
+# Send the header set a real browser sends instead.
+UA = {
+    "User-Agent": ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
+                   "(KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36"),
+    "Accept": "application/json, text/plain, */*",
+    "Accept-Language": "en-US,en;q=0.9",
+    "Referer": "https://www.draftkings.com/",
+    "Origin": "https://www.draftkings.com",
+}
+
+# Edge blocks and rate limits are frequently transient, so a single 403 should
+# not take down the whole weekly refresh.
+RETRY_CODES = (403, 429, 500, 502, 503, 504)
+RETRY_ATTEMPTS = 4
 
 # How many real contests to capture exact payout tiers for. Each costs one API
 # call, so this is a spread-vs-runtime tradeoff. A typical PGA slate carries ~40
@@ -48,21 +66,37 @@ CONTEST_MAX_AGE_HOURS = 12
 
 
 def get_json(url, optional=False):
-    print(f"GET {url}")
-    try:
-        req = urllib.request.Request(url, headers=UA)
-        with urllib.request.urlopen(req, timeout=60) as r:
-            return json.loads(r.read().decode("utf-8"))
-    except urllib.error.HTTPError as e:
-        body = ""
+    for attempt in range(RETRY_ATTEMPTS):
+        print(f"GET {url}" + (f"  (attempt {attempt + 1})" if attempt else ""))
         try:
-            body = e.read().decode("utf-8", "replace")[:200]
-        except Exception:  # noqa: BLE001
-            pass
-        print(f"  -> HTTP {e.code} {body}")
-        if optional:
-            return None
-        raise
+            req = urllib.request.Request(url, headers=UA)
+            with urllib.request.urlopen(req, timeout=60) as r:
+                return json.loads(r.read().decode("utf-8"))
+        except urllib.error.HTTPError as e:
+            body = ""
+            try:
+                body = e.read().decode("utf-8", "replace")[:200]
+            except Exception:  # noqa: BLE001
+                pass
+            print(f"  -> HTTP {e.code} {body}")
+            if e.code in RETRY_CODES and attempt < RETRY_ATTEMPTS - 1:
+                wait = 3 * (2 ** attempt)
+                print(f"  retrying in {wait}s")
+                time.sleep(wait)
+                continue
+            if optional:
+                return None
+            raise
+        except (urllib.error.URLError, TimeoutError) as e:
+            print(f"  -> network error: {e}")
+            if attempt < RETRY_ATTEMPTS - 1:
+                wait = 3 * (2 ** attempt)
+                print(f"  retrying in {wait}s")
+                time.sleep(wait)
+                continue
+            if optional:
+                return None
+            raise
 
 
 def resolve_draft_group(contest, keyword=""):
