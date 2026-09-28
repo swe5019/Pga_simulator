@@ -99,6 +99,110 @@ def get_json(url, optional=False):
             raise
 
 
+def get_text(url, optional=False):
+    """Same retry policy as get_json, for endpoints that return CSV rather than JSON."""
+    for attempt in range(RETRY_ATTEMPTS):
+        print(f"GET {url}" + (f"  (attempt {attempt + 1})" if attempt else ""))
+        try:
+            req = urllib.request.Request(url, headers=UA)
+            with urllib.request.urlopen(req, timeout=60) as r:
+                return r.read().decode("utf-8", "replace")
+        except (urllib.error.HTTPError, urllib.error.URLError, TimeoutError) as e:
+            code = getattr(e, "code", None)
+            print(f"  -> {'HTTP ' + str(code) if code else 'network error: ' + str(e)}")
+            if (code is None or code in RETRY_CODES) and attempt < RETRY_ATTEMPTS - 1:
+                time.sleep(3 * (2 ** attempt))
+                continue
+            if optional:
+                return None
+            raise
+
+
+def _www_to_draftable(r):
+    """One www-endpoint player record -> the draftables shape the caller expects."""
+    name = (r.get("displayName") or r.get("name")
+            or " ".join(x for x in (r.get("fn"), r.get("ln")) if x)).strip()
+    salary = r.get("salary", r.get("s"))
+    try:
+        salary = int(float(salary))
+    except (TypeError, ValueError):
+        salary = None
+    return {
+        "displayName": name,
+        "salary": salary,
+        "draftableId": r.get("draftableId") or r.get("pid") or r.get("playerId"),
+        # The www feed carries no status block, so player_status() falls through
+        # to ('', False). Losing OUT/WD flags beats losing the whole field.
+        "status": r.get("status") or r.get("i") or "",
+    }
+
+
+def _csv_to_draftables(text):
+    """Parse the DKSalaries CSV download into the draftables shape."""
+    rows = []
+    for row in csv.DictReader(io.StringIO(text)):
+        cells = { (k or "").strip().lower(): (v or "").strip() for k, v in row.items() }
+        name = cells.get("name") or ""
+        salary = cells.get("salary") or ""
+        if not name or not salary:
+            continue
+        try:
+            salary = int(float(salary))
+        except ValueError:
+            continue
+        rows.append({"displayName": name, "salary": salary,
+                     "draftableId": cells.get("id") or None, "status": ""})
+    return rows
+
+
+def get_draftgroup_data(dg):
+    """
+    A draft group's player pool, shaped like the api.draftkings.com draftables
+    response so callers need no special casing.
+
+    api.draftkings.com is behind an Akamai edge that 403s GitHub Actions runners.
+    www.draftkings.com answers the same runner in the same second, so this is a
+    host-level block, not a User-Agent or rate problem — spoofing headers and
+    retrying do not get through it. The www endpoints serve the same pool, so
+    fall back to them and normalize.
+    """
+    data = get_json(
+        f"https://api.draftkings.com/draftgroups/v1/draftgroups/{dg}/draftables?format=json",
+        optional=True,
+    )
+    if data and data.get("draftables"):
+        print(f"  pool source: api draftables ({len(data['draftables'])} rows)")
+        return data
+
+    alt = get_json(
+        f"https://www.draftkings.com/lineup/getavailableplayers?draftGroupId={dg}",
+        optional=True,
+    )
+    if alt:
+        rows = alt.get("playerList") or alt.get("players") or []
+        if rows:
+            # Log the real schema once so the mapping above can be tightened
+            # without another blind round-trip through CI.
+            print(f"  pool source: www getavailableplayers ({len(rows)} rows)")
+            print(f"  sample record keys: {sorted(str(k) for k in rows[0])}")
+            comp = find_key(alt, "competition") or {}
+            return {"draftables": [_www_to_draftable(r) for r in rows],
+                    "competition": comp}
+
+    text = get_text(
+        f"https://www.draftkings.com/lineup/getavailableplayerscsv?draftGroupId={dg}",
+        optional=True,
+    )
+    if text:
+        rows = _csv_to_draftables(text)
+        if rows:
+            print(f"  pool source: www salaries CSV ({len(rows)} rows)")
+            return {"draftables": rows, "competition": {}}
+
+    print(f"  pool source: NONE — every endpoint failed for dg={dg}")
+    return {}
+
+
 def resolve_draft_group(contest, keyword=""):
     """Find the draftGroupId via: explicit contest id, then a keyword name match
     in the public GOLF lobby (salaries live at the draft-group level)."""
@@ -364,10 +468,7 @@ def auto_discover():
     meta = dg_meta.get(best, {})
     start = meta.get("StartDate") or meta.get("StartDateEst")
 
-    ddata = get_json(
-        f"https://api.draftkings.com/draftgroups/v1/draftgroups/{best}/draftables?format=json",
-        optional=True,
-    )
+    ddata = get_draftgroup_data(best)
     event = ""
     if ddata:
         comp = find_key(ddata, "competition") or {}
@@ -411,10 +512,7 @@ def _pick_showdown_dg(showdown_groups, lobby):
         best_dg = max(showdown_groups.items(), key=lambda kv: (kv[1]["count"], kv[1]["entries"]))[0]
     meta = dg_meta.get(best_dg, {})
     start = meta.get("StartDate") or meta.get("StartDateEst")
-    ddata = get_json(
-        f"https://api.draftkings.com/draftgroups/v1/draftgroups/{best_dg}/draftables?format=json",
-        optional=True,
-    )
+    ddata = get_draftgroup_data(best_dg)
     event = ""
     if ddata:
         comp = find_key(ddata, "competition") or {}
@@ -475,10 +573,7 @@ def list_groups():
         suffix = d.get("ContestStartTimeSuffix") or ""
         gt = d.get("GameTypeId")
         event = ""
-        dd = get_json(
-            f"https://api.draftkings.com/draftgroups/v1/draftgroups/{dg}/draftables?format=json",
-            optional=True,
-        )
+        dd = get_draftgroup_data(dg)
         if dd:
             comp = find_key(dd, "competition") or {}
             event = comp.get("name") or comp.get("nameDisplay") or ""
@@ -596,9 +691,7 @@ def main():
         raise SystemExit("Could not resolve a draft group (try DK_DRAFTGROUP_ID).")
     print(f"Using draftGroupId {dg}")
 
-    ddata = get_json(
-        f"https://api.draftkings.com/draftgroups/v1/draftgroups/{dg}/draftables?format=json"
-    )
+    ddata = get_draftgroup_data(dg)
     draftables = ddata.get("draftables", [])
     event = (find_key(ddata, "competition") or {}).get("name", "")
 
@@ -732,10 +825,7 @@ def _fetch_and_write_showdown(disc, data_dir):
     """Fetch a showdown draft group and write dk_showdown.json."""
     sd_dg, sd_event, sd_tourney, sd_date = disc
     print(f"\n--- Fetching showdown slate dg={sd_dg} ---")
-    ddata = get_json(
-        f"https://api.draftkings.com/draftgroups/v1/draftgroups/{sd_dg}/draftables?format=json",
-        optional=True,
-    )
+    ddata = get_draftgroup_data(sd_dg)
     if not ddata:
         print("  showdown draftables fetch failed — skipping dk_showdown.json")
         return
