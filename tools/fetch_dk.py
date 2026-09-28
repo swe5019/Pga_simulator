@@ -119,8 +119,13 @@ def get_text(url, optional=False):
 
 
 def _www_to_draftable(r):
-    """One www-endpoint player record -> the draftables shape the caller expects."""
-    name = (r.get("displayName") or r.get("name")
+    """One www-endpoint player record -> the draftables shape the caller expects.
+
+    Field names confirmed from a live response: fn/ln (name parts), s (salary),
+    pid (player id), pdkid (DK player id used in upload files), i (status text),
+    news (news status), IsDisabledFromDrafting (hard out).
+    """
+    name = (r.get("displayName") or r.get("name") or r.get("pn")
             or " ".join(x for x in (r.get("fn"), r.get("ln")) if x)).strip()
     salary = r.get("salary", r.get("s"))
     try:
@@ -130,10 +135,13 @@ def _www_to_draftable(r):
     return {
         "displayName": name,
         "salary": salary,
-        "draftableId": r.get("draftableId") or r.get("pid") or r.get("playerId"),
-        # The www feed carries no status block, so player_status() falls through
-        # to ('', False). Losing OUT/WD flags beats losing the whole field.
+        # The DK upload file keys on the draftable id. This feed exposes pdkid,
+        # which is the same id the salaries CSV puts in its "ID" column.
+        "draftableId": r.get("draftableId") or r.get("pdkid") or r.get("pid"),
+        "playerId": r.get("pid"),
         "status": r.get("status") or r.get("i") or "",
+        "newsStatus": r.get("newsStatus") or r.get("news") or "",
+        "isDisabled": bool(r.get("IsDisabledFromDrafting")) or None,
     }
 
 
@@ -181,11 +189,18 @@ def get_draftgroup_data(dg):
     if alt:
         rows = alt.get("playerList") or alt.get("players") or []
         if rows:
-            # Log the real schema once so the mapping above can be tightened
-            # without another blind round-trip through CI.
             print(f"  pool source: www getavailableplayers ({len(rows)} rows)")
-            print(f"  sample record keys: {sorted(str(k) for k in rows[0])}")
             comp = find_key(alt, "competition") or {}
+            if not comp.get("name"):
+                # The api draftables response is where the event name normally comes
+                # from, and it is the blocked endpoint. Dump the non-player top-level
+                # keys and one sample record so the event name can be located here
+                # without another blind round trip.
+                top = {k: v for k, v in alt.items()
+                       if k not in ("playerList", "players") and not isinstance(v, (list, dict))}
+                print(f"  response top-level scalars: {top}")
+                print(f"  sample record: "
+                      f"{ {k: rows[0][k] for k in sorted(rows[0]) if k in ('fn','ln','pn','s','pid','pdkid','i','news','tid','tsid','htabbr','atabbr','evts','dgst')} }")
             return {"draftables": [_www_to_draftable(r) for r in rows],
                     "competition": comp}
 
