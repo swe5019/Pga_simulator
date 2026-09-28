@@ -1,11 +1,11 @@
 {
- "updatedUtc": "2026-09-27T21:22:40Z",
+ "updatedUtc": "2026-09-28T05:26:52Z",
  "slate": "BILTMORE_2026",
  "event": "Biltmore Championship Asheville",
  "counts": {
-  "items": 10,
-  "golfersMentioned": 8,
-  "news": 10,
+  "items": 13,
+  "golfersMentioned": 10,
+  "news": 13,
   "chatter": 0
  },
  "sources": [
@@ -114,13 +114,13 @@
   {
    "source": "Google News: Biltmore Championship Asheville picks",
    "ok": true,
-   "items": 70,
+   "items": 69,
    "error": null
   },
   {
    "source": "Google News: Biltmore Championship Asheville WD",
    "ok": true,
-   "items": 73,
+   "items": 74,
    "error": null
   },
   {
@@ -162,6 +162,24 @@
    "total": 2
   },
   {
+   "name": "Jacob Bridgeman",
+   "news": 2,
+   "chatter": 0,
+   "total": 2
+  },
+  {
+   "name": "Luke List",
+   "news": 1,
+   "chatter": 0,
+   "total": 1
+  },
+  {
+   "name": "Jackson Koivun",
+   "news": 1,
+   "chatter": 0,
+   "total": 1
+  },
+  {
    "name": "Tyler Jones",
    "news": 1,
    "chatter": 0,
@@ -175,12 +193,6 @@
   },
   {
    "name": "Paul Peterson",
-   "news": 1,
-   "chatter": 0,
-   "total": 1
-  },
-  {
-   "name": "Jacob Bridgeman",
    "news": 1,
    "chatter": 0,
    "total": 1
@@ -212,11 +224,44 @@
    "title": "Week 5 College Football Power Ratings and Projections for Every Game",
    "link": "https://vsin.com/college-football/week-5-college-football-power-ratings-and-projections-for-every-game/",
    "summary": "Week 5 College Football Power Ratings Just about every game in Week 5 is a conference clash, as we have a smattering of random matchups, but the rubber is going to meet the road for lots of teams this week and beyond. This is not a commentary on any of these teams, but looking at [&#8230;] The post Week 5 College Football Power Ratings and Projections for Every Game appeared first on VSiN .",
-   "published": "Sun, 27 Sep 2026 20:38:36 +0000",
+   "published": "Mon, 28 Sep 2026 03:27:00 +0000",
    "source": "VSiN",
    "kind": "news",
    "golfers": [
     "Seamus Power"
+   ]
+  },
+  {
+   "title": "Bank of Utah Championship Field 2026: Full Player List, How to Watch",
+   "link": "https://sports.yahoo.com/articles/bank-utah-championship-field-2026-015340378.html",
+   "summary": "The Bank of Utah Championship returns to Black Desert Resort in 2026. See the full PGA Tour field, alternates, dates and how to watch. The post Bank of Utah Championship Field 2026: Full Player List, How to Watch appeared first on HEAVY.",
+   "published": "Mon, 28 Sep 2026 01:53:40 +0000",
+   "source": "Yahoo Golf",
+   "kind": "news",
+   "golfers": [
+    "Luke List"
+   ]
+  },
+  {
+   "title": "Jackson Koivun has already arrived, but in Presidents Cup debut, he showed up",
+   "link": "https://sports.yahoo.com/articles/jackson-koivun-already-arrived-presidents-014751294.html",
+   "summary": "Koivun wrapped up a 2-0-1 performance at Medinah with a 2-up victory over arguably the Internationals\u2019 biggest star, Si Woo Kim, in Sunday singles, the type of showing that U.S. captain Brandt Snedeker envisioned when he tabbed the budding superstar as one of his six captain\u2019s picks.",
+   "published": "Mon, 28 Sep 2026 01:47:51 +0000",
+   "source": "Yahoo Golf",
+   "kind": "news",
+   "golfers": [
+    "Jackson Koivun"
+   ]
+  },
+  {
+   "title": "'This is cake': How Medinah crowd boosted Jacob Bridgeman's confidence before winning putt",
+   "link": "https://sports.yahoo.com/articles/cake-medinah-crowd-boosted-jacob-235815098.html",
+   "summary": "Jacob Bridgeman heard something off the 18th green at Medinah on Sunday afternoon that propelled him to sink his tournament-clinching birdie putt.",
+   "published": "Sun, 27 Sep 2026 23:58:15 +0000",
+   "source": "Yahoo Golf",
+   "kind": "news",
+   "golfers": [
+    "Jacob Bridgeman"
    ]
   },
   {
