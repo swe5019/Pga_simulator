@@ -1,11 +1,11 @@
 {
- "updatedUtc": "2026-09-28T05:26:52Z",
+ "updatedUtc": "2026-09-28T13:59:07Z",
  "slate": "BILTMORE_2026",
  "event": "Biltmore Championship Asheville",
  "counts": {
-  "items": 13,
-  "golfersMentioned": 10,
-  "news": 13,
+  "items": 12,
+  "golfersMentioned": 8,
+  "news": 12,
   "chatter": 0
  },
  "sources": [
@@ -108,19 +108,19 @@
   {
    "source": "Google News: Biltmore Championship Asheville DFS",
    "ok": true,
-   "items": 53,
+   "items": 51,
    "error": null
   },
   {
    "source": "Google News: Biltmore Championship Asheville picks",
    "ok": true,
-   "items": 69,
+   "items": 70,
    "error": null
   },
   {
    "source": "Google News: Biltmore Championship Asheville WD",
    "ok": true,
-   "items": 74,
+   "items": 67,
    "error": null
   },
   {
@@ -156,6 +156,12 @@
  ],
  "mentions": [
   {
+   "name": "Will Gordon",
+   "news": 2,
+   "chatter": 0,
+   "total": 2
+  },
+  {
    "name": "Seamus Power",
    "news": 2,
    "chatter": 0,
@@ -180,18 +186,6 @@
    "total": 1
   },
   {
-   "name": "Tyler Jones",
-   "news": 1,
-   "chatter": 0,
-   "total": 1
-  },
-  {
-   "name": "Chris Kirk",
-   "news": 1,
-   "chatter": 0,
-   "total": 1
-  },
-  {
    "name": "Paul Peterson",
    "news": 1,
    "chatter": 0,
@@ -208,18 +202,31 @@
    "news": 1,
    "chatter": 0,
    "total": 1
-  },
-  {
-   "name": "Lanto Griffin",
-   "news": 1,
-   "chatter": 0,
-   "alert": "wd",
-   "alertHeadline": "Lanto Griffin WD From Biltmore Championship Asheville With Back Injury - On Tap Sports Net",
-   "alertLink": "https://news.google.com/rss/articles/CBMimAFBVV95cUxPTXFuZUZyazdkYnhvRnkyVDFBVzlJVlA3NFJ1bXUyQjRVdGR3SFBHdVVHT0hlYk1kMERXekFqNUs4dzJzcXctS0N2UEpiYkRVT2syNzc3SkZPbUFORmdEZDNnOHFfbnlwNGoteXc5TnNOUFMzWnY4am45Z011TmxaQUlBRXRmdGFXTTlZN2pNdjFYcWI4U1Rsbw?oc=5",
-   "total": 1
   }
  ],
  "items": [
+  {
+   "title": "Running Back Fantasy Football Waiver Wire Pickups for Week 4 - Braelon Allen, Ollie Gordon II, Alvin Kamara, Kaelon Black, more",
+   "link": "https://www.rotoballer.com/running-back-waiver-wire-pickups-fantasy-football-week-4-2026/1948562",
+   "summary": "As you intensify your planning process for Week 4, a frustrating blend of injuries, uninspiring workloads, and other production-inhibiting factors [&#8230;]",
+   "published": "Mon, 28 Sep 2026 12:20:14 +0000",
+   "source": "RotoBaller",
+   "kind": "news",
+   "golfers": [
+    "Will Gordon"
+   ]
+  },
+  {
+   "title": "Week 4 Waiver Wire Rankings - Fantasy Football Pickups Include Ollie Gordon, Braelon Allen, Kenyon Sadiq, Mack Hollins, Roman Wilson, more",
+   "link": "https://www.rotoballer.com/waiver-wire-rankings-fantasy-football-week-4-2026/1952574",
+   "summary": "Amazingly, Week 4 is here. The injuries really piled up on Sunday, as we saw De'Von Achane, Breece Hall, Justin [&#8230;]",
+   "published": "Mon, 28 Sep 2026 10:07:32 +0000",
+   "source": "RotoBaller",
+   "kind": "news",
+   "golfers": [
+    "Will Gordon"
+   ]
+  },
   {
    "title": "Week 5 College Football Power Ratings and Projections for Every Game",
    "link": "https://vsin.com/college-football/week-5-college-football-power-ratings-and-projections-for-every-game/",
@@ -262,28 +269,6 @@
    "kind": "news",
    "golfers": [
     "Jacob Bridgeman"
-   ]
-  },
-  {
-   "title": "Who Should I Start for Fantasy Football Week 3? Devaughn Vele, Tre Tucker, Deebo Samuel Sr., Rashod Bateman, Mike Evans, Michael Wilson, Aaron Jones Sr., Emeka Egbuka, Bucky Irving",
-   "link": "https://www.rotoballer.com/who-should-i-start-for-week-3-devaughn-vele-tre-tucker-deebo-samuel-sr-rashod-bateman-mike-evans-michael-wilson-aaron-jones-sr-emeka-egbuka-bucky-irving/1951559",
-   "summary": "Who Should I Start? Who Should I Sit? Some of the most common Week 3 fantasy football lineup decisions involve [&#8230;]",
-   "published": "Sun, 27 Sep 2026 10:45:28 +0000",
-   "source": "RotoBaller",
-   "kind": "news",
-   "golfers": [
-    "Tyler Jones"
-   ]
-  },
-  {
-   "title": "Who Should I Start for Fantasy Football Week 3? Tyler Shough, Bryce Young, Drake Maye, Cam Ward, Kirk Cousins, Trevor Lawrence, CJ Stroud, Geno Smith, Jared Goff, Justin Herbert",
-   "link": "https://www.rotoballer.com/who-should-i-start-for-week-3-tyler-shough-bryce-young-drake-maye-cam-ward-kirk-cousins-trevor-lawrence-c-j-stroud-geno-smith-jared-goff-justin-herbert/1951560",
-   "summary": "Who Should I Start? Who Should I Sit? Some of the most common Week 3 fantasy football lineup decisions involve [&#8230;]",
-   "published": "Sun, 27 Sep 2026 10:30:30 +0000",
-   "source": "RotoBaller",
-   "kind": "news",
-   "golfers": [
-    "Chris Kirk"
    ]
   },
   {
@@ -348,18 +333,6 @@
    "source": "Google News: Biltmore Championship Asheville DFS",
    "kind": "news",
    "golfers": []
-  },
-  {
-   "title": "Lanto Griffin WD From Biltmore Championship Asheville With Back Injury - On Tap Sports Net",
-   "link": "https://news.google.com/rss/articles/CBMimAFBVV95cUxPTXFuZUZyazdkYnhvRnkyVDFBVzlJVlA3NFJ1bXUyQjRVdGR3SFBHdVVHT0hlYk1kMERXekFqNUs4dzJzcXctS0N2UEpiYkRVT2syNzc3SkZPbUFORmdEZDNnOHFfbnlwNGoteXc5TnNOUFMzWnY4am45Z011TmxaQUlBRXRmdGFXTTlZN2pNdjFYcWI4U1Rsbw?oc=5",
-   "summary": "Lanto Griffin WD From Biltmore Championship Asheville With Back Injury On Tap Sports Net",
-   "published": "Fri, 18 Sep 2026 07:00:00 GMT",
-   "source": "Google News: Biltmore Championship Asheville WD",
-   "kind": "news",
-   "golfers": [
-    "Lanto Griffin"
-   ],
-   "alert": "wd"
   }
  ]
 }
