@@ -1,19 +1,19 @@
 {
- "updatedUtc": "2026-09-29T09:52:07Z",
+ "updatedUtc": "2026-09-29T18:05:56Z",
  "slate": "UTAH_2026",
  "event": "",
  "counts": {
-  "items": 5,
+  "items": 8,
   "golfersMentioned": 4,
-  "news": 5,
+  "news": 8,
   "chatter": 0
  },
  "sources": [
   {
    "source": "RotoWire Golf",
-   "ok": true,
-   "items": 2,
-   "error": null
+   "ok": false,
+   "items": 0,
+   "error": "no items"
   },
   {
    "source": "RotoBaller Golf",
@@ -139,30 +139,85 @@
  "mentions": [
   {
    "name": "Zach J. Johnson",
+   "news": 3,
+   "chatter": 0,
+   "total": 3
+  },
+  {
+   "name": "Seamus Power",
    "news": 2,
    "chatter": 0,
    "total": 2
   },
   {
-   "name": "Seamus Power",
-   "news": 1,
+   "name": "Jackson Koivun",
+   "news": 2,
    "chatter": 0,
-   "total": 1
+   "total": 2
   },
   {
-   "name": "Harry Hall",
-   "news": 1,
-   "chatter": 0,
-   "total": 1
-  },
-  {
-   "name": "Paul Peterson",
+   "name": "Taylor Moore",
    "news": 1,
    "chatter": 0,
    "total": 1
   }
  ],
  "items": [
+  {
+   "title": "Spotted: New PXG Raptor driver at Bank of Utah Championship",
+   "link": "https://golfwrx.com/787213/spotted-new-pxg-raptor-driver-at-bank-of-utah-championship/",
+   "summary": "PXG is first to show its hand this fall with the new Raptor driver lineup spotted on the PGA Tour at the Bank of Utah Championship. GolfWRX&#8217;s Tour Photographer Greg Moore was on-site at the Black Desert Resort in Ivins, Utah, to snag pictures of the new driver in the bag of PXG staffer Aldrich [&#8230;]",
+   "published": "Tue, 29 Sep 2026 17:14:13 +0000",
+   "source": "GolfWRX",
+   "kind": "news",
+   "golfers": [
+    "Taylor Moore"
+   ]
+  },
+  {
+   "title": "Who Should I Start for Fantasy Football Week 4? Emmett Johnson, Ted Hurst III, Mike Washington Jr., Germie Bernard, Zachariah Branch, Nicholas Singleton, Malachi Fields, Kaelon Black",
+   "link": "https://www.rotoballer.com/who-should-i-start-for-week-4-emmett-johnson-ted-hurst-iii-mike-washington-jr-germie-bernard-zachariah-branch-nicholas-singleton-malachi-fields-kaelon-black/1953819",
+   "summary": "Who Should I Start? Who Should I Sit? Some of the most common Week 4 fantasy football lineup decisions involve [&#8230;]",
+   "published": "Tue, 29 Sep 2026 17:10:37 +0000",
+   "source": "RotoBaller",
+   "kind": "news",
+   "golfers": [
+    "Zach J. Johnson"
+   ]
+  },
+  {
+   "title": "College Football Week 5 Picks: Pitt vs. Virginia Tech",
+   "link": "https://vsin.com/college-football/college-football-week-5-picks-pitt-vs-virginia-tech/",
+   "summary": "Pitt vs. Virginia Tech A trio of tilts on Friday night includes a couple of Power Four games, with Pitt vs. Virginia Tech and Penn State vs. Northwestern. We live in some wild times, as the Wildcats are under a field goal underdog to the Nittany Lions. As I wrote about in this week\u2019s Opening [&#8230;] The post College Football Week 5 Picks: Pitt vs. Virginia Tech appeared first on VSiN .",
+   "published": "Tue, 29 Sep 2026 14:43:41 +0000",
+   "source": "VSiN",
+   "kind": "news",
+   "golfers": [
+    "Seamus Power"
+   ]
+  },
+  {
+   "title": "2026 Bank of Utah Championship odds: Jackson Koivun tops betting favorites",
+   "link": "https://golf.com/news/2026-bank-utah-championship-odds-jackson-koivun-favorite/",
+   "summary": "The 2026 Bank of Utah Championship odds have U.S. Presidents Cup star Jackson Koivun as the betting favorite to win the PGA Tour event. The post 2026 Bank of Utah Championship odds: Jackson Koivun tops betting favorites appeared first on Golf .",
+   "published": "Tue, 29 Sep 2026 12:01:56 +0000",
+   "source": "Golf.com",
+   "kind": "news",
+   "golfers": [
+    "Jackson Koivun"
+   ]
+  },
+  {
+   "title": "Jackson Koivun Opens As Favorite For Bank Of Utah Championship",
+   "link": "https://sports.yahoo.com/articles/jackson-koivun-opens-favorite-bank-120036624.html",
+   "summary": "Jackson Koivun enters the Bank of Utah Championship as the betting favorite after an unbeaten Presidents Cup debut and a scorching PGA Tour run.",
+   "published": "Tue, 29 Sep 2026 12:00:36 +0000",
+   "source": "Yahoo Golf",
+   "kind": "news",
+   "golfers": [
+    "Jackson Koivun"
+   ]
+  },
   {
    "title": "MLB Wild Card Game 1 Picks, Betting Systems and Playoff Handicapping Tips",
    "link": "https://vsin.com/the-vsin-daily/mlb-wild-card-game-1-picks-betting-systems-and-playoff-handicapping-tips/",
@@ -186,17 +241,6 @@
    ]
   },
   {
-   "title": "Week 4 Waiver Wire Rankings - Fantasy Football Pickups Include Ollie Gordon, Braelon Allen, Kenyon Sadiq, Mack Hollins, Roman Wilson, more",
-   "link": "https://www.rotoballer.com/waiver-wire-rankings-fantasy-football-week-4-2026/1952574",
-   "summary": "Amazingly, Week 4 is here. The injuries really piled up on Sunday, as we saw De'Von Achane, Breece Hall, Justin [&#8230;]",
-   "published": "Mon, 28 Sep 2026 23:25:32 +0000",
-   "source": "RotoBaller",
-   "kind": "news",
-   "golfers": [
-    "Harry Hall"
-   ]
-  },
-  {
    "title": "Eagles vs. Bears Monday Night Football Best Bets, Picks and Case Keenum Props",
    "link": "https://vsin.com/the-vsin-daily/eagles-vs-bears-monday-night-football-best-bets-picks-and-case-keenum-props/",
    "summary": "\ud83c\udfc8 Is Ben Johnson an Offensive Genius? We&#8217;ll have a better answer tonight. Johnson is planning to start third-string quarterback Case Keenum against the Eagles tonight (8:15 p.m. ET, ESPN), per Jay Glazer of Fox Sports. Caleb Williams is out with a hamstring injury, while backup Tyson Bagent cleared concussion protocol at the end of [&#8230;] The post Eagles vs. Bears Monday Night Football Be",
@@ -205,17 +249,6 @@
    "kind": "news",
    "golfers": [
     "Zach J. Johnson"
-   ]
-  },
-  {
-   "title": "MLB Picks Today: Greg Peterson Best Bets Sunday, September 27",
-   "link": "https://vsin.com/mlb/mlb-picks-today-greg-peterson-best-bets-sunday-september-27/",
-   "summary": "MLB Picks Today: Expert baseball handicapper Greg Peterson shares his top MLB picks today for Sunday, September 27. Check out Greg\u2019s&#160;Daily MLB Lines&#160;and his&#160;Baseball Betting Show Podcast. Also, check out our&#160;MLB Betting Splits and tools from our friends at Ballpark Pal, including Strikeout Prop Projections and the MLB YRFI Report. Our Opta AI MLB Player [&#8230;] The post MLB P",
-   "published": "Sun, 27 Sep 2026 00:15:37 +0000",
-   "source": "VSiN",
-   "kind": "news",
-   "golfers": [
-    "Paul Peterson"
    ]
   }
  ]
