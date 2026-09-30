@@ -125,8 +125,13 @@ def _www_to_draftable(r):
     pid (player id), pdkid (DK player id used in upload files), i (status text),
     news (news status), IsDisabledFromDrafting (hard out).
     """
-    name = (r.get("displayName") or r.get("name") or r.get("pn")
-            or " ".join(x for x in (r.get("fn"), r.get("ln")) if x)).strip()
+    # fn/ln first: on this feed they are the only reliable name fields. Do NOT
+    # reach for "pn" — that is the POSITION name, which is "G" for every golfer.
+    # Using it collapsed all 115 players into one row called "G", which then
+    # tripped duplicate-name showdown detection and filed the classic slate as
+    # a showdown.
+    name = (" ".join(x for x in (r.get("fn"), r.get("ln")) if x).strip()
+            or (r.get("displayName") or r.get("name") or "").strip())
     salary = r.get("salary", r.get("s"))
     try:
         salary = int(float(salary))
@@ -161,6 +166,28 @@ def _csv_to_draftables(text):
         rows.append({"displayName": name, "salary": salary,
                      "draftableId": cells.get("id") or None, "status": ""})
     return rows
+
+
+def _pool_looks_sane(draftables, raw_count, source):
+    """
+    Reject a pool whose names clearly did not parse.
+
+    A field of golfers has almost entirely distinct names. When a mapping bug
+    pulls the wrong column, every row ends up sharing one value, the dedupe
+    keeps a single player, and downstream that lone name reads as duplicates and
+    gets filed as a showdown. Writing that over real data is far worse than
+    skipping the source, so refuse anything that collapsed.
+    """
+    named = [d["displayName"] for d in draftables if d.get("displayName")]
+    unique = len(set(named))
+    if raw_count >= 10 and unique < max(5, raw_count * 0.5):
+        print(f"  REJECTED {source}: {raw_count} rows collapsed to {unique} distinct "
+              f"names (sample {sorted(set(named))[:3]}) — names did not parse")
+        return False
+    if not named:
+        print(f"  REJECTED {source}: no usable names")
+        return False
+    return True
 
 
 def get_draftgroup_data(dg):
@@ -201,8 +228,10 @@ def get_draftgroup_data(dg):
                 print(f"  response top-level scalars: {top}")
                 print(f"  sample record: "
                       f"{ {k: rows[0][k] for k in sorted(rows[0]) if k in ('fn','ln','pn','s','pid','pdkid','i','news','tid','tsid','htabbr','atabbr','evts','dgst')} }")
-            return {"draftables": [_www_to_draftable(r) for r in rows],
-                    "competition": comp}
+            out = [_www_to_draftable(r) for r in rows]
+            if not _pool_looks_sane(out, len(rows), "www getavailableplayers"):
+                return {}
+            return {"draftables": out, "competition": comp}
 
     text = get_text(
         f"https://www.draftkings.com/lineup/getavailableplayerscsv?draftGroupId={dg}",
