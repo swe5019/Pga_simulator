@@ -137,6 +137,15 @@ def _www_to_draftable(r):
         salary = int(float(salary))
     except (TypeError, ValueError):
         salary = None
+    # Only carry these through when they are actually status TEXT. This feed's
+    # "news" is an integer flag, not wording, so passing it on put an int where
+    # a string was expected downstream.
+    def as_text(*vals):
+        for v in vals:
+            if isinstance(v, str) and v.strip():
+                return v.strip()
+        return ""
+
     return {
         "displayName": name,
         "salary": salary,
@@ -144,8 +153,8 @@ def _www_to_draftable(r):
         # which is the same id the salaries CSV puts in its "ID" column.
         "draftableId": r.get("draftableId") or r.get("pdkid") or r.get("pid"),
         "playerId": r.get("pid"),
-        "status": r.get("status") or r.get("i") or "",
-        "newsStatus": r.get("newsStatus") or r.get("news") or "",
+        "status": as_text(r.get("status"), r.get("i")),
+        "newsStatus": as_text(r.get("newsStatus")),
         "isDisabled": bool(r.get("IsDisabledFromDrafting")) or None,
     }
 
@@ -1023,15 +1032,27 @@ def build_contests(dg, tourney, event):
 def player_status(p):
     """Derive (status_string, is_out) for a DK draftable, defensively across schema.
     Returns ('', False) for an active player; never raises."""
+    # The docstring promised "never raises", but these fields were assumed to be
+    # strings. The www feed sends news as an INTEGER, which made .strip() throw
+    # and killed the whole run. Coerce instead of trusting the type: a numeric
+    # flag carries no status wording, so it reads as no status.
+    def text(v):
+        return v.strip() if isinstance(v, str) else ""
+
     if p.get("isDisabled") is True:
         return ("OUT", True)
-    raw = (p.get("status") or "").strip()
+    raw = text(p.get("status"))
     if raw and raw.lower() not in ("none", "active", "available"):
         up = raw.upper()
         return (up, up in ("O", "OUT", "WD", "W/D", "DISABLED"))
-    news = (p.get("newsStatus") or "").strip()
+    news = text(p.get("newsStatus"))
     if news and news.lower() in ("out", "wd"):
         return (news.upper(), True)
+    # draftAlerts / playerGameAttributes sometimes carry WD/Out wording.
+    blob = json.dumps(p.get("draftAlerts") or p.get("playerGameAttributes") or "").lower()
+    if '"wd"' in blob or "withdraw" in blob or '"out"' in blob:
+        return ("OUT", True)
+    return ("", False)
     # draftAlerts / playerGameAttributes sometimes carry WD/Out wording.
     blob = json.dumps(p.get("draftAlerts") or p.get("playerGameAttributes") or "").lower()
     if '"wd"' in blob or "withdraw" in blob or '"out"' in blob:
