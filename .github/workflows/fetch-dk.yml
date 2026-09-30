@@ -78,6 +78,10 @@ jobs:
 
       - name: Fetch DraftKings salaries
         env:
+          # Without this Python buffers stdout but not stderr, so on a crash the
+          # traceback lands far above the prints that led to it and the log reads
+          # out of order. Unbuffered keeps cause next to effect.
+          PYTHONUNBUFFERED: '1'
           # Schedule runs are always auto; manual runs use the 'auto' input.
           DK_AUTO: ${{ github.event_name == 'schedule' && '1' || inputs.auto }}
           DK_CONTEST_ID: ${{ inputs.contest_id }}
