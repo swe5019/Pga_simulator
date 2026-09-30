@@ -65,8 +65,14 @@ MIN_HEALTHY_CONTESTS = 20
 CONTEST_MAX_AGE_HOURS = 12
 
 
-def get_json(url, optional=False):
-    for attempt in range(RETRY_ATTEMPTS):
+def get_json(url, optional=False, attempts=None):
+    # Retrying every call was a mistake: build_contests makes up to MAX_CONTESTS
+    # optional detail calls, and at 4 attempts with 3/6/12s backoff a broad 403
+    # would stall that loop for the better part of an hour. Optional calls get one
+    # shot by default; the critical path opts back in explicitly.
+    if attempts is None:
+        attempts = 1 if optional else RETRY_ATTEMPTS
+    for attempt in range(attempts):
         print(f"GET {url}" + (f"  (attempt {attempt + 1})" if attempt else ""))
         try:
             req = urllib.request.Request(url, headers=UA)
@@ -79,7 +85,7 @@ def get_json(url, optional=False):
             except Exception:  # noqa: BLE001
                 pass
             print(f"  -> HTTP {e.code} {body}")
-            if e.code in RETRY_CODES and attempt < RETRY_ATTEMPTS - 1:
+            if e.code in RETRY_CODES and attempt < attempts - 1:
                 wait = 3 * (2 ** attempt)
                 print(f"  retrying in {wait}s")
                 time.sleep(wait)
@@ -89,7 +95,7 @@ def get_json(url, optional=False):
             raise
         except (urllib.error.URLError, TimeoutError) as e:
             print(f"  -> network error: {e}")
-            if attempt < RETRY_ATTEMPTS - 1:
+            if attempt < attempts - 1:
                 wait = 3 * (2 ** attempt)
                 print(f"  retrying in {wait}s")
                 time.sleep(wait)
@@ -110,7 +116,7 @@ def get_text(url, optional=False):
         except (urllib.error.HTTPError, urllib.error.URLError, TimeoutError) as e:
             code = getattr(e, "code", None)
             print(f"  -> {'HTTP ' + str(code) if code else 'network error: ' + str(e)}")
-            if (code is None or code in RETRY_CODES) and attempt < RETRY_ATTEMPTS - 1:
+            if (code is None or code in RETRY_CODES) and attempt < attempts - 1:
                 time.sleep(3 * (2 ** attempt))
                 continue
             if optional:
@@ -212,7 +218,7 @@ def get_draftgroup_data(dg):
     """
     data = get_json(
         f"https://api.draftkings.com/draftgroups/v1/draftgroups/{dg}/draftables?format=json",
-        optional=True,
+        optional=True, attempts=RETRY_ATTEMPTS,
     )
     if data and data.get("draftables"):
         print(f"  pool source: api draftables ({len(data['draftables'])} rows)")
