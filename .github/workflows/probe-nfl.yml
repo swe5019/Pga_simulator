@@ -1,0 +1,24 @@
+name: Probe NFL salaries
+
+# Read-only diagnostic. Writes no files and commits nothing — it only reports
+# which NFL draft groups DraftKings exposes and whether the www player endpoint
+# returns salaries for them, since api.draftkings.com 403s this runner.
+on:
+  workflow_dispatch:
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Probe NFL
+        env:
+          PYTHONUNBUFFERED: '1'
+        run: python tools/probe_nfl.py
