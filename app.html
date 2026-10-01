@@ -39,6 +39,10 @@
         <p class="tag">Play-by-play PGA simulations for DraftKings — built to win.</p>
       </div>
     </a>
+    <nav class="sportsw" aria-label="Sport">
+      <a class="sportbtn active" href="app.html">PGA</a>
+      <a class="sportbtn" href="nfl.html">NFL</a>
+    </nav>
     <nav class="tabs">
       <button class="tab active" data-tab="players">1 · Players</button>
       <button class="tab" data-tab="build">2 · Build</button>
@@ -46,7 +50,6 @@
       <button class="tab" data-tab="contest">4 · Contest</button>
       <button class="tab" data-tab="export">5 · Export</button>
       <button class="tab" data-tab="news">📰 News</button>
-      <button class="tab" data-tab="nfl">🏈 NFL</button>
       <button class="tab" data-tab="saved">⭐ Saved</button>
       <button class="tab" data-tab="handbuild">✋ Hand Build</button>
     </nav>
@@ -518,71 +521,6 @@
       </div>
     </section>
 
-    <!-- ===================== NFL ADVANCED STATS (MOCKUP) ===================== -->
-    <section id="nfl" class="panel">
-      <h2>NFL Advanced Stats
-        <span class="sub" id="nflMeta"></span>
-        <span class="nfl-mock">MOCKUP · SAMPLE DATA</span>
-      </h2>
-      <p class="hint">
-        Usage and efficiency for the current slate. DFS is won on <b>opportunity</b>
-        (snap share, target share, red zone looks) far more than on efficiency, so
-        those lead. <b>Edge</b> is the one to read first: it compares a player's usage
-        rank against his salary rank, so a positive number means the market has not
-        caught up to his role yet. Trend matters more than season totals here, so the
-        Last 3 view is the default.
-      </p>
-
-      <div class="trim-bar">
-        <select id="nflWeek" class="filter-num" style="min-width:92px">
-          <option>Week 5</option><option>Week 4</option><option>Week 3</option>
-        </select>
-        <span class="filter-sep">Position</span>
-        <button class="ghost small nflpos active" data-pos="WR">WR</button>
-        <button class="ghost small nflpos" data-pos="RB">RB</button>
-        <button class="ghost small nflpos" data-pos="TE">TE</button>
-        <button class="ghost small nflpos" data-pos="QB">QB</button>
-        <span class="filter-sep">Window</span>
-        <button class="ghost small nflwin active" data-win="L3">Last 3</button>
-        <button class="ghost small nflwin" data-win="L5">Last 5</button>
-        <button class="ghost small nflwin" data-win="S">Season</button>
-        <input id="nflSearch" type="text" placeholder="Filter player or team…" class="filter-text" />
-      </div>
-
-      <div class="split nfl-split">
-        <div>
-          <h2 class="hbh">Usage &amp; Opportunity <span class="sub" id="nflCount"></span></h2>
-          <div class="tablewrap">
-            <table id="nflTable">
-              <thead><tr></tr></thead>
-              <tbody></tbody>
-            </table>
-          </div>
-        </div>
-        <div>
-          <h2 class="hbh">Game Environment</h2>
-          <div class="tablewrap">
-            <table id="nflEnvTable">
-              <thead>
-                <tr>
-                  <th>Tm</th>
-                  <th class="num" title="Vegas implied team total">Tot</th>
-                  <th class="num" title="Point spread">Spd</th>
-                  <th class="num" title="Offensive plays per game">Plays</th>
-                  <th class="num" title="Pass rate over expectation — positive means they throw more than game script implies">PROE</th>
-                </tr>
-              </thead>
-              <tbody></tbody>
-            </table>
-          </div>
-          <p class="hint" style="margin-top:12px">
-            Implied total sets the ceiling for everyone in that offense. A high PROE
-            team with a high total is where receiving production concentrates.
-          </p>
-        </div>
-      </div>
-    </section>
-
     <!-- ===================== SAVED LINEUPS ===================== -->
     <section id="saved" class="panel">
       <h2>Saved Lineups <span class="sub" id="savedCount"></span>
@@ -687,7 +625,6 @@
   <script src="assets/js/optimizer.js?v=20261001a"></script>
   <script src="assets/js/contest.js?v=20261001a"></script>
   <script src="assets/js/app.js?v=20261001a"></script>
-  <script src="assets/js/nfl.js?v=20261001a"></script>
   <script src="assets/js/onboard.js?v=20261001a"></script>
   <script src="assets/js/tour.js?v=20261001a"></script>
 </body>

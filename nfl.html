@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SlateSims NFL — Advanced Stats for DraftKings</title>
+  <link rel="icon" href="assets/img/favicon.svg?v=20260730v" type="image/svg+xml" />
+  <link rel="stylesheet" href="assets/css/styles.css?v=20261001a" />
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-13J1816EN4"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-13J1816EN4');
+  </script>
+  <script>
+    // Same gate as the PGA app, inline so it can't be skipped by a blocked file.
+    try {
+      if (!localStorage.getItem('slatesims_access_granted')) {
+        document.documentElement.classList.add('locked');
+      }
+    } catch (e) { /* ignore */ }
+  </script>
+</head>
+<body>
+  <div id="appShell">
+  <header class="topbar">
+    <a class="brand" href="index.html" title="SlateSims home">
+      <svg class="logo" viewBox="0 0 100 100" aria-hidden="true">
+        <path d="M6,82 C30,82 30,38 50,38 C70,38 70,82 94,82 Z" fill="#3fb950" opacity=".22"/>
+        <path d="M6,82 C30,82 30,38 50,38 C70,38 70,82 94,82" fill="none" stroke="#3fb950"
+              stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+        <rect x="46.8" y="6" width="6.4" height="40" rx="3.2" fill="#e6edf3"/>
+        <polygon points="53.2,8 76,16 53.2,24" fill="#e6edf3"/>
+      </svg>
+      <div>
+        <h1>Slate<span class="accent">Sims</span></h1>
+        <p class="tag">NFL advanced stats for DraftKings.</p>
+      </div>
+    </a>
+    <nav class="sportsw" aria-label="Sport">
+      <a class="sportbtn" href="app.html">PGA</a>
+      <a class="sportbtn active" href="nfl.html">NFL</a>
+    </nav>
+    <!-- The workflow tab row goes here when NFL grows past a single stats page.
+         Keeping NFL on its own page means those tabs will not have to share a
+         row with the golf workflow, and nothing here can touch golf's state. -->
+  </header>
+
+  <main>
+    <!-- ===================== NFL ADVANCED STATS (MOCKUP) ===================== -->
+    <section id="nfl" class="panel active">
+      <h2>NFL Advanced Stats
+        <span class="sub" id="nflMeta"></span>
+        <span class="nfl-mock">MOCKUP · SAMPLE DATA</span>
+      </h2>
+      <p class="hint">
+        Usage and efficiency for the current slate. DFS is won on <b>opportunity</b>
+        (snap share, target share, red zone looks) far more than on efficiency, so
+        those lead. <b>Edge</b> is the one to read first: it compares a player's usage
+        rank against his salary rank, so a positive number means the market has not
+        caught up to his role yet. Trend matters more than season totals here, so the
+        Last 3 view is the default.
+      </p>
+
+      <div class="trim-bar">
+        <select id="nflWeek" class="filter-num" style="min-width:92px">
+          <option>Week 5</option><option>Week 4</option><option>Week 3</option>
+        </select>
+        <span class="filter-sep">Position</span>
+        <button class="ghost small nflpos active" data-pos="WR">WR</button>
+        <button class="ghost small nflpos" data-pos="RB">RB</button>
+        <button class="ghost small nflpos" data-pos="TE">TE</button>
+        <button class="ghost small nflpos" data-pos="QB">QB</button>
+        <span class="filter-sep">Window</span>
+        <button class="ghost small nflwin active" data-win="L3">Last 3</button>
+        <button class="ghost small nflwin" data-win="L5">Last 5</button>
+        <button class="ghost small nflwin" data-win="S">Season</button>
+        <input id="nflSearch" type="text" placeholder="Filter player or team…" class="filter-text" />
+      </div>
+
+      <div class="split nfl-split">
+        <div>
+          <h2 class="hbh">Usage &amp; Opportunity <span class="sub" id="nflCount"></span></h2>
+          <div class="tablewrap">
+            <table id="nflTable">
+              <thead><tr></tr></thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </div>
+        <div>
+          <h2 class="hbh">Game Environment</h2>
+          <div class="tablewrap">
+            <table id="nflEnvTable">
+              <thead>
+                <tr>
+                  <th>Tm</th>
+                  <th class="num" title="Vegas implied team total">Tot</th>
+                  <th class="num" title="Point spread">Spd</th>
+                  <th class="num" title="Offensive plays per game">Plays</th>
+                  <th class="num" title="Pass rate over expectation — positive means they throw more than game script implies">PROE</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+          <p class="hint" style="margin-top:12px">
+            Implied total sets the ceiling for everyone in that offense. A high PROE
+            team with a high total is where receiving production concentrates.
+          </p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="foot">
+    <span>SlateSims · client-side, your data never leaves the browser.</span>
+  </footer>
+  </div>
+
+  <script src="assets/js/nfl.js?v=20261001a"></script>
+</body>
+</html>
