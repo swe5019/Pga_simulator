@@ -1005,24 +1005,39 @@ def build_contests(dg, tourney, event):
         depth += 1
 
     out = []
+    exact = 0
     for c in picks:
         cid = c.get("id")
-        detail = get_json(f"https://api.draftkings.com/contests/v1/contests/{cid}?format=json", optional=True)
-        if not detail:
-            continue
-        tiers = extract_tiers(detail)
-        if not tiers:
-            continue
-        pool = sum(t["value"] * (t["max"] - t["min"] + 1) for t in tiers)
-        out.append({
+        # Exact payout tiers live behind api.draftkings.com, which the runner is
+        # currently blocked from. Losing the tiers must NOT lose the contest:
+        # without this the picker went empty and the Contest tab had nothing to
+        # choose but its generic modeled option. Keeping the contest preserves its
+        # real entry fee and field size, which are the two inputs that matter most,
+        # and the app falls back to modeling the payout curve when tiers are null.
+        detail = get_json(f"https://api.draftkings.com/contests/v1/contests/{cid}?format=json",
+                          optional=True)
+        tiers = extract_tiers(detail) if detail else []
+        entry = {
             "id": str(cid),
             "name": c.get("n"),
             "fee": c.get("a"),
             "entries": c.get("m"),
-            "paidSpots": max(t["max"] for t in tiers),
-            "prizePool": round(pool, 2),
-            "tiers": tiers,
-        })
+        }
+        if tiers:
+            pool = sum(t["value"] * (t["max"] - t["min"] + 1) for t in tiers)
+            entry["paidSpots"] = max(t["max"] for t in tiers)
+            entry["prizePool"] = round(pool, 2)
+            entry["tiers"] = tiers
+            exact += 1
+        else:
+            # Lobby prize pool where DK exposes it, so a modeled curve at least
+            # scales to the right money.
+            pool = c.get("po") or c.get("pt") or c.get("prizePool")
+            entry["prizePool"] = round(float(pool), 2) if pool else None
+            entry["tiers"] = None
+        out.append(entry)
+    print(f"  contests kept: {len(out)} ({exact} with exact payout tiers, "
+          f"{len(out) - exact} modeled)")
     # Cheapest first, biggest field first within a fee — most players are
     # looking for their low-buy-in contest, not the $5,300 Thunderdome.
     out.sort(key=lambda x: ((x["fee"] if x["fee"] is not None else 1e9), -(x["entries"] or 0)))

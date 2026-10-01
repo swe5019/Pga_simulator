@@ -1156,7 +1156,13 @@ async function loadDkContests() {
       const opt = document.createElement('option');
       opt.value = String(i);
       const fee = c.fee != null ? `$${c.fee}` : '';
-      opt.textContent = `${c.name} — ${fee}, ${(c.entries || 0).toLocaleString()} entries`;
+      // Say which contests carry DK's real payout table. When the exact tiers
+      // can't be fetched we still list the contest for its true fee and field
+      // size, but the payout curve is modeled, and that difference should be
+      // visible rather than silently assumed.
+      const payout = c.tiers && c.tiers.length ? '' : ' · modeled payouts';
+      opt.textContent =
+        `${c.name} — ${fee}, ${(c.entries || 0).toLocaleString()} entries${payout}`;
       sel.appendChild(opt);
     });
   } catch (e) {
@@ -1193,7 +1199,14 @@ function runContest() {
     const t0 = performance.now();
     State.contest = window.Contest.runContestSim(State.build.lineups, State.golfers, State.simResults, opts);
     State.contest.fee = fee;
-    State.contest.payoutSource = real ? `exact DK payouts — ${real.name}` : 'modeled payouts';
+    // A picked contest only means EXACT payouts when its tiers actually came
+    // through; otherwise it contributes its real fee and field size while the
+    // payout curve is modeled. Report which, so the ROI is read in context.
+    State.contest.payoutSource = !real
+      ? 'modeled payouts'
+      : (real.tiers && real.tiers.length
+          ? `exact DK payouts — ${real.name}`
+          : `modeled payouts, real field — ${real.name}`);
     const ms = Math.round(performance.now() - t0);
     status.textContent =
       `✓ ${State.contest.results.length} lineups vs ${State.contest.fieldSize.toLocaleString()}-lineup field, ${State.contest.payoutSource} (${ms} ms)`;
