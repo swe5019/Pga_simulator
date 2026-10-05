@@ -1,19 +1,19 @@
 {
- "updatedUtc": "2026-10-01T10:10:43Z",
+ "updatedUtc": "2026-10-05T14:43:46Z",
  "slate": "UTAH_2026",
  "event": "",
  "counts": {
-  "items": 9,
-  "golfersMentioned": 7,
-  "news": 9,
+  "items": 4,
+  "golfersMentioned": 5,
+  "news": 4,
   "chatter": 0
  },
  "sources": [
   {
    "source": "RotoWire Golf",
-   "ok": false,
-   "items": 0,
-   "error": "no items"
+   "ok": true,
+   "items": 5,
+   "error": null
   },
   {
    "source": "RotoBaller Golf",
@@ -90,7 +90,7 @@
   {
    "source": "Bunkered",
    "ok": true,
-   "items": 8,
+   "items": 10,
    "error": null
   },
   {
@@ -139,12 +139,12 @@
  "mentions": [
   {
    "name": "Seamus Power",
-   "news": 3,
+   "news": 2,
    "chatter": 0,
-   "total": 3
+   "total": 2
   },
   {
-   "name": "Jackson Koivun",
+   "name": "Harry Hall",
    "news": 1,
    "chatter": 0,
    "total": 1
@@ -156,25 +156,13 @@
    "total": 1
   },
   {
+   "name": "Chris Kirk",
+   "news": 1,
+   "chatter": 0,
+   "total": 1
+  },
+  {
    "name": "Patrick Rodgers",
-   "news": 1,
-   "chatter": 0,
-   "total": 1
-  },
-  {
-   "name": "Jordan L. Smith",
-   "news": 1,
-   "chatter": 0,
-   "total": 1
-  },
-  {
-   "name": "Nick Taylor",
-   "news": 1,
-   "chatter": 0,
-   "total": 1
-  },
-  {
-   "name": "Taylor Moore",
    "news": 1,
    "chatter": 0,
    "total": 1
@@ -182,32 +170,34 @@
  ],
  "items": [
   {
-   "title": "Bank of Utah Championship Best Bets and Golf Odds",
-   "link": "https://vsin.com/golf/bank-of-utah-championship-best-bets-and-golf-odds/",
-   "summary": "Bank of Utah Championship Best Bets and Golf Odds: On Sunday, the U.S. team rallied from a three-point deficit (10-5-7.5) and won nine of the 12 singles matches to win its 11th consecutive Presidents Cup over the Internationals.&#160; A bright spot for the American team was the performance of 21-year-old PGA Tour rookie Jackson Koivun, [&#8230;] The post Bank of Utah Championship Best Bets and Gol",
-   "published": "Thu, 01 Oct 2026 02:51:17 +0000",
-   "source": "VSiN",
+   "title": "Running Back Fantasy Football Waiver Wire Pickups for Week 5 - Ollie Gordon II, Emanuel Wilson, Keaton Mitchell, Kendre Miller, more",
+   "link": "https://www.rotoballer.com/running-back-waiver-wire-pickups-fantasy-football-week-5-2026/1953992",
+   "summary": "Some of your rosters have been impacted by injuries that were sustained by De'Von Achane, Breece Hall, and Travis Etienne Jr. [&#8230;]",
+   "published": "Mon, 05 Oct 2026 12:20:01 +0000",
+   "source": "RotoBaller",
    "kind": "news",
    "golfers": [
-    "Jackson Koivun"
+    "Harry Hall",
+    "Will Gordon"
    ]
   },
   {
-   "title": "College Football Top Plays Based on Betting Splits, Power Ratings and Trends \u2013 Week 5",
-   "link": "https://vsin.com/college-football/college-football-top-plays-based-on-betting-splits-power-ratings-and-trends-for-week-5/",
-   "summary": "Week 5 College Football Betting Trends: The following is a collection of analytical data, betting systems and strength ratings featured on VSiN and qualified for the college football games of Week 5. This report is meant to emulate the process that Steve Makinen and other members of the VSiN Analytics team undergo when handicapping each [&#8230;] The post College Football Top Plays Based on Bettin",
-   "published": "Thu, 01 Oct 2026 02:47:00 +0000",
-   "source": "VSiN",
+   "title": "Quarterback Fantasy Football Waiver Wire Pickups - Top QB Adds for Week 5 Include Kirk Cousins, Michael Penix Jr., Aaron Rodgers, and more",
+   "link": "https://www.rotoballer.com/quarterback-qb-waiver-wire-pickups-week-5-fantasy-football-2026/1958043",
+   "summary": "Week 4 wasn't a banner week for quarterbacks. Eight signal callers (Drake Maye, Joe Burrow, C.J. Stroud, Kirk Cousins, Aaron [&#8230;]",
+   "published": "Mon, 05 Oct 2026 11:30:10 +0000",
+   "source": "RotoBaller",
    "kind": "news",
    "golfers": [
-    "Seamus Power"
+    "Chris Kirk",
+    "Patrick Rodgers"
    ]
   },
   {
-   "title": "College Football Week 5 Picks: Pitt vs. Virginia Tech",
-   "link": "https://vsin.com/college-football/college-football-week-5-picks-pitt-vs-virginia-tech/",
-   "summary": "Pitt vs. Virginia Tech A trio of tilts on Friday night includes a couple of Power Four games, with Pitt vs. Virginia Tech and Penn State vs. Northwestern. We live in some wild times, as the Wildcats are under a field goal underdog to the Nittany Lions. As I wrote about in this week\u2019s Opening [&#8230;] The post College Football Week 5 Picks: Pitt vs. Virginia Tech appeared first on VSiN .",
-   "published": "Thu, 01 Oct 2026 02:45:00 +0000",
+   "title": "Week 6 College Football Power Ratings and Projections for Every Game",
+   "link": "https://vsin.com/college-football/week-6-college-football-power-ratings-and-projections-for-every-game/",
+   "summary": "Week 6 College Football Power Ratings College football seasons can go sideways very quickly for a program. Because it is so easy to transfer (and tamper) nowadays, the start of a bad season will have the sharks circling around a program and may have the players with a foot or both feet out the door. [&#8230;] The post Week 6 College Football Power Ratings and Projections for Every Game appeared fi",
+   "published": "Mon, 05 Oct 2026 04:44:00 +0000",
    "source": "VSiN",
    "kind": "news",
    "golfers": [
@@ -218,66 +208,11 @@
    "title": "NFL Top Plays Based on Betting Splits, Power Ratings and Trends \u2013 Week 4",
    "link": "https://vsin.com/nfl/nfl-top-plays-based-on-betting-splits-power-ratings-and-trends-for-week-4/",
    "summary": "Week 4 NFL Betting Trends: The following NFL betting trends are a collection of analytical data, betting systems and strength ratings featured on VSiN and qualified for the NFL games of Week 4. This report is meant to emulate the process that Steve Makinen and other members of the VSiN Analytics team undergo when handicapping [&#8230;] The post NFL Top Plays Based on Betting Splits, Power Ratings ",
-   "published": "Thu, 01 Oct 2026 02:45:00 +0000",
+   "published": "Sun, 04 Oct 2026 01:51:00 +0000",
    "source": "VSiN",
    "kind": "news",
    "golfers": [
     "Seamus Power"
-   ]
-  },
-  {
-   "title": "Mid-Week Waiver Wire Rankings for Week 4 (2026): Fantasy Football Pickups for Keenan Allen, Tyler Higbee, Ollie Gordon, Jaylen Wright, Braelon Allen, Darren Waller, more",
-   "link": "https://www.rotoballer.com/mid-week-waiver-wire-rankings-fantasy-football-week-4-2026/1954249",
-   "summary": "At RotoBaller HQ, we are back with more waiver wire advice. We are entering Week 4 of the 2026 NFL [&#8230;]",
-   "published": "Thu, 01 Oct 2026 00:20:35 +0000",
-   "source": "RotoBaller",
-   "kind": "news",
-   "golfers": [
-    "Will Gordon"
-   ]
-  },
-  {
-   "title": "Steelers vs. Browns TNF Start 'Em, Sit 'Em: Aaron Rodgers, Jaylen Warren, DK Metcalf, Deshaun Watson, Quinshon Judkins, Harold Fannin, more",
-   "link": "https://www.rotoballer.com/fantasy-football-start-em-sit-em-thursday-steelers-vs-browns-week-4-2026/1954055",
-   "summary": "The Pittsburgh Steelers and Cleveland Browns are what Thursday Night Football used to be! Low-scoring and unattractive. Both teams enter [&#8230;]",
-   "published": "Thu, 01 Oct 2026 00:10:57 +0000",
-   "source": "RotoBaller",
-   "kind": "news",
-   "golfers": [
-    "Patrick Rodgers"
-   ]
-  },
-  {
-   "title": "Price books Clayton showdown at World Grand Prix as Aspinall races through",
-   "link": "https://www.skysports.com/darts/news/12040/13593755/world-grand-prix-gerwyn-price-books-all-welsh-quarter-final-with-jonny-clayton-as-nathan-aspinall-breezes-through",
-   "summary": "Gerwyn Price set up an all-Welsh quarter-final showdown with Jonny Clayton with a straight-sets win over Ross Smith at the World Grand Prix, as Ryan Joyce and Nathan Aspinall also progressed in Leicester.",
-   "published": "Wed, 30 Sep 2026 22:30:00 BST",
-   "source": "Sky Sports Golf",
-   "kind": "news",
-   "golfers": [
-    "Jordan L. Smith"
-   ]
-  },
-  {
-   "title": "MLB Wild Card Game 2 Picks, Betting Trends and Best Bets for Wednesday",
-   "link": "https://vsin.com/the-vsin-daily/mlb-wild-card-game-2-picks-betting-trends-and-best-bets-for-wednesday/",
-   "summary": "\u26be Elimination Games Get Here Fast Those elimination games in the Wild Card round get up on you quickly \u2014 like today. Adam Burke, VSiN\u2019s baseball bigfoot, looks ahead to a Game 2 quadrupleheader: \u201cAggressive pitcher usage was the story on Tuesday. White Sox manager Will Venable used ace reliever Grant Taylor for 2.1 innings [&#8230;] The post MLB Wild Card Game 2 Picks, Betting Trends and Best Bets",
-   "published": "Wed, 30 Sep 2026 05:55:15 +0000",
-   "source": "VSiN",
-   "kind": "news",
-   "golfers": [
-    "Nick Taylor"
-   ]
-  },
-  {
-   "title": "Spotted: New PXG Raptor driver at Bank of Utah Championship",
-   "link": "https://golfwrx.com/787213/spotted-new-pxg-raptor-driver-at-bank-of-utah-championship/",
-   "summary": "PXG is first to show its hand this fall with the new Raptor driver lineup spotted on the PGA Tour at the Bank of Utah Championship. GolfWRX&#8217;s Tour Photographer Greg Moore was on-site at the Black Desert Resort in Ivins, Utah, to snag pictures of the new drivers in the bag of PXG staffers Aldrich [&#8230;]",
-   "published": "Tue, 29 Sep 2026 17:14:13 +0000",
-   "source": "GolfWRX",
-   "kind": "news",
-   "golfers": [
-    "Taylor Moore"
    ]
   }
  ]
