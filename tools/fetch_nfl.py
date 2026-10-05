@@ -457,7 +457,7 @@ def build_dk():
             if d.get("DraftGroupId")}
 
     slates = []
-    for dg in sorted(entries, key=lambda k: -entries[k])[:12]:
+    for dg in sorted(entries, key=lambda k: -entries[k])[:20]:
         m = meta.get(dg, {})
         suffix = (m.get("ContestStartTimeSuffix") or "").strip()
         # Quarter and half slates reprice mid-game and a Madden stream is not a
@@ -483,6 +483,16 @@ def build_dk():
             players.append({"n": name, "pos": pos, "sal": int(sal), "tm": dk_team(p)})
         if len(players) < 50:
             log(f"   dg={dg}: only {len(players)} players, ignoring")
+            continue
+
+        # Best-ball and snake draft pools come back through the same endpoint,
+        # but their "salary" field is a draft rank: 1..N, one per player. No
+        # salary-cap game on DK tops out under $4,000, so that separates them
+        # without having to recognise every draft product by name.
+        top = max(p["sal"] for p in players)
+        if top < 4000:
+            log(f"   dg={dg}: top 'salary' is {top} over {len(players)} players — "
+                f"a draft pool, not a salary cap slate. Skipping.")
             continue
 
         teams = {p["tm"] for p in players if p["tm"]}
