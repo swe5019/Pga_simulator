@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>SlateSims NFL — Advanced Stats for DraftKings</title>
   <link rel="icon" href="assets/img/favicon.svg?v=20260730v" type="image/svg+xml" />
-  <link rel="stylesheet" href="assets/css/styles.css?v=20261001a" />
+  <link rel="stylesheet" href="assets/css/styles.css?v=20261005a" />
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-13J1816EN4"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -38,9 +38,34 @@
         <p class="tag">NFL advanced stats for DraftKings.</p>
       </div>
     </a>
-    <nav class="sportsw" aria-label="Sport">
-      <a class="sportbtn" href="app.html">PGA</a>
-      <a class="sportbtn active" href="nfl.html">NFL</a>
+    <nav class="mainnav" aria-label="Sports">
+      <div class="navitem">
+        <button type="button" class="navbtn" aria-haspopup="true" aria-expanded="false">
+          PGA <span class="navcaret" aria-hidden="true">▼</span>
+        </button>
+        <div class="navmenu" role="menu">
+          <div class="navgroup">Main Slate</div>
+          <a role="menuitem" href="app.html#players">Ownership &amp; Projections</a>
+          <a role="menuitem" href="app.html#build">Build Lineups</a>
+          <a role="menuitem" href="app.html#contest">Contest Sim</a>
+          <div class="navgroup">Showdown</div>
+          <a role="menuitem" href="app.html#showdown">Ownership &amp; Projections</a>
+          <div class="navgroup">Research</div>
+          <a role="menuitem" href="app.html#news">News &amp; Chatter</a>
+          <a role="menuitem" href="app.html#saved">Saved Lineups</a>
+        </div>
+      </div>
+      <div class="navitem">
+        <button type="button" class="navbtn here" aria-haspopup="true" aria-expanded="false">
+          NFL <span class="navcaret" aria-hidden="true">▼</span>
+        </button>
+        <div class="navmenu" role="menu">
+          <div class="navgroup">Research</div>
+          <a role="menuitem" class="current" href="nfl.html">Advanced Stats</a>
+          <div class="navgroup">Lineups</div>
+          <span class="navsoon">Optimizer — coming soon</span>
+        </div>
+      </div>
     </nav>
     <!-- The workflow tab row goes here when NFL grows past a single stats page.
          Keeping NFL on its own page means those tabs will not have to share a
@@ -52,30 +77,42 @@
     <section id="nfl" class="panel active">
       <h2>NFL Advanced Stats
         <span class="sub" id="nflMeta"></span>
-        <span class="nfl-mock">MOCKUP · SAMPLE DATA</span>
       </h2>
       <p class="hint">
-        Usage and efficiency for the current slate. DFS is won on <b>opportunity</b>
-        (snap share, target share, red zone looks) far more than on efficiency, so
-        those lead. <b>Edge</b> is the one to read first: it compares a player's usage
-        rank against his salary rank, so a positive number means the market has not
-        caught up to his role yet. Trend matters more than season totals here, so the
-        Last 3 view is the default.
+        Usage and efficiency, built from nflverse play by play, snap counts and Next
+        Gen Stats. DFS is won on <b>opportunity</b> (snap share, target share, red zone
+        looks) far more than on efficiency, so those lead. <b>Edge</b> is the one to
+        read first: it compares a player's usage rank against his salary rank, so a
+        positive number means the market has not caught up to his role yet. Every rate
+        is recomputed over the week range you pick, not averaged across weeks, so a
+        role that changed in week 3 shows up cleanly.
       </p>
+      <p id="nflNote" class="hint hidden"></p>
 
       <div class="trim-bar">
-        <select id="nflWeek" class="filter-num" style="min-width:92px">
-          <option>Week 5</option><option>Week 4</option><option>Week 3</option>
-        </select>
+        <span class="filter-sep">Season</span>
+        <select id="nflSeason" class="filter-num" style="min-width:84px"></select>
+        <span class="filter-sep">Weeks</span>
+        <select id="nflFrom" class="filter-num" style="min-width:76px"></select>
+        <span class="filter-sep">to</span>
+        <select id="nflTo" class="filter-num" style="min-width:76px"></select>
+        <button class="ghost small nflwin" data-win="1">Last 1</button>
+        <button class="ghost small nflwin active" data-win="3">Last 3</button>
+        <button class="ghost small nflwin" data-win="5">Last 5</button>
+        <button class="ghost small nflwin" data-win="0">Full season</button>
+      </div>
+
+      <div class="trim-bar">
         <span class="filter-sep">Position</span>
         <button class="ghost small nflpos active" data-pos="WR">WR</button>
         <button class="ghost small nflpos" data-pos="RB">RB</button>
         <button class="ghost small nflpos" data-pos="TE">TE</button>
         <button class="ghost small nflpos" data-pos="QB">QB</button>
-        <span class="filter-sep">Window</span>
-        <button class="ghost small nflwin active" data-win="L3">Last 3</button>
-        <button class="ghost small nflwin" data-win="L5">Last 5</button>
-        <button class="ghost small nflwin" data-win="S">Season</button>
+        <span class="filter-sep">Slate</span>
+        <select id="nflSlate" class="filter-num" style="min-width:150px"></select>
+        <label class="chk" title="Hide players who are not on the selected DraftKings slate">
+          <input type="checkbox" id="nflSlateOnly" checked /> On slate only
+        </label>
         <input id="nflSearch" type="text" placeholder="Filter player or team…" class="filter-text" />
       </div>
 
@@ -96,18 +133,20 @@
               <thead>
                 <tr>
                   <th>Tm</th>
-                  <th class="num" title="Vegas implied team total">Tot</th>
-                  <th class="num" title="Point spread">Spd</th>
-                  <th class="num" title="Offensive plays per game">Plays</th>
-                  <th class="num" title="Pass rate over expectation — positive means they throw more than game script implies">PROE</th>
+                  <th class="num" title="Offensive plays per game over the selected weeks">Plays</th>
+                  <th class="num" title="Share of plays that were dropbacks">Pass%</th>
+                  <th class="num" title="Average air yards per dropback — how far downfield this offense throws">AY/DB</th>
                 </tr>
               </thead>
               <tbody></tbody>
             </table>
           </div>
           <p class="hint" style="margin-top:12px">
-            Implied total sets the ceiling for everyone in that offense. A high PROE
-            team with a high total is where receiving production concentrates.
+            Volume sets the ceiling for everyone in an offense. A team near the top of
+            both plays and pass rate is where receiving production concentrates, and a
+            high AY/DB tells you it concentrates downfield rather than at the sticks.
+            These are what each offense actually did over the weeks you selected, not a
+            projection.
           </p>
         </div>
       </div>
@@ -120,6 +159,7 @@
   </footer>
   </div>
 
-  <script src="assets/js/nfl.js?v=20261001a"></script>
+  <script src="assets/js/nav.js?v=20261005a"></script>
+  <script src="assets/js/nfl.js?v=20261005a"></script>
 </body>
 </html>

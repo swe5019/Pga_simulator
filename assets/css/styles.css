@@ -530,34 +530,68 @@ td.overridden-cell { color: var(--accent); }
 /* Make-cut % filled in with the 50% default rather than a real market price */
 td.defaulted-cell { color: var(--dim); font-style: italic; }
 
-/* ---------- NFL advanced stats tab (mockup) ---------- */
-.nfl-mock {
-  font-size: 10.5px; letter-spacing: .6px; text-transform: uppercase;
-  color: var(--warn); border: 1px solid var(--warn); border-radius: 5px;
-  padding: 2px 7px; margin-left: 10px; vertical-align: middle; font-weight: 700;
-}
+/* ---------- NFL advanced stats ---------- */
 /* The stat table is wide and the environment panel is a narrow reference, so
    this split is weighted rather than even. */
 .nfl-split { grid-template-columns: 3fr 1fr; }
 #nflTable th.sorted { color: var(--green2); }
 #nflTable td.name { white-space: nowrap; }
+#nflTable th.sortable { cursor: pointer; user-select: none; }
+#nflTable th.sortable:hover { color: var(--text); }
+/* The table carries up to 16 columns, so it has to be allowed to scroll inside
+   its panel rather than stretching the page. */
+.nfl-split .tablewrap { overflow-x: auto; }
+.chk {
+  display: inline-flex; align-items: center; gap: 5px;
+  font-size: 12.5px; color: var(--dim); white-space: nowrap; cursor: pointer;
+}
+.chk input { margin: 0; }
 @media (max-width: 1100px) { .nfl-split { grid-template-columns: 1fr; } }
 
-/* ---------- Sport switcher (PGA | NFL) ---------- */
-/* A segmented control rather than a dropdown: with two sports a dropdown costs
-   an extra click and hides that the other sport exists at all. */
-.sportsw {
-  display: flex; gap: 0; border: 1px solid var(--line); border-radius: 8px;
-  overflow: hidden; margin-right: 20px; flex-shrink: 0;
+/* ---------- Sport menubar (PGA ▾ · NFL ▾) ---------- */
+/* Deliberately quieter than the numbered workflow tabs. Green in this app means
+   "the step you are on"; a sport is not a step, so the active sport is marked
+   with colour on the label alone and never a green pill, or the two levels of
+   navigation read as one row of buttons. */
+.mainnav { display: flex; align-items: center; gap: 2px; margin-right: 18px; flex-shrink: 0; }
+/* On a page with no workflow tab row after it, the topbar's space-between
+   would fling the menubar to the far right, away from the brand it belongs to.
+   Claiming the slack keeps it anchored left on every page. */
+.topbar > .mainnav:last-child { margin-right: auto; }
+.navitem { position: relative; }
+.navbtn {
+  display: flex; align-items: center; gap: 5px;
+  padding: 7px 11px; border: 0; border-radius: 7px; background: transparent;
+  color: var(--dim); font-size: 13px; font-weight: 600; letter-spacing: .2px;
+  font-family: inherit; cursor: pointer; white-space: nowrap;
 }
-.sportbtn {
-  padding: 6px 14px; font-size: 12.5px; font-weight: 700; letter-spacing: .4px;
-  color: var(--dim); text-decoration: none; background: transparent;
-  border-right: 1px solid var(--line);
+.navbtn:hover { color: var(--text); background: var(--panel2); }
+.navbtn.here { color: var(--green2); }
+.navitem.open > .navbtn { color: var(--text); background: var(--panel2); }
+.navcaret { font-size: 9px; opacity: .65; transition: transform .12s ease; }
+.navitem.open .navcaret { transform: rotate(180deg); }
+.navlink { text-decoration: none; }
+
+.navmenu {
+  display: none; position: absolute; top: calc(100% + 7px); left: 0; z-index: 60;
+  min-width: 232px; padding: 7px 0;
+  background: var(--panel); border: 1px solid var(--line); border-radius: 10px;
+  box-shadow: 0 14px 34px rgba(0, 0, 0, .55);
 }
-.sportbtn:last-child { border-right: 0; }
-.sportbtn:hover { color: var(--text); background: var(--panel2); }
-/* Deliberately NOT green. Green marks the active step in a workflow (the tabs),
-   and an active sport sitting next to an active tab in the same colour read as
-   one control. This is a different level of navigation, so it looks different. */
-.sportbtn.active { color: var(--text); background: var(--chip); box-shadow: inset 0 -2px 0 var(--green2); }
+.navitem.open .navmenu { display: block; }
+.navgroup {
+  padding: 9px 14px 4px; font-size: 10.5px; font-weight: 800; letter-spacing: .9px;
+  text-transform: uppercase; color: var(--green2);
+}
+.navgroup + .navgroup, .navmenu > .navgroup:first-child { padding-top: 5px; }
+.navmenu a {
+  display: block; padding: 7px 14px; color: var(--text); text-decoration: none;
+  font-size: 13.5px; white-space: nowrap;
+}
+.navmenu a:hover { background: var(--panel2); }
+.navmenu a.current { color: var(--green2); font-weight: 600; }
+.navsoon {
+  display: block; padding: 7px 14px; color: var(--dim); font-size: 13px;
+  font-style: italic; cursor: default;
+}
+@media (max-width: 900px) { .mainnav { margin-right: 8px; } .navbtn { padding: 7px 8px; } }

@@ -1,171 +1,332 @@
 /* ============================================================
- * nfl.js — NFL advanced stats tab (MOCKUP)
- * ------------------------------------------------------------
- * Self-contained on purpose: it touches no golf State, no sim,
- * no optimizer. Everything here is sample data so the layout and
- * interactions can be judged before any real feed is wired up.
+ * nfl.js — NFL advanced stats reference.
  *
- * If this ships for real, the numbers would come from nflverse
- * (nflfastR) weekly player stats, which are published as static
- * files in GitHub releases — fetchable by a workflow exactly like
- * fetch-dk.yml, and with no API edge that can block the runner.
+ * Reads data/nfl_<season>.json, which ships RAW WEEKLY COUNTS, not rates, and
+ * data/nfl_dk.json for salaries. Every rate on screen is computed here, over
+ * whatever week window is selected, by summing the counts across that window
+ * and dividing once. That is the whole reason the feed is shaped the way it is:
+ * averaging four weekly target shares is not the target share over four weeks,
+ * and the difference is largest for exactly the players whose role changed,
+ * which are the players this page exists to find.
+ *
+ * Columns are position-specific. One table across QB/RB/WR/TE would be mostly
+ * empty cells, so the position buttons swap the column set.
  * ============================================================ */
 (function () {
   const $ = (s) => document.querySelector(s);
   const $$ = (s) => Array.from(document.querySelectorAll(s));
 
-  // Column sets per position. NFL stats are position-specific, so one table
-  // across all four would be mostly blank cells — the switcher swaps these.
+  const DATA_DIR = 'data/';
+
+  /* ---------- state ---------- */
+  const state = {
+    index: null,
+    season: null,
+    raw: null,          // parsed nfl_<season>.json
+    dk: null,           // parsed nfl_dk.json
+    slate: null,        // chosen DK slate
+    pos: 'WR',
+    from: null,
+    to: null,
+    q: '',
+    sort: { key: 'tgtsh', dir: -1 },   // replaced by defaultSortKey() on first render
+  };
+
+  /* ---------- column sets ----------
+   * [key, label, cssClass, tooltip]. Keys match what agg() produces. */
+  const EDGE_TIP = 'Usage rank minus salary rank over this window. Positive means '
+    + 'the market has not priced his role yet.';
+  const ROUTE_TIP = 'Routes are reconstructed from who was on the field for each dropback, '
+    + 'because nobody publishes charted routes for free. A back or tight end who stayed '
+    + 'in to block still counts as a route, so their rate reads a little low; for wide '
+    + 'receivers it lands within a route or two per game of the charted figure.';
+
   const COLS = {
     WR: [
-      ['name', 'Player', ''], ['tm', 'Tm', ''], ['opp', 'Opp', ''],
-      ['sal', 'Sal', 'num'],
-      ['snap', 'Snap%', 'num', 'Share of offensive snaps'],
-      ['routes', 'Routes', 'num', 'Routes run per game'],
-      ['tprr', 'TPRR', 'num', 'Targets per route run — the cleanest usage rate'],
+      ['name', 'Player', ''], ['tm', 'Tm', ''], ['g', 'G', 'num', 'Games in this window'],
+      ['sal', 'Sal', 'num', 'DraftKings salary for the selected slate'],
+      ['snap', 'Snap%', 'num', 'Share of his team\'s offensive snaps'],
+      ['routes', 'Rts/g', 'num', ROUTE_TIP],
+      ['tprr', 'TPRR', 'num', 'Targets per route run. The cleanest usage rate there is: '
+        + 'it is immune to how often his offense threw. ' + ROUTE_TIP],
       ['tgtsh', 'Tgt%', 'num', 'Share of team targets'],
-      ['adot', 'aDOT', 'num', 'Average depth of target'],
+      ['adot', 'aDOT', 'num', 'Average depth of target, in yards'],
       ['airsh', 'Air%', 'num', 'Share of team air yards'],
-      ['wopr', 'WOPR', 'num', 'Weighted opportunity rating: target share + air yards share'],
-      ['rz', 'RZ', 'num', 'Red zone targets per game'],
-      ['yprr', 'YPRR', 'num', 'Yards per route run — efficiency'],
-      ['edge', 'Edge', 'num', 'Usage rank minus salary rank. Positive means underpriced for his role.'],
+      ['wopr', 'WOPR', 'num', 'Weighted opportunity rating: 1.5 x target share + 0.7 x air yards share'],
+      ['rz', 'RZ/g', 'num', 'Targets per game inside the 20'],
+      ['yprr', 'YPRR', 'num', 'Yards per route run. ' + ROUTE_TIP],
+      ['sep', 'Sep', 'num', 'Next Gen Stats average separation at the catch point, in yards'],
+      ['yacoe', 'YACOE', 'num', 'Yards after catch over expected, per reception'],
+      ['edge', 'Edge', 'num', EDGE_TIP],
     ],
-    TE: null, // same shape as WR
+    TE: null,
     RB: [
-      ['name', 'Player', ''], ['tm', 'Tm', ''], ['opp', 'Opp', ''],
-      ['sal', 'Sal', 'num'],
-      ['snap', 'Snap%', 'num', 'Share of offensive snaps'],
+      ['name', 'Player', ''], ['tm', 'Tm', ''], ['g', 'G', 'num', 'Games in this window'],
+      ['sal', 'Sal', 'num', 'DraftKings salary for the selected slate'],
+      ['snap', 'Snap%', 'num', 'Share of his team\'s offensive snaps'],
       ['carsh', 'Car%', 'num', 'Share of team carries'],
-      ['rz', 'RZ', 'num', 'Red zone carries per game'],
-      ['gl', 'GL', 'num', 'Goal line carries per game'],
-      ['tgtsh', 'Tgt%', 'num', 'Share of team targets — what separates RB1s in PPR'],
-      ['ybc', 'YBC', 'num', 'Yards before contact per attempt — blocking'],
-      ['yac', 'YAC', 'num', 'Yards after contact per attempt — the back himself'],
-      ['edge', 'Edge', 'num', 'Usage rank minus salary rank. Positive means underpriced for his role.'],
+      ['rzc', 'RZ/g', 'num', 'Carries per game inside the 20'],
+      ['glc', 'GL/g', 'num', 'Carries per game inside the 5. The touchdown column.'],
+      ['tgtsh', 'Tgt%', 'num', 'Share of team targets. In PPR this is what separates an RB1 from a committee back.'],
+      ['tgpg', 'Tgt/g', 'num', 'Targets per game'],
+      ['ypc', 'YPC', 'num', 'Yards per carry'],
+      ['ryoe', 'RYOE', 'num', 'Next Gen Stats rush yards over expected, per attempt. '
+        + 'Positive means he beats what the blocking gave him.'],
+      ['edge', 'Edge', 'num', EDGE_TIP],
     ],
     QB: [
-      ['name', 'Player', ''], ['tm', 'Tm', ''], ['opp', 'Opp', ''],
-      ['sal', 'Sal', 'num'],
-      ['db', 'DB', 'num', 'Dropbacks per game'],
-      ['adot', 'aDOT', 'num', 'Average depth of target'],
-      ['prs', 'Prs%', 'num', 'Pressure rate faced'],
-      ['ttt', 'TTT', 'num', 'Time to throw, seconds'],
+      ['name', 'Player', ''], ['tm', 'Tm', ''], ['g', 'G', 'num', 'Games in this window'],
+      ['sal', 'Sal', 'num', 'DraftKings salary for the selected slate'],
+      ['dbpg', 'DB/g', 'num', 'Dropbacks per game'],
+      ['adot', 'aDOT', 'num', 'Average depth of target, in yards'],
+      ['iay', 'IAY', 'num', 'Next Gen Stats average intended air yards'],
+      ['ttt', 'TTT', 'num', 'Next Gen Stats time to throw, in seconds'],
       ['cpoe', 'CPOE', 'num', 'Completion percentage over expected'],
-      ['epa', 'EPA', 'num', 'EPA per dropback'],
-      ['rush', 'Rush', 'num', 'Rush attempts per game — the DFS separator at QB'],
-      ['edge', 'Edge', 'num', 'Usage rank minus salary rank. Positive means underpriced for his role.'],
+      ['epa', 'EPA', 'num', 'Expected points added per dropback'],
+      ['rush', 'Rush/g', 'num', 'Rush attempts per game. The DFS separator at quarterback.'],
+      ['ypg', 'PaYd/g', 'num', 'Passing yards per game'],
+      ['edge', 'Edge', 'num', EDGE_TIP],
     ],
   };
   COLS.TE = COLS.WR;
 
-  // Sample rows. Deliberately plausible rather than accurate — this is a layout
-  // mockup, and the banner says so.
-  const DATA = {
-    WR: [
-      { name: 'Puka Nacua', tm: 'LAR', opp: 'SEA', sal: 8600, snap: 94, routes: 38, tprr: 0.29, tgtsh: 31.2, adot: 9.1, airsh: 34, wopr: 0.81, rz: 1.7, yprr: 2.61, edge: 4 },
-      { name: 'Jaxon Smith-Njigba', tm: 'SEA', opp: 'LAR', sal: 7900, snap: 91, routes: 36, tprr: 0.27, tgtsh: 28.8, adot: 8.4, airsh: 30, wopr: 0.74, rz: 1.3, yprr: 2.44, edge: 6 },
-      { name: 'Rome Odunze', tm: 'CHI', opp: 'MIN', sal: 6200, snap: 88, routes: 34, tprr: 0.24, tgtsh: 25.1, adot: 12.6, airsh: 33, wopr: 0.69, rz: 1.1, yprr: 2.02, edge: 11 },
-      { name: 'Ladd McConkey', tm: 'LAC', opp: 'DEN', sal: 6800, snap: 86, routes: 33, tprr: 0.25, tgtsh: 24.6, adot: 7.9, airsh: 26, wopr: 0.63, rz: 1.4, yprr: 2.31, edge: 5 },
-      { name: 'Jordan Addison', tm: 'MIN', opp: 'CHI', sal: 5900, snap: 83, routes: 31, tprr: 0.22, tgtsh: 22.4, adot: 11.2, airsh: 28, wopr: 0.60, rz: 0.9, yprr: 1.88, edge: 8 },
-      { name: 'Tetairoa McMillan', tm: 'CAR', opp: 'ATL', sal: 5400, snap: 90, routes: 35, tprr: 0.26, tgtsh: 27.3, adot: 10.4, airsh: 31, wopr: 0.72, rz: 1.2, yprr: 1.74, edge: 14 },
-      { name: 'Khalil Shakir', tm: 'BUF', opp: 'NE', sal: 5100, snap: 79, routes: 29, tprr: 0.21, tgtsh: 19.8, adot: 5.6, airsh: 16, wopr: 0.44, rz: 0.7, yprr: 2.12, edge: -2 },
-      { name: 'Xavier Worthy', tm: 'KC', opp: 'LV', sal: 6400, snap: 81, routes: 32, tprr: 0.20, tgtsh: 20.6, adot: 13.1, airsh: 29, wopr: 0.58, rz: 0.8, yprr: 1.66, edge: -3 },
-      { name: 'Keon Coleman', tm: 'BUF', opp: 'NE', sal: 4600, snap: 72, routes: 27, tprr: 0.18, tgtsh: 17.2, adot: 14.8, airsh: 27, wopr: 0.53, rz: 0.9, yprr: 1.59, edge: 9 },
-      { name: 'Jalen McMillan', tm: 'TB', opp: 'NO', sal: 3800, snap: 68, routes: 25, tprr: 0.16, tgtsh: 14.9, adot: 9.7, airsh: 18, wopr: 0.39, rz: 0.6, yprr: 1.41, edge: 3 },
-    ],
-    TE: [
-      { name: 'Brock Bowers', tm: 'LV', opp: 'KC', sal: 7100, snap: 92, routes: 35, tprr: 0.27, tgtsh: 28.4, adot: 7.2, airsh: 24, wopr: 0.67, rz: 1.6, yprr: 2.38, edge: 2 },
-      { name: 'Trey McBride', tm: 'ARI', opp: 'SF', sal: 6600, snap: 89, routes: 33, tprr: 0.26, tgtsh: 26.9, adot: 6.4, airsh: 21, wopr: 0.62, rz: 1.4, yprr: 2.19, edge: 4 },
-      { name: 'Tucker Kraft', tm: 'GB', opp: 'DET', sal: 4900, snap: 78, routes: 28, tprr: 0.21, tgtsh: 19.3, adot: 8.1, airsh: 19, wopr: 0.48, rz: 1.1, yprr: 2.04, edge: 10 },
-      { name: 'Colston Loveland', tm: 'CHI', opp: 'MIN', sal: 3600, snap: 71, routes: 26, tprr: 0.19, tgtsh: 16.8, adot: 7.6, airsh: 15, wopr: 0.40, rz: 0.8, yprr: 1.72, edge: 7 },
-      { name: 'Dalton Kincaid', tm: 'BUF', opp: 'NE', sal: 4200, snap: 69, routes: 24, tprr: 0.17, tgtsh: 15.1, adot: 6.9, airsh: 13, wopr: 0.35, rz: 0.7, yprr: 1.55, edge: -4 },
-    ],
-    RB: [
-      { name: 'Bijan Robinson', tm: 'ATL', opp: 'CAR', sal: 9200, snap: 82, carsh: 68, rz: 3.4, gl: 1.6, tgtsh: 14.2, ybc: 2.9, yac: 3.4, edge: 1 },
-      { name: 'Jahmyr Gibbs', tm: 'DET', opp: 'GB', sal: 8800, snap: 61, carsh: 54, rz: 2.8, gl: 1.1, tgtsh: 12.8, ybc: 3.2, yac: 3.1, edge: 3 },
-      { name: 'Omarion Hampton', tm: 'LAC', opp: 'DEN', sal: 6900, snap: 74, carsh: 71, rz: 3.1, gl: 1.4, tgtsh: 8.4, ybc: 2.4, yac: 2.9, edge: 8 },
-      { name: 'Kenneth Walker III', tm: 'SEA', opp: 'LAR', sal: 6100, snap: 58, carsh: 59, rz: 2.6, gl: 1.2, tgtsh: 9.1, ybc: 2.1, yac: 3.3, edge: 5 },
-      { name: 'Chase Brown', tm: 'CIN', opp: 'BAL', sal: 5800, snap: 69, carsh: 63, rz: 2.2, gl: 0.9, tgtsh: 11.6, ybc: 2.6, yac: 2.8, edge: 6 },
-      { name: 'Tyrone Tracy Jr.', tm: 'NYG', opp: 'DAL', sal: 4700, snap: 64, carsh: 57, rz: 1.9, gl: 0.7, tgtsh: 10.3, ybc: 2.2, yac: 3.0, edge: 12 },
-      { name: 'Rhamondre Stevenson', tm: 'NE', opp: 'BUF', sal: 4300, snap: 52, carsh: 49, rz: 1.7, gl: 0.8, tgtsh: 7.9, ybc: 1.9, yac: 2.6, edge: -5 },
-    ],
-    QB: [
-      { name: 'Lamar Jackson', tm: 'BAL', opp: 'CIN', sal: 8400, db: 36, adot: 9.4, prs: 24, ttt: 2.91, cpoe: 5.1, epa: 0.24, rush: 8.2, edge: 2 },
-      { name: 'Jayden Daniels', tm: 'WAS', opp: 'PHI', sal: 8100, db: 38, adot: 8.1, prs: 27, ttt: 2.78, cpoe: 4.4, epa: 0.19, rush: 7.6, edge: 4 },
-      { name: 'Josh Allen', tm: 'BUF', opp: 'NE', sal: 8600, db: 37, adot: 8.9, prs: 22, ttt: 2.84, cpoe: 3.2, epa: 0.21, rush: 6.1, edge: -1 },
-      { name: 'Caleb Williams', tm: 'CHI', opp: 'MIN', sal: 6300, db: 40, adot: 9.8, prs: 31, ttt: 3.06, cpoe: 1.6, epa: 0.09, rush: 4.8, edge: 9 },
-      { name: 'Bo Nix', tm: 'DEN', opp: 'LAC', sal: 5700, db: 39, adot: 7.2, prs: 26, ttt: 2.69, cpoe: 0.8, epa: 0.06, rush: 5.2, edge: 6 },
-      { name: 'Drake Maye', tm: 'NE', opp: 'BUF', sal: 6000, db: 41, adot: 8.6, prs: 33, ttt: 2.97, cpoe: 2.9, epa: 0.11, rush: 4.1, edge: 7 },
-    ],
-  };
+  /* Columns that only exist when the season has participation data. */
+  const ROUTE_COLS = new Set(['routes', 'tprr', 'yprr']);
 
-  const ENV = [
-    { tm: 'BUF', tot: 27.5, spd: -7.5, plays: 66, proe: 4.2 },
-    { tm: 'LAR', tot: 25.0, spd: -2.5, plays: 64, proe: 2.8 },
-    { tm: 'BAL', tot: 26.5, spd: -3.0, plays: 65, proe: 1.4 },
-    { tm: 'DET', tot: 26.0, spd: -2.0, plays: 67, proe: -0.6 },
-    { tm: 'CHI', tot: 23.5, spd: 1.5, plays: 68, proe: 6.1 },
-    { tm: 'SEA', tot: 22.5, spd: 2.5, plays: 63, proe: 3.3 },
-    { tm: 'KC', tot: 24.5, spd: -5.5, plays: 62, proe: 0.9 },
-    { tm: 'CAR', tot: 19.5, spd: 4.5, plays: 61, proe: 7.4 },
-  ];
+  /* The column each position opens on when there is no salary feed and so no
+   * Edge to lead with. It has to be position-specific: quarterbacks have no
+   * target share, so defaulting everyone to Tgt% sorted the QB table by a
+   * column of nulls and floated one-dropback backups to the top. */
+  const DEFAULT_SORT = { QB: 'dbpg', RB: 'carsh', WR: 'tgtsh', TE: 'tgtsh' };
+  const defaultSortKey = () => (state.slate ? 'edge' : DEFAULT_SORT[state.pos] || 'tgtsh');
 
-  const state = { pos: 'WR', win: 'L3', q: '', sort: { key: 'edge', dir: -1 } };
+  /* ---------- helpers ---------- */
+  // nflverse and DraftKings disagree about three franchises. Normalising both
+  // sides here is cheaper than carrying a mapping through the Python feed.
+  const TEAM_FIX = { LA: 'LAR', STL: 'LAR', SD: 'LAC', OAK: 'LV', WSH: 'WAS', JAC: 'JAX', ARZ: 'ARI' };
+  const team = (t) => TEAM_FIX[(t || '').toUpperCase()] || (t || '').toUpperCase();
 
-  const fmt = (k, v) => {
-    if (v == null) return '—';
+  // Must survive "A.J. Brown" vs "AJ Brown" and "Marvin Harrison Jr." vs
+  // "Marvin Harrison". Mirrors nrm() in tools/fetch_nfl.py.
+  function nrm(s) {
+    return (s || '').toLowerCase()
+      .replace(/[.'`,]/g, '')
+      .replace(/\b(jr|sr|ii|iii|iv|v)\b/g, '')
+      .replace(/[^a-z]+/g, '');
+  }
+
+  const div = (a, b) => (b > 0 ? a / b : null);
+  const sum = (rows, k) => rows.reduce((t, r) => t + (r[k] || 0), 0);
+
+  /* Volume-weighted mean, for the handful of Next Gen rates that cannot be
+   * decomposed into counts. A flat mean would let a one-target week swing a
+   * season figure as hard as a twelve-target week. */
+  function wmean(rows, key, weightKey) {
+    let n = 0, d = 0;
+    rows.forEach((r) => {
+      if (r[key] == null) return;
+      const w = r[weightKey] || 0;
+      if (w <= 0) return;
+      n += r[key] * w;
+      d += w;
+    });
+    return d > 0 ? n / d : null;
+  }
+
+  /* ---------- aggregation ---------- */
+  function agg() {
+    const raw = state.raw;
+    if (!raw) return [];
+    const meta = new Map(raw.players.map((p) => [p.id, p]));
+    const byPlayer = new Map();
+    raw.rows.forEach((r) => {
+      if (r.w < state.from || r.w > state.to) return;
+      if (!byPlayer.has(r.i)) byPlayer.set(r.i, []);
+      byPlayer.get(r.i).push(r);
+    });
+
+    const out = [];
+    byPlayer.forEach((rows, id) => {
+      const m = meta.get(id);
+      if (!m || m.p !== state.pos) return;
+
+      // Team denominators are summed over the SAME weeks the player appeared,
+      // so a player who missed three games is measured against the snaps and
+      // targets of the games he actually played, not the team's whole window.
+      let tSn = 0, tTg = 0, tAy = 0, tCa = 0, tDb = 0;
+      rows.forEach((r) => {
+        const t = raw.teams[`${r.t}|${r.w}`] || {};
+        tSn += t.sn || 0; tTg += t.tg || 0; tAy += t.ay || 0;
+        tCa += t.ca || 0; tDb += t.db || 0;
+      });
+
+      const g = rows.length;
+      const tg = sum(rows, 'tg'), ay = sum(rows, 'ay'), ry = sum(rows, 'ry');
+      const ca = sum(rows, 'ca'), ru = sum(rows, 'ru'), rt = sum(rows, 'rt');
+      const att = sum(rows, 'att'), db = tDb && sum(rows, 'att') + sum(rows, 'sk');
+      const tgtsh = div(tg, tTg), airsh = div(ay, tAy);
+
+      const row = {
+        id,
+        name: m.n,
+        tm: team(rows[rows.length - 1].t),
+        opp: team(rows[rows.length - 1].o),
+        g,
+        snap: div(sum(rows, 'sn'), tSn) != null ? div(sum(rows, 'sn'), tSn) * 100 : null,
+        tgtsh: tgtsh != null ? tgtsh * 100 : null,
+        airsh: airsh != null ? airsh * 100 : null,
+        // Receivers' aDOT is their own air yards over their targets; a
+        // quarterback's is the air yards he THREW over his attempts, which is a
+        // different numerator entirely. Reading the receiving one for a QB is
+        // how the column came out blank.
+        adot: state.pos === 'QB' ? div(sum(rows, 'pay'), att) : div(ay, tg),
+        rz: div(sum(rows, 'rz'), g),
+        tgpg: div(tg, g),
+        carsh: div(ca, tCa) != null ? div(ca, tCa) * 100 : null,
+        rzc: div(sum(rows, 'rzc'), g),
+        glc: div(sum(rows, 'glc'), g),
+        ypc: div(ru, ca),
+        rush: div(sum(rows, 'qra'), g),
+        dbpg: div(att + sum(rows, 'sk'), g),
+        ypg: div(sum(rows, 'py'), g),
+        cpoe: div(sum(rows, 'cpoeN'), att),
+        epa: div(sum(rows, 'pepa'), att + sum(rows, 'sk')),
+        sep: wmean(rows, 'sep', 'tg'),
+        yacoe: wmean(rows, 'yacoe', 'rec'),
+        ttt: wmean(rows, 'ttt', 'att'),
+        iay: wmean(rows, 'iay', 'att'),
+        ryoe: wmean(rows, 'ryoe', 'ca'),
+      };
+      // WOPR is defined on shares, so it only exists when both shares do.
+      row.wopr = (tgtsh != null && airsh != null) ? 1.5 * tgtsh + 0.7 * airsh : null;
+      if (raw.hasRoutes && rt > 0) {
+        row.routes = rt / g;
+        row.tprr = div(tg, rt);
+        row.yprr = div(ry, rt);
+      }
+      // A player with no involvement at all in the window is noise in a table
+      // meant for picking lineups.
+      if (!row.g || (!tg && !ca && !att)) return;
+      out.push(row);
+    });
+
+    attachSalaries(out);
+    attachEdge(out);
+    return out;
+  }
+
+  /* ---------- salaries and Edge ---------- */
+  function attachSalaries(rows) {
+    const slate = state.slate;
+    if (!slate) { rows.forEach((r) => { r.sal = null; }); return; }
+    const byName = new Map();
+    slate.players.forEach((p) => {
+      const k = nrm(p.n);
+      // DK lists a player once per slate, but defences and duplicates exist;
+      // first write wins so a stray entry cannot overwrite a real salary.
+      if (!byName.has(k)) byName.set(k, p);
+    });
+    rows.forEach((r) => {
+      const hit = byName.get(nrm(r.name));
+      r.sal = hit ? hit.sal : null;
+      if (hit && hit.tm) r.dkTm = team(hit.tm);
+    });
+  }
+
+  /* Edge: usage rank minus salary rank, both within this position and window.
+   * Usage is deliberately the same opportunity measure the position's table
+   * leads with, so the number means what the columns above it say. */
+  function attachEdge(rows) {
+    const priced = rows.filter((r) => r.sal != null);
+    if (priced.length < 8) { rows.forEach((r) => { r.edge = null; }); return; }
+    const usageOf = (r) => {
+      if (state.pos === 'QB') return r.dbpg != null ? r.dbpg + 2.2 * (r.rush || 0) : null;
+      if (state.pos === 'RB') return (r.carsh || 0) + 1.4 * (r.tgtsh || 0) + 6 * (r.glc || 0);
+      return r.wopr != null ? r.wopr : (r.tgtsh || 0);
+    };
+    const withUsage = priced.filter((r) => usageOf(r) != null);
+    const byUsage = withUsage.slice().sort((a, b) => usageOf(b) - usageOf(a));
+    const bySal = withUsage.slice().sort((a, b) => b.sal - a.sal);
+    const uRank = new Map(byUsage.map((r, i) => [r.id, i + 1]));
+    const sRank = new Map(bySal.map((r, i) => [r.id, i + 1]));
+    rows.forEach((r) => {
+      r.edge = (uRank.has(r.id) && sRank.has(r.id)) ? sRank.get(r.id) - uRank.get(r.id) : null;
+    });
+  }
+
+  /* ---------- formatting ---------- */
+  const PCT = new Set(['snap', 'tgtsh', 'airsh', 'carsh', 'cpoe']);
+  const TWO = new Set(['tprr', 'yprr', 'wopr', 'epa', 'ttt', 'ryoe', 'yacoe', 'sep']);
+
+  function fmt(k, v) {
+    if (v == null || Number.isNaN(v)) return '—';
+    if (k === 'name' || k === 'tm') return v;
     if (k === 'sal') return '$' + v.toLocaleString();
     if (k === 'edge') return (v > 0 ? '+' : '') + v;
-    if (['tprr', 'wopr', 'yprr', 'epa', 'ttt', 'ybc', 'yac'].includes(k)) return v.toFixed(2);
-    if (['snap', 'tgtsh', 'airsh', 'carsh', 'prs'].includes(k)) return v.toFixed(1) + '%';
-    if (typeof v === 'number' && !Number.isInteger(v)) return v.toFixed(1);
-    return v;
-  };
+    if (k === 'g') return String(v);
+    if (PCT.has(k)) return v.toFixed(1) + '%';
+    if (TWO.has(k)) return v.toFixed(2);
+    return v.toFixed(1);
+  }
+
+  /* ---------- render ---------- */
+  function visibleCols() {
+    let cols = COLS[state.pos];
+    if (!state.raw || !state.raw.hasRoutes) cols = cols.filter((c) => !ROUTE_COLS.has(c[0]));
+    if (!state.slate) cols = cols.filter((c) => c[0] !== 'sal' && c[0] !== 'edge');
+    return cols;
+  }
 
   function render() {
-    const cols = COLS[state.pos];
-    const head = $('#nflTable thead tr');
-    head.innerHTML = cols.map(([k, label, cls, tip]) => {
-      const t = tip ? ` title="${tip}"` : '';
+    const cols = visibleCols();
+    // A sort key can vanish when the column set changes (switching to a season
+    // with no routes while sorted by TPRR), which would silently sort by
+    // nothing. Fall back instead.
+    if (!cols.some((c) => c[0] === state.sort.key)) {
+      state.sort = { key: defaultSortKey(), dir: -1 };
+    }
+
+    $('#nflTable thead tr').innerHTML = cols.map(([k, label, cls, tip]) => {
+      const t = tip ? ` title="${tip.replace(/"/g, '&quot;')}"` : '';
       const on = state.sort.key === k ? ' sorted' : '';
-      return `<th class="${cls} sortable${on}" data-k="${k}"${t}>${label}</th>`;
+      const arrow = state.sort.key === k ? (state.sort.dir === -1 ? ' ↓' : ' ↑') : '';
+      return `<th class="${cls} sortable${on}" data-k="${k}"${t}>${label}${arrow}</th>`;
     }).join('');
 
-    let rows = DATA[state.pos].slice();
+    let rows = agg();
     if (state.q) {
       const q = state.q.toLowerCase();
-      rows = rows.filter((r) => r.name.toLowerCase().includes(q) ||
-                                r.tm.toLowerCase().includes(q) ||
-                                (r.opp || '').toLowerCase().includes(q));
+      rows = rows.filter((r) => r.name.toLowerCase().includes(q)
+        || r.tm.toLowerCase().includes(q) || (r.opp || '').toLowerCase().includes(q));
     }
+    // When a slate is loaded, players who are not on it are not actionable.
+    if (state.slate && $('#nflSlateOnly') && $('#nflSlateOnly').checked) {
+      rows = rows.filter((r) => r.sal != null);
+    }
+
     const { key, dir } = state.sort;
-    // dir -1 is descending (biggest first), which is what every numeric column
-    // here wants on first click: highest usage, highest salary, biggest edge.
     rows.sort((a, b) => {
       const x = a[key], y = b[key];
-      if (typeof x === 'string') return -dir * x.localeCompare(y);
-      return dir * ((x == null ? -1e9 : x) - (y == null ? -1e9 : y));
+      if (typeof x === 'string' || typeof y === 'string') {
+        return -dir * String(x || '').localeCompare(String(y || ''));
+      }
+      // Blanks always sink, whichever way the column is pointing, so an
+      // ascending sort does not open with a screenful of dashes.
+      if (x == null && y == null) return 0;
+      if (x == null) return 1;
+      if (y == null) return -1;
+      return dir * (x - y);
     });
 
     $('#nflTable tbody').innerHTML = rows.map((r) => `<tr>${cols.map(([k, , cls]) => {
       let extra = '';
-      if (k === 'edge') extra = r.edge > 0 ? ' up' : (r.edge < 0 ? ' down' : ' dim');
+      if (k === 'edge' && r.edge != null) extra = r.edge > 0 ? ' up' : (r.edge < 0 ? ' down' : ' dim');
       if (k === 'name') extra = ' name';
       return `<td class="${cls}${extra}">${fmt(k, r[k])}</td>`;
     }).join('')}</tr>`).join('');
 
-    $('#nflCount').textContent = `— ${rows.length} ${state.pos}, ` +
-      (state.win === 'S' ? 'season' : 'last ' + state.win.slice(1));
-    $('#nflEnvTable tbody').innerHTML = ENV
-      .slice().sort((a, b) => b.tot - a.tot)
-      .map((e) => `<tr>
-        <td class="name">${e.tm}</td>
-        <td class="num">${e.tot.toFixed(1)}</td>
-        <td class="num dim">${e.spd > 0 ? '+' : ''}${e.spd.toFixed(1)}</td>
-        <td class="num">${e.plays}</td>
-        <td class="num ${e.proe > 0 ? 'up' : 'down'}">${e.proe > 0 ? '+' : ''}${e.proe.toFixed(1)}</td>
-      </tr>`).join('');
+    const span = state.from === state.to ? `week ${state.from}` : `weeks ${state.from}–${state.to}`;
+    $('#nflCount').textContent = `— ${rows.length} ${state.pos}, ${span}`;
 
     $$('#nflTable th.sortable').forEach((th) => {
       th.addEventListener('click', () => {
@@ -174,25 +335,173 @@
         render();
       });
     });
+    renderEnv();
   }
 
-  document.addEventListener('DOMContentLoaded', () => {
+  /* Game environment: pace and pass rate per team over the same window.
+   * Vegas totals are not here because this site has no odds feed; what it does
+   * have is how each offence actually behaved, which is the more stable input
+   * anyway. */
+  function renderEnv() {
+    const raw = state.raw;
+    if (!raw) return;
+    const byTeam = new Map();
+    Object.keys(raw.teams).forEach((k) => {
+      const [tm, wk] = k.split('|');
+      if (+wk < state.from || +wk > state.to) return;
+      if (!byTeam.has(tm)) byTeam.set(tm, { tm, g: 0, plays: 0, db: 0, tg: 0, ca: 0, ay: 0 });
+      const t = byTeam.get(tm), v = raw.teams[k];
+      t.g += 1; t.plays += v.plays || 0; t.db += v.db || 0;
+      t.tg += v.tg || 0; t.ca += v.ca || 0; t.ay += v.ay || 0;
+    });
+    const list = Array.from(byTeam.values())
+      .filter((t) => t.g > 0 && t.plays > 0)
+      .map((t) => ({
+        tm: team(t.tm),
+        plays: t.plays / t.g,
+        pass: t.plays ? (t.db / t.plays) * 100 : 0,
+        ay: t.db ? t.ay / t.db : 0,
+      }))
+      .sort((a, b) => b.plays - a.plays);
+    $('#nflEnvTable tbody').innerHTML = list.map((t) => `<tr>
+      <td class="name">${t.tm}</td>
+      <td class="num">${t.plays.toFixed(1)}</td>
+      <td class="num">${t.pass.toFixed(1)}%</td>
+      <td class="num">${t.ay.toFixed(1)}</td>
+    </tr>`).join('');
+  }
+
+  /* ---------- controls ---------- */
+  function fillWeeks() {
+    const weeks = state.raw.weeks;
+    ['#nflFrom', '#nflTo'].forEach((sel) => {
+      $(sel).innerHTML = weeks.map((w) => `<option value="${w}">Wk ${w}</option>`).join('');
+    });
+    $('#nflFrom').value = state.from;
+    $('#nflTo').value = state.to;
+  }
+
+  function setWindow(from, to) {
+    const weeks = state.raw.weeks;
+    const lo = weeks[0], hi = weeks[weeks.length - 1];
+    state.from = Math.max(lo, Math.min(hi, from));
+    state.to = Math.max(state.from, Math.min(hi, to));
+    $('#nflFrom').value = state.from;
+    $('#nflTo').value = state.to;
+    $$('.nflwin').forEach((b) => {
+      const n = +b.dataset.win;
+      b.classList.toggle('active',
+        state.to === hi && (n === 0 ? state.from === lo : state.from === hi - n + 1));
+    });
+  }
+
+  function renderMeta() {
+    const bits = [];
+    if (state.raw) {
+      bits.push(`${state.season} season, through week ${state.raw.weeks[state.raw.weeks.length - 1]}`);
+    }
+    if (state.slate) bits.push(`${state.slate.name} salaries`);
+    else bits.push('no DraftKings slate loaded');
+    $('#nflMeta').textContent = '— ' + bits.join(' · ');
+
+    const note = $('#nflNote');
+    if (!note) return;
+    if (state.raw && !state.raw.hasRoutes) {
+      note.textContent = 'Routes, TPRR and YPRR need participation data, which nflverse has '
+        + `not published for ${state.season} yet. Those columns are hidden for this season `
+        + 'and will appear on their own once it lands. Earlier seasons have them now.';
+      note.classList.remove('hidden');
+    } else {
+      note.classList.add('hidden');
+    }
+  }
+
+  async function loadSeason(season) {
+    const entry = state.index.seasons.find((s) => +s.season === +season);
+    if (!entry) return;
+    state.season = +season;
+    const res = await fetch(DATA_DIR + entry.file + '?v=' + Date.now());
+    state.raw = await res.json();
+    const weeks = state.raw.weeks;
+    const hi = weeks[weeks.length - 1];
+    state.from = Math.max(weeks[0], hi - 2);
+    state.to = hi;
+    fillWeeks();
+    setWindow(state.from, state.to);
+    renderMeta();
+    render();
+  }
+
+  function fillSlates() {
+    const sel = $('#nflSlate');
+    if (!state.dk || !state.dk.slates || !state.dk.slates.length) {
+      sel.innerHTML = '<option>No slate posted</option>';
+      sel.disabled = true;
+      return;
+    }
+    sel.disabled = false;
+    sel.innerHTML = state.dk.slates
+      .map((s, i) => `<option value="${i}">${s.name}</option>`).join('');
+    state.slate = state.dk.slates[0];
+  }
+
+  async function boot() {
     if (!document.getElementById('nfl')) return;
-    $('#nflMeta').textContent = '— Week 5, sample slate';
+    try {
+      const res = await fetch(DATA_DIR + 'nfl_index.json?v=' + Date.now());
+      state.index = await res.json();
+    } catch (e) {
+      $('#nflMeta').textContent = '— stats feed unavailable';
+      return;
+    }
+    $('#nflSeason').innerHTML = state.index.seasons
+      .map((s) => `<option value="${s.season}">${s.season}</option>`).join('');
+
+    // Salaries are optional: the DK lobby blocks our runner often enough that
+    // the page must be fully usable without them.
+    try {
+      const res = await fetch(DATA_DIR + 'nfl_dk.json?v=' + Date.now());
+      if (res.ok) state.dk = await res.json();
+    } catch (e) { /* no salaries this run */ }
+    fillSlates();
+
+    await loadSeason(state.index.seasons[0].season);
+
+    $('#nflSeason').addEventListener('change', (e) => loadSeason(e.target.value));
+    $('#nflSlate').addEventListener('change', (e) => {
+      state.slate = state.dk.slates[+e.target.value] || null;
+      renderMeta();
+      render();
+    });
+    $('#nflFrom').addEventListener('change', () => {
+      setWindow(+$('#nflFrom').value, Math.max(+$('#nflFrom').value, state.to));
+      render();
+    });
+    $('#nflTo').addEventListener('change', () => {
+      setWindow(Math.min(state.from, +$('#nflTo').value), +$('#nflTo').value);
+      render();
+    });
+    $$('.nflwin').forEach((b) => b.addEventListener('click', () => {
+      const n = +b.dataset.win;
+      const weeks = state.raw.weeks;
+      const hi = weeks[weeks.length - 1];
+      setWindow(n === 0 ? weeks[0] : hi - n + 1, hi);
+      render();
+    }));
     $$('.nflpos').forEach((b) => b.addEventListener('click', () => {
       $$('.nflpos').forEach((x) => x.classList.remove('active'));
       b.classList.add('active');
       state.pos = b.dataset.pos;
-      state.sort = { key: 'edge', dir: -1 };
-      render();
-    }));
-    $$('.nflwin').forEach((b) => b.addEventListener('click', () => {
-      $$('.nflwin').forEach((x) => x.classList.remove('active'));
-      b.classList.add('active');
-      state.win = b.dataset.win;
+      state.sort = { key: defaultSortKey(), dir: -1 };
       render();
     }));
     $('#nflSearch').addEventListener('input', (e) => { state.q = e.target.value; render(); });
-    render();
-  });
+    const only = $('#nflSlateOnly');
+    if (only) {
+      only.disabled = !state.slate;
+      only.addEventListener('change', render);
+    }
+  }
+
+  document.addEventListener('DOMContentLoaded', boot);
 })();
