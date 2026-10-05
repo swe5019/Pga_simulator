@@ -400,6 +400,25 @@ def dk_json(url, optional=True):
         return None
 
 
+# In-game ("2H", "4Q") and simulated ("Madden Stream") slates share the lobby
+# with real ones and sometimes outdraw them.
+NOVELTY_RE = re.compile(r"\b([1-4]Q|[12]H|Madden|Simulated|Stream|Tiers|Solo)\b", re.I)
+
+
+def dk_team(p):
+    """The player's own team abbreviation.
+
+    DK gives the fixture's home and away abbreviations on every player plus the
+    player's team id, so picking one requires comparing ids. Reaching straight
+    for htabbr stamps the home team on both rosters.
+    """
+    tid = p.get("tid")
+    for id_key, ab_key in (("htid", "htabbr"), ("atid", "atabbr")):
+        if tid is not None and p.get(id_key) is not None and str(p.get(id_key)) == str(tid):
+            return (p.get(ab_key) or "").upper()
+    return (p.get("tsa") or p.get("ta") or p.get("teamAbbreviation") or "").upper()
+
+
 def parse_dk_date(s):
     if not s:
         return None
@@ -438,9 +457,14 @@ def build_dk():
             if d.get("DraftGroupId")}
 
     slates = []
-    for dg in sorted(entries, key=lambda k: -entries[k])[:8]:
+    for dg in sorted(entries, key=lambda k: -entries[k])[:12]:
         m = meta.get(dg, {})
-        gt = (m.get("GameTypeId"), m.get("ContestStartTimeSuffix") or "")
+        suffix = (m.get("ContestStartTimeSuffix") or "").strip()
+        # Quarter and half slates reprice mid-game and a Madden stream is not a
+        # real game at all. Neither belongs next to season-long usage stats.
+        if NOVELTY_RE.search(suffix):
+            log(f"   dg={dg}: skipping novelty slate {suffix!r}")
+            continue
         data = dk_json(f"https://www.draftkings.com/lineup/getavailableplayers?draftGroupId={dg}")
         if not data:
             continue
@@ -456,26 +480,40 @@ def build_dk():
             pos = (p.get("pn") or p.get("position") or "").upper()
             if not name or not isinstance(sal, (int, float)):
                 continue
-            players.append({
-                "n": name, "pos": pos, "sal": int(sal),
-                "tm": (p.get("tid") and p.get("htabbr") or p.get("tsa") or "").upper(),
-            })
+            players.append({"n": name, "pos": pos, "sal": int(sal), "tm": dk_team(p)})
         if len(players) < 50:
             log(f"   dg={dg}: only {len(players)} players, ignoring")
             continue
+
+        teams = {p["tm"] for p in players if p["tm"]}
+        # A showdown prices a captain at 1.5x, so its salaries are not
+        # comparable with a classic slate's and must never be mixed in.
+        kind = ("showdown" if len(teams) <= 2
+                else "classic" if len(teams) >= 6 and len(players) >= 150
+                else "small")
         start = parse_dk_date(m.get("StartDateEst") or m.get("StartDate"))
+        day = start.strftime("%a %b %-d") if start else ""
+        if kind == "classic":
+            name = f"{day} Main · {len(teams) // 2} games" if day else f"Main · {len(teams) // 2} games"
+        else:
+            name = suffix or day or f"dg {dg}"
+            if kind == "showdown":
+                name = f"Showdown {name}"
         slates.append({
-            "dg": dg,
-            "name": (gt[1] or "").strip() or (start.strftime("%a %b %d") if start else f"dg {dg}"),
+            "dg": dg, "name": name, "kind": kind,
             "start": start.strftime("%Y-%m-%dT%H:%M:%SZ") if start else "",
-            "entries": entries[dg],
-            "players": players,
+            "entries": entries[dg], "teams": len(teams), "players": players,
         })
-        log(f"   dg={dg} {len(players)} players, {entries[dg]} entries")
+        log(f"   dg={dg} {kind:<9} {len(players):>4} players, {len(teams):>2} teams, "
+            f"{entries[dg]} entries — {name}")
 
     if not slates:
         return None
-    slates.sort(key=lambda s: -s["entries"])
+    # Classic first regardless of entry count. A single-game showdown routinely
+    # outdraws the main slate, and defaulting a season-long stats page to
+    # captain-mode pricing for one game would be wrong every Sunday.
+    rank = {"classic": 0, "small": 1, "showdown": 2}
+    slates.sort(key=lambda s: (rank.get(s["kind"], 3), -s["entries"]))
     return {
         "built": datetime.datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%SZ"),
         "slates": slates,

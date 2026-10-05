@@ -406,6 +406,16 @@
 
     const note = $('#nflNote');
     if (!note) return;
+    // A showdown prices one game on its own curve, so Edge compares a player
+    // against six opponents rather than the week's whole field. Worth saying,
+    // because the column looks identical either way.
+    if (state.slate && state.slate.kind === 'showdown') {
+      note.textContent = 'This is a single-game showdown slate. Its salaries run on their own '
+        + 'curve, so Edge here ranks a player only against the others in that one game, not '
+        + 'against the full slate. Pick a Main slate to compare across the week.';
+      note.classList.remove('hidden');
+      return;
+    }
     if (state.raw && !state.raw.hasRoutes) {
       note.textContent = 'Routes, TPRR and YPRR need participation data, which nflverse has '
         + `not published for ${state.season} yet. Those columns are hidden for this season `
