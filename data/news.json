@@ -1,19 +1,19 @@
 {
- "updatedUtc": "2026-10-04T23:57:49Z",
+ "updatedUtc": "2026-10-05T05:44:11Z",
  "slate": "UTAH_2026",
  "event": "",
  "counts": {
-  "items": 4,
+  "items": 5,
   "golfersMentioned": 4,
-  "news": 4,
+  "news": 5,
   "chatter": 0
  },
  "sources": [
   {
    "source": "RotoWire Golf",
-   "ok": false,
-   "items": 0,
-   "error": "no items"
+   "ok": true,
+   "items": 5,
+   "error": null
   },
   {
    "source": "RotoBaller Golf",
@@ -138,6 +138,12 @@
  ],
  "mentions": [
   {
+   "name": "Seamus Power",
+   "news": 2,
+   "chatter": 0,
+   "total": 2
+  },
+  {
    "name": "Mark Hubbard",
    "news": 1,
    "chatter": 0,
@@ -150,12 +156,6 @@
    "total": 1
   },
   {
-   "name": "Seamus Power",
-   "news": 1,
-   "chatter": 0,
-   "total": 1
-  },
-  {
    "name": "Taylor Moore",
    "news": 1,
    "chatter": 0,
@@ -163,6 +163,17 @@
   }
  ],
  "items": [
+  {
+   "title": "Week 6 College Football Power Ratings and Projections for Every Game",
+   "link": "https://vsin.com/college-football/week-6-college-football-power-ratings-and-projections-for-every-game/",
+   "summary": "Week 6 College Football Power Ratings College football seasons can go sideways very quickly for a program. Because it is so easy to transfer (and tamper) nowadays, the start of a bad season will have the sharks circling around a program and may have the players with a foot or both feet out the door. [&#8230;] The post Week 6 College Football Power Ratings and Projections for Every Game appeared fi",
+   "published": "Mon, 05 Oct 2026 04:44:00 +0000",
+   "source": "VSiN",
+   "kind": "news",
+   "golfers": [
+    "Seamus Power"
+   ]
+  },
   {
    "title": "Who Should I Start for Fantasy Football Week 4? Jalen Coker, Jameson Williams, Darren Waller, Chuba Hubbard, Tetairoa McMillan, Sam LaPorta, Brycen Tremayne, AJ Dillon",
    "link": "https://www.rotoballer.com/who-should-i-start-for-week-4-jalen-coker-jameson-williams-darren-waller-chuba-hubbard-tetairoa-mcmillan-sam-laporta-brycen-tremayne-aj-dillon/1956985",
