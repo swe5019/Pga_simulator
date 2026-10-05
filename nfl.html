@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>SlateSims NFL — Advanced Stats for DraftKings</title>
   <link rel="icon" href="assets/img/favicon.svg?v=20260730v" type="image/svg+xml" />
-  <link rel="stylesheet" href="assets/css/styles.css?v=20261005a" />
+  <link rel="stylesheet" href="assets/css/styles.css?v=20261005b" />
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-13J1816EN4"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -81,11 +81,14 @@
       <p class="hint">
         Usage and efficiency, built from nflverse play by play, snap counts and Next
         Gen Stats. DFS is won on <b>opportunity</b> (snap share, target share, red zone
-        looks) far more than on efficiency, so those lead. <b>Edge</b> is the one to
-        read first: it compares a player's usage rank against his salary rank, so a
-        positive number means the market has not caught up to his role yet. Every rate
-        is recomputed over the week range you pick, not averaged across weeks, so a
-        role that changed in week 3 shows up cleanly.
+        looks) far more than on efficiency, so those lead. Two columns are worth reading
+        first. <b>FPOE</b> is half PPR points per game minus what the player's
+        opportunity was actually worth: a negative number means the role is there and
+        the scoring has not followed, which is the buy, while a positive one was usually
+        built on touchdowns his volume will not keep producing. <b>Edge</b> compares his
+        usage rank against his salary rank, so positive means the market has not caught
+        up yet. Every rate is recomputed over the week range you pick rather than
+        averaged across weeks, so a role that changed in week 3 shows up cleanly.
       </p>
       <p id="nflNote" class="hint hidden"></p>
 
@@ -97,9 +100,9 @@
         <span class="filter-sep">to</span>
         <select id="nflTo" class="filter-num" style="min-width:76px"></select>
         <button class="ghost small nflwin" data-win="1">Last 1</button>
-        <button class="ghost small nflwin active" data-win="3">Last 3</button>
+        <button class="ghost small nflwin" data-win="3">Last 3</button>
         <button class="ghost small nflwin" data-win="5">Last 5</button>
-        <button class="ghost small nflwin" data-win="0">Full season</button>
+        <button class="ghost small nflwin active" data-win="0">Full season</button>
       </div>
 
       <div class="trim-bar">
@@ -111,7 +114,7 @@
         <span class="filter-sep">Slate</span>
         <select id="nflSlate" class="filter-num" style="min-width:150px"></select>
         <label class="chk" title="Hide players who are not on the selected DraftKings slate">
-          <input type="checkbox" id="nflSlateOnly" checked /> On slate only
+          <input type="checkbox" id="nflSlateOnly" /> On slate only
         </label>
         <input id="nflSearch" type="text" placeholder="Filter player or team…" class="filter-text" />
       </div>
@@ -159,7 +162,7 @@
   </footer>
   </div>
 
-  <script src="assets/js/nav.js?v=20261005a"></script>
-  <script src="assets/js/nfl.js?v=20261005a"></script>
+  <script src="assets/js/nav.js?v=20261005b"></script>
+  <script src="assets/js/nfl.js?v=20261005b"></script>
 </body>
 </html>

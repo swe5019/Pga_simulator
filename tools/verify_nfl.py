@@ -30,12 +30,14 @@ csv.field_size_limit(min(sys.maxsize, 2 ** 31 - 1))
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 NFLVERSE = "https://github.com/nflverse/nflverse-data/releases/download"
+FFOPP = "https://github.com/ffverse/ffopportunity/releases/download/latest-data"
 UA = {"User-Agent": "slatesims-verify"}
 
 # Per-metric tolerance. Most are compared at 1% relative, but a few need an
 # absolute floor because they sit near zero and a relative test is meaningless.
 TOL = {"g": 0, "snap": 0.6, "cpoe": 0.05, "epa": 0.005, "ryoe": 0.02,
-       "yacoe": 0.02, "sep": 0.02, "ttt": 0.02, "iay": 0.02}
+       "yacoe": 0.02, "sep": 0.02, "ttt": 0.02, "iay": 0.02,
+       "ppr": 0.02, "hppr": 0.02, "fpoe": 0.03}
 # Columns the page only renders for certain positions.
 ONLY = {"rush": ("QB",), "dbpg": ("QB",), "ypg": ("QB",), "cpoe": ("QB",),
         "epa": ("QB",), "adot_qb": ("QB",), "ttt": ("QB",), "iay": ("QB",),
@@ -72,6 +74,20 @@ def I(v):
     return int(round(f(v)))
 
 
+def ppr(r):
+    """Standard PPR off the box score. Written out again rather than imported,
+    so a change to the fetcher's scoring cannot silently pass this check."""
+    return (0.04 * f(r["passing_yards"]) + 4 * f(r["passing_tds"])
+            - 2 * f(r["passing_interceptions"])
+            + 0.1 * f(r["rushing_yards"]) + 6 * f(r["rushing_tds"])
+            + 0.1 * f(r["receiving_yards"]) + 6 * f(r["receiving_tds"])
+            + 1 * f(r["receptions"]) + 6 * f(r["special_teams_tds"])
+            + 2 * (f(r["passing_2pt_conversions"]) + f(r["rushing_2pt_conversions"])
+                   + f(r["receiving_2pt_conversions"]))
+            - 2 * (f(r["sack_fumbles_lost"]) + f(r["rushing_fumbles_lost"])
+                   + f(r["receiving_fumbles_lost"])))
+
+
 def nrm(s):
     import re
     s = (s or "").lower()
@@ -102,6 +118,8 @@ def main():
            if r.get("season_type") == "REG"]
     snaps = [r for r in fetch_rows(f"{NFLVERSE}/snap_counts/snap_counts_{season}.csv")
              if r.get("game_type") == "REG"]
+    ep = {(r["player_id"], I(r.get("week"))): r
+          for r in fetch_rows(f"{FFOPP}/ep_weekly_{season}.csv", optional=True)}
     ngs = {}
     for kind, fn in (("rec", "ngs_receiving"), ("pass", "ngs_passing"), ("rush", "ngs_rushing")):
         ngs[kind] = [r for r in fetch_rows(f"{NFLVERSE}/nextgen_stats/{fn}.csv.gz", optional=True)
@@ -177,6 +195,17 @@ def main():
                 n += r[key] * r[wkey]
                 d += r[wkey]
             return n / d if d else None
+
+        def fpoe_of(rr):
+            a = x = 0.0
+            c = 0
+            for r in rr:
+                if r.get("xfp") is None:
+                    continue
+                a += r.get("fp", 0) - 0.5 * r.get("rec", 0)
+                x += r["xfp"] - 0.5 * r.get("xrec", 0)
+                c += 1
+            return (a - x) / c if c else None
         tgtsh = tg / T("tg") if T("tg") else None
         airsh = ay / T("ay") if T("ay") else None
         return {
@@ -196,7 +225,26 @@ def main():
             "rush": S("qra") / g,
             "sep": wm("sep", "tg"), "yacoe": wm("yacoe", "rec"),
             "ttt": wm("ttt", "att"), "iay": wm("iay", "att"), "ryoe": wm("ryoe", "ca"),
+            "ppr": S("fp") / g,
+            "hppr": (S("fp") - 0.5 * S("rec")) / g,
+            "fpoe": fpoe_of(rs),
         }
+
+    def tfpoe(pid, wks):
+        """Actual half PPR minus expected half PPR, over only the weeks the
+        model priced. Expected receptions are worth a full point in their
+        scoring, so half PPR comes off both sides exactly."""
+        a = x = 0.0
+        c = 0
+        for w in wks:
+            e = ep.get((pid, w))
+            if not e or e.get("total_fantasy_points_exp") in (None, "", "NA"):
+                continue
+            b = box[(pid, w)]
+            a += ppr(b) - 0.5 * f(b["receptions"])
+            x += round(f(e["total_fantasy_points_exp"]), 2) - 0.5 * round(f(e["receptions_exp"]), 2)
+            c += 1
+        return (a - x) / c if c else None
 
     def truth(pid, lo, hi):
         wks = [w for w in range(lo, hi + 1) if (pid, w) in box]
@@ -250,11 +298,15 @@ def main():
             "ttt": ngwm("pass", "avg_time_to_throw", "attempts"),
             "iay": ngwm("pass", "avg_intended_air_yards", "attempts"),
             "ryoe": ngwm("rush", "rush_yards_over_expected_per_att", "carries"),
+            "ppr": sum(ppr(box[(pid, w)]) for w in wks) / g,
+            "hppr": sum(ppr(box[(pid, w)]) - 0.5 * f(box[(pid, w)]["receptions"])
+                        for w in wks) / g,
+            "fpoe": tfpoe(pid, wks),
         }
 
     fields = ["g", "snap", "tgtsh", "airsh", "adot_rec", "adot_qb", "wopr", "rz",
               "rzc", "glc", "carsh", "ypc", "tgpg", "dbpg", "ypg", "cpoe", "epa",
-              "rush", "sep", "yacoe", "ttt", "iay", "ryoe"]
+              "rush", "sep", "yacoe", "ttt", "iay", "ryoe", "ppr", "hppr", "fpoe"]
     weeks = app["weeks"]
     lo, hi = weeks[0], weeks[-1]
     # Full season, a trailing window, and a single week: the three shapes the

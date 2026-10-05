@@ -41,6 +41,22 @@
     + 'in to block still counts as a route, so their rate reads a little low; for wide '
     + 'receivers it lands within a route or two per game of the charted figure.';
 
+  const FPOE_TIP = 'Half PPR points per game minus what his opportunity was worth. '
+    + 'Expected points price every target and carry by its depth and field position, so '
+    + 'this separates a bad run of finishing from a bad role. Negative is usually the buy: '
+    + 'the usage is already there and the scoring has not followed. Positive tends to '
+    + 'regress, because it was built on touchdowns the volume does not support.';
+
+  // Points columns are shared by every position, so they are defined once and
+  // spliced in rather than repeated four times and drifting apart.
+  const PTS = [
+    ['hppr', 'Half', 'num', 'Half PPR fantasy points per game. 0.5 per reception.'],
+    ['ppr', 'PPR', 'num', 'Full PPR fantasy points per game. 1 per reception. '
+      + 'Scoring is 0.04 per passing yard, 4 per passing TD, -2 per interception, '
+      + '0.1 per rushing or receiving yard, 6 per TD and -2 per fumble lost.'],
+    ['fpoe', 'FPOE', 'num', FPOE_TIP],
+  ];
+
   const COLS = {
     WR: [
       ['name', 'Player', ''], ['tm', 'Tm', ''], ['g', 'G', 'num', 'Games in this window'],
@@ -88,17 +104,27 @@
       ['edge', 'Edge', 'num', EDGE_TIP],
     ],
   };
+  // Splice the points block in just after Sal on every position, so the three
+  // things a reader checks first — what he costs, what he scores, whether his
+  // usage supports it — sit next to each other. Done here rather than written
+  // into each list so the four cannot drift apart.
+  ['WR', 'RB', 'QB'].forEach((pos) => {
+    const at = COLS[pos].findIndex((c) => c[0] === 'sal');
+    COLS[pos] = COLS[pos].slice(0, at + 1).concat(PTS, COLS[pos].slice(at + 1));
+  });
   COLS.TE = COLS.WR;
 
   /* Columns that only exist when the season has participation data. */
   const ROUTE_COLS = new Set(['routes', 'tprr', 'yprr']);
+  /* Only renders when the expected-points feed covered this season. */
+  const EXP_COLS = new Set(['fpoe']);
 
   /* The column each position opens on when there is no salary feed and so no
    * Edge to lead with. It has to be position-specific: quarterbacks have no
    * target share, so defaulting everyone to Tgt% sorted the QB table by a
    * column of nulls and floated one-dropback backups to the top. */
   const DEFAULT_SORT = { QB: 'dbpg', RB: 'carsh', WR: 'tgtsh', TE: 'tgtsh' };
-  const defaultSortKey = () => (state.slate ? 'edge' : DEFAULT_SORT[state.pos] || 'tgtsh');
+  const defaultSortKey = () => (slateApplies() ? 'edge' : DEFAULT_SORT[state.pos] || 'tgtsh');
 
   /* ---------- helpers ---------- */
   // nflverse and DraftKings disagree about three franchises. Normalising both
@@ -197,6 +223,24 @@
         iay: wmean(rows, 'iay', 'att'),
         ryoe: wmean(rows, 'ryoe', 'ca'),
       };
+      // Points. Half PPR is full PPR with half a point taken back per
+      // reception, which is exact rather than a second scoring pass.
+      const fp = sum(rows, 'fp'), rec = sum(rows, 'rec');
+      row.ppr = div(fp, g);
+      row.hppr = div(fp - 0.5 * rec, g);
+      // FPOE is averaged over only the weeks the model actually priced. Summing
+      // actual points across every week while summing expected across the
+      // subset that has a reading would charge a player for games the model
+      // never saw, and the gap would look like underperformance.
+      let aHalf = 0, xHalf = 0, xg = 0;
+      rows.forEach((r) => {
+        if (r.xfp == null) return;
+        aHalf += (r.fp || 0) - 0.5 * (r.rec || 0);
+        xHalf += r.xfp - 0.5 * (r.xrec || 0);
+        xg += 1;
+      });
+      row.fpoe = xg ? (aHalf - xHalf) / xg : null;
+
       // WOPR is defined on shares, so it only exists when both shares do.
       row.wopr = (tgtsh != null && airsh != null) ? 1.5 * tgtsh + 0.7 * airsh : null;
       if (raw.hasRoutes && rt > 0) {
@@ -217,7 +261,7 @@
 
   /* ---------- salaries and Edge ---------- */
   function attachSalaries(rows) {
-    const slate = state.slate;
+    const slate = slateApplies() ? state.slate : null;
     if (!slate) { rows.forEach((r) => { r.sal = null; }); return; }
     const byName = new Map();
     slate.players.forEach((p) => {
@@ -257,12 +301,15 @@
   /* ---------- formatting ---------- */
   const PCT = new Set(['snap', 'tgtsh', 'airsh', 'carsh', 'cpoe']);
   const TWO = new Set(['tprr', 'yprr', 'wopr', 'epa', 'ttt', 'ryoe', 'yacoe', 'sep']);
+  /* Signed, because the sign is the whole message. */
+  const SIGNED = new Set(['fpoe']);
 
   function fmt(k, v) {
     if (v == null || Number.isNaN(v)) return '—';
     if (k === 'name' || k === 'tm') return v;
     if (k === 'sal') return '$' + v.toLocaleString();
     if (k === 'edge') return (v > 0 ? '+' : '') + v;
+    if (SIGNED.has(k)) return (v > 0 ? '+' : '') + v.toFixed(1);
     if (k === 'g') return String(v);
     if (PCT.has(k)) return v.toFixed(1) + '%';
     if (TWO.has(k)) return v.toFixed(2);
@@ -270,10 +317,18 @@
   }
 
   /* ---------- render ---------- */
+  /* A DraftKings slate prices the upcoming week of the CURRENT season. Showing
+   * it beside a past season's stats would put next week's salary next to last
+   * year's usage, and Edge would be ranking one against the other. So salary
+   * and Edge exist only on the season the slate belongs to. */
+  const slateApplies = () => !!state.slate && state.index
+    && +state.season === +state.index.current;
+
   function visibleCols() {
     let cols = COLS[state.pos];
     if (!state.raw || !state.raw.hasRoutes) cols = cols.filter((c) => !ROUTE_COLS.has(c[0]));
-    if (!state.slate) cols = cols.filter((c) => c[0] !== 'sal' && c[0] !== 'edge');
+    if (!state.raw || !state.raw.hasExp) cols = cols.filter((c) => !EXP_COLS.has(c[0]));
+    if (!slateApplies()) cols = cols.filter((c) => c[0] !== 'sal' && c[0] !== 'edge');
     return cols;
   }
 
@@ -300,7 +355,7 @@
         || r.tm.toLowerCase().includes(q) || (r.opp || '').toLowerCase().includes(q));
     }
     // When a slate is loaded, players who are not on it are not actionable.
-    if (state.slate && $('#nflSlateOnly') && $('#nflSlateOnly').checked) {
+    if (slateApplies() && $('#nflSlateOnly') && $('#nflSlateOnly').checked) {
       rows = rows.filter((r) => r.sal != null);
     }
 
@@ -321,6 +376,7 @@
     $('#nflTable tbody').innerHTML = rows.map((r) => `<tr>${cols.map(([k, , cls]) => {
       let extra = '';
       if (k === 'edge' && r.edge != null) extra = r.edge > 0 ? ' up' : (r.edge < 0 ? ' down' : ' dim');
+      if (k === 'fpoe' && r.fpoe != null) extra = r.fpoe > 0 ? ' up' : (r.fpoe < 0 ? ' down' : ' dim');
       if (k === 'name') extra = ' name';
       return `<td class="${cls}${extra}">${fmt(k, r[k])}</td>`;
     }).join('')}</tr>`).join('');
@@ -400,9 +456,19 @@
     if (state.raw) {
       bits.push(`${state.season} season, through week ${state.raw.weeks[state.raw.weeks.length - 1]}`);
     }
-    if (state.slate) bits.push(`${state.slate.name} salaries`);
+    if (slateApplies()) bits.push(`${state.slate.name} salaries`);
+    else if (state.slate) bits.push('salaries hidden: the slate is for '
+      + `${state.index.current}, not ${state.season}`);
     else bits.push('no DraftKings slate loaded');
     $('#nflMeta').textContent = '— ' + bits.join(' · ');
+
+    // The season can change after boot, so the slate controls have to be
+    // re-evaluated here rather than once in fillSlates.
+    const only = $('#nflSlateOnly');
+    if (only) {
+      only.disabled = !slateApplies();
+      if (only.disabled) only.checked = false;
+    }
 
     const note = $('#nflNote');
     if (!note) return;
@@ -433,9 +499,11 @@
     const res = await fetch(DATA_DIR + entry.file + '?v=' + Date.now());
     state.raw = await res.json();
     const weeks = state.raw.weeks;
-    const hi = weeks[weeks.length - 1];
-    state.from = Math.max(weeks[0], hi - 2);
-    state.to = hi;
+    // Opens on the full season. A trailing window is better for catching a role
+    // that just changed, but it is a narrower claim than most people want from
+    // a reference table, and the Last 1/3/5 buttons are one click away.
+    state.from = weeks[0];
+    state.to = weeks[weeks.length - 1];
     fillWeeks();
     setWindow(state.from, state.to);
     renderMeta();
@@ -508,7 +576,7 @@
     $('#nflSearch').addEventListener('input', (e) => { state.q = e.target.value; render(); });
     const only = $('#nflSlateOnly');
     if (only) {
-      only.disabled = !state.slate;
+      only.disabled = !slateApplies();
       only.addEventListener('change', render);
     }
   }

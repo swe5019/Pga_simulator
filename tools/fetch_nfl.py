@@ -53,12 +53,38 @@ from collections import defaultdict
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATA = os.path.join(ROOT, "data")
 NFLVERSE = "https://github.com/nflverse/nflverse-data/releases/download"
+# Expected fantasy points come from ffverse, a different project to nflverse,
+# but published the same way: static files on a GitHub release.
+FFOPP = "https://github.com/ffverse/ffopportunity/releases/download/latest-data"
 
 POSITIONS = ("QB", "RB", "WR", "TE")
 
-# Next Gen rates, which are kept in the output even when they are exactly zero.
-# See the emit loop for why dropping a zero here corrupts a whole game.
-KEEP_ZERO = frozenset(("sep", "yacoe", "ttt", "iay", "ryoe"))
+# Fields kept in the output even when they are exactly zero. The Next Gen rates
+# are here because dropping a zero removes that week's weight from a weighted
+# mean (see the emit loop). The expected-points fields are here because a
+# missing one marks the week as "not modelled" and drops it from the vs-expected
+# average, so a genuine 0.00 must be distinguishable from an absent reading.
+KEEP_ZERO = frozenset(("sep", "yacoe", "ttt", "iay", "ryoe", "xfp", "xrec"))
+
+# Standard PPR, matching the scoring ffopportunity's expected-points model uses:
+# 0.04 per passing yard, 4 per passing TD, -2 per interception, 0.1 per rushing
+# or receiving yard, 6 per TD, 1 per reception, 2 per two-point conversion and
+# -2 per fumble lost. Verified against their published actuals rather than
+# assumed, because DraftKings uses -1 for interceptions and fumbles and mixing
+# the two conventions would bias every vs-expected figure.
+def ppr_points(r):
+    return (0.04 * num(r.get("passing_yards")) + 4 * num(r.get("passing_tds"))
+            - 2 * num(r.get("passing_interceptions"))
+            + 0.1 * num(r.get("rushing_yards")) + 6 * num(r.get("rushing_tds"))
+            + 0.1 * num(r.get("receiving_yards")) + 6 * num(r.get("receiving_tds"))
+            + 1 * num(r.get("receptions"))
+            + 6 * num(r.get("special_teams_tds"))
+            + 2 * (num(r.get("passing_2pt_conversions"))
+                   + num(r.get("rushing_2pt_conversions"))
+                   + num(r.get("receiving_2pt_conversions")))
+            - 2 * (num(r.get("sack_fumbles_lost"))
+                   + num(r.get("rushing_fumbles_lost"))
+                   + num(r.get("receiving_fumbles_lost"))))
 
 # csv's default field cap is 128KB; participation rows carry 22 player ids plus
 # names in single fields and blow straight through it.
@@ -202,6 +228,12 @@ def build_stats(season):
         d["ruepa"] = num(r.get("rushing_epa"))
         # cpoe is a per-attempt mean in this feed; store the weighted numerator.
         d["cpoeN"] = num(r.get("passing_cpoe")) * d["att"]
+        # Actual points come from the box score, not from the expected-points
+        # feed's own actuals. The two disagree on about 2% of player-weeks over
+        # touchdown attribution, and the box score is the official record. It
+        # also keeps the Half PPR column on screen exactly equal to the vs
+        # expected column plus expected, which is what a reader will assume.
+        d["fp"] = round(ppr_points(r), 2)
         o = (r.get("opponent_team") or "").upper()
         if tm and wk and o:
             opp[(tm, wk)] = o
@@ -352,8 +384,36 @@ def build_stats(season):
             ngs_hit += 1
     log(f"   {ngs_hit} ngs values attached")
 
+    # ---- expected fantasy points, from ffopportunity (ffverse, not nflverse).
+    # Their model prices each target and carry by its depth and field position,
+    # which is what makes "he is not scoring but the role is there" a readable
+    # number rather than a hunch. Optional: if the release is unavailable the
+    # vs-expected column simply does not render.
+    log("5. expected fantasy points")
+    has_exp = False
+    ep = rows(f"{FFOPP}/ep_weekly_{season}.csv", optional=True)
+    ep_hit = 0
+    for r in ep:
+        wk, pid = i(r.get("week")), r.get("player_id")
+        if not wk or not pid or (pid, wk) not in weeks:
+            continue
+        xfp = opt(r.get("total_fantasy_points_exp"))
+        xrec = opt(r.get("receptions_exp"))
+        if xfp is None:
+            continue
+        d = weeks[(pid, wk)]
+        d["xfp"] = round(xfp, 2)
+        # Receptions are worth a full point in their model, so half PPR is
+        # recovered exactly by taking half a point back off both sides. No
+        # second model is needed, and nothing is approximated.
+        d["xrec"] = round(xrec, 2) if xrec is not None else 0.0
+        ep_hit += 1
+    has_exp = ep_hit > 0
+    log(f"   {ep_hit} expected-point weeks attached"
+        if has_exp else f"   no expected points for {season} — that column will be hidden")
+
     # ---- routes, from participation. Optional by design (see module docstring).
-    log("5. participation (routes)")
+    log("6. participation (routes)")
     has_routes = False
     part = rows(f"{NFLVERSE}/pbp_participation/pbp_participation_{season}.csv",
                 optional=True)
@@ -425,6 +485,7 @@ def build_stats(season):
         "season": season,
         "weeks": wk_list,
         "hasRoutes": has_routes,
+        "hasExp": has_exp,
         "players": sorted(out_players.values(), key=lambda m: m["n"]),
         "rows": out_rows,
         "teams": out_teams,
@@ -487,7 +548,7 @@ def build_dk():
     same host the golf fetcher fell back to. A failure here is not fatal: the
     page drops the salary and Edge columns and still shows every stat.
     """
-    log("6. draftkings nfl slates")
+    log("7. draftkings nfl slates")
     lobby = dk_json("https://www.draftkings.com/lobby/getcontests?sport=NFL")
     if not lobby:
         log("   lobby unreachable — skipping salaries")
@@ -610,6 +671,7 @@ def update_index(season, stats):
         "file": f"nfl_{season}.json",
         "weeks": stats["weeks"],
         "hasRoutes": stats["hasRoutes"],
+        "hasExp": stats.get("hasExp", False),
         "built": stats["built"],
     }
     idx["seasons"] = sorted(seasons.values(), key=lambda s: -s["season"])
