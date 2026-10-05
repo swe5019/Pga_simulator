@@ -9,6 +9,15 @@
   <meta property="og:title" content="SlateSims — Free DraftKings PGA DFS Optimizer & Ownership Projections" />
   <meta property="og:description" content="Accuracy-first ownership, sims, optimizer, and contest ROI for DraftKings PGA DFS golf. Free during the beta, no credit card." />
   <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://slatesims.com/" />
+  <meta property="og:site_name" content="SlateSims" />
+  <meta property="og:image" content="https://slatesims.com/assets/img/avatar.png" />
+  <link rel="canonical" href="https://slatesims.com/" />
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="SlateSims — Free DraftKings PGA DFS Optimizer &amp; Ownership Projections" />
+  <meta name="twitter:description" content="Accuracy-first ownership, sims, optimizer and contest ROI for DraftKings PGA DFS. Plus free NFL advanced stats." />
+  <meta name="twitter:image" content="https://slatesims.com/assets/img/avatar.png" />
   <link rel="stylesheet" href="assets/css/landing.css" />
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-13J1816EN4"></script>
   <script>
@@ -35,6 +44,7 @@
       <a href="#why">Why SlateSims</a>
       <a href="#features">Features</a>
       <a href="#accuracy">Accuracy</a>
+      <a href="nfl.html">NFL Stats</a>
       <a href="#beta">Free Beta</a>
       <a href="#contact">Contact</a>
     </nav>
@@ -151,6 +161,35 @@
           <h3>⬆️ One-click DraftKings</h3>
           <p>Import salaries, then export an upload-ready CSV or fill your reserved entries template
             in DK's <em>Name (ID)</em> format. Names map to upload IDs automatically.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== NFL ===================== -->
+    <!-- Kept short on purpose. This page ranks for PGA and that focus is worth
+         protecting, so NFL gets a signpost and its own page rather than half of
+         this one. The link matters as much as the copy: it is how the new page
+         inherits authority from the strongest page on the site. -->
+    <section id="nfl" class="section">
+      <h2 class="h2">New: free NFL advanced stats</h2>
+      <div class="grid3">
+        <div class="card2">
+          <h3>📊 Usage that predicts</h3>
+          <p>Target share, snap share, air yards share and WOPR, plus routes run, TPRR and
+            yards per route run. Opportunity is far stickier week to week than touchdowns,
+            so it is what tells you who is next.</p>
+        </div>
+        <div class="card2">
+          <h3>📉 Expected fantasy points</h3>
+          <p>FPOE prices every target and carry by depth and field position, then subtracts
+            it from what a player actually scored. Negative is the buy: the role is there and
+            the points have not followed.</p>
+        </div>
+        <div class="card2">
+          <h3>🆓 Free, no sign-up</h3>
+          <p>Any week range you like, refreshed every Tuesday from nflverse and Next Gen
+            Stats, every figure re-checked against its sources before it goes live.
+            <a href="nfl.html">Open the NFL stats →</a></p>
         </div>
       </div>
     </section>
@@ -331,5 +370,53 @@
   </footer>
 
   <script src="assets/js/landing.js"></script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://slatesims.com/#org",
+        "name": "SlateSims",
+        "url": "https://slatesims.com/",
+        "logo": "https://slatesims.com/assets/img/avatar.png",
+        "email": "steve@slatesims.com"
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://slatesims.com/#site",
+        "url": "https://slatesims.com/",
+        "name": "SlateSims",
+        "publisher": { "@id": "https://slatesims.com/#org" }
+      },
+      {
+        "@type": "SoftwareApplication",
+        "name": "SlateSims DFS Tools",
+        "url": "https://slatesims.com/",
+        "applicationCategory": "SportsApplication",
+        "operatingSystem": "Any",
+        "description": "DraftKings PGA DFS ownership projections, hole-by-hole simulations, lineup optimizer and contest ROI, plus free NFL advanced stats.",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+        "publisher": { "@id": "https://slatesims.com/#org" }
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          { "@type": "Question", "name": "Is this just another optimizer?",
+            "acceptedAnswer": { "@type": "Answer", "text": "No. The optimizer is table stakes. SlateSims' edge is the ownership model, wired into a full simulation and contest-ROI stack." } },
+          { "@type": "Question", "name": "Which site does SlateSims support?",
+            "acceptedAnswer": { "@type": "Answer", "text": "DraftKings PGA today: salaries, IDs, status, exact payouts and upload files. Free NFL advanced stats are also available. More sites and slate types are on the roadmap." } },
+          { "@type": "Question", "name": "Do I need my own data?",
+            "acceptedAnswer": { "@type": "Answer", "text": "No, everything pulls automatically. If you have your own strokes gained, odds or projections you can feed them in and the model and simulations run on your numbers." } },
+          { "@type": "Question", "name": "What does SlateSims cost?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Nothing. SlateSims is free during the beta with full access and no credit card. The NFL advanced stats page is free to everyone with no sign-up." } },
+          { "@type": "Question", "name": "Does SlateSims have NFL DFS tools?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Yes, a free NFL advanced stats page covering target share, snap share, routes run, TPRR, red zone usage and expected fantasy points. An NFL lineup optimizer is on the roadmap." } }
+        ]
+      }
+    ]
+  }
+  </script>
 </body>
 </html>

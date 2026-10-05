@@ -3,8 +3,21 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SlateSims NFL — Advanced Stats for DraftKings</title>
+  <title>NFL Target Share, Snap Share &amp; Expected Fantasy Points — Free Advanced Stats | SlateSims</title>
   <link rel="icon" href="assets/img/favicon.svg?v=20260730v" type="image/svg+xml" />
+  <link rel="canonical" href="https://slatesims.com/nfl.html" />
+  <meta name="description" content="Free NFL advanced stats for DFS and fantasy football: target share, snap share, air yards share, WOPR, routes run, TPRR, yards per route run, red zone usage and expected fantasy points (FPOE). Pick any week range. Updated weekly from nflverse." />
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="SlateSims" />
+  <meta property="og:url" content="https://slatesims.com/nfl.html" />
+  <meta property="og:title" content="NFL Target Share, Snap Share &amp; Expected Fantasy Points — Free Advanced Stats" />
+  <meta property="og:description" content="Free NFL advanced stats for DFS and fantasy football: target share, snap share, WOPR, TPRR, yards per route run, red zone usage and expected fantasy points. Any week range, updated weekly." />
+  <meta property="og:image" content="https://slatesims.com/assets/img/avatar.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="NFL Advanced Stats — Target Share, Snap Share, FPOE | SlateSims" />
+  <meta name="twitter:description" content="Free NFL target share, snap share, routes run, TPRR and expected fantasy points. Any week range, updated weekly." />
+  <meta name="twitter:image" content="https://slatesims.com/assets/img/avatar.png" />
   <link rel="stylesheet" href="assets/css/styles.css?v=20261005b" />
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-13J1816EN4"></script>
   <script>
@@ -13,14 +26,11 @@
     gtag('js', new Date());
     gtag('config', 'G-13J1816EN4');
   </script>
-  <script>
-    // Same gate as the PGA app, inline so it can't be skipped by a blocked file.
-    try {
-      if (!localStorage.getItem('slatesims_access_granted')) {
-        document.documentElement.classList.add('locked');
-      }
-    } catch (e) { /* ignore */ }
-  </script>
+  <!-- No access gate on this page, deliberately. It used to carry the same
+       localStorage gate as the PGA app, which set html.locked and hid #appShell,
+       so a crawler (which has no localStorage) rendered a page with zero words
+       and nothing could ever rank. The data here is public and free, so the page
+       is open: it is the thing that earns links and sends readers to the app. -->
 </head>
 <body>
   <div id="appShell">
@@ -34,7 +44,7 @@
         <polygon points="53.2,8 76,16 53.2,24" fill="#e6edf3"/>
       </svg>
       <div>
-        <h1>Slate<span class="accent">Sims</span></h1>
+        <span class="brandname">Slate<span class="accent">Sims</span></span>
         <p class="tag">NFL advanced stats for DraftKings.</p>
       </div>
     </a>
@@ -73,11 +83,13 @@
   </header>
 
   <main>
-    <!-- ===================== NFL ADVANCED STATS (MOCKUP) ===================== -->
+    <!-- ===================== NFL ADVANCED STATS ===================== -->
     <section id="nfl" class="panel active">
-      <h2>NFL Advanced Stats
-        <span class="sub" id="nflMeta"></span>
-      </h2>
+      <h1>NFL Advanced Stats: Target Share, Snap Share &amp; Expected Fantasy Points</h1>
+      <!-- The live season/slate line is deliberately OUTSIDE the h1. It is
+           rewritten by JavaScript every week, and an h1 that changes on its own
+           is a weak, noisy signal of what the page is about. -->
+      <p class="sub" id="nflMeta"></p>
       <p class="hint">
         Usage and efficiency, built from nflverse play by play, snap counts and Next
         Gen Stats. DFS is won on <b>opportunity</b> (snap share, target share, red zone
@@ -153,14 +165,298 @@
           </p>
         </div>
       </div>
+
+      <!-- ============== PRE-RENDERED LEADERS ==============
+           tools/seo_nfl.py rewrites everything between the two markers on each
+           weekly data run. It exists because the table above is drawn by
+           JavaScript from JSON, and a crawler that does not run that JS sees an
+           empty page. This block is plain HTML with real names and numbers, and
+           it refreshes every week, which is the strongest free ranking signal
+           there is. It is visible to readers exactly as it is to crawlers —
+           showing a search engine something a visitor cannot see is cloaking,
+           and it gets sites penalised. -->
+      <!-- SEO:LEADERS:START -->
+      <section class="seo-leaders">
+        <h2>NFL usage leaders, weeks 2 to 4 of the 2026 season</h2>
+        <p class="seo-updated">Updated October 5, 2026. All figures cover weeks 2 to 4 and are recomputed from the counting stats, not averaged across weeks.</p>
+        <p>Over weeks 2 to 4 of the 2026 NFL season, DeVonta Smith (PHI) leads all pass catchers with a 35.6% target share. Ashton Jeanty (LV) is the biggest buy-low signal at -8.3 fantasy points over expected per game, meaning his role is worth noticeably more than he has scored.</p>
+        <div class="seo-leadgrid">
+        <div>
+          <h3>Target share leaders, weeks 2 to 4</h3>
+          <p class="hint">Share of his team&#x27;s targets. Around 25% marks a true alpha.</p>
+          <table>
+            <thead><tr><th>#</th><th>Player</th><th>Tm</th><th>Pos</th><th class="num">Tgt%</th><th class="num">Tgt</th></tr></thead>
+            <tbody>
+              <tr><td>1</td><td><strong>DeVonta Smith</strong></td><td>PHI</td><td>WR</td><td class="num">35.6%</td><td class="num">21</td></tr>
+              <tr><td>2</td><td><strong>Jaxon Smith-Njigba</strong></td><td>SEA</td><td>WR</td><td class="num">34.1%</td><td class="num">31</td></tr>
+              <tr><td>3</td><td><strong>Michael Wilson</strong></td><td>ARI</td><td>WR</td><td class="num">33.3%</td><td class="num">37</td></tr>
+              <tr><td>4</td><td><strong>Adonai Mitchell</strong></td><td>NYJ</td><td>WR</td><td class="num">33.3%</td><td class="num">12</td></tr>
+              <tr><td>5</td><td><strong>CeeDee Lamb</strong></td><td>DAL</td><td>WR</td><td class="num">33.0%</td><td class="num">38</td></tr>
+              <tr><td>6</td><td><strong>Zay Flowers</strong></td><td>BAL</td><td>WR</td><td class="num">32.7%</td><td class="num">16</td></tr>
+              <tr><td>7</td><td><strong>Isaiah Likely</strong></td><td>NYG</td><td>TE</td><td class="num">32.5%</td><td class="num">27</td></tr>
+              <tr><td>8</td><td><strong>Carnell Tate</strong></td><td>TEN</td><td>WR</td><td class="num">32.1%</td><td class="num">26</td></tr>
+              <tr><td>9</td><td><strong>Chris Olave</strong></td><td>NO</td><td>WR</td><td class="num">31.9%</td><td class="num">23</td></tr>
+              <tr><td>10</td><td><strong>Nico Collins</strong></td><td>HOU</td><td>WR</td><td class="num">30.8%</td><td class="num">8</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div>
+          <h3>Snap share leaders, weeks 2 to 4</h3>
+          <p class="hint">Share of his offense&#x27;s snaps. Separates every-down roles from rotations.</p>
+          <table>
+            <thead><tr><th>#</th><th>Player</th><th>Tm</th><th>Pos</th><th class="num">Snap%</th></tr></thead>
+            <tbody>
+              <tr><td>1</td><td><strong>DK Metcalf</strong></td><td>PIT</td><td>WR</td><td class="num">96.6%</td></tr>
+              <tr><td>2</td><td><strong>Jordan Addison</strong></td><td>MIN</td><td>WR</td><td class="num">94.7%</td></tr>
+              <tr><td>3</td><td><strong>Michael Wilson</strong></td><td>ARI</td><td>WR</td><td class="num">93.6%</td></tr>
+              <tr><td>4</td><td><strong>Cade Otton</strong></td><td>TB</td><td>TE</td><td class="num">92.9%</td></tr>
+              <tr><td>5</td><td><strong>DeVonta Smith</strong></td><td>PHI</td><td>WR</td><td class="num">92.9%</td></tr>
+              <tr><td>6</td><td><strong>Jameson Williams</strong></td><td>DET</td><td>WR</td><td class="num">92.5%</td></tr>
+              <tr><td>7</td><td><strong>Garrett Wilson</strong></td><td>NYJ</td><td>WR</td><td class="num">92.4%</td></tr>
+              <tr><td>8</td><td><strong>Denzel Boston</strong></td><td>CLE</td><td>WR</td><td class="num">92.2%</td></tr>
+              <tr><td>9</td><td><strong>Trey McBride</strong></td><td>ARI</td><td>TE</td><td class="num">92.1%</td></tr>
+              <tr><td>10</td><td><strong>Devaughn Vele</strong></td><td>NO</td><td>WR</td><td class="num">91.5%</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div>
+          <h3>Running back carry share, weeks 2 to 4</h3>
+          <p class="hint">Share of team carries, with red zone carries per game.</p>
+          <table>
+            <thead><tr><th>#</th><th>Player</th><th>Tm</th><th class="num">Car%</th><th class="num">RZ/g</th></tr></thead>
+            <tbody>
+              <tr><td>1</td><td><strong>Jahmyr Gibbs</strong></td><td>DET</td><td class="num">86.4%</td><td class="num">2.0</td></tr>
+              <tr><td>2</td><td><strong>Kenneth Walker III</strong></td><td>KC</td><td class="num">85.3%</td><td class="num">1.7</td></tr>
+              <tr><td>3</td><td><strong>Chase Brown</strong></td><td>CIN</td><td class="num">82.4%</td><td class="num">0.0</td></tr>
+              <tr><td>4</td><td><strong>Derrick Henry</strong></td><td>BAL</td><td class="num">81.2%</td><td class="num">0.0</td></tr>
+              <tr><td>5</td><td><strong>Aaron Jones</strong></td><td>MIN</td><td class="num">81.1%</td><td class="num">0.7</td></tr>
+              <tr><td>6</td><td><strong>Jonathan Taylor</strong></td><td>IND</td><td class="num">76.1%</td><td class="num">0.3</td></tr>
+              <tr><td>7</td><td><strong>Javonte Williams</strong></td><td>DAL</td><td class="num">74.6%</td><td class="num">0.3</td></tr>
+              <tr><td>8</td><td><strong>Chuba Hubbard</strong></td><td>CAR</td><td class="num">73.9%</td><td class="num">0.3</td></tr>
+              <tr><td>9</td><td><strong>Bucky Irving</strong></td><td>TB</td><td class="num">73.8%</td><td class="num">1.3</td></tr>
+              <tr><td>10</td><td><strong>Jaylen Warren</strong></td><td>PIT</td><td class="num">73.8%</td><td class="num">1.0</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div>
+          <h3>Best buy-low candidates by FPOE, weeks 2 to 4</h3>
+          <p class="hint">Most negative fantasy points over expected: the usage is there, the scoring has not followed.</p>
+          <table>
+            <thead><tr><th>#</th><th>Player</th><th>Tm</th><th>Pos</th><th class="num">FPOE</th><th class="num">Half</th></tr></thead>
+            <tbody>
+              <tr><td>1</td><td><strong>Ashton Jeanty</strong></td><td>LV</td><td>RB</td><td class="num">-8.3</td><td class="num">11.6</td></tr>
+              <tr><td>2</td><td><strong>D&#x27;Andre Swift</strong></td><td>CHI</td><td>RB</td><td class="num">-8.2</td><td class="num">8.9</td></tr>
+              <tr><td>3</td><td><strong>Jacoby Brissett</strong></td><td>ARI</td><td>QB</td><td class="num">-8.0</td><td class="num">14.2</td></tr>
+              <tr><td>4</td><td><strong>Tyson Bagent</strong></td><td>CHI</td><td>QB</td><td class="num">-7.7</td><td class="num">5.5</td></tr>
+              <tr><td>5</td><td><strong>Jadarian Price</strong></td><td>SEA</td><td>RB</td><td class="num">-6.3</td><td class="num">2.6</td></tr>
+              <tr><td>6</td><td><strong>J.K. Dobbins</strong></td><td>DEN</td><td>RB</td><td class="num">-6.2</td><td class="num">5.2</td></tr>
+              <tr><td>7</td><td><strong>Michael Wilson</strong></td><td>ARI</td><td>WR</td><td class="num">-6.1</td><td class="num">12.1</td></tr>
+              <tr><td>8</td><td><strong>Baker Mayfield</strong></td><td>TB</td><td>QB</td><td class="num">-5.9</td><td class="num">11.7</td></tr>
+              <tr><td>9</td><td><strong>Justin Herbert</strong></td><td>LAC</td><td>QB</td><td class="num">-5.7</td><td class="num">10.1</td></tr>
+              <tr><td>10</td><td><strong>Courtland Sutton</strong></td><td>DEN</td><td>WR</td><td class="num">-5.5</td><td class="num">3.7</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div>
+          <h3>Most likely to regress by FPOE, weeks 2 to 4</h3>
+          <p class="hint">Scoring well ahead of opportunity, usually on touchdowns the volume will not keep producing.</p>
+          <table>
+            <thead><tr><th>#</th><th>Player</th><th>Tm</th><th>Pos</th><th class="num">FPOE</th><th class="num">Half</th></tr></thead>
+            <tbody>
+              <tr><td>1</td><td><strong>Noah Fant</strong></td><td>NO</td><td>TE</td><td class="num">+10.3</td><td class="num">8.7</td></tr>
+              <tr><td>2</td><td><strong>Jaxon Smith-Njigba</strong></td><td>SEA</td><td>WR</td><td class="num">+9.8</td><td class="num">26.2</td></tr>
+              <tr><td>3</td><td><strong>Brock Purdy</strong></td><td>SF</td><td>QB</td><td class="num">+8.5</td><td class="num">26.5</td></tr>
+              <tr><td>4</td><td><strong>George Kittle</strong></td><td>SF</td><td>TE</td><td class="num">+8.4</td><td class="num">18.1</td></tr>
+              <tr><td>5</td><td><strong>CeeDee Lamb</strong></td><td>DAL</td><td>WR</td><td class="num">+6.9</td><td class="num">26.9</td></tr>
+              <tr><td>6</td><td><strong>Ryan Miller</strong></td><td>MIA</td><td>WR</td><td class="num">+6.4</td><td class="num">5.6</td></tr>
+              <tr><td>7</td><td><strong>Zay Flowers</strong></td><td>BAL</td><td>WR</td><td class="num">+6.2</td><td class="num">17.4</td></tr>
+              <tr><td>8</td><td><strong>Blake Whiteheart</strong></td><td>CLE</td><td>TE</td><td class="num">+6.1</td><td class="num">4.1</td></tr>
+              <tr><td>9</td><td><strong>Deebo Samuel Sr.</strong></td><td>SF</td><td>WR</td><td class="num">+5.6</td><td class="num">12.0</td></tr>
+              <tr><td>10</td><td><strong>Drake London</strong></td><td>ATL</td><td>WR</td><td class="num">+5.4</td><td class="num">15.4</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div>
+          <h3>Half PPR points per game, weeks 2 to 4</h3>
+          <p class="hint">Actual half PPR scoring, for reference against the usage above.</p>
+          <table>
+            <thead><tr><th>#</th><th>Player</th><th>Tm</th><th>Pos</th><th class="num">Half</th></tr></thead>
+            <tbody>
+              <tr><td>1</td><td><strong>Nico Collins</strong></td><td>HOU</td><td>WR</td><td class="num">27.3</td></tr>
+              <tr><td>2</td><td><strong>CeeDee Lamb</strong></td><td>DAL</td><td>WR</td><td class="num">26.9</td></tr>
+              <tr><td>3</td><td><strong>Brock Purdy</strong></td><td>SF</td><td>QB</td><td class="num">26.5</td></tr>
+              <tr><td>4</td><td><strong>Jaxon Smith-Njigba</strong></td><td>SEA</td><td>WR</td><td class="num">26.2</td></tr>
+              <tr><td>5</td><td><strong>Josh Allen</strong></td><td>BUF</td><td>QB</td><td class="num">25.4</td></tr>
+              <tr><td>6</td><td><strong>Jahmyr Gibbs</strong></td><td>DET</td><td>RB</td><td class="num">24.6</td></tr>
+              <tr><td>7</td><td><strong>Case Keenum</strong></td><td>CHI</td><td>QB</td><td class="num">24.5</td></tr>
+              <tr><td>8</td><td><strong>Kenneth Walker III</strong></td><td>KC</td><td>RB</td><td class="num">23.8</td></tr>
+              <tr><td>9</td><td><strong>Jared Goff</strong></td><td>DET</td><td>QB</td><td class="num">23.2</td></tr>
+              <tr><td>10</td><td><strong>Puka Nacua</strong></td><td>LA</td><td>WR</td><td class="num">23.2</td></tr>
+            </tbody>
+          </table>
+        </div>
+        </div>
+      </section>
+      <!-- SEO:LEADERS:END -->
+
+      <section class="seo-copy">
+        <h2>What these NFL advanced stats mean</h2>
+        <p>
+          Box score numbers tell you what already happened. These tell you what is
+          likely to happen next, because they measure <strong>opportunity</strong>
+          rather than results. A receiver's catches depend on whether the ball arrived;
+          his <strong>target share</strong>, <strong>snap share</strong> and
+          <strong>air yards share</strong> depend only on the role his coaches gave him,
+          and roles are far stickier week to week than touchdowns are.
+        </p>
+        <h3>Target share, snap share and WOPR</h3>
+        <p>
+          <strong>Target share</strong> is the percentage of his team's targets a player
+          saw. <strong>Snap share</strong> is the percentage of his offense's snaps he
+          was on the field for, which is what separates a genuine every-down player from
+          a rotational one. <strong>Air yards share</strong> is his cut of the yardage
+          his team threw toward, so it rewards the downfield role that target share
+          alone misses. <strong>WOPR</strong> (weighted opportunity rating) folds the
+          last two together at 1.5 times target share plus 0.7 times air yards share,
+          and is the single best one-number summary of a receiver's workload.
+        </p>
+        <h3>Routes run, TPRR and yards per route run</h3>
+        <p>
+          <strong>Targets per route run</strong> is the cleanest usage rate in football:
+          it asks how often a player was thrown to when he actually ran a route, so
+          unlike target share it is not distorted by how often his team passed or how
+          many snaps he rested. <strong>Yards per route run</strong> does the same for
+          production. Routes here are reconstructed from which players were on the field
+          for each dropback, because no one publishes charted route counts for free.
+          Seasons without published participation data show the other columns instead of
+          guessing.
+        </p>
+        <h3>Expected fantasy points and FPOE</h3>
+        <p>
+          <strong>Expected fantasy points</strong> price every target and carry by its
+          depth and field position, so they describe what a player's usage was worth
+          regardless of whether he converted it. <strong>FPOE</strong> is his actual half
+          PPR points per game minus that figure. A negative FPOE is usually the buy
+          signal: the role is already there and the scoring has not caught up. A large
+          positive one tends to regress, because it was built on touchdowns the volume
+          will not keep producing. For <strong>fantasy football</strong> that makes it a
+          waiver and buy-low tool; for <strong>DFS</strong> it finds the players the
+          market has not repriced yet.
+        </p>
+        <h3>Where the data comes from</h3>
+        <p>
+          Everything is built from <strong>nflverse</strong> play by play, snap counts
+          and <strong>NFL Next Gen Stats</strong>, with expected points from
+          ffopportunity and DraftKings salaries for the current slate. It refreshes every
+          Tuesday once Monday night is graded, and every figure is automatically
+          recomputed from the sources and compared against the published file before it
+          goes live. Rates are recalculated over whichever week range you select rather
+          than averaged across weeks, so a role that changed mid-season shows up cleanly
+          instead of being blurred away.
+        </p>
+      </section>
+
+      <section class="seo-cta">
+        <h2>Free during the beta</h2>
+        <p>
+          These NFL stats are free and open to everyone, no sign-up. The
+          <a href="index.html">SlateSims PGA DFS optimizer</a> — ownership projections,
+          hole-by-hole simulations and contest ROI for DraftKings golf — is free during
+          the beta too. An <strong>NFL lineup optimizer</strong> is on the roadmap and is
+          not built yet; this page is a stats reference for now.
+        </p>
+        <p><a class="ghost" href="index.html#signup">Get free access to the PGA app →</a></p>
+      </section>
+
+      <section class="seo-faq">
+        <h2>Frequently asked questions</h2>
+        <h3>Is this NFL advanced stats tool free?</h3>
+        <p>
+          Yes. The NFL stats page is completely free and needs no account or sign-up.
+          The PGA DFS optimizer is also free during its beta.
+        </p>
+        <h3>How often are the NFL stats updated?</h3>
+        <p>
+          Stats refresh every Tuesday, once every game including Monday night has been
+          graded. DraftKings salaries refresh again on Thursday and Sunday as slates are
+          posted and repriced.
+        </p>
+        <h3>What is a good target share in the NFL?</h3>
+        <p>
+          Roughly 20% marks a clear number one option, 25% and up is a genuine alpha
+          receiver, and anything past 30% is among the most concentrated roles in the
+          league. Below about 15% a player usually needs a touchdown to pay off.
+        </p>
+        <h3>What is FPOE in fantasy football?</h3>
+        <p>
+          FPOE is fantasy points over expected: actual half PPR points per game minus
+          what the player's opportunity was worth. Negative means his usage has not yet
+          turned into scoring, which often makes him a buy. Positive usually means
+          touchdown luck that will not repeat.
+        </p>
+        <h3>Can I see stats for a specific week or range of weeks?</h3>
+        <p>
+          Yes. Choose any start and end week, or use the Last 1, Last 3, Last 5 and full
+          season shortcuts. Every rate is recomputed over the range you pick rather than
+          averaged across weeks.
+        </p>
+        <h3>Does SlateSims have an NFL lineup optimizer?</h3>
+        <p>
+          Not yet. NFL is a stats reference today and an optimizer is on the roadmap. The
+          PGA side already has a full optimizer, simulations and contest ROI.
+        </p>
+      </section>
     </section>
 
   </main>
 
   <footer class="foot">
-    <span>SlateSims · client-side, your data never leaves the browser.</span>
+    <span>SlateSims · free NFL advanced stats and DraftKings PGA DFS tools.</span>
   </footer>
   </div>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebApplication",
+        "@id": "https://slatesims.com/nfl.html#app",
+        "name": "SlateSims NFL Advanced Stats",
+        "url": "https://slatesims.com/nfl.html",
+        "applicationCategory": "SportsApplication",
+        "operatingSystem": "Any",
+        "description": "Free NFL advanced stats for DFS and fantasy football: target share, snap share, air yards share, WOPR, routes run, TPRR, yards per route run, red zone usage and expected fantasy points.",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+        "publisher": { "@type": "Organization", "name": "SlateSims", "url": "https://slatesims.com/" }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "SlateSims", "item": "https://slatesims.com/" },
+          { "@type": "ListItem", "position": 2, "name": "NFL Advanced Stats", "item": "https://slatesims.com/nfl.html" }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          { "@type": "Question", "name": "Is this NFL advanced stats tool free?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Yes. The NFL stats page is completely free and needs no account or sign-up. The PGA DFS optimizer is also free during its beta." } },
+          { "@type": "Question", "name": "How often are the NFL stats updated?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Stats refresh every Tuesday, once every game including Monday night has been graded. DraftKings salaries refresh again on Thursday and Sunday as slates are posted and repriced." } },
+          { "@type": "Question", "name": "What is a good target share in the NFL?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Roughly 20% marks a clear number one option, 25% and up is a genuine alpha receiver, and anything past 30% is among the most concentrated roles in the league. Below about 15% a player usually needs a touchdown to pay off." } },
+          { "@type": "Question", "name": "What is FPOE in fantasy football?",
+            "acceptedAnswer": { "@type": "Answer", "text": "FPOE is fantasy points over expected: actual half PPR points per game minus what the player's opportunity was worth. Negative means his usage has not yet turned into scoring, which often makes him a buy. Positive usually means touchdown luck that will not repeat." } },
+          { "@type": "Question", "name": "Can I see stats for a specific week or range of weeks?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Yes. Choose any start and end week, or use the Last 1, Last 3, Last 5 and full season shortcuts. Every rate is recomputed over the range you pick rather than averaged across weeks." } },
+          { "@type": "Question", "name": "Does SlateSims have an NFL lineup optimizer?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Not yet. NFL is a stats reference today and an optimizer is on the roadmap. The PGA side already has a full optimizer, simulations and contest ROI." } }
+        ]
+      }
+    ]
+  }
+  </script>
 
   <script src="assets/js/nav.js?v=20261005b"></script>
   <script src="assets/js/nfl.js?v=20261005b"></script>

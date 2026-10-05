@@ -68,15 +68,24 @@ jobs:
             done
           fi
 
+      # Writes the week's leader tables into nfl.html as plain HTML. The live
+      # table is drawn by JavaScript, which a crawler may never run, so without
+      # this the page has nothing indexable on it. Runs after verification, so
+      # numbers that failed the check are never published as page copy either.
+      - name: Render weekly leaders into nfl.html
+        env:
+          PYTHONUNBUFFERED: '1'
+        run: python tools/seo_nfl.py
+
       - name: Commit data
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add data/nfl_*.json
+          git add data/nfl_*.json nfl.html
           if git diff --cached --quiet; then
             echo "No change in NFL data"
           else
-            git commit -m "Auto-update NFL advanced stats"
+            git commit -m "Auto-update NFL advanced stats + weekly leaders"
             # Every data workflow pushes to main and they can overlap, so a plain
             # push loses the race and fails the job after the fetch succeeded.
             for i in 1 2 3 4 5; do
