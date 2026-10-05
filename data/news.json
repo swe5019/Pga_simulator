@@ -1,11 +1,11 @@
 {
- "updatedUtc": "2026-10-05T05:44:11Z",
+ "updatedUtc": "2026-10-05T14:43:46Z",
  "slate": "UTAH_2026",
  "event": "",
  "counts": {
-  "items": 5,
-  "golfersMentioned": 4,
-  "news": 5,
+  "items": 4,
+  "golfersMentioned": 5,
+  "news": 4,
   "chatter": 0
  },
  "sources": [
@@ -90,7 +90,7 @@
   {
    "source": "Bunkered",
    "ok": true,
-   "items": 8,
+   "items": 10,
    "error": null
   },
   {
@@ -144,7 +144,7 @@
    "total": 2
   },
   {
-   "name": "Mark Hubbard",
+   "name": "Harry Hall",
    "news": 1,
    "chatter": 0,
    "total": 1
@@ -156,13 +156,43 @@
    "total": 1
   },
   {
-   "name": "Taylor Moore",
+   "name": "Chris Kirk",
+   "news": 1,
+   "chatter": 0,
+   "total": 1
+  },
+  {
+   "name": "Patrick Rodgers",
    "news": 1,
    "chatter": 0,
    "total": 1
   }
  ],
  "items": [
+  {
+   "title": "Running Back Fantasy Football Waiver Wire Pickups for Week 5 - Ollie Gordon II, Emanuel Wilson, Keaton Mitchell, Kendre Miller, more",
+   "link": "https://www.rotoballer.com/running-back-waiver-wire-pickups-fantasy-football-week-5-2026/1953992",
+   "summary": "Some of your rosters have been impacted by injuries that were sustained by De'Von Achane, Breece Hall, and Travis Etienne Jr. [&#8230;]",
+   "published": "Mon, 05 Oct 2026 12:20:01 +0000",
+   "source": "RotoBaller",
+   "kind": "news",
+   "golfers": [
+    "Harry Hall",
+    "Will Gordon"
+   ]
+  },
+  {
+   "title": "Quarterback Fantasy Football Waiver Wire Pickups - Top QB Adds for Week 5 Include Kirk Cousins, Michael Penix Jr., Aaron Rodgers, and more",
+   "link": "https://www.rotoballer.com/quarterback-qb-waiver-wire-pickups-week-5-fantasy-football-2026/1958043",
+   "summary": "Week 4 wasn't a banner week for quarterbacks. Eight signal callers (Drake Maye, Joe Burrow, C.J. Stroud, Kirk Cousins, Aaron [&#8230;]",
+   "published": "Mon, 05 Oct 2026 11:30:10 +0000",
+   "source": "RotoBaller",
+   "kind": "news",
+   "golfers": [
+    "Chris Kirk",
+    "Patrick Rodgers"
+   ]
+  },
   {
    "title": "Week 6 College Football Power Ratings and Projections for Every Game",
    "link": "https://vsin.com/college-football/week-6-college-football-power-ratings-and-projections-for-every-game/",
@@ -175,28 +205,6 @@
    ]
   },
   {
-   "title": "Who Should I Start for Fantasy Football Week 4? Jalen Coker, Jameson Williams, Darren Waller, Chuba Hubbard, Tetairoa McMillan, Sam LaPorta, Brycen Tremayne, AJ Dillon",
-   "link": "https://www.rotoballer.com/who-should-i-start-for-week-4-jalen-coker-jameson-williams-darren-waller-chuba-hubbard-tetairoa-mcmillan-sam-laporta-brycen-tremayne-aj-dillon/1956985",
-   "summary": "Who Should I Start? Who Should I Sit? Some of the most common Week 4 SNF fantasy football lineup decisions [&#8230;]",
-   "published": "Sun, 04 Oct 2026 02:27:55 +0000",
-   "source": "RotoBaller",
-   "kind": "news",
-   "golfers": [
-    "Mark Hubbard"
-   ]
-  },
-  {
-   "title": "Who Should I Start for Fantasy Football Week 4? Ollie Gordon, Ladd McConkey, Omarion Hampton, Jordan Addison, Jaylen Waddle, Mike Evans, Courtland Sutton, Jaylen Wright, Emanuel Wilson",
-   "link": "https://www.rotoballer.com/who-should-i-start-for-week-4-ollie-gordon-ii-ladd-mcconkey-omarion-hampton-jordan-addison-jaylen-waddle-mike-evans-courtland-sutton-jaylen-wright-emanuel-wilson/1956983",
-   "summary": "Who Should I Start? Who Should I Sit? Some of the most common Week 4 fantasy football lineup decisions involve [&#8230;]",
-   "published": "Sun, 04 Oct 2026 02:26:51 +0000",
-   "source": "RotoBaller",
-   "kind": "news",
-   "golfers": [
-    "Will Gordon"
-   ]
-  },
-  {
    "title": "NFL Top Plays Based on Betting Splits, Power Ratings and Trends \u2013 Week 4",
    "link": "https://vsin.com/nfl/nfl-top-plays-based-on-betting-splits-power-ratings-and-trends-for-week-4/",
    "summary": "Week 4 NFL Betting Trends: The following NFL betting trends are a collection of analytical data, betting systems and strength ratings featured on VSiN and qualified for the NFL games of Week 4. This report is meant to emulate the process that Steve Makinen and other members of the VSiN Analytics team undergo when handicapping [&#8230;] The post NFL Top Plays Based on Betting Splits, Power Ratings ",
@@ -205,17 +213,6 @@
    "kind": "news",
    "golfers": [
     "Seamus Power"
-   ]
-  },
-  {
-   "title": "Spotted: New PXG Raptor driver at Bank of Utah Championship",
-   "link": "https://golfwrx.com/787213/spotted-new-pxg-raptor-driver-at-bank-of-utah-championship/",
-   "summary": "PXG is first to show its hand this fall with the new Raptor driver lineup spotted on the PGA Tour at the Bank of Utah Championship. GolfWRX&#8217;s Tour Photographer Greg Moore was on-site at the Black Desert Resort in Ivins, Utah, to snag pictures of the new drivers in the bag of PXG staffers Aldrich [&#8230;]",
-   "published": "Tue, 29 Sep 2026 17:14:13 +0000",
-   "source": "GolfWRX",
-   "kind": "news",
-   "golfers": [
-    "Taylor Moore"
    ]
   }
  ]
