@@ -56,6 +56,10 @@ NFLVERSE = "https://github.com/nflverse/nflverse-data/releases/download"
 
 POSITIONS = ("QB", "RB", "WR", "TE")
 
+# Next Gen rates, which are kept in the output even when they are exactly zero.
+# See the emit loop for why dropping a zero here corrupts a whole game.
+KEEP_ZERO = frozenset(("sep", "yacoe", "ttt", "iay", "ryoe"))
+
 # csv's default field cap is 128KB; participation rows carry 22 player ids plus
 # names in single fields and blow straight through it.
 csv.field_size_limit(min(sys.maxsize, 2 ** 31 - 1))
@@ -207,6 +211,7 @@ def build_stats(season):
     # must come from the same source as the player numbers or the shares will
     # not sum to 100%, so both sides are counted off pbp here.
     log("2. play by play (team shares, red zone, goal line)")
+    qb_ids = {pid for pid, m in out_players.items() if m["p"] == "QB"}
     pbp = rows(f"{NFLVERSE}/pbp/play_by_play_{season}.csv")
     dropbacks = set()
     for r in pbp:
@@ -248,9 +253,12 @@ def build_stats(season):
                     d["glc"] = d.get("glc", 0) + 1
         # QB rushing is the single biggest DFS separator at the position and is
         # not isolated in the box score, so count scrambles + designed runs.
-        if uid and (is_rush or i(r.get("qb_scramble")) == 1):
+        # The test is the player's POSITION, not whether he threw a pass that
+        # week: gating on attempts scored a zero for any quarterback who ran but
+        # did not throw, which is exactly the mobile-QB game worth seeing.
+        if uid and uid in qb_ids and (is_rush or i(r.get("qb_scramble")) == 1):
             d = weeks.get((uid, wk))
-            if d is not None and d.get("att", 0) > 0:
+            if d is not None:
                 d["qra"] = d.get("qra", 0) + 1
     log(f"   {len(pbp)} plays, {len(team)} team-weeks")
 
@@ -261,16 +269,31 @@ def build_stats(season):
         by_name[nrm(m["n"])].append(pid)
     snaps = rows(f"{NFLVERSE}/snap_counts/snap_counts_{season}.csv")
     hit = miss = 0
+    # Team snaps are recovered from snaps/pct, but offense_pct is rounded to two
+    # decimals, so the error in that division is brutal for bit-part players: a
+    # lineman with 1 snap at "0.01" implies 100 team snaps when the truth is 66.
+    # Taking the max across players therefore picks the single worst estimate
+    # every time. Keep the estimate from the player with the MOST snaps, where
+    # the rounding is proportionally smallest, and floor it at the largest snap
+    # count seen, since a team ran at least as many snaps as its busiest player.
+    best = {}   # (tm, wk) -> (snaps of the player used, implied team snaps)
+    most = defaultdict(int)
     for r in snaps:
         if r.get("game_type") != "REG":
             continue
         wk = i(r.get("week"))
         pct = num(r.get("offense_pct"))
         sn = i(r.get("offense_snaps"))
-        if not wk or sn <= 0:
-            continue
-        cands = by_name.get(nrm(r.get("player")), [])
         tm = (r.get("team") or "").upper()
+        if not wk or sn <= 0 or not tm:
+            continue
+        # Every offensive player counts toward the denominator, linemen
+        # included; only the numerator needs a skill-player match.
+        most[(tm, wk)] = max(most[(tm, wk)], sn)
+        if pct > 0 and sn > best.get((tm, wk), (0, 0))[0]:
+            best[(tm, wk)] = (sn, round(sn / pct))
+
+        cands = by_name.get(nrm(r.get("player")), [])
         pid = None
         for c in cands:
             if weeks.get((c, wk), {}).get("tm") == tm:
@@ -283,14 +306,28 @@ def build_stats(season):
             continue
         hit += 1
         weeks[(pid, wk)]["sn"] = sn
-        # offense_pct is snaps/team snaps, so it recovers the team denominator
-        # that snap_counts never states outright.
-        if pct > 0:
-            t = team[(tm, wk)]
-            t["sn"] = max(t.get("sn", 0), round(sn / pct))
-    log(f"   matched {hit} snap rows, {miss} unmatched")
+
+    for key, top in most.items():
+        team[key]["sn"] = max(top, best.get(key, (0, 0))[1])
+    log(f"   matched {hit} snap rows, {miss} unmatched, "
+        f"{len(most)} team-week denominators")
 
     # ---- Next Gen Stats: rates that have no count decomposition.
+    # These must distinguish "measured as zero" from "not measured". num()
+    # returns 0.0 for a blank, which would turn an absent reading into a real
+    # one and drag a weighted mean toward zero, so parse strictly here.
+    def opt(v):
+        if v is None or v == "" or v == "NA":
+            return None
+        try:
+            return round(float(v), 3)
+        except (TypeError, ValueError):
+            return None
+
+    def put(d, k, v):
+        if v is not None:
+            d[k] = v
+
     log("4. next gen stats")
     ngs_hit = 0
     for kind, url in (("rec", "ngs_receiving.csv.gz"),
@@ -305,13 +342,13 @@ def build_stats(season):
                 continue
             d = weeks[(pid, wk)]
             if kind == "rec":
-                d["sep"] = r2(num(r.get("avg_separation")))
-                d["yacoe"] = r2(num(r.get("avg_yac_above_expectation")))
+                put(d, "sep", opt(r.get("avg_separation")))
+                put(d, "yacoe", opt(r.get("avg_yac_above_expectation")))
             elif kind == "pass":
-                d["ttt"] = r2(num(r.get("avg_time_to_throw")))
-                d["iay"] = r2(num(r.get("avg_intended_air_yards")))
+                put(d, "ttt", opt(r.get("avg_time_to_throw")))
+                put(d, "iay", opt(r.get("avg_intended_air_yards")))
             else:
-                d["ryoe"] = r2(num(r.get("rush_yards_over_expected_per_att")))
+                put(d, "ryoe", opt(r.get("rush_yards_over_expected_per_att")))
             ngs_hit += 1
     log(f"   {ngs_hit} ngs values attached")
 
@@ -365,9 +402,17 @@ def build_stats(season):
             continue
         row = {"i": pid, "w": wk, "t": d["tm"], "o": opp.get((d["tm"], wk), "")}
         for k, v in d.items():
-            if k == "tm" or not v:
+            if k == "tm":
                 continue
-            row[k] = r2(v) if isinstance(v, float) else v
+            # Zeros are dropped to keep the file small, which is safe for counts
+            # because the page reads a missing count as zero. It is NOT safe for
+            # the Next Gen rates: dropping one removes that week's WEIGHT from
+            # the weighted mean, so a genuine 0.00 reading silently deletes the
+            # whole game. Jonathan Taylor's week 2 RYOE of 0.0035 did exactly
+            # that and moved his season figure by a third.
+            if not v and k not in KEEP_ZERO:
+                continue
+            row[k] = r2(v) if isinstance(v, float) and k not in KEEP_ZERO else v
         out_rows.append(row)
 
     out_teams = {}

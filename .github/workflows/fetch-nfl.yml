@@ -47,6 +47,27 @@ jobs:
           NFL_SEASON: ${{ inputs.season }}
         run: python tools/fetch_nfl.py
 
+      # Recomputes every column from the source CSVs and compares it against
+      # what was just written. It does not import the fetcher, so a bug there
+      # cannot reproduce itself here. A snap-share error once shipped to the
+      # live site looking entirely plausible; this step is why that cannot
+      # happen quietly again. A mismatch fails the job BEFORE the commit, so
+      # the bad file is never published.
+      - name: Verify against sources
+        env:
+          PYTHONUNBUFFERED: '1'
+          SEASONS: ${{ inputs.season }}
+        run: |
+          set -e
+          if [ -z "$SEASONS" ]; then
+            python tools/verify_nfl.py
+          else
+            for s in $(echo "$SEASONS" | tr ',' ' '); do
+              echo "--- verifying $s ---"
+              python tools/verify_nfl.py "$s"
+            done
+          fi
+
       - name: Commit data
         run: |
           git config user.name  "github-actions[bot]"
