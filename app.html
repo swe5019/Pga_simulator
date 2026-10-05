@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>SlateSims — PGA DFS Simulator for DraftKings</title>
   <link rel="icon" href="assets/img/favicon.svg?v=20260730v" type="image/svg+xml" />
-  <link rel="stylesheet" href="assets/css/styles.css?v=20261001a" />
+  <link rel="stylesheet" href="assets/css/styles.css?v=20261005a" />
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-13J1816EN4"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -39,6 +39,35 @@
         <p class="tag">Play-by-play PGA simulations for DraftKings — built to win.</p>
       </div>
     </a>
+    <nav class="mainnav" aria-label="Sports">
+      <div class="navitem">
+        <button type="button" class="navbtn here" aria-haspopup="true" aria-expanded="false">
+          PGA <span class="navcaret" aria-hidden="true">▼</span>
+        </button>
+        <div class="navmenu" role="menu">
+          <div class="navgroup">Main Slate</div>
+          <a role="menuitem" href="app.html#players">Ownership &amp; Projections</a>
+          <a role="menuitem" href="app.html#build">Build Lineups</a>
+          <a role="menuitem" href="app.html#contest">Contest Sim</a>
+          <div class="navgroup">Showdown</div>
+          <a role="menuitem" href="app.html#showdown">Ownership &amp; Projections</a>
+          <div class="navgroup">Research</div>
+          <a role="menuitem" href="app.html#news">News &amp; Chatter</a>
+          <a role="menuitem" href="app.html#saved">Saved Lineups</a>
+        </div>
+      </div>
+      <div class="navitem">
+        <button type="button" class="navbtn" aria-haspopup="true" aria-expanded="false">
+          NFL <span class="navcaret" aria-hidden="true">▼</span>
+        </button>
+        <div class="navmenu" role="menu">
+          <div class="navgroup">Research</div>
+          <a role="menuitem" href="nfl.html">Advanced Stats</a>
+          <div class="navgroup">Lineups</div>
+          <span class="navsoon">Optimizer — coming soon</span>
+        </div>
+      </div>
+    </nav>
     <nav class="tabs">
       <button class="tab active" data-tab="players">1 · Players</button>
       <button class="tab" data-tab="build">2 · Build</button>
@@ -615,13 +644,14 @@
     </div>
   </div>
 
-  <script src="assets/js/scoring.js?v=20261001a"></script>
-  <script src="assets/js/data.js?v=20261001a"></script>
-  <script src="assets/js/sim.js?v=20261001a"></script>
-  <script src="assets/js/optimizer.js?v=20261001a"></script>
-  <script src="assets/js/contest.js?v=20261001a"></script>
-  <script src="assets/js/app.js?v=20261001a"></script>
-  <script src="assets/js/onboard.js?v=20261001a"></script>
-  <script src="assets/js/tour.js?v=20261001a"></script>
+  <script src="assets/js/nav.js?v=20261005a"></script>
+  <script src="assets/js/scoring.js?v=20261005a"></script>
+  <script src="assets/js/data.js?v=20261005a"></script>
+  <script src="assets/js/sim.js?v=20261005a"></script>
+  <script src="assets/js/optimizer.js?v=20261005a"></script>
+  <script src="assets/js/contest.js?v=20261005a"></script>
+  <script src="assets/js/app.js?v=20261005a"></script>
+  <script src="assets/js/onboard.js?v=20261005a"></script>
+  <script src="assets/js/tour.js?v=20261005a"></script>
 </body>
 </html>

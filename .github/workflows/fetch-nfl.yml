@@ -1,0 +1,72 @@
+name: Fetch NFL stats
+
+# Rebuilds data/nfl_<season>.json from nflverse and data/nfl_dk.json from the
+# DraftKings lobby.
+#
+# nflverse posts the week's data on Tuesday once every game including Monday
+# night has been graded, so the weekly rebuild runs Tuesday afternoon UTC. The
+# extra Thursday and Sunday runs exist for the SALARIES, which change as DK
+# posts and reprices slates through the week; a stats rebuild on those days is
+# cheap and keeps corrections from nflverse flowing through.
+on:
+  schedule:
+    - cron: '35 16 * * 2'   # Tue — the week's stats have landed
+    - cron: '35 16 * * 4'   # Thu — DK has the weekend slates up
+    - cron: '35 14 * * 0'   # Sun — final salary and inactive churn
+  workflow_dispatch:
+    inputs:
+      season:
+        description: 'Season(s) to build, e.g. 2026 or "2025,2024". Blank = current.'
+        required: false
+        default: ''
+
+permissions:
+  contents: write
+
+concurrency:
+  group: fetch-nfl
+  cancel-in-progress: true
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Fetch NFL data
+        env:
+          # Without this Python buffers stdout but not stderr, so on a crash the
+          # traceback lands far above the prints that led to it.
+          PYTHONUNBUFFERED: '1'
+          NFL_SEASON: ${{ inputs.season }}
+        run: python tools/fetch_nfl.py
+
+      - name: Commit data
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/nfl_*.json
+          if git diff --cached --quiet; then
+            echo "No change in NFL data"
+          else
+            git commit -m "Auto-update NFL advanced stats"
+            # Every data workflow pushes to main and they can overlap, so a plain
+            # push loses the race and fails the job after the fetch succeeded.
+            for i in 1 2 3 4 5; do
+              if git push; then
+                echo "pushed on attempt $i"
+                exit 0
+              fi
+              echo "push rejected, rebasing and retrying ($i)"
+              git pull --rebase origin main || exit 1
+              sleep $((i * 3))
+            done
+            echo "could not push after 5 attempts"
+            exit 1
+          fi

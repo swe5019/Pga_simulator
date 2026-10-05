@@ -336,6 +336,34 @@ function initTabs() {
   });
 }
 
+/* Deep links from the sport menubar: app.html#contest, app.html#showdown, …
+ *
+ * The menu has to be able to point at a step inside this page, and a hash is
+ * the only way to do that without the menu knowing anything about how the app
+ * stores its state. Unknown hashes are ignored rather than clearing the page,
+ * so an old bookmark degrades to the default tab. */
+function applyDeepLink() {
+  const hash = (location.hash || '').replace('#', '').toLowerCase();
+  if (!hash) return;
+  // #showdown is not a tab — it is the Players tab with the slate flipped —
+  // so it is translated here rather than faked with a hidden tab button.
+  const wantShowdown = hash === 'showdown';
+  const tab = wantShowdown ? 'players' : hash;
+  const btn = document.querySelector(`.tab[data-tab="${CSS.escape(tab)}"]`);
+  if (!btn) return;
+  btn.click();
+  if (wantShowdown) {
+    const sd = document.querySelector('.slate-btn[data-slate="showdown"]');
+    // The slate toggle only exists once a showdown field has loaded, so wait a
+    // beat for loadAutoSlate rather than silently doing nothing on a cold load.
+    if (sd && !sd.closest('.hidden')) sd.click();
+    else setTimeout(() => {
+      const late = document.querySelector('.slate-btn[data-slate="showdown"]');
+      if (late && !late.closest('.hidden')) late.click();
+    }, 1500);
+  }
+}
+
 /* ---------------------- Slate setup ---------------------- */
 function loadSampleSlate() {
   State.golfers = window.Data.buildSlate(window.Data.SAMPLE_SLATE);
@@ -2080,6 +2108,8 @@ function download(filename, text) {
 /* ---------------------- Boot ---------------------- */
 function init() {
   initTabs();
+  applyDeepLink();
+  window.addEventListener('hashchange', applyDeepLink);
   loadAutoSlate();
   // Toggling the cut by hand marks it as an override so the UI can say so.
   $('#hasCut').addEventListener('change', () => {
