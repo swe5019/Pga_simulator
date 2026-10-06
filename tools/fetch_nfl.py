@@ -220,7 +220,15 @@ def build_stats(season):
         d["py"] = i(r.get("passing_yards"))
         d["sk"] = i(r.get("sacks_suffered"))
         d["pay"] = i(r.get("passing_air_yards"))
-        d["td"] = i(r.get("receiving_tds")) + i(r.get("rushing_tds")) + i(r.get("passing_tds"))
+        # Touchdowns are kept apart rather than summed. A combined figure cannot
+        # be taken back apart, and the standard box score wants to know whether
+        # a back scored on the ground or through the air.
+        d["rtd"] = i(r.get("receiving_tds"))
+        d["utd"] = i(r.get("rushing_tds"))
+        d["ptd"] = i(r.get("passing_tds"))
+        d["int"] = i(r.get("passing_interceptions"))
+        d["fl"] = (i(r.get("sack_fumbles_lost")) + i(r.get("rushing_fumbles_lost"))
+                   + i(r.get("receiving_fumbles_lost")))
         # EPA and CPOE arrive per-game already summed over the player's plays,
         # so they stay sums here and are divided by window volume in the page.
         d["pepa"] = num(r.get("passing_epa"))

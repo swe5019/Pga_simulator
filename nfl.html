@@ -18,7 +18,7 @@
   <meta name="twitter:title" content="NFL Advanced Stats — Target Share, Snap Share, FPOE | SlateSims" />
   <meta name="twitter:description" content="Free NFL target share, snap share, routes run, TPRR and expected fantasy points. Any week range, updated weekly." />
   <meta name="twitter:image" content="https://slatesims.com/assets/img/avatar.png" />
-  <link rel="stylesheet" href="assets/css/styles.css?v=20261005b" />
+  <link rel="stylesheet" href="assets/css/styles.css?v=20261006a" />
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-13J1816EN4"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -101,6 +101,10 @@
         usage rank against his salary rank, so positive means the market has not caught
         up yet. Every rate is recomputed over the week range you pick rather than
         averaged across weeks, so a role that changed in week 3 shows up cleanly.
+        Use <b>View</b> to switch between the standard box score (targets, receptions,
+        receiving and rushing yards, touchdowns, completions, interceptions), the
+        advanced metrics, or both together, and <b>Show as</b> to read the counting
+        stats as totals or per game.
       </p>
       <p id="nflNote" class="hint hidden"></p>
 
@@ -123,6 +127,16 @@
         <button class="ghost small nflpos" data-pos="RB">RB</button>
         <button class="ghost small nflpos" data-pos="TE">TE</button>
         <button class="ghost small nflpos" data-pos="QB">QB</button>
+        <span class="filter-sep">View</span>
+        <button class="ghost small nflview" data-view="std">Standard</button>
+        <button class="ghost small nflview" data-view="adv">Advanced</button>
+        <button class="ghost small nflview active" data-view="all">All</button>
+        <span class="filter-sep">Show as</span>
+        <button class="ghost small nflbasis active" data-basis="total">Totals</button>
+        <button class="ghost small nflbasis" data-basis="pg">Per game</button>
+      </div>
+
+      <div class="trim-bar">
         <span class="filter-sep">Slate</span>
         <select id="nflSlate" class="filter-num" style="min-width:150px"></select>
         <label class="chk" title="Hide players who are not on the selected DraftKings slate">
@@ -178,7 +192,7 @@
       <!-- SEO:LEADERS:START -->
       <section class="seo-leaders">
         <h2>NFL usage leaders, weeks 2 to 4 of the 2026 season</h2>
-        <p class="seo-updated">Updated October 5, 2026. All figures cover weeks 2 to 4 and are recomputed from the counting stats, not averaged across weeks.</p>
+        <p class="seo-updated">Updated October 6, 2026. All figures cover weeks 2 to 4 and are recomputed from the counting stats, not averaged across weeks.</p>
         <p>Over weeks 2 to 4 of the 2026 NFL season, DeVonta Smith (PHI) leads all pass catchers with a 35.6% target share. Ashton Jeanty (LV) is the biggest buy-low signal at -8.3 fantasy points over expected per game, meaning his role is worth noticeably more than he has scored.</p>
         <div class="seo-leadgrid">
         <div>
@@ -195,8 +209,8 @@
               <tr><td>6</td><td><strong>Zay Flowers</strong></td><td>BAL</td><td>WR</td><td class="num">32.7%</td><td class="num">16</td></tr>
               <tr><td>7</td><td><strong>Isaiah Likely</strong></td><td>NYG</td><td>TE</td><td class="num">32.5%</td><td class="num">27</td></tr>
               <tr><td>8</td><td><strong>Carnell Tate</strong></td><td>TEN</td><td>WR</td><td class="num">32.1%</td><td class="num">26</td></tr>
-              <tr><td>9</td><td><strong>Chris Olave</strong></td><td>NO</td><td>WR</td><td class="num">31.9%</td><td class="num">23</td></tr>
-              <tr><td>10</td><td><strong>Nico Collins</strong></td><td>HOU</td><td>WR</td><td class="num">30.8%</td><td class="num">8</td></tr>
+              <tr><td>9</td><td><strong>Nico Collins</strong></td><td>HOU</td><td>WR</td><td class="num">30.8%</td><td class="num">8</td></tr>
+              <tr><td>10</td><td><strong>Brock Bowers</strong></td><td>LV</td><td>TE</td><td class="num">30.0%</td><td class="num">24</td></tr>
             </tbody>
           </table>
         </div>
@@ -215,7 +229,7 @@
               <tr><td>7</td><td><strong>Garrett Wilson</strong></td><td>NYJ</td><td>WR</td><td class="num">92.4%</td></tr>
               <tr><td>8</td><td><strong>Denzel Boston</strong></td><td>CLE</td><td>WR</td><td class="num">92.2%</td></tr>
               <tr><td>9</td><td><strong>Trey McBride</strong></td><td>ARI</td><td>TE</td><td class="num">92.1%</td></tr>
-              <tr><td>10</td><td><strong>Devaughn Vele</strong></td><td>NO</td><td>WR</td><td class="num">91.5%</td></tr>
+              <tr><td>10</td><td><strong>Devaughn Vele</strong></td><td>NO</td><td>WR</td><td class="num">90.7%</td></tr>
             </tbody>
           </table>
         </div>
@@ -268,11 +282,11 @@
               <tr><td>3</td><td><strong>Brock Purdy</strong></td><td>SF</td><td>QB</td><td class="num">+8.5</td><td class="num">26.5</td></tr>
               <tr><td>4</td><td><strong>George Kittle</strong></td><td>SF</td><td>TE</td><td class="num">+8.4</td><td class="num">18.1</td></tr>
               <tr><td>5</td><td><strong>CeeDee Lamb</strong></td><td>DAL</td><td>WR</td><td class="num">+6.9</td><td class="num">26.9</td></tr>
-              <tr><td>6</td><td><strong>Ryan Miller</strong></td><td>MIA</td><td>WR</td><td class="num">+6.4</td><td class="num">5.6</td></tr>
-              <tr><td>7</td><td><strong>Zay Flowers</strong></td><td>BAL</td><td>WR</td><td class="num">+6.2</td><td class="num">17.4</td></tr>
-              <tr><td>8</td><td><strong>Blake Whiteheart</strong></td><td>CLE</td><td>TE</td><td class="num">+6.1</td><td class="num">4.1</td></tr>
-              <tr><td>9</td><td><strong>Deebo Samuel Sr.</strong></td><td>SF</td><td>WR</td><td class="num">+5.6</td><td class="num">12.0</td></tr>
-              <tr><td>10</td><td><strong>Drake London</strong></td><td>ATL</td><td>WR</td><td class="num">+5.4</td><td class="num">15.4</td></tr>
+              <tr><td>6</td><td><strong>Brian Robinson</strong></td><td>ATL</td><td>RB</td><td class="num">+6.4</td><td class="num">14.6</td></tr>
+              <tr><td>7</td><td><strong>Ryan Miller</strong></td><td>MIA</td><td>WR</td><td class="num">+6.4</td><td class="num">5.6</td></tr>
+              <tr><td>8</td><td><strong>Zay Flowers</strong></td><td>BAL</td><td>WR</td><td class="num">+6.2</td><td class="num">17.4</td></tr>
+              <tr><td>9</td><td><strong>Blake Whiteheart</strong></td><td>CLE</td><td>TE</td><td class="num">+6.1</td><td class="num">4.1</td></tr>
+              <tr><td>10</td><td><strong>Bijan Robinson</strong></td><td>ATL</td><td>RB</td><td class="num">+5.8</td><td class="num">23.7</td></tr>
             </tbody>
           </table>
         </div>
@@ -290,8 +304,8 @@
               <tr><td>6</td><td><strong>Jahmyr Gibbs</strong></td><td>DET</td><td>RB</td><td class="num">24.6</td></tr>
               <tr><td>7</td><td><strong>Case Keenum</strong></td><td>CHI</td><td>QB</td><td class="num">24.5</td></tr>
               <tr><td>8</td><td><strong>Kenneth Walker III</strong></td><td>KC</td><td>RB</td><td class="num">23.8</td></tr>
-              <tr><td>9</td><td><strong>Jared Goff</strong></td><td>DET</td><td>QB</td><td class="num">23.2</td></tr>
-              <tr><td>10</td><td><strong>Puka Nacua</strong></td><td>LA</td><td>WR</td><td class="num">23.2</td></tr>
+              <tr><td>9</td><td><strong>Bijan Robinson</strong></td><td>ATL</td><td>RB</td><td class="num">23.7</td></tr>
+              <tr><td>10</td><td><strong>Jared Goff</strong></td><td>DET</td><td>QB</td><td class="num">23.2</td></tr>
             </tbody>
           </table>
         </div>
@@ -458,7 +472,7 @@
   }
   </script>
 
-  <script src="assets/js/nav.js?v=20261005b"></script>
-  <script src="assets/js/nfl.js?v=20261005b"></script>
+  <script src="assets/js/nav.js?v=20261006a"></script>
+  <script src="assets/js/nfl.js?v=20261006a"></script>
 </body>
 </html>

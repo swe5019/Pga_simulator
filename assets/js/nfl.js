@@ -26,6 +26,8 @@
     dk: null,           // parsed nfl_dk.json
     slate: null,        // chosen DK slate
     pos: 'WR',
+    view: 'all',        // 'std' | 'adv' | 'all'
+    basis: 'total',     // 'total' | 'pg' — governs the standard counting columns
     from: null,
     to: null,
     q: '',
@@ -56,6 +58,58 @@
       + '0.1 per rushing or receiving yard, 6 per TD and -2 per fumble lost.'],
     ['fpoe', 'FPOE', 'num', FPOE_TIP],
   ];
+
+  /* ---------- standard box score ----------
+   * Counting stats here honour the totals / per game switch; the header label
+   * changes with it so a total is never mistaken for an average. Rates (Catch%,
+   * Y/R, YPC, Cmp%) are identical either way and carry no suffix. */
+  const CATCH_TIP = 'Catch rate: receptions divided by targets.';
+  const STD = {
+    WR: [
+      ['tg_c', 'Tgt', 'num', 'Targets'],
+      ['rec_c', 'Rec', 'num', 'Receptions'],
+      ['ry_c', 'RecYd', 'num', 'Receiving yards'],
+      ['rtd_c', 'RecTD', 'num', 'Receiving touchdowns'],
+      ['ypr', 'Y/R', 'num', 'Yards per reception'],
+      ['catch', 'Catch%', 'num', CATCH_TIP],
+      ['ca_c', 'Rush', 'num', 'Rushing attempts'],
+      ['ru_c', 'RuYd', 'num', 'Rushing yards'],
+      ['td_c', 'TD', 'num', 'Total touchdowns: receiving, rushing and passing'],
+      ['fl_c', 'FL', 'num', 'Fumbles lost'],
+    ],
+    RB: [
+      ['ca_c', 'Att', 'num', 'Rushing attempts'],
+      ['ru_c', 'RuYd', 'num', 'Rushing yards'],
+      ['utd_c', 'RuTD', 'num', 'Rushing touchdowns'],
+      ['ypc', 'YPC', 'num', 'Yards per carry'],
+      ['tg_c', 'Tgt', 'num', 'Targets'],
+      ['rec_c', 'Rec', 'num', 'Receptions'],
+      ['ry_c', 'RecYd', 'num', 'Receiving yards'],
+      ['rtd_c', 'RecTD', 'num', 'Receiving touchdowns'],
+      ['catch', 'Catch%', 'num', CATCH_TIP],
+      ['td_c', 'TD', 'num', 'Total touchdowns: receiving, rushing and passing'],
+      ['fl_c', 'FL', 'num', 'Fumbles lost'],
+    ],
+    QB: [
+      ['cmp_c', 'Cmp', 'num', 'Completions'],
+      ['att_c', 'Att', 'num', 'Pass attempts'],
+      ['cmppct', 'Cmp%', 'num', 'Completion percentage'],
+      ['py_c', 'PaYd', 'num', 'Passing yards'],
+      ['ptd_c', 'PaTD', 'num', 'Passing touchdowns'],
+      ['int_c', 'INT', 'num', 'Interceptions thrown'],
+      ['sk_c', 'Sck', 'num', 'Times sacked'],
+      ['ca_c', 'Rush', 'num', 'Rushing attempts'],
+      ['ru_c', 'RuYd', 'num', 'Rushing yards'],
+      ['utd_c', 'RuTD', 'num', 'Rushing touchdowns'],
+      ['fl_c', 'FL', 'num', 'Fumbles lost'],
+    ],
+  };
+  STD.TE = STD.WR;
+
+  /* Counting columns: the ones the totals / per game switch applies to. Rates
+   * are deliberately absent, because a rate is the same on either basis. */
+  const COUNT_COLS = new Set(['tg_c', 'rec_c', 'ry_c', 'rtd_c', 'ca_c', 'ru_c', 'utd_c',
+    'cmp_c', 'att_c', 'py_c', 'ptd_c', 'int_c', 'sk_c', 'td_c', 'fl_c']);
 
   const COLS = {
     WR: [
@@ -223,9 +277,37 @@
         iay: wmean(rows, 'iay', 'att'),
         ryoe: wmean(rows, 'ryoe', 'ca'),
       };
+      // Standard box score. Stored as season/window TOTALS; the page divides
+      // by games when the basis switch is on per game, so one set of numbers
+      // serves both views and the two can never drift apart.
+      // tg, ay, ry, ca, ru and att are already in scope from the usage block.
+      const rec = sum(rows, 'rec');
+      const rtd = sum(rows, 'rtd'), utd = sum(rows, 'utd'), ptd = sum(rows, 'ptd');
+      const cmp = sum(rows, 'cmp');
+      row.tg_c = tg;
+      row.rec_c = rec;
+      row.ry_c = ry;
+      row.rtd_c = rtd;
+      row.ca_c = ca;
+      row.ru_c = ru;
+      row.utd_c = utd;
+      row.cmp_c = cmp;
+      row.att_c = att;
+      row.py_c = sum(rows, 'py');
+      row.ptd_c = ptd;
+      row.int_c = sum(rows, 'int');
+      row.sk_c = sum(rows, 'sk');
+      row.fl_c = sum(rows, 'fl');
+      row.td_c = rtd + utd + ptd;
+      // Rates are computed from the window totals, never averaged from weekly
+      // rates, for the same reason every other rate on this page is.
+      row.ypr = div(ry, rec);
+      row.catch = div(rec, tg) != null ? div(rec, tg) * 100 : null;
+      row.cmppct = div(cmp, att) != null ? div(cmp, att) * 100 : null;
+
       // Points. Half PPR is full PPR with half a point taken back per
       // reception, which is exact rather than a second scoring pass.
-      const fp = sum(rows, 'fp'), rec = sum(rows, 'rec');
+      const fp = sum(rows, 'fp');
       row.ppr = div(fp, g);
       row.hppr = div(fp - 0.5 * rec, g);
       // FPOE is averaged over only the weeks the model actually priced. Summing
@@ -299,7 +381,9 @@
   }
 
   /* ---------- formatting ---------- */
-  const PCT = new Set(['snap', 'tgtsh', 'airsh', 'carsh', 'cpoe']);
+  const PCT = new Set(['snap', 'tgtsh', 'airsh', 'carsh', 'cpoe', 'catch', 'cmppct']);
+  /* Counting stats print whole on a totals basis and to one decimal per game. */
+  const WHOLE = new Set(['sal', 'edge', 'g']);
   const TWO = new Set(['tprr', 'yprr', 'wopr', 'epa', 'ttt', 'ryoe', 'yacoe', 'sep']);
   /* Signed, because the sign is the whole message. */
   const SIGNED = new Set(['fpoe']);
@@ -311,6 +395,7 @@
     if (k === 'edge') return (v > 0 ? '+' : '') + v;
     if (SIGNED.has(k)) return (v > 0 ? '+' : '') + v.toFixed(1);
     if (k === 'g') return String(v);
+    if (COUNT_COLS.has(k)) return state.basis === 'pg' ? v.toFixed(1) : String(Math.round(v));
     if (PCT.has(k)) return v.toFixed(1) + '%';
     if (TWO.has(k)) return v.toFixed(2);
     return v.toFixed(1);
@@ -324,12 +409,44 @@
   const slateApplies = () => !!state.slate && state.index
     && +state.season === +state.index.current;
 
+  /* Columns that open every view: who he is, what he costs, what he scored.
+   * Edge closes every view for the same reason — it is the verdict column. */
+  const LEAD = new Set(['name', 'tm', 'g', 'sal', 'hppr', 'ppr', 'fpoe']);
+
   function visibleCols() {
-    let cols = COLS[state.pos];
+    const adv = COLS[state.pos].filter((c) => !LEAD.has(c[0]) && c[0] !== 'edge');
+    const lead = COLS[state.pos].filter((c) => LEAD.has(c[0]));
+    const edge = COLS[state.pos].filter((c) => c[0] === 'edge');
+    const std = STD[state.pos] || [];
+
+    let cols;
+    if (state.view === 'std') cols = lead.concat(std, edge);
+    else if (state.view === 'adv') cols = lead.concat(adv, edge);
+    else cols = lead.concat(std, adv, edge);
+
     if (!state.raw || !state.raw.hasRoutes) cols = cols.filter((c) => !ROUTE_COLS.has(c[0]));
     if (!state.raw || !state.raw.hasExp) cols = cols.filter((c) => !EXP_COLS.has(c[0]));
     if (!slateApplies()) cols = cols.filter((c) => c[0] !== 'sal' && c[0] !== 'edge');
+    // FPOE is an advanced read, so it stays out of the plain box score view.
+    if (state.view === 'std') cols = cols.filter((c) => c[0] !== 'fpoe');
     return cols;
+  }
+
+  /* A counting column's header says which basis it is on, so a season total is
+   * never read as a per-game average. Rates get no suffix because they are the
+   * same number either way. */
+  function headerFor(k, label) {
+    if (!COUNT_COLS.has(k)) return label;
+    return state.basis === 'pg' ? label + '/g' : label;
+  }
+
+  /* The stored value is always the window TOTAL; per game divides here. Doing it
+   * at render time rather than in agg() means the two bases cannot disagree. */
+  function cellValue(r, k) {
+    const v = r[k];
+    if (v == null) return null;
+    if (COUNT_COLS.has(k) && state.basis === 'pg') return r.g ? v / r.g : null;
+    return v;
   }
 
   function render() {
@@ -345,7 +462,7 @@
       const t = tip ? ` title="${tip.replace(/"/g, '&quot;')}"` : '';
       const on = state.sort.key === k ? ' sorted' : '';
       const arrow = state.sort.key === k ? (state.sort.dir === -1 ? ' ↓' : ' ↑') : '';
-      return `<th class="${cls} sortable${on}" data-k="${k}"${t}>${label}${arrow}</th>`;
+      return `<th class="${cls} sortable${on}" data-k="${k}"${t}>${headerFor(k, label)}${arrow}</th>`;
     }).join('');
 
     let rows = agg();
@@ -361,7 +478,10 @@
 
     const { key, dir } = state.sort;
     rows.sort((a, b) => {
-      const x = a[key], y = b[key];
+      // Sort on what the cell actually shows. Sorting the stored total while
+      // displaying a per-game figure would order the table by a number that is
+      // nowhere on screen.
+      const x = cellValue(a, key), y = cellValue(b, key);
       if (typeof x === 'string' || typeof y === 'string') {
         return -dir * String(x || '').localeCompare(String(y || ''));
       }
@@ -378,7 +498,7 @@
       if (k === 'edge' && r.edge != null) extra = r.edge > 0 ? ' up' : (r.edge < 0 ? ' down' : ' dim');
       if (k === 'fpoe' && r.fpoe != null) extra = r.fpoe > 0 ? ' up' : (r.fpoe < 0 ? ' down' : ' dim');
       if (k === 'name') extra = ' name';
-      return `<td class="${cls}${extra}">${fmt(k, r[k])}</td>`;
+      return `<td class="${cls}${extra}">${fmt(k, cellValue(r, k))}</td>`;
     }).join('')}</tr>`).join('');
 
     const span = state.from === state.to ? `week ${state.from}` : `weeks ${state.from}–${state.to}`;
@@ -564,6 +684,18 @@
       const weeks = state.raw.weeks;
       const hi = weeks[weeks.length - 1];
       setWindow(n === 0 ? weeks[0] : hi - n + 1, hi);
+      render();
+    }));
+    $$('.nflview').forEach((b) => b.addEventListener('click', () => {
+      $$('.nflview').forEach((x) => x.classList.remove('active'));
+      b.classList.add('active');
+      state.view = b.dataset.view;
+      render();
+    }));
+    $$('.nflbasis').forEach((b) => b.addEventListener('click', () => {
+      $$('.nflbasis').forEach((x) => x.classList.remove('active'));
+      b.classList.add('active');
+      state.basis = b.dataset.basis;
       render();
     }));
     $$('.nflpos').forEach((b) => b.addEventListener('click', () => {

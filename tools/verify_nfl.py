@@ -39,7 +39,9 @@ TOL = {"g": 0, "snap": 0.6, "cpoe": 0.05, "epa": 0.005, "ryoe": 0.02,
        "yacoe": 0.02, "sep": 0.02, "ttt": 0.02, "iay": 0.02,
        "ppr": 0.02, "hppr": 0.02, "fpoe": 0.03}
 # Columns the page only renders for certain positions.
-ONLY = {"rush": ("QB",), "dbpg": ("QB",), "ypg": ("QB",), "cpoe": ("QB",),
+ONLY = {"cmp_c": ("QB",), "att_c": ("QB",), "py_c": ("QB",), "ptd_c": ("QB",),
+        "int_c": ("QB",), "sk_c": ("QB",), "cmppct": ("QB",),
+        "rush": ("QB",), "dbpg": ("QB",), "ypg": ("QB",), "cpoe": ("QB",),
         "epa": ("QB",), "adot_qb": ("QB",), "ttt": ("QB",), "iay": ("QB",),
         "ryoe": ("RB", "QB"), "carsh": ("RB", "QB"), "ypc": ("RB", "QB"),
         "rzc": ("RB", "QB"), "glc": ("RB", "QB")}
@@ -225,6 +227,14 @@ def main():
             "rush": S("qra") / g,
             "sep": wm("sep", "tg"), "yacoe": wm("yacoe", "rec"),
             "ttt": wm("ttt", "att"), "iay": wm("iay", "att"), "ryoe": wm("ryoe", "ca"),
+            "tg_c": S("tg"), "rec_c": S("rec"), "ry_c": S("ry"), "rtd_c": S("rtd"),
+            "ca_c": S("ca"), "ru_c": S("ru"), "utd_c": S("utd"), "cmp_c": S("cmp"),
+            "att_c": S("att"), "py_c": S("py"), "ptd_c": S("ptd"), "int_c": S("int"),
+            "sk_c": S("sk"), "fl_c": S("fl"),
+            "td_c": S("rtd") + S("utd") + S("ptd"),
+            "ypr": S("ry") / S("rec") if S("rec") else None,
+            "catch": S("rec") / S("tg") * 100 if S("tg") else None,
+            "cmppct": S("cmp") / S("att") * 100 if S("att") else None,
             "ppr": S("fp") / g,
             "hppr": (S("fp") - 0.5 * S("rec")) / g,
             "fpoe": fpoe_of(rs),
@@ -298,6 +308,17 @@ def main():
             "ttt": ngwm("pass", "avg_time_to_throw", "attempts"),
             "iay": ngwm("pass", "avg_intended_air_yards", "attempts"),
             "ryoe": ngwm("rush", "rush_yards_over_expected_per_att", "carries"),
+            "tg_c": B("targets"), "rec_c": B("receptions"), "ry_c": B("receiving_yards"),
+            "rtd_c": B("receiving_tds"), "ca_c": B("carries"), "ru_c": B("rushing_yards"),
+            "utd_c": B("rushing_tds"), "cmp_c": B("completions"), "att_c": B("attempts"),
+            "py_c": B("passing_yards"), "ptd_c": B("passing_tds"),
+            "int_c": B("passing_interceptions"), "sk_c": B("sacks_suffered"),
+            "fl_c": (B("sack_fumbles_lost") + B("rushing_fumbles_lost")
+                     + B("receiving_fumbles_lost")),
+            "td_c": B("receiving_tds") + B("rushing_tds") + B("passing_tds"),
+            "ypr": B("receiving_yards") / B("receptions") if B("receptions") else None,
+            "catch": B("receptions") / B("targets") * 100 if B("targets") else None,
+            "cmppct": B("completions") / B("attempts") * 100 if B("attempts") else None,
             "ppr": sum(ppr(box[(pid, w)]) for w in wks) / g,
             "hppr": sum(ppr(box[(pid, w)]) - 0.5 * f(box[(pid, w)]["receptions"])
                         for w in wks) / g,
@@ -306,7 +327,10 @@ def main():
 
     fields = ["g", "snap", "tgtsh", "airsh", "adot_rec", "adot_qb", "wopr", "rz",
               "rzc", "glc", "carsh", "ypc", "tgpg", "dbpg", "ypg", "cpoe", "epa",
-              "rush", "sep", "yacoe", "ttt", "iay", "ryoe", "ppr", "hppr", "fpoe"]
+              "rush", "sep", "yacoe", "ttt", "iay", "ryoe", "ppr", "hppr", "fpoe",
+              "tg_c", "rec_c", "ry_c", "rtd_c", "ca_c", "ru_c", "utd_c", "cmp_c",
+              "att_c", "py_c", "ptd_c", "int_c", "sk_c", "fl_c", "td_c",
+              "ypr", "catch", "cmppct"]
     weeks = app["weeks"]
     lo, hi = weeks[0], weeks[-1]
     # Full season, a trailing window, and a single week: the three shapes the
