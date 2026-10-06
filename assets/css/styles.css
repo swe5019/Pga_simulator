@@ -556,6 +556,54 @@ td.defaulted-cell { color: var(--dim); font-style: italic; }
 }
 .chk input { margin: 0; }
 
+/* ---------- soft gate: unlock bar and email dialog ----------
+   The bar is ordinary content in the normal flow, not an overlay, so it never
+   covers the page and carries no interstitial penalty. It disappears once the
+   visitor has given an email. */
+.unlockbar {
+  display: flex; align-items: center; gap: 16px; flex-wrap: wrap;
+  margin: 0 0 14px; padding: 11px 15px;
+  border: 1px solid var(--green); border-radius: 9px;
+  background: linear-gradient(180deg, #16241a, #121a16);
+  font-size: 13px; color: var(--dim); line-height: 1.5;
+}
+.unlockbar span { flex: 1 1 420px; }
+.unlockbar strong { color: var(--green2); }
+.unlockbar.hidden { display: none; }
+/* A locked control looks locked before it is clicked. A button that silently
+   does something other than what it says is worse than one that is honest. */
+.nflview.locked::after { content: " 🔒"; font-size: 10px; opacity: .8; }
+
+.lg-overlay {
+  display: none; position: fixed; inset: 0; z-index: 200;
+  background: rgba(5, 8, 12, .72); backdrop-filter: blur(2px);
+  align-items: center; justify-content: center; padding: 20px;
+}
+.lg-overlay.open { display: flex; }
+.lg-card {
+  position: relative; width: 100%; max-width: 430px; padding: 26px 26px 20px;
+  background: var(--panel); border: 1px solid var(--line); border-radius: 13px;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, .6);
+}
+.lg-card h2 { margin: 0 0 8px; font-size: 20px; font-weight: 800; }
+.lg-why { margin: 0 0 16px; color: var(--dim); font-size: 13.5px; line-height: 1.55; }
+.lg-form { display: flex; gap: 8px; flex-wrap: wrap; }
+.lg-form input {
+  flex: 1 1 210px; padding: 10px 12px; font-size: 14px; font-family: inherit;
+  color: var(--text); background: var(--bg);
+  border: 1px solid var(--line); border-radius: 8px;
+}
+.lg-form input:focus { outline: none; border-color: var(--green2); }
+.lg-form button { padding: 10px 16px; font-size: 14px; }
+.lg-note { margin: 10px 0 0; font-size: 12.5px; color: var(--green2); min-height: 16px; }
+.lg-micro { margin: 4px 0 0; font-size: 11.5px; color: var(--dim); }
+.lg-x {
+  position: absolute; top: 9px; right: 11px; padding: 2px 7px;
+  background: none; border: 0; color: var(--dim); font-size: 21px;
+  line-height: 1; cursor: pointer; font-family: inherit;
+}
+.lg-x:hover { color: var(--text); }
+
 /* ---------- Readable prose below the NFL tool ----------
    Real content for readers and for search engines, which is the same thing.
    Capped at a comfortable measure because long lines of body copy are hard to

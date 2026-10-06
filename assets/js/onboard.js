@@ -35,6 +35,9 @@ document.addEventListener('DOMContentLoaded', () => {
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
     const fd = new FormData(form);
+    // Tag the origin so PGA, NFL and landing-page leads can be told apart in
+    // the Formspree inbox. leadgate.js sends the same field.
+    if (!fd.has('source')) fd.append('source', 'PGA');
     const fields = Object.fromEntries(fd.entries());
     onboardBackupLead(fields);
     note.textContent = 'Unlocking…';

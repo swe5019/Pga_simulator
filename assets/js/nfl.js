@@ -18,6 +18,44 @@
 
   const DATA_DIR = 'data/';
 
+  /* ---------- soft gate ----------
+   * Free to everyone, crawlers included: the weekly leaders, the standard box
+   * score, the explainer copy and the current season. An email unlocks the
+   * advanced metrics, DraftKings salaries, Edge and past seasons.
+   *
+   * Nothing a visitor can see is withheld from a crawler, which is what keeps
+   * this a gate on features rather than cloaking. The page's indexable word
+   * count is unchanged by whether someone has unlocked it. */
+  const unlocked = () => !window.LeadGate || window.LeadGate.granted();
+
+  function askToUnlock(why, onGrant) {
+    if (!window.LeadGate) { onGrant(); return; }
+    window.LeadGate.prompt(why, 'NFL', () => {
+      syncLocks();
+      onGrant();
+      render();
+    });
+  }
+
+  /* Marks the locked controls so the padlock is visible before it is clicked,
+   * rather than the click appearing to do nothing. */
+  function syncLocks() {
+    const open = unlocked();
+    $$('.nflview').forEach((b) => {
+      const locked = !open && b.dataset.view !== 'std';
+      b.classList.toggle('locked', locked);
+      b.title = locked ? 'Free with your email' : '';
+    });
+    const sel = $('#nflSeason');
+    if (sel) {
+      Array.from(sel.options).forEach((o) => {
+        o.disabled = !open && state.index && +o.value !== +state.index.current;
+      });
+    }
+    const badge = $('#nflUnlock');
+    if (badge) badge.classList.toggle('hidden', open);
+  }
+
   /* ---------- state ---------- */
   const state = {
     index: null,
@@ -26,7 +64,7 @@
     dk: null,           // parsed nfl_dk.json
     slate: null,        // chosen DK slate
     pos: 'WR',
-    view: 'all',        // 'std' | 'adv' | 'all'
+    view: 'std',        // 'std' | 'adv' | 'all' — set from the lock state on boot
     basis: 'total',     // 'total' | 'pg' — governs the standard counting columns
     from: null,
     to: null,
@@ -415,7 +453,7 @@
    * year's usage, and Edge would be ranking one against the other. So salary
    * and Edge exist only on the season the slate belongs to. */
   const slateApplies = () => !!state.slate && state.index
-    && +state.season === +state.index.current;
+    && +state.season === +state.index.current && unlocked();
 
   /* Columns that open every view: who he is, what he costs, what he scored.
    * Edge closes every view for the same reason — it is the verdict column. */
@@ -677,10 +715,14 @@
     if (state.raw) {
       bits.push(`${state.season} season, through week ${state.raw.weeks[state.raw.weeks.length - 1]}`);
     }
+    // Three different reasons salaries can be absent, and they must not be
+    // confused: not fetched, locked behind the email, or a past season the
+    // current slate has nothing to do with.
     if (slateApplies()) bits.push(`${state.slate.name} salaries`);
-    else if (state.slate) bits.push('salaries hidden: the slate is for '
-      + `${state.index.current}, not ${state.season}`);
-    else bits.push('no DraftKings slate loaded');
+    else if (!state.slate) bits.push('no DraftKings slate loaded');
+    else if (!unlocked()) bits.push('DraftKings salaries free with your email');
+    else bits.push(`salaries hidden: the slate is for ${state.index.current}, `
+      + `not ${state.season}`);
     $('#nflMeta').textContent = '— ' + bits.join(' · ');
 
     // The season can change after boot, so the slate controls have to be
@@ -764,9 +806,26 @@
     } catch (e) { /* no salaries this run */ }
     fillSlates();
 
-    await loadSeason(state.index.seasons[0].season);
+    // Someone who has already given an email opens on the full table; everyone
+    // else opens on the free standard view.
+    if (unlocked()) {
+      state.view = 'all';
+      $$('.nflview').forEach((x) => x.classList.toggle('active', x.dataset.view === 'all'));
+    }
+    syncLocks();
+    await loadSeason(state.index.current);
 
-    $('#nflSeason').addEventListener('change', (e) => loadSeason(e.target.value));
+    $('#nflSeason').addEventListener('change', (e) => {
+      const want = e.target.value;
+      if (!unlocked() && state.index && +want !== +state.index.current) {
+        e.target.value = String(state.season);
+        askToUnlock('Past seasons, including the ones with routes run, TPRR and '
+          + 'yards per route run, are free with your email.',
+        () => loadSeason(want));
+        return;
+      }
+      loadSeason(want);
+    });
     $('#nflSlate').addEventListener('change', (e) => {
       state.slate = state.dk.slates[+e.target.value] || null;
       renderMeta();
@@ -788,9 +847,20 @@
       render();
     }));
     $$('.nflview').forEach((b) => b.addEventListener('click', () => {
+      const want = b.dataset.view;
+      if (!unlocked() && want !== 'std') {
+        askToUnlock('The advanced metrics — target share, WOPR, routes, FPOE, '
+          + 'Next Gen Stats and DraftKings salaries — are free with your email.',
+        () => {
+          $$('.nflview').forEach((x) => x.classList.remove('active'));
+          b.classList.add('active');
+          state.view = want;
+        });
+        return;
+      }
       $$('.nflview').forEach((x) => x.classList.remove('active'));
       b.classList.add('active');
-      state.view = b.dataset.view;
+      state.view = want;
       render();
     }));
     $$('.nflbasis').forEach((b) => b.addEventListener('click', () => {
@@ -807,6 +877,12 @@
       render();
     }));
     $('#nflSearch').addEventListener('input', (e) => { state.q = e.target.value; render(); });
+    const unlockBtn = $('#nflUnlockBtn');
+    if (unlockBtn) {
+      unlockBtn.addEventListener('click', () => askToUnlock(
+        'Advanced metrics, DraftKings salaries, Edge and past seasons are free '
+        + 'with your email.', () => { state.view = 'all'; }));
+    }
     const only = $('#nflSlateOnly');
     if (only) {
       only.disabled = !slateApplies();
