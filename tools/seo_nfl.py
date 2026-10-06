@@ -32,9 +32,11 @@ PAGE = os.path.join(ROOT, "nfl.html")
 START = "<!-- SEO:LEADERS:START -->"
 END = "<!-- SEO:LEADERS:END -->"
 
-# How many weeks of a trailing window the leader lists describe. Short enough to
-# be current, long enough that one freak game cannot top the list.
-WINDOW = 3
+# The static block covers the FULL season, because that is the week range the
+# page itself opens on. A crawler and a visitor arriving cold then see the same
+# numbers, and the block does not visibly rewrite itself the moment the page
+# finishes loading. assets/js/nfl.js redraws it from the live controls after
+# that; keep the two in step.
 TOP = 10
 
 
@@ -129,15 +131,20 @@ def signed(v):
 def build(raw):
     weeks = raw["weeks"]
     hi = weeks[-1]
-    lo = max(weeks[0], hi - WINDOW + 1)
+    lo = weeks[0]
     rows = aggregate(raw, lo, hi)
     season = raw["season"]
     span = f"week {hi}" if lo == hi else f"weeks {lo} to {hi}"
 
+    weeks_in_window = hi - lo + 1
+
     def top(pos, key, n=TOP, reverse=True, minimum=None):
         pool = [r for r in rows if r["pos"] in pos and r.get(key) is not None]
         if minimum:
-            pool = [r for r in pool if r.get(minimum[0], 0) >= minimum[1]]
+            # Never demand more games than the window contains, or the list
+            # comes out empty. Mirrors pick() in assets/js/nfl.js.
+            floor = min(minimum[1], weeks_in_window)
+            pool = [r for r in pool if r.get(minimum[0], 0) >= floor]
         pool.sort(key=lambda r: r[key], reverse=reverse)
         return pool[:n]
 
@@ -195,9 +202,9 @@ def build(raw):
         f"{START}\n"
         '      <section class="seo-leaders">\n'
         f"        <h2>NFL usage leaders, {span} of the {season} season</h2>\n"
-        f'        <p class="seo-updated">Updated {built}. '
-        f"All figures cover {span} and are recomputed from the counting stats, not "
-        "averaged across weeks.</p>\n"
+        f'        <p class="seo-updated">Updated {built}. Follows the season and week '
+        f"range selected above. All figures cover {span} and are recomputed from the "
+        "counting stats, not averaged across weeks.</p>\n"
         f"        <p>{' '.join(intro)}</p>\n"
         '        <div class="seo-leadgrid">\n'
         + "\n".join(blocks)

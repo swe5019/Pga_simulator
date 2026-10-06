@@ -214,7 +214,10 @@
   }
 
   /* ---------- aggregation ---------- */
-  function agg() {
+  /* posFilter: omitted means the current position tab. Pass null for every
+   * position, which the leaders block below the table needs. */
+  function agg(posFilter) {
+    const want = posFilter === undefined ? state.pos : posFilter;
     const raw = state.raw;
     if (!raw) return [];
     const meta = new Map(raw.players.map((p) => [p.id, p]));
@@ -228,7 +231,7 @@
     const out = [];
     byPlayer.forEach((rows, id) => {
       const m = meta.get(id);
-      if (!m || m.p !== state.pos) return;
+      if (!m || (want && m.p !== want)) return;
 
       // Team denominators are summed over the SAME weeks the player appeared,
       // so a player who missed three games is measured against the snaps and
@@ -249,6 +252,7 @@
       const row = {
         id,
         name: m.n,
+        pos: m.p,
         tm: team(rows[rows.length - 1].t),
         opp: team(rows[rows.length - 1].o),
         g,
@@ -336,8 +340,12 @@
       out.push(row);
     });
 
-    attachSalaries(out);
-    attachEdge(out);
+    // Salary and Edge are ranked within one position, so they are meaningless
+    // on an all-position pull and are skipped there.
+    if (want) {
+      attachSalaries(out);
+      attachEdge(out);
+    }
     return out;
   }
 
@@ -512,6 +520,99 @@
       });
     });
     renderEnv();
+    renderLeaders();
+  }
+
+  /* ---------- weekly leaders, below the table ----------
+   * This section is ALSO written into nfl.html at build time by
+   * tools/seo_nfl.py, so a crawler that never runs JavaScript still sees real
+   * names and numbers. That server-rendered copy is the page's starting state;
+   * this redraws it whenever the season or week range changes, because it sits
+   * directly under the controls and a static block there reads as broken.
+   * Keep the two in step: same six lists, same thresholds. */
+  const esc = (v) => String(v == null ? '' : v)
+    .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+
+  function leaderTable(title, note, rows, cols) {
+    const head = cols.map((c) => `<th class="num">${esc(c[1])}</th>`).join('');
+    if (!rows.length) {
+      return `<div><h3>${esc(title)}</h3><p class="hint">${esc(note)}</p>`
+        + '<p class="hint">No qualifying players in this week range.</p></div>';
+    }
+    const body = rows.map((r, i) => '<tr>'
+      + `<td>${i + 1}</td><td><strong>${esc(r.name)}</strong></td>`
+      + `<td>${esc(r.tm)}</td><td>${esc(r.pos)}</td>`
+      + cols.map((c) => `<td class="num">${r[c[0]] == null ? '—' : c[2](r[c[0]])}</td>`).join('')
+      + '</tr>').join('');
+    return `<div><h3>${esc(title)}</h3><p class="hint">${esc(note)}</p>`
+      + '<table><thead><tr><th>#</th><th>Player</th><th>Tm</th><th>Pos</th>'
+      + `${head}</tr></thead><tbody>${body}</tbody></table></div>`;
+  }
+
+  function renderLeaders() {
+    const host = document.querySelector('.seo-leaders');
+    if (!host || !state.raw) return;
+    const rows = agg(null);
+    const span = state.from === state.to
+      ? `week ${state.from}` : `weeks ${state.from} to ${state.to}`;
+
+    // A two-game minimum keeps one freak afternoon off the FPOE lists, but it
+    // cannot exceed the window: on a single week nobody has two games and the
+    // table would render empty.
+    const weeksInWindow = state.to - state.from + 1;
+    const pick = (positions, key, { asc = false, minGames = 0, n = 10 } = {}) => rows
+      .filter((r) => positions.includes(r.pos) && r[key] != null
+        && r.g >= Math.min(minGames, weeksInWindow))
+      .sort((a, b) => (asc ? a[key] - b[key] : b[key] - a[key]))
+      .slice(0, n);
+
+    const pct = (v) => v.toFixed(1) + '%';
+    const one = (v) => v.toFixed(1);
+    const sgn = (v) => (v > 0 ? '+' : '') + v.toFixed(1);
+    const whole = (v) => String(Math.round(v));
+    const SKILL = ['WR', 'TE', 'RB'];
+    const ALL = ['WR', 'TE', 'RB', 'QB'];
+
+    const blocks = [
+      leaderTable(`Target share leaders, ${span}`,
+        "Share of his team's targets. Around 25% marks a true alpha.",
+        pick(SKILL, 'tgtsh'), [['tgtsh', 'Tgt%', pct], ['tg_c', 'Tgt', whole]]),
+      leaderTable(`Snap share leaders, ${span}`,
+        "Share of his offense's snaps. Separates every-down roles from rotations.",
+        pick(SKILL, 'snap'), [['snap', 'Snap%', pct]]),
+      leaderTable(`Running back carry share, ${span}`,
+        'Share of team carries, with red zone carries per game.',
+        pick(['RB'], 'carsh'), [['carsh', 'Car%', pct], ['rzc', 'RZ/g', one]]),
+      leaderTable(`Best buy-low candidates by FPOE, ${span}`,
+        'Most negative fantasy points over expected: the usage is there, the scoring has not followed.',
+        pick(ALL, 'fpoe', { asc: true, minGames: 2 }), [['fpoe', 'FPOE', sgn], ['hppr', 'Half', one]]),
+      leaderTable(`Most likely to regress by FPOE, ${span}`,
+        'Scoring well ahead of opportunity, usually on touchdowns the volume will not keep producing.',
+        pick(ALL, 'fpoe', { minGames: 2 }), [['fpoe', 'FPOE', sgn], ['hppr', 'Half', one]]),
+      leaderTable(`Half PPR points per game, ${span}`,
+        'Actual half PPR scoring, for reference against the usage above.',
+        pick(ALL, 'hppr'), [['hppr', 'Half', one]]),
+    ];
+
+    const lt = pick(SKILL, 'tgtsh', { n: 1 })[0];
+    const lf = pick(ALL, 'fpoe', { asc: true, minGames: 2, n: 1 })[0];
+    const intro = [];
+    if (lt) {
+      intro.push(`Over ${span} of the ${state.season} NFL season, ${esc(lt.name)} `
+        + `(${esc(lt.tm)}) leads all pass catchers with a ${lt.tgtsh.toFixed(1)}% target share.`);
+    }
+    if (lf) {
+      intro.push(`${esc(lf.name)} (${esc(lf.tm)}) is the biggest buy-low signal at `
+        + `${sgn(lf.fpoe)} fantasy points over expected per game, meaning his role is `
+        + 'worth noticeably more than he has scored.');
+    }
+
+    host.innerHTML = `<h2>NFL usage leaders, ${span} of the ${state.season} season</h2>`
+      + `<p class="seo-updated">Follows the season and week range selected above. `
+      + `All figures cover ${span} and are recomputed from the counting stats, not `
+      + `averaged across weeks.</p>`
+      + `<p>${intro.join(' ')}</p>`
+      + `<div class="seo-leadgrid">${blocks.join('')}</div>`;
   }
 
   /* Game environment: pace and pass rate per team over the same window.
