@@ -1,7 +1,7 @@
 {
- "updatedUtc": "2026-10-04T23:46:26Z",
+ "updatedUtc": "2026-10-06T01:38:19Z",
  "tournament": "EVENT_2026",
- "date": "10/3/26",
+ "date": "10/8/26",
  "event": "",
  "draftGroupId": "154234",
  "isShowdown": false,
@@ -227,7 +227,7 @@
   {
    "name": "Rasmus Neergaard-Petersen",
    "salary": 7500,
-   "status": "O",
+   "status": "WD",
    "out": true,
    "dkId": 565554
   },
@@ -248,8 +248,8 @@
   {
    "name": "Taylor Pendrith",
    "salary": 7400,
-   "status": "O",
-   "out": true,
+   "status": "",
+   "out": false,
    "dkId": 716
   },
   {
@@ -381,8 +381,8 @@
   {
    "name": "Austin Smotherman",
    "salary": 7000,
-   "status": "",
-   "out": false,
+   "status": "O",
+   "out": true,
    "dkId": 451957
   },
   {
@@ -514,8 +514,8 @@
   {
    "name": "A.J. Ewart",
    "salary": 6700,
-   "status": "",
-   "out": false,
+   "status": "O",
+   "out": true,
    "dkId": 644988
   },
   {
