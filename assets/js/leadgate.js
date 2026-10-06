@@ -26,7 +26,13 @@
  * ============================================================ */
 (function () {
   const KEY = 'slatesims_access_granted';
-  const ENDPOINT = 'https://formspree.io/f/mvzjronw';
+
+  /* The Cloudflare Worker that owns the list (see worker/README.md). Leave this
+   * empty and every signup goes to Formspree exactly as before, so the site is
+   * safe to ship while the Worker is still undeployed. Fill it in and the
+   * Worker becomes primary, with Formspree kept as the fallback. */
+  const WORKER = '';
+  const FORMSPREE = 'https://formspree.io/f/mvzjronw';
   const CONTACT = 'steve@slatesims.com';
 
   function granted() {
@@ -51,16 +57,35 @@
   async function submit(email, source) {
     const fields = { email, source, _subject: `SlateSims ${source} signup` };
     backup(fields);
+
+    // 1. The Worker, when one is configured. It owns the list and has no
+    //    monthly cap, so it is tried first.
+    if (WORKER) {
+      try {
+        const res = await fetch(`${WORKER}/lead`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          // company is the honeypot the Worker checks; a real visitor never
+          // fills it because it is not on the form.
+          body: JSON.stringify({ email, source }),
+        });
+        if (res.ok) return true;
+      } catch (e) { /* fall through to Formspree */ }
+    }
+
+    // 2. Formspree. Still the only path until the Worker is deployed, and the
+    //    safety net afterwards.
     try {
       const body = new FormData();
       Object.entries(fields).forEach(([k, v]) => body.append(k, v));
-      const res = await fetch(ENDPOINT, {
+      const res = await fetch(FORMSPREE, {
         method: 'POST', headers: { Accept: 'application/json' }, body,
       });
       if (res.ok) return true;
     } catch (e) { /* fall through */ }
-    // Formspree unreachable or over its monthly cap. Hand the lead to mail so
-    // it is not silently dropped, then let them in regardless.
+
+    // 3. Everything is down, or Formspree is over its monthly cap. Hand the
+    //    lead to mail rather than drop it, then let them in regardless.
     try {
       window.open(`mailto:${CONTACT}?subject=${encodeURIComponent('SlateSims ' + source + ' signup')}`
         + `&body=${encodeURIComponent('email: ' + email)}`, '_blank');

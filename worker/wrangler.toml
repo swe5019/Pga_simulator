@@ -1,0 +1,14 @@
+name = "slatesims-leads"
+main = "src/index.js"
+compatibility_date = "2026-01-01"
+
+# Created already; this is the live database, not a placeholder.
+[[d1_databases]]
+binding = "DB"
+database_name = "slatesims-leads"
+database_id = "ee9dac61-52e6-446f-901c-07cf4af275a4"
+
+# ADMIN_KEY is a secret, set with `wrangler secret put ADMIN_KEY`.
+# It is deliberately NOT in this file: everything here is committed to a public
+# repository, and admin.html is served publicly too, so the key only ever lives
+# in Cloudflare and in the one browser that types it.

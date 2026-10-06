@@ -43,6 +43,15 @@ document.addEventListener('DOMContentLoaded', () => {
     note.textContent = 'Unlocking…';
     note.className = 'entrynote';
 
+    // leadgate.js owns the Worker-then-Formspree-then-mailto chain, so the PGA
+    // gate and the NFL unlock send leads the same way and only one place needs
+    // changing when the endpoint moves.
+    if (window.LeadGate && typeof window.LeadGate.submit === 'function') {
+      await window.LeadGate.submit(fields.email, 'PGA');
+      onboardGrant();
+      return;
+    }
+
     let ok = false;
     try {
       const res = await fetch(ONBOARD_FORMSPREE, { method: 'POST', headers: { Accept: 'application/json' }, body: fd });
