@@ -1,6 +1,6 @@
 {
- "updatedUtc": "2026-10-07T01:56:32Z",
- "count": 32,
+ "updatedUtc": "2026-10-07T17:37:58Z",
+ "count": 33,
  "events": [
   {
    "tournament": "3M_OPEN_2025",
@@ -23,6 +23,17 @@
    "colabMaePct": 1.641,
    "comparedPlayers": 142,
    "updatedUtc": "2026-07-27T13:34:48Z"
+  },
+  {
+   "tournament": "BAYCURRENT_2026",
+   "file": "history/BAYCURRENT_2026.json",
+   "date": "2026-10-08 00:00:00",
+   "hasPredicted": true,
+   "hasActual": false,
+   "maePct": null,
+   "colabMaePct": null,
+   "comparedPlayers": null,
+   "updatedUtc": "2026-10-07T17:37:58Z"
   },
   {
    "tournament": "BILTMORE_2026",
@@ -207,7 +218,7 @@
    "hasPredicted": false,
    "hasActual": true,
    "maePct": null,
-   "colabMaePct": 2.878,
+   "colabMaePct": 0.072,
    "comparedPlayers": null,
    "updatedUtc": "2026-06-25T15:52:16Z"
   },
@@ -275,7 +286,7 @@
    "maePct": 2.958,
    "colabMaePct": 2.928,
    "comparedPlayers": 72,
-   "updatedUtc": "2026-10-07T01:56:32Z"
+   "updatedUtc": "2026-10-07T17:37:58Z"
   },
   {
    "tournament": "TRUIST_2026",
@@ -315,10 +326,10 @@
    "file": "history/UTAH_2026.json",
    "date": "2026-10-01 00:00:00",
    "hasPredicted": true,
-   "hasActual": false,
-   "maePct": null,
-   "colabMaePct": null,
-   "comparedPlayers": null,
+   "hasActual": true,
+   "maePct": 2.437,
+   "colabMaePct": 2.447,
+   "comparedPlayers": 121,
    "updatedUtc": "2026-10-07T01:56:32Z"
   },
   {
