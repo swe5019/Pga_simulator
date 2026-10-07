@@ -1180,19 +1180,27 @@ async function loadDkContests() {
     const doc = await res.json();
     State.dkContests = doc.contests || [];
     const sel = $('#cDkContest');
-    State.dkContests.forEach((c, i) => {
-      const opt = document.createElement('option');
-      opt.value = String(i);
-      const fee = c.fee != null ? `$${c.fee}` : '';
-      // Say which contests carry DK's real payout table. When the exact tiers
-      // can't be fetched we still list the contest for its true fee and field
-      // size, but the payout curve is modeled, and that difference should be
-      // visible rather than silently assumed.
-      const payout = c.tiers && c.tiers.length ? '' : ' · modeled payouts';
-      opt.textContent =
-        `${c.name} — ${fee}, ${(c.entries || 0).toLocaleString()} entries${payout}`;
-      sel.appendChild(opt);
-    });
+    // Biggest field first. The file arrives in DK's own order, which puts the
+    // free play-money contests at the top — the last thing anyone scrolling
+    // this list is looking for. Sort a copy carrying the original index, since
+    // the option value indexes into State.dkContests and must keep pointing at
+    // the same contest.
+    State.dkContests
+      .map((c, i) => ({ c, i }))
+      .sort((a, b) => (b.c.entries || 0) - (a.c.entries || 0))
+      .forEach(({ c, i }) => {
+        const opt = document.createElement('option');
+        opt.value = String(i);
+        const fee = c.fee != null ? `$${c.fee}` : '';
+        // Say which contests carry DK's real payout table. When the exact tiers
+        // can't be fetched we still list the contest for its true fee and field
+        // size, but the payout curve is modeled, and that difference should be
+        // visible rather than silently assumed.
+        const payout = c.tiers && c.tiers.length ? '' : ' · modeled payouts';
+        opt.textContent =
+          `${c.name} — ${fee}, ${(c.entries || 0).toLocaleString()} entries${payout}`;
+        sel.appendChild(opt);
+      });
   } catch (e) {
     /* no contests file yet */
   }
