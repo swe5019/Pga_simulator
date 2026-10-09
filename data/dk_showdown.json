@@ -1,935 +1,515 @@
 {
- "updatedUtc": "2026-10-09T00:56:27Z",
+ "updatedUtc": "2026-10-09T18:38:07Z",
  "tournament": "EVENT_2026",
  "date": "10/9/26",
  "event": "",
- "draftGroupId": "154678",
+ "draftGroupId": "154617",
  "isShowdown": true,
- "count": 132,
+ "count": 72,
  "players": [
   {
-   "name": "Ludvig \u00c5berg",
-   "salary": 11200,
+   "name": "Xander Schauffele",
+   "salary": 10900,
    "status": "",
    "out": false,
-   "dkId": 452216
+   "dkId": 722
   },
   {
-   "name": "Eugenio Lopez-Chacarra",
-   "salary": 10300,
+   "name": "Jacob Bridgeman",
+   "salary": 10800,
    "status": "",
    "out": false,
-   "dkId": 60467
+   "dkId": 640848
   },
   {
-   "name": "Patrick Reed",
-   "salary": 10100,
+   "name": "Collin Morikawa",
+   "salary": 10600,
    "status": "",
    "out": false,
-   "dkId": 976
+   "dkId": 789
   },
   {
-   "name": "Shane Lowry",
-   "salary": 10000,
+   "name": "Hideki Matsuyama",
+   "salary": 10500,
    "status": "",
    "out": false,
-   "dkId": 1052
+   "dkId": 1130
   },
   {
-   "name": "Tyrrell Hatton",
+   "name": "Wyndham Clark",
+   "salary": 10200,
+   "status": "",
+   "out": false,
+   "dkId": 852
+  },
+  {
+   "name": "Ryan Gerard",
    "salary": 9800,
    "status": "",
    "out": false,
-   "dkId": 1015
+   "dkId": 645035
   },
   {
-   "name": "David Puig",
-   "salary": 9700,
+   "name": "Justin Thomas",
+   "salary": 9500,
    "status": "",
    "out": false,
-   "dkId": 607241
+   "dkId": 1012
   },
   {
-   "name": "Marco Penge",
-   "salary": 9400,
-   "status": "",
-   "out": false,
-   "dkId": 60415
-  },
-  {
-   "name": "Angel Ayora Fanegas",
+   "name": "Michael Thorbjornsen",
    "salary": 9300,
    "status": "",
    "out": false,
-   "dkId": 678851
+   "dkId": 787
   },
   {
-   "name": "Jacob Skov Olesen",
+   "name": "Doug Ghim",
    "salary": 9200,
    "status": "",
    "out": false,
-   "dkId": 799066
+   "dkId": 546
   },
   {
-   "name": "Tom McKibbin",
+   "name": "Michael Brennan",
    "salary": 9100,
    "status": "",
    "out": false,
-   "dkId": 452173
+   "dkId": 627796
   },
   {
-   "name": "Alex Noren",
+   "name": "Sungjae Im",
    "salary": 9000,
    "status": "",
    "out": false,
-   "dkId": 1162
+   "dkId": 621
   },
   {
-   "name": "Daniel Hillier",
+   "name": "Min Woo Lee",
    "salary": 8900,
    "status": "",
    "out": false,
-   "dkId": 1106
+   "dkId": 60544
   },
   {
-   "name": "Thomas Detry",
+   "name": "Adam Scott",
    "salary": 8800,
    "status": "",
    "out": false,
-   "dkId": 842
+   "dkId": 875
   },
   {
-   "name": "Oliver Lindell",
+   "name": "Maverick McNealy",
    "salary": 8700,
    "status": "",
    "out": false,
-   "dkId": 451766
+   "dkId": 543
   },
   {
-   "name": "Sergio Garcia",
+   "name": "Keith Mitchell",
    "salary": 8600,
    "status": "",
    "out": false,
-   "dkId": 981
+   "dkId": 1076
   },
   {
-   "name": "Justin Rose",
+   "name": "Ben Kohles",
    "salary": 8500,
    "status": "",
    "out": false,
-   "dkId": 734
+   "dkId": 451327
   },
   {
-   "name": "Ewen Ferguson",
+   "name": "Ryo Hisatsune",
    "salary": 8400,
    "status": "",
    "out": false,
-   "dkId": 60475
+   "dkId": 609130
   },
   {
-   "name": "Josele Ballester",
+   "name": "Matt Wallace",
    "salary": 8300,
    "status": "",
    "out": false,
-   "dkId": 717497
+   "dkId": 1105
   },
   {
-   "name": "Adrian Meronk",
+   "name": "Johnny Keefer",
    "salary": 8200,
    "status": "",
    "out": false,
-   "dkId": 60269
+   "dkId": 835972
   },
   {
-   "name": "Nicolai H\u00f8jgaard",
+   "name": "Alex Smalley",
    "salary": 8100,
    "status": "",
    "out": false,
-   "dkId": 60190
+   "dkId": 451986
   },
   {
-   "name": "Joakim Lagergren",
+   "name": "Ricky Castillo",
    "salary": 8000,
    "status": "",
    "out": false,
-   "dkId": 1153
+   "dkId": 514324
   },
   {
-   "name": "Victor Perez",
+   "name": "Jackson Suber",
+   "salary": 8000,
+   "status": "",
+   "out": false,
+   "dkId": 632390
+  },
+  {
+   "name": "Kurt Kitayama",
    "salary": 7900,
    "status": "",
    "out": false,
-   "dkId": 710
+   "dkId": 921
   },
   {
-   "name": "Jayden Trey Schaper",
+   "name": "Keegan Bradley",
    "salary": 7900,
    "status": "",
    "out": false,
-   "dkId": 457302
+   "dkId": 518
   },
   {
-   "name": "Angel Hidalgo",
+   "name": "Zachary Bauchou",
    "salary": 7800,
    "status": "",
    "out": false,
-   "dkId": 452149
+   "dkId": 1028
   },
   {
-   "name": "Matthew Jordan",
+   "name": "Max Homa",
    "salary": 7800,
    "status": "",
    "out": false,
-   "dkId": 60718
+   "dkId": 946
   },
   {
-   "name": "Sam Bairstow",
+   "name": "Jordan L. Smith",
    "salary": 7700,
    "status": "",
    "out": false,
-   "dkId": 578419
+   "dkId": 820
   },
   {
-   "name": "Alejandro Del Rey",
+   "name": "Max Greyserman",
    "salary": 7700,
    "status": "",
    "out": false,
-   "dkId": 60510
+   "dkId": 451990
   },
   {
-   "name": "Antoine Rozner",
-   "salary": 7700,
-   "status": "",
-   "out": false,
-   "dkId": 60536
-  },
-  {
-   "name": "Calum Hill",
+   "name": "Jordan Spieth",
    "salary": 7600,
    "status": "",
    "out": false,
-   "dkId": 60387
+   "dkId": 882
   },
   {
-   "name": "Joe Dean",
+   "name": "Michael Kim",
    "salary": 7600,
    "status": "",
    "out": false,
-   "dkId": 60749
+   "dkId": 597
   },
   {
-   "name": "Niklas N\u00f8rgaard M\u00f8ller",
-   "salary": 7600,
-   "status": "",
-   "out": false,
-   "dkId": 452233
-  },
-  {
-   "name": "Hennie Du Plessis",
+   "name": "Rickie Fowler",
    "salary": 7500,
    "status": "",
    "out": false,
-   "dkId": 60621
+   "dkId": 991
   },
   {
-   "name": "Bernd Wiesberger",
+   "name": "Nick Taylor",
    "salary": 7500,
    "status": "",
    "out": false,
-   "dkId": 718
+   "dkId": 515
   },
   {
-   "name": "Julien Guerrier",
-   "salary": 7500,
-   "status": "",
-   "out": false,
-   "dkId": 60414
-  },
-  {
-   "name": "Davis Bryant",
-   "salary": 7500,
-   "status": "",
-   "out": false,
-   "dkId": 851804
-  },
-  {
-   "name": "Gregorio De Leo",
+   "name": "Kevin Yu",
    "salary": 7400,
    "status": "",
    "out": false,
-   "dkId": 598261
+   "dkId": 681
   },
   {
-   "name": "Nacho Elvira",
+   "name": "Stephan Jaeger",
    "salary": 7400,
    "status": "",
    "out": false,
-   "dkId": 60701
+   "dkId": 821
   },
   {
-   "name": "Dan Bradbury",
-   "salary": 7400,
-   "status": "",
-   "out": false,
-   "dkId": 656352
-  },
-  {
-   "name": "Ugo Coussaud",
-   "salary": 7400,
-   "status": "",
-   "out": false,
-   "dkId": 60309
-  },
-  {
-   "name": "Guido Migliozzi",
+   "name": "Kevin Roy",
    "salary": 7300,
    "status": "",
    "out": false,
-   "dkId": 60583
+   "dkId": 525542
   },
   {
-   "name": "Jeff Winther",
+   "name": "Mac Meissner",
    "salary": 7300,
    "status": "",
    "out": false,
-   "dkId": 60569
+   "dkId": 557402
   },
   {
-   "name": "Sami V\u00e4lim\u00e4ki",
-   "salary": 7300,
-   "status": "",
-   "out": false,
-   "dkId": 60434
-  },
-  {
-   "name": "Mikael Lindberg",
-   "salary": 7300,
-   "status": "",
-   "out": false,
-   "dkId": 684897
-  },
-  {
-   "name": "Tom Vaillant",
+   "name": "Christiaan Bezuidenhout",
    "salary": 7200,
    "status": "",
    "out": false,
-   "dkId": 670767
+   "dkId": 1115
   },
   {
-   "name": "Francesco Laporta",
+   "name": "Nicolas Echavarria",
    "salary": 7200,
    "status": "",
    "out": false,
-   "dkId": 69807
+   "dkId": 525572
   },
   {
-   "name": "Joost Luiten",
-   "salary": 7200,
-   "status": "",
-   "out": false,
-   "dkId": 810
-  },
-  {
-   "name": "Daniel Brown",
-   "salary": 7200,
-   "status": "",
-   "out": false,
-   "dkId": 684894
-  },
-  {
-   "name": "Thriston Lawrence",
-   "salary": 7200,
-   "status": "",
-   "out": false,
-   "dkId": 60537
-  },
-  {
-   "name": "JC Ritchie",
+   "name": "Beau Hossler",
    "salary": 7100,
    "status": "",
    "out": false,
-   "dkId": 1157
+   "dkId": 646
   },
   {
-   "name": "Andy Sullivan",
+   "name": "Pierceson Coody",
    "salary": 7100,
    "status": "",
    "out": false,
-   "dkId": 1091
+   "dkId": 562745
   },
   {
-   "name": "Thomas Rosenmueller",
-   "salary": 7100,
-   "status": "",
-   "out": false,
-   "dkId": 451803
-  },
-  {
-   "name": "Romain Langasque",
-   "salary": 7100,
-   "status": "",
-   "out": false,
-   "dkId": 688
-  },
-  {
-   "name": "Bubba Watson",
-   "salary": 7100,
-   "status": "",
-   "out": false,
-   "dkId": 637
-  },
-  {
-   "name": "Richard Mansell",
+   "name": "Kris Ventura",
    "salary": 7000,
    "status": "",
    "out": false,
-   "dkId": 499011
+   "dkId": 560
   },
   {
-   "name": "MJ Daffue",
+   "name": "Keita Nakajima",
    "salary": 7000,
    "status": "",
    "out": false,
-   "dkId": 474728
+   "dkId": 609132
   },
   {
-   "name": "Nathan Kimsey",
-   "salary": 7000,
-   "status": "",
-   "out": false,
-   "dkId": 451859
-  },
-  {
-   "name": "Marcus Armitage",
-   "salary": 7000,
-   "status": "",
-   "out": false,
-   "dkId": 451854
-  },
-  {
-   "name": "Manuel Elvira",
-   "salary": 7000,
-   "status": "",
-   "out": false,
-   "dkId": 686695
-  },
-  {
-   "name": "Martin Couvra",
-   "salary": 7000,
-   "status": "",
-   "out": false,
-   "dkId": 670761
-  },
-  {
-   "name": "Rafa Cabrera Bello",
+   "name": "Brian Harman",
    "salary": 6900,
    "status": "",
    "out": false,
-   "dkId": 868
+   "dkId": 533
   },
   {
-   "name": "Freddy Schott",
+   "name": "Lee Hodges",
    "salary": 6900,
    "status": "",
    "out": false,
-   "dkId": 568762
+   "dkId": 1003
   },
   {
-   "name": "Todd Clements",
+   "name": "John Parry",
    "salary": 6900,
    "status": "",
    "out": false,
-   "dkId": 60616
+   "dkId": 450617
   },
   {
-   "name": "Filippo Celli",
-   "salary": 6900,
-   "status": "",
-   "out": false,
-   "dkId": 598260
-  },
-  {
-   "name": "Joel Girrbach",
-   "salary": 6900,
-   "status": "",
-   "out": false,
-   "dkId": 60195
-  },
-  {
-   "name": "Frederic Lacroix",
-   "salary": 6900,
-   "status": "",
-   "out": false,
-   "dkId": 90200
-  },
-  {
-   "name": "Johannes Veerman",
+   "name": "Steven Fisk",
    "salary": 6800,
    "status": "",
    "out": false,
-   "dkId": 60274
+   "dkId": 623838
   },
   {
-   "name": "Maximilian Steinlechner",
+   "name": "Sahith Theegala",
    "salary": 6800,
    "status": "",
    "out": false,
-   "dkId": 451578
+   "dkId": 451906
   },
   {
-   "name": "Jeremy Paul",
+   "name": "Takumi Kanaya",
    "salary": 6800,
    "status": "",
    "out": false,
-   "dkId": 451604
+   "dkId": 788
   },
   {
-   "name": "Francesco Molinari",
-   "salary": 6800,
-   "status": "",
-   "out": false,
-   "dkId": 772
-  },
-  {
-   "name": "Adrian Otaegui",
-   "salary": 6800,
-   "status": "",
-   "out": false,
-   "dkId": 1180
-  },
-  {
-   "name": "Alfredo Garcia-Heredia",
-   "salary": 6800,
-   "status": "",
-   "out": false,
-   "dkId": 60579
-  },
-  {
-   "name": "Brandon Stone",
+   "name": "Billy Horschel",
    "salary": 6700,
    "status": "",
    "out": false,
-   "dkId": 877
+   "dkId": 915
   },
   {
-   "name": "David Ravetto",
+   "name": "Tony Finau",
    "salary": 6700,
    "status": "",
    "out": false,
-   "dkId": 90196
+   "dkId": 808
   },
   {
-   "name": "David Law",
+   "name": "Denny McCarthy",
    "salary": 6700,
    "status": "",
    "out": false,
-   "dkId": 60631
+   "dkId": 631
   },
   {
-   "name": "Kazuma Kobori",
-   "salary": 6700,
-   "status": "",
-   "out": false,
-   "dkId": 748452
-  },
-  {
-   "name": "Paul Waring",
-   "salary": 6700,
-   "status": "WD",
-   "out": true,
-   "dkId": 1082
-  },
-  {
-   "name": "Marcus Helligkilde",
-   "salary": 6700,
-   "status": "",
-   "out": false,
-   "dkId": 501164
-  },
-  {
-   "name": "Michael Stewart",
-   "salary": 6700,
-   "status": "",
-   "out": false,
-   "dkId": 717663
-  },
-  {
-   "name": "Nicolai Von Dellingshausen",
+   "name": "David Lipsky",
    "salary": 6600,
    "status": "",
    "out": false,
-   "dkId": 60682
+   "dkId": 752
   },
   {
-   "name": "Yanhan Zhou",
+   "name": "Matthew McCarty",
    "salary": 6600,
    "status": "",
    "out": false,
-   "dkId": 787760
+   "dkId": 623842
   },
   {
-   "name": "Matteo Manassero",
+   "name": "Andrew Putnam",
    "salary": 6600,
    "status": "",
    "out": false,
-   "dkId": 60495
+   "dkId": 730
   },
   {
-   "name": "Grant Forrest",
-   "salary": 6600,
-   "status": "",
-   "out": false,
-   "dkId": 60620
-  },
-  {
-   "name": "Jorge Campillo",
-   "salary": 6600,
-   "status": "",
-   "out": false,
-   "dkId": 910
-  },
-  {
-   "name": "Yuto Katsuragawa",
-   "salary": 6600,
-   "status": "",
-   "out": false,
-   "dkId": 640541
-  },
-  {
-   "name": "Darius Van Driel",
-   "salary": 6600,
-   "status": "",
-   "out": false,
-   "dkId": 60382
-  },
-  {
-   "name": "Oihan Guillamoundeguy",
+   "name": "Taylor Moore",
    "salary": 6500,
    "status": "",
    "out": false,
-   "dkId": 670762
+   "dkId": 451638
   },
   {
-   "name": "Ross Fisher",
+   "name": "Davis Thompson",
    "salary": 6500,
    "status": "",
    "out": false,
-   "dkId": 729
+   "dkId": 456332
   },
   {
-   "name": "Sean Crocker",
+   "name": "Rasmus Neergaard-Petersen",
    "salary": 6500,
    "status": "",
    "out": false,
-   "dkId": 926
+   "dkId": 565554
   },
   {
-   "name": "Sebastian S\u00f6derberg",
-   "salary": 6500,
-   "status": "",
-   "out": false,
-   "dkId": 60233
-  },
-  {
-   "name": "Elvis Smylie",
-   "salary": 6500,
-   "status": "",
-   "out": false,
-   "dkId": 575536
-  },
-  {
-   "name": "Connor Syme",
-   "salary": 6500,
-   "status": "",
-   "out": false,
-   "dkId": 1051
-  },
-  {
-   "name": "Alejandro Rodriguez Andreu",
-   "salary": 6500,
-   "status": "",
-   "out": false,
-   "dkId": 1053914
-  },
-  {
-   "name": "Ricardo Gouveia",
+   "name": "Aldrich Potgieter",
    "salary": 6400,
    "status": "",
    "out": false,
-   "dkId": 60234
+   "dkId": 648552
   },
   {
-   "name": "Eddie Pepperell",
+   "name": "Jinichiro Kozuma",
    "salary": 6400,
    "status": "",
    "out": false,
-   "dkId": 1152
+   "dkId": 99577
   },
   {
-   "name": "Ivan Cantero Gutierrez",
+   "name": "Taylor Pendrith",
    "salary": 6400,
    "status": "",
    "out": false,
-   "dkId": 60092
+   "dkId": 716
   },
   {
-   "name": "Kiradech Aphibarnrat",
-   "salary": 6400,
-   "status": "",
-   "out": false,
-   "dkId": 1110
-  },
-  {
-   "name": "Sebastian Desoisa",
-   "salary": 6400,
-   "status": "",
-   "out": false,
-   "dkId": 937546
-  },
-  {
-   "name": "Juan Salama Monsalve",
-   "salary": 6400,
-   "status": "",
-   "out": false,
-   "dkId": 68771
-  },
-  {
-   "name": "Dylan Naidoo",
-   "salary": 6400,
-   "status": "",
-   "out": false,
-   "dkId": 450848
-  },
-  {
-   "name": "Gonzalo Banos Ramos",
-   "salary": 6400,
-   "status": "",
-   "out": false,
-   "dkId": 1053912
-  },
-  {
-   "name": "Daniel Rodrigues",
+   "name": "Sang-hee Lee",
    "salary": 6300,
    "status": "",
    "out": false,
-   "dkId": 99358
+   "dkId": 855
   },
   {
-   "name": "Niklas Lemke",
+   "name": "Ren Yonezawa",
    "salary": 6300,
    "status": "",
    "out": false,
-   "dkId": 60356
+   "dkId": 787213
   },
   {
-   "name": "Brandon Robinson-Thompson",
+   "name": "Hiroshi Iwata",
    "salary": 6300,
    "status": "",
    "out": false,
-   "dkId": 477187
+   "dkId": 451356
   },
   {
-   "name": "Wenyi Ding",
-   "salary": 6300,
-   "status": "",
-   "out": false,
-   "dkId": 685440
-  },
-  {
-   "name": "Dylan Frittelli",
-   "salary": 6300,
-   "status": "",
-   "out": false,
-   "dkId": 1175
-  },
-  {
-   "name": "Ashun Wu",
-   "salary": 6300,
-   "status": "",
-   "out": false,
-   "dkId": 899
-  },
-  {
-   "name": "Rikuya Hoshino",
-   "salary": 6300,
-   "status": "",
-   "out": false,
-   "dkId": 872
-  },
-  {
-   "name": "Danny Willett",
-   "salary": 6300,
-   "status": "",
-   "out": false,
-   "dkId": 792
-  },
-  {
-   "name": "Marcel Siem",
+   "name": "Patrick Rodgers",
    "salary": 6200,
    "status": "",
    "out": false,
-   "dkId": 60191
+   "dkId": 574
   },
   {
-   "name": "Jens Dantorp",
+   "name": "Chandler Phillips",
    "salary": 6200,
    "status": "",
    "out": false,
-   "dkId": 60445
+   "dkId": 61619
   },
   {
-   "name": "Jason Scrivener",
+   "name": "Kosuke Sunagawa",
    "salary": 6200,
    "status": "",
    "out": false,
-   "dkId": 1189
+   "dkId": 1053911
   },
   {
-   "name": "Benjamin Schmidt",
-   "salary": 6200,
-   "status": "",
-   "out": false,
-   "dkId": 589659
-  },
-  {
-   "name": "Jacques Kruyswijk",
-   "salary": 6200,
-   "status": "",
-   "out": false,
-   "dkId": 60774
-  },
-  {
-   "name": "Luke List",
-   "salary": 6200,
-   "status": "",
-   "out": false,
-   "dkId": 719
-  },
-  {
-   "name": "Renato Paratore",
-   "salary": 6200,
-   "status": "",
-   "out": false,
-   "dkId": 964
-  },
-  {
-   "name": "Sergio Jimenez Romero",
-   "salary": 6200,
-   "status": "",
-   "out": false,
-   "dkId": 1053913
-  },
-  {
-   "name": "Richard Sterne",
+   "name": "Koshin Nagasaki",
    "salary": 6100,
    "status": "",
    "out": false,
-   "dkId": 1118
+   "dkId": 1053910
   },
   {
-   "name": "Pablo Larraz\u00e1bal",
+   "name": "Tomohiro Ishizaka",
    "salary": 6100,
    "status": "",
    "out": false,
-   "dkId": 60659
+   "dkId": 616226
   },
   {
-   "name": "Michael Hollick",
+   "name": "Yusaku Hosono",
    "salary": 6100,
    "status": "",
    "out": false,
-   "dkId": 60311
+   "dkId": 787209
   },
   {
-   "name": "Stefano Mazzoli",
-   "salary": 6100,
-   "status": "",
-   "out": false,
-   "dkId": 451619
-  },
-  {
-   "name": "Sebastian Garcia Rodriguez",
-   "salary": 6100,
-   "status": "",
-   "out": false,
-   "dkId": 452151
-  },
-  {
-   "name": "James Morrison",
-   "salary": 6100,
-   "status": "",
-   "out": false,
-   "dkId": 60676
-  },
-  {
-   "name": "Yurav Premlall",
-   "salary": 6100,
-   "status": "",
-   "out": false,
-   "dkId": 60657
-  },
-  {
-   "name": "Jack Senior",
-   "salary": 6100,
-   "status": "",
-   "out": false,
-   "dkId": 740
-  },
-  {
-   "name": "Ockie Strydom",
+   "name": "Tom Hoge",
    "salary": 6000,
    "status": "",
    "out": false,
-   "dkId": 60312
+   "dkId": 648
   },
   {
-   "name": "Jordan Gumberg",
+   "name": "Aguri Iwasaki",
    "salary": 6000,
    "status": "",
    "out": false,
-   "dkId": 452217
+   "dkId": 679056
   },
   {
-   "name": "David Micheluzzi",
+   "name": "Yoshinori Fujimoto",
    "salary": 6000,
    "status": "",
    "out": false,
-   "dkId": 60677
-  },
-  {
-   "name": "Ryggs Johnston",
-   "salary": 6000,
-   "status": "",
-   "out": false,
-   "dkId": 849473
-  },
-  {
-   "name": "Thomas Aiken",
-   "salary": 6000,
-   "status": "",
-   "out": false,
-   "dkId": 60514
-  },
-  {
-   "name": "Jeong-Weon Ko",
-   "salary": 6000,
-   "status": "",
-   "out": false,
-   "dkId": 90194
-  },
-  {
-   "name": "Quim Vidal",
-   "salary": 6000,
-   "status": "",
-   "out": false,
-   "dkId": 678373
-  },
-  {
-   "name": "Daniel Gavins",
-   "salary": 6000,
-   "status": "",
-   "out": false,
-   "dkId": 60689
+   "dkId": 1048
   }
  ]
 }
