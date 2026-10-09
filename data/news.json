@@ -1,19 +1,19 @@
 {
- "updatedUtc": "2026-10-09T10:36:28Z",
+ "updatedUtc": "2026-10-09T18:22:36Z",
  "slate": "BAYCURRENT_2026",
  "event": "",
  "counts": {
-  "items": 2,
-  "golfersMentioned": 2,
-  "news": 2,
+  "items": 3,
+  "golfersMentioned": 3,
+  "news": 3,
   "chatter": 0
  },
  "sources": [
   {
    "source": "RotoWire Golf",
-   "ok": true,
-   "items": 1,
-   "error": null
+   "ok": false,
+   "items": 0,
+   "error": "no items"
   },
   {
    "source": "RotoBaller Golf",
@@ -138,7 +138,13 @@
  ],
  "mentions": [
   {
-   "name": "Doug Ghim",
+   "name": "Keith Mitchell",
+   "news": 1,
+   "chatter": 0,
+   "total": 1
+  },
+  {
+   "name": "Patrick Rodgers",
    "news": 1,
    "chatter": 0,
    "total": 1
@@ -152,14 +158,25 @@
  ],
  "items": [
   {
-   "title": "Baycurrent Classic Best Bets and Golf Odds",
-   "link": "https://vsin.com/golf/baycurrent-classic-best-bets-and-golf-odds/",
-   "summary": "Baycurrent Classic Best Bets and Golf Odds: Austin Smotherman earned his first PGA Tour victory in his 100th start at the Bank of Utah Championship with a two-shot victory at 26 under par over Doug Ghim. Smotherman, a 100-1 shot pre-event, came into the week at No. 79 in the FedExCup \u2014 the top 100 [&#8230;] The post Baycurrent Classic Best Bets and Golf Odds appeared first on VSiN .",
-   "published": "Thu, 08 Oct 2026 01:45:00 +0000",
-   "source": "VSiN",
+   "title": "Who Should I Drop for Fantasy Football Week 5? Dontayvion Wicks, Tyreek Hill, Jaylen Wright, Kyle Pitts Sr., Kenny Gainwell, Kaelon Black, Adonai Mitchell, Jordan Addison, Tank Bigsby",
+   "link": "https://www.rotoballer.com/who-should-i-drop-for-week-5-dontayvion-wicks-tyreek-hill-jaylen-wright-kyle-pitts-sr-kenny-gainwell-kaelon-black-adonai-mitchell-jordan-addison-tank-bigsby/1962074",
+   "summary": "Who Should I Drop? Who Should I Keep? Some of the most common Week 5 fantasy football cut candidates include [&#8230;]",
+   "published": "Fri, 09 Oct 2026 18:16:21 +0000",
+   "source": "RotoBaller",
    "kind": "news",
    "golfers": [
-    "Doug Ghim"
+    "Keith Mitchell"
+   ]
+  },
+  {
+   "title": "Who Should I Start for Fantasy Football Week 5? Jacoby Brissett, Aaron Rodgers, C.J. Stroud, Drake Maye, Tyler Shough, Matthew Stafford, Jalen Hurts, Justin Herbert, Trevor Lawrence",
+   "link": "https://www.rotoballer.com/who-should-i-start-for-week-5-jacoby-brissett-aaron-rodgers-c-j-stroud-drake-maye-tyler-shough-matthew-stafford-jalen-hurts-justin-herbert-trevor-lawrence/1962021",
+   "summary": "Who Should I Start? Who Should I Sit? Some of the most common Week 5 fantasy football lineup decisions involve [&#8230;]",
+   "published": "Fri, 09 Oct 2026 17:46:16 +0000",
+   "source": "RotoBaller",
+   "kind": "news",
+   "golfers": [
+    "Patrick Rodgers"
    ]
   },
   {
