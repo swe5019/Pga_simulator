@@ -1,5 +1,5 @@
 {
- "updatedUtc": "2026-10-11T05:50:01Z",
+ "updatedUtc": "2026-10-11T12:53:18Z",
  "slate": "BAYCURRENT_2026",
  "event": "",
  "counts": {
@@ -131,20 +131,20 @@
   },
   {
    "source": "r/golf",
-   "ok": true,
-   "items": 100,
-   "error": null
+   "ok": false,
+   "items": 0,
+   "error": "HTTP 403 \u2014 set REDDIT_CLIENT_ID/SECRET to enable chatter"
   }
  ],
  "mentions": [
   {
-   "name": "Justin Thomas",
-   "news": 2,
+   "name": "Patrick Rodgers",
+   "news": 1,
    "chatter": 0,
-   "total": 2
+   "total": 1
   },
   {
-   "name": "Keith Mitchell",
+   "name": "Justin Thomas",
    "news": 1,
    "chatter": 0,
    "total": 1
@@ -158,6 +158,17 @@
  ],
  "items": [
   {
+   "title": "Who Should I Start for Fantasy Football Week 5? Jacoby Brissett, Kirk Cousins, Aaron Rodgers, Bo Nix, C.J. Stroud, Kyler Murray, Drake Maye, Sam Darnold, Tyler Shough, Jalen Hurts",
+   "link": "https://www.rotoballer.com/who-should-i-start-for-week-5-jacoby-brissett-kirk-cousins-aaron-rodgers-bo-nix-c-j-stroud-kyler-murray-drake-maye-sam-darnold-tyler-shough-jalen-hurts/1963032",
+   "summary": "Who Should I Start? Who Should I Sit? Some of the most common Week 5 fantasy football lineup decisions involve [&#8230;]",
+   "published": "Sun, 11 Oct 2026 10:15:37 +0000",
+   "source": "RotoBaller",
+   "kind": "news",
+   "golfers": [
+    "Patrick Rodgers"
+   ]
+  },
+  {
    "title": "Who Should I Drop for Fantasy Football Week 5? Josh Jacobs, MarShawn Lloyd, Marvin Harrison Jr., Brian Thomas Jr., Jordyn Tyson, Quentin Johnston, Rashod Bateman, Alec Pierce",
    "link": "https://www.rotoballer.com/who-should-i-drop-for-week-5-josh-jacobs-marshawn-lloyd-marvin-harrison-jr-brian-thomas-jr-jordyn-tyson-quentin-johnston-rashod-bateman-alec-pierce/1963093",
    "summary": "Who Should I Drop? Who Should I Keep? Some of the most common Week 5 fantasy football cut candidates include [&#8230;]",
@@ -165,18 +176,6 @@
    "source": "RotoBaller",
    "kind": "news",
    "golfers": [
-    "Justin Thomas"
-   ]
-  },
-  {
-   "title": "Weekend Players To Cut for Week 5 Lineups - Brian Thomas Jr., MarShawn Lloyd, Dalton Schultz, Jadarian Price, Marvin Harrison Jr., Kyler Murray, Adonai Mitchell, Michael Pittman Jr.",
-   "link": "https://www.rotoballer.com/weekend-cut-list-rankings-fantasy-football-drops-week-5-2026/1961878",
-   "summary": "Welcome back, RotoBallers, to our Weekend Cut List Rankings for fantasy football Week 5 of the 2026 NFL season. The [&#8230;]",
-   "published": "Sat, 10 Oct 2026 15:15:10 +0000",
-   "source": "RotoBaller",
-   "kind": "news",
-   "golfers": [
-    "Keith Mitchell",
     "Justin Thomas"
    ]
   },
