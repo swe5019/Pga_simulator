@@ -1,11 +1,11 @@
 {
- "updatedUtc": "2026-10-10T21:46:18Z",
+ "updatedUtc": "2026-10-11T05:50:01Z",
  "slate": "BAYCURRENT_2026",
  "event": "",
  "counts": {
-  "items": 4,
+  "items": 3,
   "golfersMentioned": 3,
-  "news": 4,
+  "news": 3,
   "chatter": 0
  },
  "sources": [
@@ -131,9 +131,9 @@
   },
   {
    "source": "r/golf",
-   "ok": false,
-   "items": 0,
-   "error": "HTTP 403 \u2014 set REDDIT_CLIENT_ID/SECRET to enable chatter"
+   "ok": true,
+   "items": 100,
+   "error": null
   }
  ],
  "mentions": [
@@ -145,9 +145,9 @@
   },
   {
    "name": "Keith Mitchell",
-   "news": 2,
+   "news": 1,
    "chatter": 0,
-   "total": 2
+   "total": 1
   },
   {
    "name": "Adam Scott",
@@ -178,17 +178,6 @@
    "golfers": [
     "Keith Mitchell",
     "Justin Thomas"
-   ]
-  },
-  {
-   "title": "Weekend Waiver Wire Rankings for Week 5: Fantasy Football Pickups for Will Shipley, Keaton Mitchell, Dameon Pierce, Tyreek Hill, Tre Tucker, Roman Wilson, Mike Gesicki, more",
-   "link": "https://www.rotoballer.com/weekend-waiver-wire-rankings-fantasy-football-week-5-2026/1962631",
-   "summary": "Hey RotoBallers! We have finalized our waiver wire rankings ahead of Week 5 for any last-minute pickups that could help [&#8230;]",
-   "published": "Sat, 10 Oct 2026 14:37:49 +0000",
-   "source": "RotoBaller",
-   "kind": "news",
-   "golfers": [
-    "Keith Mitchell"
    ]
   },
   {
