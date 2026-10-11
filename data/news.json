@@ -1,11 +1,11 @@
 {
- "updatedUtc": "2026-10-11T12:53:18Z",
+ "updatedUtc": "2026-10-11T19:34:54Z",
  "slate": "BAYCURRENT_2026",
  "event": "",
  "counts": {
-  "items": 3,
-  "golfersMentioned": 3,
-  "news": 3,
+  "items": 2,
+  "golfersMentioned": 2,
+  "news": 2,
   "chatter": 0
  },
  "sources": [
@@ -55,7 +55,7 @@
    "source": "Pinnacle Golf",
    "ok": false,
    "items": 0,
-   "error": "HTTP 404"
+   "error": "TimeoutError"
   },
   {
    "source": "SportsGrid",
@@ -144,12 +144,6 @@
    "total": 1
   },
   {
-   "name": "Justin Thomas",
-   "news": 1,
-   "chatter": 0,
-   "total": 1
-  },
-  {
    "name": "Adam Scott",
    "news": 1,
    "chatter": 0,
@@ -166,17 +160,6 @@
    "kind": "news",
    "golfers": [
     "Patrick Rodgers"
-   ]
-  },
-  {
-   "title": "Who Should I Drop for Fantasy Football Week 5? Josh Jacobs, MarShawn Lloyd, Marvin Harrison Jr., Brian Thomas Jr., Jordyn Tyson, Quentin Johnston, Rashod Bateman, Alec Pierce",
-   "link": "https://www.rotoballer.com/who-should-i-drop-for-week-5-josh-jacobs-marshawn-lloyd-marvin-harrison-jr-brian-thomas-jr-jordyn-tyson-quentin-johnston-rashod-bateman-alec-pierce/1963093",
-   "summary": "Who Should I Drop? Who Should I Keep? Some of the most common Week 5 fantasy football cut candidates include [&#8230;]",
-   "published": "Sat, 10 Oct 2026 16:00:09 +0000",
-   "source": "RotoBaller",
-   "kind": "news",
-   "golfers": [
-    "Justin Thomas"
    ]
   },
   {
