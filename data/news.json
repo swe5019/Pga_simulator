@@ -1,11 +1,11 @@
 {
- "updatedUtc": "2026-10-12T10:53:35Z",
+ "updatedUtc": "2026-10-12T21:17:11Z",
  "slate": "BAYCURRENT_2026",
  "event": "",
  "counts": {
-  "items": 2,
-  "golfersMentioned": 2,
-  "news": 2,
+  "items": 3,
+  "golfersMentioned": 3,
+  "news": 3,
   "chatter": 0
  },
  "sources": [
@@ -138,7 +138,13 @@
  ],
  "mentions": [
   {
-   "name": "Patrick Rodgers",
+   "name": "Justin Thomas",
+   "news": 1,
+   "chatter": 0,
+   "total": 1
+  },
+  {
+   "name": "Taylor Moore",
    "news": 1,
    "chatter": 0,
    "total": 1
@@ -152,14 +158,25 @@
  ],
  "items": [
   {
-   "title": "Who Should I Start for Fantasy Football Week 5? Jacoby Brissett, Kirk Cousins, Aaron Rodgers, Bo Nix, C.J. Stroud, Kyler Murray, Drake Maye, Sam Darnold, Tyler Shough, Jalen Hurts",
-   "link": "https://www.rotoballer.com/who-should-i-start-for-week-5-jacoby-brissett-kirk-cousins-aaron-rodgers-bo-nix-c-j-stroud-kyler-murray-drake-maye-sam-darnold-tyler-shough-jalen-hurts/1963032",
-   "summary": "Who Should I Start? Who Should I Sit? Some of the most common Week 5 fantasy football lineup decisions involve [&#8230;]",
-   "published": "Sun, 11 Oct 2026 10:15:37 +0000",
+   "title": "Players To Cut Before Week 6 Fantasy Football? Roman Wilson, Will Shipley, Jadarian Price, Brian Thomas Jr., Justin Herbert, Michael Pittman Jr.",
+   "link": "https://www.rotoballer.com/cut-list-rankings-fantasy-football-drops-before-week-6-2026/1964349",
+   "summary": "Welcome back, RotoBallers, to our Cut List Rankings for fantasy football Week 6 of the 2026 NFL season. Another week [&#8230;]",
+   "published": "Mon, 12 Oct 2026 18:00:51 +0000",
    "source": "RotoBaller",
    "kind": "news",
    "golfers": [
-    "Patrick Rodgers"
+    "Justin Thomas"
+   ]
+  },
+  {
+   "title": "Who Should I Start for Fantasy Football Week 5? Kyren Williams, Khalil Shakir, Davante Adams, DJ Moore, Keon Coleman, Blake Corum, Tyler Higbee, Dalton Kincaid, Matthew Stafford, James Cook III",
+   "link": "https://www.rotoballer.com/who-should-i-start-for-week-5-kyren-williams-khalil-shakir-davante-adams-dj-moore-keon-coleman-blake-corum-tyler-higbee-dalton-kincaid-matthew-stafford-james-cook-iii/1964276",
+   "summary": "Who Should I Start? Who Should I Sit? Some of the most common Week 5 MNF fantasy football lineup decisions [&#8230;]",
+   "published": "Mon, 12 Oct 2026 14:13:02 +0000",
+   "source": "RotoBaller",
+   "kind": "news",
+   "golfers": [
+    "Taylor Moore"
    ]
   },
   {
