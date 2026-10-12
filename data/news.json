@@ -1,5 +1,5 @@
 {
- "updatedUtc": "2026-10-11T19:34:54Z",
+ "updatedUtc": "2026-10-12T00:34:08Z",
  "slate": "BAYCURRENT_2026",
  "event": "",
  "counts": {
@@ -11,9 +11,9 @@
  "sources": [
   {
    "source": "RotoWire Golf",
-   "ok": false,
-   "items": 0,
-   "error": "no items"
+   "ok": true,
+   "items": 1,
+   "error": null
   },
   {
    "source": "RotoBaller Golf",
@@ -55,7 +55,7 @@
    "source": "Pinnacle Golf",
    "ok": false,
    "items": 0,
-   "error": "TimeoutError"
+   "error": "HTTP 404"
   },
   {
    "source": "SportsGrid",
