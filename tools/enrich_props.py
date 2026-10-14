@@ -27,6 +27,7 @@ rather than a guess. Kicking and defensive props are not in the stats pipeline
 at all. The run prints exactly how many rows fell into each bucket.
 """
 import json
+import math
 import os
 import re
 import sys
@@ -72,6 +73,12 @@ BLEND = {"l1": 0.20, "l2": 0.40, "l3": 0.40}
 PRIOR_GAMES = 12
 # Under this many games in the widest window, history is flagged as thin.
 MIN_GAMES = 8
+# How many recent games define "his role now".
+ROLE_GAMES = 3
+# Snap share distance at which a past game counts about a third. 0.22 means a
+# 60% snap starter still gets partial credit for his 40% games and almost none
+# for his 15% ones.
+ROLE_SCALE = 0.22
 
 
 def log(*a):
@@ -108,7 +115,13 @@ def load_seasons():
 
 
 def game_logs(seasons):
-    """name key -> {season: [row, ...]} with rows newest first."""
+    """name key -> {season: [row, ...]}, newest first, each row tagged with the
+    share of his team's offensive snaps he played that week.
+
+    Snap share is what makes a historical game comparable or not. A back who
+    took 23% of the snaps is a different player from the same man taking 60%,
+    and counting both as one record is how a backup's quiet games get read as
+    evidence about a starter."""
     logs = defaultdict(lambda: defaultdict(list))
     for yr, doc in seasons.items():
         meta = {p["id"]: p for p in doc["players"]}
@@ -116,6 +129,9 @@ def game_logs(seasons):
             m = meta.get(r["i"])
             if not m:
                 continue
+            t = doc["teams"].get(f"{r['t']}|{r['w']}") or {}
+            tsn = t.get("sn") or 0
+            r["_snap"] = (r.get("sn", 0) / tsn) if tsn else None
             logs[nrm(m["n"])][yr].append(r)
     for k in logs:
         for yr in logs[k]:
@@ -123,18 +139,57 @@ def game_logs(seasons):
     return logs
 
 
-def hit_rate(rows, fn, line, side):
-    """Count games clearing the line. Underdog lines carry a .5 so there are no
-    pushes, but the comparison is written strictly either way."""
+def current_role(logs_for_player, current_season):
+    """His role now, as mean snap share over the most recent games played.
+
+    Taken from this season only. Last year's role is exactly the thing we are
+    trying not to be fooled by."""
+    rows = logs_for_player.get(current_season, [])
+    snaps = [r["_snap"] for r in rows[:ROLE_GAMES] if r.get("_snap") is not None]
+    return sum(snaps) / len(snaps) if snaps else None
+
+
+def role_weight(snap, role_now):
+    """How much a past game counts, by how close its role was to today's.
+
+    A game at the same snap share counts fully, one 22 points away counts about
+    a third, one 45 points away barely at all. Gaussian rather than a cutoff so
+    the weight falls away smoothly instead of flipping at an arbitrary line.
+    With no snap data, or no known current role, the game counts fully: better
+    to fall back to a plain hit rate than to invent a weight."""
+    if snap is None or role_now is None:
+        return 1.0
+    return math.exp(-(((snap - role_now) / ROLE_SCALE) ** 2))
+
+
+def hit_rate(rows, fn, line, side, role_now=None):
+    """Games clearing the line, counted twice over.
+
+    Raw: the plain count, which is what a reader expects to see as "3 of 4".
+    Weighted: the same games weighted by how close each one's role was to his
+    role today, which is what should actually be leaned on.
+
+    Returns (hits, n, weighted_rate, effective_n). Effective n is Kish's
+    formula, the number of equally weighted games the weighted sample is worth,
+    and it is what shrinkage keys off: thirty backup games are not thirty games
+    of evidence about a starter.
+
+    Underdog lines carry a .5 so there are no pushes, but the comparison is
+    written strictly either way."""
     hits = n = 0
+    wsum = w2sum = whit = 0.0
     for r in rows:
         v = fn(r)
+        ok = (v > line) if side == "over" else (v < line)
         n += 1
-        if side == "over":
-            hits += 1 if v > line else 0
-        else:
-            hits += 1 if v < line else 0
-    return hits, n
+        hits += 1 if ok else 0
+        w = role_weight(r.get("_snap"), role_now)
+        wsum += w
+        w2sum += w * w
+        whit += w if ok else 0.0
+    wrate = (whit / wsum) if wsum > 0 else None
+    eff = (wsum * wsum / w2sum) if w2sum > 0 else 0.0
+    return hits, n, wrate, eff
 
 
 def main():
@@ -173,45 +228,70 @@ def main():
             continue
 
         line, side = p["line"], p["side"]
+        role_now = current_role(logs[key], current)
         out = {}
+        eff3 = 0.0
         for label, yrs in (("l1", w1), ("l2", w2), ("l3", w3)):
             rows = [r for y in yrs for r in logs[key].get(y, [])]
-            h, n = hit_rate(rows, fn, line, side)
-            out[label] = {"h": h, "n": n, "r": round(h / n, 4) if n else None}
+            h, n, wrate, eff = hit_rate(rows, fn, line, side, role_now)
+            out[label] = {
+                "h": h, "n": n,
+                "r": round(h / n, 4) if n else None,      # plain, for display
+                "w": round(wrate, 4) if wrate is not None else None,  # role weighted
+            }
+            if label == "l3":
+                eff3 = eff
 
         # Blend, using only the windows that actually have games so a player
         # with one season is not quietly scored as if he had three.
-        num = den = 0.0
+        num = den = rnum = rden = 0.0
         for label, wgt in BLEND.items():
-            if out[label]["r"] is not None and out[label]["n"] > 0:
-                num += wgt * out[label]["r"]
+            if out[label]["n"] > 0 and out[label]["w"] is not None:
+                num += wgt * out[label]["w"]
                 den += wgt
-        raw = round(num / den, 4) if den else None
+            if out[label]["r"] is not None and out[label]["n"] > 0:
+                rnum += wgt * out[label]["r"]
+                rden += wgt
+        blended = round(num / den, 4) if den else None     # role weighted
+        raw = round(rnum / rden, 4) if rden else None      # plain
 
-        # The widest window is the real evidence count. For a rookie all three
-        # windows are the SAME handful of games, so the blend above is one small
-        # sample counted three times and says 100% as confidently as a three
-        # season record would. That is the number people would bet on.
+        # The evidence count is the EFFECTIVE number of games, not the raw one.
+        # Two different ways a raw count lies: a rookie has the same five games
+        # in all three windows, and a player who just took over a starting job
+        # has thirty games of a backup's workload being compared against a line
+        # priced for a starter. Both read as deep history and neither is.
         n3 = out["l3"]["n"]
+        eff_n = eff3
         be = (1.0 / p["decimal"]) if p.get("decimal") else None
 
         # So shrink toward the price. With little evidence the honest default is
         # that the market is right, and the pull fades as games accumulate: five
         # games barely move off the line, forty are nearly all their own. This
         # degrades smoothly, unlike a cutoff that flips at an arbitrary game.
-        shrunk = raw
-        if raw is not None and be is not None and n3 > 0:
-            shrunk = round((n3 * raw + PRIOR_GAMES * be) / (n3 + PRIOR_GAMES), 4)
+        shrunk = blended
+        if blended is not None and be is not None and eff_n > 0:
+            shrunk = round((eff_n * blended + PRIOR_GAMES * be) / (eff_n + PRIOR_GAMES), 4)
 
         p["hits"] = out
-        p["histRaw"] = raw          # what actually happened, uncorrected
-        p["histRate"] = shrunk      # what to lean on
-        p["histN"] = n3             # the evidence behind it
+        p["histRaw"] = raw          # plain count, what actually happened
+        p["histRate"] = shrunk      # role weighted and shrunk, what to lean on
+        p["histN"] = n3             # games played
+        p["histEff"] = round(eff_n, 1)   # games worth of comparable evidence
+        if role_now is not None:
+            p["roleNow"] = round(role_now * 100, 1)
+            # Average role across the games his history is built from. When this
+            # sits far below roleNow he has just moved into a bigger job and the
+            # raw hit rate is describing somebody else's workload.
+            rows3 = [r for y in w3 for r in logs[key].get(y, [])]
+            snaps = [r["_snap"] for r in rows3 if r.get("_snap") is not None]
+            if snaps:
+                p["roleHist"] = round(sum(snaps) / len(snaps) * 100, 1)
+                p["roleShift"] = round(p["roleNow"] - p["roleHist"], 1)
         # Below this there is not enough history to mean anything, which is the
         # normal state for a rookie. The page marks these rather than hiding
         # them: "no history" is useful information, a confident wrong number
         # is not.
-        p["thin"] = n3 < MIN_GAMES
+        p["thin"] = eff_n < MIN_GAMES
         if shrunk is not None and be is not None:
             p["histEdge"] = round((shrunk - be) * 100, 1)
         counts["enriched"] += 1
