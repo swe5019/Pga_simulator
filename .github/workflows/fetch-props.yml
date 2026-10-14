@@ -1,0 +1,58 @@
+name: Fetch NFL prop lines
+
+# Lines move all week, so this runs often. Each run also archives a dated
+# snapshot: DraftKings cut this project off from exact contest payouts without
+# warning, and if Underdog does the same the archive is the difference between
+# losing new lines and losing the history too.
+on:
+  schedule:
+    - cron: '20 13 * * *'   # daily, mid-morning ET
+    - cron: '20 21 * * *'   # daily, evening ET
+    - cron: '20 16 * * 0'   # Sunday late morning, before the main slate locks
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: fetch-props
+  cancel-in-progress: true
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Fetch prop lines
+        env:
+          PYTHONUNBUFFERED: '1'
+        run: python tools/fetch_props.py
+
+      - name: Commit props
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/nfl_props.json data/props_history
+          if git diff --cached --quiet; then
+            echo "No change in prop lines"
+          else
+            git commit -m "Auto-update NFL prop lines"
+            for i in 1 2 3 4 5; do
+              if git push; then
+                echo "pushed on attempt $i"
+                exit 0
+              fi
+              echo "push rejected, rebasing and retrying ($i)"
+              git pull --rebase origin main || exit 1
+              sleep $((i * 3))
+            done
+            echo "could not push after 5 attempts"
+            exit 1
+          fi
