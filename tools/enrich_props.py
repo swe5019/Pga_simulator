@@ -201,6 +201,17 @@ def main():
         doc = json.load(f)
     props = doc["props"]
 
+    # Matchup multipliers, if they have been built. Optional: a missing file
+    # costs the matchup column and nothing else.
+    mpath = os.path.join(DATA, "nfl_matchups.json")
+    matchups = {}
+    if os.path.exists(mpath):
+        with open(mpath, encoding="utf-8") as f:
+            matchups = json.load(f).get("matchups") or {}
+        log(f"{len(matchups):,} matchup combinations loaded")
+    else:
+        log("no nfl_matchups.json; matchup column will be empty")
+
     seasons, current = load_seasons()
     years = sorted(seasons, reverse=True)
     log(f"seasons available: {years} (current {current})")
@@ -294,6 +305,17 @@ def main():
         p["thin"] = eff_n < MIN_GAMES
         if shrunk is not None and be is not None:
             p["histEdge"] = round((shrunk - be) * 100, 1)
+        # How this defense has treated this position in this stat. Attached to
+        # both sides of a line unchanged: the multiplier describes the defense,
+        # and which side of the number that helps is for the reader to judge.
+        mk = f"{p.get('opp', '')}|{p.get('pos', '')}|{p['stat']}"
+        mm = matchups.get(mk)
+        if mm:
+            p["mu"] = mm["mult"]
+            p["muRaw"] = mm["raw"]
+            p["muN"] = mm["n"]
+            p["muGames"] = mm["games"]
+
         counts["enriched"] += 1
         if p["thin"]:
             counts["  of those, thin history (rookie or little played)"] += 1

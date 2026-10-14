@@ -35,6 +35,14 @@ jobs:
           PYTHONUNBUFFERED: '1'
         run: python tools/fetch_props.py
 
+      # How each defense has treated each position in each stat, opponent
+      # adjusted. Rebuilt here rather than in the weekly stats job so it always
+      # reflects whatever season files are currently committed.
+      - name: Build matchup multipliers
+        env:
+          PYTHONUNBUFFERED: '1'
+        run: python tools/build_matchups.py
+
       # Attaches L1/L2/L3 hit rates against each line, from the season files
       # already in the repo. No historical odds are needed: "under in 3 of 4"
       # is just counting past games against today's line.
@@ -47,7 +55,7 @@ jobs:
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add data/nfl_props.json data/nfl_props_full.json data/props_history
+          git add data/nfl_props.json data/nfl_props_full.json data/nfl_matchups.json data/props_history
           if git diff --cached --quiet; then
             echo "No change in prop lines"
           else
