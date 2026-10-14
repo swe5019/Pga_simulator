@@ -212,6 +212,25 @@ def main():
     else:
         log("no nfl_matchups.json; matchup column will be empty")
 
+    # The market's genuine opinion, with the house edge taken out. Both
+    # break-evens on a line sum to about 105%, and that extra 5% is Underdog's
+    # cut, not a belief about the player. Shrinking toward the priced number
+    # therefore drags both sides upward and produces a pair of probabilities
+    # that cannot both be true. So shrink toward the DE-VIGGED split, which is
+    # what the market actually thinks, while still measuring edge against the
+    # real price, which is what has to be beaten.
+    sides = defaultdict(dict)
+    for p0 in props:
+        if p0.get("decimal") and p0.get("line_id"):
+            sides[p0["line_id"]][p0["side"]] = 1.0 / p0["decimal"]
+    fair = {}
+    for lid, v in sides.items():
+        tot = sum(v.values())
+        if tot > 0:
+            for side, imp in v.items():
+                # One-sided lines cannot be de-vigged, so they keep their price.
+                fair[(lid, side)] = (imp / tot) if len(v) > 1 else imp
+
     seasons, current = load_seasons()
     years = sorted(seasons, reverse=True)
     log(f"seasons available: {years} (current {current})")
@@ -274,14 +293,17 @@ def main():
         n3 = out["l3"]["n"]
         eff_n = eff3
         be = (1.0 / p["decimal"]) if p.get("decimal") else None
+        # What to pull toward: the de-vigged market view, falling back to the
+        # raw price when the other side is missing.
+        prior = fair.get((p.get("line_id"), p["side"]), be)
 
         # So shrink toward the price. With little evidence the honest default is
         # that the market is right, and the pull fades as games accumulate: five
         # games barely move off the line, forty are nearly all their own. This
         # degrades smoothly, unlike a cutoff that flips at an arbitrary game.
         shrunk = blended
-        if blended is not None and be is not None and eff_n > 0:
-            shrunk = round((eff_n * blended + PRIOR_GAMES * be) / (eff_n + PRIOR_GAMES), 4)
+        if blended is not None and prior is not None and eff_n > 0:
+            shrunk = round((eff_n * blended + PRIOR_GAMES * prior) / (eff_n + PRIOR_GAMES), 4)
 
         p["hits"] = out
         p["histRaw"] = raw          # plain count, what actually happened
@@ -304,7 +326,10 @@ def main():
         # is not.
         p["thin"] = eff_n < MIN_GAMES
         if shrunk is not None and be is not None:
+            # Edge is still measured against the PRICE, not the fair value. The
+            # vig is real money and has to be cleared.
             p["histEdge"] = round((shrunk - be) * 100, 1)
+            p["fairBE"] = round(prior * 100, 1) if prior is not None else None
         # How this defense has treated this position in this stat. Attached to
         # both sides of a line unchanged: the multiplier describes the defense,
         # and which side of the number that helps is for the reader to judge.

@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NFL Player Props Tool — Hit Rates, Matchups &amp; Edge | SlateSims</title>
+  <link rel="icon" href="assets/img/favicon.svg?v=20260730v" type="image/svg+xml" />
+  <link rel="canonical" href="https://slatesims.com/nfl-props.html" />
+  <meta name="description" content="Free NFL player props research: every Underdog line with break-even price, role-weighted hit rates over one, two and three seasons, and opponent-adjusted matchup multipliers. Receptions, receiving and rushing yards, passing props and more." />
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="SlateSims" />
+  <meta property="og:url" content="https://slatesims.com/nfl-props.html" />
+  <meta property="og:title" content="NFL Player Props Tool — Hit Rates, Matchups &amp; Edge" />
+  <meta property="og:description" content="Every Underdog NFL prop line with break-even price, role-weighted hit rates and opponent-adjusted matchup multipliers." />
+  <meta property="og:image" content="https://slatesims.com/assets/img/avatar.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="NFL Player Props Tool | SlateSims" />
+  <meta name="twitter:description" content="Every Underdog NFL prop line with break-even price, role-weighted hit rates and opponent-adjusted matchup multipliers." />
+  <meta name="twitter:image" content="https://slatesims.com/assets/img/avatar.png" />
+  <link rel="stylesheet" href="assets/css/styles.css?v=20261014a" />
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-13J1816EN4"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-13J1816EN4');
+  </script>
+  <!-- No access gate, same as the stats page. The soft gate in props.js locks
+       individual columns rather than the document, so a crawler still reads a
+       full page instead of the zero words the old localStorage gate produced. -->
+</head>
+<body>
+  <div id="appShell">
+  <header class="topbar">
+    <a class="brand" href="index.html" title="SlateSims home">
+      <svg class="logo" viewBox="0 0 100 100" aria-hidden="true">
+        <path d="M6,82 C30,82 30,38 50,38 C70,38 70,82 94,82 Z" fill="#3fb950" opacity=".22"/>
+        <path d="M6,82 C30,82 30,38 50,38 C70,38 70,82 94,82" fill="none" stroke="#3fb950"
+              stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+        <rect x="46.8" y="6" width="6.4" height="40" rx="3.2" fill="#e6edf3"/>
+        <polygon points="53.2,8 76,16 53.2,24" fill="#e6edf3"/>
+      </svg>
+      <div>
+        <span class="brandname">Slate<span class="accent">Sims</span></span>
+        <p class="tag">NFL player props research.</p>
+      </div>
+    </a>
+    <nav class="mainnav" aria-label="Sports">
+      <div class="navitem">
+        <button type="button" class="navbtn" aria-haspopup="true" aria-expanded="false">
+          PGA <span class="navcaret" aria-hidden="true">▼</span>
+        </button>
+        <div class="navmenu" role="menu">
+          <div class="navgroup">Main Slate</div>
+          <a role="menuitem" href="app.html#players">Ownership &amp; Projections</a>
+          <a role="menuitem" href="app.html#build">Build Lineups</a>
+          <a role="menuitem" href="app.html#contest">Contest Sim</a>
+          <div class="navgroup">Showdown</div>
+          <a role="menuitem" href="app.html#showdown">Ownership &amp; Projections</a>
+          <div class="navgroup">Research</div>
+          <a role="menuitem" href="app.html#news">News &amp; Chatter</a>
+          <a role="menuitem" href="app.html#saved">Saved Lineups</a>
+        </div>
+      </div>
+      <div class="navitem">
+        <button type="button" class="navbtn here" aria-haspopup="true" aria-expanded="false">
+          NFL <span class="navcaret" aria-hidden="true">▼</span>
+        </button>
+        <div class="navmenu" role="menu">
+          <div class="navgroup">Research</div>
+          <a role="menuitem" href="nfl.html">Advanced Stats</a>
+          <a role="menuitem" class="current" href="nfl-props.html">Player Props</a>
+          <div class="navgroup">Lineups</div>
+          <span class="navsoon">Optimizer — coming soon</span>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section id="props" class="panel active">
+      <h1>NFL Player Props: Hit Rates, Matchups and Edge</h1>
+      <p class="sub" id="prMeta"></p>
+
+      <p class="hint">
+        Every Underdog line, with the three things worth checking before you take one.
+        <b>BE%</b> is break-even: how often a pick has to win before it stops losing
+        money, straight from the price. <b>Hit%</b> is how often this player has
+        actually cleared this number, weighted so that games where he had a different
+        role count for less. <b>Matchup</b> is what this defense has allowed this
+        position in this stat compared with what should have been expected, so 1.20
+        means 20% more.
+      </p>
+      <p class="hint" id="prWarn"></p>
+
+      <div id="prUnlock" class="unlockbar">
+        <span><strong>Free with your email:</strong> hit rates, matchup multipliers and
+          the edge columns. The lines, prices and break-even numbers below are free to
+          everyone.</span>
+        <button type="button" id="prUnlockBtn" class="primary small">Unlock free →</button>
+      </div>
+
+      <div class="trim-bar">
+        <span class="filter-sep">Market</span>
+        <button class="ghost small prgrp active" data-grp="all">All</button>
+        <button class="ghost small prgrp" data-grp="rec">Receiving</button>
+        <button class="ghost small prgrp" data-grp="rush">Rushing</button>
+        <button class="ghost small prgrp" data-grp="pass">Passing</button>
+        <button class="ghost small prgrp" data-grp="td">Touchdowns</button>
+        <button class="ghost small prgrp" data-grp="split">1Q / 1H</button>
+        <span class="filter-sep">Side</span>
+        <button class="ghost small prside active" data-side="all">Both</button>
+        <button class="ghost small prside" data-side="over">Over</button>
+        <button class="ghost small prside" data-side="under">Under</button>
+      </div>
+
+      <div class="trim-bar">
+        <span class="filter-sep">Game</span>
+        <select id="prGame" class="filter-num" style="min-width:150px"></select>
+        <span class="filter-sep">Pos</span>
+        <select id="prPos" class="filter-num" style="min-width:84px"></select>
+        <input id="prSearch" type="text" placeholder="Filter player or team…" class="filter-text" />
+        <label class="chk" title="Hide rows with too little comparable history to mean anything">
+          <input type="checkbox" id="prHideThin" checked /> Hide thin history
+        </label>
+        <label class="chk" title="Show only rows where history clears the price">
+          <input type="checkbox" id="prEdgeOnly" /> Positive edge only
+        </label>
+      </div>
+
+      <div class="tablewrap">
+        <table id="prTable">
+          <thead><tr></tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+      <p class="hint" id="prCount"></p>
+
+      <section class="seo-copy">
+        <h2>How to read this</h2>
+        <p>
+          <strong>Break-even</strong> comes straight from the price Underdog publishes
+          on each side. A pick at &minus;150 has to win 60% of the time just to stand
+          still. Both sides of a line add up to slightly more than 100%, and that gap
+          is the house edge: it is the thing you have to beat, not a rounding error.
+        </p>
+        <h3>Why the hit rate is not a simple count</h3>
+        <p>
+          "Under in 3 of 4" is easy to produce and easy to be fooled by. A rookie has
+          only a handful of games, so the same short sample appears in all three
+          windows and reads like a settled record. A player who just took over a
+          starting job has a long history of a backup's workload being compared with a
+          line priced for a starter, which is worse, because it looks like deep
+          evidence. So each past game is weighted by how close that week's snap share
+          was to the player's role right now, and the result is pulled toward the
+          market price according to how much comparable evidence there actually is.
+          The raw count is still shown, because it is what you expect to see, but the
+          weighted figure is the one to lean on.
+        </p>
+        <h3>What the matchup number means</h3>
+        <p>
+          Not yards allowed. A defense that happened to face three elite receiving
+          backs will look generous on a raw total, and that tells you nothing about
+          the defense. Here the comparison is against what each player normally does
+          in his other games, adjusted for the defenses he faced in those, so facing
+          good players raises the bar instead of flattering the defense. Hover any
+          multiplier to see the week by week breakdown behind it.
+        </p>
+        <h3>What this does not do yet</h3>
+        <p>
+          There is no projection or simulation here. Every number on this page
+          describes what has already happened, priced against what the market is
+          offering now. It is research, not a pick. Longest reception, longest rush
+          and the quarter and half splits carry lines but no history yet, because
+          those need play by play extraction that is still to come.
+        </p>
+      </section>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <span>SlateSims · free NFL research and DraftKings PGA DFS tools.</span>
+  </footer>
+  </div>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebApplication",
+        "name": "SlateSims NFL Player Props",
+        "url": "https://slatesims.com/nfl-props.html",
+        "applicationCategory": "SportsApplication",
+        "operatingSystem": "Any",
+        "description": "NFL player prop research: Underdog lines with break-even prices, role-weighted hit rates and opponent-adjusted matchup multipliers.",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+        "publisher": { "@type": "Organization", "name": "SlateSims", "url": "https://slatesims.com/" }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "SlateSims", "item": "https://slatesims.com/" },
+          { "@type": "ListItem", "position": 2, "name": "NFL Advanced Stats", "item": "https://slatesims.com/nfl.html" },
+          { "@type": "ListItem", "position": 3, "name": "Player Props", "item": "https://slatesims.com/nfl-props.html" }
+        ]
+      }
+    ]
+  }
+  </script>
+
+  <script src="assets/js/nav.js?v=20261014a"></script>
+  <script src="assets/js/leadgate.js?v=20261014a"></script>
+  <script src="assets/js/props.js?v=20261014a"></script>
+</body>
+</html>

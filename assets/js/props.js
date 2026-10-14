@@ -1,0 +1,301 @@
+/* ============================================================
+ * props.js — NFL player props table.
+ *
+ * Reads data/nfl_props_full.json: every Underdog line, both sides, with hit
+ * rates and matchup multipliers already attached by the Python pipeline. This
+ * file does presentation and filtering only. No modelling happens here, so the
+ * number on screen is the number that was verified upstream.
+ *
+ * SOFT GATE, same shape as the stats page. Lines, prices and break-even are
+ * free to everyone including crawlers; hit rates, matchup and edge need an
+ * email. Locking columns rather than the document is what keeps the page
+ * indexable — the old localStorage gate rendered zero words to a crawler.
+ * ============================================================ */
+(function () {
+  const $ = (s) => document.querySelector(s);
+  const $$ = (s) => Array.from(document.querySelectorAll(s));
+
+  const state = {
+    rows: [],
+    grp: 'all',
+    side: 'all',
+    game: '',
+    pos: '',
+    q: '',
+    hideThin: true,
+    edgeOnly: false,
+    sort: { key: 'histEdge', dir: -1 },
+  };
+
+  const unlocked = () => !window.LeadGate || window.LeadGate.granted();
+
+  /* Which market each Underdog stat name belongs to. Splits are separated out
+   * because they carry lines but no history yet, so mixing them into the main
+   * view would fill it with blank columns. */
+  const GROUP = (stat) => {
+    const s = stat || '';
+    if (/^1Q|^1H/.test(s)) return 'split';
+    if (/TD|Touchdown/i.test(s)) return 'td';
+    if (/Rec|Target/i.test(s)) return 'rec';
+    if (/Rush|Carr/i.test(s)) return 'rush';
+    if (/Pass|Completion|INT|Interception|Sack/i.test(s)) return 'pass';
+    return 'other';
+  };
+
+  const esc = (v) => String(v == null ? '' : v)
+    .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+
+  const pct = (v) => (v == null ? '—' : (v * 100).toFixed(1) + '%');
+  const sgn = (v) => (v == null ? '—' : (v > 0 ? '+' : '') + v.toFixed(1));
+
+  /* Break-even straight off the published price. No assumption about which
+   * kind of entry slip this pick ends up on is needed, because Underdog prices
+   * every pick individually. */
+  const be = (r) => (r.decimal ? 1 / r.decimal : null);
+
+  const COLS = [
+    ['player', 'Player', '', 'Player'],
+    ['team', 'Tm', '', 'Team'],
+    ['opp', 'Opp', '', 'Opponent'],
+    ['stat', 'Market', '', 'What the line is on'],
+    ['line', 'Line', 'num', 'The number Underdog is offering'],
+    ['side', 'Side', '', 'Higher or lower'],
+    ['american', 'Price', 'num', 'Underdog price for this side'],
+    ['bePct', 'BE%', 'num', 'Break-even: how often this has to win to stop losing money'],
+    ['histRate', 'Hit%', 'num', 'How often he has cleared this number, weighted so games '
+      + 'in a different role count for less, then pulled toward the price by how much '
+      + 'comparable evidence there is'],
+    ['histEdge', 'Edge', 'num', 'Hit% minus BE%. Positive means history clears the price. '
+      + 'This is not a projection.'],
+    ['l1', 'L1', 'num', 'This season, plain count'],
+    ['l2', 'L2', 'num', 'This season plus last, plain count'],
+    ['l3', 'L3', 'num', 'Three seasons, plain count'],
+    ['histEff', 'Games', 'num', 'Games worth of COMPARABLE evidence, after weighting by '
+      + 'role. Lower than games played when his job has changed.'],
+    ['mu', 'Matchup', 'num', 'What this defense has allowed this position in this stat '
+      + 'versus expected. Hover for the week by week breakdown.'],
+  ];
+  /* Columns an email unlocks. Everything else is open. */
+  const LOCKED = new Set(['histRate', 'histEdge', 'l1', 'l2', 'l3', 'histEff', 'mu']);
+
+  function visibleCols() {
+    return unlocked() ? COLS : COLS.filter((c) => !LOCKED.has(c[0]));
+  }
+
+  function cell(r, key) {
+    switch (key) {
+      case 'bePct': return be(r) == null ? '—' : (be(r) * 100).toFixed(1) + '%';
+      case 'histRate': return pct(r.histRate);
+      case 'histEdge': return sgn(r.histEdge);
+      case 'histEff': return r.histEff == null ? '—' : r.histEff.toFixed(1);
+      case 'l1': case 'l2': case 'l3': {
+        const h = r.hits && r.hits[key];
+        return h && h.n ? `${h.h}/${h.n}` : '—';
+      }
+      case 'mu': return r.mu == null ? '—' : '×' + r.mu.toFixed(2);
+      case 'side': return r.side === 'over' ? 'Higher' : 'Lower';
+      case 'line': return r.line;
+      default: return r[key] == null ? '—' : r[key];
+    }
+  }
+
+  function sortVal(r, key) {
+    switch (key) {
+      case 'bePct': return be(r);
+      case 'l1': case 'l2': case 'l3': {
+        const h = r.hits && r.hits[key];
+        return h && h.n ? h.h / h.n : null;
+      }
+      default: return r[key];
+    }
+  }
+
+  function passes(r) {
+    if (state.grp !== 'all' && GROUP(r.stat) !== state.grp) return false;
+    if (state.side !== 'all' && r.side !== state.side) return false;
+    if (state.game && `${r.team}@${r.opp}` !== state.game
+        && `${r.opp}@${r.team}` !== state.game) return false;
+    if (state.pos && r.pos !== state.pos) return false;
+    if (state.q) {
+      const q = state.q.toLowerCase();
+      if (!(`${r.player} ${r.team} ${r.opp} ${r.stat}`.toLowerCase().includes(q))) return false;
+    }
+    // Thin and edge filters only mean anything once the history columns are
+    // visible, so they are ignored while locked rather than silently hiding
+    // rows for a reason the reader cannot see.
+    if (unlocked()) {
+      if (state.hideThin && r.thin) return false;
+      if (state.edgeOnly && !(r.histEdge > 0)) return false;
+    }
+    return true;
+  }
+
+  /* The drill-down behind a matchup multiplier, as a title attribute so it
+   * needs no extra machinery and still works on a phone's long press. */
+  function matchupTip(r) {
+    if (!r.muGames || !r.muGames.length) return '';
+    const head = `${r.opp} vs ${r.pos}, ${r.stat}: ×${r.mu.toFixed(2)} over ${r.muN} player-games`;
+    const lines = r.muGames.map((g) =>
+      `wk${g.wk} ${g.tm} (${g.n}) ${g.act} vs expected ${g.exp}`);
+    return `${head}\n${lines.join('\n')}`;
+  }
+
+  function roleTip(r) {
+    if (r.roleShift == null) return '';
+    const dir = r.roleShift > 0 ? 'bigger' : 'smaller';
+    return `Role now ${r.roleNow}% of snaps versus ${r.roleHist}% across his history, `
+      + `a ${Math.abs(r.roleShift).toFixed(0)} point ${dir} job. His past games are `
+      + `weighted down accordingly.`;
+  }
+
+  function render() {
+    const cols = visibleCols();
+    if (!cols.some((c) => c[0] === state.sort.key)) {
+      state.sort = { key: 'line', dir: -1 };
+    }
+
+    $('#prTable thead tr').innerHTML = cols.map(([k, label, cls, tip]) => {
+      const on = state.sort.key === k ? ' sorted' : '';
+      const arrow = state.sort.key === k ? (state.sort.dir === -1 ? ' ↓' : ' ↑') : '';
+      return `<th class="${cls} sortable${on}" data-k="${k}" title="${esc(tip)}">${label}${arrow}</th>`;
+    }).join('');
+
+    let rows = state.rows.filter(passes);
+    const { key, dir } = state.sort;
+    rows.sort((a, b) => {
+      const x = sortVal(a, key), y = sortVal(b, key);
+      if (typeof x === 'string' || typeof y === 'string') {
+        return -dir * String(x || '').localeCompare(String(y || ''));
+      }
+      if (x == null && y == null) return 0;
+      if (x == null) return 1;     // blanks sink whichever way the column points
+      if (y == null) return -1;
+      return dir * (x - y);
+    });
+
+    const shown = rows.slice(0, 400);
+    $('#prTable tbody').innerHTML = shown.map((r) => {
+      const tds = cols.map(([k, , cls]) => {
+        let extra = '';
+        let tip = '';
+        if (k === 'histEdge' && r.histEdge != null) {
+          extra = r.histEdge > 0 ? ' up' : (r.histEdge < 0 ? ' down' : ' dim');
+        }
+        if (k === 'mu' && r.mu != null) {
+          extra = r.mu > 1.05 ? ' up' : (r.mu < 0.95 ? ' down' : ' dim');
+          tip = matchupTip(r);
+        }
+        if (k === 'player') {
+          extra = ' name';
+          tip = roleTip(r);
+        }
+        if (k === 'histEff' && r.thin) extra = ' dim';
+        const t = tip ? ` title="${esc(tip)}"` : '';
+        const flag = (k === 'player' && r.roleShift != null && Math.abs(r.roleShift) >= 15)
+          ? ' <span class="roleflag" aria-label="role changed">⤴</span>' : '';
+        const thin = (k === 'player' && r.thin) ? ' <span class="thinflag">thin</span>' : '';
+        return `<td class="${cls}${extra}"${t}>${esc(cell(r, k))}${flag}${thin}</td>`;
+      }).join('');
+      return `<tr>${tds}</tr>`;
+    }).join('');
+
+    $('#prCount').textContent = rows.length > shown.length
+      ? `Showing the top ${shown.length} of ${rows.length} lines. Narrow the filters to see the rest.`
+      : `${rows.length} lines.`;
+
+    $$('#prTable th.sortable').forEach((th) => {
+      th.addEventListener('click', () => {
+        const k = th.dataset.k;
+        state.sort = { key: k, dir: state.sort.key === k ? -state.sort.dir : -1 };
+        render();
+      });
+    });
+  }
+
+  function syncLock() {
+    const open = unlocked();
+    const bar = $('#prUnlock');
+    if (bar) bar.classList.toggle('hidden', open);
+    ['#prHideThin', '#prEdgeOnly'].forEach((sel) => {
+      const el = $(sel);
+      if (el) el.disabled = !open;
+    });
+  }
+
+  function fillFilters() {
+    const games = new Set();
+    const poss = new Set();
+    state.rows.forEach((r) => {
+      if (r.team && r.opp) games.add([r.team, r.opp].sort().join('@'));
+      if (r.pos) poss.add(r.pos);
+    });
+    $('#prGame').innerHTML = '<option value="">All games</option>'
+      + Array.from(games).sort().map((g) => `<option value="${g}">${g.replace('@', ' @ ')}</option>`).join('');
+    $('#prPos').innerHTML = '<option value="">All</option>'
+      + Array.from(poss).sort().map((p) => `<option value="${p}">${p}</option>`).join('');
+  }
+
+  function meta(doc) {
+    const d = doc.built ? new Date(doc.built) : null;
+    const when = d ? d.toLocaleString(undefined, { month: 'short', day: 'numeric',
+      hour: 'numeric', minute: '2-digit' }) : '';
+    const withHist = state.rows.filter((r) => r.hits).length;
+    $('#prMeta').textContent = `— ${doc.count.toLocaleString()} lines from Underdog, `
+      + `updated ${when}`;
+    const noHist = state.rows.length - withHist;
+    $('#prWarn').textContent = noHist
+      ? `${noHist.toLocaleString()} of these carry a line but no history yet: longest `
+        + `reception, longest rush, touchdown scorer markets and the quarter and half `
+        + `splits all need play by play work that is still to come. They are shown `
+        + `with blank history rather than a guessed one.`
+      : '';
+  }
+
+  async function boot() {
+    if (!$('#props')) return;
+    let doc;
+    try {
+      const res = await fetch('data/nfl_props_full.json?v=' + Date.now());
+      doc = await res.json();
+    } catch (e) {
+      $('#prMeta').textContent = '— prop lines unavailable right now';
+      return;
+    }
+    state.rows = doc.props || [];
+    fillFilters();
+    meta(doc);
+    syncLock();
+    render();
+
+    $$('.prgrp').forEach((b) => b.addEventListener('click', () => {
+      $$('.prgrp').forEach((x) => x.classList.remove('active'));
+      b.classList.add('active');
+      state.grp = b.dataset.grp;
+      render();
+    }));
+    $$('.prside').forEach((b) => b.addEventListener('click', () => {
+      $$('.prside').forEach((x) => x.classList.remove('active'));
+      b.classList.add('active');
+      state.side = b.dataset.side;
+      render();
+    }));
+    $('#prGame').addEventListener('change', (e) => { state.game = e.target.value; render(); });
+    $('#prPos').addEventListener('change', (e) => { state.pos = e.target.value; render(); });
+    $('#prSearch').addEventListener('input', (e) => { state.q = e.target.value; render(); });
+    $('#prHideThin').addEventListener('change', (e) => { state.hideThin = e.target.checked; render(); });
+    $('#prEdgeOnly').addEventListener('change', (e) => { state.edgeOnly = e.target.checked; render(); });
+
+    const btn = $('#prUnlockBtn');
+    if (btn) {
+      btn.addEventListener('click', () => {
+        if (!window.LeadGate) return;
+        window.LeadGate.prompt(
+          'Hit rates, matchup multipliers and the edge columns are free with your email.',
+          'NFL-props',
+          () => { syncLock(); render(); });
+      });
+    }
+  }
+
+  document.addEventListener('DOMContentLoaded', boot);
+})();

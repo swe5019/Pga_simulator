@@ -695,3 +695,31 @@ td.defaulted-cell { color: var(--dim); font-style: italic; }
   font-style: italic; cursor: default;
 }
 @media (max-width: 900px) { .mainnav { margin-right: 8px; } .navbtn { padding: 7px 8px; } }
+
+/* ---------- NFL props table ---------- */
+#prTable { width: 100%; border-collapse: collapse; font-size: 13px; }
+#prTable th, #prTable td {
+  padding: 6px 10px; border-bottom: 1px solid var(--line); white-space: nowrap;
+}
+#prTable th {
+  text-align: left; font-size: 11px; letter-spacing: .4px; text-transform: uppercase;
+  color: var(--dim); font-weight: 700; cursor: pointer; user-select: none;
+  position: sticky; top: 0; background: var(--panel); z-index: 2;
+}
+#prTable th.num, #prTable td.num { text-align: right; }
+#prTable th.sorted { color: var(--green2); }
+#prTable th:hover { color: var(--text); }
+#prTable td.name { font-weight: 600; color: var(--text); }
+#prTable tbody tr:hover { background: var(--panel2); }
+/* A matchup or edge cell carries a tooltip, so say so rather than leaving the
+   reader to discover it. */
+#prTable td[title] { cursor: help; }
+/* Marks a player whose job has changed enough that his history describes
+   somebody else's workload. */
+.roleflag { color: var(--warn); font-size: 11px; }
+.thinflag {
+  font-size: 9.5px; letter-spacing: .4px; text-transform: uppercase;
+  color: var(--dim); border: 1px solid var(--line); border-radius: 4px;
+  padding: 1px 4px; margin-left: 4px; vertical-align: middle;
+}
+#props .tablewrap { max-height: 70vh; overflow: auto; }
