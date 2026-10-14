@@ -35,11 +35,19 @@ jobs:
           PYTHONUNBUFFERED: '1'
         run: python tools/fetch_props.py
 
+      # Attaches L1/L2/L3 hit rates against each line, from the season files
+      # already in the repo. No historical odds are needed: "under in 3 of 4"
+      # is just counting past games against today's line.
+      - name: Attach hit rates
+        env:
+          PYTHONUNBUFFERED: '1'
+        run: python tools/enrich_props.py
+
       - name: Commit props
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add data/nfl_props.json data/props_history
+          git add data/nfl_props.json data/nfl_props_full.json data/props_history
           if git diff --cached --quiet; then
             echo "No change in prop lines"
           else
