@@ -1,26 +1,20 @@
 #!/usr/bin/env python3
 """
-probe_props.py — read-only check of whether NFL prop lines are reachable.
+probe_props.py — read-only inspection of the Underdog pick'em feed.
 
-WRITES NOTHING. It answers one question before any modelling work starts: can a
-GitHub Actions runner actually pull prop lines, and in what shape?
+WRITES NOTHING. Its job is to expose the exact field names and join keys so the
+real fetcher can be written against reality rather than guesswork.
 
-This matters because api.draftkings.com already refuses this runner, which is
-why contest payouts are modelled rather than exact. If the pick'em feeds refuse
-it too, a scraped props tool cannot be built on this infrastructure at all and
-the money is better spent on a paid odds feed. Better to find that out in five
-minutes than after building a simulation to consume it.
-
-For each endpoint it reports the HTTP status, the response size, the top level
-shape, and one sample record so the field names can be read off directly.
+Only one endpoint survived the first probe. PrizePicks answers 403 behind a
+DataDome captcha, and Underdog's beta/v5 and v6 paths want a client version
+header. v2/pickem_search answers plainly, so that is what gets used.
 """
 import json
-import os
 import sys
-import time
 import urllib.error
 import urllib.request
 
+URL = "https://api.underdogfantasy.com/v2/pickem_search/search_results?sport_id=NFL"
 UA = {
     "User-Agent": ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
                    "(KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36"),
@@ -28,102 +22,64 @@ UA = {
     "Accept-Language": "en-US,en;q=0.9",
 }
 
-# Candidate public endpoints. Several spellings per site on purpose: these move,
-# and the point is to find out which (if any) answer, not to be elegant.
-TARGETS = [
-    ("PrizePicks NFL projections",
-     "https://api.prizepicks.com/projections?league_id=9&per_page=250&single_stat=true"),
-    ("PrizePicks leagues",
-     "https://api.prizepicks.com/leagues"),
-    ("Underdog over/under lines v6",
-     "https://api.underdogfantasy.com/beta/v6/over_under_lines"),
-    ("Underdog over/under lines v5",
-     "https://api.underdogfantasy.com/beta/v5/over_under_lines"),
-    ("Underdog pickem search NFL",
-     "https://api.underdogfantasy.com/v2/pickem_search/search_results?sport_id=NFL"),
-    ("The Odds API (needs key, shows whether host is reachable)",
-     "https://api.the-odds-api.com/v4/sports/"),
-]
+
+def get(url):
+    req = urllib.request.Request(url, headers=UA)
+    with urllib.request.urlopen(req, timeout=45) as r:
+        return json.loads(r.read().decode("utf-8", "replace"))
 
 
-def shape(obj, depth=0):
-    """One line describing what came back, without dumping the whole payload."""
-    pad = "  " * depth
-    if isinstance(obj, dict):
-        ks = list(obj)[:12]
-        return f"{pad}dict with {len(obj)} keys: {ks}"
-    if isinstance(obj, list):
-        return f"{pad}list of {len(obj)}"
-    return f"{pad}{type(obj).__name__}"
-
-
-def probe(name, url):
+def dump(label, arr, n=2, trim=1400):
     print("=" * 78)
-    print(name)
-    print(url[:110])
-    t0 = time.time()
-    try:
-        req = urllib.request.Request(url, headers=UA)
-        with urllib.request.urlopen(req, timeout=45) as r:
-            raw = r.read()
-            ms = int((time.time() - t0) * 1000)
-            print(f"  HTTP {r.status}  {len(raw):,} bytes  {ms} ms")
-    except urllib.error.HTTPError as e:
-        body = ""
-        try:
-            body = e.read()[:200].decode("utf-8", "replace")
-        except Exception:  # noqa: BLE001
-            pass
-        print(f"  HTTP {e.code} {e.reason}")
-        if body:
-            print(f"  body: {body.strip()[:180]}")
-        return False
-    except Exception as e:  # noqa: BLE001
-        print(f"  FAILED: {e}")
-        return False
-
-    try:
-        doc = json.loads(raw.decode("utf-8", "replace"))
-    except Exception as e:  # noqa: BLE001
-        print(f"  not json: {e}")
-        print(f"  first 200 chars: {raw[:200]!r}")
-        return False
-
-    print("  " + shape(doc))
-    # Walk the usual containers so the real records are visible whatever the
-    # wrapper is called.
-    for key in ("data", "projections", "over_under_lines", "players", "games",
-                "appearances", "included", "results"):
-        if isinstance(doc, dict) and key in doc and isinstance(doc[key], list) and doc[key]:
-            arr = doc[key]
-            print(f"  {key}: list of {len(arr)}")
-            print(f"  sample {key}[0]:")
-            print("    " + json.dumps(arr[0], indent=2)[:900].replace("\n", "\n    "))
-            break
-    else:
-        if isinstance(doc, list) and doc:
-            print("  sample [0]:")
-            print("    " + json.dumps(doc[0], indent=2)[:600].replace("\n", "\n    "))
-        elif isinstance(doc, dict):
-            print("  top level sample:")
-            print("    " + json.dumps(doc, indent=2)[:600].replace("\n", "\n    "))
-    return True
+    print(f"{label}: {len(arr)} records")
+    if not arr:
+        return
+    print(f"  keys: {sorted(arr[0])}")
+    for i, rec in enumerate(arr[:n]):
+        print(f"  --- [{i}] ---")
+        print("  " + json.dumps(rec, indent=2)[:trim].replace("\n", "\n  "))
 
 
 def main():
-    print("Probing NFL prop line sources. Read only, writes nothing.\n")
-    ok = []
-    for name, url in TARGETS:
-        if probe(name, url):
-            ok.append(name)
+    try:
+        doc = get(URL)
+    except urllib.error.HTTPError as e:
+        print(f"HTTP {e.code}: {e.read()[:300]}")
+        return 1
+    print("top level keys:", sorted(doc))
+    print()
+
+    for key in ("over_under_lines", "appearances", "players", "games",
+                "solo_games", "teams"):
+        dump(key, doc.get(key) or [], n=2)
         print()
+
+    # Which stats exist, and how many lines each. This decides what the first
+    # version can cover without guessing at Underdog's naming.
+    stats = {}
+    for ln in doc.get("over_under_lines") or []:
+        ou = ln.get("over_under") or {}
+        ap = ou.get("appearance_stat") or {}
+        s = ap.get("display_stat") or ap.get("stat") or ou.get("title") or "?"
+        stats[s] = stats.get(s, 0) + 1
     print("=" * 78)
-    print(f"REACHABLE: {len(ok)} of {len(TARGETS)}")
-    for n in ok:
-        print(f"   - {n}")
-    if not ok:
-        print("\nNothing answered. A scraped props tool is not viable from this")
-        print("runner; budget for a paid odds feed or a manual weekly upload.")
+    print("STAT TYPES on this page:")
+    for s, n in sorted(stats.items(), key=lambda kv: -kv[1]):
+        print(f"   {n:>4}  {s}")
+
+    # Does it paginate, and how far?
+    print()
+    print("=" * 78)
+    print("PAGINATION probe")
+    for extra in ("&page=2", "&per_page=500", "&limit=500"):
+        try:
+            d2 = get(URL + extra)
+            n = len(d2.get("over_under_lines") or [])
+            same = (d2.get("over_under_lines") or [{}])[0].get("id") == \
+                   (doc.get("over_under_lines") or [{}])[0].get("id")
+            print(f"   {extra:<14} -> {n} lines, first id identical: {same}")
+        except Exception as e:  # noqa: BLE001
+            print(f"   {extra:<14} -> {e}")
     return 0
 
 
