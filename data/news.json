@@ -1,11 +1,11 @@
 {
- "updatedUtc": "2026-10-14T17:12:59Z",
+ "updatedUtc": "2026-10-14T21:42:49Z",
  "slate": "BAYCURRENT_2026",
  "event": "",
  "counts": {
-  "items": 2,
-  "golfersMentioned": 2,
-  "news": 2,
+  "items": 3,
+  "golfersMentioned": 3,
+  "news": 3,
   "chatter": 0
  },
  "sources": [
@@ -138,7 +138,13 @@
  ],
  "mentions": [
   {
-   "name": "Patrick Rodgers",
+   "name": "Keith Mitchell",
+   "news": 1,
+   "chatter": 0,
+   "total": 1
+  },
+  {
+   "name": "Jordan L. Smith",
    "news": 1,
    "chatter": 0,
    "total": 1
@@ -152,14 +158,25 @@
  ],
  "items": [
   {
-   "title": "Who Should I Start for Fantasy Football Week 6? Jordan Love, Jameis Winston, Jacoby Brissett, Tyler Shough, Bryce Young, Aaron Rodgers, Jayden Daniels, Drake Maye, Matthew Stafford",
-   "link": "https://www.rotoballer.com/who-should-i-start-for-week-6-jordan-love-jameis-winston-jacoby-brissett-tyler-shough-bryce-young-aaron-rodgers-jayden-daniels-drake-maye-matthew-stafford/1965992",
+   "title": "Who Should I Start for Fantasy Football Week 6? Tre Tucker, Kimani Vidal, Keaton Mitchell, Michael Wilson, Mike Evans, Cam Skattebo, Jakobi Meyers, Blake Corum, Rashee Rice, Jaylen Warren",
+   "link": "https://www.rotoballer.com/who-should-i-start-for-week-6-tre-tucker-kimani-vidal-keaton-mitchell-michael-wilson-mike-evans-cam-skattebo-jakobi-meyers-blake-corum-rashee-rice-jaylen-warren/1966246",
    "summary": "Who Should I Start? Who Should I Sit? Some of the most common Week 6 fantasy football lineup decisions involve [&#8230;]",
-   "published": "Wed, 14 Oct 2026 15:18:52 +0000",
+   "published": "Wed, 14 Oct 2026 18:57:04 +0000",
    "source": "RotoBaller",
    "kind": "news",
    "golfers": [
-    "Patrick Rodgers"
+    "Keith Mitchell"
+   ]
+  },
+  {
+   "title": "When Is DeVonta Smith Coming Back - Week 6 Fantasy Football Injury Return Update (2026)",
+   "link": "https://www.rotoballer.com/when-is-devonta-smith-coming-back-week-6-fantasy-football-injury-return-update-2026/1966192",
+   "summary": "The Philadelphia Eagles made the decision to move on from veteran wide receiver A.J. Brown this offseason, a move that [&#8230;]",
+   "published": "Wed, 14 Oct 2026 18:29:11 +0000",
+   "source": "RotoBaller",
+   "kind": "news",
+   "golfers": [
+    "Jordan L. Smith"
    ]
   },
   {
