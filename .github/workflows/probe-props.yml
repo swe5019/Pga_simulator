@@ -1,0 +1,25 @@
+name: Probe prop line sources
+
+# Read-only diagnostic. Writes nothing, commits nothing. It answers whether a
+# GitHub runner can reach the pick'em prop feeds at all, before any modelling
+# work is built on the assumption that it can. api.draftkings.com already
+# refuses this runner, so the question is a real one.
+on:
+  workflow_dispatch:
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Probe prop sources
+        env:
+          PYTHONUNBUFFERED: '1'
+        run: python tools/probe_props.py
