@@ -66,6 +66,13 @@ STAT_FN = {
 # stop one freak afternoon dominating the number.
 BLEND = {"l1": 0.20, "l2": 0.40, "l3": 0.40}
 
+# Shrinkage, in games. A player's own hit rate is pulled toward the price with
+# this much weight, so a five game record barely moves off the market and a
+# forty game one nearly stands on its own.
+PRIOR_GAMES = 12
+# Under this many games in the widest window, history is flagged as thin.
+MIN_GAMES = 8
+
 
 def log(*a):
     print(*a, flush=True)
@@ -179,16 +186,37 @@ def main():
             if out[label]["r"] is not None and out[label]["n"] > 0:
                 num += wgt * out[label]["r"]
                 den += wgt
-        blended = round(num / den, 4) if den else None
+        raw = round(num / den, 4) if den else None
+
+        # The widest window is the real evidence count. For a rookie all three
+        # windows are the SAME handful of games, so the blend above is one small
+        # sample counted three times and says 100% as confidently as a three
+        # season record would. That is the number people would bet on.
+        n3 = out["l3"]["n"]
+        be = (1.0 / p["decimal"]) if p.get("decimal") else None
+
+        # So shrink toward the price. With little evidence the honest default is
+        # that the market is right, and the pull fades as games accumulate: five
+        # games barely move off the line, forty are nearly all their own. This
+        # degrades smoothly, unlike a cutoff that flips at an arbitrary game.
+        shrunk = raw
+        if raw is not None and be is not None and n3 > 0:
+            shrunk = round((n3 * raw + PRIOR_GAMES * be) / (n3 + PRIOR_GAMES), 4)
 
         p["hits"] = out
-        p["histRate"] = blended
-        # Edge on history alone: how far the blended rate clears the price.
-        # Positive means history says this side wins more often than the price
-        # demands. It is not a projection, it is a sanity check on one.
-        if blended is not None and p.get("decimal"):
-            p["histEdge"] = round((blended - 1.0 / p["decimal"]) * 100, 1)
+        p["histRaw"] = raw          # what actually happened, uncorrected
+        p["histRate"] = shrunk      # what to lean on
+        p["histN"] = n3             # the evidence behind it
+        # Below this there is not enough history to mean anything, which is the
+        # normal state for a rookie. The page marks these rather than hiding
+        # them: "no history" is useful information, a confident wrong number
+        # is not.
+        p["thin"] = n3 < MIN_GAMES
+        if shrunk is not None and be is not None:
+            p["histEdge"] = round((shrunk - be) * 100, 1)
         counts["enriched"] += 1
+        if p["thin"]:
+            counts["  of those, thin history (rookie or little played)"] += 1
 
     log("\nrows:")
     for k, v in sorted(counts.items(), key=lambda kv: -kv[1]):
