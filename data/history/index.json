@@ -1,5 +1,5 @@
 {
- "updatedUtc": "2026-10-14T22:00:22Z",
+ "updatedUtc": "2026-10-15T01:09:52Z",
  "count": 33,
  "events": [
   {
@@ -29,11 +29,11 @@
    "file": "history/BAYCURRENT_2026.json",
    "date": "2026-10-08 00:00:00",
    "hasPredicted": true,
-   "hasActual": false,
-   "maePct": null,
-   "colabMaePct": null,
-   "comparedPlayers": null,
-   "updatedUtc": "2026-10-14T22:00:22Z"
+   "hasActual": true,
+   "maePct": 3.05,
+   "colabMaePct": 3.407,
+   "comparedPlayers": 72,
+   "updatedUtc": "2026-10-15T01:09:52Z"
   },
   {
    "tournament": "BILTMORE_2026",
@@ -218,7 +218,7 @@
    "hasPredicted": false,
    "hasActual": true,
    "maePct": null,
-   "colabMaePct": 0.072,
+   "colabMaePct": 4.178,
    "comparedPlayers": null,
    "updatedUtc": "2026-06-25T15:52:16Z"
   },
@@ -286,7 +286,7 @@
    "maePct": 2.958,
    "colabMaePct": 2.928,
    "comparedPlayers": 72,
-   "updatedUtc": "2026-10-14T22:00:22Z"
+   "updatedUtc": "2026-10-15T01:09:52Z"
   },
   {
    "tournament": "TRUIST_2026",
