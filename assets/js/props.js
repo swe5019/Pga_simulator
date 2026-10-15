@@ -25,6 +25,7 @@
     hideThin: true,
     edgeOnly: false,
     agree: false,
+    showRoleFlag: false,
     sort: { key: 'histEdge', dir: -1 },
   };
 
@@ -138,6 +139,13 @@
     if (unlocked()) {
       if (state.hideThin && r.thin) return false;
       if (state.edgeOnly && !(r.histEdge > 0)) return false;
+      // A row where the model and the market disagree this much about how
+      // much work a player gets is almost always a role the model has not
+      // seen yet, and its edge is the largest on the board precisely because
+      // it is wrong. Kept out of the edge filters unless asked for, since
+      // those filters exist to surface findings.
+      if (r.roleFlag && !state.showRoleFlag
+          && (state.edgeOnly || state.agree)) return false;
       // Where two methods built on different things point the same way. The
       // hit rate counts whole games and leans on the price; the simulation
       // rebuilds the game from individual plays and ignores the price. Both
@@ -186,6 +194,11 @@
     return bits.join('. ') + '.';
   }
 
+  /* Why this row's edge should not be trusted. */
+  function roleFlagTip(r) {
+    return r.roleWhy || '';
+  }
+
   function roleTip(r) {
     if (r.roleShift == null) return '';
     const dir = r.roleShift > 0 ? 'bigger' : 'smaller';
@@ -227,6 +240,12 @@
         if (k === 'histEdge' && r.histEdge != null) {
           extra = r.histEdge > 0 ? ' up' : (r.histEdge < 0 ? ' down' : ' dim');
         }
+        // Both edge columns are greyed on a flagged row rather than shown in
+        // green, because green is a recommendation and this is not one.
+        if (r.roleFlag && (k === 'histEdge' || k === 'simEdge')) {
+          extra = ' dim';
+          tip = roleFlagTip(r);
+        }
         if (k === 'mu' && r.mu != null) {
           extra = r.mu > 1.05 ? ' up' : (r.mu < 0.95 ? ' down' : ' dim');
           tip = matchupTip(r);
@@ -246,15 +265,23 @@
         const t = tip ? ` title="${esc(tip)}"` : '';
         const flag = (k === 'player' && r.roleShift != null && Math.abs(r.roleShift) >= 15)
           ? ' <span class="roleflag" aria-label="role changed">⤴</span>' : '';
+        const warn = (k === 'player' && r.roleFlag)
+          ? ` <span class="rolewarn" title="${esc(roleFlagTip(r))}" aria-label="role may have changed">⚠</span>`
+          : '';
         const thin = (k === 'player' && r.thin) ? ' <span class="thinflag">thin</span>' : '';
-        return `<td class="${cls}${extra}"${t}>${esc(cell(r, k))}${flag}${thin}</td>`;
+        return `<td class="${cls}${extra}"${t}>${esc(cell(r, k))}${flag}${warn}${thin}</td>`;
       }).join('');
       return `<tr>${tds}</tr>`;
     }).join('');
 
-    $('#prCount').textContent = rows.length > shown.length
+    const flags = rows.filter((r) => r.roleFlag).length;
+    const note = flags
+      ? ` ${flags} carry a ⚠, meaning the model and the market disagree sharply about`
+        + ` how much work the player gets, which is usually a role change rather than value.`
+      : '';
+    $('#prCount').textContent = (rows.length > shown.length
       ? `Showing the top ${shown.length} of ${rows.length} lines. Narrow the filters to see the rest.`
-      : `${rows.length} lines.`;
+      : `${rows.length} lines.`) + note;
 
     $$('#prTable th.sortable').forEach((th) => {
       th.addEventListener('click', () => {
@@ -269,7 +296,7 @@
     const open = unlocked();
     const bar = $('#prUnlock');
     if (bar) bar.classList.toggle('hidden', open);
-    ['#prHideThin', '#prEdgeOnly', '#prAgree'].forEach((sel) => {
+    ['#prHideThin', '#prEdgeOnly', '#prAgree', '#prShowRoleFlag'].forEach((sel) => {
       const el = $(sel);
       if (el) el.disabled = !open;
     });
@@ -341,6 +368,9 @@
     $('#prHideThin').addEventListener('change', (e) => { state.hideThin = e.target.checked; render(); });
     $('#prEdgeOnly').addEventListener('change', (e) => { state.edgeOnly = e.target.checked; render(); });
     $('#prAgree').addEventListener('change', (e) => { state.agree = e.target.checked; render(); });
+    $('#prShowRoleFlag').addEventListener('change', (e) => {
+      state.showRoleFlag = e.target.checked; render();
+    });
 
     const btn = $('#prUnlockBtn');
     if (btn) {

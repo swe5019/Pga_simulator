@@ -592,6 +592,96 @@ def simulate(rng, stat, line_rows, f, base, mult, prior):
     return None
 
 
+# Markets whose answer is driven by how much work a player gets. These are the
+# ones a role change wrecks, and the ones this guard covers.
+VOLUME_MARKETS = frozenset((
+    "Rush Attempts", "Receptions", "Targets", "Pass Attempts", "Completions",
+    "Rush Yards", "Receiving Yards", "Rush + Rec Yards", "Pass Yards",
+    "Pass + Rush Yards", "1Q Receptions", "1H Receptions", "1Q Targets",
+    "1H Targets", "1Q Rush Yards", "1H Rush Yards", "1Q Rec Yards",
+    "1H Rec Yards", "1Q Rush Attempts", "1H Rush Attempts", "1Q Pass Yards",
+    "1H Pass Yards", "1Q Completions", "1H Completions",
+    "1Q Rush + Rec Yards", "1H Rush + Rec Yards",
+))
+
+# Disagreement, in percentage points, at which the model stops advertising an
+# edge on a volume market and asks the reader to check the news instead. Set
+# from the distribution: across volume lines the median disagreement with the
+# market is 9.6 points and the 90th percentile is 25, so this is the top tenth.
+ROLE_FLAG_GAP = 25.0
+
+
+def flag_role_divergence(props):
+    """Stop the biggest fake edges on the board from looking like finds.
+
+    THE PROBLEM THIS EXISTS FOR
+    Every model here is backward looking. Role weighting asks "was this past
+    game the same job he has now" and answers it well, but it cannot know about
+    a job that changes this week. When a starter is ruled out, the market
+    reprices the backup immediately and this model does not, because the backup
+    has no history at the new workload. The model then projects a backup's
+    volume against a starter's line and reports an enormous edge on the under.
+
+    Those are the LARGEST edges on the page and they are worthless. Woody Marks
+    is the case that prompted this: his role reads 55% of snaps because it
+    averages two backup games with the one game the starter got hurt in, his
+    rush attempts line is 14.5, the model projects 9.6, and the under showed
+    +26. The market was right and the model's idea of his job was stale.
+
+    WHAT IS MEASURED
+    Not the raw gap between the projection and the line: on a small line the
+    projection routinely sits far above it for ordinary reasons, so a ratio
+    flags hundreds of harmless rows. Instead the model's probability is
+    compared against the market's own de-vigged probability for the same
+    question, which is scale free and works the same on a line of 0.5 and a
+    line of 300.
+
+    BOTH DIRECTIONS are flagged. A projection far below the line is a role
+    increase nobody told the model about. Far above it is the reverse, a player
+    who has lost his job or come back into a smaller one. Both are the same
+    mistake and both need a human to look at the news.
+
+    This does NOT delete anything. The numbers stay visible and the reader can
+    still act on them. What it does is refuse to let these rows sort to the top
+    of an edge-ranked table as though they were discoveries."""
+    n = 0
+    for p in props:
+        if p["stat"] not in VOLUME_MARKETS:
+            continue
+        sim, fair = p.get("sim"), p.get("fairBE")
+        if sim is None or fair is None:
+            continue
+        gap = sim * 100 - fair
+        if abs(gap) < ROLE_FLAG_GAP:
+            continue
+        p["roleFlag"] = True
+        p["roleGap"] = round(gap, 1)
+        mu, line = p.get("simMu"), p.get("line")
+        # The direction of the WARNING comes from the projection against the
+        # line, never from the sign of the probability gap. Those point
+        # opposite ways on the under: a smaller projected workload makes the
+        # under likely, so its probability gap is positive while the workload
+        # is lower. Keying the wording off the gap told the reader the exact
+        # reverse of what the model thought on every under.
+        if mu is None or line is None:
+            continue
+        if mu < line:
+            p["roleWhy"] = (
+                f"The market is pricing a bigger workload than this model is "
+                f"projecting ({mu} against a line of {line}). That usually "
+                f"means his role has changed this week and the model has not "
+                f"seen it yet, not that there is value here. Check whether "
+                f"somebody ahead of him is hurt before trusting the edge.")
+        else:
+            p["roleWhy"] = (
+                f"This model is projecting a bigger workload than the market "
+                f"is pricing ({mu} against a line of {line}). That usually "
+                f"means his role has shrunk and the model is still using his "
+                f"old one. Check the news before trusting the edge.")
+        n += 1
+    return n
+
+
 def main():
     path = os.path.join(DATA, "nfl_props_full.json")
     if not os.path.exists(path):
@@ -711,7 +801,11 @@ def main():
                 counts["  of those, thin (mostly the position's baseline)"] += 1
         done += 1
 
+    flagged = flag_role_divergence(props)
     log(f"\n{done:,} player-market distributions simulated")
+    log(f"{flagged:,} sides flagged as a probable role change rather than an "
+        f"edge (disagreement with the market over {ROLE_FLAG_GAP:.0f} points "
+        f"on a volume market)")
     for k, v in sorted(counts.items(), key=lambda kv: -kv[1]):
         log(f"   {v:>6}  {k}")
 

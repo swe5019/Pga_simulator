@@ -723,3 +723,11 @@ td.defaulted-cell { color: var(--dim); font-style: italic; }
   padding: 1px 4px; margin-left: 4px; vertical-align: middle;
 }
 #props .tablewrap { max-height: 70vh; overflow: auto; }
+
+/* Role change warning on the props table. Amber rather than red: the row is
+   not broken, it is asking the reader to go and check something. */
+.rolewarn { color: #d29922; font-weight: 700; cursor: help; margin-left: 2px; }
+.warnbox {
+  border-left: 3px solid #d29922; padding: 8px 12px; margin: 10px 0;
+  background: color-mix(in srgb, #d29922 8%, transparent); border-radius: 0 6px 6px 0;
+}

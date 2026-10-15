@@ -95,6 +95,17 @@
         means 20% more.
       </p>
       <p class="hint" id="prWarn"></p>
+      <p class="hint warnbox">
+        <b>⚠ means do not trust the edge on that row.</b> Every number here is built
+        from games already played, so when a starter is ruled out the market reprices
+        his backup straight away and this does not, because the backup has no history
+        at the bigger job. The model then compares a backup's workload against a
+        starter's line and reports a huge edge on the under. Those are the biggest
+        edges on the board and they are worthless. Rows where the model and the market
+        disagree sharply about how much work a player gets are marked, kept out of the
+        edge filters, and their edge figures are greyed instead of green. Hover the
+        ⚠ for what the disagreement is.
+      </p>
 
       <div id="prUnlock" class="unlockbar">
         <span><strong>Free with your email:</strong> hit rates, matchup multipliers and
@@ -131,6 +142,9 @@
         </label>
         <label class="chk" title="Show only rows where the hit rate and the simulation both clear the price">
           <input type="checkbox" id="prAgree" /> History and sim agree
+        </label>
+        <label class="chk" title="Include rows where the model and the market disagree sharply about the player's workload, which usually means his role changed this week">
+          <input type="checkbox" id="prShowRoleFlag" /> Include ⚠ role changes
         </label>
       </div>
 
@@ -219,6 +233,30 @@
           passing attempts and completions, add almost nothing, because how often a
           quarterback throws is decided by the score and this model has no score in
           it. Treat those two columns as background and lean on the rest.
+        </p>
+        <h3>The one thing that will cost you money</h3>
+        <p>
+          A player stepping into a bigger role because somebody ahead of him is hurt.
+          Nothing on this page knows about that until it has already happened on the
+          field. Role weighting asks whether a past game was the same job he has now,
+          and it answers that well, but it cannot know about a job that changes this
+          week.
+        </p>
+        <p>
+          Here is what that looks like. A back whose starter got hurt late last week
+          shows a role of 55% of snaps, because that figure averages his two games as
+          a backup with the one game he finished as the starter. His rush attempts
+          line is 14.5, which is the market telling you it expects a starter's
+          workload. This model projects 9.6, because it is averaging in the weeks he
+          was the backup. The under then shows a 26 point edge, and it is nonsense.
+          The market is not wrong; the model's idea of his job is out of date.
+        </p>
+        <p>
+          So any row where the two disagree sharply about workload carries a ⚠ and is
+          kept out of the edge filters. Treat the warning as an instruction to go read
+          the injury news, not as a number to bet. Over the current slate that is a
+          few dozen rows, and they would otherwise be sitting at the very top of an
+          edge-sorted table.
         </p>
         <h3>What this does not do yet</h3>
         <p>
