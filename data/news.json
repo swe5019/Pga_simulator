@@ -1,11 +1,11 @@
 {
- "updatedUtc": "2026-10-15T04:42:30Z",
+ "updatedUtc": "2026-10-15T11:32:36Z",
  "slate": "BAYCURRENT_2026",
  "event": "",
  "counts": {
-  "items": 2,
-  "golfersMentioned": 2,
-  "news": 2,
+  "items": 0,
+  "golfersMentioned": 0,
+  "news": 0,
   "chatter": 0
  },
  "sources": [
@@ -136,42 +136,6 @@
    "error": "HTTP 403 \u2014 set REDDIT_CLIENT_ID/SECRET to enable chatter"
   }
  ],
- "mentions": [
-  {
-   "name": "Keith Mitchell",
-   "news": 1,
-   "chatter": 0,
-   "total": 1
-  },
-  {
-   "name": "Adam Scott",
-   "news": 1,
-   "chatter": 0,
-   "total": 1
-  }
- ],
- "items": [
-  {
-   "title": "Who Should I Start for Fantasy Football Week 6? Tre Tucker, Kimani Vidal, Keaton Mitchell, Michael Wilson, Mike Evans, Cam Skattebo, Jakobi Meyers, Blake Corum, Rashee Rice, Jaylen Warren",
-   "link": "https://www.rotoballer.com/who-should-i-start-for-week-6-tre-tucker-kimani-vidal-keaton-mitchell-michael-wilson-mike-evans-cam-skattebo-jakobi-meyers-blake-corum-rashee-rice-jaylen-warren/1966246",
-   "summary": "Who Should I Start? Who Should I Sit? Some of the most common Week 6 fantasy football lineup decisions involve [&#8230;]",
-   "published": "Wed, 14 Oct 2026 18:57:04 +0000",
-   "source": "RotoBaller",
-   "kind": "news",
-   "golfers": [
-    "Keith Mitchell"
-   ]
-  },
-  {
-   "title": "Korn Ferry Tour: Sandy Scott breaks into top 100 with back-to-back wins after career-threatening injury - Sky Sports",
-   "link": "https://news.google.com/rss/articles/CBMi4AFBVV95cUxQNXVsRUN6N3hxUXl3VEhhM3p3Qk1ZM0JfeVAzZnlqMlB4WS15UUJKWEc4ejdXNXlLdDZGTVotSDYyZ2FVQ1JXSDFtVWdKTjRIZTZSSmNWaVhrYVNQUzJHeTdMeVZiejRZNWZmN2hUSjNuVUU0eUJ4SGpwempMQjg3ZUFNSXQwNU1qcDR4czZUdVRmRUg1SG95Q3NybW9RQnIzWUZ1RWFfZnV0bl9xeElFeEY1bHRyNDNHVGE4WWV1bi1VOFhXVy1Kb1A0OC1OZ0wyM195d3hGRm00ZlNtc3Y1LQ?oc=5",
-   "summary": "Korn Ferry Tour: Sandy Scott breaks into top 100 with back-to-back wins after career-threatening injury Sky Sports",
-   "published": "Mon, 05 Oct 2026 07:00:00 GMT",
-   "source": "Google News: PGA WD",
-   "kind": "news",
-   "golfers": [
-    "Adam Scott"
-   ]
-  }
- ]
+ "mentions": [],
+ "items": []
 }
