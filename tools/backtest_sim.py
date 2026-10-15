@@ -67,6 +67,11 @@ TRIALS = 4_000
 # A player needs this much comparable history before his week is predicted at
 # all, matching the point at which the live page stops flagging a row as thin.
 MIN_EFF = 4.0
+# Fail if any reliability bucket is off by this much. Set from what has been
+# achieved rather than from what sounds tolerable: the over-confident version
+# of this model sat at 3.9 points and the corrected one at 0.8, so three points
+# is comfortably clear of the noise and would have caught the bug.
+MAX_GAP = 0.03
 
 # Which markets are worth testing for which position. Without this the test
 # fills up with "will this receiver throw for 200 yards", which every model
@@ -280,7 +285,11 @@ def main():
             + f"   {ends:.0%} vs 20% ideal")
 
     log("\n(ideal row reads 0.10 0.30 0.50 0.70 0.90 with 20% in the ends)")
-    return 0 if worst < 0.10 else 1
+    log(f"\nworst reliability gap: {worst:.1%}  (gate {MAX_GAP:.0%})")
+    if worst >= MAX_GAP:
+        log("FAIL: the probabilities do not come in at the rate they claim.")
+        return 1
+    return 0
 
 
 if __name__ == "__main__":

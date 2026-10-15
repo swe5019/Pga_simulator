@@ -1,0 +1,46 @@
+name: Validate prop simulation
+
+# Walks the simulation forward through seasons it was not fitted on and checks
+# that its probabilities come in at the rate they claim.
+#
+# This is deliberately NOT part of the twice-daily props job. It takes several
+# minutes, it does not depend on today's lines, and it answers a different
+# question: the props job asks "are the numbers built", this asks "is the model
+# still honest". Weekly, after the Tuesday stats rebuild has landed the new
+# week of football, is when the answer can actually change.
+on:
+  schedule:
+    - cron: '45 18 * * 2'   # Tue, after the stats rebuild
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: validate-sim
+  cancel-in-progress: true
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install numpy
+        run: pip install numpy
+
+      # Fails the job if any reliability bucket drifts more than three points
+      # from what it claimed. That is the check that would have caught the
+      # over-confidence this model shipped with: it sat at 3.9 points, and
+      # nothing else in the pipeline could see it, because every individual
+      # number was correctly computed from correctly verified data.
+      - name: Backtest the simulation
+        env:
+          PYTHONUNBUFFERED: '1'
+        run: python tools/backtest_sim.py

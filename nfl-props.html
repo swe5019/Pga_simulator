@@ -203,12 +203,22 @@
         <p>
           It is checked the only way a probability can be, by running it forward
           through seasons it was not fitted on and comparing what it claimed against
-          what happened. The test fits each player on his games before a given week,
-          predicts that week, and then asks whether the calls made at 70% really came
-          in around 70% of the time. It also checks the shape of the distribution and
-          not just the average, because the classic way a simulation lies is to get
-          the means right and the tails far too thin, which would quietly misprice
-          every longest and touchdown market while the yardage ones looked fine.
+          what happened. Each player is fitted on his games before a given week, that
+          week is predicted, and the calls are then grouped by how confident they
+          were. Across 143,000 of those predictions the picks it called at 74.7% came
+          in at 74.7%, the ones at 84.3% came in at 84.5%, and no confidence band is
+          off by more than a point. That check runs every week and fails loudly if it
+          drifts, which is how an earlier version of this model was caught claiming
+          84% on things that happened 80% of the time.
+        </p>
+        <p>
+          It is strongest exactly where a hit rate cannot go. Measured against simply
+          guessing the base rate, it adds 40% on longest rush, 38% on longest
+          completion and 36% on longest reception, and around 20 to 25% on receptions,
+          targets, receiving yards and rushing yards. Quarterback volume markets,
+          passing attempts and completions, add almost nothing, because how often a
+          quarterback throws is decided by the score and this model has no score in
+          it. Treat those two columns as background and lean on the rest.
         </p>
         <h3>What this does not do yet</h3>
         <p>
