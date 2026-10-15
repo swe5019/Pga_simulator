@@ -30,6 +30,12 @@ jobs:
         with:
           python-version: '3.12'
 
+      # Only the simulation needs this. Everything else in the props pipeline
+      # is standard library on purpose, so a numpy problem cannot take the
+      # lines, the hit rates or the matchups down with it.
+      - name: Install numpy
+        run: pip install numpy
+
       - name: Fetch prop lines
         env:
           PYTHONUNBUFFERED: '1'
@@ -50,6 +56,17 @@ jobs:
         env:
           PYTHONUNBUFFERED: '1'
         run: python tools/enrich_props.py
+
+      # Plays the game out at the play level and attaches SIM% to each line.
+      # Runs last because it rewrites the file the page loads, and it is the
+      # only step that can be dropped without taking anything else with it: a
+      # failure here leaves every line, price, hit rate and matchup intact and
+      # simply shows no SIM% column.
+      - name: Simulate props
+        env:
+          PYTHONUNBUFFERED: '1'
+        continue-on-error: true
+        run: python tools/simulate_props.py
 
       - name: Commit props
         run: |

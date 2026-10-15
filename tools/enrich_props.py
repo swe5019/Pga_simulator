@@ -190,6 +190,34 @@ STAT_FN = {
     "Last TD Scorer": _scored("_ltd"),
 }
 
+# Which defensive multiplier a market is adjusted by. A derived market has no
+# multiplier of its own, because there is no "longest reception allowed" or
+# "first quarter receiving yards allowed" to measure without slicing the sample
+# until it means nothing. So each borrows its parent's: how a defense treats
+# receiving yards is the best available read on how it treats the longest one
+# and on the first quarter of one.
+#
+# This lives here and is imported by the simulation, so the multiplier shown in
+# the column is always the multiplier the simulation applied. Two copies of
+# this map would drift and the page would quietly contradict itself.
+MATCHUP_STAT = {
+    "Longest Reception": "Receiving Yards",
+    "Longest Rush": "Rush Yards",
+    "Longest Completion": "Pass Yards",
+    "1Q Rec Yards": "Receiving Yards", "1H Rec Yards": "Receiving Yards",
+    "1Q Receptions": "Receptions", "1H Receptions": "Receptions",
+    "1Q Targets": "Targets", "1H Targets": "Targets",
+    "1Q Rush Yards": "Rush Yards", "1H Rush Yards": "Rush Yards",
+    "1Q Rush Attempts": "Rush Attempts", "1H Rush Attempts": "Rush Attempts",
+    "1Q Pass Yards": "Pass Yards", "1H Pass Yards": "Pass Yards",
+    "1Q Completions": "Completions", "1H Completions": "Completions",
+    "1Q Pass Attempts": "Pass Attempts", "1H Pass Attempts": "Pass Attempts",
+    "1Q Pass TDs": "Pass TDs", "1H Pass TDs": "Pass TDs",
+    "1Q Rush + Rec TDs": "Anytime TD", "1H Rush + Rec TDs": "Anytime TD",
+    "1Q Rush + Rec Yards": "Rush + Rec Yards",
+    "1H Rush + Rec Yards": "Rush + Rec Yards",
+}
+
 # Blend weights across the three windows. Weighted away from this season on
 # purpose: a four game sample swings wildly, and the longer windows are what
 # stop one freak afternoon dominating the number.
@@ -276,6 +304,7 @@ def game_logs(seasons, pbp):
             t = doc["teams"].get(f"{r['t']}|{r['w']}") or {}
             tsn = t.get("sn") or 0
             r["_snap"] = (r.get("sn", 0) / tsn) if tsn else None
+            r["_yr"] = yr
             if plays is not None:
                 # Within a season that HAS play by play, a player with no
                 # record simply never touched the ball, so his splits and
@@ -502,10 +531,16 @@ def main():
         # How this defense has treated this position in this stat. Attached to
         # both sides of a line unchanged: the multiplier describes the defense,
         # and which side of the number that helps is for the reader to judge.
-        mk = f"{p.get('opp', '')}|{p.get('pos', '')}|{p['stat']}"
-        mm = matchups.get(mk)
+        # Derived markets borrow their parent's, per MATCHUP_STAT.
+        mstat = MATCHUP_STAT.get(p["stat"], p["stat"])
+        mm = matchups.get(f"{p.get('opp', '')}|{p.get('pos', '')}|{mstat}")
         if mm:
             p["mu"] = mm["mult"]
+            # Say so when the multiplier is the parent market's rather than
+            # this one's, so the tooltip is not read as a measurement of
+            # something that was never measured.
+            if mstat != p["stat"]:
+                p["muFrom"] = mstat
             p["muRaw"] = mm["raw"]
             p["muN"] = mm["n"]
             p["muGames"] = mm["games"]

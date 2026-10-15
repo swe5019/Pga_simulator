@@ -6,7 +6,7 @@
   <title>NFL Player Props Tool — Hit Rates, Matchups &amp; Edge | SlateSims</title>
   <link rel="icon" href="assets/img/favicon.svg?v=20260730v" type="image/svg+xml" />
   <link rel="canonical" href="https://slatesims.com/nfl-props.html" />
-  <meta name="description" content="Free NFL player props research: every Underdog line with break-even price, role-weighted hit rates over one, two and three seasons, and opponent-adjusted matchup multipliers. Receptions, receiving and rushing yards, passing props and more." />
+  <meta name="description" content="Free NFL player props research: every Underdog line with break-even price, role-weighted hit rates, a play-level simulation and opponent-adjusted matchup multipliers. Receptions, receiving and rushing yards, longest reception, quarter and half splits, passing props and more." />
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="SlateSims" />
@@ -84,11 +84,13 @@
       <p class="sub" id="prMeta"></p>
 
       <p class="hint">
-        Every Underdog line, with the three things worth checking before you take one.
+        Every Underdog line, with the four things worth checking before you take one.
         <b>BE%</b> is break-even: how often a pick has to win before it stops losing
         money, straight from the price. <b>Hit%</b> is how often this player has
         actually cleared this number, weighted so that games where he had a different
-        role count for less. <b>Matchup</b> is what this defense has allowed this
+        role count for less. <b>SIM%</b> rebuilds the game from his individual plays
+        and runs it many thousands of times, which is a second opinion that does not
+        look at the price at all. <b>Matchup</b> is what this defense has allowed this
         position in this stat compared with what should have been expected, so 1.20
         means 20% more.
       </p>
@@ -126,6 +128,9 @@
         </label>
         <label class="chk" title="Show only rows where history clears the price">
           <input type="checkbox" id="prEdgeOnly" /> Positive edge only
+        </label>
+        <label class="chk" title="Show only rows where the hit rate and the simulation both clear the price">
+          <input type="checkbox" id="prAgree" /> History and sim agree
         </label>
       </div>
 
@@ -167,13 +172,52 @@
           good players raises the bar instead of flattering the defense. Hover any
           multiplier to see the week by week breakdown behind it.
         </p>
+        <h3>What the simulation adds over the hit rate</h3>
+        <p>
+          A hit rate counts whole games, and that costs you three things. It cannot
+          tell neighbouring lines apart, because a player with twenty games has at
+          most twenty-one possible hit rates and receptions at 4.5 and at 5.5 can
+          come back identical. It throws away almost all the evidence, because the
+          same player has perhaps two hundred individual plays and only twenty game
+          totals. And it cannot recombine: a receiver whose targets have doubled
+          while his yards per catch held steady has no usable record against today's
+          number even though both of his inputs are measured perfectly well.
+        </p>
+        <p>
+          So the simulation fits volume and per-play efficiency separately, from his
+          own plays, weighted by how close each game's role was to his role now, and
+          then plays the game out many thousands of times. It is the only honest way to
+          price a longest reception, where the whole question is whether he ever
+          breaks one and game totals simply cannot say.
+        </p>
+        <p>
+          It is deliberately <em>not</em> pulled toward the market price the way the
+          hit rate is, so it is free to disagree. That is the point of showing both:
+          when a count of what happened and a rebuild from first principles land in
+          the same place, that is worth more than either alone, which is what the
+          "history and sim agree" filter is for. When they diverge by a lot, it
+          usually means his volume or his efficiency has moved recently, and the
+          tooltip on the SIM% cell says so.
+        </p>
+        <h3>Is the simulation any good?</h3>
+        <p>
+          It is checked the only way a probability can be, by running it forward
+          through seasons it was not fitted on and comparing what it claimed against
+          what happened. The test fits each player on his games before a given week,
+          predicts that week, and then asks whether the calls made at 70% really came
+          in around 70% of the time. It also checks the shape of the distribution and
+          not just the average, because the classic way a simulation lies is to get
+          the means right and the tails far too thin, which would quietly misprice
+          every longest and touchdown market while the yardage ones looked fine.
+        </p>
         <h3>What this does not do yet</h3>
         <p>
-          There is no projection or simulation here. Every number on this page
-          describes what has already happened, priced against what the market is
-          offering now. It is research, not a pick. Longest reception, longest rush
-          and the quarter and half splits carry lines but no history yet, because
-          those need play by play extraction that is still to come.
+          Nothing here is a pick. Kicking and defensive markets, field goals, tackles
+          and sacks, are not in the stats pipeline at all and carry blank history.
+          Fumbles lost and the touchdown scorer markets have hit rates but no
+          simulation: fumbles are not attributed per play in what is extracted, and
+          first scorer depends on the order of scoring across a whole game rather
+          than on any one player's distribution.
         </p>
       </section>
     </section>

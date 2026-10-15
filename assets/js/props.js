@@ -24,14 +24,15 @@
     q: '',
     hideThin: true,
     edgeOnly: false,
+    agree: false,
     sort: { key: 'histEdge', dir: -1 },
   };
 
   const unlocked = () => !window.LeadGate || window.LeadGate.granted();
 
-  /* Which market each Underdog stat name belongs to. Splits are separated out
-   * because they carry lines but no history yet, so mixing them into the main
-   * view would fill it with blank columns. */
+  /* Which market each Underdog stat name belongs to. Splits stay a group of
+   * their own because a first quarter line is a different kind of bet, not
+   * because they lack data. */
   const GROUP = (stat) => {
     const s = stat || '';
     if (/^1Q|^1H/.test(s)) return 'split';
@@ -67,6 +68,13 @@
       + 'comparable evidence there is'],
     ['histEdge', 'Edge', 'num', 'Hit% minus BE%. Positive means history clears the price. '
       + 'This is not a projection.'],
+    ['sim', 'SIM%', 'num', 'A simulation of this line: his volume and his per-play results '
+      + 'fitted separately from his individual plays, then played out many thousands of '
+      + 'times. Unlike Hit% this is not pulled toward the price, so it is free to '
+      + 'disagree with the market. Hover for the projection behind it.'],
+    ['simEdge', 'Sim Edge', 'num', 'SIM% minus BE%. Positive means the simulation clears '
+      + 'the price.'],
+    ['simMu', 'Proj', 'num', 'The simulated average outcome. Compare it with the line.'],
     ['l1', 'L1', 'num', 'This season, plain count'],
     ['l2', 'L2', 'num', 'This season plus last, plain count'],
     ['l3', 'L3', 'num', 'Three seasons, plain count'],
@@ -76,7 +84,8 @@
       + 'versus expected. Hover for the week by week breakdown.'],
   ];
   /* Columns an email unlocks. Everything else is open. */
-  const LOCKED = new Set(['histRate', 'histEdge', 'l1', 'l2', 'l3', 'histEff', 'mu']);
+  const LOCKED = new Set(['histRate', 'histEdge', 'l1', 'l2', 'l3', 'histEff', 'mu',
+    'sim', 'simEdge', 'simMu']);
 
   function visibleCols() {
     return unlocked() ? COLS : COLS.filter((c) => !LOCKED.has(c[0]));
@@ -93,6 +102,9 @@
         return h && h.n ? `${h.h}/${h.n}` : '—';
       }
       case 'mu': return r.mu == null ? '—' : '×' + r.mu.toFixed(2);
+      case 'sim': return pct(r.sim);
+      case 'simEdge': return sgn(r.simEdge);
+      case 'simMu': return r.simMu == null ? '—' : String(r.simMu);
       case 'side': return r.side === 'over' ? 'Higher' : 'Lower';
       case 'line': return r.line;
       default: return r[key] == null ? '—' : r[key];
@@ -126,6 +138,11 @@
     if (unlocked()) {
       if (state.hideThin && r.thin) return false;
       if (state.edgeOnly && !(r.histEdge > 0)) return false;
+      // Where two methods built on different things point the same way. The
+      // hit rate counts whole games and leans on the price; the simulation
+      // rebuilds the game from individual plays and ignores the price. Both
+      // positive is a far stronger signal than either alone.
+      if (state.agree && !(r.histEdge > 0 && r.simEdge > 0)) return false;
     }
     return true;
   }
@@ -134,10 +151,39 @@
    * needs no extra machinery and still works on a phone's long press. */
   function matchupTip(r) {
     if (!r.muGames || !r.muGames.length) return '';
-    const head = `${r.opp} vs ${r.pos}, ${r.stat}: ×${r.mu.toFixed(2)} over ${r.muN} player-games`;
+    // A derived market has no multiplier of its own, so it borrows its
+    // parent's. Say which, rather than letting it read as a measurement of
+    // something that was never measured.
+    const what = r.muFrom
+      ? `${r.muFrom} (there is no "${r.stat}" allowed to measure, so this market `
+        + `borrows it)`
+      : r.stat;
+    const head = `${r.opp} vs ${r.pos}, ${what}: ×${r.mu.toFixed(2)} over ${r.muN} player-games`;
     const lines = r.muGames.map((g) =>
       `wk${g.wk} ${g.tm} (${g.n}) ${g.act} vs expected ${g.exp}`);
     return `${head}\n${lines.join('\n')}`;
+  }
+
+  /* What the simulation actually did, so a reader can see whether a SIM% is
+   * standing on anything. */
+  function simTip(r) {
+    if (r.sim == null) return '';
+    const bits = [`Simulated average ${r.simMu} against a line of ${r.line}`];
+    if (r.simGames != null) {
+      bits.push(`fitted on ${r.simGames} games worth of comparable history`);
+    }
+    if (r.simThin) {
+      bits.push('THIN: too little of his own history, so this leans on the '
+        + 'average for his position and role rather than on him');
+    }
+    if (r.histRate != null) {
+      const d = Math.abs(r.sim - r.histRate) * 100;
+      bits.push(d < 5
+        ? 'Agrees with the hit rate'
+        : `Disagrees with the hit rate by ${d.toFixed(0)} points, which usually `
+          + 'means his volume or his efficiency has moved');
+    }
+    return bits.join('. ') + '.';
   }
 
   function roleTip(r) {
@@ -185,6 +231,13 @@
           extra = r.mu > 1.05 ? ' up' : (r.mu < 0.95 ? ' down' : ' dim');
           tip = matchupTip(r);
         }
+        if (k === 'simEdge' && r.simEdge != null) {
+          extra = r.simEdge > 0 ? ' up' : (r.simEdge < 0 ? ' down' : ' dim');
+        }
+        if ((k === 'sim' || k === 'simMu') && r.sim != null) {
+          if (r.simThin) extra = ' dim';
+          tip = simTip(r);
+        }
         if (k === 'player') {
           extra = ' name';
           tip = roleTip(r);
@@ -216,7 +269,7 @@
     const open = unlocked();
     const bar = $('#prUnlock');
     if (bar) bar.classList.toggle('hidden', open);
-    ['#prHideThin', '#prEdgeOnly'].forEach((sel) => {
+    ['#prHideThin', '#prEdgeOnly', '#prAgree'].forEach((sel) => {
       const el = $(sel);
       if (el) el.disabled = !open;
     });
@@ -240,14 +293,17 @@
     const when = d ? d.toLocaleString(undefined, { month: 'short', day: 'numeric',
       hour: 'numeric', minute: '2-digit' }) : '';
     const withHist = state.rows.filter((r) => r.hits).length;
+    const withSim = state.rows.filter((r) => r.sim != null).length;
+    const trials = doc.simulatedTrials
+      ? ` at ${doc.simulatedTrials.toLocaleString()} draws each` : '';
     $('#prMeta').textContent = `— ${doc.count.toLocaleString()} lines from Underdog, `
-      + `updated ${when}`;
+      + `updated ${when}. ${withHist.toLocaleString()} carry hit rates and `
+      + `${withSim.toLocaleString()} are simulated${trials}.`;
     const noHist = state.rows.length - withHist;
     $('#prWarn').textContent = noHist
-      ? `${noHist.toLocaleString()} of these carry a line but no history yet: longest `
-        + `reception, longest rush, touchdown scorer markets and the quarter and half `
-        + `splits all need play by play work that is still to come. They are shown `
-        + `with blank history rather than a guessed one.`
+      ? `${noHist.toLocaleString()} of these carry a line but no history: kicking and `
+        + `defensive markets are not in the stats pipeline yet. They are shown with `
+        + `blank history rather than a guessed one.`
       : '';
   }
 
@@ -284,6 +340,7 @@
     $('#prSearch').addEventListener('input', (e) => { state.q = e.target.value; render(); });
     $('#prHideThin').addEventListener('change', (e) => { state.hideThin = e.target.checked; render(); });
     $('#prEdgeOnly').addEventListener('change', (e) => { state.edgeOnly = e.target.checked; render(); });
+    $('#prAgree').addEventListener('change', (e) => { state.agree = e.target.checked; render(); });
 
     const btn = $('#prUnlockBtn');
     if (btn) {

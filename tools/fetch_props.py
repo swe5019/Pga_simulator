@@ -96,6 +96,33 @@ def num(v):
         return None
 
 
+# Underdog's team codes against nflverse's, which is the spine every statistic
+# here joins onto. Only the Rams actually differ today, and that one cost 175
+# prop sides their matchup adjustment: the opponent came through as LAR, the
+# defensive multipliers were keyed LA, the lookup missed, and the column simply
+# read blank rather than complaining. The rest are listed because other feeds
+# spell them these ways and a silent join failure is the one bug this cannot
+# detect on its own.
+TEAM_ALIAS = {
+    "LAR": "LA",    # nflverse keeps the Rams as LA
+    "JAC": "JAX",
+    "WSH": "WAS", "WFT": "WAS",
+    "LVR": "LV", "OAK": "LV",
+    "ARZ": "ARI",
+    "BLT": "BAL",
+    "CLV": "CLE",
+    "HST": "HOU",
+    "SD": "LAC", "SDG": "LAC",
+    "STL": "LA",
+}
+
+
+def nfl_team(code):
+    """Underdog's abbreviation in nflverse's spelling."""
+    c = (code or "").strip().upper()
+    return TEAM_ALIAS.get(c, c)
+
+
 def team_abbrs(games):
     """Underdog's /v1 response carries no teams array, but every game has
     abbreviated_title "HOU @ JAX" alongside home_team_id and away_team_id, so
@@ -106,7 +133,7 @@ def team_abbrs(games):
         m = re.match(r"^([A-Z]{2,4})\s*@\s*([A-Z]{2,4})$", title)
         if not m:
             continue
-        away, home = m.group(1), m.group(2)
+        away, home = nfl_team(m.group(1)), nfl_team(m.group(2))
         if g.get("away_team_id"):
             out[g["away_team_id"]] = away
         if g.get("home_team_id"):
