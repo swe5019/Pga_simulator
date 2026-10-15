@@ -68,6 +68,32 @@ jobs:
             done
           fi
 
+      # Per player, per game, the individual plays bucketed by period. This is
+      # what makes the longest and 1Q/1H prop markets answerable at all: a box
+      # score total cannot say which quarter a catch happened in or how long
+      # the best one was. It also supplies the distributions the prop
+      # simulation samples from.
+      - name: Extract play by play
+        env:
+          PYTHONUNBUFFERED: '1'
+          SEASONS: ${{ inputs.season }}
+        run: |
+          set -e
+          if [ -z "$SEASONS" ]; then
+            python tools/fetch_nfl_pbp.py
+          else
+            python tools/fetch_nfl_pbp.py $(echo "$SEASONS" | tr ',' ' ')
+          fi
+
+      # Sums the plays back up and compares them against the box score, which
+      # came from a different nflverse file. This is how the lateral bug was
+      # found: a catch that someone else ran eighty yards with was being
+      # credited entirely to the wrong player, touchdown included.
+      - name: Verify play by play against the box score
+        env:
+          PYTHONUNBUFFERED: '1'
+        run: python tools/verify_pbp.py
+
       # Writes the week's leader tables into nfl.html as plain HTML. The live
       # table is drawn by JavaScript, which a crawler may never run, so without
       # this the page has nothing indexable on it. Runs after verification, so

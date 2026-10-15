@@ -20,11 +20,21 @@ Each window reports hits, games and rate, and the three are blended 20/40/40
 into one number, weighted toward the longer samples because four games of
 football is mostly noise.
 
-WHAT IT CANNOT DO YET
-Longest Reception, Longest Rush and every 1Q/1H split need play by play
-extraction that does not exist yet; those props come through with no history
-rather than a guess. Kicking and defensive props are not in the stats pipeline
-at all. The run prints exactly how many rows fell into each bucket.
+WHERE THE HARDER MARKETS COME FROM
+A box score total cannot answer "longest reception" or "receptions in the first
+quarter", so those read from nfl_pbp_<season>.json, which holds each player's
+individual plays bucketed by period. Longest anything is the best single play;
+a 1Q market sums the first bucket; a 1H market sums the first two.
+
+A game whose play by play is missing is DROPPED from those windows rather than
+counted as a zero. Counting it as zero is the dangerous failure: every week
+would read "0 first quarter receptions" and the under would look like a lock.
+A player who played but never touched the ball is a genuine zero, and is kept.
+
+WHAT IT STILL CANNOT DO
+Kicking and defensive props (field goals, tackles, sacks) are not in the stats
+pipeline at all, so they come through with no history rather than a guess. The
+run prints exactly how many rows fell into each bucket.
 """
 import json
 import math
@@ -40,6 +50,89 @@ DATA = os.path.join(ROOT, "data")
 # A row is the weekly record written by fetch_nfl.py.
 def _sum(*keys):
     return lambda r: sum(r.get(k, 0) for k in keys)
+
+
+# Period buckets, as written by fetch_nfl_pbp.py: 0 first quarter, 1 second
+# quarter, 2 everything after half time.
+Q1 = (0,)
+H1 = (0, 1)
+FULL = (0, 1, 2)
+
+
+def _periods(r, idxs):
+    """The requested buckets, or None when this game has no play by play.
+
+    None is not zero. None means unknown, and an unknown game is dropped from
+    the sample; zero means he was out there and did nothing, which is real
+    evidence and is kept."""
+    ps = r.get("_p")
+    if ps is None:
+        return None
+    return [ps[k] for k in idxs if k < len(ps)]
+
+
+def _count(idxs, *keys):
+    """How many plays of these kinds happened in these buckets. Receptions is
+    the length of the catch list, targets that plus the uncaught ones."""
+    def fn(r):
+        ps = _periods(r, idxs)
+        if ps is None:
+            return None
+        n = 0
+        for p in ps:
+            for k in keys:
+                v = p.get(k, 0)
+                n += len(v) if isinstance(v, list) else v
+        return n
+    return fn
+
+
+def _yards(idxs, *keys):
+    """Total yardage. A plain int key is lateral yardage, which counts toward a
+    total without being a play of its own."""
+    def fn(r):
+        ps = _periods(r, idxs)
+        if ps is None:
+            return None
+        t = 0
+        for p in ps:
+            for k in keys:
+                v = p.get(k, 0)
+                t += sum(v) if isinstance(v, list) else v
+        return t
+    return fn
+
+
+def _longest(key):
+    """The best single play of the whole game.
+
+    Laterals are excluded on purpose: a two yard catch that someone else ran
+    eighty yards with is a two yard reception, which is how the NFL scores it
+    and how the market settles it. A player with none of these plays has a
+    longest of zero, which is a real outcome rather than a missing one."""
+    def fn(r):
+        ps = _periods(r, FULL)
+        if ps is None:
+            return None
+        best = 0
+        for p in ps:
+            v = p.get(key)
+            if v:
+                best = max(best, max(v))
+        return best
+    return fn
+
+
+def _scored(flag_key):
+    """Was he the game's first, or last, touchdown scorer.
+
+    Defensive and special teams scores are in the ordering, so a pick six
+    opening the scoring correctly means no offensive player was first."""
+    def fn(r):
+        if r.get("_p") is None:
+            return None
+        return 1 if r.get(flag_key) else 0
+    return fn
 
 
 STAT_FN = {
@@ -60,6 +153,41 @@ STAT_FN = {
     "Rush TDs": _sum("utd"),
     "Rush + Rec TDs": _sum("rtd", "utd"),
     "Anytime TD": _sum("rtd", "utd"),
+    # Already in the box score, just not previously mapped to Underdog's name
+    # for them.
+    "INTs Thrown": _sum("int"),
+    "Fantasy Points": _sum("fp"),
+
+    # ---- from the play by play
+    "Longest Reception": _longest("ry"),
+    "Longest Rush": _longest("uy"),
+    "Longest Completion": _longest("py"),
+
+    "1Q Receptions": _count(Q1, "ry"),
+    "1H Receptions": _count(H1, "ry"),
+    "1Q Targets": _count(Q1, "ry", "inc"),
+    "1H Targets": _count(H1, "ry", "inc"),
+    "1Q Rec Yards": _yards(Q1, "ry", "lry"),
+    "1H Rec Yards": _yards(H1, "ry", "lry"),
+    "1Q Rush Yards": _yards(Q1, "uy", "luy"),
+    "1H Rush Yards": _yards(H1, "uy", "luy"),
+    "1Q Rush Attempts": _count(Q1, "uy"),
+    "1H Rush Attempts": _count(H1, "uy"),
+    "1Q Pass Yards": _yards(Q1, "py"),
+    "1H Pass Yards": _yards(H1, "py"),
+    "1Q Completions": _count(Q1, "py"),
+    "1H Completions": _count(H1, "py"),
+    "1Q Pass Attempts": _count(Q1, "py", "pinc"),
+    "1H Pass Attempts": _count(H1, "py", "pinc"),
+    "1Q Pass TDs": _count(Q1, "ptd"),
+    "1H Pass TDs": _count(H1, "ptd"),
+    "1Q Rush + Rec TDs": _count(Q1, "rtd", "utd"),
+    "1H Rush + Rec TDs": _count(H1, "rtd", "utd"),
+    "1Q Rush + Rec Yards": _yards(Q1, "uy", "luy", "ry", "lry"),
+    "1H Rush + Rec Yards": _yards(H1, "uy", "luy", "ry", "lry"),
+
+    "First TD Scorer": _scored("_ftd"),
+    "Last TD Scorer": _scored("_ltd"),
 }
 
 # Blend weights across the three windows. Weighted away from this season on
@@ -114,7 +242,22 @@ def load_seasons():
     return out, int(idx.get("current") or max(out))
 
 
-def game_logs(seasons):
+def load_pbp(years):
+    """season -> {(pid, week): record}. A season with no file is absent from
+    the result, which is what makes its games drop out of the split and longest
+    markets instead of reading as zeros."""
+    out = {}
+    for y in years:
+        p = os.path.join(DATA, f"nfl_pbp_{y}.json")
+        if not os.path.exists(p):
+            continue
+        with open(p, encoding="utf-8") as f:
+            doc = json.load(f)
+        out[y] = {(r["i"], r["w"]): r for r in doc["logs"]}
+    return out
+
+
+def game_logs(seasons, pbp):
     """name key -> {season: [row, ...]}, newest first, each row tagged with the
     share of his team's offensive snaps he played that week.
 
@@ -125,6 +268,7 @@ def game_logs(seasons):
     logs = defaultdict(lambda: defaultdict(list))
     for yr, doc in seasons.items():
         meta = {p["id"]: p for p in doc["players"]}
+        plays = pbp.get(yr)
         for r in doc["rows"]:
             m = meta.get(r["i"])
             if not m:
@@ -132,6 +276,18 @@ def game_logs(seasons):
             t = doc["teams"].get(f"{r['t']}|{r['w']}") or {}
             tsn = t.get("sn") or 0
             r["_snap"] = (r.get("sn", 0) / tsn) if tsn else None
+            if plays is not None:
+                # Within a season that HAS play by play, a player with no
+                # record simply never touched the ball, so his splits and
+                # longests are genuinely zero. Three empty buckets say that.
+                rec = plays.get((r["i"], r["w"]))
+                if rec:
+                    r["_p"] = [rec.get(f"p{k}") or {} for k in (0, 1, 2)]
+                    r["_ftd"] = rec.get("ftd", 0)
+                    r["_ltd"] = rec.get("ltd", 0)
+                else:
+                    r["_p"] = [{}, {}, {}]
+                    r["_ftd"] = r["_ltd"] = 0
             logs[nrm(m["n"])][yr].append(r)
     for k in logs:
         for yr in logs[k]:
@@ -180,6 +336,12 @@ def hit_rate(rows, fn, line, side, role_now=None):
     wsum = w2sum = whit = 0.0
     for r in rows:
         v = fn(r)
+        if v is None:
+            # This game cannot answer the question. Dropping it is the only
+            # honest option: counted as a zero it would read as evidence for
+            # the under, and counted as a hit it would read as evidence for the
+            # over.
+            continue
         ok = (v > line) if side == "over" else (v < line)
         n += 1
         hits += 1 if ok else 0
@@ -237,7 +399,14 @@ def main():
     if len(years) < 3:
         log(f"   only {len(years)} seasons on disk, so L3 covers {len(years)}; "
             f"backfill earlier years to deepen it")
-    logs = game_logs(seasons)
+    pbp = load_pbp(sorted(seasons, reverse=True))
+    if pbp:
+        log(f"play by play for seasons {sorted(pbp, reverse=True)} "
+            f"({sum(len(v) for v in pbp.values()):,} player-weeks)")
+    else:
+        log("no nfl_pbp_<season>.json files; the longest and 1Q/1H markets "
+            "will come through with no history. Run fetch_nfl_pbp.py.")
+    logs = game_logs(seasons, pbp)
     log(f"game logs for {len(logs):,} players")
 
     w1 = [current]
