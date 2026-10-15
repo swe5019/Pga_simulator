@@ -95,8 +95,11 @@
         means 20% more.
       </p>
       <p class="hint" id="prWarn"></p>
+      <p class="hint" id="prInj"></p>
       <p class="hint warnbox">
-        <b>⚠ means do not trust the edge on that row.</b> Every number here is built
+        <b>✚ is a player on the injury report himself. ▲ means somebody ahead of him
+        is out, so his role this week is read from the games that man missed rather
+        than from his season average. ⚠ means do not trust the edge on that row.</b> Every number here is built
         from games already played, so when a starter is ruled out the market reprices
         his backup straight away and this does not, because the backup has no history
         at the bigger job. The model then compares a backup's workload against a
@@ -145,6 +148,9 @@
         </label>
         <label class="chk" title="Include rows where the model and the market disagree sharply about the player's workload, which usually means his role changed this week">
           <input type="checkbox" id="prShowRoleFlag" /> Include ⚠ role changes
+        </label>
+        <label class="chk" title="Only players who have somebody ahead of them on the injury report">
+          <input type="checkbox" id="prRoleUp" /> ▲ Bigger role this week
         </label>
       </div>
 

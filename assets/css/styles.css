@@ -731,3 +731,8 @@ td.defaulted-cell { color: var(--dim); font-style: italic; }
   border-left: 3px solid #d29922; padding: 8px 12px; margin: 10px 0;
   background: color-mix(in srgb, #d29922 8%, transparent); border-radius: 0 6px 6px 0;
 }
+
+/* Injury markers on the props table. Green for a player gaining work, red for
+   one whose own availability is in doubt. */
+.injup { color: var(--green2, #3fb950); font-weight: 700; cursor: help; margin-left: 2px; }
+.injself { color: #f85149; font-weight: 700; cursor: help; margin-left: 2px; }

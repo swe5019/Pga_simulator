@@ -21,6 +21,7 @@
     side: 'all',
     game: '',
     pos: '',
+    roleUp: false,
     q: '',
     hideThin: true,
     edgeOnly: false,
@@ -129,6 +130,9 @@
     if (state.game && `${r.team}@${r.opp}` !== state.game
         && `${r.opp}@${r.team}` !== state.game) return false;
     if (state.pos && r.pos !== state.pos) return false;
+    // Players with somebody ahead of them on the injury report. This is the
+    // one filter that finds opportunity rather than screening it out.
+    if (state.roleUp && !(r.outAhead && !r.selfOut)) return false;
     if (state.q) {
       const q = state.q.toLowerCase();
       if (!(`${r.player} ${r.team} ${r.opp} ${r.stat}`.toLowerCase().includes(q))) return false;
@@ -199,7 +203,35 @@
     return r.roleWhy || '';
   }
 
+  /* The injury picture behind a row, which is the most useful thing on it when
+   * it applies: who is out, what that is based on, and how much bigger this
+   * player's job was the last time that man did not play. */
+  function injuryTip(r) {
+    if (r.selfOut) {
+      return `ON THE INJURY REPORT: ${r.selfBasis}`
+        + (r.selfInjury ? ` (${r.selfInjury})` : '')
+        + '. Whether he plays at all is the open question, so treat every '
+        + 'number on this row as provisional.';
+    }
+    if (!r.outAhead) return '';
+    if (r.roleUnknown) {
+      return `${r.outBasis}. He has never played a game without him, so there `
+        + 'is nothing to measure his bigger role against and no honest '
+        + 'projection to make. The market is the better guide here.';
+    }
+    if (r.roleCtx == null) return `${r.outBasis}.`;
+    const n = r.roleCtxN;
+    return `${r.outBasis}. In the ${n} game${n === 1 ? '' : 's'} he has played `
+      + `without him he was on the field for ${r.roleCtx}% of snaps, against `
+      + `${r.roleBefore}% alongside him, so his role is read at the higher `
+      + `figure this week.`
+      + (n < 3 ? ` That rests on ${n === 1 ? 'a single game' : 'two games'}, `
+        + 'so it is marked thin and pulled hard toward the market.' : '');
+  }
+
   function roleTip(r) {
+    const inj = injuryTip(r);
+    if (inj) return inj;
     if (r.roleShift == null) return '';
     const dir = r.roleShift > 0 ? 'bigger' : 'smaller';
     return `Role now ${r.roleNow}% of snaps versus ${r.roleHist}% across his history, `
@@ -268,8 +300,18 @@
         const warn = (k === 'player' && r.roleFlag)
           ? ` <span class="rolewarn" title="${esc(roleFlagTip(r))}" aria-label="role may have changed">⚠</span>`
           : '';
+        // Somebody ahead of him is out, which is worth seeing at a glance
+        // rather than only on hover.
+        let inj = '';
+        if (k === 'player') {
+          if (r.selfOut) {
+            inj = ' <span class="injself" aria-label="on the injury report">✚</span>';
+          } else if (r.outAhead) {
+            inj = ' <span class="injup" aria-label="bigger role, someone ahead is out">▲</span>';
+          }
+        }
         const thin = (k === 'player' && r.thin) ? ' <span class="thinflag">thin</span>' : '';
-        return `<td class="${cls}${extra}"${t}>${esc(cell(r, k))}${flag}${warn}${thin}</td>`;
+        return `<td class="${cls}${extra}"${t}>${esc(cell(r, k))}${flag}${warn}${inj}${thin}</td>`;
       }).join('');
       return `<tr>${tds}</tr>`;
     }).join('');
@@ -326,6 +368,17 @@
     $('#prMeta').textContent = `— ${doc.count.toLocaleString()} lines from Underdog, `
       + `updated ${when}. ${withHist.toLocaleString()} carry hit rates and `
       + `${withSim.toLocaleString()} are simulated${trials}.`;
+    const up = new Set(state.rows.filter((r) => r.outAhead && !r.selfOut).map((r) => r.player));
+    const outs = new Set(state.rows.filter((r) => r.selfOut).map((r) => r.player));
+    const injEl = $('#prInj');
+    if (injEl) {
+      injEl.innerHTML = (up.size || outs.size)
+        ? `<b>Injury report:</b> ${outs.size} player${outs.size === 1 ? '' : 's'} with `
+          + `props are on it themselves (✚), and ${up.size} have somebody ahead of them `
+          + `out (▲), which usually means a bigger role than their history shows. `
+          + `Hover a name for who is out and what it is based on.`
+        : '';
+    }
     const noHist = state.rows.length - withHist;
     $('#prWarn').textContent = noHist
       ? `${noHist.toLocaleString()} of these carry a line but no history: kicking and `
@@ -370,6 +423,9 @@
     $('#prAgree').addEventListener('change', (e) => { state.agree = e.target.checked; render(); });
     $('#prShowRoleFlag').addEventListener('change', (e) => {
       state.showRoleFlag = e.target.checked; render();
+    });
+    $('#prRoleUp').addEventListener('change', (e) => {
+      state.roleUp = e.target.checked; render();
     });
 
     const btn = $('#prUnlockBtn');

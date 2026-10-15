@@ -324,6 +324,202 @@ def game_logs(seasons, pbp):
     return logs
 
 
+def load_injuries():
+    """Who is unavailable this week, as written by fetch_nfl_injuries.py.
+
+    Optional: with no file, everything falls back to the old behaviour of
+    reading a role purely from games played."""
+    path = os.path.join(DATA, "nfl_injuries.json")
+    if not os.path.exists(path):
+        return None
+    with open(path, encoding="utf-8") as f:
+        return json.load(f)
+
+
+def snap_table(seasons):
+    """Two lookups that together answer "was this teammate available then".
+
+    snaps   (season, team, week) -> {player id: share of team snaps}
+    roster  (season, team) -> {player id} that appeared for them at all
+
+    The roster half is not optional, and leaving it out was a real bug. A
+    teammate missing from one week's snap data has two completely different
+    explanations: he was hurt, or he was playing for somebody else that year.
+    Reading the second as the first told the model that Woody Marks had
+    seventeen games without David Montgomery, when in fact they were only
+    teammates for five, and the "role without him" it computed was really his
+    role on a different team in a different season."""
+    snaps = defaultdict(dict)
+    roster = defaultdict(set)
+    for yr, doc in seasons.items():
+        for r in doc["rows"]:
+            roster[(yr, r["t"])].add(r["i"])
+            t = doc["teams"].get(f"{r['t']}|{r['w']}") or {}
+            tsn = t.get("sn") or 0
+            if tsn:
+                snaps[(yr, r["t"], r["w"])][r["i"]] = r.get("sn", 0) / tsn
+    return snaps, roster
+
+
+# A teammate counts as absent from a past game at or below this share of the
+# team's snaps. Not zero, because a starter who got hurt early still appears
+# with a handful of snaps, and that game is exactly the one worth learning
+# from.
+ABSENT_SHARE = 0.25
+# A context role resting on fewer than this many games is kept but marked, so
+# it shrinks toward the market instead of standing on its own.
+CTX_THIN = 3
+# The measured role increase, in points of snap share, below which the
+# difference is treated as noise and nothing is changed.
+MIN_ROLE_GAIN = 8.0
+# A teammate going out only matters if he was doing something. This is his
+# minimum mean snap share across the season to be worth reacting to.
+MIN_TEAMMATE_ROLE = 0.20
+# The player himself needs a real role for any of this to mean anything.
+MIN_OWN_ROLE = 0.05
+
+
+def build_role_context(logs, seasons, current, injuries, meta_pos, meta_team):
+    """The role each player should be weighted against THIS week, given who is
+    out, plus enough detail for the page to explain itself.
+
+    THE PROBLEM. A role read from games played is an average of the job he had,
+    not the job he is about to have. When the man ahead of him is out, that
+    average is wrong in the one direction that matters, and wrong while looking
+    perfectly well evidenced: a back whose starter got hurt late last week
+    reads 55% of snaps, because that averages two games as the backup with the
+    one game he finished as the starter.
+
+    IT DOES NOT GUESS WHO IS AHEAD OF WHOM, and the first attempt at this did,
+    which was wrong twice over. Deciding by recent snap share is corrupted by
+    the very injury being reacted to: the starter's average is dragged below
+    the backup's by the game he got hurt in, so the code concluded the backup
+    was the senior man and did nothing. And snap share is the wrong yardstick
+    for a running back anyway, since the lead back takes the carries while the
+    other plays passing downs, so neither is "ahead" on snaps.
+
+    SO IT MEASURES THE DIFFERENCE INSTEAD. Split his games by whether that
+    teammate was on the field, and compare his role in each. If he plays
+    materially more without the man, that is the effect, measured on him
+    specifically, with no assumption about depth charts. If he does not,
+    nothing changes. This is self correcting in a way a seniority test cannot
+    be, and it catches cases a depth chart would miss.
+
+    WHAT IT REFUSES TO DO. If he has never played without that teammate there
+    is nothing to learn from and no honest number to produce, so it says so and
+    the page leans on the market. A context built on one or two games is kept
+    but marked thin, which makes it shrink toward the market rather than stand
+    alone. A player who is himself out gets no boost from anybody, because his
+    own status is the dominant fact about him."""
+    if not injuries:
+        return {}
+    snaps, roster = snap_table(seasons)
+
+    # Who is unavailable, by team and position. Only designations worth acting
+    # on: an official ruling, or a player who has not practised at all.
+    unavailable = defaultdict(list)
+    himself = {}
+    for pl in injuries.get("players", []):
+        if pl.get("conf") not in ("ruled", "strong"):
+            continue
+        if not pl.get("id") or not pl.get("t"):
+            continue
+        unavailable[(pl["t"], pl["p"])].append(pl)
+        himself[nrm(pl["n"])] = pl
+    if not unavailable:
+        return {}
+
+    def season_share(key):
+        """His mean snap share across this season, which is a steadier read on
+        the size of his job than the last few games."""
+        rows = logs.get(key, {}).get(current, [])
+        vals = [r["_snap"] for r in rows if r.get("_snap") is not None]
+        return (sum(vals) / len(vals)) if vals else None
+
+    out = {}
+    for key, byyear in logs.items():
+        pos, team = meta_pos.get(key), meta_team.get(key)
+        if not pos or not team:
+            continue
+        mine = season_share(key)
+        if mine is None or mine < MIN_OWN_ROLE:
+            continue
+
+        # His own availability comes first. A player who has not practised is
+        # not a man about to be handed more work.
+        own = himself.get(key)
+        if own is not None:
+            out[key] = {"selfOut": True, "selfBasis": own["basis"],
+                        "selfInjury": own.get("injury") or "",
+                        "role": None, "unknown": False, "ctxN": 0,
+                        "roleBefore": round(mine * 100, 1),
+                        "outAhead": "", "outBasis": ""}
+            continue
+
+        gains = []
+        for pl in unavailable[(team, pos)]:
+            tkey = nrm(pl["n"])
+            if tkey == key:
+                continue
+            theirs = season_share(tkey)
+            if theirs is None or theirs < MIN_TEAMMATE_ROLE:
+                continue
+            tid = pl["id"]
+            with_him, without_him = [], []
+            for yr, rows in byyear.items():
+                for r in rows:
+                    if r.get("_snap") is None:
+                        continue
+                    # Only games they were actually teammates for. Otherwise
+                    # "without him" quietly becomes "before he joined", which
+                    # is a different player's situation entirely.
+                    if tid not in roster.get((yr, r["t"]), ()):
+                        continue
+                    tbl = snaps.get((yr, r["t"], r["w"])) or {}
+                    share = tbl.get(tid)
+                    if share is None or share <= ABSENT_SHARE:
+                        without_him.append(r["_snap"])
+                    else:
+                        with_him.append(r["_snap"])
+            if not without_him or not with_him:
+                # Either never played without him, which is unmeasurable, or
+                # never played with him, which means he is not the constraint.
+                if not without_him:
+                    gains.append((None, pl, 0, None, None))
+                continue
+            a = sum(without_him) / len(without_him)
+            b = sum(with_him) / len(with_him)
+            gains.append(((a - b) * 100, pl, len(without_him), a, b))
+
+        measured = [g for g in gains if g[0] is not None]
+        if not measured:
+            unmeasurable = [g for g in gains if g[0] is None]
+            if unmeasurable:
+                pl = unmeasurable[0][1]
+                out[key] = {
+                    "outAhead": pl["n"], "outBasis": f"{pl['n']} {pl['basis']}",
+                    "roleBefore": round(mine * 100, 1), "ctxN": 0,
+                    "role": None, "unknown": True}
+            continue
+
+        # The teammate whose absence moves him most.
+        gain, pl, n, a, b = max(measured, key=lambda g: g[0])
+        if gain < MIN_ROLE_GAIN:
+            continue
+        out[key] = {
+            "outAhead": pl["n"],
+            "outBasis": f"{pl['n']} {pl['basis']}"
+                        + (f" ({pl['injury']})" if pl.get("injury") else ""),
+            "roleBefore": round(b * 100, 1),
+            "role": a,
+            "roleCtx": round(a * 100, 1),
+            "roleGain": round(gain, 1),
+            "ctxN": n,
+            "thin": n < CTX_THIN,
+        }
+    return out
+
+
 def current_role(logs_for_player, current_season):
     """His role now, as mean snap share over the most recent games played.
 
@@ -438,6 +634,23 @@ def main():
     logs = game_logs(seasons, pbp)
     log(f"game logs for {len(logs):,} players")
 
+    meta_pos, meta_team = {}, {}
+    for yr in sorted(seasons, reverse=True):
+        for pl in seasons[yr]["players"]:
+            meta_pos.setdefault(nrm(pl["n"]), pl["p"])
+            meta_team.setdefault(nrm(pl["n"]), pl["t"])
+    injuries = load_injuries()
+    role_ctx = build_role_context(logs, seasons, current, injuries,
+                                  meta_pos, meta_team)
+    if injuries:
+        known = sum(1 for v in role_ctx.values() if v.get("role") is not None)
+        log(f"injury report week {injuries.get('week')}: "
+            f"{len(role_ctx)} players have somebody ahead of them out, "
+            f"{known} of whom have games without that man to measure")
+    else:
+        log("no nfl_injuries.json; roles are read purely from games played. "
+            "Run fetch_nfl_injuries.py to make this injury aware.")
+
     w1 = [current]
     w2 = [y for y in (current, current - 1) if y in seasons]
     w3 = [y for y in (current, current - 1, current - 2) if y in seasons]
@@ -456,7 +669,12 @@ def main():
             continue
 
         line, side = p["line"], p["side"]
+        # Injury-aware when somebody ahead of him is out and he has games
+        # without that man to learn from; otherwise the plain recent role.
+        ctx = role_ctx.get(key)
         role_now = current_role(logs[key], current)
+        if ctx and ctx.get("role") is not None:
+            role_now = ctx["role"]
         out = {}
         eff3 = 0.0
         for label, yrs in (("l1", w1), ("l2", w2), ("l3", w3)):
@@ -523,6 +741,30 @@ def main():
         # them: "no history" is useful information, a confident wrong number
         # is not.
         p["thin"] = eff_n < MIN_GAMES
+        if ctx and ctx.get("selfOut"):
+            # He is the one carrying the injury. The page says so and shows no
+            # edge, because whether he plays at all is the open question.
+            p["selfOut"] = True
+            p["selfBasis"] = ctx["selfBasis"]
+            p["selfInjury"] = ctx["selfInjury"]
+            p["thin"] = True
+        elif ctx:
+            p["outAhead"] = ctx["outAhead"]
+            p["outBasis"] = ctx["outBasis"]
+            p["roleBefore"] = ctx["roleBefore"]
+            if ctx.get("role") is not None:
+                p["roleCtx"] = ctx["roleCtx"]
+                p["roleCtxN"] = ctx["ctxN"]
+                p["roleGain"] = ctx.get("roleGain")
+                if ctx.get("thin"):
+                    # One or two games is a hint about his new job, not a
+                    # measurement of it.
+                    p["thin"] = True
+            else:
+                # He has never played without the man who is out, so there is
+                # no honest role to use and the market is the better guide.
+                p["roleUnknown"] = True
+                p["thin"] = True
         if shrunk is not None and be is not None:
             # Edge is still measured against the PRICE, not the fair value. The
             # vig is real money and has to be cleared.

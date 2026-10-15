@@ -82,8 +82,8 @@ import numpy as np
 # Shared history loading, so the simulation and the hit rate cannot drift apart
 # in how they read a game log or weight a role.
 from enrich_props import (
-    FULL, H1, MATCHUP_STAT, Q1, current_role, game_logs, load_pbp,
-    load_seasons, nrm, role_weight,
+    FULL, H1, MATCHUP_STAT, Q1, build_role_context, current_role, game_logs,
+    load_injuries, load_pbp, load_seasons, nrm, role_weight,
 )
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -517,13 +517,15 @@ def shrink(own, own_n, prior, prior_n):
     return (own_n * own + prior_n * prior) / (own_n + prior_n)
 
 
-def simulate(rng, stat, line_rows, f, base, mult, prior):
+def simulate(rng, stat, line_rows, f, base, mult, prior, eff_cap=None):
     """Simulate one player's distribution for one market, then read every line
     on it off the same sample.
 
     Both sides of a line therefore sum to exactly one, and neighbouring lines
     come back correctly ordered, neither of which a hit rate guarantees."""
     eff = f["effGames"]
+    if eff_cap is not None:
+        eff = min(eff, eff_cap)
 
     def vol(kind, scale=1.0):
         own_m, own_v = f[kind]
@@ -714,6 +716,20 @@ def main():
     years = [y for y in (current, current - 1, current - 2) if y in seasons]
     log(f"simulating from seasons {years}, {TRIALS:,} draws per line")
 
+    # The same injury-aware role the hit rate uses, from the same function, so
+    # the two columns cannot disagree about what job a player has this week.
+    meta_team = {}
+    for yr in sorted(seasons, reverse=True):
+        for pl in seasons[yr]["players"]:
+            meta_team.setdefault(nrm(pl["n"]), pl["t"])
+    injuries = load_injuries()
+    role_ctx = build_role_context(logs, seasons, current, injuries,
+                                  meta, meta_team)
+    if role_ctx:
+        usable = sum(1 for v in role_ctx.values() if v.get("role") is not None)
+        log(f"injury context for {len(role_ctx)} players, {usable} with a "
+            f"measurable role without the man who is out")
+
     # Baselines are period specific: a first quarter is not a third of a game.
     bases = {}
     for label, periods in (("full", FULL), ("h1", H1), ("q1", Q1)):
@@ -757,8 +773,10 @@ def main():
 
         label = period_label(periods)
         fkey = (key, label)
+        ctx = role_ctx.get(key)
         if fkey not in fits:
-            role_now = current_role(logs[key], current)
+            role_now = (ctx["role"] if ctx and ctx.get("role") is not None
+                        else current_role(logs[key], current))
             hist = [r for y in years for r in logs[key].get(y, [])]
             fits[fkey] = fit(hist, periods, role_now)
         f = fits[fkey]
@@ -781,7 +799,18 @@ def main():
         pkey = (pos, label, round(f.get("roleNow") or -1, 2))
         if pkey not in priors:
             priors[pkey] = role_prior(base, f.get("roleNow"))
-        sample = simulate(rng, stat, rows, f, base, mult, priors[pkey])
+        # When the role itself was inferred from one or two games, the
+        # evidence about the job he has THIS week cannot be worth more than
+        # those games however many he has played in other roles. Without this
+        # cap the simulation keeps its own confident opinion of a workload it
+        # has seen once, which is the same mistake in a new place: the hit rate
+        # leans on the market and corrects itself here, and the simulation
+        # deliberately does not, so it has to be told.
+        eff_cap = None
+        if ctx and ctx.get("role") is not None and ctx.get("thin"):
+            eff_cap = float(max(ctx["ctxN"], 1))
+        sample = simulate(rng, stat, rows, f, base, mult, priors[pkey],
+                          eff_cap)
         if sample is None:
             counts["market not simulated"] += len(rows)
             continue
@@ -793,7 +822,11 @@ def main():
             p["sim"] = round(prob, 4)
             p["simMu"] = round(float(sample.mean()), 2)
             p["simGames"] = round(f["effGames"], 1)
-            p["simThin"] = f["effGames"] < MIN_GAMES
+            # Thin either because he has little history, or because the role
+            # being projected rests on a game or two.
+            p["simThin"] = (f["effGames"] < MIN_GAMES) or (eff_cap is not None)
+            if eff_cap is not None:
+                p["simRoleGames"] = int(eff_cap)
             if p.get("decimal"):
                 p["simEdge"] = round((prob - 1.0 / p["decimal"]) * 100, 1)
             counts["simulated"] += 1
