@@ -97,7 +97,8 @@ SEED = 20261015      # fixed, so a rerun on unchanged data gives the same page
 
 # Shrinkage priors, in games or plays. Each is the amount of evidence at which
 # a player's own figure and his position's baseline carry equal weight.
-PRIOR_GAMES = 6      # for a per-game volume mean
+# SIM_PRIOR overrides it when sweeping this against out-of-sample bias.
+PRIOR_GAMES = float(os.environ.get("SIM_PRIOR") or 6)   # per-game volume mean
 PRIOR_PLAYS = 40     # for a per-play yardage distribution
 PRIOR_RATE = 30      # for a per-opportunity rate, such as a touchdown
 # Half-life in games for how fast old football stops counting. Role weighting
@@ -138,8 +139,6 @@ def log(*a):
 #   LONGEST  (quantity, multiplier stat)
 #   TD       (quantity, periods, multiplier stat)
 #
-# A multiplier stat of None means no matchup adjustment is available for it and
-# the simulation runs neutral.
 COUNT = {
     "Receptions":        ("rec", FULL, "Receptions"),
     "Targets":           ("tgt", FULL, "Targets"),
@@ -256,6 +255,58 @@ def fit(rows, periods, role_now):
     eff_games = (wsum * wsum / w2sum) if w2sum else 0.0
 
     out = {"effGames": eff_games, "games": len(games), "roleNow": role_now}
+
+    # HOW OFTEN HE DOES NOT GET A FULL GAME.
+    #
+    # Role weighting answers "was this the same job", and it answers it well,
+    # but on its own it quietly asks the wrong question. A quarterback pulled
+    # at half time played 50% of the snaps, which sits so far from his role
+    # that the curve weights that game at about 0.006 — effectively deleting
+    # it. So the fitted volume describes a full game, while the game being
+    # predicted might be another half. Measured out of sample, that inflated
+    # quarterback passing volume by 5% while his plain unweighted average was
+    # unbiased, which is how it was found.
+    #
+    # So the role fit stays as it is, and the chance of a short game is put
+    # back separately: the unconditional spread of how much of his own role he
+    # actually played, which the simulation draws from per trial. Deliberately
+    # NOT role weighted, because the whole point is to recover the games role
+    # weighting set aside.
+    # NORMALISED AGAINST WHAT THE FIT ALREADY ABSORBED, which is the part that
+    # is easy to get wrong and was.
+    #
+    # The fitted mean is not the unconditional mean; it is the mean under the
+    # role weights. So the correction is not E[part], it is the ratio
+    # E[part] / E_weighted[part]: how much of a game he gets on average,
+    # against how much of one the fit was already looking at.
+    #
+    # That ratio is what distinguishes the two positions. For a quarterback the
+    # weights pile onto full games, so the weighted mean is about 1 and the
+    # ratio bites. For a running back the snap share moves around smoothly, the
+    # role curve is broad enough to keep most of it, the weighted and plain
+    # means nearly agree, and the ratio is close to 1 so almost nothing
+    # changes. Applying a raw E[part] instead corrected quarterbacks and
+    # dragged running backs to 10% BELOW actual, which is how this was caught.
+    parts, pw_num, pw_den = [], 0.0, 0.0
+    for r in ordered:
+        sn = r.get("_snap")
+        if sn is None or not role_now:
+            continue
+        # Capped: a game above his recent role is ordinary variation, not
+        # evidence he can play 125% of a game.
+        pt = min(sn / role_now, 1.25)
+        parts.append(pt)
+        w = role_weight(sn, role_now)
+        pw_num += pt * w
+        pw_den += w
+    if len(parts) >= 6 and pw_den > 0:
+        pw = pw_num / pw_den
+        arr = np.asarray(parts, dtype=np.float64) / max(pw, 1e-6)
+        # A game cannot be worth more than a game and a quarter however the
+        # normalisation lands.
+        out["_parts"] = np.clip(arr, 0.0, 1.25)
+    else:
+        out["_parts"] = np.ones(1)
 
     # Volume: weighted mean and weighted variance of the per-game count. The
     # variance is carried because it is half the answer on a count market.
@@ -378,24 +429,35 @@ def role_prior(base, role_now):
 # --------------------------------------------------------------------------
 # Drawing
 # --------------------------------------------------------------------------
-def draw_counts(rng, mean, var, n):
+def draw_counts(rng, mean, var, n, parts=None):
     """Per-game counts, overdispersed to match what he has actually done.
 
     A negative binomial matched on both moments. When the observed variance is
     no greater than the mean there is nothing to overdisperse and a Poisson is
     the right, simpler answer; forcing a negative binomial there produces an
-    enormous shape parameter and numerical nonsense."""
+    enormous shape parameter and numerical nonsense.
+
+    `parts` is the spread of how much of a game he tends to get. Each trial
+    draws one and the mean is scaled by it, so the dispersion shape is kept
+    while the chance of a short game is carried on top of it."""
     mean = max(float(mean), 1e-9)
     var = float(var)
+    lam = mean
+    if parts is not None and len(parts) > 1:
+        lam = mean * rng.choice(parts, size=n)
+        lam = np.maximum(lam, 1e-9)
     if var <= mean * 1.05:
-        return rng.poisson(mean, size=n)
+        return rng.poisson(lam, size=None if parts is not None
+                           and len(parts) > 1 else n)
     r = mean * mean / (var - mean)
     r = min(max(r, 0.05), 1e6)
-    p = r / (r + mean)
-    return rng.negative_binomial(r, p, size=n)
+    p = r / (r + lam)
+    if np.isscalar(p):
+        return rng.negative_binomial(r, p, size=n)
+    return rng.negative_binomial(r, p)
 
 
-def mix_pool(own, own_w, pos_pool):
+def mix_pool(own, pos_pool):
     """A player's own plays, topped up with his position's.
 
     With few plays of his own the shape he shows is mostly noise, so the
@@ -425,7 +487,7 @@ def flat_pool(rng, f, kind, base):
     simulations practical."""
     key = f"_flat{kind}"
     if key not in f:
-        vals, probs = mix_pool(f[f"_{kind}"], None, base.get(f"_{kind}"))
+        vals, probs = mix_pool(f[f"_{kind}"], base.get(f"_{kind}"))
         f[key] = (None if vals is None
                   else rng.choice(vals, size=POOL_FLAT, p=probs))
     return f[key]
@@ -471,7 +533,10 @@ def simulate(rng, stat, line_rows, f, base, mult, prior):
         # a short sample that happens to look steady cannot produce a
         # distribution tighter than chance allows.
         v = max(shrink(own_v, eff, pv, PRIOR_GAMES) * scale * scale, m)
-        return draw_counts(rng, m, v, TRIALS)
+        # Each trial gets its own share of a game. Applied to volume only: a
+        # quarterback pulled early throws fewer passes, he does not throw
+        # shorter ones.
+        return draw_counts(rng, m, v, TRIALS, f.get("_parts"))
 
     if stat in COUNT:
         kind, _periods, _ms = COUNT[stat]
