@@ -1,11 +1,11 @@
 {
- "updatedUtc": "2026-10-16T11:27:16Z",
+ "updatedUtc": "2026-10-16T16:41:23Z",
  "slate": "BAYCURRENT_2026",
  "event": "",
  "counts": {
-  "items": 0,
-  "golfersMentioned": 0,
-  "news": 0,
+  "items": 1,
+  "golfersMentioned": 1,
+  "news": 1,
   "chatter": 0
  },
  "sources": [
@@ -136,6 +136,25 @@
    "error": "HTTP 403 \u2014 set REDDIT_CLIENT_ID/SECRET to enable chatter"
   }
  ],
- "mentions": [],
- "items": []
+ "mentions": [
+  {
+   "name": "Patrick Rodgers",
+   "news": 1,
+   "chatter": 0,
+   "total": 1
+  }
+ ],
+ "items": [
+  {
+   "title": "Top Week 6 Quarterback Pickups - Best Fantasy QB Adds, Streamers Include Aaron Rodgers, Jacoby Brissett, Kirk Cousins, and more",
+   "link": "https://www.rotoballer.com/best-quarterback-fantasy-waiver-wire-pickups-week-6-2026/1963997",
+   "summary": "Quarterback scoring returned to form in Week 5. Two quarterbacks (Drake Maye and Jayden Daniels) surpassed the 30-point mark. Another [&#8230;]",
+   "published": "Fri, 16 Oct 2026 15:03:57 +0000",
+   "source": "RotoBaller",
+   "kind": "news",
+   "golfers": [
+    "Patrick Rodgers"
+   ]
+  }
+ ]
 }
