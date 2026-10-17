@@ -13,6 +13,13 @@
     <priority>0.9</priority>
   </url>
   <url>
+    <!-- Rebuilt whenever the lines move, which is twice a day, and the single
+         highest value search term on the site. -->
+    <loc>https://slatesims.com/nfl-projections.html</loc>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
     <!-- Lines are refetched twice a day, so this changes faster than anything
          else on the site. -->
     <loc>https://slatesims.com/nfl-props.html</loc>

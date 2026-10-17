@@ -78,11 +78,20 @@ jobs:
         continue-on-error: true
         run: python tools/simulate_props.py
 
+      # Fantasy point projections, which depend on the props being enriched and
+      # simulated first because that is where the de-vigged prices come from.
+      # Allowed to fail without taking the props down with it.
+      - name: Build fantasy projections
+        env:
+          PYTHONUNBUFFERED: '1'
+        continue-on-error: true
+        run: python tools/build_projections.py
+
       - name: Commit props
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add data/nfl_props.json data/nfl_props_full.json data/nfl_matchups.json data/nfl_injuries.json data/props_history
+          git add data/nfl_props.json data/nfl_props_full.json data/nfl_matchups.json data/nfl_injuries.json data/nfl_projections.json data/props_history
           if git diff --cached --quiet; then
             echo "No change in prop lines"
           else

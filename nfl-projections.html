@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NFL Fantasy Projections — Floor, Ceiling &amp; Stacks | SlateSims</title>
+  <link rel="icon" href="assets/img/favicon.svg?v=20260730v" type="image/svg+xml" />
+  <link rel="canonical" href="https://slatesims.com/nfl-projections.html" />
+  <meta name="description" content="Free NFL fantasy football projections with floor and ceiling, not just a single number. Anchored to the betting market for volume, with distributions and teammate correlation built from play by play. Half PPR, full PPR and DraftKings scoring." />
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="SlateSims" />
+  <meta property="og:url" content="https://slatesims.com/nfl-projections.html" />
+  <meta property="og:title" content="NFL Fantasy Projections with Floor, Ceiling and Stacks" />
+  <meta property="og:description" content="Projections as distributions rather than single numbers, anchored to the betting market and built from play by play." />
+  <meta property="og:image" content="https://slatesims.com/assets/img/avatar.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="NFL Fantasy Projections | SlateSims" />
+  <meta name="twitter:description" content="Floor, ceiling and correlated stacks, anchored to the betting market." />
+  <meta name="twitter:image" content="https://slatesims.com/assets/img/avatar.png" />
+  <link rel="stylesheet" href="assets/css/styles.css?v=20261017a" />
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-13J1816EN4"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-13J1816EN4');
+  </script>
+</head>
+<body>
+  <div id="appShell">
+  <header class="topbar">
+    <a class="brand" href="index.html" title="SlateSims home">
+      <svg class="logo" viewBox="0 0 100 100" aria-hidden="true">
+        <path d="M6,82 C30,82 30,38 50,38 C70,38 70,82 94,82 Z" fill="#3fb950" opacity=".22"/>
+        <path d="M6,82 C30,82 30,38 50,38 C70,38 70,82 94,82" fill="none" stroke="#3fb950"
+              stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+        <rect x="46.8" y="6" width="6.4" height="40" rx="3.2" fill="#e6edf3"/>
+        <polygon points="53.2,8 76,16 53.2,24" fill="#e6edf3"/>
+      </svg>
+      <div>
+        <span class="brandname">Slate<span class="accent">Sims</span></span>
+        <p class="tag">NFL fantasy projections.</p>
+      </div>
+    </a>
+    <nav class="mainnav" aria-label="Sports">
+      <div class="navitem">
+        <button type="button" class="navbtn" aria-haspopup="true" aria-expanded="false">
+          PGA <span class="navcaret" aria-hidden="true">▼</span>
+        </button>
+        <div class="navmenu" role="menu">
+          <div class="navgroup">Main Slate</div>
+          <a role="menuitem" href="app.html#players">Ownership &amp; Projections</a>
+          <a role="menuitem" href="app.html#build">Build Lineups</a>
+          <a role="menuitem" href="app.html#contest">Contest Sim</a>
+          <div class="navgroup">Showdown</div>
+          <a role="menuitem" href="app.html#showdown">Ownership &amp; Projections</a>
+          <div class="navgroup">Research</div>
+          <a role="menuitem" href="app.html#news">News &amp; Chatter</a>
+          <a role="menuitem" href="app.html#saved">Saved Lineups</a>
+        </div>
+      </div>
+      <div class="navitem">
+        <button type="button" class="navbtn here" aria-haspopup="true" aria-expanded="false">
+          NFL <span class="navcaret" aria-hidden="true">▼</span>
+        </button>
+        <div class="navmenu" role="menu">
+          <div class="navgroup">Projections</div>
+          <a role="menuitem" class="current" href="nfl-projections.html">Fantasy Projections</a>
+          <div class="navgroup">Research</div>
+          <a role="menuitem" href="nfl.html">Advanced Stats</a>
+          <a role="menuitem" href="nfl-props.html">Player Props</a>
+          <div class="navgroup">Lineups</div>
+          <span class="navsoon">Optimizer — coming soon</span>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section id="proj" class="panel active">
+      <h1>NFL Fantasy Projections: Floor, Ceiling and Stacks</h1>
+      <p class="sub" id="pjMeta"></p>
+
+      <p class="hint">
+        A projection of 12.4 points is not meaningfully more accurate than 11.9, and
+        nobody can honestly tell them apart, because most of what separates them is
+        touchdown luck. So these are <b>distributions</b>. <b>Proj</b> is the median,
+        <b>Floor</b> the 25th percentile, <b>Ceiling</b> the 90th, and <b>20+</b> the
+        chance of a twenty point game. Cash games want the floor. Tournaments want
+        the ceiling. They are rarely the same player.
+      </p>
+      <p class="hint" id="pjInj"></p>
+
+      <div id="pjUnlock" class="unlockbar">
+        <span><strong>Free with your email:</strong> floor, ceiling, the chance of a
+          twenty point game, and the stack pricing. The projections themselves are
+          free to everyone.</span>
+        <button type="button" id="pjUnlockBtn" class="primary small">Unlock free →</button>
+      </div>
+
+      <div class="trim-bar">
+        <span class="filter-sep">Scoring</span>
+        <button class="ghost small pjscore active" data-s="half">Half PPR</button>
+        <button class="ghost small pjscore" data-s="ppr">Full PPR</button>
+        <button class="ghost small pjscore" data-s="dk">DraftKings</button>
+        <span class="filter-sep">Pos</span>
+        <button class="ghost small pjpos active" data-p="">All</button>
+        <button class="ghost small pjpos" data-p="QB">QB</button>
+        <button class="ghost small pjpos" data-p="RB">RB</button>
+        <button class="ghost small pjpos" data-p="WR">WR</button>
+        <button class="ghost small pjpos" data-p="TE">TE</button>
+      </div>
+
+      <div class="trim-bar">
+        <span class="filter-sep">Game</span>
+        <select id="pjGame" class="filter-num" style="min-width:150px"></select>
+        <input id="pjSearch" type="text" placeholder="Filter player or team…" class="filter-text" />
+        <label class="chk" title="Hide players with too little comparable history for the projection to mean much">
+          <input type="checkbox" id="pjHideThin" /> Hide thin
+        </label>
+        <label class="chk" title="Only players whose volume is anchored to at least one betting line">
+          <input type="checkbox" id="pjAnchored" /> Market anchored only
+        </label>
+      </div>
+
+      <div class="tablewrap">
+        <table id="pjTable">
+          <thead><tr></tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+      <p class="hint" id="pjCount"></p>
+
+      <section id="pjStacks" class="seo-copy">
+        <h2>Stacks: who goes off together</h2>
+        <p class="hint">
+          Two medians tell you nothing about how often two players have a big game in
+          the <em>same</em> game, and that is the whole question a tournament lineup
+          asks. <b>Lift</b> is how much more often both land in their own top 30%
+          together than they would if they were independent. 1.00 means no benefit at
+          all. Anything above it is the stack earning its place.
+        </p>
+        <div class="tablewrap">
+          <table id="pjStackTable">
+            <thead><tr></tr></thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="seo-copy">
+        <h2>How these are built</h2>
+        <h3>The volume comes from the betting market, on purpose</h3>
+        <p>
+          The betting market is the most accurate public forecast of NFL player volume
+          that exists, and it updates on injury news within minutes. Our own
+          simulation, tested across two seasons it was never fitted on, carries under
+          2% skill on quarterback passing volume, because how often a quarterback
+          throws is decided by the score and no model here knows the score. Building a
+          projection that ignores all of that and then claiming accuracy would be
+          backwards.
+        </p>
+        <p>
+          So every betting line on a player is de-vigged, which means the bookmaker's
+          cut is stripped out, and then inverted into an expected value. A line of 4.5
+          receptions priced at a fair 52% over implies a different average depending
+          on how spread out that player's receptions are, and that spread comes from
+          his own plays. The market sets the location and the play by play sets the
+          shape. They are two halves of one estimate, not two competing ones.
+        </p>
+        <p>
+          The anchoring is checked rather than assumed. Across more than eight hundred
+          anchored numbers, the simulation's own probability of clearing each line
+          sits a median of 0.4 percentage points from the market's, and never more
+          than four.
+        </p>
+        <h3>Everything the market does not price</h3>
+        <p>
+          A slate carries only a few hundred betting lines, and each is a single
+          number. The play by play fills in the rest: the full distribution, so you get
+          a floor and a ceiling rather than a point estimate; the long tail, which is
+          what decides a ceiling; every player the market has posted no line on at
+          all; and the correlation between team mates.
+        </p>
+        <h3>Correlation, which is the part nobody publishes</h3>
+        <p>
+          Team mates are not independent, and treating them as though they are is the
+          most common mistake in fantasy projections. Measured across three seasons of
+          half PPR, a quarterback's fantasy points correlate at 0.33 with his number
+          one receiver, 0.37 with his number two, and 0.30 with his tight end. The two
+          running backs correlate at minus 0.12, because they take each other's
+          carries. A quarterback correlates at 0.16 with the quarterback he is playing
+          against, which is the shootout effect and is real but modest.
+        </p>
+        <p>
+          Those are built in with a method that reorders each player's own simulated
+          games to move with his team mates while leaving his individual projection
+          exactly as it was. So a stack can be priced honestly without distorting
+          anybody's number, and the achieved correlations come back within 0.04 of the
+          measured targets.
+        </p>
+        <h3>What this does not know</h3>
+        <p>
+          Weather, this week's game total and spread from a live source, pace, and
+          snap projections for players the market has ignored. A player whose role is
+          about to change is read from the injury report, and where he has never
+          played without the man who is out, the projection says it cannot judge him
+          and leans on the line instead. Those rows are marked, and so is every player
+          whose history is too short for the number to mean much.
+        </p>
+      </section>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <span>SlateSims · free NFL projections, research and DraftKings PGA DFS tools.</span>
+  </footer>
+  </div>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebApplication",
+        "name": "SlateSims NFL Fantasy Projections",
+        "url": "https://slatesims.com/nfl-projections.html",
+        "applicationCategory": "SportsApplication",
+        "operatingSystem": "Any",
+        "description": "NFL fantasy football projections as distributions, with floor, ceiling and correlated stacks, anchored to the betting market.",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+        "publisher": { "@type": "Organization", "name": "SlateSims", "url": "https://slatesims.com/" }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "SlateSims", "item": "https://slatesims.com/" },
+          { "@type": "ListItem", "position": 2, "name": "NFL Fantasy Projections", "item": "https://slatesims.com/nfl-projections.html" }
+        ]
+      }
+    ]
+  }
+  </script>
+
+  <script src="assets/js/nav.js?v=20261017a"></script>
+  <script src="assets/js/leadgate.js?v=20261017a"></script>
+  <script src="assets/js/projections.js?v=20261017a"></script>
+</body>
+</html>
