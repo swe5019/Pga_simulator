@@ -323,10 +323,12 @@ def main():
                     row[k] = pp[k]
             matched += 1
         else:
-            row["why"] = ("no projection: he is on the injury report and the "
-                          "market has pulled his lines, he is not on a current "
-                          "roster, or he is a defense, which this does not "
-                          "model yet")
+            row["why"] = ("No projection. Either he has not played in weeks and "
+                          "carries no betting lines, which is what a player on "
+                          "injured reserve looks like, or he is hurt and the "
+                          "market has pulled his lines, or he is not on a current "
+                          "roster. DraftKings still lists him, so he is shown "
+                          "rather than hidden.")
             unmatched[d["pos"]] += 1
         players.append(row)
 

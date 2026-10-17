@@ -547,6 +547,30 @@ def simulate_slate(trials=None):
 
     years = [y for y in (current, current - 1, current - 2) if y in seasons]
     bases = position_baselines(logs, meta_pos, seasons, FULL)
+
+    # WHO HAS SIMPLY STOPPED PLAYING.
+    #
+    # The injury report cannot answer this. A player on season ending injured
+    # reserve is removed from the active roster and therefore drops off the
+    # weekly practice report altogether, so every injury check here looks
+    # straight past him. Jayden Reed last played in week two, has no betting
+    # lines anywhere, and was being projected for eight points and selected
+    # into optimizer lineups.
+    #
+    # Two signals already in hand settle it, and only together. Missing recent
+    # games alone is not enough, because a player returning from a knock has
+    # missed games too. No betting lines alone is not enough either, because
+    # plenty of genuine low usage players are simply not worth pricing. A
+    # player who has missed the last fortnight AND whom the market declines to
+    # price is not playing, and that is the market answering the question the
+    # injury report could not.
+    latest_week = 0
+    last_played = {}
+    for key, byyear in logs.items():
+        for r in byyear.get(current, []):
+            latest_week = max(latest_week, r["w"])
+            last_played[key] = max(last_played.get(key, 0), r["w"])
+    log(f"latest completed week in the stats: {latest_week}")
     rng = np.random.default_rng(SEED)
 
     # Season usage decides depth rank, which is what the correlation matrix is
@@ -581,6 +605,12 @@ def simulate_slate(trials=None):
         # projected and flagged, because then the market does expect him.
         if ctx and ctx.get("selfOut") and not props_by_player.get(key):
             skipped["hurt, and the market has pulled his lines"] += 1
+            continue
+        # Gone quiet and unpriced: on injured reserve, released, or otherwise
+        # not part of this season any more.
+        missed = latest_week - last_played.get(key, 0)
+        if latest_week and missed >= 2 and not props_by_player.get(key):
+            skipped["has not played in weeks and has no lines"] += 1
             continue
         # A player on the injury report is PROJECTED AND FLAGGED, never
         # dropped. Dropping him was the single worst bug on this page: it
