@@ -90,7 +90,9 @@
         <b>Super</b> the one game in thirty that wins a tournament. <b>Boom</b> is how
         often he clears the score his position actually needs on this slate.
         <b>Leverage</b> is that boom rate minus his ownership, so positive means the
-        field is under-rostering the outcome he genuinely produces.
+        field is under-rostering the outcome he genuinely produces. <b>Value</b> is his
+        projection minus what his price normally returns, so zero is a player scoring
+        like a typical starter at his salary.
       </p>
       <p class="hint warnbox" id="slOwnWarn">
         <b>Ownership here is a model, not a measurement.</b> There is no NFL contest
@@ -158,6 +160,35 @@
           threshold is taken from the slate rather than fixed, because the score that
           makes a quarterback worth playing on a twelve game slate is not the same as
           on a three game one.
+        </p>
+        <h3>Value is measured against the price, not divided by it</h3>
+        <p>
+          The usual value column is points per thousand dollars of salary, and it is
+          mechanically misleading. Salary does not buy points at a constant rate, so
+          dividing by it always flatters the cheapest players and the column ends up
+          ranking mostly by price. Here a player is compared with what his own price
+          typically returns, so zero means he scores like a typical starter at his
+          salary and positive means he beats his price tag.
+        </p>
+        <p>
+          The curve that defines "typical at this price" is fitted across the slate,
+          separately for each position, and <em>only players with a real role count
+          toward it</em>. That exclusion is the part that matters. A backup
+          quarterback priced at four thousand dollars who will not take a snap scores
+          nothing, and letting those into the fit drags the cheap end of the curve
+          toward zero, which then makes every cheap player who actually plays look
+          like a miracle. Before that filter this page expected a four thousand dollar
+          quarterback to score 1.6 points; with it, 14.3, which is what a cheap
+          starter really does.
+        </p>
+        <p>
+          One honest difference from how others do this. The curve here is fitted on
+          what this model projects for the current slate, which measures whether
+          DraftKings has mispriced a player relative to the projections. Fitting it
+          instead on what players at each price <em>actually scored</em> across past
+          seasons would be the more robust version, and it is not possible yet because
+          historical salaries were never archived. Every build now archives them, so
+          that version becomes available in a few weeks.
         </p>
         <h3>Why ownership has to add up</h3>
         <p>

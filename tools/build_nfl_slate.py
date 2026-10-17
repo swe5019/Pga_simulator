@@ -97,8 +97,83 @@ CONTESTS = {
 BOOM_RANK = {"QB": 3, "RB": 6, "WR": 9, "TE": 3}
 
 
+# A player needs this much expected involvement to count toward the price
+# curve. The point is to exclude people who are not really playing: a deep
+# backup priced at 3000 who will not touch the ball scores zero, and letting
+# those into the fit drags the curve at cheap prices down toward nothing, which
+# then makes every cheap player who DOES play look like enormous value. That is
+# the single thing that makes a naive value column useless.
+# Per position, because "a real role" means completely different volumes at
+# each. A starting quarterback throws thirty times and his backup throws none,
+# so one shared threshold either lets every backup quarterback into the fit or
+# throws out half the receivers. A single figure of two touches left the
+# quarterback curve expecting 1.6 points at four thousand dollars, which made
+# every cheap starter look like a miracle.
+MIN_ROLE = {"QB": 15.0, "RB": 5.0, "WR": 3.0, "TE": 2.0}
+MIN_ROLE_DEFAULT = 3.0
+# How wide a window the rolling median uses, as a share of the position's
+# players. Wide enough to be steady, narrow enough to follow the curve.
+FIT_WINDOW = 0.30
+
+
 def log(*a):
     print(*a, flush=True)
+
+
+def price_curve(group):
+    """Expected DK score at each salary for one position.
+
+    WHY A CURVE AND NOT POINTS PER DOLLAR. Points per thousand is the usual
+    value column and it is mechanically biased: salary does not buy points at
+    a constant rate, so the cheapest players always look like the best value
+    and the column mostly ranks by price. Comparing a player against what his
+    OWN price typically returns removes that, and the number means something
+    plain: zero is a player scoring like a typical starter at his price, and
+    positive is beating his price tag.
+
+    Fitted with a rolling median and then forced upward-only, because a steady
+    middle beats a least squares line that one 40 point ceiling can tilt, and
+    because expected score cannot genuinely fall as salary rises. With no
+    usable sample the position gets no curve at all rather than a guessed one.
+    """
+    pts = sorted(((p["sal"], p["proj"]) for p in group), key=lambda x: x[0])
+    n = len(pts)
+    if n < 8:
+        return None
+    w = max(3, int(n * FIT_WINDOW))
+    xs = [x for x, _ in pts]
+    fitted = []
+    for i in range(n):
+        lo = max(0, i - w // 2)
+        hi = min(n, lo + w)
+        lo = max(0, hi - w)
+        win = sorted(y for _, y in pts[lo:hi])
+        fitted.append(win[len(win) // 2])
+    # Monotone: paying more cannot be expected to return less.
+    for i in range(1, n):
+        if fitted[i] < fitted[i - 1]:
+            fitted[i] = fitted[i - 1]
+    return xs, fitted
+
+
+def curve_value(curve, sal):
+    """Expected score at this salary, interpolated along the fitted curve."""
+    if not curve:
+        return None
+    xs, ys = curve
+    if sal <= xs[0]:
+        return ys[0]
+    if sal >= xs[-1]:
+        return ys[-1]
+    for i in range(1, len(xs)):
+        if sal <= xs[i]:
+            x0, x1 = xs[i - 1], xs[i]
+            y0, y1 = ys[i - 1], ys[i]
+            if x1 == x0:
+                return y1
+            t = (sal - x0) / (x1 - x0)
+            return y0 + t * (y1 - y0)
+    return ys[-1]
 
 
 def pick_slate(doc):
@@ -225,8 +300,13 @@ def main():
                "sal": d["sal"]}
         if pp:
             sc = pp.get(scoring) or {}
+            st = pp.get("stats") or {}
             row.update({
                 "opp": pp.get("opp"),
+                # Expected involvement, used to decide who is really playing
+                # and therefore belongs in the price curve.
+                "touches": round((st.get("tgt") or 0) + (st.get("car") or 0)
+                                 + (st.get("patt") or 0), 2),
                 "proj": sc.get("med"), "mean": sc.get("mean"),
                 "floor": sc.get("p25"), "ceil": sc.get("p90"),
                 "curve": sc.get("curve"),
@@ -286,10 +366,38 @@ def main():
 
     ownership(players, scoring)
 
+    # VALUE, against the price curve rather than as points per dollar.
+    curves, fitn = {}, {}
+    for pos, group in by_pos.items():
+        floor = MIN_ROLE.get(pos, MIN_ROLE_DEFAULT)
+        real = [p for p in group if (p.get("touches") or 0) >= floor]
+        c = price_curve(real)
+        if c:
+            curves[pos] = c
+            fitn[pos] = len(real)
+    log("\nprice curve, expected DK score at a salary, fitted per position")
+    log("   (only players with a real role count, so cheap prices are not "
+        "dragged down by people who will not play)")
+    for pos in sorted(curves):
+        xs, ys = curves[pos]
+        log("   %-3s %3d with a real role (%.0f+ touches)   "
+            "%5d -> %4.1f pts   %5d -> %4.1f pts"
+            % (pos, fitn[pos], MIN_ROLE.get(pos, MIN_ROLE_DEFAULT),
+               xs[0], ys[0], xs[-1], ys[-1]))
+    for pos, group in by_pos.items():
+        if pos not in curves:
+            continue
+        for p in group:
+            exp = curve_value(curves[pos], p["sal"])
+            if exp is None:
+                continue
+            p["expected"] = round(exp, 1)
+            p["value"] = round(p["proj"] - exp, 1)
+            p["ppk"] = round(p["proj"] / (p["sal"] / 1000.0), 2)
+
     for p in players:
         if p.get("proj") is None or not p.get("sal"):
             continue
-        p["value"] = round(p["proj"] / (p["sal"] / 1000.0), 2)
         own = p.get("own") or {}
         # Leverage: how often he delivers what the slate needs, against how
         # much of the field is on him. Positive means the field is
@@ -309,6 +417,8 @@ def main():
         "count": len(players),
         "projected": matched,
         "thresholds": thresholds,
+        "priceCurve": {pos: {"sal": xs, "exp": [round(y, 2) for y in ys]}
+                       for pos, (xs, ys) in curves.items()},
         "contests": {k: v["label"] for k, v in CONTESTS.items()},
         "ownershipCalibrated": False,
         "players": players,
@@ -324,6 +434,11 @@ def main():
     snap = {
         "built": built, "dg": slate["dg"], "slate": slate["name"],
         "ownership": {p["player"]: p["own"] for p in players if p.get("own")},
+        # Salary and projection archived alongside, so that once actual
+        # results exist the price curve can be refitted on what players really
+        # scored at each price rather than on what this model expected them to.
+        "priced": {p["player"]: [p["sal"], p.get("proj")]
+                   for p in players if p.get("sal")},
     }
     sp = os.path.join(HIST, f"own_{built[:10]}_{slate['dg']}.json")
     with open(sp, "w", encoding="utf-8") as f:
@@ -342,12 +457,13 @@ def main():
             log(f"   {pos:<3} {key:<4} {got:7.1f}% against {want:6.1f}%{flag}")
 
     log("\ntop 12 by leverage, which is boom rate minus mass multi entry ownership:")
-    log("%-24s %-4s %6s %6s %6s %7s %7s %7s"
-        % ("player", "pos", "$", "proj", "ceil", "boom%", "own%", "gpp"))
+    log("%-24s %-4s %6s %6s %6s %6s %7s %7s %7s"
+        % ("player", "pos", "$", "proj", "exp", "value", "boom%", "own%", "gpp"))
     rank = [p for p in players if p.get("gpp") is not None]
     for p in sorted(rank, key=lambda p: -p["gpp"])[:12]:
-        log("%-24s %-4s %6d %6.1f %6.1f %7.1f %7.1f %+7.1f"
-            % (p["player"][:24], p["pos"], p["sal"], p["proj"], p["ceil"],
+        log("%-24s %-4s %6d %6.1f %6.1f %+6.1f %7.1f %7.1f %+7.1f"
+            % (p["player"][:24], p["pos"], p["sal"], p["proj"],
+               p.get("expected") or 0, p.get("value") or 0,
                p["boom"], p["own"]["mme"], p["gpp"]))
     return 0
 

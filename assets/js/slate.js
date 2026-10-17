@@ -41,7 +41,11 @@
     ['gpp', 'Leverage', 'num', 'Boom rate minus ownership. Positive means the field is '
       + 'under-rostering the outcome he actually produces, which is the number worth '
       + 'sorting on.'],
-    ['value', 'Value', 'num', 'Projected points per $1,000 of salary'],
+    ['expected', 'Exp', 'num', 'What a player at this price and position is expected to '
+      + 'score, fitted across the slate using only players with a real role.'],
+    ['value', 'Value', 'num', 'Projection minus what his price normally returns. Zero means '
+      + 'he scores like a typical starter at his salary, positive means he beats his price '
+      + 'tag. Not points per dollar, which mechanically favours cheap players.'],
     ['ownc', 'Own%', 'num', 'Projected ownership for the selected contest type. A model, '
       + 'not a measurement: there is no NFL ownership data to train on yet.'],
     ['proj', 'Proj', 'num', 'Median outcome in DraftKings scoring'],
@@ -50,7 +54,7 @@
     ['boom', 'Boom%', 'num', 'How often he clears the score his position actually needs '
       + 'on THIS slate, taken from the slate rather than fixed.'],
   ];
-  const LOCKED = new Set(['gpp', 'ownc', 'boom', 'super', 'ceil']);
+  const LOCKED = new Set(['gpp', 'ownc', 'boom', 'super', 'ceil', 'expected']);
   const visibleCols = () => (unlocked() ? COLS : COLS.filter((c) => !LOCKED.has(c[0])));
 
   function cell(r, k) {
@@ -58,7 +62,9 @@
       case 'ownc': { const v = own(r); return v == null ? '—' : v.toFixed(1) + '%'; }
       case 'boom': return r.boom == null ? '—' : r.boom.toFixed(1) + '%';
       case 'gpp': return r.gpp == null ? '—' : (r.gpp > 0 ? '+' : '') + r.gpp.toFixed(1);
-      case 'value': return r.value == null ? '—' : r.value.toFixed(2);
+      case 'value': return r.value == null ? '—'
+        : (r.value > 0 ? '+' : '') + r.value.toFixed(1);
+      case 'expected': return n1(r.expected);
       case 'proj': case 'ceil': case 'super': return n1(r[k]);
       case 'sal': return r.sal ? r.sal.toLocaleString() : '—';
       default: return r[k] == null ? '—' : r[k];
@@ -127,7 +133,16 @@
         let extra = '';
         let tip = '';
         if (k === 'player') { extra = ' name'; tip = whyTip(r); }
+        if ((k === 'value' || k === 'expected') && r.expected != null) {
+          tip = `A ${r.pos} at $${r.sal.toLocaleString()} is expected to score `
+            + `${r.expected}. This one projects ${r.proj}, so he beats his price `
+            + `by ${(r.value > 0 ? '+' : '')}${r.value}.`
+            + (r.ppk != null ? ` Points per $1,000 is ${r.ppk}, shown only because `
+              + 'people expect it; it mostly ranks by how cheap a player is.' : '');
+        }
         if (k === 'gpp' && r.gpp != null) extra = r.gpp > 0 ? ' up' : ' down';
+        if (k === 'value' && r.value != null) extra = r.value > 0 ? ' up' : ' down';
+        if (k === 'expected') extra = ' dim';
         if (k === 'ceil') extra = ' up';
         if (k === 'ownc' && own(r) != null && own(r) >= 20) extra = ' down';
         const t = tip ? ` title="${esc(tip)}"` : '';
