@@ -122,6 +122,9 @@
         <label class="chk" title="Only players whose volume is anchored to at least one betting line">
           <input type="checkbox" id="pjAnchored" /> Market anchored only
         </label>
+        <label class="chk" title="Hide players who are on the injury report themselves">
+          <input type="checkbox" id="pjHideHurt" /> Hide ✚ injury risk
+        </label>
       </div>
 
       <div class="tablewrap">
@@ -199,6 +202,23 @@
           exactly as it was. So a stack can be priced honestly without distorting
           anybody's number, and the achieved correlations come back within 0.04 of the
           measured targets.
+        </p>
+        <h3>Players on the injury report are projected, not hidden</h3>
+        <p>
+          A player carrying a knock is marked with a ✚ and projected as though he
+          plays, because the betting lines posted on him are the market saying it
+          expects him to. Removing him instead would quietly delete whichever stars
+          are carrying something, which are exactly the players most people open this
+          page to look at. Whether he actually plays is a question nothing here can
+          answer, so the marker is an instruction to go and read the news rather than
+          a number to trust. There is a filter to hide them if you would rather not
+          see them at all.
+        </p>
+        <p>
+          A missed practice for a reason that is not an injury, a veteran rest day or
+          a personal matter, is not treated as a doubt at all. Those sit in the same
+          column on the official report as a hamstring and only the reason text
+          separates them.
         </p>
         <h3>What this does not know</h3>
         <p>

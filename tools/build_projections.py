@@ -454,9 +454,13 @@ def main():
             skipped["not in this slate"] += 1
             continue
         ctx = role_ctx.get(key)
-        if ctx and ctx.get("selfOut"):
-            skipped["on the injury report himself"] += 1
-            continue
+        # A player on the injury report is PROJECTED AND FLAGGED, never
+        # dropped. Dropping him was the single worst bug on this page: it
+        # silently removed whichever stars were carrying a knock, which are the
+        # players everybody opens the page to look at, and it did so while the
+        # market had a full set of lines posted on them. The market's view of
+        # whether somebody plays is better than this model's, and a line
+        # existing is that view.
         role_now = (ctx["role"] if ctx and ctx.get("role") is not None
                     else current_role(byyear, current))
         hist = [r for y in years for r in byyear.get(y, [])]
@@ -481,6 +485,10 @@ def main():
             "anchors": used,
             "lines": lines,
         }
+        if ctx and ctx.get("selfOut"):
+            entry["selfOut"] = True
+            entry["selfBasis"] = ctx["selfBasis"]
+            entry["selfInjury"] = ctx.get("selfInjury") or ""
         if ctx:
             if ctx.get("role") is not None:
                 entry["outAhead"] = ctx["outAhead"]
@@ -604,7 +612,7 @@ def main():
             "anchors": e["anchors"],
         }
         for k in ("outAhead", "outBasis", "roleCtx", "roleCtxN",
-                  "roleUnknown"):
+                  "roleUnknown", "selfOut", "selfBasis", "selfInjury"):
             if k in e:
                 rec[k] = e[k]
         L = e["lines"]

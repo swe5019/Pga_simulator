@@ -23,6 +23,7 @@
     q: '',
     hideThin: false,
     anchoredOnly: false,
+    hideHurt: false,
     sort: { key: 'med', dir: -1 },
   };
 
@@ -95,6 +96,13 @@
   }
 
   function injuryTip(r) {
+    if (r.selfOut) {
+      const inj = r.selfInjury ? ` (${r.selfInjury})` : '';
+      return `ON THE INJURY REPORT: ${r.selfBasis}${inj}. He is projected as if he `
+        + 'plays, because the betting lines on him say the market expects him to. '
+        + 'Whether he plays at all is the open question, and nothing here can '
+        + 'answer it. Check the news before using this number.';
+    }
     if (r.roleUnknown) {
       return `${r.outBasis}. He has never played a game without him, so there is `
         + 'nothing to measure a bigger role against. The projection leans on the '
@@ -130,6 +138,7 @@
       }
       if (state.hideThin && r.thin) return false;
       if (state.anchoredOnly && !(r.anchors && r.anchors.length)) return false;
+      if (state.hideHurt && r.selfOut) return false;
       // A player projected for almost nothing is noise in a table this long.
       return S(r).mean >= 1.0;
     });
@@ -162,8 +171,14 @@
         if (k === 'p90') extra = ' up';
         if (k === 'p25') extra = ' dim';
         const t = tip ? ` title="${esc(tip)}"` : '';
-        const inj = (k === 'player' && r.outAhead)
-          ? ' <span class="injup" aria-label="bigger role, someone ahead is out">▲</span>' : '';
+        let inj = '';
+        if (k === 'player') {
+          if (r.selfOut) {
+            inj = ' <span class="injself" aria-label="on the injury report">✚</span>';
+          } else if (r.outAhead) {
+            inj = ' <span class="injup" aria-label="bigger role, someone ahead is out">▲</span>';
+          }
+        }
         const thin = (k === 'player' && r.thin) ? ' <span class="thinflag">thin</span>' : '';
         return `<td class="${cls}${extra}"${t}>${esc(cell(r, k))}${inj}${thin}</td>`;
       }).join('');
@@ -243,13 +258,21 @@
       + `${doc.anchoredPlayers.toLocaleString()} anchored to betting lines, `
       + `${doc.trials.toLocaleString()} simulated games each, updated ${when}`;
     const up = state.rows.filter((r) => r.outAhead).length;
+    const out = state.rows.filter((r) => r.selfOut).length;
     const el = $('#pjInj');
     if (el) {
-      el.innerHTML = up
-        ? `<b>${up}</b> player${up === 1 ? ' has' : 's have'} somebody ahead of them on the `
-          + `injury report (▲), so their role is read from the games that man missed rather `
-          + `than from a season average. Hover a name for the detail.`
-        : '';
+      const bits = [];
+      if (out) {
+        bits.push(`<b>${out}</b> player${out === 1 ? ' is' : 's are'} on the injury `
+          + `report themselves (✚). They are still projected, as if they play, because `
+          + `the betting lines on them say the market expects them to. Whether they `
+          + `play is the open question.`);
+      }
+      if (up) {
+        bits.push(`<b>${up}</b> have somebody ahead of them out (▲), so their role is `
+          + `read from the games that man missed rather than from a season average.`);
+      }
+      el.innerHTML = bits.length ? bits.join(' ') + ' Hover a name for the detail.' : '';
     }
   }
 
@@ -286,6 +309,7 @@
     $('#pjSearch').addEventListener('input', (e) => { state.q = e.target.value; render(); });
     $('#pjHideThin').addEventListener('change', (e) => { state.hideThin = e.target.checked; render(); });
     $('#pjAnchored').addEventListener('change', (e) => { state.anchoredOnly = e.target.checked; render(); });
+    $('#pjHideHurt').addEventListener('change', (e) => { state.hideHurt = e.target.checked; render(); });
 
     const btn = $('#pjUnlockBtn');
     if (btn) {

@@ -61,6 +61,15 @@ OUT_STATUS = ("Out", "Doubtful")
 # Practice language that means he did not practise at all.
 DNP = "did not participate"
 LIMITED = "limited"
+# A rest day is not an injury. The report carries veteran rest under the same
+# practice column as a hamstring, and the reason text is the only thing that
+# separates them. Christian McCaffrey sat a Wednesday as a "resting player",
+# which read as a strong doubt, and the projections page dropped him entirely
+# while the market had forty one props posted on him. Reading these as doubts
+# is worse than ignoring the report, because it removes exactly the players
+# who matter most.
+NOT_INJURY = ("not injury related", "resting player", "personal",
+              "coach's decision", "rest")
 
 
 def log(*a):
@@ -84,7 +93,13 @@ def fetch(url, optional=False):
         raise
 
 
-def classify(report, practice):
+def rest_day(reason):
+    """Is the stated reason something other than an injury."""
+    r = (reason or "").strip().lower()
+    return any(t in r for t in NOT_INJURY) if r else False
+
+
+def classify(report, practice, reason=None):
     """Is he unavailable, how sure is that, and what is it based on.
 
     Returns (status, confidence, basis) where status is "out", "doubt" or
@@ -95,6 +110,10 @@ def classify(report, practice):
     pra = (practice or "").strip().lower()
     if rep in OUT_STATUS:
         return "out", "ruled", f"officially {rep.lower()}"
+    # An official designation still counts, but a missed practice for a
+    # non-injury reason tells us nothing about Sunday.
+    if rest_day(reason) and not rep:
+        return "ok", "", ""
     if rep == "Questionable":
         # Questionable plus no practice all week is a different animal from
         # questionable after full practice.
@@ -138,8 +157,9 @@ def main():
         if int(r.get("week") or 0) != week:
             continue
         pos = (r.get("position") or "").upper()
-        status, conf, basis = classify(r.get("report_status"),
-                                       r.get("practice_status"))
+        status, conf, basis = classify(
+            r.get("report_status"), r.get("practice_status"),
+            r.get("report_primary_injury") or r.get("practice_primary_injury"))
         if status == "ok":
             continue
         out.append({
