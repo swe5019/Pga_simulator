@@ -1,11 +1,11 @@
 {
- "updatedUtc": "2026-10-17T15:37:38Z",
+ "updatedUtc": "2026-10-17T20:38:11Z",
  "slate": "BAYCURRENT_2026",
  "event": "",
  "counts": {
-  "items": 2,
-  "golfersMentioned": 2,
-  "news": 2,
+  "items": 3,
+  "golfersMentioned": 3,
+  "news": 3,
   "chatter": 0
  },
  "sources": [
@@ -138,6 +138,12 @@
  ],
  "mentions": [
   {
+   "name": "Justin Thomas",
+   "news": 1,
+   "chatter": 0,
+   "total": 1
+  },
+  {
    "name": "Min Woo Lee",
    "news": 1,
    "chatter": 0,
@@ -151,6 +157,17 @@
   }
  ],
  "items": [
+  {
+   "title": "Weekend Players To Cut for Week 6 Lineups - Jalen Hurts, Quentin Johnston, Brian Thomas, Chris Godwin, Jake Ferguson, Dontayvion Wicks",
+   "link": "https://www.rotoballer.com/weekend-cut-list-rankings-fantasy-football-drops-week-6-2026/1967630",
+   "summary": "Welcome back, RotoBallers, to our Weekend Cut List Rankings for fantasy football Week 6 of the 2026 NFL season. The [&#8230;]",
+   "published": "Sat, 17 Oct 2026 17:00:00 +0000",
+   "source": "RotoBaller",
+   "kind": "news",
+   "golfers": [
+    "Justin Thomas"
+   ]
+  },
   {
    "title": "$17 Million Golfer Withdraws From DP World India Championship After Health Scare",
    "link": "https://sports.yahoo.com/articles/17-million-golfer-withdraws-dp-143625636.html",
