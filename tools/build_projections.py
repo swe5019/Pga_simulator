@@ -402,11 +402,22 @@ def main():
         return 1
     logs = game_logs(seasons, pbp)
 
-    meta_pos, meta_team = {}, {}
+    # Position can come from any season, since it does not change. THE TEAM
+    # CANNOT. Reading it from whatever season a player last appeared in put 268
+    # of 671 projected players on the board off historical rosters, Philip
+    # Rivers among them, because anyone who had ever played for a team on this
+    # slate was treated as being on it now.
+    meta_pos = {}
     for yr in sorted(seasons, reverse=True):
         for pl in seasons[yr]["players"]:
             meta_pos.setdefault(nrm(pl["n"]), pl["p"])
-            meta_team.setdefault(nrm(pl["n"]), pl["t"])
+
+    # This season's roster, which is the only thing that says who is on a team
+    # now. A player with a roster entry but no game yet is kept: a backup
+    # quarterback is genuinely on the team.
+    meta_team = {}
+    for pl in seasons[current]["players"]:
+        meta_team[nrm(pl["n"])] = pl["t"]
 
     injuries = load_injuries()
     role_ctx = build_role_context(logs, seasons, current, injuries,
@@ -424,6 +435,12 @@ def main():
                 fixtures[p["team"]] = p["opp"]
         log(f"{len(props_by_player):,} players carry props, "
             f"{len(fixtures)} teams in this slate")
+        # A posted line is proof a player is active, and it is more current
+        # than any roster file. It is also the only signal for somebody who has
+        # not played a down yet this season.
+        for k, rows in props_by_player.items():
+            if rows and rows[0].get("team"):
+                meta_team.setdefault(k, rows[0]["team"])
     else:
         log("no nfl_props_full.json; projections will be model only")
 
@@ -451,9 +468,19 @@ def main():
     for key, byyear in logs.items():
         pos, team = meta_pos.get(key), meta_team.get(key)
         if not pos or not team or team not in fixtures:
-            skipped["not in this slate"] += 1
+            skipped["not on a roster in this slate"] += 1
             continue
         ctx = role_ctx.get(key)
+        # THE MARKET DECIDES WHO IS PLAYING. A player on the injury report with
+        # no line posted on him has had his lines pulled, and that is the
+        # market stating he is not expected to play. Projecting him anyway from
+        # the model alone contradicts the principle this whole page rests on,
+        # and it put Lamar Jackson on the board at 19.7 points with an ankle
+        # injury and not a single line offered on him. With lines posted he is
+        # projected and flagged, because then the market does expect him.
+        if ctx and ctx.get("selfOut") and not props_by_player.get(key):
+            skipped["hurt, and the market has pulled his lines"] += 1
+            continue
         # A player on the injury report is PROJECTED AND FLAGGED, never
         # dropped. Dropping him was the single worst bug on this page: it
         # silently removed whichever stars were carrying a knock, which are the
