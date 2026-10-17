@@ -531,7 +531,9 @@ def simulate_slate(trials=None):
         with open(ppath, encoding="utf-8") as f:
             pdoc = json.load(f)
         for p in pdoc["props"]:
-            props_by_player[nrm(p["player"])].append(p)
+            # The resolved key, so a player the market spells differently
+            # still anchors to his own history.
+            props_by_player[p.get("skey") or nrm(p["player"])].append(p)
             if p.get("team") and p.get("opp"):
                 fixtures[p["team"]] = p["opp"]
         log(f"{len(props_by_player):,} players carry props, "

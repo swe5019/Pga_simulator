@@ -324,6 +324,55 @@ def game_logs(seasons, pbp):
     return logs
 
 
+def initial_last(name):
+    """First initial plus surname, which survives a first name being written
+    two ways. "Joshua Palmer" and "Josh Palmer" both reduce to jpalmer."""
+    t = re.sub(r"[.'`,]", "", name or "").strip()
+    t = re.sub(r"\b(jr|sr|ii|iii|iv|v)\b", "", t, flags=re.I).strip()
+    bits = [b for b in t.split() if b]
+    if len(bits) < 2:
+        return nrm(name)
+    return re.sub(r"[^a-z]+", "", (bits[0][:1] + bits[-1]).lower())
+
+
+def resolve_names(props, logs, logs_display, meta_pos):
+    """Join the market's spelling of a name to the stats' spelling.
+
+    The two feeds do not share an id, so everything keys off the name, and a
+    name can be written two ways. The market priced "Joshua Palmer" while the
+    statistics call him "Josh Palmer", and the two never met: four betting
+    lines simply failed to anchor his projection and nothing anywhere said so.
+    The population check found it, which is the entire reason that check
+    exists.
+
+    The fallback is deliberately narrow. Matching on surname alone would
+    cheerfully merge two different players, so a candidate must share the
+    first initial AND the surname AND the position, and must be the only one
+    who does. Anything ambiguous is left unmatched, because a wrong join is
+    far worse than a missing one: it would attach one player's betting lines
+    to another player's history."""
+    # A log key is already normalised with the spaces gone, so the first
+    # initial cannot be recovered from it. The display names come in
+    # separately for exactly that reason.
+    by_il = defaultdict(list)
+    for key, disp in logs_display.items():
+        by_il[initial_last(disp)].append(key)
+
+    fixed = {}
+    for p in props:
+        k = nrm(p["player"])
+        if k in logs:
+            continue
+        cands = [c for c in by_il.get(initial_last(p["player"]), [])
+                 if meta_pos.get(c) == p.get("pos")]
+        # An identity mapping is not an alias. Those arise for a player who
+        # is on a roster but has no game log, and reporting them as resolved
+        # names would bury the real ones.
+        if len(cands) == 1 and cands[0] != k:
+            fixed[k] = cands[0]
+    return fixed
+
+
 def load_injuries():
     """Who is unavailable this week, as written by fetch_nfl_injuries.py.
 
@@ -639,6 +688,20 @@ def main():
         for pl in seasons[yr]["players"]:
             meta_pos.setdefault(nrm(pl["n"]), pl["p"])
             meta_team.setdefault(nrm(pl["n"]), pl["t"])
+    # One spelling of each name before anything joins on it.
+    logs_display = {}
+    for yr in sorted(seasons, reverse=True):
+        for pl in seasons[yr]["players"]:
+            logs_display.setdefault(nrm(pl["n"]), pl["n"])
+    aliases = resolve_names(props, logs, logs_display, meta_pos)
+    if aliases:
+        log(f"name aliases resolved between the market and the stats: "
+            + ", ".join(f"{k} -> {v}" for k, v in list(aliases.items())[:5]))
+        for p in props:
+            k = nrm(p["player"])
+            if k in aliases:
+                p["skey"] = aliases[k]
+
     injuries = load_injuries()
     role_ctx = build_role_context(logs, seasons, current, injuries,
                                   meta_pos, meta_team)
@@ -662,7 +725,7 @@ def main():
         if fn is None:
             counts["stat not supported yet"] += 1
             continue
-        key = nrm(p["player"])
+        key = p.get("skey") or nrm(p["player"])
         if key not in logs:
             counts["player not in stats data"] += 1
             unmatched.add(p["player"])

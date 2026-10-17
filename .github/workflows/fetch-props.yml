@@ -101,11 +101,26 @@ jobs:
         continue-on-error: true
         run: python tools/build_contest.py
 
+      # IS THE RIGHT SET OF PLAYERS ON THE BOARD. Everything else here checks
+      # arithmetic, and all of it was passing while four separate population
+      # bugs were live: a star silently dropped, a retired quarterback
+      # projected off a 2024 roster, players whose lines had been pulled still
+      # projected, and a man on injured reserve picked into optimizer lineups.
+      # Not one was a wrong number, so nothing could see them.
+      #
+      # This one FAILS THE JOB rather than carrying on, and it runs before the
+      # commit, so a bad population leaves the previous good data live instead
+      # of replacing it. Stale is recoverable; wrong and published is not.
+      - name: Verify the player population
+        env:
+          PYTHONUNBUFFERED: '1'
+        run: python tools/verify_population.py
+
       - name: Commit props
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add data/nfl_props.json data/nfl_props_full.json data/nfl_matchups.json data/nfl_injuries.json data/nfl_projections.json data/nfl_slate_board.json data/nfl_contest.json data/ownership_history data/props_history
+          git add data/nfl_props.json data/nfl_props_full.json data/nfl_matchups.json data/nfl_injuries.json data/nfl_projections.json data/nfl_slate_board.json data/nfl_contest.json data/population_baseline.json data/ownership_history data/props_history
           if git diff --cached --quiet; then
             echo "No change in prop lines"
           else
