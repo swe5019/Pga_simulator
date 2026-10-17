@@ -290,12 +290,16 @@ def main():
         f"{len(slate['players'])} players, draft group {slate['dg']})")
 
     proj = {nrm(p["player"]): p for p in pr["players"]}
+    # DraftKings calls a defense by its nickname ("Rams") and the projections
+    # call it by team ("LA DST"), so those two never match on name. Defenses
+    # join on the team code instead, which is the only thing both agree on.
+    proj_dst = {p["team"]: p for p in pr["players"] if p["pos"] == "DST"}
     scoring = "dk"
 
     players, matched, unmatched = [], 0, defaultdict(int)
     for d in slate["players"]:
         key = nrm(d["n"])
-        pp = proj.get(key)
+        pp = proj_dst.get(d["tm"]) if d["pos"] == "DST" else proj.get(key)
         row = {"player": d["n"], "pos": d["pos"], "team": d["tm"],
                "sal": d["sal"]}
         if pp:
@@ -307,8 +311,9 @@ def main():
                 # and therefore belongs in the price curve.
                 "touches": round((st.get("tgt") or 0) + (st.get("car") or 0)
                                  + (st.get("patt") or 0), 2),
-                "proj": sc.get("med"), "mean": sc.get("mean"),
-                "floor": sc.get("p25"), "ceil": sc.get("p90"),
+                "proj": sc.get("mean"), "med": sc.get("med"),
+                "floor": sc.get("p25"), "ceil": sc.get("ceil"),
+                "super": sc.get("super"),
                 "curve": sc.get("curve"),
                 "thin": pp.get("thin"), "anchors": len(pp.get("anchors") or []),
             })
@@ -354,15 +359,7 @@ def main():
         t = thresholds.get(p["pos"])
         if t:
             p["boom"] = round(curve_at(c, t) * 100, 1)
-        # The 97th percentile game, which is what actually wins a tournament.
-        lo, hi = 0.0, 80.0
-        for _ in range(30):
-            mid = 0.5 * (lo + hi)
-            if curve_at(c, mid) > 0.03:
-                lo = mid
-            else:
-                hi = mid
-        p["super"] = round(0.5 * (lo + hi), 1)
+
 
     ownership(players, scoring)
 

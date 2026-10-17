@@ -416,7 +416,86 @@ def fantasy(lines, system):
     return fp
 
 
-def main():
+# DraftKings defense scoring. Points allowed is the dominant term and the
+# tiers are steep, which is why a defense facing a weak offense is worth more
+# than one that simply gets sacks.
+DST_PA_TIERS = ((0, 10), (6, 7), (13, 4), (20, 1), (27, 0), (34, -1),
+                (999, -4))
+# League average field goals made per team per game, used to turn projected
+# touchdowns into projected points.
+FG_PER_GAME = 1.7
+# A defensive or special teams touchdown per game, league wide.
+DST_TD_RATE = 0.22
+
+
+def dst_projection(rng, team, opp_points, rates, trials):
+    """A simulated DK score for one defense.
+
+    NOT A GUESS DRESSED AS A PROJECTION. Three parts, each measured:
+
+      POINTS ALLOWED comes from the opposing offense's own simulated
+      touchdowns, trial by trial, so a defense facing a team this model
+      expects to struggle scores well in the same trials that offense scores
+      badly. That correlation is the whole reason to do it this way rather
+      than off a season average.
+
+      SACKS AND TURNOVERS come from what this defense has actually forced,
+      read from the other side of the ledger: the sacks a quarterback took and
+      the interceptions he threw against them are already in the play by play,
+      so no new feed is needed.
+
+      RETURN TOUCHDOWNS are a flat league rate, because they are close to
+      random and nobody can forecast them.
+    """
+    sack_rate, int_rate = rates
+    sacks = rng.poisson(max(sack_rate, 0.1), size=trials)
+    ints = rng.poisson(max(int_rate, 0.05), size=trials)
+    fum = rng.poisson(0.55, size=trials)
+    tds = rng.binomial(1, min(DST_TD_RATE, 0.9), size=trials)
+    pa = np.maximum(opp_points, 0)
+    pts = np.zeros(trials, dtype=np.float64)
+    prev = -1
+    for cap, val in DST_PA_TIERS:
+        pts = np.where((pa > prev) & (pa <= cap), float(val), pts)
+        prev = cap
+    return pts + sacks + 2.0 * ints + 2.0 * fum + 6.0 * tds
+
+
+def defensive_rates(seasons, current):
+    """Sacks and interceptions each defense has forced per game this season.
+
+    Taken from the offensive side: a sack recorded against a quarterback is a
+    sack for whoever he was playing, and the play by play already carries
+    both, so this needs no defensive feed at all."""
+    doc = seasons.get(current)
+    if not doc:
+        return {}
+    forced = defaultdict(lambda: [0.0, 0.0, set()])
+    for r in doc["rows"]:
+        opp = r.get("o")
+        if not opp:
+            continue
+        e = forced[opp]
+        e[0] += r.get("sk", 0) or 0
+        e[1] += r.get("int", 0) or 0
+        e[2].add(r["w"])
+    out = {}
+    for team, (sk, ints, weeks) in forced.items():
+        n = max(len(weeks), 1)
+        out[team] = (sk / n, ints / n)
+    return out
+
+
+def simulate_slate(trials=None):
+    """Run the whole joint simulation and hand back the pieces.
+
+    Shared so that the contest simulation runs on exactly the same engine as
+    the projections rather than a second copy of it. Two implementations of
+    this would drift, and the drift would be invisible: both would produce
+    plausible numbers that quietly disagreed about the same players."""
+    if trials is not None:
+        global TRIALS
+        TRIALS = trials
     seasons, current = load_seasons()
     pbp = load_pbp(sorted(seasons, reverse=True))
     if not pbp:
@@ -602,6 +681,66 @@ def main():
             % (label, len(vals), target, got, got - target))
     log(f"   worst miss among those: {worst:.2f}")
 
+    # ---- defenses, which a DraftKings lineup cannot do without
+    #
+    # Added after the offences so that each defense can be scored against the
+    # opposing offence's OWN simulated touchdowns, trial by trial. A season
+    # average would lose exactly the thing that matters: a defense has its
+    # best games in the same games the offence it is facing has its worst.
+    rates = defensive_rates(seasons, current)
+    dsts = []
+    for gkey, players in by_game.items():
+        teams = sorted({p["team"] for p in players})
+        for team in teams:
+            foes = [p for p in players if p["team"] != team]
+            if not foes:
+                continue
+            opp = foes[0]["team"]
+            tds = np.zeros(TRIALS)
+            for p in foes:
+                tds = tds + p["lines"]["rtd"] + p["lines"]["utd"]
+            opp_points = 7.0 * tds + 3.0 * FG_PER_GAME
+            fp = dst_projection(rng, team, opp_points, rates.get(team, (2.2, 0.7)),
+                                TRIALS)
+            dsts.append({
+                "key": f"dst_{team}", "pos": "DST", "team": team, "opp": opp,
+                "rank": 1, "effGames": 5.0, "thin": False, "anchors": [],
+                "name": f"{team} DST",
+                "lines": None, "fp": fp,
+                "oppPoints": round(float(opp_points.mean()), 1),
+            })
+    log(f"{len(dsts)} defenses projected against the offence they face")
+
+    return {"built": built, "dsts": dsts, "by_game": by_game,
+            "seasons": seasons, "current": current, "logs": logs,
+            "rng": rng, "anchored": anchored, "skipped": skipped}
+
+
+def player_scores(trials=None, system="dk"):
+    """key -> that player's simulated fantasy scores, defenses included.
+
+    This is what the contest simulation consumes: one array per player, all
+    drawn from the same correlated slate, so a quarterback and his receiver
+    still rise and fall together once they are inside a lineup."""
+    res = simulate_slate(trials)
+    out = {}
+    for e in res["built"]:
+        out[e["key"]] = fantasy(e["lines"], system)
+    for d in res["dsts"]:
+        out[d["key"]] = d["fp"]
+    return out, res
+
+
+def main():
+    res = simulate_slate()
+    built = res["built"]
+    dsts = res["dsts"]
+    by_game = res["by_game"]
+    seasons = res["seasons"]
+    current = res["current"]
+    rng = res["rng"]
+    anchored = res["anchored"]
+    skipped = res["skipped"]
     # ---- stacks, computed while the joint sample still exists
     #
     # This is the one thing a projection sheet cannot give you after the fact.
@@ -692,11 +831,25 @@ def main():
         for system in SCORING:
             fp = fantasy(L, system)
             q = np.percentile(fp, [10, 25, 50, 75, 90])
+            # CEILING AS A CONDITIONAL MEAN, not a quantile. The average of a
+            # player's best quarter of games describes what a genuinely good
+            # day looks like; the 90th percentile is one point on a curve and
+            # moves around more from run to run. Super ceiling is the same
+            # idea over the best tenth, and the gap between them is what marks
+            # a player with a real explosive tail rather than a steady one.
+            # An optimizer also needs the MEAN, not the median, because lineup
+            # totals add expected values: maximising a sum of medians is
+            # solving a different problem from the one being asked.
+            srt = np.sort(fp)
+            n = srt.size
+            ceil = float(srt[int(n * 0.75):].mean())
+            sup = float(srt[int(n * 0.90):].mean())
             rec[system] = {
                 "mean": round(float(fp.mean()), 2),
                 "p10": round(float(q[0]), 1), "p25": round(float(q[1]), 1),
                 "med": round(float(q[2]), 1), "p75": round(float(q[3]), 1),
                 "p90": round(float(q[4]), 1),
+                "ceil": round(ceil, 1), "super": round(sup, 1),
                 "sd": round(float(fp.std()), 2),
                 "p20": round(float((fp >= 20).mean()), 3),
                 # The chance of clearing each of these, so a slate page can
@@ -710,6 +863,31 @@ def main():
                         ("tgt", "rec", "ry", "car", "uy", "patt", "cmp", "py",
                          "rtd", "utd", "ptd", "int")}
         rec["stats"]["lrec"] = round(float(L["lrec"].mean()), 1)
+        out.append(rec)
+
+    for d in dsts:
+        fp = d["fp"]
+        srt = np.sort(fp)
+        n = srt.size
+        q = np.percentile(fp, [10, 25, 50, 75, 90])
+        block = {
+            "mean": round(float(fp.mean()), 2),
+            "p10": round(float(q[0]), 1), "p25": round(float(q[1]), 1),
+            "med": round(float(q[2]), 1), "p75": round(float(q[3]), 1),
+            "p90": round(float(q[4]), 1),
+            "ceil": round(float(srt[int(n * 0.75):].mean()), 1),
+            "super": round(float(srt[int(n * 0.90):].mean()), 1),
+            "sd": round(float(fp.std()), 2),
+            "p20": round(float((fp >= 20).mean()), 3),
+            "curve": {str(t): round(float((fp >= t).mean()), 4)
+                      for t in (5, 10, 15, 20, 25, 30, 35, 40)},
+        }
+        rec = {"player": d["name"], "pos": "DST", "team": d["team"],
+               "opp": d["opp"], "rank": 1, "effGames": 5.0, "thin": False,
+               "anchors": [], "oppPoints": d["oppPoints"],
+               "stats": {"ptsAllowed": d["oppPoints"]}}
+        for sysname in SCORING:
+            rec[sysname] = block
         out.append(rec)
 
     out.sort(key=lambda r: -r["half"]["mean"])

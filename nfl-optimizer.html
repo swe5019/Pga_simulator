@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NFL DFS Optimizer &amp; Contest Simulator | SlateSims</title>
+  <link rel="icon" href="assets/img/favicon.svg?v=20260730v" type="image/svg+xml" />
+  <link rel="canonical" href="https://slatesims.com/nfl-optimizer.html" />
+  <meta name="description" content="Free NFL DFS lineup optimizer and contest simulator. Build DraftKings lineups with locks, excludes, exposure caps and stacking, then see which players actually win tournaments against a simulated field." />
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="SlateSims" />
+  <meta property="og:url" content="https://slatesims.com/nfl-optimizer.html" />
+  <meta property="og:title" content="NFL DFS Optimizer and Contest Simulator" />
+  <meta property="og:description" content="Build lineups and simulate them against a field drawn at projected ownership." />
+  <meta property="og:image" content="https://slatesims.com/assets/img/avatar.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="NFL Fantasy Projections | SlateSims" />
+  <meta name="twitter:description" content="Floor, ceiling and correlated stacks, anchored to the betting market." />
+  <meta name="twitter:image" content="https://slatesims.com/assets/img/avatar.png" />
+  <link rel="stylesheet" href="assets/css/styles.css?v=20261017a" />
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-13J1816EN4"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-13J1816EN4');
+  </script>
+</head>
+<body>
+  <div id="appShell">
+  <header class="topbar">
+    <a class="brand" href="index.html" title="SlateSims home">
+      <svg class="logo" viewBox="0 0 100 100" aria-hidden="true">
+        <path d="M6,82 C30,82 30,38 50,38 C70,38 70,82 94,82 Z" fill="#3fb950" opacity=".22"/>
+        <path d="M6,82 C30,82 30,38 50,38 C70,38 70,82 94,82" fill="none" stroke="#3fb950"
+              stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+        <rect x="46.8" y="6" width="6.4" height="40" rx="3.2" fill="#e6edf3"/>
+        <polygon points="53.2,8 76,16 53.2,24" fill="#e6edf3"/>
+      </svg>
+      <div>
+        <span class="brandname">Slate<span class="accent">Sims</span></span>
+        <p class="tag">NFL optimizer and contest sim.</p>
+      </div>
+    </a>
+    <nav class="mainnav" aria-label="Sports">
+      <div class="navitem">
+        <button type="button" class="navbtn" aria-haspopup="true" aria-expanded="false">
+          PGA <span class="navcaret" aria-hidden="true">▼</span>
+        </button>
+        <div class="navmenu" role="menu">
+          <div class="navgroup">Main Slate</div>
+          <a role="menuitem" href="app.html#players">Ownership &amp; Projections</a>
+          <a role="menuitem" href="app.html#build">Build Lineups</a>
+          <a role="menuitem" href="app.html#contest">Contest Sim</a>
+          <div class="navgroup">Showdown</div>
+          <a role="menuitem" href="app.html#showdown">Ownership &amp; Projections</a>
+          <div class="navgroup">Research</div>
+          <a role="menuitem" href="app.html#news">News &amp; Chatter</a>
+          <a role="menuitem" href="app.html#saved">Saved Lineups</a>
+        </div>
+      </div>
+      <div class="navitem">
+        <button type="button" class="navbtn here" aria-haspopup="true" aria-expanded="false">
+          NFL <span class="navcaret" aria-hidden="true">▼</span>
+        </button>
+        <div class="navmenu" role="menu">
+          <div class="navgroup">DFS</div>
+          <a role="menuitem" href="nfl-slate.html">Slate Board</a>
+          <a role="menuitem" class="current" href="nfl-optimizer.html">Optimizer &amp; Contest Sim</a>
+          <a role="menuitem" href="nfl-projections.html">Fantasy Projections</a>
+          <div class="navgroup">Research</div>
+          <a role="menuitem" href="nfl.html">Advanced Stats</a>
+          <a role="menuitem" href="nfl-props.html">Player Props</a>
+          <div class="navgroup">Lineups</div>
+          <span class="navsoon">Optimizer — coming soon</span>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section id="opt" class="panel active">
+      <h1 id="opTitle">NFL DFS Optimizer and Contest Simulator</h1>
+      <p class="sub" id="opMeta"></p>
+
+      <p class="hint">
+        Build lineups, then see what actually wins. The optimizer maximises expected
+        points under the real DraftKings rules. The contest simulator does something
+        different and more useful: it fills a tournament with lineups drawn at
+        projected ownership, scores every one of them in thousands of correlated
+        simulated slates, and reports how often a lineup containing each player wins.
+      </p>
+
+      <div id="opUnlock" class="unlockbar">
+        <span><strong>Free with your email:</strong> the optimizer and the contest
+          leverage table.</span>
+        <button type="button" id="opUnlockBtn" class="primary small">Unlock free →</button>
+      </div>
+
+      <div id="opBody">
+        <h2>Build lineups</h2>
+        <div class="trim-bar">
+          <span class="filter-sep">Lineups</span>
+          <input id="opN" type="number" class="filter-num" value="20" min="1" max="150" style="width:70px" />
+          <span class="filter-sep">Max exposure</span>
+          <input id="opExp" type="number" class="filter-num" value="60" min="5" max="100" style="width:70px" />%
+          <span class="filter-sep">Randomness</span>
+          <input id="opRand" type="number" class="filter-num" value="25" min="0" max="100" style="width:70px" />%
+          <label class="chk" title="Pair every quarterback with at least one of his own pass catchers, which is what the correlation data says wins tournaments">
+            <input type="checkbox" id="opStack" checked /> Stack the QB
+          </label>
+          <button type="button" id="opRun" class="primary small">Build →</button>
+        </div>
+        <p class="hint" id="opStatus"></p>
+
+        <div class="tablewrap">
+          <table id="opLineups"><thead><tr></tr></thead><tbody></tbody></table>
+        </div>
+
+        <h3 style="margin-top:18px">Player pool</h3>
+        <p class="hint">Click a player to lock him into every lineup, click again to exclude him.</p>
+        <div class="trim-bar">
+          <button class="ghost small oppos active" data-p="">All</button>
+          <button class="ghost small oppos" data-p="QB">QB</button>
+          <button class="ghost small oppos" data-p="RB">RB</button>
+          <button class="ghost small oppos" data-p="WR">WR</button>
+          <button class="ghost small oppos" data-p="TE">TE</button>
+          <button class="ghost small oppos" data-p="DST">DST</button>
+          <input id="opSearch" type="text" placeholder="Filter…" class="filter-text" />
+          <button type="button" id="opClear" class="ghost small">Clear locks</button>
+        </div>
+        <div class="tablewrap">
+          <table id="opPool"><thead><tr></tr></thead><tbody></tbody></table>
+        </div>
+
+        <h2 style="margin-top:24px">Contest simulator: who actually wins</h2>
+        <p class="hint" id="opContestMeta"></p>
+        <div class="tablewrap">
+          <table id="opContest"><thead><tr></tr></thead><tbody></tbody></table>
+        </div>
+      </div>
+
+      <section class="seo-copy">
+        <h2>What the contest simulator does</h2>
+        <p>
+          A projection says how many points a player scores. A tournament does not pay
+          for that. It pays for finishing above everybody else, so what matters is how
+          a player's outcomes line up against what the rest of the field rostered. A
+          twenty five point game from a player half the field owns moves you nowhere.
+          The same twenty five from a player nobody has wins the tournament.
+        </p>
+        <p>
+          That cannot be read off a projection, off ownership, or off both side by
+          side. So a field of four thousand lineups is built by sampling players at
+          their projected ownership under the real roster and salary rules, every one
+          of those lineups is scored in four thousand correlated simulated slates, and
+          the result is how often a lineup containing each player wins compared with a
+          random entry. A figure of 1.50 means a lineup with him in it wins half again
+          as often as one without.
+        </p>
+        <p>
+          That single number already contains his projection, his ceiling, his
+          correlation with his team mates and how much of the field is on him. It is
+          what the slate board's leverage column approximates, done properly.
+        </p>
+        <h3>Why the field is sampled rather than optimised</h3>
+        <p>
+          A real tournament is mostly ordinary lineups built around popular players,
+          not sixty thousand copies of the optimal one. Measuring leverage against a
+          field of optimal lineups would answer a question nobody is actually in. The
+          field here also spends nearly all of the salary cap, around 48,800 of
+          50,000, because an earlier version that sampled purely on ownership left
+          three thousand dollars unspent per lineup and a field that weak makes every
+          entry look likelier to win than it is.
+        </p>
+        <h3>Why correlation matters more here than anywhere else</h3>
+        <p>
+          Lineups are not independent draws. A quarterback and his receiver go off in
+          the same simulated game, so a field full of that stack either wins together
+          or loses together. Scoring a field against uncorrelated player simulations
+          would badly understate how often a stack takes down a tournament, which is
+          exactly the question being asked.
+        </p>
+        <h3>What this inherits</h3>
+        <p>
+          The field is built from projected ownership, and that ownership has no NFL
+          training data behind it yet. Everything on this page inherits that
+          uncertainty. What does not depend on it is the relative shape: who is
+          leveraged against the field as modelled. When real contest results arrive
+          this sharpens without any of it needing to be rewritten.
+        </p>
+        <p>
+          A player appearing in under one percent of the field has his win rate
+          measured on a handful of lineups rather than on himself, so those are shown
+          but not ranked.
+        </p>
+      </section>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <span>SlateSims · free NFL projections, research and DraftKings PGA DFS tools.</span>
+  </footer>
+  </div>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebApplication",
+        "name": "SlateSims NFL Fantasy Projections",
+        "url": "https://slatesims.com/nfl-slate.html",
+        "applicationCategory": "SportsApplication",
+        "operatingSystem": "Any",
+        "description": "NFL fantasy football projections as distributions, with floor, ceiling and correlated stacks, anchored to the betting market.",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+        "publisher": { "@type": "Organization", "name": "SlateSims", "url": "https://slatesims.com/" }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "SlateSims", "item": "https://slatesims.com/" },
+          { "@type": "ListItem", "position": 2, "name": "NFL Fantasy Projections", "item": "https://slatesims.com/nfl-slate.html" }
+        ]
+      }
+    ]
+  }
+  </script>
+
+  <script src="assets/js/nav.js?v=20261017a"></script>
+  <script src="assets/js/leadgate.js?v=20261017a"></script>
+  <script src="assets/js/optimizer-nfl.js?v=20261017a"></script>
+</body>
+</html>
