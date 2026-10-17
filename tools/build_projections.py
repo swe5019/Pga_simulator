@@ -201,6 +201,17 @@ def solve_scale(sample, line, q, lo=0.2, hi=5.0):
     return math.sqrt(lo * hi)
 
 
+# What a single play can plausibly average. A yardage line has to be
+# reconciled against an anchored volume, and when the two do not sit together
+# the solver will happily invent whatever per-play figure closes the gap. That
+# produced a receiver averaging 35 yards a catch on 1.9 catches, whose ceiling
+# then took over the leverage ranking on the slate board. A catch is worth
+# somewhere between about four and twenty-two yards; a carry between one and a
+# half and eight; a completion between five and eighteen. Outside that, the
+# volume estimate is what is wrong, not the physics.
+PER_PLAY_BAND = {"ry": (4.0, 22.0), "uy": (1.5, 8.0), "py": (5.0, 18.0)}
+
+
 def player_lines(rng, f, base, prior, market, eff_cap=None):
     """TRIALS complete stat lines, anchored to the market in stages.
 
@@ -317,6 +328,17 @@ def player_lines(rng, f, base, prior, market, eff_cap=None):
         if line is not None:
             got = solve_scale(total, line, q)
             if got is not None:
+                # Would this leave a plausible play. The per-play average the
+                # scale implies is checked against what that kind of play can
+                # actually be worth, and clamped rather than accepted.
+                mean_count = float(count.mean())
+                lo_b, hi_b = PER_PLAY_BAND.get(kind, (0.0, 1e9))
+                if mean_count > 0.2:
+                    per = float(total.mean()) * got / mean_count
+                    if per > hi_b:
+                        got = got * (hi_b / per)
+                    elif per < lo_b:
+                        got = got * (lo_b / per)
                 used.append({"stat": stat, "line": line,
                              "fair": round(q * 100, 1),
                              "was": round(float(total.mean()), 1),
@@ -677,6 +699,12 @@ def main():
                 "p90": round(float(q[4]), 1),
                 "sd": round(float(fp.std()), 2),
                 "p20": round(float((fp >= 20).mean()), 3),
+                # The chance of clearing each of these, so a slate page can
+                # work out how often a player reaches whatever score his
+                # position needs on that particular slate without this file
+                # having to know anything about slates.
+                "curve": {str(t): round(float((fp >= t).mean()), 4)
+                          for t in (5, 10, 15, 20, 25, 30, 35, 40)},
             }
         rec["stats"] = {k: round(float(L[k].mean()), 2) for k in
                         ("tgt", "rec", "ry", "car", "uy", "patt", "cmp", "py",

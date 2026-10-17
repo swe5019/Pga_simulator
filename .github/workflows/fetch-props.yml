@@ -87,11 +87,18 @@ jobs:
         continue-on-error: true
         run: python tools/build_projections.py
 
+      # The DraftKings slate board, which needs the projections finished first.
+      - name: Build slate board
+        env:
+          PYTHONUNBUFFERED: '1'
+        continue-on-error: true
+        run: python tools/build_nfl_slate.py
+
       - name: Commit props
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add data/nfl_props.json data/nfl_props_full.json data/nfl_matchups.json data/nfl_injuries.json data/nfl_projections.json data/props_history
+          git add data/nfl_props.json data/nfl_props_full.json data/nfl_matchups.json data/nfl_injuries.json data/nfl_projections.json data/nfl_slate_board.json data/ownership_history data/props_history
           if git diff --cached --quiet; then
             echo "No change in prop lines"
           else

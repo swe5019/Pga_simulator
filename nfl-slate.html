@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NFL DFS Slate Board — Ownership, Leverage &amp; GPP Scores | SlateSims</title>
+  <link rel="icon" href="assets/img/favicon.svg?v=20260730v" type="image/svg+xml" />
+  <link rel="canonical" href="https://slatesims.com/nfl-slate.html" />
+  <meta name="description" content="Free NFL DFS slate board: DraftKings salaries with projected ownership for single entry, high stakes and mass multi entry, leverage and GPP scores, ceiling and super ceiling, from 10,000 correlated slate simulations." />
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="SlateSims" />
+  <meta property="og:url" content="https://slatesims.com/nfl-slate.html" />
+  <meta property="og:title" content="NFL DFS Slate Board with Ownership and Leverage" />
+  <meta property="og:description" content="DraftKings salaries, projected ownership by contest type, leverage and ceilings from correlated slate simulations." />
+  <meta property="og:image" content="https://slatesims.com/assets/img/avatar.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="NFL Fantasy Projections | SlateSims" />
+  <meta name="twitter:description" content="Floor, ceiling and correlated stacks, anchored to the betting market." />
+  <meta name="twitter:image" content="https://slatesims.com/assets/img/avatar.png" />
+  <link rel="stylesheet" href="assets/css/styles.css?v=20261017a" />
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-13J1816EN4"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-13J1816EN4');
+  </script>
+</head>
+<body>
+  <div id="appShell">
+  <header class="topbar">
+    <a class="brand" href="index.html" title="SlateSims home">
+      <svg class="logo" viewBox="0 0 100 100" aria-hidden="true">
+        <path d="M6,82 C30,82 30,38 50,38 C70,38 70,82 94,82 Z" fill="#3fb950" opacity=".22"/>
+        <path d="M6,82 C30,82 30,38 50,38 C70,38 70,82 94,82" fill="none" stroke="#3fb950"
+              stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+        <rect x="46.8" y="6" width="6.4" height="40" rx="3.2" fill="#e6edf3"/>
+        <polygon points="53.2,8 76,16 53.2,24" fill="#e6edf3"/>
+      </svg>
+      <div>
+        <span class="brandname">Slate<span class="accent">Sims</span></span>
+        <p class="tag">NFL DFS slate board.</p>
+      </div>
+    </a>
+    <nav class="mainnav" aria-label="Sports">
+      <div class="navitem">
+        <button type="button" class="navbtn" aria-haspopup="true" aria-expanded="false">
+          PGA <span class="navcaret" aria-hidden="true">▼</span>
+        </button>
+        <div class="navmenu" role="menu">
+          <div class="navgroup">Main Slate</div>
+          <a role="menuitem" href="app.html#players">Ownership &amp; Projections</a>
+          <a role="menuitem" href="app.html#build">Build Lineups</a>
+          <a role="menuitem" href="app.html#contest">Contest Sim</a>
+          <div class="navgroup">Showdown</div>
+          <a role="menuitem" href="app.html#showdown">Ownership &amp; Projections</a>
+          <div class="navgroup">Research</div>
+          <a role="menuitem" href="app.html#news">News &amp; Chatter</a>
+          <a role="menuitem" href="app.html#saved">Saved Lineups</a>
+        </div>
+      </div>
+      <div class="navitem">
+        <button type="button" class="navbtn here" aria-haspopup="true" aria-expanded="false">
+          NFL <span class="navcaret" aria-hidden="true">▼</span>
+        </button>
+        <div class="navmenu" role="menu">
+          <div class="navgroup">DFS</div>
+          <a role="menuitem" class="current" href="nfl-slate.html">Slate Board</a>
+          <a role="menuitem" href="nfl-projections.html">Fantasy Projections</a>
+          <div class="navgroup">Research</div>
+          <a role="menuitem" href="nfl.html">Advanced Stats</a>
+          <a role="menuitem" href="nfl-props.html">Player Props</a>
+          <div class="navgroup">Lineups</div>
+          <span class="navsoon">Optimizer — coming soon</span>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section id="slate" class="panel active">
+      <h1 id="slTitle">NFL DFS Slate Board</h1>
+      <p class="sub" id="slMeta"></p>
+
+      <p class="hint">
+        Every player DraftKings is offering, with what he is likely to score, how
+        often he reaches what the slate needs, and how much of the field will be on
+        him. <b>Proj</b> is the median, <b>Ceiling</b> the 90th percentile and
+        <b>Super</b> the one game in thirty that wins a tournament. <b>Boom</b> is how
+        often he clears the score his position actually needs on this slate.
+        <b>Leverage</b> is that boom rate minus his ownership, so positive means the
+        field is under-rostering the outcome he genuinely produces.
+      </p>
+      <p class="hint warnbox" id="slOwnWarn">
+        <b>Ownership here is a model, not a measurement.</b> There is no NFL contest
+        ownership data to train on yet, so these come from salary, value and ceiling
+        with one hard constraint: a lineup has exactly one quarterback, so every
+        quarterback's ownership must add to 100%, and every running back to about
+        230% once the flex is shared out. That arithmetic is enforced. The split
+        between the three contest types is a documented assumption about how those
+        fields behave, not three separately measured models. Every build is archived
+        so that the moment real results exist, this becomes checkable.
+      </p>
+      <p class="hint" id="slInj"></p>
+
+      <div id="slUnlock" class="unlockbar">
+        <span><strong>Free with your email:</strong> ownership, leverage, boom rates
+          and ceilings. Salaries and projections are free to everyone.</span>
+        <button type="button" id="slUnlockBtn" class="primary small">Unlock free →</button>
+      </div>
+
+      <div class="trim-bar">
+        <span class="filter-sep">Ownership for</span>
+        <button class="ghost small slown active" data-c="mme">Mass multi</button>
+        <button class="ghost small slown" data-c="hs">High stakes</button>
+        <button class="ghost small slown" data-c="se">Single entry</button>
+        <span class="filter-sep">Pos</span>
+        <button class="ghost small slpos active" data-p="">All</button>
+        <button class="ghost small slpos" data-p="QB">QB</button>
+        <button class="ghost small slpos" data-p="RB">RB</button>
+        <button class="ghost small slpos" data-p="WR">WR</button>
+        <button class="ghost small slpos" data-p="TE">TE</button>
+      </div>
+
+      <div class="trim-bar">
+        <span class="filter-sep">Game</span>
+        <select id="slGame" class="filter-num" style="min-width:150px"></select>
+        <input id="slSearch" type="text" placeholder="Filter player or team…" class="filter-text" />
+        <label class="chk" title="Hide players whose history is too short for the numbers to mean much. On by default here, because their ceilings are wide enough to dominate any leverage ranking.">
+          <input type="checkbox" id="slHideThin" checked /> Hide thin
+        </label>
+        <label class="chk" title="Hide players DraftKings lists but this cannot project">
+          <input type="checkbox" id="slHideNoProj" checked /> Hide unprojected
+        </label>
+      </div>
+
+      <div class="tablewrap">
+        <table id="slTable">
+          <thead><tr></tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+      <p class="hint" id="slCount"></p>
+
+      <section class="seo-copy">
+        <h2>How to read this board</h2>
+        <h3>Leverage is the number worth sorting on</h3>
+        <p>
+          A projection tells you what a player scores. It does not tell you whether
+          rostering him is a good idea, because that depends on his salary and on how
+          many other entries have the same player. Two lineups that both score well do
+          not both win: the one nobody else had does.
+        </p>
+        <p>
+          So leverage compares how often a player reaches the score his position
+          actually needs on this slate against how much of the field is on him. The
+          threshold is taken from the slate rather than fixed, because the score that
+          makes a quarterback worth playing on a twelve game slate is not the same as
+          on a three game one.
+        </p>
+        <h3>Why ownership has to add up</h3>
+        <p>
+          Most ownership models are a list of guesses that do not reconcile. A
+          DraftKings lineup contains exactly one quarterback, so the ownership of
+          every quarterback on the slate has to total 100%. Two running backs and a
+          share of the flex means the backs total about 230%, the receivers about
+          355%, the tight ends about 115%. That is arithmetic, and enforcing it stops
+          the common failure where a model likes eight quarterbacks and quietly claims
+          that 180% of lineups contain one.
+        </p>
+        <p>
+          What the model does inside that constraint is opinion, and it is stated
+          plainly: players get rostered for value, with a pull toward expensive
+          players who are obviously good, and for upside. How concentrated the field
+          is depends on the contest, which is the only thing separating the three
+          columns.
+        </p>
+        <h3>The three contest types</h3>
+        <p>
+          <b>Single entry</b> is the most concentrated, because a casual entrant with
+          one lineup takes the obvious plays. <b>High stakes</b> is flatter and pays
+          more for upside, because that field knows what the chalk is and is trying to
+          get off it. <b>Mass multi entry</b> is flattest of all, because somebody
+          filling two hundred lineups physically cannot put the same player in all of
+          them. Those are assumptions about behaviour, and they are the honest part of
+          an otherwise unvalidated model.
+        </p>
+        <h3>What is still missing</h3>
+        <p>
+          Defenses are not projected at all, so they appear with a salary and nothing
+          else. Players whose betting lines have been pulled because of injury carry
+          no projection either, and they are shown rather than hidden, because
+          DraftKings is still offering them and a board that quietly drops them is
+          lying about what the slate contains. There is no optimizer or contest
+          simulation on this page yet.
+        </p>
+      </section>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <span>SlateSims · free NFL projections, research and DraftKings PGA DFS tools.</span>
+  </footer>
+  </div>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebApplication",
+        "name": "SlateSims NFL Fantasy Projections",
+        "url": "https://slatesims.com/nfl-slate.html",
+        "applicationCategory": "SportsApplication",
+        "operatingSystem": "Any",
+        "description": "NFL fantasy football projections as distributions, with floor, ceiling and correlated stacks, anchored to the betting market.",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+        "publisher": { "@type": "Organization", "name": "SlateSims", "url": "https://slatesims.com/" }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "SlateSims", "item": "https://slatesims.com/" },
+          { "@type": "ListItem", "position": 2, "name": "NFL Fantasy Projections", "item": "https://slatesims.com/nfl-slate.html" }
+        ]
+      }
+    ]
+  }
+  </script>
+
+  <script src="assets/js/nav.js?v=20261017a"></script>
+  <script src="assets/js/leadgate.js?v=20261017a"></script>
+  <script src="assets/js/slate.js?v=20261017a"></script>
+</body>
+</html>

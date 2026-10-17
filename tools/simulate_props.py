@@ -352,6 +352,7 @@ def position_baselines(logs, meta, seasons, periods):
     these are thinnest."""
     vol = defaultdict(lambda: defaultdict(list))
     snaps = defaultdict(list)
+    owner = defaultdict(list)
     plays = defaultdict(lambda: defaultdict(list))
     rate = defaultdict(lambda: defaultdict(lambda: [0.0, 0.0]))
     for key, byyear in logs.items():
@@ -366,6 +367,7 @@ def position_baselines(logs, meta, seasons, periods):
                 for k in ("rec", "tgt", "car", "cmp", "patt"):
                     vol[pos][k].append(g[k])
                 snaps[pos].append(r.get("_snap"))
+                owner[pos].append(key)
                 for k, v in RATE_OF.items():
                     rate[pos][k][0] += g[k]
                     rate[pos][k][1] += g[v]
@@ -376,7 +378,8 @@ def position_baselines(logs, meta, seasons, periods):
     out = {}
     for pos in vol:
         d = {"_vol": {}, "_snaps": np.asarray(
-            [np.nan if s is None else s for s in snaps[pos]], dtype=np.float64)}
+            [np.nan if s is None else s for s in snaps[pos]], dtype=np.float64),
+             "_owner": np.asarray(owner[pos])}
         for k, vals in vol[pos].items():
             d["_vol"][k] = np.asarray(vals, dtype=np.float64)
         for k, (num, den) in rate[pos].items():
@@ -418,11 +421,38 @@ def role_prior(base, role_now):
         if wsum <= 0 or (wsum * wsum / max((w * w).sum(), 1e-12)) < 25:
             w = np.ones(len(snaps))
     tot = w.sum()
+    owners = base.get("_owner")
     out = {}
     for k, vals in volumes.items():
         m = float((vals * w).sum() / tot)
-        v = float((((vals - m) ** 2) * w).sum() / tot)
-        out[k] = (m, v)
+        # THE VARIANCE PRIOR MUST BE WITHIN PLAYER, NOT POOLED.
+        #
+        # The spread of every game at a position contains two different
+        # things: how much one player varies week to week, and how much
+        # players differ from each other. Only the first is a prior for an
+        # individual's variance, and using the pooled figure imports the
+        # second. For a player whose role rests on one game, shrinkage puts
+        # most of the weight on this prior, so the pooled version handed him a
+        # fantasy distribution with a median of 5 and a 90th percentile of 32.
+        # Those players then dominated every leverage ranking on the slate
+        # board, which is how it was noticed.
+        pooled = float((((vals - m) ** 2) * w).sum() / tot)
+        within = None
+        if owners is not None and len(owners) == len(vals):
+            num = den = 0.0
+            for who in np.unique(owners[w > 0.05]):
+                sel = owners == who
+                ww = w[sel]
+                if ww.sum() <= 0 or sel.sum() < 3:
+                    continue
+                vv = vals[sel]
+                mu = float((vv * ww).sum() / ww.sum())
+                var = float((((vv - mu) ** 2) * ww).sum() / ww.sum())
+                num += var * ww.sum()
+                den += ww.sum()
+            if den > 0:
+                within = num / den
+        out[k] = (m, within if within is not None else pooled)
     return out
 
 
