@@ -1,11 +1,11 @@
 {
- "updatedUtc": "2026-10-20T19:18:14Z",
+ "updatedUtc": "2026-10-20T23:54:22Z",
  "slate": "BAYCURRENT_2026",
  "event": "",
  "counts": {
-  "items": 2,
-  "golfersMentioned": 2,
-  "news": 2,
+  "items": 0,
+  "golfersMentioned": 0,
+  "news": 0,
   "chatter": 0
  },
  "sources": [
@@ -136,42 +136,6 @@
    "error": "HTTP 403 \u2014 set REDDIT_CLIENT_ID/SECRET to enable chatter"
   }
  ],
- "mentions": [
-  {
-   "name": "Denny McCarthy",
-   "news": 1,
-   "chatter": 0,
-   "total": 1
-  },
-  {
-   "name": "Patrick Rodgers",
-   "news": 1,
-   "chatter": 0,
-   "total": 1
-  }
- ],
- "items": [
-  {
-   "title": "Wide Receiver (WR) Fantasy Football Start 'Em, Sit 'Em Picks for Week 7 (2026)",
-   "link": "https://www.rotoballer.com/wide-receiver-wr-fantasy-football-start-em-sit-em-picks-for-week-7-2026/1970532",
-   "summary": "No one can stop Malik Nabers in Week 7, and apparently not even J.J. McCarthy can slow him down the [&#8230;]",
-   "published": "Tue, 20 Oct 2026 17:30:50 +0000",
-   "source": "RotoBaller",
-   "kind": "news",
-   "golfers": [
-    "Denny McCarthy"
-   ]
-  },
-  {
-   "title": "Quarterback Fantasy Football Waiver Wire Pickups - Top QB Adds for Week 7 Include Kyler Murray, Michael Penix Jr., Aaron Rodgers and more",
-   "link": "https://www.rotoballer.com/quarterback-qb-waiver-wire-pickups-week-7-fantasy-football-2026/1969931",
-   "summary": "&#160; Week 6 was not an ideal week for quarterback production in fantasy football. Not only were fantasy managers missing [&#8230;]",
-   "published": "Tue, 20 Oct 2026 16:40:52 +0000",
-   "source": "RotoBaller",
-   "kind": "news",
-   "golfers": [
-    "Patrick Rodgers"
-   ]
-  }
- ]
+ "mentions": [],
+ "items": []
 }
