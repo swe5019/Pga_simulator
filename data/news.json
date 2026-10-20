@@ -1,5 +1,5 @@
 {
- "updatedUtc": "2026-10-19T20:36:35Z",
+ "updatedUtc": "2026-10-20T00:22:11Z",
  "slate": "BAYCURRENT_2026",
  "event": "",
  "counts": {
@@ -55,7 +55,7 @@
    "source": "Pinnacle Golf",
    "ok": false,
    "items": 0,
-   "error": "TimeoutError"
+   "error": "HTTP 404"
   },
   {
    "source": "SportsGrid",
@@ -114,7 +114,7 @@
   {
    "source": "Google News: PGA WD",
    "ok": true,
-   "items": 49,
+   "items": 100,
    "error": null
   },
   {
