@@ -107,21 +107,25 @@ jobs:
           set -o pipefail
           python tools/fetch_dk.py 2>&1 | tee /tmp/dk.log
 
-      - name: Record why it failed
-        if: failure()
+      # A manual run always leaves its output behind, not just a failed one,
+      # because the diagnostic modes (list, find_contest, probe) succeed and
+      # print their findings to a log that cannot be read from here. Scheduled
+      # runs are excluded so this does not commit on every cron tick.
+      - name: Record what this run did
+        if: always() && github.event_name == 'workflow_dispatch'
         run: |
           mkdir -p data
           {
-            echo "DK fetch failed at $(date -u +%Y-%m-%dT%H:%M:%SZ)"
+            echo "DK run at $(date -u +%Y-%m-%dT%H:%M:%SZ) — ${{ job.status }}"
             echo "run: ${{ github.run_id }}  event: ${{ github.event_name }}"
             echo "inputs: tournament='${{ inputs.tournament_name }}' date='${{ inputs.date }}' dg='${{ inputs.draftgroup_id }}' contest='${{ inputs.contest_id }}' auto='${{ inputs.auto }}' list='${{ inputs.list }}'"
             echo "---- last 120 lines ----"
             tail -n 120 /tmp/dk.log 2>/dev/null || echo "(no output captured)"
-          } > data/dk_last_error.txt
+          } > data/dk_last_run.txt
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add data/dk_last_error.txt
-          git diff --cached --quiet || git commit -m "Record why the DK fetch failed"
+          git add data/dk_last_run.txt
+          git diff --cached --quiet || git commit -m "Record what the manual DK run did"
           for i in 1 2 3; do git push && break; git pull --rebase origin main || true; sleep 3; done
 
       - name: Commit CSV

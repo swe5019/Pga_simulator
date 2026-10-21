@@ -1,7 +1,0 @@
-DK fetch failed at 2026-10-21T18:12:45Z
-run: 39650642587  event: workflow_dispatch
-inputs: tournament='BERMUDA_2026' date='10/22/26' dg='' contest='' auto='' list=''
----- last 120 lines ----
-GET https://www.draftkings.com/lobby/getcontests?sport=GOLF
-  no open GOLF contests matched 'BERMUDA'
-Could not resolve a draft group (try DK_DRAFTGROUP_ID).
