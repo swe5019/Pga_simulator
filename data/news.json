@@ -1,11 +1,11 @@
 {
- "updatedUtc": "2026-10-21T17:14:40Z",
- "slate": "BAYCURRENT_2026",
+ "updatedUtc": "2026-10-21T21:44:37Z",
+ "slate": "BUTTERFIELD_2026",
  "event": "",
  "counts": {
-  "items": 2,
-  "golfersMentioned": 2,
-  "news": 2,
+  "items": 8,
+  "golfersMentioned": 6,
+  "news": 8,
   "chatter": 0
  },
  "sources": [
@@ -55,7 +55,7 @@
    "source": "Pinnacle Golf",
    "ok": false,
    "items": 0,
-   "error": "TimeoutError"
+   "error": "HTTP 404"
   },
   {
    "source": "SportsGrid",
@@ -138,13 +138,37 @@
  ],
  "mentions": [
   {
-   "name": "Jordan L. Smith",
+   "name": "Adam Long",
+   "news": 3,
+   "chatter": 0,
+   "total": 3
+  },
+  {
+   "name": "Seamus Power",
    "news": 2,
    "chatter": 0,
    "total": 2
   },
   {
    "name": "Denny McCarthy",
+   "news": 1,
+   "chatter": 0,
+   "total": 1
+  },
+  {
+   "name": "Camiko Smith",
+   "news": 1,
+   "chatter": 0,
+   "total": 1
+  },
+  {
+   "name": "Benjamin James",
+   "news": 1,
+   "chatter": 0,
+   "total": 1
+  },
+  {
+   "name": "Luke List",
    "news": 1,
    "chatter": 0,
    "total": 1
@@ -159,19 +183,85 @@
    "source": "RotoBaller",
    "kind": "news",
    "golfers": [
-    "Jordan L. Smith",
-    "Denny McCarthy"
+    "Denny McCarthy",
+    "Camiko Smith"
    ]
   },
   {
-   "title": "Who Should I Start for Fantasy Football Week 7? Bam Knight, Jordan Addison, Keenan Allen, George Pickens, Xavier Worthy, Chuba Hubbard, Courtland Sutton, Aaron Jones, DeVonta Smith",
-   "link": "https://www.rotoballer.com/who-should-i-start-for-week-7-bam-knight-jordan-addison-keenan-allen-george-pickens-xavier-worthy-chuba-hubbard-courtland-sutton-aaron-jones-sr-devonta-smith/1971987",
-   "summary": "Who Should I Start? Who Should I Sit? Some of the most common Week 7 fantasy football lineup decisions involve [&#8230;]",
-   "published": "Wed, 21 Oct 2026 14:58:26 +0000",
-   "source": "RotoBaller",
+   "title": "College Football Top Plays Based on Betting Splits, Power Ratings and Trends \u2013 Week 8",
+   "link": "https://vsin.com/college-football/college-football-top-plays-based-on-betting-splits-power-ratings-and-trends-for-week-8/",
+   "summary": "Week 8 College Football Betting Trends: The following is a collection of analytical data, betting systems and strength ratings featured on VSiN and qualified for the college football games of Week 8. This report is meant to emulate the process that Steve Makinen and other members of the VSiN Analytics team undergo when handicapping each [&#8230;] The post College Football Top Plays Based on Bettin",
+   "published": "Wed, 21 Oct 2026 01:33:09 +0000",
+   "source": "VSiN",
    "kind": "news",
    "golfers": [
-    "Jordan L. Smith"
+    "Seamus Power"
+   ]
+  },
+  {
+   "title": "Week 8 College Football Hub: Picks, Best Bets, and Previews",
+   "link": "https://vsin.com/college-football/week-8-college-football-hub-picks-best-bets-and-previews/",
+   "summary": "Week 8 College Football Hub Week 7 lived up to the hype. Now, with two weeks worth of games left before the first round of CFP Rankings come out, we&#8217;ve got some very good games with some long-ranging impact here in Week 8. Ole Miss vs. Texas and Houston vs. Utah are the two matchups [&#8230;] The post Week 8 College Football Hub: Picks, Best Bets, and Previews appeared first on VSiN .",
+   "published": "Wed, 21 Oct 2026 01:02:40 +0000",
+   "source": "VSiN",
+   "kind": "news",
+   "golfers": [
+    "Adam Long"
+   ]
+  },
+  {
+   "title": "YellaWood 500 Predictions: Top 5 Picks and Best Long Shots",
+   "link": "https://vsin.com/auto-racing/yellawood-500-predictions-top-5-picks-and-best-long-shots/",
+   "summary": "YellaWood 500 Predictions: Top 5 Picks and Best Long Shots: If you ask any of the drivers in the running for the 2026 NASCAR Cup Series title, they would point to one weekend where the race could change everything, and undoubtedly, this is it, as the series heads to dangerous Talladega Superspeedway for the running [&#8230;] The post YellaWood 500 Predictions: Top 5 Picks and Best Long Shots appea",
+   "published": "Wed, 21 Oct 2026 00:56:00 +0000",
+   "source": "VSiN",
+   "kind": "news",
+   "golfers": [
+    "Adam Long"
+   ]
+  },
+  {
+   "title": "College Football Week 8 Picks: East Carolina vs. Memphis",
+   "link": "https://vsin.com/college-football/college-football-week-8-picks-east-carolina-vs-memphis/",
+   "summary": "East Carolina vs. Memphis The Week 8 Thirsty Thursday slate is three short of a six-pack, but it does feature three different conferences as we get closer to another jampacked CFB Saturday. James Madison vs. App State, East Carolina vs. Memphis, and Liberty vs. Kennesaw State are the three games, as every one of them [&#8230;] The post College Football Week 8 Picks: East Carolina vs. Memphis appea",
+   "published": "Wed, 21 Oct 2026 00:54:00 +0000",
+   "source": "VSiN",
+   "kind": "news",
+   "golfers": [
+    "Benjamin James"
+   ]
+  },
+  {
+   "title": "YellaWood 500 2026 NASCAR Betting Odds and Predictions",
+   "link": "https://vsin.com/auto-racing/yellawood-500-2026-nascar-betting-odds-and-predictions/",
+   "summary": "YellaWood 500 More miles and long days and nights for the NASCAR haulers, as this week\u2019s race in Talladega is a long way from Phoenix. But, it\u2019s very important to get all that precious cargo there in one piece, as this is race No. 34 of 36 for this season. It\u2019s the eighth of 10 [&#8230;] The post YellaWood 500 2026 NASCAR Betting Odds and Predictions appeared first on VSiN .",
+   "published": "Tue, 20 Oct 2026 14:08:00 +0000",
+   "source": "VSiN",
+   "kind": "news",
+   "golfers": [
+    "Adam Long"
+   ]
+  },
+  {
+   "title": "NBA Opening Day Betting Insights",
+   "link": "https://vsin.com/the-vsin-daily/nba-opening-day-betting-insights/",
+   "summary": "\ud83c\udfc0 Three NBA Betting Insights Worth Knowing Before Tipoff The NBA season opens today with a tripleheader \u2014 Celtics\u2013Pistons, 76ers\u2013Knicks and Thunder\u2013Spurs \u2014 starting at 3 p.m. ET. Our 44-page VSiN NBA Betting Guide is packed with futures bets, power ratings, team previews and predictions. I asked VSiN.com senior editor Zach Cohen to pull out [&#8230;] The post NBA Opening Day Betting Insights appea",
+   "published": "Tue, 20 Oct 2026 05:19:51 +0000",
+   "source": "VSiN",
+   "kind": "news",
+   "golfers": [
+    "Seamus Power"
+   ]
+  },
+  {
+   "title": "Titleist Shop at Pinehurst: An exclusive look at the incredible new retail destination!",
+   "link": "https://golfwrx.com/788125/titleist-shop-at-pinehurst-an-exclusive-look-at-the-incredible-new-retail-destination/",
+   "summary": "Visiting Pinehurst is a bucket-list experience for any golfer! While playing iconic courses like Pinehurst No. 2 is often the main draw, there\u2019s so much more to explore on the property. For gearheads, the Titleist Shop at Pinehurst is a must-visit, offering unique custom merchandise, limited-edition Titleist and Pinehurst gear, custom golf balls personalized on-site, [&#8230;]",
+   "published": "Fri, 16 Oct 2026 16:46:55 +0000",
+   "source": "GolfWRX",
+   "kind": "news",
+   "golfers": [
+    "Luke List"
    ]
   }
  ]
