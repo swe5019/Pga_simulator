@@ -106,6 +106,15 @@ jobs:
         run: |
           set -o pipefail
           python tools/fetch_dk.py 2>&1 | tee /tmp/dk.log
+          # A silent success is not a success. An edit once removed this
+          # script's entry point, leaving a file that imported cleanly, printed
+          # nothing, exited 0 and reported green while fetching nothing at all.
+          # Every path through this script prints, so no output means it never
+          # really ran.
+          if [ ! -s /tmp/dk.log ]; then
+            echo "fetch_dk.py produced no output at all, which means it did not run"
+            exit 1
+          fi
 
       # A manual run always leaves its output behind, not just a failed one,
       # because the diagnostic modes (list, find_contest, probe) succeed and

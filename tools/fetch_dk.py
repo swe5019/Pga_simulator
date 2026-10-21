@@ -627,12 +627,12 @@ def list_groups():
     """Print the open GOLF draft groups so the right slate can be identified.
 
     The event name is not usable for this: it comes from the api.draftkings.com
-    draftables response, which 403s this runner, so every group reports event=''
-    and the name tells us nothing. What does separate a full-tournament Classic
-    group from a Tiers or single-round group is the SHAPE of its player pool —
-    a Classic group carries the whole field priced on the salary scale the app's
-    $50K cap assumes, while a Tiers group carries group numbers in the same
-    field and a single-round group carries a fraction of the field.
+    draftables response, which 403s this runner, so every group reports an empty
+    event and the name tells us nothing. What does separate a full-tournament
+    Classic group from a Tiers or single-round group is the SHAPE of its player
+    pool. A Classic group carries the whole field priced on the salary scale the
+    app's $50K cap assumes; a Tiers group carries group numbers in place of
+    salaries; a single-round group carries a fraction of the field.
 
     So this prints field size and salary range per group, and repeats the whole
     thing as a compact table at the end, because the only way to read this
@@ -664,15 +664,15 @@ def list_groups():
             nm = (r.get("displayName") or "").strip()
             if nm:
                 names.append(nm)
-            s_ = r.get("salary")
-            if isinstance(s_, (int, float)) and s_ > 0:
-                sal.append(s_)
+            val = r.get("salary")
+            if isinstance(val, (int, float)) and val > 0:
+                sal.append(val)
         v = vol.get(dg, {})
         rows.append({
             "dg": dg, "start": str(start), "suffix": suffix, "gt": gt,
             "field": len(names), "lo": min(sal) if sal else 0,
             "hi": max(sal) if sal else 0, "contests": v.get("n", 0),
-            "example": v.get("name", ""), "top": names[:3],
+            "top": names[:3],
         })
         print(f"  dg={dg} start={start}{suffix} gameType={gt} "
               f"field={len(names)} salary={min(sal) if sal else 0}-"
@@ -685,13 +685,14 @@ def list_groups():
     # A Classic group prices the whole field in the thousands. Anything priced
     # in the hundreds is a Tiers board, where the number is a group, not money.
     print("\n==== summary ====")
-    print(f"{'dg':<8}{'field':>6}{'salary':>14}{'cts':>5}  {'type':<9}start")
+    print(f"{'dg':<8}{'field':>6}{'salary':>14}{'cts':>5}  {'kind':<9}start")
     for r in sorted(rows, key=lambda r: (-r["field"], -r["contests"])):
         kind = ("classic" if r["hi"] >= 5000 and r["field"] >= 100
                 else "tiers" if 0 < r["hi"] < 5000
                 else "partial" if r["field"] else "empty")
-        print(f"{r['dg']:<8}{r['field']:>6}{str(r['lo']) + '-' + str(r['hi']):>14}"
-              f"{r['contests']:>5}  {kind:<9}{r['start']}{r['suffix']}")
+        money = f"{r['lo']}-{r['hi']}"
+        print(f"{r['dg']:<8}{r['field']:>6}{money:>14}{r['contests']:>5}  "
+              f"{kind:<9}{r['start']}{r['suffix']}")
     best = [r for r in rows if r["hi"] >= 5000 and r["field"] >= 100]
     if best:
         b = max(best, key=lambda r: (r["contests"], r["field"]))
@@ -700,3 +701,449 @@ def list_groups():
         print(f"  re-run with draftgroup_id={b['dg']} to build from it")
     else:
         print("\nno group looks like a full-field Classic slate")
+
+
+def probe_contest(cid):
+    """Try several DK endpoints for a contest id and report which expose payouts."""
+    candidates = [
+        f"https://api.draftkings.com/contests/v1/contests/{cid}?format=json",
+        f"https://api.draftkings.com/contests/v1/contests/{cid}",
+        f"https://www.draftkings.com/contest/detailspop?contestId={cid}",
+        f"https://api.draftkings.com/contests/v1/contests/{cid}/payouts?format=json",
+    ]
+    for url in candidates:
+        data = get_json(url, optional=True)
+        if data is None:
+            continue
+        pay = find_key(data, "payoutSummary") or find_key(data, "payoutDescriptions") \
+            or find_key(data, "payouts") or find_key(data, "TotalPayouts")
+        dg = find_key(data, "draftGroupId")
+        keys = list(data.keys()) if isinstance(data, dict) else type(data).__name__
+        print(f"OK {url}\n   top-keys={keys}\n   draftGroupId={dg} payouts_present={pay is not None}")
+        if pay is not None:
+            print("   payout sample:", json.dumps(pay)[:400])
+    return 0
+
+
+def probe_draftgroup_payouts(dg):
+    """Find real open contests for a draft group in the lobby and probe payouts."""
+    lobby = get_json("https://www.draftkings.com/lobby/getcontests?sport=GOLF", optional=True) or {}
+    matches = [c for c in lobby.get("Contests", []) if str(c.get("dg")) == str(dg)]
+    print(f"{len(matches)} open contests for draft group {dg}")
+    for c in matches[:4]:
+        cid = c.get("id")
+        print(f"--- contest {cid} | {c.get('n')} | fee={c.get('a')} | entries={c.get('m')} ---")
+        data = get_json(f"https://api.draftkings.com/contests/v1/contests/{cid}?format=json", optional=True)
+        if not data:
+            continue
+        pay = find_key(data, "payoutSummary") or find_key(data, "payoutDescriptions") \
+            or find_key(data, "payouts")
+        print("   payouts_present=", pay is not None, "| sample:", json.dumps(pay)[:300] if pay else "")
+    return 0
+
+
+def main():
+    if os.environ.get("DK_PROBE_DG", "").strip():
+        return probe_draftgroup_payouts(os.environ["DK_PROBE_DG"].strip())
+    if os.environ.get("DK_PROBE_CONTEST", "").strip():
+        return probe_contest(os.environ["DK_PROBE_CONTEST"].strip())
+    find_name = os.environ.get("DK_FIND_CONTEST", "").strip()
+    if find_name:
+        return find_contest_by_name(find_name)
+    if os.environ.get("DK_LIST", "").strip():
+        list_groups()
+        return 0
+    # Pull real post-contest ownership from a completed contest's standings CSV.
+    if (os.environ.get("DK_RESULTS_CONTEST", "").strip()
+            or os.environ.get("DK_RESULTS_FIND", "").strip()):
+        return fetch_ownership()
+    contest = os.environ.get("DK_CONTEST_ID", "").strip()
+    tourney = os.environ.get("DK_TOURNAMENT", "").strip()
+    date = os.environ.get("DK_DATE", "").strip()
+    out = os.environ.get("DK_OUT", "data/dk_salaries.csv").strip()
+    dg_override = os.environ.get("DK_DRAFTGROUP_ID", "").strip()
+    auto = os.environ.get("DK_AUTO", "").strip()
+
+    # Fully automatic mode: discover the current main PGA slate (no contest id,
+    # no tournament name needed). Used by the schedule trigger so salaries land
+    # on their own as soon as DK posts the next event.
+    showdown_disc = None
+    is_new_tournament = False  # track whether to update dk_contests.json
+    if auto and not (dg_override or contest):
+        # Load the current dk.json so we can compare tournament names.
+        existing_dk = _load_json_safe(os.path.join(os.path.dirname(out), "dk.json"))
+
+        classic_disc, showdown_disc = auto_discover()
+
+        if classic_disc:
+            disc_dg, event_auto, tourney_auto, date_auto = classic_disc
+            if existing_dk and existing_dk.get("tournament") == tourney_auto:
+                # Same tournament is already stored — re-use the ORIGINAL draft group
+                # so weekend/post-cut groups never overwrite the classic salaries.
+                dg_override = existing_dk["draftGroupId"]
+                print(f"Same tournament {tourney_auto} already in dk.json — "
+                      f"locking onto original dg={dg_override} (ignoring dg={disc_dg})")
+            else:
+                # New tournament or first run — use the freshly discovered group.
+                dg_override = disc_dg
+                is_new_tournament = True
+            tourney = tourney or tourney_auto
+            date = date or date_auto
+        elif existing_dk and existing_dk.get("tournament"):
+            # No new classic in the lobby yet (e.g. between events).
+            # Refresh out/wd status from the known draft group so the app stays current.
+            dg_override = existing_dk["draftGroupId"]
+            tourney = existing_dk["tournament"]
+            date = existing_dk["date"]
+            print(f"No new classic in lobby — refreshing status for "
+                  f"{tourney} dg={dg_override}")
+        else:
+            print("Nothing to fetch yet — exiting cleanly.")
+            return 0
+
+    # Keyword to find the slate in the lobby, e.g. "TRAVELERS_2026" -> "travelers".
+    keyword = os.environ.get("DK_FIND", "").strip() or (tourney.split("_")[0] if tourney else "")
+    if not (tourney and date):
+        raise SystemExit("DK_TOURNAMENT and DK_DATE are required (or set DK_AUTO=1)")
+
+    if dg_override:
+        dg = dg_override
+    else:
+        dg = resolve_draft_group(contest, keyword)
+    if not dg:
+        raise SystemExit("Could not resolve a draft group (try DK_DRAFTGROUP_ID).")
+    print(f"Using draftGroupId {dg}")
+
+    ddata = get_draftgroup_data(dg)
+    draftables = ddata.get("draftables", [])
+    event = (find_key(ddata, "competition") or {}).get("name", "")
+
+    players = {}  # name -> {salary, status, out, dkId}
+    for p in draftables:
+        name = (p.get("displayName") or "").strip()
+        salary = p.get("salary")
+        if not name or salary is None or name in players:
+            continue
+        status, is_out = player_status(p)
+        # DK upload files use the "Name (ID)" format; the draftableId is that ID
+        # (matches the DKSalaries "Name + ID" column).
+        dk_id = p.get("draftableId") or p.get("playerDkId") or p.get("playerId")
+        players[name] = {"salary": int(salary), "status": status, "out": is_out,
+                         "dkId": dk_id}
+
+    if not players:
+        # The discovered classic group has no draftables yet. This is normal late in
+        # a tournament week: this week's classic has already locked (Thursday tee) and
+        # the only open classic group is next week's event, which DK has not populated.
+        # Don't abort the whole run — preserve the existing dk.json classic salaries and
+        # still refresh the current showdown slate if we discovered one.
+        print(f"No players parsed from classic draftables for dg={dg} — "
+              f"skipping classic write, keeping existing dk.json.")
+        if showdown_disc:
+            _fetch_and_write_showdown(showdown_disc, os.path.dirname(out))
+            return 0
+        raise SystemExit("No players parsed and no showdown discovered — nothing to do.")
+
+    rows = sorted(players.items(), key=lambda kv: -kv[1]["salary"])  # high salary first
+
+    # Debug: show what status-ish fields DK exposes, plus any flagged-out players.
+    sample = draftables[0] if draftables else {}
+    print("Sample draftable status fields:",
+          {k: sample.get(k) for k in ("status", "newsStatus", "isDisabled", "draftAlerts",
+                                      "playerGameAttributes")})
+    print("Sample draftable id fields:",
+          {k: sample.get(k) for k in ("playerDkId", "playerId", "draftableId")})
+    outs = [n for n, v in rows if v["out"]]
+    print(f"Flagged OUT/WD ({len(outs)}): {outs}")
+
+    os.makedirs(os.path.dirname(out), exist_ok=True)
+
+    # Detect showdown by duplicate player names: DK lists every golfer twice in
+    # captain mode (CPT + FLEX), which is structural and true at any field size.
+    #
+    # Field size is NOT a showdown signal. This used to also flag anything under 80
+    # unique players, which silently misfiled every small-field CLASSIC slate as a
+    # showdown: the FedEx St. Jude (69) and Signature events (~70-78) went to
+    # dk_showdown.json and left dk.json frozen on the previous week's event. The
+    # News tab reads its event name from dk.json, so it kept reporting last week's
+    # tournament while everything else had moved on.
+    raw_names = [p.get("displayName", "").strip() for p in draftables if p.get("displayName")]
+    sd_dg = str(showdown_disc[0]) if showdown_disc else None
+    is_showdown = (len(raw_names) > len(set(raw_names))
+                   or (sd_dg is not None and str(dg) == sd_dg))
+
+    # Rich JSON for the live app to overlay onto the master slate (salary + status).
+    doc = {
+        "updatedUtc": datetime.datetime.utcnow().replace(microsecond=0).isoformat() + "Z",
+        "tournament": tourney,
+        "date": date,
+        "event": event,
+        "draftGroupId": str(dg),
+        "isShowdown": is_showdown,
+        "count": len(rows),
+        "players": [{"name": n, "salary": v["salary"], "status": v["status"],
+                     "out": v["out"], "dkId": v["dkId"]}
+                    for n, v in rows],
+    }
+    # If this slate is actually showdown (mis-identified as classic), write it to
+    # dk_showdown.json and leave dk.json untouched to preserve the classic slate.
+    if is_showdown:
+        json_path = os.path.join(os.path.dirname(out), "dk_showdown.json")
+        print(f"Detected showdown slate (unique players: {len(set(raw_names))}) — "
+              f"writing to dk_showdown.json instead of dk.json")
+    else:
+        json_path = os.path.join(os.path.dirname(out), "dk.json")
+        with open(out, "w", newline="") as fh:
+            w = csv.writer(fh)
+            w.writerow(["Tournament_Name", "Date", "Name", "Salary"])
+            for name, v in rows:
+                w.writerow([tourney, date, name, v["salary"]])
+
+    with open(json_path, "w") as fh:
+        json.dump(doc, fh, indent=1)
+
+    print(f"Wrote {json_path}: {len(rows)} golfers for {tourney} ({date}, event {event!r})")
+
+    # Fetch the showdown slate too if we discovered one (auto mode only).
+    if showdown_disc:
+        _fetch_and_write_showdown(showdown_disc, os.path.dirname(out))
+
+    # Real DK contests + exact payout tables for this draft group (for Contest Sim).
+    # Only refresh when it's a new tournament; mid-week runs preserve the original
+    # big-field classic contest list so weekend "Short Game" slots don't replace it.
+    existing_contests = _load_json_safe(os.path.join(os.path.dirname(out), "dk_contests.json"))
+    contests_tournament_matches = (existing_contests or {}).get("tournament") == tourney
+    # Also refresh when the stored list is thin. DK posts smaller contests (the
+    # low-buy-in and single-entry ones) after the flagship GPPs go up, so a list
+    # captured early in the week can be missing most of what people actually play —
+    # and without this it would sit stale until the next tournament.
+    have = len((existing_contests or {}).get("contests") or [])
+    thin_list = contests_tournament_matches and have < MIN_HEALTHY_CONTESTS
+    age_h = None
+    if contests_tournament_matches:
+        prev = _parse_dk_dt((existing_contests or {}).get("updatedUtc"))
+        if prev:
+            age_h = (datetime.datetime.utcnow() - prev).total_seconds() / 3600.0
+    stale_list = age_h is not None and age_h > CONTEST_MAX_AGE_HOURS
+    force = os.environ.get("DK_REFRESH_CONTESTS", "").strip() not in ("", "0")
+    if thin_list:
+        print(f"Only {have} contests stored for {tourney} — refreshing to pick up "
+              f"smaller/single-entry contests")
+    elif stale_list:
+        print(f"Contest list for {tourney} is {age_h:.1f}h old — refreshing to pick up "
+              f"contests DK has posted since")
+    if not is_showdown and (not contests_tournament_matches or is_new_tournament
+                            or thin_list or stale_list or force):
+        contests = build_contests(dg, tourney, event)
+        cpath = os.path.join(os.path.dirname(out), "dk_contests.json")
+        with open(cpath, "w") as fh:
+            json.dump(contests, fh, indent=1)
+        print(f"Wrote {cpath}: {len(contests['contests'])} contests with exact payouts")
+    elif not is_showdown:
+        print(f"Keeping existing dk_contests.json for {tourney} (not a new tournament)")
+    return 0
+
+
+def _fetch_and_write_showdown(disc, data_dir):
+    """Fetch a showdown draft group and write dk_showdown.json."""
+    sd_dg, sd_event, sd_tourney, sd_date = disc
+    print(f"\n--- Fetching showdown slate dg={sd_dg} ---")
+    ddata = get_draftgroup_data(sd_dg)
+    if not ddata:
+        print("  showdown draftables fetch failed — skipping dk_showdown.json")
+        return
+    draftables = ddata.get("draftables", [])
+    event = (find_key(ddata, "competition") or {}).get("name", "") or sd_event
+
+    players = {}
+    for p in draftables:
+        name = (p.get("displayName") or "").strip()
+        salary = p.get("salary")
+        if not name or salary is None or name in players:
+            continue
+        status, is_out = player_status(p)
+        dk_id = p.get("draftableId") or p.get("playerDkId") or p.get("playerId")
+        players[name] = {"salary": int(salary), "status": status, "out": is_out, "dkId": dk_id}
+
+    if not players:
+        print("  no showdown players parsed — skipping dk_showdown.json")
+        return
+
+    rows = sorted(players.items(), key=lambda kv: -kv[1]["salary"])
+    doc = {
+        "updatedUtc": datetime.datetime.utcnow().replace(microsecond=0).isoformat() + "Z",
+        "tournament": sd_tourney,
+        "date": sd_date,
+        "event": event,
+        "draftGroupId": str(sd_dg),
+        "isShowdown": True,
+        "count": len(rows),
+        "players": [{"name": n, "salary": v["salary"], "status": v["status"],
+                     "out": v["out"], "dkId": v["dkId"]}
+                    for n, v in rows],
+    }
+    path = os.path.join(data_dir, "dk_showdown.json")
+    with open(path, "w") as fh:
+        json.dump(doc, fh, indent=1)
+    print(f"  Wrote {path}: {len(rows)} showdown players for {sd_tourney}")
+
+
+def extract_tiers(detail):
+    """Pull a rank-by-rank payout table [{min,max,value}] from a DK contest detail."""
+    found = []
+
+    def walk(o):
+        if isinstance(o, list):
+            if o and isinstance(o[0], dict) and "minPosition" in o[0]:
+                found.append(o)
+            for x in o:
+                walk(x)
+        elif isinstance(o, dict):
+            for v in o.values():
+                walk(v)
+
+    walk(detail)
+    if not found:
+        return []
+    arr = max(found, key=len)
+    tiers = []
+    for t in arr:
+        mn = t.get("minPosition")
+        mx = t.get("maxPosition", mn)
+        val = None
+        pd = t.get("payoutDescriptions")
+        if isinstance(pd, list) and pd:
+            val = pd[0].get("value")
+        if val is None:
+            cash = (t.get("tierPayoutDescriptions") or {}).get("Cash")
+            if cash:
+                try:
+                    val = float(str(cash).replace("$", "").replace(",", ""))
+                except ValueError:
+                    val = None
+        if mn is not None and val is not None:
+            tiers.append({"min": int(mn), "max": int(mx), "value": float(val)})
+    return tiers
+
+
+def build_contests(dg, tourney, event):
+    """Discover real open contests for a draft group and capture exact payout tiers.
+    Picks a spread of contest sizes/fees (deduped), up to a sane cap."""
+    lobby = get_json("https://www.draftkings.com/lobby/getcontests?sport=GOLF", optional=True) or {}
+    matches = [c for c in lobby.get("Contests", []) if str(c.get("dg")) == str(dg)]
+
+    # Spread the picks across ENTRY FEES rather than taking the biggest fields.
+    # Sorting purely by field size let the handful of giant flagship GPPs consume
+    # every slot, so the small-stakes and single-entry contests most people actually
+    # play (a $5 Caddie, a $3 single entry) never made the list at all.
+    # Drop satellites and qualifiers. They pay entry TICKETS rather than cash, so the
+    # contest sim's ROI is meaningless for them — and because each sits at its own odd
+    # buy-in ($1.85, $9, $13, $27...) they were spawning fee buckets and eating the
+    # slots that should go to real cash contests.
+    def is_satellite(c):
+        n = (c.get("n") or "").lower()
+        return any(k in n for k in ("satellite", "qual #", "qualifier", " qual ", "ticket"))
+
+    cash = [c for c in matches if not is_satellite(c)] or matches
+
+    by_fee = {}
+    for c in cash:
+        by_fee.setdefault(c.get("a"), []).append(c)
+    buckets = [sorted(v, key=lambda c: -(c.get("m") or 0))
+               for _, v in sorted(by_fee.items(), key=lambda kv: (kv[0] is None, kv[0]))]
+
+    seen, picks, depth = set(), [], 0
+    # Round-robin: every fee level contributes its biggest contest before any fee
+    # level contributes its second, so the spread survives the cap.
+    while (len(picks) < MAX_CONTESTS and depth < MAX_PER_FEE
+           and any(len(b) > depth for b in buckets)):
+        for b in buckets:
+            if depth >= len(b) or len(picks) >= MAX_CONTESTS:
+                continue
+            c = b[depth]
+            key = (c.get("n") or "").strip().lower()
+            if key in seen:
+                continue
+            seen.add(key)
+            picks.append(c)
+        depth += 1
+
+    out = []
+    exact = 0
+    for c in picks:
+        cid = c.get("id")
+        # Exact payout tiers live behind api.draftkings.com, which the runner is
+        # currently blocked from. Losing the tiers must NOT lose the contest:
+        # without this the picker went empty and the Contest tab had nothing to
+        # choose but its generic modeled option. Keeping the contest preserves its
+        # real entry fee and field size, which are the two inputs that matter most,
+        # and the app falls back to modeling the payout curve when tiers are null.
+        detail = get_json(f"https://api.draftkings.com/contests/v1/contests/{cid}?format=json",
+                          optional=True)
+        tiers = extract_tiers(detail) if detail else []
+        entry = {
+            "id": str(cid),
+            "name": c.get("n"),
+            "fee": c.get("a"),
+            "entries": c.get("m"),
+        }
+        if tiers:
+            pool = sum(t["value"] * (t["max"] - t["min"] + 1) for t in tiers)
+            entry["paidSpots"] = max(t["max"] for t in tiers)
+            entry["prizePool"] = round(pool, 2)
+            entry["tiers"] = tiers
+            exact += 1
+        else:
+            # Lobby prize pool where DK exposes it, so a modeled curve at least
+            # scales to the right money.
+            pool = c.get("po") or c.get("pt") or c.get("prizePool")
+            entry["prizePool"] = round(float(pool), 2) if pool else None
+            entry["tiers"] = None
+        out.append(entry)
+    print(f"  contests kept: {len(out)} ({exact} with exact payout tiers, "
+          f"{len(out) - exact} modeled)")
+    # Cheapest first, biggest field first within a fee — most players are
+    # looking for their low-buy-in contest, not the $5,300 Thunderdome.
+    out.sort(key=lambda x: ((x["fee"] if x["fee"] is not None else 1e9), -(x["entries"] or 0)))
+    return {
+        "updatedUtc": datetime.datetime.utcnow().replace(microsecond=0).isoformat() + "Z",
+        "tournament": tourney,
+        "event": event,
+        "draftGroupId": str(dg),
+        "contests": out,
+    }
+
+
+def player_status(p):
+    """Derive (status_string, is_out) for a DK draftable, defensively across schema.
+    Returns ('', False) for an active player; never raises."""
+    # The docstring promised "never raises", but these fields were assumed to be
+    # strings. The www feed sends news as an INTEGER, which made .strip() throw
+    # and killed the whole run. Coerce instead of trusting the type: a numeric
+    # flag carries no status wording, so it reads as no status.
+    def text(v):
+        return v.strip() if isinstance(v, str) else ""
+
+    if p.get("isDisabled") is True:
+        return ("OUT", True)
+    raw = text(p.get("status"))
+    if raw and raw.lower() not in ("none", "active", "available"):
+        up = raw.upper()
+        return (up, up in ("O", "OUT", "WD", "W/D", "DISABLED"))
+    news = text(p.get("newsStatus"))
+    if news and news.lower() in ("out", "wd"):
+        return (news.upper(), True)
+    # draftAlerts / playerGameAttributes sometimes carry WD/Out wording.
+    blob = json.dumps(p.get("draftAlerts") or p.get("playerGameAttributes") or "").lower()
+    if '"wd"' in blob or "withdraw" in blob or '"out"' in blob:
+        return ("OUT", True)
+    return ("", False)
+    # draftAlerts / playerGameAttributes sometimes carry WD/Out wording.
+    blob = json.dumps(p.get("draftAlerts") or p.get("playerGameAttributes") or "").lower()
+    if '"wd"' in blob or "withdraw" in blob or '"out"' in blob:
+        return ("OUT", True)
+    return ("", False)
+
+
+if __name__ == "__main__":
+    sys.exit(main())
