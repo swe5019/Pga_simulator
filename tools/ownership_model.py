@@ -283,36 +283,62 @@ def make_cut_probs(raw, suffix):
         return None
 
     name_cols = ("player", "name")
+    # Two shapes are accepted. Either the tab states the probability directly,
+    # or it is built like the Odds tab: a price and the probability that price
+    # implies. The second is how this workbook's Make Cut tab is actually laid
+    # out (Player / Odds / Implied_Prob), and rejecting it left Cut% blank for
+    # a whole event while the numbers sat in the file.
     value_cols = ("make_cut_prob_pct", "make_cut_prob", "make_cut_pct",
-                  "makecutprobpct", "cut_prob_pct", "cut%", "make cut prob pct")
-    if not any(c in cols for c in name_cols) or not any(c in cols for c in value_cols):
+                  "makecutprobpct", "cut_prob_pct", "cut%", "make cut prob pct",
+                  "implied_prob", "impliedprob", "implied prob",
+                  "make_cut_implied_prob")
+    odds_cols = ("odds", "make_cut_odds", "cut_odds", "make_cut_odd")
+    if (not any(c in cols for c in name_cols)
+            or not any(c in cols for c in value_cols + odds_cols)):
         print(f"Make Cut tab: found but columns don't match. Looked for name in "
-              f"{name_cols} and probability in {value_cols}; sheet has columns "
-              f"{list(sheet.columns)}. Cut% will be blank this run.")
+              f"{name_cols}, a probability in {value_cols} or a price in "
+              f"{odds_cols}; sheet has columns {list(sheet.columns)}. "
+              f"Cut% will be blank this run.")
         return {}
 
     out = {}
+    per_golfer = []   # one entry per row, for the field total below
     for _, r in sheet.iterrows():
         nm = str(g(r, "player", "name") or "").strip()
         if not nm or nm.lower() == "nan":
             continue
-        v = g(r, "make_cut_prob_pct", "make_cut_prob", "make_cut_pct",
-              "makecutprobpct", "cut_prob_pct", "cut%", "make cut prob pct")
+        v = g(r, *value_cols)
         try:
             v = float(v)
         except (TypeError, ValueError):
-            continue
+            v = None
+        if v is None or not np.isfinite(v):
+            # No stated probability on this row: derive it from the price, the
+            # same conversion the Odds tab uses.
+            pr = american_prob(g(r, *odds_cols))
+            if pr is None:
+                continue
+            v = pr * 100.0
         if not np.isfinite(v):
             continue
         # Accept either 0-1 fractions or 0-100 percentages.
         if 0 <= v <= 1:
             v *= 100
         val = _r(max(0.0, min(100.0, v)), 1)
+        per_golfer.append(val)
         for k in _norm_keys(nm):
             out.setdefault(k, val)
     if not out:
         print(f"Make Cut tab: found {len(sheet)} rows but none had a usable "
               f"name + probability pair. Cut% will be blank this run.")
+    else:
+        # A 36-hole cut takes a fixed slice of the field, so these prices should
+        # add up to roughly that many golfers. Printing the total makes a tab
+        # that is mispriced or on the wrong scale visible in the log instead of
+        # quietly shifting every golfer's cut odds.
+        tot = sum(per_golfer) / 100.0
+        print(f"Make Cut tab: {len(per_golfer)} golfers priced, implied "
+              f"made-cut count {tot:.1f}")
     return out
 
 
