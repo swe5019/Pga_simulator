@@ -302,7 +302,18 @@ def resolve_draft_group(contest, keyword=""):
             g["count"] += 1
 
     if not groups:
-        print(f"  no open GOLF contests matched '{keyword}'")
+        # Not an unlucky keyword — golf contest names do not contain the
+        # tournament name at all, so no keyword can match one. Treating this as
+        # unresolvable sends the caller away empty handed when the slate is
+        # sitting right there in the lobby, so fall back to the same
+        # most-contests heuristic auto mode uses.
+        print(f"  no open GOLF contests matched '{keyword}' — DraftKings names "
+              f"golf contests by tour, not by event, so the tournament name "
+              f"never appears in them. Falling back to the main Classic slate.")
+        classic, _ = auto_discover()
+        if classic:
+            print(f"  falling back to dg={classic[0]}")
+            return classic[0]
         return None
     print(f"Draft groups matching '{keyword}':")
     for dg, g in sorted(groups.items(), key=lambda kv: -kv[1]["count"]):
@@ -361,15 +372,34 @@ def _fmt_date(raw):
 
 
 def _derive_tourney(event, date_str):
-    """'Travelers Championship' + '6/25/26' -> 'TRAVELERS_2026'."""
+    """'Travelers Championship' + '6/25/26' -> 'TRAVELERS_2026'.
+
+    The event name is often unavailable. It is only served by the
+    api.draftkings.com draftables endpoint, which 403s GitHub Actions runners,
+    and the lobby does not carry it: DraftKings brands golf contests by tour,
+    not by tournament, so the open contests for the Butterfield Bermuda
+    Championship are named things like "PGA TOUR $150K Sand Trap" with the
+    event name appearing nowhere in the response.
+
+    When the name is missing the key falls back to the START DATE rather than a
+    fixed word. That matters more than it looks: the caller treats a key equal
+    to the stored one as "same tournament, keep the draft group I already have".
+    A constant fallback therefore matches every future week as well, which
+    would pin the salaries to one event for the rest of the season. Keying on
+    the date makes each week distinct, so the next event is picked up.
+    """
     yr = date_str.split("/")[-1]
     full_yr = ("20" + yr) if len(yr) == 2 else (yr or "")
     drop = {"the", "championship", "open", "invitational", "classic",
             "tournament", "of", "at", "presented", "by", "golf"}
     words = [w for w in re.sub(r"[^A-Za-z ]", " ", event or "").split()
              if w.lower() not in drop]
-    base = "_".join(words).upper() if words else "EVENT"
-    return f"{base}_{full_yr}" if full_yr else base
+    if words:
+        base = "_".join(words).upper()
+        return f"{base}_{full_yr}" if full_yr else base
+    # No name to work from: identify the event by the day it starts.
+    stamp = "".join(ch for ch in (date_str or "") if ch.isdigit())
+    return f"EVENT_{stamp}" if stamp else "EVENT"
 
 
 def parse_standings_ownership(text):
