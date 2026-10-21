@@ -1,6 +1,6 @@
 {
- "updatedUtc": "2026-10-21T18:25:30Z",
- "tournament": "BUTTERFIELD_2026",
+ "updatedUtc": "2026-10-21T23:53:37Z",
+ "tournament": "EVENT_2026W43",
  "event": "",
  "draftGroupId": "155322",
  "contests": [
@@ -21,14 +21,6 @@
    "tiers": null
   },
   {
-   "id": "196998574",
-   "name": "PGA TOUR FREE 3-Player",
-   "fee": 0,
-   "entries": 3,
-   "prizePool": 1.0,
-   "tiers": null
-  },
-  {
    "id": "196921362",
    "name": "PGA TOUR $300 Dime Time",
    "fee": 0.1,
@@ -45,7 +37,7 @@
    "tiers": null
   },
   {
-   "id": "196925422",
+   "id": "197025819",
    "name": "PGA TOUR $0.25 Winner Take All [$50 to 1st]",
    "fee": 0.25,
    "entries": 237,
@@ -237,7 +229,7 @@
    "tiers": null
   },
   {
-   "id": "196925397",
+   "id": "197023454",
    "name": "PGA TOUR $20 Winner Take All [$175 to 1st]",
    "fee": 20,
    "entries": 10,
@@ -341,8 +333,8 @@
    "tiers": null
   },
   {
-   "id": "196925767",
-   "name": "PGA TOUR $50 5-Player",
+   "id": "196925825",
+   "name": "Casual PGA TOUR $50 5-Player",
    "fee": 50,
    "entries": 5,
    "prizePool": 225.0,
@@ -389,6 +381,14 @@
    "tiers": null
   },
   {
+   "id": "197019452",
+   "name": "PGA TOUR $720 Long Drive [Single Entry]",
+   "fee": 100,
+   "entries": 8,
+   "prizePool": 720.0,
+   "tiers": null
+  },
+  {
    "id": "196926191",
    "name": "PGA TOUR $109 5-Player (Winner Takes All)",
    "fee": 109,
@@ -429,14 +429,6 @@
    "tiers": null
   },
   {
-   "id": "196921366",
-   "name": "PGA TOUR $2.9K Driver [Single Entry]",
-   "fee": 200,
-   "entries": 16,
-   "prizePool": 2900.0,
-   "tiers": null
-  },
-  {
    "id": "196925761",
    "name": "PGA TOUR $215 50-50",
    "fee": 215,
@@ -461,7 +453,7 @@
    "tiers": null
   },
   {
-   "id": "196921372",
+   "id": "196921373",
    "name": "PGA TOUR Single Entry $250 Double Up",
    "fee": 250,
    "entries": 11,
@@ -477,7 +469,7 @@
    "tiers": null
   },
   {
-   "id": "196925858",
+   "id": "197015726",
    "name": "PGA TOUR $530 Winner Take All [Must Fill]",
    "fee": 530,
    "entries": 4,
@@ -549,7 +541,7 @@
    "tiers": null
   },
   {
-   "id": "196925855",
+   "id": "196969282",
    "name": "PGA TOUR $2,120 3-Player",
    "fee": 2120,
    "entries": 3,
