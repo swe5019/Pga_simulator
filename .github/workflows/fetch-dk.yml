@@ -119,8 +119,8 @@ jobs:
             echo "DK run at $(date -u +%Y-%m-%dT%H:%M:%SZ) — ${{ job.status }}"
             echo "run: ${{ github.run_id }}  event: ${{ github.event_name }}"
             echo "inputs: tournament='${{ inputs.tournament_name }}' date='${{ inputs.date }}' dg='${{ inputs.draftgroup_id }}' contest='${{ inputs.contest_id }}' auto='${{ inputs.auto }}' list='${{ inputs.list }}'"
-            echo "---- last 120 lines ----"
-            tail -n 120 /tmp/dk.log 2>/dev/null || echo "(no output captured)"
+            echo "---- output (tail 400) ----"
+            tail -n 400 /tmp/dk.log 2>/dev/null || echo "(no output captured)"
           } > data/dk_last_run.txt
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
