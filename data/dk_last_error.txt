@@ -1,0 +1,7 @@
+DK fetch failed at 2026-10-21T18:12:10Z
+run: 39650551717  event: workflow_dispatch
+inputs: tournament='BUTTERFIELD_2026' date='10/22/26' dg='' contest='' auto='' list=''
+---- last 120 lines ----
+GET https://www.draftkings.com/lobby/getcontests?sport=GOLF
+  no open GOLF contests matched 'BUTTERFIELD'
+Could not resolve a draft group (try DK_DRAFTGROUP_ID).
