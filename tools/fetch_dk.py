@@ -397,9 +397,20 @@ def _derive_tourney(event, date_str):
     if words:
         base = "_".join(words).upper()
         return f"{base}_{full_yr}" if full_yr else base
-    # No name to work from: identify the event by the day it starts.
-    stamp = "".join(ch for ch in (date_str or "") if ch.isdigit())
-    return f"EVENT_{stamp}" if stamp else "EVENT"
+    # No name to work from: identify the event by the WEEK it starts, not the
+    # day. The caller reads an unchanged key as "same tournament, keep the
+    # draft group I already have", and that lock is what stops a single-round
+    # or weekend group replacing the full-field salaries once Thursday's
+    # contests lock. Keying on the day would break that lock every time a later
+    # round was discovered, while keying on the week holds across a Thursday to
+    # Sunday event and still changes for the next one.
+    try:
+        m, d, y = [int(x) for x in (date_str or "").split("/")]
+        yr = y + 2000 if y < 100 else y
+        iso = datetime.date(yr, m, d).isocalendar()
+        return f"EVENT_{iso[0]}W{iso[1]:02d}"
+    except (ValueError, TypeError):
+        return "EVENT"
 
 
 def parse_standings_ownership(text):
