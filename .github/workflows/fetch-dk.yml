@@ -97,7 +97,32 @@ jobs:
           DK_RESULTS_CONTEST: ${{ inputs.results_contest_id }}
           DK_RESULTS_FIND: ${{ inputs.results_find }}
           DK_COOKIE: ${{ secrets.DK_COOKIE }}
-        run: python tools/fetch_dk.py
+        # Tee'd to a file as well as the log. GitHub serves workflow logs from
+        # a storage host that the API client here will not follow, so when this
+        # step fails the reason is effectively unreadable without opening the
+        # Actions tab by hand. Three dispatches were spent guessing at a
+        # failure that turned out to be a missing required input. The last run
+        # is committed on failure so the reason is in the repository.
+        run: |
+          set -o pipefail
+          python tools/fetch_dk.py 2>&1 | tee /tmp/dk.log
+
+      - name: Record why it failed
+        if: failure()
+        run: |
+          mkdir -p data
+          {
+            echo "DK fetch failed at $(date -u +%Y-%m-%dT%H:%M:%SZ)"
+            echo "run: ${{ github.run_id }}  event: ${{ github.event_name }}"
+            echo "inputs: tournament='${{ inputs.tournament_name }}' date='${{ inputs.date }}' dg='${{ inputs.draftgroup_id }}' contest='${{ inputs.contest_id }}' auto='${{ inputs.auto }}' list='${{ inputs.list }}'"
+            echo "---- last 120 lines ----"
+            tail -n 120 /tmp/dk.log 2>/dev/null || echo "(no output captured)"
+          } > data/dk_last_error.txt
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/dk_last_error.txt
+          git diff --cached --quiet || git commit -m "Record why the DK fetch failed"
+          for i in 1 2 3; do git push && break; git pull --rebase origin main || true; sleep 3; done
 
       - name: Commit CSV
         run: |
