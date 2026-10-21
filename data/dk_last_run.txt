@@ -1,101 +1,404 @@
-DK run at 2026-10-21T18:24:28Z — success
-run: 39652405836  event: workflow_dispatch
-inputs: tournament='' date='' dg='' contest='' auto='' list='1'
+DK run at 2026-10-21T18:25:30Z — success
+run: 39652497435  event: workflow_dispatch
+inputs: tournament='BUTTERFIELD_2026' date='10/22/26' dg='155322' contest='' auto='' list=''
 ---- output (tail 400) ----
-GET https://www.draftkings.com/lobby/getcontests?sport=GOLF
-11 GOLF draft groups open, 1306 open contests
-
-GET https://www.draftkings.com/lineup/getavailableplayers?draftGroupId=155348
-  pool source: www getavailableplayers (126 rows)
-  response top-level scalars: {}
-  sample record: {'atabbr': 'Golf', 'dgst': 1792620000000, 'evts': 30, 'fn': 'Eugenio', 'htabbr': 'Golf', 'i': '', 'ln': 'Lopez-Chacarra', 'news': 2, 'pdkid': 60467, 'pid': 696842, 'pn': 'G', 's': 10500, 'tid': -5, 'tsid': 6150717}
-  dg=155348 start=2026-10-21T22:00:00.0000000Z (DP World Tour) gameType=6 field=126 salary=6000-10500 contests=188
-       contest: 'DP World Tour $100K Heavy Hitter [Must Fill]'
-       first names: Eugenio Lopez-Chacarra, Si Woo Kim, Sungjae Im
-GET https://www.draftkings.com/lineup/getavailableplayers?draftGroupId=155347
-  pool source: www getavailableplayers (84 rows)
-  response top-level scalars: {}
-  sample record: {'atabbr': 'Golf', 'dgst': 1792623600000, 'evts': 15, 'fn': 'Hae-Ran', 'htabbr': 'Golf', 'i': '', 'ln': 'Ryu', 'news': 0, 'pdkid': 534998, 'pid': 704517, 'pn': 'G', 's': 10800, 'tid': -5, 'tsid': 6154683}
-  dg=155347 start=2026-10-21T23:00:00.0000000Z (LPGA) gameType=6 field=84 salary=6000-10800 contests=134
-       contest: 'LPGA $100K Heavy Hitter [Must Fill]'
-       first names: Hae-Ran Ryu, Sei Young Kim, Hyo Joo Kim
-GET https://www.draftkings.com/lineup/getavailableplayers?draftGroupId=155322
-  pool source: www getavailableplayers (120 rows)
-  response top-level scalars: {}
-  sample record: {'atabbr': 'Golf', 'dgst': 1792665300000, 'evts': 10, 'fn': 'Benjamin', 'htabbr': 'Golf', 'i': '', 'ln': 'James', 'news': 0, 'pdkid': 648039, 'pid': 765775, 'pn': 'G', 's': 10900, 'tid': -5, 'tsid': 6161437}
-  dg=155322 start=2026-10-22T10:35:00.0000000Z (PGA TOUR) gameType=6 field=120 salary=6000-10900 contests=322
-       contest: 'PGA TOUR $150K Sand Trap [$50K to 1st]'
-       first names: Benjamin James, Eric Cole, Corey Conners
-GET https://www.draftkings.com/lineup/getavailableplayers?draftGroupId=155323
-  pool source: www getavailableplayers (34 rows)
-  response top-level scalars: {}
-  sample record: {'atabbr': 'Golf', 'dgst': 1792665300000, 'evts': 10, 'fn': 'Benjamin', 'htabbr': 'Golf', 'i': '', 'ln': 'James', 'news': 0, 'pdkid': 648039, 'pid': 765775, 'pn': 'G', 's': 0, 'tid': -5, 'tsid': 6161437}
-  dg=155323 start=2026-10-22T10:35:00.0000000Z (PGA TOUR Tiers) gameType=135 field=34 salary=0-0 contests=147
-       contest: 'PGA TOUR Tiers $100K Heavy Hitter [Must Fill]'
-       first names: Benjamin James, Eric Cole, Corey Conners
-GET https://www.draftkings.com/lineup/getavailableplayers?draftGroupId=155324
-  pool source: www getavailableplayers (120 rows)
-  response top-level scalars: {}
-  sample record: {'atabbr': 'Golf', 'dgst': 1792665300000, 'evts': 0, 'fn': 'Nick', 'htabbr': 'Golf', 'i': '', 'ln': 'Jones', 'news': 0, 'pdkid': 680270, 'pid': 768997, 'pn': 'G', 's': 120, 'tid': -5, 'tsid': 6161437}
-  dg=155324 start=2026-10-22T10:35:00.0000000Z (PGA TOUR Snake) gameType=190 field=120 salary=1-120 contests=20
-       contest: 'PGA TOUR Snake $1 3-Player'
-       first names: Nick Jones, Greg Koch, Austin Lemieux
-GET https://www.draftkings.com/lineup/getavailableplayers?draftGroupId=155325
-  pool source: www getavailableplayers (120 rows)
-  response top-level scalars: {}
-  sample record: {'atabbr': 'Golf', 'dgst': 1792665300000, 'evts': 10, 'fn': 'Benjamin', 'htabbr': 'Golf', 'i': '', 'ln': 'James', 'news': 0, 'pdkid': 648039, 'pid': 765775, 'pn': 'G', 's': 0, 'tid': -5, 'tsid': 6161437}
-  dg=155325 start=2026-10-22T10:35:00.0000000Z (Birdies or Better) gameType=347 field=120 salary=0-0 contests=42
-       contest: 'PGA Single Stat $1,060 Winner Take All [$3K to 1st] (Must Fill) (Birdies or Better)'
-       first names: Benjamin James, Eric Cole, Corey Conners
-GET https://www.draftkings.com/lineup/getavailableplayers?draftGroupId=155326
-  pool source: www getavailableplayers (120 rows)
-  response top-level scalars: {}
-  sample record: {'atabbr': 'Golf', 'dgst': 1792665300000, 'evts': 10, 'fn': 'Benjamin', 'htabbr': 'Golf', 'i': '', 'ln': 'James', 'news': 0, 'pdkid': 648039, 'pid': 765775, 'pn': 'G', 's': 11100, 'tid': -5, 'tsid': 6161439}
-  dg=155326 start=2026-10-22T10:35:00.0000000Z (Round 1) gameType=84 field=120 salary=6000-11100 contests=198
-       contest: 'PGA TOUR Showdown $100K Heavy Hitter [Must Fill] (Round 1)'
-       first names: Benjamin James, Ben Kohles, Eric Cole
-GET https://www.draftkings.com/lineup/getavailableplayers?draftGroupId=155327
-  pool source: www getavailableplayers (120 rows)
-  response top-level scalars: {}
-  sample record: {'atabbr': 'Golf', 'dgst': 1792665300000, 'evts': 1, 'fn': 'Willie', 'htabbr': 'Golf', 'i': '', 'ln': 'Mack', 'news': 0, 'pdkid': 545961, 'pid': 704902, 'pn': 'G', 's': 120, 'tid': -5, 'tsid': 6161439}
-  dg=155327 start=2026-10-22T10:35:00.0000000Z (Round 1) gameType=191 field=120 salary=1-120 contests=15
-       contest: 'PGA TOUR Snake Showdown $1 3-Player (Round 1)'
-       first names: Willie Mack, Austin Lemieux, Nick Jones
-GET https://www.draftkings.com/lineup/getavailableplayers?draftGroupId=155328
-  pool source: www getavailableplayers (60 rows)
-  response top-level scalars: {}
-  sample record: {'atabbr': 'Golf', 'dgst': 1792681500000, 'evts': 10, 'fn': 'Benjamin', 'htabbr': 'Golf', 'i': '', 'ln': 'James', 'news': 0, 'pdkid': 648039, 'pid': 765775, 'pn': 'G', 's': 11200, 'tid': -5, 'tsid': 6161443}
-  dg=155328 start=2026-10-22T15:05:00.0000000Z (Late Round 1) gameType=84 field=60 salary=6000-11200 contests=176
-       contest: 'PGA TOUR Showdown $100K Heavy Hitter [Must Fill] (Late Round 1)'
-       first names: Benjamin James, Corey Conners, Seamus Power
-GET https://www.draftkings.com/lineup/getavailableplayers?draftGroupId=155329
-  pool source: www getavailableplayers (60 rows)
-  response top-level scalars: {}
-  sample record: {'atabbr': 'Golf', 'dgst': 1792681500000, 'evts': 0, 'fn': 'Virgilio', 'htabbr': 'Golf', 'i': '', 'ln': 'Paz', 'news': 0, 'pdkid': 1060304, 'pid': 892432, 'pn': 'G', 's': 60, 'tid': -5, 'tsid': 6161443}
-  dg=155329 start=2026-10-22T15:05:00.0000000Z (Late Round 1) gameType=191 field=60 salary=1-60 contests=15
-       contest: 'PGA TOUR Snake Showdown $1 3-Player (Late Round 1)'
-       first names: Virgilio Paz, Adam Long, Austin Cook
-GET https://www.draftkings.com/lineup/getavailableplayers?draftGroupId=155349
-  pool source: www getavailableplayers (126 rows)
-  response top-level scalars: {}
-  sample record: {'atabbr': 'Golf', 'dgst': 1792706400000, 'evts': 25, 'fn': 'Si Woo', 'htabbr': 'Golf', 'i': '', 'ln': 'Kim', 'news': 0, 'pdkid': 870, 'pid': 1284, 'pn': 'G', 's': 10800, 'tid': -5, 'tsid': 6150720}
-  dg=155349 start=2026-10-22T22:00:00.0000000Z (Round 2) gameType=85 field=126 salary=6000-10800 contests=49
-       contest: 'DP World Tour Showdown $1,060 Winner Take All [$3K to 1st] (Must Fill) (Round 2)'
-       first names: Si Woo Kim, Eugenio Lopez-Chacarra, Sungjae Im
-
-==== summary ====
-dg       field        salary  cts  kind     start
-155348     126    6000-10500  188  classic  2026-10-21T22:00:00.0000000Z (DP World Tour)
-155349     126    6000-10800   49  classic  2026-10-22T22:00:00.0000000Z (Round 2)
-155322     120    6000-10900  322  classic  2026-10-22T10:35:00.0000000Z (PGA TOUR)
-155326     120    6000-11100  198  classic  2026-10-22T10:35:00.0000000Z (Round 1)
-155325     120           0-0   42  partial  2026-10-22T10:35:00.0000000Z (Birdies or Better)
-155324     120         1-120   20  tiers    2026-10-22T10:35:00.0000000Z (PGA TOUR Snake)
-155327     120         1-120   15  tiers    2026-10-22T10:35:00.0000000Z (Round 1)
-155347      84    6000-10800  134  partial  2026-10-21T23:00:00.0000000Z (LPGA)
-155328      60    6000-11200  176  partial  2026-10-22T15:05:00.0000000Z (Late Round 1)
-155329      60          1-60   15  tiers    2026-10-22T15:05:00.0000000Z (Late Round 1)
-155323      34           0-0  147  partial  2026-10-22T10:35:00.0000000Z (PGA TOUR Tiers)
-
-likely main Classic slate: dg=155322 (120 golfers, 322 contests)
-  re-run with draftgroup_id=155322 to build from it
+</HEAD><BODY>
+<H1>Access Denied</H1>
+ 
+You don't have permission to access "http&#58;&#47;&#47;api&#46;draftkings&#46;com&#47;contests&#47;v1&#47;contests&#47
+GET https://api.draftkings.com/contests/v1/contests/196921363?format=json
+  -> HTTP 403 <HTML><HEAD>
+<TITLE>Access Denied</TITLE>
+</HEAD><BODY>
+<H1>Access Denied</H1>
+ 
+You don't have permission to access "http&#58;&#47;&#47;api&#46;draftkings&#46;com&#47;contests&#47;v1&#47;contests&#47
+GET https://api.draftkings.com/contests/v1/contests/196925423?format=json
+  -> HTTP 403 <HTML><HEAD>
+<TITLE>Access Denied</TITLE>
+</HEAD><BODY>
+<H1>Access Denied</H1>
+ 
+You don't have permission to access "http&#58;&#47;&#47;api&#46;draftkings&#46;com&#47;contests&#47;v1&#47;contests&#47
+GET https://api.draftkings.com/contests/v1/contests/196925858?format=json
+  -> HTTP 403 <HTML><HEAD>
+<TITLE>Access Denied</TITLE>
+</HEAD><BODY>
+<H1>Access Denied</H1>
+ 
+You don't have permission to access "http&#58;&#47;&#47;api&#46;draftkings&#46;com&#47;contests&#47;v1&#47;contests&#47
+GET https://api.draftkings.com/contests/v1/contests/196921353?format=json
+  -> HTTP 403 <HTML><HEAD>
+<TITLE>Access Denied</TITLE>
+</HEAD><BODY>
+<H1>Access Denied</H1>
+ 
+You don't have permission to access "http&#58;&#47;&#47;api&#46;draftkings&#46;com&#47;contests&#47;v1&#47;contests&#47
+GET https://api.draftkings.com/contests/v1/contests/196925757?format=json
+  -> HTTP 403 <HTML><HEAD>
+<TITLE>Access Denied</TITLE>
+</HEAD><BODY>
+<H1>Access Denied</H1>
+ 
+You don't have permission to access "http&#58;&#47;&#47;api&#46;draftkings&#46;com&#47;contests&#47;v1&#47;contests&#47
+GET https://api.draftkings.com/contests/v1/contests/196925856?format=json
+  -> HTTP 403 <HTML><HEAD>
+<TITLE>Access Denied</TITLE>
+</HEAD><BODY>
+<H1>Access Denied</H1>
+ 
+You don't have permission to access "http&#58;&#47;&#47;api&#46;draftkings&#46;com&#47;contests&#47;v1&#47;contests&#47
+GET https://api.draftkings.com/contests/v1/contests/196925857?format=json
+  -> HTTP 403 <HTML><HEAD>
+<TITLE>Access Denied</TITLE>
+</HEAD><BODY>
+<H1>Access Denied</H1>
+ 
+You don't have permission to access "http&#58;&#47;&#47;api&#46;draftkings&#46;com&#47;contests&#47;v1&#47;contests&#47
+GET https://api.draftkings.com/contests/v1/contests/196925854?format=json
+  -> HTTP 403 <HTML><HEAD>
+<TITLE>Access Denied</TITLE>
+</HEAD><BODY>
+<H1>Access Denied</H1>
+ 
+You don't have permission to access "http&#58;&#47;&#47;api&#46;draftkings&#46;com&#47;contests&#47;v1&#47;contests&#47
+GET https://api.draftkings.com/contests/v1/contests/196925850?format=json
+  -> HTTP 403 <HTML><HEAD>
+<TITLE>Access Denied</TITLE>
+</HEAD><BODY>
+<H1>Access Denied</H1>
+ 
+You don't have permission to access "http&#58;&#47;&#47;api&#46;draftkings&#46;com&#47;contests&#47;v1&#47;contests&#47
+GET https://api.draftkings.com/contests/v1/contests/196992282?format=json
+  -> HTTP 403 <HTML><HEAD>
+<TITLE>Access Denied</TITLE>
+</HEAD><BODY>
+<H1>Access Denied</H1>
+ 
+You don't have permission to access "http&#58;&#47;&#47;api&#46;draftkings&#46;com&#47;contests&#47;v1&#47;contests&#47
+GET https://api.draftkings.com/contests/v1/contests/196925422?format=json
+  -> HTTP 403 <HTML><HEAD>
+<TITLE>Access Denied</TITLE>
+</HEAD><BODY>
+<H1>Access Denied</H1>
+ 
+You don't have permission to access "http&#58;&#47;&#47;api&#46;draftkings&#46;com&#47;contests&#47;v1&#47;contests&#47
+GET https://api.draftkings.com/contests/v1/contests/196921359?format=json
+  -> HTTP 403 <HTML><HEAD>
+<TITLE>Access Denied</TITLE>
+</HEAD><BODY>
+<H1>Access Denied</H1>
+ 
+You don't have permission to access "http&#58;&#47;&#47;api&#46;draftkings&#46;com&#47;contests&#47;v1&#47;contests&#47
+GET https://api.draftkings.com/contests/v1/contests/196925401?format=json
+  -> HTTP 403 <HTML><HEAD>
+<TITLE>Access Denied</TITLE>
+</HEAD><BODY>
+<H1>Access Denied</H1>
+ 
+You don't have permission to access "http&#58;&#47;&#47;api&#46;draftkings&#46;com&#47;contests&#47;v1&#47;contests&#47
+GET https://api.draftkings.com/contests/v1/contests/196925420?format=json
+  -> HTTP 403 <HTML><HEAD>
+<TITLE>Access Denied</TITLE>
+</HEAD><BODY>
+<H1>Access Denied</H1>
+ 
+You don't have permission to access "http&#58;&#47;&#47;api&#46;draftkings&#46;com&#47;contests&#47;v1&#47;contests&#47
+GET https://api.draftkings.com/contests/v1/contests/196921371?format=json
+  -> HTTP 403 <HTML><HEAD>
+<TITLE>Access Denied</TITLE>
+</HEAD><BODY>
+<H1>Access Denied</H1>
+ 
+You don't have permission to access "http&#58;&#47;&#47;api&#46;draftkings&#46;com&#47;contests&#47;v1&#47;contests&#47
+GET https://api.draftkings.com/contests/v1/contests/196921379?format=json
+  -> HTTP 403 <HTML><HEAD>
+<TITLE>Access Denied</TITLE>
+</HEAD><BODY>
+<H1>Access Denied</H1>
+ 
+You don't have permission to access "http&#58;&#47;&#47;api&#46;draftkings&#46;com&#47;contests&#47;v1&#47;contests&#47
+GET https://api.draftkings.com/contests/v1/contests/196925774?format=json
+  -> HTTP 403 <HTML><HEAD>
+<TITLE>Access Denied</TITLE>
+</HEAD><BODY>
+<H1>Access Denied</H1>
+ 
+You don't have permission to access "http&#58;&#47;&#47;api&#46;draftkings&#46;com&#47;contests&#47;v1&#47;contests&#47
+GET https://api.draftkings.com/contests/v1/contests/196921377?format=json
+  -> HTTP 403 <HTML><HEAD>
+<TITLE>Access Denied</TITLE>
+</HEAD><BODY>
+<H1>Access Denied</H1>
+ 
+You don't have permission to access "http&#58;&#47;&#47;api&#46;draftkings&#46;com&#47;contests&#47;v1&#47;contests&#47
+GET https://api.draftkings.com/contests/v1/contests/196925405?format=json
+  -> HTTP 403 <HTML><HEAD>
+<TITLE>Access Denied</TITLE>
+</HEAD><BODY>
+<H1>Access Denied</H1>
+ 
+You don't have permission to access "http&#58;&#47;&#47;api&#46;draftkings&#46;com&#47;contests&#47;v1&#47;contests&#47
+GET https://api.draftkings.com/contests/v1/contests/196921368?format=json
+  -> HTTP 403 <HTML><HEAD>
+<TITLE>Access Denied</TITLE>
+</HEAD><BODY>
+<H1>Access Denied</H1>
+ 
+You don't have permission to access "http&#58;&#47;&#47;api&#46;draftkings&#46;com&#47;contests&#47;v1&#47;contests&#47
+GET https://api.draftkings.com/contests/v1/contests/196925822?format=json
+  -> HTTP 403 <HTML><HEAD>
+<TITLE>Access Denied</TITLE>
+</HEAD><BODY>
+<H1>Access Denied</H1>
+ 
+You don't have permission to access "http&#58;&#47;&#47;api&#46;draftkings&#46;com&#47;contests&#47;v1&#47;contests&#47
+GET https://api.draftkings.com/contests/v1/contests/196921366?format=json
+  -> HTTP 403 <HTML><HEAD>
+<TITLE>Access Denied</TITLE>
+</HEAD><BODY>
+<H1>Access Denied</H1>
+ 
+You don't have permission to access "http&#58;&#47;&#47;api&#46;draftkings&#46;com&#47;contests&#47;v1&#47;contests&#47
+GET https://api.draftkings.com/contests/v1/contests/196921372?format=json
+  -> HTTP 403 <HTML><HEAD>
+<TITLE>Access Denied</TITLE>
+</HEAD><BODY>
+<H1>Access Denied</H1>
+ 
+You don't have permission to access "http&#58;&#47;&#47;api&#46;draftkings&#46;com&#47;contests&#47;v1&#47;contests&#47
+GET https://api.draftkings.com/contests/v1/contests/196925760?format=json
+  -> HTTP 403 <HTML><HEAD>
+<TITLE>Access Denied</TITLE>
+</HEAD><BODY>
+<H1>Access Denied</H1>
+ 
+You don't have permission to access "http&#58;&#47;&#47;api&#46;draftkings&#46;com&#47;contests&#47;v1&#47;contests&#47
+GET https://api.draftkings.com/contests/v1/contests/196925448?format=json
+  -> HTTP 403 <HTML><HEAD>
+<TITLE>Access Denied</TITLE>
+</HEAD><BODY>
+<H1>Access Denied</H1>
+ 
+You don't have permission to access "http&#58;&#47;&#47;api&#46;draftkings&#46;com&#47;contests&#47;v1&#47;contests&#47
+GET https://api.draftkings.com/contests/v1/contests/196925855?format=json
+  -> HTTP 403 <HTML><HEAD>
+<TITLE>Access Denied</TITLE>
+</HEAD><BODY>
+<H1>Access Denied</H1>
+ 
+You don't have permission to access "http&#58;&#47;&#47;api&#46;draftkings&#46;com&#47;contests&#47;v1&#47;contests&#47
+GET https://api.draftkings.com/contests/v1/contests/196925813?format=json
+  -> HTTP 403 <HTML><HEAD>
+<TITLE>Access Denied</TITLE>
+</HEAD><BODY>
+<H1>Access Denied</H1>
+ 
+You don't have permission to access "http&#58;&#47;&#47;api&#46;draftkings&#46;com&#47;contests&#47;v1&#47;contests&#47
+GET https://api.draftkings.com/contests/v1/contests/196925812?format=json
+  -> HTTP 403 <HTML><HEAD>
+<TITLE>Access Denied</TITLE>
+</HEAD><BODY>
+<H1>Access Denied</H1>
+ 
+You don't have permission to access "http&#58;&#47;&#47;api&#46;draftkings&#46;com&#47;contests&#47;v1&#47;contests&#47
+GET https://api.draftkings.com/contests/v1/contests/196925851?format=json
+  -> HTTP 403 <HTML><HEAD>
+<TITLE>Access Denied</TITLE>
+</HEAD><BODY>
+<H1>Access Denied</H1>
+ 
+You don't have permission to access "http&#58;&#47;&#47;api&#46;draftkings&#46;com&#47;contests&#47;v1&#47;contests&#47
+GET https://api.draftkings.com/contests/v1/contests/196998574?format=json
+  -> HTTP 403 <HTML><HEAD>
+<TITLE>Access Denied</TITLE>
+</HEAD><BODY>
+<H1>Access Denied</H1>
+ 
+You don't have permission to access "http&#58;&#47;&#47;api&#46;draftkings&#46;com&#47;contests&#47;v1&#47;contests&#47
+GET https://api.draftkings.com/contests/v1/contests/196925452?format=json
+  -> HTTP 403 <HTML><HEAD>
+<TITLE>Access Denied</TITLE>
+</HEAD><BODY>
+<H1>Access Denied</H1>
+ 
+You don't have permission to access "http&#58;&#47;&#47;api&#46;draftkings&#46;com&#47;contests&#47;v1&#47;contests&#47
+GET https://api.draftkings.com/contests/v1/contests/196925396?format=json
+  -> HTTP 403 <HTML><HEAD>
+<TITLE>Access Denied</TITLE>
+</HEAD><BODY>
+<H1>Access Denied</H1>
+ 
+You don't have permission to access "http&#58;&#47;&#47;api&#46;draftkings&#46;com&#47;contests&#47;v1&#47;contests&#47
+GET https://api.draftkings.com/contests/v1/contests/196921380?format=json
+  -> HTTP 403 <HTML><HEAD>
+<TITLE>Access Denied</TITLE>
+</HEAD><BODY>
+<H1>Access Denied</H1>
+ 
+You don't have permission to access "http&#58;&#47;&#47;api&#46;draftkings&#46;com&#47;contests&#47;v1&#47;contests&#47
+GET https://api.draftkings.com/contests/v1/contests/196925404?format=json
+  -> HTTP 403 <HTML><HEAD>
+<TITLE>Access Denied</TITLE>
+</HEAD><BODY>
+<H1>Access Denied</H1>
+ 
+You don't have permission to access "http&#58;&#47;&#47;api&#46;draftkings&#46;com&#47;contests&#47;v1&#47;contests&#47
+GET https://api.draftkings.com/contests/v1/contests/196921374?format=json
+  -> HTTP 403 <HTML><HEAD>
+<TITLE>Access Denied</TITLE>
+</HEAD><BODY>
+<H1>Access Denied</H1>
+ 
+You don't have permission to access "http&#58;&#47;&#47;api&#46;draftkings&#46;com&#47;contests&#47;v1&#47;contests&#47
+GET https://api.draftkings.com/contests/v1/contests/196925764?format=json
+  -> HTTP 403 <HTML><HEAD>
+<TITLE>Access Denied</TITLE>
+</HEAD><BODY>
+<H1>Access Denied</H1>
+ 
+You don't have permission to access "http&#58;&#47;&#47;api&#46;draftkings&#46;com&#47;contests&#47;v1&#47;contests&#47
+GET https://api.draftkings.com/contests/v1/contests/196925762?format=json
+  -> HTTP 403 <HTML><HEAD>
+<TITLE>Access Denied</TITLE>
+</HEAD><BODY>
+<H1>Access Denied</H1>
+ 
+You don't have permission to access "http&#58;&#47;&#47;api&#46;draftkings&#46;com&#47;contests&#47;v1&#47;contests&#47
+GET https://api.draftkings.com/contests/v1/contests/197013414?format=json
+  -> HTTP 403 <HTML><HEAD>
+<TITLE>Access Denied</TITLE>
+</HEAD><BODY>
+<H1>Access Denied</H1>
+ 
+You don't have permission to access "http&#58;&#47;&#47;api&#46;draftkings&#46;com&#47;contests&#47;v1&#47;contests&#47
+GET https://api.draftkings.com/contests/v1/contests/196925811?format=json
+  -> HTTP 403 <HTML><HEAD>
+<TITLE>Access Denied</TITLE>
+</HEAD><BODY>
+<H1>Access Denied</H1>
+ 
+You don't have permission to access "http&#58;&#47;&#47;api&#46;draftkings&#46;com&#47;contests&#47;v1&#47;contests&#47
+GET https://api.draftkings.com/contests/v1/contests/196925416?format=json
+  -> HTTP 403 <HTML><HEAD>
+<TITLE>Access Denied</TITLE>
+</HEAD><BODY>
+<H1>Access Denied</H1>
+ 
+You don't have permission to access "http&#58;&#47;&#47;api&#46;draftkings&#46;com&#47;contests&#47;v1&#47;contests&#47
+GET https://api.draftkings.com/contests/v1/contests/196925791?format=json
+  -> HTTP 403 <HTML><HEAD>
+<TITLE>Access Denied</TITLE>
+</HEAD><BODY>
+<H1>Access Denied</H1>
+ 
+You don't have permission to access "http&#58;&#47;&#47;api&#46;draftkings&#46;com&#47;contests&#47;v1&#47;contests&#47
+GET https://api.draftkings.com/contests/v1/contests/196963812?format=json
+  -> HTTP 403 <HTML><HEAD>
+<TITLE>Access Denied</TITLE>
+</HEAD><BODY>
+<H1>Access Denied</H1>
+ 
+You don't have permission to access "http&#58;&#47;&#47;api&#46;draftkings&#46;com&#47;contests&#47;v1&#47;contests&#47
+GET https://api.draftkings.com/contests/v1/contests/196925403?format=json
+  -> HTTP 403 <HTML><HEAD>
+<TITLE>Access Denied</TITLE>
+</HEAD><BODY>
+<H1>Access Denied</H1>
+ 
+You don't have permission to access "http&#58;&#47;&#47;api&#46;draftkings&#46;com&#47;contests&#47;v1&#47;contests&#47
+GET https://api.draftkings.com/contests/v1/contests/196925398?format=json
+  -> HTTP 403 <HTML><HEAD>
+<TITLE>Access Denied</TITLE>
+</HEAD><BODY>
+<H1>Access Denied</H1>
+ 
+You don't have permission to access "http&#58;&#47;&#47;api&#46;draftkings&#46;com&#47;contests&#47;v1&#47;contests&#47
+GET https://api.draftkings.com/contests/v1/contests/196925775?format=json
+  -> HTTP 403 <HTML><HEAD>
+<TITLE>Access Denied</TITLE>
+</HEAD><BODY>
+<H1>Access Denied</H1>
+ 
+You don't have permission to access "http&#58;&#47;&#47;api&#46;draftkings&#46;com&#47;contests&#47;v1&#47;contests&#47
+GET https://api.draftkings.com/contests/v1/contests/196925847?format=json
+  -> HTTP 403 <HTML><HEAD>
+<TITLE>Access Denied</TITLE>
+</HEAD><BODY>
+<H1>Access Denied</H1>
+ 
+You don't have permission to access "http&#58;&#47;&#47;api&#46;draftkings&#46;com&#47;contests&#47;v1&#47;contests&#47
+GET https://api.draftkings.com/contests/v1/contests/196925759?format=json
+  -> HTTP 403 <HTML><HEAD>
+<TITLE>Access Denied</TITLE>
+</HEAD><BODY>
+<H1>Access Denied</H1>
+ 
+You don't have permission to access "http&#58;&#47;&#47;api&#46;draftkings&#46;com&#47;contests&#47;v1&#47;contests&#47
+GET https://api.draftkings.com/contests/v1/contests/196925421?format=json
+  -> HTTP 403 <HTML><HEAD>
+<TITLE>Access Denied</TITLE>
+</HEAD><BODY>
+<H1>Access Denied</H1>
+ 
+You don't have permission to access "http&#58;&#47;&#47;api&#46;draftkings&#46;com&#47;contests&#47;v1&#47;contests&#47
+GET https://api.draftkings.com/contests/v1/contests/196925836?format=json
+  -> HTTP 403 <HTML><HEAD>
+<TITLE>Access Denied</TITLE>
+</HEAD><BODY>
+<H1>Access Denied</H1>
+ 
+You don't have permission to access "http&#58;&#47;&#47;api&#46;draftkings&#46;com&#47;contests&#47;v1&#47;contests&#47
+GET https://api.draftkings.com/contests/v1/contests/196925450?format=json
+  -> HTTP 403 <HTML><HEAD>
+<TITLE>Access Denied</TITLE>
+</HEAD><BODY>
+<H1>Access Denied</H1>
+ 
+You don't have permission to access "http&#58;&#47;&#47;api&#46;draftkings&#46;com&#47;contests&#47;v1&#47;contests&#47
+GET https://api.draftkings.com/contests/v1/contests/196925765?format=json
+  -> HTTP 403 <HTML><HEAD>
+<TITLE>Access Denied</TITLE>
+</HEAD><BODY>
+<H1>Access Denied</H1>
+ 
+You don't have permission to access "http&#58;&#47;&#47;api&#46;draftkings&#46;com&#47;contests&#47;v1&#47;contests&#47
+GET https://api.draftkings.com/contests/v1/contests/196925758?format=json
+  -> HTTP 403 <HTML><HEAD>
+<TITLE>Access Denied</TITLE>
+</HEAD><BODY>
+<H1>Access Denied</H1>
+ 
+You don't have permission to access "http&#58;&#47;&#47;api&#46;draftkings&#46;com&#47;contests&#47;v1&#47;contests&#47
+GET https://api.draftkings.com/contests/v1/contests/196925402?format=json
+  -> HTTP 403 <HTML><HEAD>
+<TITLE>Access Denied</TITLE>
+</HEAD><BODY>
+<H1>Access Denied</H1>
+ 
+You don't have permission to access "http&#58;&#47;&#47;api&#46;draftkings&#46;com&#47;contests&#47;v1&#47;contests&#47
+GET https://api.draftkings.com/contests/v1/contests/196925828?format=json
+  -> HTTP 403 <HTML><HEAD>
+<TITLE>Access Denied</TITLE>
+</HEAD><BODY>
+<H1>Access Denied</H1>
+ 
+You don't have permission to access "http&#58;&#47;&#47;api&#46;draftkings&#46;com&#47;contests&#47;v1&#47;contests&#47
+GET https://api.draftkings.com/contests/v1/contests/196925443?format=json
+  -> HTTP 403 <HTML><HEAD>
+<TITLE>Access Denied</TITLE>
+</HEAD><BODY>
+<H1>Access Denied</H1>
+ 
+You don't have permission to access "http&#58;&#47;&#47;api&#46;draftkings&#46;com&#47;contests&#47;v1&#47;contests&#47
+GET https://api.draftkings.com/contests/v1/contests/196925767?format=json
+  -> HTTP 403 <HTML><HEAD>
+<TITLE>Access Denied</TITLE>
+</HEAD><BODY>
+<H1>Access Denied</H1>
+ 
+You don't have permission to access "http&#58;&#47;&#47;api&#46;draftkings&#46;com&#47;contests&#47;v1&#47;contests&#47
+  contests kept: 76 (0 with exact payout tiers, 76 modeled)
+/home/runner/work/Pga_simulator/Pga_simulator/tools/fetch_dk.py:1109: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  "updatedUtc": datetime.datetime.utcnow().replace(microsecond=0).isoformat() + "Z",
+Wrote data/dk_contests.json: 76 contests with exact payouts
