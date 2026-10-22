@@ -1,11 +1,11 @@
 {
- "updatedUtc": "2026-10-22T04:50:54Z",
+ "updatedUtc": "2026-10-22T11:55:46Z",
  "slate": "BUTTERFIELD_2026",
  "event": "",
  "counts": {
-  "items": 6,
+  "items": 7,
   "golfersMentioned": 5,
-  "news": 6,
+  "news": 7,
   "chatter": 0
  },
  "sources": [
@@ -138,6 +138,12 @@
  ],
  "mentions": [
   {
+   "name": "Luke List",
+   "news": 2,
+   "chatter": 0,
+   "total": 2
+  },
+  {
    "name": "Seamus Power",
    "news": 2,
    "chatter": 0,
@@ -160,15 +166,20 @@
    "news": 1,
    "chatter": 0,
    "total": 1
-  },
-  {
-   "name": "Luke List",
-   "news": 1,
-   "chatter": 0,
-   "total": 1
   }
  ],
  "items": [
+  {
+   "title": "Butterfield Bermuda Championship Field 2026: Full Player List, Withdrawals",
+   "link": "https://sports.yahoo.com/articles/butterfield-bermuda-championship-field-2026-060503395.html",
+   "summary": "The 2026 Butterfield Bermuda Championship field is set. See the full list of players competing in Bermuda. The post Butterfield Bermuda Championship Field 2026: Full Player List, Withdrawals appeared first on HEAVY.",
+   "published": "Thu, 22 Oct 2026 06:05:03 +0000",
+   "source": "Yahoo Golf",
+   "kind": "news",
+   "golfers": [
+    "Luke List"
+   ]
+  },
   {
    "title": "College Football Top Plays Based on Betting Splits, Power Ratings and Trends \u2013 Week 8",
    "link": "https://vsin.com/college-football/college-football-top-plays-based-on-betting-splits-power-ratings-and-trends-for-week-8/",
