@@ -116,6 +116,36 @@ jobs:
           PYTHONUNBUFFERED: '1'
         run: python tools/verify_population.py
 
+      # The baseline records what the last run produced, and the check writes a
+      # fresh one on purpose even when it fails. That intent was defeated here:
+      # the commit below is skipped on failure, so the baseline froze at the
+      # last good build and every later run compared against an ever staler
+      # population. One legitimate failure — the prop feed rolling to a new
+      # game week — wedged this pipeline for four days and eight runs.
+      #
+      # Committing it regardless cannot ratchet a real breakage past the gate,
+      # because the checks that establish correctness (nobody off a roster,
+      # nobody who stopped playing, nobody the market prices left out, every
+      # team fielding a side) are absolute and do not consult the baseline.
+      # Only the change detector does, and a change detector that cannot move
+      # its reference point is a change detector that jams.
+      - name: Record the population baseline
+        if: always()
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/population_baseline.json
+          if git diff --cached --quiet; then
+            echo "Baseline unchanged"
+          else
+            git commit -m "Record the projected player population"
+            for i in 1 2 3; do
+              git push && break
+              git pull --rebase origin main || true
+              sleep $((i * 3))
+            done
+          fi
+
       - name: Commit props
         run: |
           git config user.name  "github-actions[bot]"

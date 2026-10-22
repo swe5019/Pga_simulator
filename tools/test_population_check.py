@@ -84,9 +84,46 @@ ok.append(mutate(strip_qbs,'a team left with no quarterback','missing a position
 restore(); run()   # set a clean baseline
 def churn(d):
     d['players']=d['players'][:int(len(d['players'])*0.6)]; d['count']=len(d['players'])
-ok.append(mutate(churn,'40% of the board disappearing between builds','moved'))
+ok.append(mutate(churn,'40% of the board disappearing between builds',
+                 'dropped while the market still prices them'))
+
+# 6. The other half of the job: movement the market explains must NOT fail.
+#
+# The check fired on this for real and then stayed fired, because the baseline
+# could not move while the run was failing. The prop feed re-prices every game
+# week, so a hundred players lose their lines and leave the board at once. If
+# that stops the deploy, the pipeline wedges on an ordinary Tuesday, which is
+# exactly what happened: four days and eight consecutive failed runs.
+restore(); run()   # set a clean baseline from the real population
+
+
+def week_rollover():
+    """Put players in the baseline that have no lines, as a finished week does."""
+    bl = json.load(open(BL))
+    ghosts = [f'Lastweek Player{i}' for i in range(200)]
+    bl['players'] = sorted(bl['players'] + ghosts)
+    json.dump(bl, open(BL, 'w'), separators=(',', ':'))
+
+
+week_rollover()
+code, fails = run()
+# Asserted on the churn verdict alone, not on the exit code. The other checks
+# are absolute and can be failing for their own reasons — the committed
+# projections are older than the box scores between runs, which legitimately
+# leaves players looking stale — and judging this case on the exit code would
+# make it pass or fail for reasons that have nothing to do with churn.
+CHURN_FAIL = ('still prices them', 'population moved')
+blocked = [f for f in fails if any(k in f for k in CHURN_FAIL)]
+passed = not blocked
+print(f'{"ALLOWED" if passed else "BLOCKED"} a new game week: 200 players who '
+      f'lost their lines leaving the board')
+for f in blocked[:1]:
+    print(f'           {f[:150]}')
+ok.append(passed)
 
 restore(); run()
 print()
-print(f'{sum(ok)} of {len(ok)} historical bug shapes caught')
+caught = sum(ok[:5])
+print(f'{caught} of 5 historical bug shapes caught; '
+      f'market turnover {"allowed" if ok[5] else "WRONGLY BLOCKED"}')
 sys.exit(0 if all(ok) else 1)

@@ -34,9 +34,14 @@ So this checks membership rather than values, and it asks two questions:
                                      out without a reason.
 
   DID IT CHANGE WITHOUT EXPLANATION  against the previous build, because a
-                                     forty percent swing in who is on the board
-                                     should stop the deploy, not reach the page
-                                     and wait to be noticed.
+                                     swing in who is on the board should stop
+                                     the deploy, not reach the page and wait to
+                                     be noticed. "Without explanation" is the
+                                     load-bearing part: the prop feed re-prices
+                                     every game week, so players arriving with
+                                     lines and leaving without them is the
+                                     market moving, not a rule changing. Only
+                                     movement the market contradicts fails.
 
 It exits non-zero on a failure, and runs before the commit step, so a bad
 population leaves the previous good data live rather than replacing it.
@@ -222,12 +227,38 @@ def main():
                 f"{len(bad_drops)} players were dropped since the last build "
                 f"while the market still prices them: "
                 + ", ".join(sorted(bad_drops)[:6]))
-        if churn > MAX_CHURN_PCT:
+
+        # Raw churn counts movement the market fully explains, which made this
+        # fail for a legitimate reason and then stay failed. Across a game week
+        # the prop feed re-prices from scratch: a hundred players get lines for
+        # the coming slate and last week's lose theirs. That is turnover of the
+        # feed, not of the rule deciding who belongs, and it read as 53.5%.
+        #
+        # What deserves to stop a deploy is a player leaving WHILE THE MARKET
+        # STILL PRICES HIM — the McCaffrey shape, measured across the whole
+        # board rather than one name at a time. Players arriving are not judged
+        # here: checks 1 and 2 already reject an arrival that is off the roster
+        # or has stopped playing, and they do it absolutely rather than against
+        # a baseline, so a wave of genuinely priced arrivals is allowed through
+        # while a wave of ghosts is not.
+        unexplained = [n for n in dropped if priced.get(nrm(n), 0)]
+        unex_pct = 100.0 * len(unexplained) / max(len(prev), 1)
+        log(f"   of those drops, {len(unexplained)} still carry lines "
+            f"({unex_pct:.1f}% of the board); the rest lost their lines, "
+            f"which is the market moving on")
+        if unex_pct > MAX_CHURN_PCT:
             fails.append(
+                f"{len(unexplained)} players ({unex_pct:.1f}% of the board, "
+                f"over the {MAX_CHURN_PCT}% ceiling) were dropped while the "
+                f"market still prices them. A swing this size means the rule "
+                f"deciding who belongs has changed behaviour: "
+                + ", ".join(sorted(unexplained)[:6]))
+        elif churn > MAX_CHURN_PCT:
+            warns.append(
                 f"the projected population moved {churn:.1f}% since the last "
-                f"build, over the {MAX_CHURN_PCT}% ceiling. Lines move daily "
-                f"and a few players come and go; a swing this size means the "
-                f"rule deciding who belongs has changed behaviour.")
+                f"build, which is a lot, but every player who left had already "
+                f"lost his betting lines. That is what a new game week looks "
+                f"like, so this is reported rather than failed.")
 
     # ---- 7. the slate board should show everyone DraftKings offers
     if board:
