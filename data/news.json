@@ -1,10 +1,10 @@
 {
- "updatedUtc": "2026-10-22T11:55:46Z",
+ "updatedUtc": "2026-10-22T17:12:29Z",
  "slate": "BUTTERFIELD_2026",
  "event": "",
  "counts": {
   "items": 7,
-  "golfersMentioned": 5,
+  "golfersMentioned": 6,
   "news": 7,
   "chatter": 0
  },
@@ -114,7 +114,7 @@
   {
    "source": "Google News: PGA WD",
    "ok": true,
-   "items": 49,
+   "items": 100,
    "error": null
   },
   {
@@ -138,7 +138,7 @@
  ],
  "mentions": [
   {
-   "name": "Luke List",
+   "name": "Benjamin James",
    "news": 2,
    "chatter": 0,
    "total": 2
@@ -150,7 +150,19 @@
    "total": 2
   },
   {
-   "name": "Benjamin James",
+   "name": "Austin Cook",
+   "news": 1,
+   "chatter": 0,
+   "total": 1
+  },
+  {
+   "name": "Nick Jones",
+   "news": 1,
+   "chatter": 0,
+   "total": 1
+  },
+  {
+   "name": "Luke List",
    "news": 1,
    "chatter": 0,
    "total": 1
@@ -160,15 +172,32 @@
    "news": 1,
    "chatter": 0,
    "total": 1
-  },
-  {
-   "name": "Troy Merritt",
-   "news": 1,
-   "chatter": 0,
-   "total": 1
   }
  ],
  "items": [
+  {
+   "title": "2026 Fantasy Football RB Rankings - Week 7 Start, Sit Running Backs",
+   "link": "https://www.rotoballer.com/2026-fantasy-football-rb-rankings-week-7-start-sit-running-backs/1972703",
+   "summary": "With key running backs like James Cook and Bhayshul Tuten on byes, many fantasy managers will have to pivot to [&#8230;]",
+   "published": "Thu, 22 Oct 2026 16:45:08 +0000",
+   "source": "RotoBaller",
+   "kind": "news",
+   "golfers": [
+    "Benjamin James",
+    "Austin Cook"
+   ]
+  },
+  {
+   "title": "Who Should I Start for Fantasy Football Week 7? Caleb Williams, Drake Maye, Jacoby Brissett, Lamar Jackson, Sam Darnold, Cam Ward, Daniel Jones, Tyler Huntley, Jalon Daniels",
+   "link": "https://www.rotoballer.com/who-should-i-start-for-week-7-caleb-williams-drake-maye-jacoby-brissett-lamar-jackson-sam-darnold-cam-ward-daniel-jones-tyler-huntley-jalon-daniels/1972619",
+   "summary": "Who Should I Start? Who Should I Sit? Some of the most common Week 7 fantasy football lineup decisions involve [&#8230;]",
+   "published": "Thu, 22 Oct 2026 12:36:49 +0000",
+   "source": "RotoBaller",
+   "kind": "news",
+   "golfers": [
+    "Nick Jones"
+   ]
+  },
   {
    "title": "Butterfield Bermuda Championship Field 2026: Full Player List, Withdrawals",
    "link": "https://sports.yahoo.com/articles/butterfield-bermuda-championship-field-2026-060503395.html",
@@ -222,28 +251,6 @@
    "kind": "news",
    "golfers": [
     "Adam Long"
-   ]
-  },
-  {
-   "title": "When Is Jacory Croskey-Merritt Coming Back - Week 7 Fantasy Football Injury Return Update (2026)",
-   "link": "https://www.rotoballer.com/when-is-jacory-croskey-merritt-coming-back-week-7-fantasy-football-injury-return-update-2026/1972294",
-   "summary": "Washington Commanders running back Jacory Croskey-Merritt (groin) has been the clear lead RB for the Washington Commanders this season. He [&#8230;]",
-   "published": "Wed, 21 Oct 2026 23:22:11 +0000",
-   "source": "RotoBaller",
-   "kind": "news",
-   "golfers": [
-    "Troy Merritt"
-   ]
-  },
-  {
-   "title": "Titleist Shop at Pinehurst: An exclusive look at the incredible new retail destination!",
-   "link": "https://golfwrx.com/788125/titleist-shop-at-pinehurst-an-exclusive-look-at-the-incredible-new-retail-destination/",
-   "summary": "Visiting Pinehurst is a bucket-list experience for any golfer! While playing iconic courses like Pinehurst No. 2 is often the main draw, there\u2019s so much more to explore on the property. For gearheads, the Titleist Shop at Pinehurst is a must-visit, offering unique custom merchandise, limited-edition Titleist and Pinehurst gear, custom golf balls personalized on-site, [&#8230;]",
-   "published": "Fri, 16 Oct 2026 16:46:55 +0000",
-   "source": "GolfWRX",
-   "kind": "news",
-   "golfers": [
-    "Luke List"
    ]
   }
  ]
