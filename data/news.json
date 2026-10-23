@@ -1,11 +1,11 @@
 {
- "updatedUtc": "2026-10-23T17:10:23Z",
+ "updatedUtc": "2026-10-23T21:25:52Z",
  "slate": "BUTTERFIELD_2026",
  "event": "",
  "counts": {
-  "items": 2,
-  "golfersMentioned": 2,
-  "news": 2,
+  "items": 4,
+  "golfersMentioned": 6,
+  "news": 4,
   "chatter": 0
  },
  "sources": [
@@ -114,7 +114,7 @@
   {
    "source": "Google News: PGA WD",
    "ok": true,
-   "items": 50,
+   "items": 100,
    "error": null
   },
   {
@@ -138,6 +138,30 @@
  ],
  "mentions": [
   {
+   "name": "Chris Kirk",
+   "news": 1,
+   "chatter": 0,
+   "total": 1
+  },
+  {
+   "name": "Denny McCarthy",
+   "news": 1,
+   "chatter": 0,
+   "total": 1
+  },
+  {
+   "name": "Camiko Smith",
+   "news": 1,
+   "chatter": 0,
+   "total": 1
+  },
+  {
+   "name": "Max Greyserman",
+   "news": 1,
+   "chatter": 0,
+   "total": 1
+  },
+  {
    "name": "Adam Long",
    "news": 1,
    "chatter": 0,
@@ -151,6 +175,30 @@
   }
  ],
  "items": [
+  {
+   "title": "Who Should I Start for Fantasy Football Week 7? Aaron Rodgers, Kyler Murray, C.J. Stroud, Geno Smith, Kirk Cousins, Bryce Young, J.J. McCarthy, Michael Penix Jr., Baker Mayfield, Tyler Shough",
+   "link": "https://www.rotoballer.com/who-should-i-start-for-week-7-aaron-rodgers-kyler-murray-c-j-stroud-geno-smith-kirk-cousins-bryce-young-j-j-mccarthy-michael-penix-jr-baker-mayfield-tyler-shough/1973634",
+   "summary": "Who Should I Start? Who Should I Sit? Some of the most common Week 7 fantasy football lineup decisions involve [&#8230;]",
+   "published": "Fri, 23 Oct 2026 18:51:37 +0000",
+   "source": "RotoBaller",
+   "kind": "news",
+   "golfers": [
+    "Chris Kirk",
+    "Denny McCarthy",
+    "Camiko Smith"
+   ]
+  },
+  {
+   "title": "PGA Tour Pro Withdraws From Butterfield Bermuda Championship Due to Unfortunate Injury",
+   "link": "https://sports.yahoo.com/articles/pga-tour-pro-withdraws-butterfield-171541431.html",
+   "summary": "Max Greyserman\u2019s search for his first PGA Tour win has hit another setback. A back injury forced him to withdraw from the Butterfield Bermuda Championship during Friday\u2019s second round.",
+   "published": "Fri, 23 Oct 2026 17:15:41 +0000",
+   "source": "Yahoo Golf",
+   "kind": "news",
+   "golfers": [
+    "Max Greyserman"
+   ]
+  },
   {
    "title": "Week 8 College Football Hub: Picks, Best Bets, and Previews",
    "link": "https://vsin.com/college-football/week-8-college-football-hub-picks-best-bets-and-previews/",
