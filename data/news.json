@@ -1,11 +1,11 @@
 {
- "updatedUtc": "2026-10-25T04:44:14Z",
+ "updatedUtc": "2026-10-25T11:33:38Z",
  "slate": "BUTTERFIELD_2026",
  "event": "",
  "counts": {
-  "items": 3,
-  "golfersMentioned": 3,
-  "news": 3,
+  "items": 4,
+  "golfersMentioned": 5,
+  "news": 4,
   "chatter": 0
  },
  "sources": [
@@ -114,7 +114,7 @@
   {
    "source": "Google News: PGA WD",
    "ok": true,
-   "items": 52,
+   "items": 100,
    "error": null
   },
   {
@@ -138,13 +138,25 @@
  ],
  "mentions": [
   {
-   "name": "Seamus Power",
+   "name": "Luke List",
    "news": 1,
    "chatter": 0,
    "total": 1
   },
   {
-   "name": "Luke List",
+   "name": "Chris Kirk",
+   "news": 1,
+   "chatter": 0,
+   "total": 1
+  },
+  {
+   "name": "Camiko Smith",
+   "news": 1,
+   "chatter": 0,
+   "total": 1
+  },
+  {
+   "name": "Seamus Power",
    "news": 1,
    "chatter": 0,
    "total": 1
@@ -158,6 +170,29 @@
  ],
  "items": [
   {
+   "title": "The Cut List - Time To Let Go? Who To Consider Dropping For Fantasy Hockey (Week 5)",
+   "link": "https://www.rotoballer.com/the-cut-list-fantasy-hockey-busts-drops-for-week-5-2026/1974826",
+   "summary": "Hey RotoBallers! With another week of NHL action behind us, it's time to revisit the cut list. With injuries piling [&#8230;]",
+   "published": "Sun, 25 Oct 2026 11:00:19 +0000",
+   "source": "RotoBaller",
+   "kind": "news",
+   "golfers": [
+    "Luke List"
+   ]
+  },
+  {
+   "title": "Who Should I Start for Fantasy Football Week 7? Aaron Rodgers, Kyler Murray, C.J. Stroud, Geno Smith, Tyler Shough, Bo Nix, Kirk Cousins, Bryce Young, Jacoby Brissett, Brock Purdy",
+   "link": "https://www.rotoballer.com/who-should-i-start-for-week-7-aaron-rodgers-kyler-murray-c-j-stroud-geno-smith-tyler-shough-bo-nix-kirk-cousins-bryce-young-jacoby-brissett-brock-purdy/1974164",
+   "summary": "Who Should I Start? Who Should I Sit? Some of the most common Week 7 fantasy football lineup decisions involve [&#8230;]",
+   "published": "Sun, 25 Oct 2026 10:02:21 +0000",
+   "source": "RotoBaller",
+   "kind": "news",
+   "golfers": [
+    "Chris Kirk",
+    "Camiko Smith"
+   ]
+  },
+  {
    "title": "NFL Top Plays Based on Betting Splits, Power Ratings and Trends \u2013 Week 7",
    "link": "https://vsin.com/nfl/nfl-top-plays-based-on-betting-splits-power-ratings-and-trends-for-week-7/",
    "summary": "Week 7 NFL Betting Trends: The following NFL betting trends are a collection of analytical data, betting systems and strength ratings featured on VSiN and qualified for the NFL games of Week 7. This report is meant to emulate the process that Steve Makinen and other members of the VSiN Analytics team undergo when handicapping [&#8230;] The post NFL Top Plays Based on Betting Splits, Power Ratings ",
@@ -166,17 +201,6 @@
    "kind": "news",
    "golfers": [
     "Seamus Power"
-   ]
-  },
-  {
-   "title": "Weekend Players To Cut for Week 7 Lineups -Justin Herbert, Dalton Schultz, MarShawn Lloyd, Jake Ferguson, Emanuel Wilson, Brian Thomas",
-   "link": "https://www.rotoballer.com/weekend-cut-list-rankings-fantasy-football-drops-week-7-2026/1973024",
-   "summary": "Welcome back, RotoBallers, to our Weekend Cut List Rankings for fantasy football Week 7 of the 2026 NFL season. The [&#8230;]",
-   "published": "Sat, 24 Oct 2026 15:15:39 +0000",
-   "source": "RotoBaller",
-   "kind": "news",
-   "golfers": [
-    "Luke List"
    ]
   },
   {
