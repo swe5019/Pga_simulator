@@ -1,11 +1,11 @@
 {
- "updatedUtc": "2026-10-24T23:17:12Z",
+ "updatedUtc": "2026-10-25T04:44:14Z",
  "slate": "BUTTERFIELD_2026",
  "event": "",
  "counts": {
-  "items": 4,
+  "items": 3,
   "golfersMentioned": 3,
-  "news": 4,
+  "news": 3,
   "chatter": 0
  },
  "sources": [
@@ -114,7 +114,7 @@
   {
    "source": "Google News: PGA WD",
    "ok": true,
-   "items": 100,
+   "items": 52,
    "error": null
   },
   {
@@ -139,9 +139,9 @@
  "mentions": [
   {
    "name": "Seamus Power",
-   "news": 2,
+   "news": 1,
    "chatter": 0,
-   "total": 2
+   "total": 1
   },
   {
    "name": "Luke List",
@@ -157,6 +157,17 @@
   }
  ],
  "items": [
+  {
+   "title": "NFL Top Plays Based on Betting Splits, Power Ratings and Trends \u2013 Week 7",
+   "link": "https://vsin.com/nfl/nfl-top-plays-based-on-betting-splits-power-ratings-and-trends-for-week-7/",
+   "summary": "Week 7 NFL Betting Trends: The following NFL betting trends are a collection of analytical data, betting systems and strength ratings featured on VSiN and qualified for the NFL games of Week 7. This report is meant to emulate the process that Steve Makinen and other members of the VSiN Analytics team undergo when handicapping [&#8230;] The post NFL Top Plays Based on Betting Splits, Power Ratings ",
+   "published": "Sun, 25 Oct 2026 00:26:00 +0000",
+   "source": "VSiN",
+   "kind": "news",
+   "golfers": [
+    "Seamus Power"
+   ]
+  },
   {
    "title": "Weekend Players To Cut for Week 7 Lineups -Justin Herbert, Dalton Schultz, MarShawn Lloyd, Jake Ferguson, Emanuel Wilson, Brian Thomas",
    "link": "https://www.rotoballer.com/weekend-cut-list-rankings-fantasy-football-drops-week-7-2026/1973024",
@@ -177,28 +188,6 @@
    "kind": "news",
    "golfers": [
     "Adam Long"
-   ]
-  },
-  {
-   "title": "College Football Top Plays Based on Betting Splits, Power Ratings and Trends \u2013 Week 8",
-   "link": "https://vsin.com/college-football/college-football-top-plays-based-on-betting-splits-power-ratings-and-trends-for-week-8/",
-   "summary": "Week 8 College Football Betting Trends: The following is a collection of analytical data, betting systems and strength ratings featured on VSiN and qualified for the college football games of Week 8. This report is meant to emulate the process that Steve Makinen and other members of the VSiN Analytics team undergo when handicapping each [&#8230;] The post College Football Top Plays Based on Bettin",
-   "published": "Fri, 23 Oct 2026 22:34:00 +0000",
-   "source": "VSiN",
-   "kind": "news",
-   "golfers": [
-    "Seamus Power"
-   ]
-  },
-  {
-   "title": "Week 8 College Football Power Ratings and Projections for Every Game",
-   "link": "https://vsin.com/college-football/week-8-college-football-power-ratings-and-projections-for-every-game/",
-   "summary": "Week 8 College Football Power Ratings Some college football seasons challenge you more than others. The sheer inconsistency of so many teams has made it very difficult to feel like I\u2019ve had a proper power rating on the majority of the nation\u2019s programs. That\u2019s not because of a lack of effort or sticking strictly to [&#8230;] The post Week 8 College Football Power Ratings and Projections for Every ",
-   "published": "Fri, 23 Oct 2026 22:32:00 +0000",
-   "source": "VSiN",
-   "kind": "news",
-   "golfers": [
-    "Seamus Power"
    ]
   }
  ]
