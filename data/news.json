@@ -1,11 +1,11 @@
 {
- "updatedUtc": "2026-10-26T04:49:58Z",
+ "updatedUtc": "2026-10-26T13:06:57Z",
  "slate": "BUTTERFIELD_2026",
  "event": "",
  "counts": {
-  "items": 5,
-  "golfersMentioned": 4,
-  "news": 5,
+  "items": 6,
+  "golfersMentioned": 5,
+  "news": 6,
   "chatter": 0
  },
  "sources": [
@@ -108,7 +108,7 @@
   {
    "source": "Google News: PGA DFS",
    "ok": true,
-   "items": 49,
+   "items": 100,
    "error": null
   },
   {
@@ -139,30 +139,69 @@
  "mentions": [
   {
    "name": "Seamus Power",
-   "news": 3,
+   "news": 2,
    "chatter": 0,
-   "total": 3
+   "total": 2
+  },
+  {
+   "name": "Chris Kirk",
+   "news": 1,
+   "chatter": 0,
+   "total": 1
+  },
+  {
+   "name": "Camiko Smith",
+   "news": 1,
+   "chatter": 0,
+   "total": 1
+  },
+  {
+   "name": "Justin Lower",
+   "news": 1,
+   "chatter": 0,
+   "total": 1
   },
   {
    "name": "David Ford",
    "news": 1,
    "chatter": 0,
    "total": 1
-  },
-  {
-   "name": "Luke List",
-   "news": 1,
-   "chatter": 0,
-   "total": 1
-  },
-  {
-   "name": "Austin Smotherman",
-   "news": 1,
-   "chatter": 0,
-   "total": 1
   }
  ],
  "items": [
+  {
+   "title": "Quarterback Fantasy Football Waiver Wire Pickups - Top QB Adds for Week 8 Include Kirk Cousins, Michael Penix Jr., Malik Willis, and more",
+   "link": "https://www.rotoballer.com/quarterback-qb-waiver-wire-pickups-week-8-fantasy-football-2026/1975725",
+   "summary": "Week 7 brought fantasy managers some impressive production from names that have struggled with consistency to start the 2026 season. [&#8230;]",
+   "published": "Mon, 26 Oct 2026 11:30:42 +0000",
+   "source": "RotoBaller",
+   "kind": "news",
+   "golfers": [
+    "Chris Kirk"
+   ]
+  },
+  {
+   "title": "'I'm not the one who picks it!' - Should Smith get PL debut after major win?",
+   "link": "https://www.skysports.com/darts/news/12040/13603886/premier-league-darts-ross-smith-eyes-pl-debut-after-european-championship-victory-and-latest-pdc-ranked-major-title",
+   "summary": "Ross Smith believes he &#8216;definitely&#8217; deserves a Premier League debut on current form, having securing a second TV major title of the season at the Machineseeker European Championship.",
+   "published": "Mon, 26 Oct 2026 08:00:00 GMT",
+   "source": "Sky Sports Golf",
+   "kind": "news",
+   "golfers": [
+    "Camiko Smith"
+   ]
+  },
+  {
+   "title": "Thunder star Williams stretched off with leg injury",
+   "link": "https://www.skysports.com/basketball/news/12040/13603869/jalen-williams-oklahoma-city-thunder-star-stretchered-off-with-significant-leg-injury-in-win-over-los-angeles-clippers",
+   "summary": "Oklahoma City Thunder star Jalen Williams was taken off the court on a stretcher after suffering a significant lower-leg injury during their 108-101 victory over the Los Angeles Clippers.",
+   "published": "Mon, 26 Oct 2026 06:40:00 GMT",
+   "source": "Sky Sports Golf",
+   "kind": "news",
+   "golfers": [
+    "Justin Lower"
+   ]
+  },
   {
    "title": "Week 9 College Football Power Ratings and Projections for Every Game",
    "link": "https://vsin.com/college-football/week-9-college-football-power-ratings-and-projections-for-every-game/",
@@ -183,29 +222,6 @@
    "kind": "news",
    "golfers": [
     "David Ford"
-   ]
-  },
-  {
-   "title": "Weekend Players To Cut for Week 7 Lineups -Justin Herbert, Dalton Schultz, MarShawn Lloyd, Jake Ferguson, Emanuel Wilson, Brian Thomas",
-   "link": "https://www.rotoballer.com/weekend-cut-list-rankings-fantasy-football-drops-week-7-2026/1973024",
-   "summary": "Welcome back, RotoBallers, to our Weekend Cut List Rankings for fantasy football Week 7 of the 2026 NFL season. The [&#8230;]",
-   "published": "Sun, 25 Oct 2026 13:15:39 +0000",
-   "source": "RotoBaller",
-   "kind": "news",
-   "golfers": [
-    "Luke List"
-   ]
-  },
-  {
-   "title": "Seamus Power, Austin Smotherman Share Lead In Windy Bermuda Showdown",
-   "link": "https://sports.yahoo.com/articles/seamus-power-austin-smotherman-share-120006861.html",
-   "summary": "Seamus Power and Austin Smotherman share the Bermuda Championship lead at 16 under, with fierce winds and PGA Tour playing privileges adding drama to Sunday's finale.",
-   "published": "Sun, 25 Oct 2026 12:00:06 +0000",
-   "source": "Yahoo Golf",
-   "kind": "news",
-   "golfers": [
-    "Seamus Power",
-    "Austin Smotherman"
    ]
   },
   {
