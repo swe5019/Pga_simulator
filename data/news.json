@@ -1,11 +1,11 @@
 {
- "updatedUtc": "2026-10-27T09:02:26Z",
+ "updatedUtc": "2026-10-27T15:22:34Z",
  "slate": "BUTTERFIELD_2026",
  "event": "",
  "counts": {
-  "items": 8,
+  "items": 7,
   "golfersMentioned": 7,
-  "news": 8,
+  "news": 7,
   "chatter": 0
  },
  "sources": [
@@ -108,13 +108,13 @@
   {
    "source": "Google News: PGA DFS",
    "ok": true,
-   "items": 49,
+   "items": 100,
    "error": null
   },
   {
    "source": "Google News: PGA WD",
    "ok": true,
-   "items": 100,
+   "items": 52,
    "error": null
   },
   {
@@ -139,9 +139,15 @@
  "mentions": [
   {
    "name": "Chris Kirk",
-   "news": 2,
+   "news": 1,
    "chatter": 0,
-   "total": 2
+   "total": 1
+  },
+  {
+   "name": "Luke List",
+   "news": 1,
+   "chatter": 0,
+   "total": 1
   },
   {
    "name": "Camiko Smith",
@@ -168,12 +174,6 @@
    "total": 1
   },
   {
-   "name": "Luke List",
-   "news": 1,
-   "chatter": 0,
-   "total": 1
-  },
-  {
    "name": "David Ford",
    "news": 1,
    "chatter": 0,
@@ -181,6 +181,28 @@
   }
  ],
  "items": [
+  {
+   "title": "Quarterback Fantasy Football Waiver Wire Pickups - Top QB Adds for Week 8 Include Kirk Cousins, Michael Penix Jr., Malik Willis, more",
+   "link": "https://www.rotoballer.com/quarterback-qb-waiver-wire-pickups-week-8-fantasy-football-2026/1975725",
+   "summary": "Week 7 brought fantasy managers some impressive production from names that have struggled with consistency to start the 2026 season. [&#8230;]",
+   "published": "Tue, 27 Oct 2026 14:54:42 +0000",
+   "source": "RotoBaller",
+   "kind": "news",
+   "golfers": [
+    "Chris Kirk"
+   ]
+  },
+  {
+   "title": "The Cut List - Time to Let Go? Who to Drop for Fantasy Football Week 8",
+   "link": "https://www.rotoballer.com/who-to-drop-for-fantasy-football-week-8-2026/1976514",
+   "summary": "We're at the point in the season where a player's name value and where you drafted them no longer matter. [&#8230;]",
+   "published": "Tue, 27 Oct 2026 14:35:36 +0000",
+   "source": "RotoBaller",
+   "kind": "news",
+   "golfers": [
+    "Luke List"
+   ]
+  },
   {
    "title": "Smith ruled out of Cape Town Test late due to neck injury",
    "link": "https://www.skysports.com/cricket/news/12040/13604271/australia-vs-south-africa-steve-smith-ruled-out-of-cape-town-test-due-to-injury",
@@ -223,39 +245,6 @@
    "kind": "news",
    "golfers": [
     "Cameron Champ"
-   ]
-  },
-  {
-   "title": "Players To Cut Before Week 8 Fantasy Football? Konata Mumpfield, Kendrick Bourne, Josh Downs, Mark Andrews, Jaylin Noel, Tyler Allgeier, Dalton Schultz, Justin Herbert, Juwan Johnson",
-   "link": "https://www.rotoballer.com/cut-list-rankings-fantasy-football-drops-before-week-8-2026/1976146",
-   "summary": "Welcome back, RotoBallers, to our Cut List Rankings for fantasy football Week 8 of the 2026 NFL season. With another [&#8230;]",
-   "published": "Mon, 26 Oct 2026 18:00:09 +0000",
-   "source": "RotoBaller",
-   "kind": "news",
-   "golfers": [
-    "Luke List"
-   ]
-  },
-  {
-   "title": "Who Should I Drop for Fantasy Football Week 8? DeMario Douglas, Jaylin Noel, Tyler Higbee, Josh Downs, Tyler Allgeier, Christian Kirk, Chris Godwin Jr., Konata Mumpfield, Adonai Mitchell",
-   "link": "https://www.rotoballer.com/who-should-i-drop-for-week-8-demario-douglas-jaylin-noel-tyler-higbee-josh-downs-tyler-allgeier-christian-kirk-chris-godwin-jr-konata-mumpfield-adonai-mitchell/1976092",
-   "summary": "Who Should I Drop? Who Should I Keep? Some of the most common Week 8 fantasy football cut candidates include [&#8230;]",
-   "published": "Mon, 26 Oct 2026 14:19:43 +0000",
-   "source": "RotoBaller",
-   "kind": "news",
-   "golfers": [
-    "Chris Kirk"
-   ]
-  },
-  {
-   "title": "Quarterback Fantasy Football Waiver Wire Pickups - Top QB Adds for Week 8 Include Kirk Cousins, Michael Penix Jr., Malik Willis, more",
-   "link": "https://www.rotoballer.com/quarterback-qb-waiver-wire-pickups-week-8-fantasy-football-2026/1975725",
-   "summary": "Week 7 brought fantasy managers some impressive production from names that have struggled with consistency to start the 2026 season. [&#8230;]",
-   "published": "Mon, 26 Oct 2026 12:30:42 +0000",
-   "source": "RotoBaller",
-   "kind": "news",
-   "golfers": [
-    "Chris Kirk"
    ]
   },
   {
