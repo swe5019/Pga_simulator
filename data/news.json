@@ -1,11 +1,11 @@
 {
- "updatedUtc": "2026-10-27T00:27:17Z",
+ "updatedUtc": "2026-10-27T09:02:26Z",
  "slate": "BUTTERFIELD_2026",
  "event": "",
  "counts": {
-  "items": 7,
-  "golfersMentioned": 6,
-  "news": 7,
+  "items": 8,
+  "golfersMentioned": 7,
+  "news": 8,
   "chatter": 0
  },
  "sources": [
@@ -108,13 +108,13 @@
   {
    "source": "Google News: PGA DFS",
    "ok": true,
-   "items": 47,
+   "items": 49,
    "error": null
   },
   {
    "source": "Google News: PGA WD",
    "ok": true,
-   "items": 53,
+   "items": 100,
    "error": null
   },
   {
@@ -144,6 +144,24 @@
    "total": 2
   },
   {
+   "name": "Camiko Smith",
+   "news": 1,
+   "chatter": 0,
+   "total": 1
+  },
+  {
+   "name": "Benjamin James",
+   "news": 1,
+   "chatter": 0,
+   "total": 1
+  },
+  {
+   "name": "Seamus Power",
+   "news": 1,
+   "chatter": 0,
+   "total": 1
+  },
+  {
    "name": "Cameron Champ",
    "news": 1,
    "chatter": 0,
@@ -156,18 +174,6 @@
    "total": 1
   },
   {
-   "name": "Justin Lower",
-   "news": 1,
-   "chatter": 0,
-   "total": 1
-  },
-  {
-   "name": "Seamus Power",
-   "news": 1,
-   "chatter": 0,
-   "total": 1
-  },
-  {
    "name": "David Ford",
    "news": 1,
    "chatter": 0,
@@ -175,6 +181,39 @@
   }
  ],
  "items": [
+  {
+   "title": "Smith ruled out of Cape Town Test late due to neck injury",
+   "link": "https://www.skysports.com/cricket/news/12040/13604271/australia-vs-south-africa-steve-smith-ruled-out-of-cape-town-test-due-to-injury",
+   "summary": "Steve Smith has been ruled out of Australia's third Test decider against South Africa in Cape Town after it was confirmed late on Tuesday morning that the batter had not fully recovered from a neck injury.",
+   "published": "Tue, 27 Oct 2026 08:02:00 GMT",
+   "source": "Sky Sports Golf",
+   "kind": "news",
+   "golfers": [
+    "Camiko Smith"
+   ]
+  },
+  {
+   "title": "College Football Week 9 Picks: Troy vs. James Madison",
+   "link": "https://vsin.com/college-football/college-football-week-9-picks-troy-vs-james-madison/",
+   "summary": "Troy vs. James Madison The 2-2-2 format for the middle of the week continues on Thursday with a couple of games, one from the Sun Belt and one from the American. The Florida Atlantic vs. North Texas has our highest total of the season and we\u2019ve seen a runaway train full of money on the [&#8230;] The post College Football Week 9 Picks: Troy vs. James Madison appeared first on VSiN .",
+   "published": "Tue, 27 Oct 2026 01:06:00 +0000",
+   "source": "VSiN",
+   "kind": "news",
+   "golfers": [
+    "Benjamin James"
+   ]
+  },
+  {
+   "title": "Week 9 College Football Power Ratings and Projections for Every Game",
+   "link": "https://vsin.com/college-football/week-9-college-football-power-ratings-and-projections-for-every-game/",
+   "summary": "Week 9 College Football Power Ratings With the final weekend in October upon us, we\u2019re at the \u201cwhat you see is what you get\u201d phase of the college football season in my opinion. More than enough time has passed for these teams to come together with a bunch of new faces. If a team is [&#8230;] The post Week 9 College Football Power Ratings and Projections for Every Game appeared first on VSiN .",
+   "published": "Tue, 27 Oct 2026 01:04:00 +0000",
+   "source": "VSiN",
+   "kind": "news",
+   "golfers": [
+    "Seamus Power"
+   ]
+  },
   {
    "title": "LIV Exodus Continues as Another Major Champ Rejects LIV 2.0 and Eyes DP World Tour Return",
    "link": "https://sports.yahoo.com/articles/liv-exodus-continues-another-major-183244220.html",
@@ -217,28 +256,6 @@
    "kind": "news",
    "golfers": [
     "Chris Kirk"
-   ]
-  },
-  {
-   "title": "Thunder star Williams stretched off with leg injury",
-   "link": "https://www.skysports.com/basketball/news/12040/13603869/jalen-williams-oklahoma-city-thunder-star-stretchered-off-with-significant-leg-injury-in-win-over-los-angeles-clippers",
-   "summary": "Oklahoma City Thunder star Jalen Williams was taken off the court on a stretcher after suffering a significant lower-leg injury during their 108-101 victory over the Los Angeles Clippers.",
-   "published": "Mon, 26 Oct 2026 06:40:00 GMT",
-   "source": "Sky Sports Golf",
-   "kind": "news",
-   "golfers": [
-    "Justin Lower"
-   ]
-  },
-  {
-   "title": "Week 9 College Football Power Ratings and Projections for Every Game",
-   "link": "https://vsin.com/college-football/week-9-college-football-power-ratings-and-projections-for-every-game/",
-   "summary": "Week 9 College Football Power Ratings With the final weekend in October upon us, we\u2019re at the \u201cwhat you see is what you get\u201d phase of the college football season in my opinion. More than enough time has passed for these teams to come together with a bunch of new faces. If a team is [&#8230;] The post Week 9 College Football Power Ratings and Projections for Every Game appeared first on VSiN .",
-   "published": "Mon, 26 Oct 2026 04:18:18 +0000",
-   "source": "VSiN",
-   "kind": "news",
-   "golfers": [
-    "Seamus Power"
    ]
   },
   {
