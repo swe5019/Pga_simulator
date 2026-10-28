@@ -1,11 +1,11 @@
 {
- "updatedUtc": "2026-10-28T12:58:36Z",
+ "updatedUtc": "2026-10-28T20:16:35Z",
  "slate": "BUTTERFIELD_2026",
  "event": "",
  "counts": {
-  "items": 7,
+  "items": 6,
   "golfersMentioned": 5,
-  "news": 7,
+  "news": 6,
   "chatter": 0
  },
  "sources": [
@@ -108,7 +108,7 @@
   {
    "source": "Google News: PGA DFS",
    "ok": true,
-   "items": 50,
+   "items": 51,
    "error": null
   },
   {
@@ -144,31 +144,54 @@
    "total": 3
   },
   {
-   "name": "Benjamin James",
+   "name": "Adam Long",
    "news": 2,
    "chatter": 0,
    "total": 2
+  },
+  {
+   "name": "Chris Kirk",
+   "news": 1,
+   "chatter": 0,
+   "total": 1
+  },
+  {
+   "name": "Camiko Smith",
+   "news": 1,
+   "chatter": 0,
+   "total": 1
   },
   {
    "name": "Austin Smotherman",
    "news": 1,
    "chatter": 0,
    "total": 1
-  },
-  {
-   "name": "Adam Long",
-   "news": 1,
-   "chatter": 0,
-   "total": 1
-  },
-  {
-   "name": "Taylor Moore",
-   "news": 1,
-   "chatter": 0,
-   "total": 1
   }
  ],
  "items": [
+  {
+   "title": "Mexico Open 2026 Picks: PGA Tour Experts Back Surprise Winners",
+   "link": "https://sports.yahoo.com/articles/mexico-open-2026-picks-pga-175415396.html",
+   "summary": "PGA Tour experts reveal their 2026 Mexico Open betting picks, with Tom Kim, Doug Ghim and several long shots drawing attention at Vidanta Vallarta.",
+   "published": "Wed, 28 Oct 2026 17:54:15 +0000",
+   "source": "Yahoo Golf",
+   "kind": "news",
+   "golfers": [
+    "Adam Long"
+   ]
+  },
+  {
+   "title": "Who Should I Start for Fantasy Football Week 8? Jacoby Brissett, Geno Smith, Aaron Rodgers, Kirk Cousins, Baker Mayfield, Jared Goff, Malik Willis, Michael Penix Jr., Sam Darnold",
+   "link": "https://www.rotoballer.com/who-should-i-start-for-week-8-jacoby-brissett-geno-smith-aaron-rodgers-kirk-cousins-baker-mayfield-jared-goff-malik-willis-michael-penix-jr-sam-darnold/1977764",
+   "summary": "Who Should I Start? Who Should I Sit? Some of the most common Week 8 fantasy football lineup decisions involve [&#8230;]",
+   "published": "Wed, 28 Oct 2026 14:36:58 +0000",
+   "source": "RotoBaller",
+   "kind": "news",
+   "golfers": [
+    "Chris Kirk",
+    "Camiko Smith"
+   ]
+  },
   {
    "title": "VidantaWorld Mexico Open Best Bets and Golf Odds",
    "link": "https://vsin.com/golf/vidantaworld-mexico-open-best-bets-and-golf-odds/",
@@ -212,39 +235,6 @@
    "kind": "news",
    "golfers": [
     "Adam Long"
-   ]
-  },
-  {
-   "title": "When Is James Conner Coming Back - Week 8 Fantasy Football Injury Return Update (2026)",
-   "link": "https://www.rotoballer.com/when-is-james-conner-coming-back-week-8-fantasy-football-injury-return-update-2026/1977304",
-   "summary": "Arizona Cardinals running back James Conner is not a Week 8 option, with his return uncertain. Asked Monday whether Conner [&#8230;]",
-   "published": "Tue, 27 Oct 2026 21:10:39 +0000",
-   "source": "RotoBaller",
-   "kind": "news",
-   "golfers": [
-    "Benjamin James"
-   ]
-  },
-  {
-   "title": "When Is DJ Moore Coming Back - Week 8 Fantasy Football Injury Return Update (2026)",
-   "link": "https://www.rotoballer.com/when-is-dj-moore-coming-back-week-8-fantasy-football-injury-return-update-2026/1976500",
-   "summary": "Buffalo Bills wide receiver DJ Moore was one of the biggest offseason acquisitions by teams looking to make a playoff [&#8230;]",
-   "published": "Tue, 27 Oct 2026 20:32:54 +0000",
-   "source": "RotoBaller",
-   "kind": "news",
-   "golfers": [
-    "Taylor Moore"
-   ]
-  },
-  {
-   "title": "College Football Week 9 Picks: Troy vs. James Madison",
-   "link": "https://vsin.com/college-football/college-football-week-9-picks-troy-vs-james-madison/",
-   "summary": "Troy vs. James Madison The 2-2-2 format for the middle of the week continues on Thursday with a couple of games, one from the Sun Belt and one from the American. The Florida Atlantic vs. North Texas has our highest total of the season and we\u2019ve seen a runaway train full of money on the [&#8230;] The post College Football Week 9 Picks: Troy vs. James Madison appeared first on VSiN .",
-   "published": "Tue, 27 Oct 2026 01:06:00 +0000",
-   "source": "VSiN",
-   "kind": "news",
-   "golfers": [
-    "Benjamin James"
    ]
   }
  ]
