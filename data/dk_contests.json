@@ -1,11 +1,11 @@
 {
- "updatedUtc": "2026-10-27T18:31:28Z",
+ "updatedUtc": "2026-10-28T18:37:40Z",
  "tournament": "EVENT_2026W44",
  "event": "",
  "draftGroupId": "155715",
  "contests": [
   {
-   "id": "197191922",
+   "id": "197240415",
    "name": "PGA TOUR FREE 200-Player",
    "fee": 0,
    "entries": 200,
@@ -21,7 +21,7 @@
    "tiers": null
   },
   {
-   "id": "197216798",
+   "id": "197242816",
    "name": "PGA TOUR FREE 25-Player",
    "fee": 0,
    "entries": 25,
@@ -29,18 +29,10 @@
    "tiers": null
   },
   {
-   "id": "197198979",
-   "name": "PGA TOUR FREE 20-Player x3",
+   "id": "197246339",
+   "name": "PGA TOUR FREE 20-Player",
    "fee": 0,
    "entries": 20,
-   "prizePool": 1.0,
-   "tiers": null
-  },
-  {
-   "id": "197199004",
-   "name": "PGA TOUR FREE 10-Player x2",
-   "fee": 0,
-   "entries": 10,
    "prizePool": 1.0,
    "tiers": null
   },
@@ -245,7 +237,7 @@
    "tiers": null
   },
   {
-   "id": "197194614",
+   "id": "197251602",
    "name": "PGA TOUR $20 Winner Take All [$175 to 1st]",
    "fee": 20,
    "entries": 10,
@@ -285,14 +277,6 @@
    "tiers": null
   },
   {
-   "id": "197194799",
-   "name": "PGA TOUR $20 5-Player",
-   "fee": 20,
-   "entries": 5,
-   "prizePool": 90.0,
-   "tiers": null
-  },
-  {
    "id": "197188086",
    "name": "PGA TOUR $100K Sand Trap [$20K to 1st]",
    "fee": 25,
@@ -317,7 +301,7 @@
    "tiers": null
   },
   {
-   "id": "197194652",
+   "id": "197249455",
    "name": "PGA TOUR $25 Quintuple Up [Top 3 Win $125]",
    "fee": 25,
    "entries": 17,
@@ -333,14 +317,6 @@
    "tiers": null
   },
   {
-   "id": "197188106",
-   "name": "PGA TOUR Single Entry $50 Double Up",
-   "fee": 50,
-   "entries": 22,
-   "prizePool": 1000.0,
-   "tiers": null
-  },
-  {
    "id": "197194621",
    "name": "PGA TOUR $50 Double Up",
    "fee": 50,
@@ -349,7 +325,7 @@
    "tiers": null
   },
   {
-   "id": "197194658",
+   "id": "197253290",
    "name": "PGA TOUR $50 Winner Take All [$500 to 1st]",
    "fee": 50,
    "entries": 11,
@@ -357,16 +333,16 @@
    "tiers": null
   },
   {
-   "id": "197194852",
-   "name": "Casual PGA TOUR $50 5-Player",
+   "id": "197194794",
+   "name": "PGA TOUR $50 5-Player",
    "fee": 50,
    "entries": 5,
    "prizePool": 225.0,
    "tiers": null
   },
   {
-   "id": "197194794",
-   "name": "PGA TOUR $50 5-Player",
+   "id": "197194852",
+   "name": "Casual PGA TOUR $50 5-Player",
    "fee": 50,
    "entries": 5,
    "prizePool": 225.0,
@@ -381,7 +357,7 @@
    "tiers": null
   },
   {
-   "id": "197194649",
+   "id": "197194651",
    "name": "PGA TOUR $85 Winner Take All [$300 to 1st]",
    "fee": 85,
    "entries": 4,
@@ -437,14 +413,6 @@
    "tiers": null
   },
   {
-   "id": "197194850",
-   "name": "Casual PGA TOUR $109 3-Player",
-   "fee": 109,
-   "entries": 3,
-   "prizePool": 300.0,
-   "tiers": null
-  },
-  {
    "id": "197188095",
    "name": "PGA TOUR $25K Driver [Single Entry]",
    "fee": 200,
@@ -493,7 +461,7 @@
    "tiers": null
   },
   {
-   "id": "197194638",
+   "id": "197194644",
    "name": "PGA TOUR $267 Winner Take All [$1K to 1st]",
    "fee": 267,
    "entries": 4,
@@ -533,7 +501,7 @@
    "tiers": null
   },
   {
-   "id": "197194656",
+   "id": "197227912",
    "name": "PGA TOUR $555 Winner Take All [$2K to 1st]",
    "fee": 555,
    "entries": 4,
@@ -549,7 +517,7 @@
    "tiers": null
   },
   {
-   "id": "197194887",
+   "id": "197227914",
    "name": "PGA TOUR $1,060 Winner Take All [$3K to 1st] (Must Fill)",
    "fee": 1060,
    "entries": 3,
@@ -565,14 +533,6 @@
    "tiers": null
   },
   {
-   "id": "197188083",
-   "name": "PGA TOUR $14.2K Country Club [$10K to 1st]",
-   "fee": 1500,
-   "entries": 10,
-   "prizePool": 14200.0,
-   "tiers": null
-  },
-  {
    "id": "197194883",
    "name": "PGA TOUR $2,120 50-50",
    "fee": 2120,
@@ -581,7 +541,7 @@
    "tiers": null
   },
   {
-   "id": "197194882",
+   "id": "197223879",
    "name": "PGA TOUR $2,120 3-Player",
    "fee": 2120,
    "entries": 3,
