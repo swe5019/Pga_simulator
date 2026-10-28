@@ -1,11 +1,11 @@
 {
- "updatedUtc": "2026-10-27T22:16:22Z",
+ "updatedUtc": "2026-10-28T05:45:11Z",
  "slate": "BUTTERFIELD_2026",
  "event": "",
  "counts": {
-  "items": 8,
-  "golfersMentioned": 7,
-  "news": 8,
+  "items": 11,
+  "golfersMentioned": 8,
+  "news": 11,
   "chatter": 0
  },
  "sources": [
@@ -108,7 +108,7 @@
   {
    "source": "Google News: PGA DFS",
    "ok": true,
-   "items": 50,
+   "items": 51,
    "error": null
   },
   {
@@ -138,16 +138,28 @@
  ],
  "mentions": [
   {
+   "name": "Seamus Power",
+   "news": 3,
+   "chatter": 0,
+   "total": 3
+  },
+  {
+   "name": "Adam Long",
+   "news": 2,
+   "chatter": 0,
+   "total": 2
+  },
+  {
    "name": "Benjamin James",
    "news": 2,
    "chatter": 0,
    "total": 2
   },
   {
-   "name": "Seamus Power",
-   "news": 2,
+   "name": "Austin Smotherman",
+   "news": 1,
    "chatter": 0,
-   "total": 2
+   "total": 1
   },
   {
    "name": "Taylor Moore",
@@ -172,15 +184,65 @@
    "news": 1,
    "chatter": 0,
    "total": 1
-  },
-  {
-   "name": "Austin Smotherman",
-   "news": 1,
-   "chatter": 0,
-   "total": 1
   }
  ],
  "items": [
+  {
+   "title": "VidantaWorld Mexico Open Best Bets and Golf Odds",
+   "link": "https://vsin.com/golf/vidantaworld-mexico-open-best-bets-and-golf-odds/",
+   "summary": "VidantaWorld Mexico Open Best Bets and Golf Odds: The Butterfield Bermuda Championship was shortened to a 54-hole event because of unplayable conditions from the strong winds. However, play did not end until Monday morning when 54-hole co-leaders Austin Smotherman and Seamus Power went to the par-3 16th and played it three times. Smotherman, a pre-tournament [&#8230;] The post VidantaWorld Mexico ",
+   "published": "Wed, 28 Oct 2026 02:24:00 +0000",
+   "source": "VSiN",
+   "kind": "news",
+   "golfers": [
+    "Seamus Power",
+    "Austin Smotherman"
+   ]
+  },
+  {
+   "title": "College Football Top Plays Based on Betting Splits, Power Ratings and Trends \u2013 Week 9",
+   "link": "https://vsin.com/college-football/college-football-top-plays-based-on-betting-splits-power-ratings-and-trends-for-week-9/",
+   "summary": "Week 9 College Football Betting Trends: The following is a collection of analytical data, betting systems and strength ratings featured on VSiN and qualified for the college football games of Week 9. This report emulates the process Steve Makinen and other members of the VSiN Analytics team use to handicap each week\u2019s college football board. [&#8230;] The post College Football Top Plays Based on B",
+   "published": "Wed, 28 Oct 2026 02:23:10 +0000",
+   "source": "VSiN",
+   "kind": "news",
+   "golfers": [
+    "Seamus Power"
+   ]
+  },
+  {
+   "title": "Week 9 College Football Power Ratings and Projections for Every Game",
+   "link": "https://vsin.com/college-football/week-9-college-football-power-ratings-and-projections-for-every-game/",
+   "summary": "Week 9 College Football Power Ratings With the final weekend in October upon us, we\u2019re at the \u201cwhat you see is what you get\u201d phase of the college football season in my opinion. More than enough time has passed for these teams to come together with a bunch of new faces. If a team is [&#8230;] The post Week 9 College Football Power Ratings and Projections for Every Game appeared first on VSiN .",
+   "published": "Wed, 28 Oct 2026 02:20:00 +0000",
+   "source": "VSiN",
+   "kind": "news",
+   "golfers": [
+    "Seamus Power"
+   ]
+  },
+  {
+   "title": "XFinity 500 Predictions: Top 5 Picks and Best Long Shots",
+   "link": "https://vsin.com/auto-racing/xfinity-500-predictions-top-5-picks-and-best-long-shots/",
+   "summary": "XFinity 500 Predictions: Top 5 Picks and Best Long Shots: As predicted, things got wild at Talladega this past Sunday as the track earned its F+ handicap-ability grade. As many top contenders were taken out at various points in the YellaWood 500, a strange \u201cunderdog\u201d took home the checkered flag. That underdog may have also [&#8230;] The post XFinity 500 Predictions: Top 5 Picks and Best Long Shot",
+   "published": "Wed, 28 Oct 2026 02:18:00 +0000",
+   "source": "VSiN",
+   "kind": "news",
+   "golfers": [
+    "Adam Long"
+   ]
+  },
+  {
+   "title": "Yarde still targeting long-awaited showdown with Buatsi",
+   "link": "https://www.skysports.com/boxing/news/12040/13604551/anthony-yarde-still-targeting-long-awaited-showdown-with-joshua-buatsi-if-he-beats-willy-hutchinson",
+   "summary": "Anthony Yarde is still targeting a fight with domestic rival Joshua Buatsi if he wins his clash with Willy Hutchinson for the vacant WBC light heavyweight world title.",
+   "published": "Tue, 27 Oct 2026 21:21:00 GMT",
+   "source": "Sky Sports Golf",
+   "kind": "news",
+   "golfers": [
+    "Adam Long"
+   ]
+  },
   {
    "title": "When Is James Conner Coming Back - Week 8 Fantasy Football Injury Return Update (2026)",
    "link": "https://www.rotoballer.com/when-is-james-conner-coming-back-week-8-fantasy-football-injury-return-update-2026/1977304",
@@ -237,18 +299,6 @@
    ]
   },
   {
-   "title": "VidantaWorld Mexico Open Best Bets and Golf Odds",
-   "link": "https://vsin.com/golf/vidantaworld-mexico-open-best-bets-and-golf-odds/",
-   "summary": "VidantaWorld Mexico Open Best Bets and Golf Odds: The Butterfield Bermuda Championship was shortened to a 54-hole event because of unplayable conditions from the strong winds. However, play did not end until Monday morning when 54-hole co-leaders Austin Smotherman and Seamus Power went to the par-3 16th and played it three times. Smotherman, a pre-tournament [&#8230;] The post VidantaWorld Mexico ",
-   "published": "Tue, 27 Oct 2026 19:36:11 +0000",
-   "source": "VSiN",
-   "kind": "news",
-   "golfers": [
-    "Seamus Power",
-    "Austin Smotherman"
-   ]
-  },
-  {
    "title": "College Football Week 9 Picks: Troy vs. James Madison",
    "link": "https://vsin.com/college-football/college-football-week-9-picks-troy-vs-james-madison/",
    "summary": "Troy vs. James Madison The 2-2-2 format for the middle of the week continues on Thursday with a couple of games, one from the Sun Belt and one from the American. The Florida Atlantic vs. North Texas has our highest total of the season and we\u2019ve seen a runaway train full of money on the [&#8230;] The post College Football Week 9 Picks: Troy vs. James Madison appeared first on VSiN .",
@@ -257,17 +307,6 @@
    "kind": "news",
    "golfers": [
     "Benjamin James"
-   ]
-  },
-  {
-   "title": "Week 9 College Football Power Ratings and Projections for Every Game",
-   "link": "https://vsin.com/college-football/week-9-college-football-power-ratings-and-projections-for-every-game/",
-   "summary": "Week 9 College Football Power Ratings With the final weekend in October upon us, we\u2019re at the \u201cwhat you see is what you get\u201d phase of the college football season in my opinion. More than enough time has passed for these teams to come together with a bunch of new faces. If a team is [&#8230;] The post Week 9 College Football Power Ratings and Projections for Every Game appeared first on VSiN .",
-   "published": "Tue, 27 Oct 2026 01:04:00 +0000",
-   "source": "VSiN",
-   "kind": "news",
-   "golfers": [
-    "Seamus Power"
    ]
   }
  ]
