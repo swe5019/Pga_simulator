@@ -1,11 +1,11 @@
 {
- "updatedUtc": "2026-10-28T05:45:11Z",
+ "updatedUtc": "2026-10-28T12:58:36Z",
  "slate": "BUTTERFIELD_2026",
  "event": "",
  "counts": {
-  "items": 11,
-  "golfersMentioned": 8,
-  "news": 11,
+  "items": 7,
+  "golfersMentioned": 5,
+  "news": 7,
   "chatter": 0
  },
  "sources": [
@@ -108,13 +108,13 @@
   {
    "source": "Google News: PGA DFS",
    "ok": true,
-   "items": 51,
+   "items": 50,
    "error": null
   },
   {
    "source": "Google News: PGA WD",
    "ok": true,
-   "items": 52,
+   "items": 100,
    "error": null
   },
   {
@@ -144,12 +144,6 @@
    "total": 3
   },
   {
-   "name": "Adam Long",
-   "news": 2,
-   "chatter": 0,
-   "total": 2
-  },
-  {
    "name": "Benjamin James",
    "news": 2,
    "chatter": 0,
@@ -162,25 +156,13 @@
    "total": 1
   },
   {
+   "name": "Adam Long",
+   "news": 1,
+   "chatter": 0,
+   "total": 1
+  },
+  {
    "name": "Taylor Moore",
-   "news": 1,
-   "chatter": 0,
-   "total": 1
-  },
-  {
-   "name": "Troy Merritt",
-   "news": 1,
-   "chatter": 0,
-   "total": 1
-  },
-  {
-   "name": "Camiko Smith",
-   "news": 1,
-   "chatter": 0,
-   "total": 1
-  },
-  {
-   "name": "Taylor Montgomery",
    "news": 1,
    "chatter": 0,
    "total": 1
@@ -233,17 +215,6 @@
    ]
   },
   {
-   "title": "Yarde still targeting long-awaited showdown with Buatsi",
-   "link": "https://www.skysports.com/boxing/news/12040/13604551/anthony-yarde-still-targeting-long-awaited-showdown-with-joshua-buatsi-if-he-beats-willy-hutchinson",
-   "summary": "Anthony Yarde is still targeting a fight with domestic rival Joshua Buatsi if he wins his clash with Willy Hutchinson for the vacant WBC light heavyweight world title.",
-   "published": "Tue, 27 Oct 2026 21:21:00 GMT",
-   "source": "Sky Sports Golf",
-   "kind": "news",
-   "golfers": [
-    "Adam Long"
-   ]
-  },
-  {
    "title": "When Is James Conner Coming Back - Week 8 Fantasy Football Injury Return Update (2026)",
    "link": "https://www.rotoballer.com/when-is-james-conner-coming-back-week-8-fantasy-football-injury-return-update-2026/1977304",
    "summary": "Arizona Cardinals running back James Conner is not a Week 8 option, with his return uncertain. Asked Monday whether Conner [&#8230;]",
@@ -263,39 +234,6 @@
    "kind": "news",
    "golfers": [
     "Taylor Moore"
-   ]
-  },
-  {
-   "title": "When Is Jacory Croskey-Merritt Coming Back - Week 8 Fantasy Football Injury Return Update (2026)",
-   "link": "https://www.rotoballer.com/when-is-jacory-croskey-merritt-coming-back-week-8-fantasy-football-injury-return-update-2026/1977257",
-   "summary": "Washington Commanders running back Jacory Croskey-Merritt (groin) is the starting running back for the Washington Commanders this season, if depth [&#8230;]",
-   "published": "Tue, 27 Oct 2026 20:24:23 +0000",
-   "source": "RotoBaller",
-   "kind": "news",
-   "golfers": [
-    "Troy Merritt"
-   ]
-  },
-  {
-   "title": "When Is DeVonta Smith Coming Back - Week 8 Fantasy Football Injury Return Update (2026)",
-   "link": "https://www.rotoballer.com/when-is-devonta-smith-coming-back-week-8-fantasy-football-injury-return-update-2026-2/1977068",
-   "summary": "Philadelphia Eagles wide receiver DeVonta Smith (hamstring) is now on his second injury stint away from football as he recovers [&#8230;]",
-   "published": "Tue, 27 Oct 2026 20:19:48 +0000",
-   "source": "RotoBaller",
-   "kind": "news",
-   "golfers": [
-    "Camiko Smith"
-   ]
-  },
-  {
-   "title": "When Is David Montgomery Coming Back - Week 8 Fantasy Football Injury Return Update (2026)",
-   "link": "https://www.rotoballer.com/when-is-david-montgomery-coming-back-week-8-fantasy-football-injury-return-update-2026/1977189",
-   "summary": "The success of the running backs in fantasy football in 2025 pushed the position up draft boards in 2026. Fantasy [&#8230;]",
-   "published": "Tue, 27 Oct 2026 20:19:02 +0000",
-   "source": "RotoBaller",
-   "kind": "news",
-   "golfers": [
-    "Taylor Montgomery"
    ]
   },
   {
