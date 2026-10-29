@@ -1,10 +1,10 @@
 {
- "updatedUtc": "2026-10-29T10:00:37Z",
+ "updatedUtc": "2026-10-29T18:29:16Z",
  "slate": "MEXICO_OPEN_2026",
  "event": "",
  "counts": {
   "items": 3,
-  "golfersMentioned": 4,
+  "golfersMentioned": 2,
   "news": 3,
   "chatter": 0
  },
@@ -108,7 +108,7 @@
   {
    "source": "Google News: PGA DFS",
    "ok": true,
-   "items": 50,
+   "items": 100,
    "error": null
   },
   {
@@ -138,7 +138,7 @@
  ],
  "mentions": [
   {
-   "name": "Tom Kim",
+   "name": "Blades Brown",
    "news": 2,
    "chatter": 0,
    "total": 2
@@ -148,21 +148,31 @@
    "news": 1,
    "chatter": 0,
    "total": 1
-  },
-  {
-   "name": "Wyndham Clark",
-   "news": 1,
-   "chatter": 0,
-   "total": 1
-  },
-  {
-   "name": "Doug Ghim",
-   "news": 1,
-   "chatter": 0,
-   "total": 1
   }
  ],
  "items": [
+  {
+   "title": "Fantasy Football Warning Signals for Week 8? Chase Brown, Jordan Addison, Colston Loveland",
+   "link": "https://www.rotoballer.com/fantasy-football-start-em-sit-em-picks-chase-brown-rachaad-white-jordan-addison-colston-loveland/1978395",
+   "summary": "Hello, RotoBallers, and welcome to Week 8 of the NFL season. Thursday brings not just a new week of action, [&#8230;]",
+   "published": "Thu, 29 Oct 2026 16:15:08 +0000",
+   "source": "RotoBaller",
+   "kind": "news",
+   "golfers": [
+    "Blades Brown"
+   ]
+  },
+  {
+   "title": "NFL Survivor Pool Week 8 Picks",
+   "link": "https://vsin.com/nfl/nfl-survivor-pool-week-8-picks/",
+   "summary": "NFL Survivor Another week of carnage in Survivor pools is behind us. For those who are still standing, including our own Matt Brown and Matt Youmans, the picks get tougher and more stressful from this point forward. Survivor Sweat actually power-ranked Brown\u2019s remaining entry fourth out of 660. Our deeply-detailed Circa Survivor dashboard from Jason [&#8230;] The post NFL Survivor Pool Week 8 Pick",
+   "published": "Thu, 29 Oct 2026 15:13:03 +0000",
+   "source": "VSiN",
+   "kind": "news",
+   "golfers": [
+    "Blades Brown"
+   ]
+  },
   {
    "title": "College Football Week 9 Picks: Troy vs. James Madison",
    "link": "https://vsin.com/college-football/college-football-week-9-picks-troy-vs-james-madison/",
@@ -172,30 +182,6 @@
    "kind": "news",
    "golfers": [
     "Benjamin James"
-   ]
-  },
-  {
-   "title": "From the Rough: Mexico Open 2026 Preview As Favorites Face Weather Threat At Vidanta Vallarta",
-   "link": "https://sports.yahoo.com/articles/rough-mexico-open-2026-preview-220034206.html",
-   "summary": "The PGA Tour returns to Mexico as From the Rough previews Wyndham Clark, Tom Kim, betting odds and potentially disruptive weather at Vidanta Vallarta this week.",
-   "published": "Wed, 28 Oct 2026 22:00:34 +0000",
-   "source": "Yahoo Golf",
-   "kind": "news",
-   "golfers": [
-    "Tom Kim",
-    "Wyndham Clark"
-   ]
-  },
-  {
-   "title": "Mexico Open 2026 Picks: PGA Tour Experts Back Surprise Winners",
-   "link": "https://sports.yahoo.com/articles/mexico-open-2026-picks-pga-175415396.html",
-   "summary": "PGA Tour experts reveal their 2026 Mexico Open betting picks, with Tom Kim, Doug Ghim and several long shots drawing attention at Vidanta Vallarta.",
-   "published": "Wed, 28 Oct 2026 17:54:15 +0000",
-   "source": "Yahoo Golf",
-   "kind": "news",
-   "golfers": [
-    "Doug Ghim",
-    "Tom Kim"
    ]
   }
  ]
