@@ -1,11 +1,11 @@
 {
- "updatedUtc": "2026-10-29T00:59:15Z",
+ "updatedUtc": "2026-10-29T10:00:37Z",
  "slate": "MEXICO_OPEN_2026",
  "event": "",
  "counts": {
-  "items": 2,
-  "golfersMentioned": 3,
-  "news": 2,
+  "items": 3,
+  "golfersMentioned": 4,
+  "news": 3,
   "chatter": 0
  },
  "sources": [
@@ -108,13 +108,13 @@
   {
    "source": "Google News: PGA DFS",
    "ok": true,
-   "items": 100,
+   "items": 50,
    "error": null
   },
   {
    "source": "Google News: PGA WD",
    "ok": true,
-   "items": 53,
+   "items": 100,
    "error": null
   },
   {
@@ -144,6 +144,12 @@
    "total": 2
   },
   {
+   "name": "Benjamin James",
+   "news": 1,
+   "chatter": 0,
+   "total": 1
+  },
+  {
    "name": "Wyndham Clark",
    "news": 1,
    "chatter": 0,
@@ -157,6 +163,17 @@
   }
  ],
  "items": [
+  {
+   "title": "College Football Week 9 Picks: Troy vs. James Madison",
+   "link": "https://vsin.com/college-football/college-football-week-9-picks-troy-vs-james-madison/",
+   "summary": "Troy vs. James Madison The 2-2-2 format for the middle of the week continues on Thursday with a couple of games, one from the Sun Belt and one from the American. The Florida Atlantic vs. North Texas has our highest total of the season and we\u2019ve seen a runaway train full of money on the [&#8230;] The post College Football Week 9 Picks: Troy vs. James Madison appeared first on VSiN .",
+   "published": "Thu, 29 Oct 2026 02:25:40 +0000",
+   "source": "VSiN",
+   "kind": "news",
+   "golfers": [
+    "Benjamin James"
+   ]
+  },
   {
    "title": "From the Rough: Mexico Open 2026 Preview As Favorites Face Weather Threat At Vidanta Vallarta",
    "link": "https://sports.yahoo.com/articles/rough-mexico-open-2026-preview-220034206.html",
