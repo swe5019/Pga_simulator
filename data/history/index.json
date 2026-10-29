@@ -1,6 +1,6 @@
 {
- "updatedUtc": "2026-10-28T22:56:11Z",
- "count": 34,
+ "updatedUtc": "2026-10-29T00:49:32Z",
+ "count": 35,
  "events": [
   {
    "tournament": "3M_OPEN_2025",
@@ -168,6 +168,17 @@
    "updatedUtc": "2026-06-25T15:52:16Z"
   },
   {
+   "tournament": "MEXICO_OPEN_2026",
+   "file": "history/MEXICO_OPEN_2026.json",
+   "date": "2026-10-29 00:00:00",
+   "hasPredicted": true,
+   "hasActual": false,
+   "maePct": null,
+   "colabMaePct": null,
+   "comparedPlayers": null,
+   "updatedUtc": "2026-10-29T00:49:32Z"
+  },
+  {
    "tournament": "OPEN_CHAMPIONSHIP_2025",
    "file": "history/OPEN_CHAMPIONSHIP_2025.json",
    "date": "2025-07-17 00:00:00",
@@ -297,7 +308,7 @@
    "maePct": 2.958,
    "colabMaePct": 2.928,
    "comparedPlayers": 72,
-   "updatedUtc": "2026-10-28T22:56:11Z"
+   "updatedUtc": "2026-10-29T00:49:32Z"
   },
   {
    "tournament": "TRUIST_2026",
