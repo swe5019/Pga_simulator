@@ -1,11 +1,11 @@
 {
- "updatedUtc": "2026-10-30T18:01:39Z",
+ "updatedUtc": "2026-10-30T22:23:28Z",
  "slate": "MEXICO_OPEN_2026",
  "event": "",
  "counts": {
-  "items": 4,
-  "golfersMentioned": 5,
-  "news": 4,
+  "items": 7,
+  "golfersMentioned": 9,
+  "news": 7,
   "chatter": 0
  },
  "sources": [
@@ -55,7 +55,7 @@
    "source": "Pinnacle Golf",
    "ok": false,
    "items": 0,
-   "error": "HTTP 404"
+   "error": "TimeoutError"
   },
   {
    "source": "SportsGrid",
@@ -108,13 +108,13 @@
   {
    "source": "Google News: PGA DFS",
    "ok": true,
-   "items": 51,
+   "items": 100,
    "error": null
   },
   {
    "source": "Google News: PGA WD",
    "ok": true,
-   "items": 100,
+   "items": 56,
    "error": null
   },
   {
@@ -138,6 +138,36 @@
  ],
  "mentions": [
   {
+   "name": "Blades Brown",
+   "news": 2,
+   "chatter": 0,
+   "total": 2
+  },
+  {
+   "name": "Benjamin James",
+   "news": 1,
+   "chatter": 0,
+   "total": 1
+  },
+  {
+   "name": "Jordan L. Smith",
+   "news": 1,
+   "chatter": 0,
+   "total": 1
+  },
+  {
+   "name": "Patrick Rodgers",
+   "news": 1,
+   "chatter": 0,
+   "total": 1
+  },
+  {
+   "name": "Harry Hall",
+   "news": 1,
+   "chatter": 0,
+   "total": 1
+  },
+  {
    "name": "Taylor Moore",
    "news": 1,
    "chatter": 0,
@@ -145,12 +175,6 @@
   },
   {
    "name": "Will Gordon",
-   "news": 1,
-   "chatter": 0,
-   "total": 1
-  },
-  {
-   "name": "Blades Brown",
    "news": 1,
    "chatter": 0,
    "total": 1
@@ -169,6 +193,41 @@
   }
  ],
  "items": [
+  {
+   "title": "LeBron James Player Props | Knicks vs 76ers Prediction: Best NBA Player Props Today (October 30)",
+   "link": "https://www.fantasylabs.com/articles/lebron-james-player-props-knicks-vs-76ers-prediction-best-nba-player-props-today-october-30/",
+   "summary": "The Kalshi promo code () is perfect for Friday&#8217;s NBA Cup opener between the Knicks and 76ers. This Knicks vs. 76ers... The post LeBron James Player Props | Knicks vs 76ers Prediction: Best NBA Player Props Today (October 30) appeared first on FantasyLabs .",
+   "published": "Fri, 30 Oct 2026 20:36:07 +0000",
+   "source": "FantasyLabs",
+   "kind": "news",
+   "golfers": [
+    "Benjamin James"
+   ]
+  },
+  {
+   "title": "Who Should I Start for Fantasy Football Week 8? Jacoby Brissett, Patrick Mahomes, Geno Smith, Caleb Williams, Jared Goff, Kirk Cousins, Aaron Rodgers, Joe Burrow, Justin Herbert",
+   "link": "https://www.rotoballer.com/who-should-i-start-for-week-8-jacoby-brissett-patrick-mahomes-geno-smith-caleb-williams-jared-goff-kirk-cousins-aaron-rodgers-joe-burrow-justin-herbert/1979519",
+   "summary": "Who Should I Start? Who Should I Sit? Some of the most common Week 8 fantasy football lineup decisions involve [&#8230;]",
+   "published": "Fri, 30 Oct 2026 18:27:51 +0000",
+   "source": "RotoBaller",
+   "kind": "news",
+   "golfers": [
+    "Jordan L. Smith",
+    "Patrick Rodgers"
+   ]
+  },
+  {
+   "title": "Who Should I Start for Fantasy Football Week 8? A.J. Brown, Breece Hall, Zach Charbonnet, Tee Higgins, Chris Godwin, Samaje Perine, Roschon Johnson, Ashton Jeanty, Quentin Johnston",
+   "link": "https://www.rotoballer.com/who-should-i-start-for-week-8-a-j-brown-breece-hall-zach-charbonnet-tee-higgins-chris-godwin-jr-samaje-perine-roschon-johnson-ashton-jeanty-quentin-johnston/1979518",
+   "summary": "Who Should I Start? Who Should I Sit? Some of the most common Week 8 fantasy football lineup decisions involve [&#8230;]",
+   "published": "Fri, 30 Oct 2026 18:21:26 +0000",
+   "source": "RotoBaller",
+   "kind": "news",
+   "golfers": [
+    "Blades Brown",
+    "Harry Hall"
+   ]
+  },
   {
    "title": "Who Should I Start for Fantasy Football Week 8? Stefon Diggs, DJ Moore, Ladd McConkey, Keon Coleman, Bhayshul Tuten, Bucky Irving, Kendrick Bourne, RJ Harvey, Tyler Allgeier, JK Dobbins",
    "link": "https://www.rotoballer.com/who-should-i-start-for-week-8-stefon-diggs-dj-moore-ladd-mcconkey-keon-coleman-bhayshul-tuten-bucky-irving-kendrick-bourne-rj-harvey-tyler-allgeier-jk-dobbins/1979461",
