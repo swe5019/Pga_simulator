@@ -1,11 +1,11 @@
 {
- "updatedUtc": "2026-10-29T18:29:16Z",
+ "updatedUtc": "2026-10-30T01:01:51Z",
  "slate": "MEXICO_OPEN_2026",
  "event": "",
  "counts": {
-  "items": 3,
-  "golfersMentioned": 2,
-  "news": 3,
+  "items": 1,
+  "golfersMentioned": 1,
+  "news": 1,
   "chatter": 0
  },
  "sources": [
@@ -114,7 +114,7 @@
   {
    "source": "Google News: PGA WD",
    "ok": true,
-   "items": 100,
+   "items": 55,
    "error": null
   },
   {
@@ -139,29 +139,12 @@
  "mentions": [
   {
    "name": "Blades Brown",
-   "news": 2,
-   "chatter": 0,
-   "total": 2
-  },
-  {
-   "name": "Benjamin James",
    "news": 1,
    "chatter": 0,
    "total": 1
   }
  ],
  "items": [
-  {
-   "title": "Fantasy Football Warning Signals for Week 8? Chase Brown, Jordan Addison, Colston Loveland",
-   "link": "https://www.rotoballer.com/fantasy-football-start-em-sit-em-picks-chase-brown-rachaad-white-jordan-addison-colston-loveland/1978395",
-   "summary": "Hello, RotoBallers, and welcome to Week 8 of the NFL season. Thursday brings not just a new week of action, [&#8230;]",
-   "published": "Thu, 29 Oct 2026 16:15:08 +0000",
-   "source": "RotoBaller",
-   "kind": "news",
-   "golfers": [
-    "Blades Brown"
-   ]
-  },
   {
    "title": "NFL Survivor Pool Week 8 Picks",
    "link": "https://vsin.com/nfl/nfl-survivor-pool-week-8-picks/",
@@ -171,17 +154,6 @@
    "kind": "news",
    "golfers": [
     "Blades Brown"
-   ]
-  },
-  {
-   "title": "College Football Week 9 Picks: Troy vs. James Madison",
-   "link": "https://vsin.com/college-football/college-football-week-9-picks-troy-vs-james-madison/",
-   "summary": "Troy vs. James Madison The 2-2-2 format for the middle of the week continues on Thursday with a couple of games, one from the Sun Belt and one from the American. The Florida Atlantic vs. North Texas has our highest total of the season and we\u2019ve seen a runaway train full of money on the [&#8230;] The post College Football Week 9 Picks: Troy vs. James Madison appeared first on VSiN .",
-   "published": "Thu, 29 Oct 2026 02:25:40 +0000",
-   "source": "VSiN",
-   "kind": "news",
-   "golfers": [
-    "Benjamin James"
    ]
   }
  ]
