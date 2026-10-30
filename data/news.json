@@ -1,10 +1,10 @@
 {
- "updatedUtc": "2026-10-30T01:01:51Z",
+ "updatedUtc": "2026-10-30T10:03:39Z",
  "slate": "MEXICO_OPEN_2026",
  "event": "",
  "counts": {
   "items": 1,
-  "golfersMentioned": 1,
+  "golfersMentioned": 2,
   "news": 1,
   "chatter": 0
  },
@@ -114,7 +114,7 @@
   {
    "source": "Google News: PGA WD",
    "ok": true,
-   "items": 55,
+   "items": 57,
    "error": null
   },
   {
@@ -138,7 +138,13 @@
  ],
  "mentions": [
   {
-   "name": "Blades Brown",
+   "name": "Ben Griffin",
+   "news": 1,
+   "chatter": 0,
+   "total": 1
+  },
+  {
+   "name": "Karl Vilips",
    "news": 1,
    "chatter": 0,
    "total": 1
@@ -146,14 +152,15 @@
  ],
  "items": [
   {
-   "title": "NFL Survivor Pool Week 8 Picks",
-   "link": "https://vsin.com/nfl/nfl-survivor-pool-week-8-picks/",
-   "summary": "NFL Survivor Another week of carnage in Survivor pools is behind us. For those who are still standing, including our own Matt Brown and Matt Youmans, the picks get tougher and more stressful from this point forward. Survivor Sweat actually power-ranked Brown\u2019s remaining entry fourth out of 660. Our deeply-detailed Circa Survivor dashboard from Jason [&#8230;] The post NFL Survivor Pool Week 8 Pick",
-   "published": "Thu, 29 Oct 2026 15:13:03 +0000",
-   "source": "VSiN",
+   "title": "Karl Vilips Fights Illness, Fires 62 to Lead Mexico Open",
+   "link": "https://sports.yahoo.com/articles/karl-vilips-fights-illness-fires-020247755.html",
+   "summary": "Ten birdies put Karl Vilips ahead at Vidanta Vallarta, while Ben Griffin returned from knee treatment with a 64 and a new caddie.",
+   "published": "Fri, 30 Oct 2026 02:02:47 +0000",
+   "source": "Yahoo Golf",
    "kind": "news",
    "golfers": [
-    "Blades Brown"
+    "Ben Griffin",
+    "Karl Vilips"
    ]
   }
  ]
