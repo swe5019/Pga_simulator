@@ -1,11 +1,11 @@
 {
- "updatedUtc": "2026-10-30T10:03:39Z",
+ "updatedUtc": "2026-10-30T18:01:39Z",
  "slate": "MEXICO_OPEN_2026",
  "event": "",
  "counts": {
-  "items": 1,
-  "golfersMentioned": 2,
-  "news": 1,
+  "items": 4,
+  "golfersMentioned": 5,
+  "news": 4,
   "chatter": 0
  },
  "sources": [
@@ -108,13 +108,13 @@
   {
    "source": "Google News: PGA DFS",
    "ok": true,
-   "items": 100,
+   "items": 51,
    "error": null
   },
   {
    "source": "Google News: PGA WD",
    "ok": true,
-   "items": 57,
+   "items": 100,
    "error": null
   },
   {
@@ -138,6 +138,24 @@
  ],
  "mentions": [
   {
+   "name": "Taylor Moore",
+   "news": 1,
+   "chatter": 0,
+   "total": 1
+  },
+  {
+   "name": "Will Gordon",
+   "news": 1,
+   "chatter": 0,
+   "total": 1
+  },
+  {
+   "name": "Blades Brown",
+   "news": 1,
+   "chatter": 0,
+   "total": 1
+  },
+  {
    "name": "Ben Griffin",
    "news": 1,
    "chatter": 0,
@@ -151,6 +169,39 @@
   }
  ],
  "items": [
+  {
+   "title": "Who Should I Start for Fantasy Football Week 8? Stefon Diggs, DJ Moore, Ladd McConkey, Keon Coleman, Bhayshul Tuten, Bucky Irving, Kendrick Bourne, RJ Harvey, Tyler Allgeier, JK Dobbins",
+   "link": "https://www.rotoballer.com/who-should-i-start-for-week-8-stefon-diggs-dj-moore-ladd-mcconkey-keon-coleman-bhayshul-tuten-bucky-irving-kendrick-bourne-rj-harvey-tyler-allgeier-jk-dobbins/1979461",
+   "summary": "Who Should I Start? Who Should I Sit? Some of the most common Week 8 fantasy football lineup decisions involve [&#8230;]",
+   "published": "Fri, 30 Oct 2026 17:24:26 +0000",
+   "source": "RotoBaller",
+   "kind": "news",
+   "golfers": [
+    "Taylor Moore"
+   ]
+  },
+  {
+   "title": "Who Should I Start for Fantasy Football Week 8? Jaylen Warren, Ollie Gordon II, Keenan Allen, Michael Wilson, Rhamondre Stevenson, Khalil Shakir, Bam Knight, Malik Washington",
+   "link": "https://www.rotoballer.com/who-should-i-start-for-week-8-jaylen-warren-ollie-gordon-ii-keenan-allen-michael-wilson-rhamondre-stevenson-khalil-shakir-bam-knight-malik-washington/1979438",
+   "summary": "Who Should I Start? Who Should I Sit? Some of the most common Week 8 fantasy football lineup decisions involve [&#8230;]",
+   "published": "Fri, 30 Oct 2026 17:17:13 +0000",
+   "source": "RotoBaller",
+   "kind": "news",
+   "golfers": [
+    "Will Gordon"
+   ]
+  },
+  {
+   "title": "Who Should I Start for Fantasy Football Week 8? Tony Pollard, Josh Downs, Chase Brown, Jakobi Meyers, Rico Dowdle, DeMario Douglas, Blake Corum, Jaylen Waddle, Rome Odunze",
+   "link": "https://www.rotoballer.com/who-should-i-start-for-week-8-tony-pollard-josh-downs-chase-brown-jakobi-meyers-rico-dowdle-demario-douglas-blake-corum-jaylen-waddle-rome-odunze/1979432",
+   "summary": "Who Should I Start? Who Should I Sit? Some of the most common Week 8 fantasy football lineup decisions involve [&#8230;]",
+   "published": "Fri, 30 Oct 2026 17:05:42 +0000",
+   "source": "RotoBaller",
+   "kind": "news",
+   "golfers": [
+    "Blades Brown"
+   ]
+  },
   {
    "title": "Karl Vilips Fights Illness, Fires 62 to Lead Mexico Open",
    "link": "https://sports.yahoo.com/articles/karl-vilips-fights-illness-fires-020247755.html",
