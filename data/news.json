@@ -1,11 +1,11 @@
 {
- "updatedUtc": "2026-10-31T05:45:01Z",
+ "updatedUtc": "2026-10-31T12:35:17Z",
  "slate": "MEXICO_OPEN_2026",
  "event": "",
  "counts": {
-  "items": 1,
-  "golfersMentioned": 1,
-  "news": 1,
+  "items": 3,
+  "golfersMentioned": 4,
+  "news": 3,
   "chatter": 0
  },
  "sources": [
@@ -108,13 +108,13 @@
   {
    "source": "Google News: PGA DFS",
    "ok": true,
-   "items": 51,
+   "items": 100,
    "error": null
   },
   {
    "source": "Google News: PGA WD",
    "ok": true,
-   "items": 100,
+   "items": 57,
    "error": null
   },
   {
@@ -138,6 +138,24 @@
  ],
  "mentions": [
   {
+   "name": "Will Gordon",
+   "news": 1,
+   "chatter": 0,
+   "total": 1
+  },
+  {
+   "name": "David Ford",
+   "news": 1,
+   "chatter": 0,
+   "total": 1
+  },
+  {
+   "name": "Cameron Davis",
+   "news": 1,
+   "chatter": 0,
+   "total": 1
+  },
+  {
    "name": "Benjamin James",
    "news": 1,
    "chatter": 0,
@@ -145,6 +163,29 @@
   }
  ],
  "items": [
+  {
+   "title": "Matt Youmans: NFL Week 8 Best Bets",
+   "link": "https://vsin.com/nfl/matt-youmans-nfl-week-8-best-bets-and-predictions/",
+   "summary": "Matt Youmans &#8211; NFL Week 8 Best Bets: If the Indianapolis Colts are not completely tanking and waving a white flag on the season, they are doing something close to it. After firing general manager Chris Ballard in mid-October, Colts owner Carlie Irsay-Gordon scribbled two trades on her notebook, sending offensive guard Quenton Nelson to [&#8230;] The post Matt Youmans: NFL Week 8 Best Bets ap",
+   "published": "Sat, 31 Oct 2026 11:19:02 +0000",
+   "source": "VSiN",
+   "kind": "news",
+   "golfers": [
+    "Will Gordon"
+   ]
+  },
+  {
+   "title": "Who Should I Start for Fantasy Football Week 8? Colston Loveland, Michael Mayer, Darnell Washington, Evan Engram, Greg Dulcich, Davis Allen, Brevyn Spann-Ford, Josh Cuevas",
+   "link": "https://www.rotoballer.com/who-should-i-start-for-week-8-colston-loveland-michael-mayer-darnell-washington-evan-engram-greg-dulcich-davis-allen-brevyn-spann-ford-josh-cuevas/1979940",
+   "summary": "Who Should I Start? Who Should I Sit? Some of the most common Week 8 fantasy football lineup decisions involve [&#8230;]",
+   "published": "Sat, 31 Oct 2026 10:19:36 +0000",
+   "source": "RotoBaller",
+   "kind": "news",
+   "golfers": [
+    "David Ford",
+    "Cameron Davis"
+   ]
+  },
   {
    "title": "LeBron James Player Props | Knicks vs 76ers Prediction: Best NBA Player Props Today (October 30)",
    "link": "https://www.fantasylabs.com/articles/lebron-james-player-props-knicks-vs-76ers-prediction-best-nba-player-props-today-october-30/",
