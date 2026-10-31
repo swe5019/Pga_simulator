@@ -520,6 +520,11 @@ def build_role_context(logs, seasons, current, injuries, meta_pos, meta_team):
         if own is not None:
             out[key] = {"selfOut": True, "selfBasis": own["basis"],
                         "selfInjury": own.get("injury") or "",
+                        # An official ruling is a different kind of statement
+                        # from "has not practised", and the projection stage
+                        # weighs the two differently, so carry which one it is.
+                        "selfRuled": (own.get("status") == "out"
+                                      and own.get("conf") == "ruled"),
                         "role": None, "unknown": False, "ctxN": 0,
                         "roleBefore": round(mine * 100, 1),
                         "outAhead": "", "outBasis": ""}

@@ -101,6 +101,13 @@ SAME_TEAM = {
     ("RB1", "WR1"): 0.03, ("RB1", "TE1"): 0.03,
 }
 SAME_DEFAULT = 0.04
+# How much market presence it takes to override an official out ruling. A
+# player the market expects to play is priced across several markets; the
+# median projected player carries twenty lines. This sits far below that on
+# purpose, so it can only ever catch residue.
+MIN_LINES_IF_RULED_OUT = 4
+
+
 # Opposing team: a shootout lifts both sides, but weakly. Running backs are
 # the exception, since only one team can control the clock.
 OPP_PASS = 0.12
@@ -605,9 +612,28 @@ def simulate_slate(trials=None):
         # and it put Lamar Jackson on the board at 19.7 points with an ankle
         # injury and not a single line offered on him. With lines posted he is
         # projected and flagged, because then the market does expect him.
-        if ctx and ctx.get("selfOut") and not props_by_player.get(key):
-            skipped["hurt, and the market has pulled his lines"] += 1
-            continue
+        if ctx and ctx.get("selfOut"):
+            n_lines = len(props_by_player.get(key) or ())
+            if not n_lines:
+                skipped["hurt, and the market has pulled his lines"] += 1
+                continue
+            # One straggling line is not the market expecting him to play.
+            # Every other player with an official out ruling this week had
+            # zero lines; KaVontae Turpin had exactly one, against a median
+            # of twenty for a projected player and twenty-six to forty-one
+            # for the players at the top of the board. A lone line is residue
+            # that nobody pulled, so an official ruling plus token pricing is
+            # read as out.
+            #
+            # Deliberately low, and deliberately limited to an official
+            # ruling. The expensive mistake here is dropping a star who is
+            # playing, and a star who is playing carries far more than this,
+            # so the threshold never reaches him. "Has not practised" still
+            # projects on a single line, because that is an inference rather
+            # than a ruling and the market is the better judge of it.
+            if ctx.get("selfRuled") and n_lines < MIN_LINES_IF_RULED_OUT:
+                skipped["ruled out, with only a residual line left"] += 1
+                continue
         # Gone quiet and unpriced: on injured reserve, released, or otherwise
         # not part of this season any more.
         missed = latest_week - last_played.get(key, 0)
