@@ -324,6 +324,21 @@ def game_logs(seasons, pbp):
     return logs
 
 
+# A nickname the market uses in place of the legal first name. The initial
+# plus surname fallback below cannot reach these: "Hollywood" and "Marquise"
+# share no initial, so the join has to be stated outright. Twenty betting
+# lines for Hollywood Brown were failing to anchor Marquise Brown's
+# projection, and because the population check counts him as priced but not
+# projected, it also blocked every publish until the two were joined.
+#
+# Each entry is still verified against the stats before it is used: the target
+# must exist and the position must agree. A stale entry therefore goes quiet
+# instead of attaching one player's market to another player's history.
+MARKET_NICKNAMES = {
+    "hollywoodbrown": "marquisebrown",
+}
+
+
 def initial_last(name):
     """First initial plus surname, which survives a first name being written
     two ways. "Joshua Palmer" and "Josh Palmer" both reduce to jpalmer."""
@@ -362,6 +377,11 @@ def resolve_names(props, logs, logs_display, meta_pos):
     for p in props:
         k = nrm(p["player"])
         if k in logs:
+            continue
+        # A stated nickname first, since the initial will not line up.
+        alias = MARKET_NICKNAMES.get(k)
+        if alias and alias in logs and meta_pos.get(alias) == p.get("pos"):
+            fixed[k] = alias
             continue
         cands = [c for c in by_il.get(initial_last(p["player"]), [])
                  if meta_pos.get(c) == p.get("pos")]

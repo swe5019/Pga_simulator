@@ -157,19 +157,46 @@ def main():
     # This is the check that would have caught McCaffrey. The market pricing a
     # player is the strongest available statement that he is playing, so if he
     # is priced and not projected, the burden is on the pipeline to say why.
-    missing = []
+    #
+    # There are two ways to be missing, and only one of them is a bug this
+    # pipeline can answer for. If the stats feed carries the player, then every
+    # input needed to project him was present and dropping him is the McCaffrey
+    # shape, so that fails. If the stats feed has never heard of him, there is
+    # no roster row, no game log and nothing to build a projection from; Travis
+    # Hunter was priced on twenty lines with zero stat rows anywhere in the
+    # source.
+    #
+    # Failing on the second kind was costing far more than it bought. The gate
+    # runs before the commit, so a FAIL publishes nothing, and publishing
+    # nothing leaves the previous board live — which is how a user came to be
+    # looking at projections for players who had since been ruled out, while
+    # the pipeline had blocked six runs over one unrostered rookie. A board
+    # missing one player it cannot possibly project is better than a board
+    # that is three days old, so this is now reported by name and the rest of
+    # the slate ships.
+    missing, unknown = [], []
     for key, n in priced.items():
-        if (n >= PRICED_HEAVILY and key not in keys
+        if not (n >= PRICED_HEAVILY and key not in keys
                 and priced_pos.get(key) in PROJECTED_POSITIONS):
-            missing.append((n, key))
+            continue
+        (missing if key in roster else unknown).append((n, key))
+    names = {nrm(p["player"]): p["player"] for p in props_doc["props"]} \
+        if props_doc else {}
     if missing:
         missing.sort(reverse=True)
-        names = {nrm(p["player"]): p["player"] for p in props_doc["props"]}
         fails.append(
             f"{len(missing)} players carry {PRICED_HEAVILY} or more betting "
-            f"lines but are not projected at all. The market pricing a player "
-            f"is the strongest evidence he is playing: "
+            f"lines and ARE on the roster but are not projected at all. Every "
+            f"input needed was present, so this is the pipeline dropping "
+            f"someone: "
             + ", ".join(f"{names.get(k, k)} ({n} lines)" for n, k in missing[:6]))
+    if unknown:
+        unknown.sort(reverse=True)
+        warns.append(
+            f"{len(unknown)} players the market prices are missing from the "
+            f"stats source entirely, so there is no roster row or game log to "
+            f"project them from. They will not appear on the board: "
+            + ", ".join(f"{names.get(k, k)} ({n} lines)" for n, k in unknown[:6]))
 
     # ---- 4. does every team field a side
     by_team = defaultdict(lambda: defaultdict(int))
