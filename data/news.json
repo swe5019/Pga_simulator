@@ -1,11 +1,11 @@
 {
- "updatedUtc": "2026-11-01T06:08:42Z",
+ "updatedUtc": "2026-11-01T13:27:40Z",
  "slate": "MEXICO_OPEN_2026",
  "event": "",
  "counts": {
-  "items": 2,
-  "golfersMentioned": 2,
-  "news": 2,
+  "items": 4,
+  "golfersMentioned": 4,
+  "news": 4,
   "chatter": 0
  },
  "sources": [
@@ -108,13 +108,13 @@
   {
    "source": "Google News: PGA DFS",
    "ok": true,
-   "items": 100,
+   "items": 52,
    "error": null
   },
   {
    "source": "Google News: PGA WD",
    "ok": true,
-   "items": 55,
+   "items": 56,
    "error": null
   },
   {
@@ -139,6 +139,18 @@
  "mentions": [
   {
    "name": "Will Gordon",
+   "news": 2,
+   "chatter": 0,
+   "total": 2
+  },
+  {
+   "name": "Jordan L. Smith",
+   "news": 1,
+   "chatter": 0,
+   "total": 1
+  },
+  {
+   "name": "Patrick Rodgers",
    "news": 1,
    "chatter": 0,
    "total": 1
@@ -151,6 +163,29 @@
   }
  ],
  "items": [
+  {
+   "title": "Who Should I Start for Fantasy Football Week 8? Jonah Coleman, Caleb Douglas, Ollie Gordon II, Efton Chism III, Demario Douglas, Blake Corum, Xavier Worthy, Ladd McConkey",
+   "link": "https://www.rotoballer.com/who-should-i-start-for-week-8-jonah-coleman-caleb-douglas-ollie-gordon-ii-efton-chism-iii-demario-douglas-blake-corum-xavier-worthy-ladd-mcconkey/1979999",
+   "summary": "Who Should I Start? Who Should I Sit? Some of the most common Week 8 fantasy football lineup decisions involve [&#8230;]",
+   "published": "Sun, 01 Nov 2026 11:09:08 +0000",
+   "source": "RotoBaller",
+   "kind": "news",
+   "golfers": [
+    "Will Gordon"
+   ]
+  },
+  {
+   "title": "Who Should I Start for Fantasy Football Week 8? Jacoby Brissett, Jayden Daniels, Geno Smith, Jared Goff, Bo Nix, Kirk Cousins, Michael Penix Jr., Aaron Rodgers, Dak Prescott",
+   "link": "https://www.rotoballer.com/who-should-i-start-for-week-8-jacoby-brissett-jayden-daniels-geno-smith-jared-goff-bo-nix-kirk-cousins-michael-penix-jr-aaron-rodgers-dak-prescott/1980000",
+   "summary": "Who Should I Start? Who Should I Sit? Some of the most common Week 8 fantasy football lineup decisions involve [&#8230;]",
+   "published": "Sun, 01 Nov 2026 11:03:09 +0000",
+   "source": "RotoBaller",
+   "kind": "news",
+   "golfers": [
+    "Jordan L. Smith",
+    "Patrick Rodgers"
+   ]
+  },
   {
    "title": "Matt Youmans: NFL Week 8 Best Bets",
    "link": "https://vsin.com/nfl/matt-youmans-nfl-week-8-best-bets-and-predictions/",
