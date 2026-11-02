@@ -549,6 +549,42 @@ def parse_dk_date(s):
         return None
 
 
+# How many of the lobby's open contests to keep a record of. The marquee
+# tournaments are the largest by entry count and sit at the top of the sorted
+# list, so this only ever truncates the long tail of satellites and qualifiers.
+MAX_ARCHIVED_CONTESTS = 60
+
+
+def _write_contest_archive(contests):
+    """Record the open NFL contests so a finished one can still be found by name.
+
+    Merged rather than replaced: the lobby shows a moving window, so each run
+    sees a slightly different set, and overwriting would lose the ones that
+    have since locked. Keyed by contest id.
+    """
+    path = os.path.join(DATA, "nfl_contests.json")
+    doc = {"contests": {}}
+    if os.path.exists(path):
+        try:
+            with open(path, encoding="utf-8") as fh:
+                doc = json.load(fh)
+        except ValueError:
+            doc = {"contests": {}}
+    doc.setdefault("contests", {})
+    added = 0
+    for c in contests:
+        if c["id"] not in doc["contests"]:
+            added += 1
+        doc["contests"][c["id"]] = c
+    doc["updatedUtc"] = (datetime.datetime.now(datetime.timezone.utc)
+                         .strftime("%Y-%m-%dT%H:%M:%SZ"))
+    doc["count"] = len(doc["contests"])
+    with open(path, "w", encoding="utf-8") as fh:
+        json.dump(doc, fh, separators=(",", ":"))
+    log(f"   archived {added} new contest ids ({doc['count']} known) "
+        f"-> data/nfl_contests.json")
+
+
 def build_dk():
     """Salaries for the open NFL slates.
 
@@ -563,10 +599,31 @@ def build_dk():
         return None
 
     entries = defaultdict(int)
+    # The lobby carries each contest's id and name, and this loop used to read
+    # the entry count and throw both away. They are only available while the
+    # contest is OPEN: once it has been played it leaves the lobby, and there
+    # is no public way to look a finished contest up by name. That is how a
+    # question as simple as "pull the ownership for the $20 Millionaire"
+    # became unanswerable the day after it was played, when the standings
+    # export needs nothing but the id. So they are archived here, in the one
+    # window where they exist.
+    contests = []
     for c in lobby.get("Contests") or []:
         dg = c.get("dg") or c.get("draftGroupId")
         if dg:
             entries[int(dg)] += c.get("m") or 0
+        cid, cname = c.get("id"), (c.get("n") or "").strip()
+        if cid and cname:
+            contests.append({
+                "id": str(cid), "name": cname, "dg": int(dg) if dg else None,
+                "fee": c.get("a"), "entries": c.get("m") or 0,
+                "maxEntries": c.get("mec"),
+            })
+    if contests:
+        # Biggest first, so the marquee tournaments are at the top and the
+        # hundreds of small satellites never push them out of the file.
+        contests.sort(key=lambda x: -(x["entries"] or 0))
+        _write_contest_archive(contests[:MAX_ARCHIVED_CONTESTS])
     meta = {int(d.get("DraftGroupId")): d for d in (lobby.get("DraftGroups") or [])
             if d.get("DraftGroupId")}
 
