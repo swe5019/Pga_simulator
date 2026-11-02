@@ -1,19 +1,19 @@
 {
- "updatedUtc": "2026-11-02T00:46:13Z",
+ "updatedUtc": "2026-11-02T11:12:34Z",
  "slate": "MEXICO_OPEN_2026",
  "event": "",
  "counts": {
-  "items": 2,
-  "golfersMentioned": 2,
-  "news": 2,
+  "items": 3,
+  "golfersMentioned": 3,
+  "news": 3,
   "chatter": 0
  },
  "sources": [
   {
    "source": "RotoWire Golf",
-   "ok": false,
-   "items": 0,
-   "error": "no items"
+   "ok": true,
+   "items": 3,
+   "error": null
   },
   {
    "source": "RotoBaller Golf",
@@ -108,13 +108,13 @@
   {
    "source": "Google News: PGA DFS",
    "ok": true,
-   "items": 100,
+   "items": 50,
    "error": null
   },
   {
    "source": "Google News: PGA WD",
    "ok": true,
-   "items": 55,
+   "items": 100,
    "error": null
   },
   {
@@ -138,7 +138,7 @@
  ],
  "mentions": [
   {
-   "name": "Andrew Novak",
+   "name": "Jordan L. Smith",
    "news": 1,
    "chatter": 0,
    "total": 1
@@ -148,9 +148,37 @@
    "news": 1,
    "chatter": 0,
    "total": 1
+  },
+  {
+   "name": "Andrew Novak",
+   "news": 1,
+   "chatter": 0,
+   "total": 1
   }
  ],
  "items": [
+  {
+   "title": "NFL Week 8 Monday Night Football: Bears-Seahawks Picks, Smith-Njigba Props",
+   "link": "https://vsin.com/the-vsin-daily/nfl-week-8-monday-night-football-bears-seahawks-picks-smith-njigba-props/",
+   "summary": "\ud83c\udfc8 Can the Bears Stop Jaxon Smith-Njigba? That&#8217;s a big question heading into tonight&#8217;s Chicago\u2013Seattle matchup (8:15 p.m. ET, ESPN). The answer, according to VSiN&#8217;s prop tools, is no. As Zach Cohen points out in his betting preview, Opta AI projects Smith-Njigba for 105.01 receiving yards \u2014 above his 97.5-yard total at DraftKings. And our [&#8230;] The post NFL Week 8 Monday Night",
+   "published": "Mon, 02 Nov 2026 06:14:20 +0000",
+   "source": "VSiN",
+   "kind": "news",
+   "golfers": [
+    "Jordan L. Smith"
+   ]
+  },
+  {
+   "title": "Matt Youmans: NFL Week 8 Best Bets",
+   "link": "https://vsin.com/nfl/matt-youmans-nfl-week-8-best-bets-and-predictions/",
+   "summary": "Matt Youmans &#8211; NFL Week 8 Best Bets: If the Indianapolis Colts are not completely tanking and waving a white flag on the season, they are doing something close to it. After firing general manager Chris Ballard in mid-October, Colts owner Carlie Irsay-Gordon scribbled two trades on her notebook, sending offensive guard Quenton Nelson to [&#8230;] The post Matt Youmans: NFL Week 8 Best Bets ap",
+   "published": "Mon, 02 Nov 2026 05:10:00 +0000",
+   "source": "VSiN",
+   "kind": "news",
+   "golfers": [
+    "Will Gordon"
+   ]
+  },
   {
    "title": "The clubs Andrew Novak used to win the 2026 VidantaWorld Mexico Open",
    "link": "https://sports.yahoo.com/articles/clubs-andrew-novak-used-win-232714246.html",
@@ -160,17 +188,6 @@
    "kind": "news",
    "golfers": [
     "Andrew Novak"
-   ]
-  },
-  {
-   "title": "Matt Youmans: NFL Week 8 Best Bets",
-   "link": "https://vsin.com/nfl/matt-youmans-nfl-week-8-best-bets-and-predictions/",
-   "summary": "Matt Youmans &#8211; NFL Week 8 Best Bets: If the Indianapolis Colts are not completely tanking and waving a white flag on the season, they are doing something close to it. After firing general manager Chris Ballard in mid-October, Colts owner Carlie Irsay-Gordon scribbled two trades on her notebook, sending offensive guard Quenton Nelson to [&#8230;] The post Matt Youmans: NFL Week 8 Best Bets ap",
-   "published": "Sat, 31 Oct 2026 23:30:00 +0000",
-   "source": "VSiN",
-   "kind": "news",
-   "golfers": [
-    "Will Gordon"
    ]
   }
  ]
