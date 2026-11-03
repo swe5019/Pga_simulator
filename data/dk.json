@@ -1,11 +1,11 @@
 {
- "updatedUtc": "2026-11-02T22:04:12Z",
+ "updatedUtc": "2026-11-03T19:56:22Z",
  "tournament": "EVENT_2026W45",
  "date": "11/5/26",
  "event": "",
  "draftGroupId": "156094",
  "isShowdown": false,
- "count": 116,
+ "count": 121,
  "players": [
   {
    "name": "Jackson Koivun",
@@ -619,8 +619,8 @@
   {
    "name": "Aldrich Potgieter",
    "salary": 6400,
-   "status": "",
-   "out": false,
+   "status": "O",
+   "out": true,
    "dkId": 648552
   },
   {
@@ -778,6 +778,13 @@
    "dkId": 451448
   },
   {
+   "name": "Will Gordon",
+   "salary": 6100,
+   "status": "",
+   "out": false,
+   "dkId": 1041
+  },
+  {
    "name": "Adam Schenk",
    "salary": 6000,
    "status": "O",
@@ -818,6 +825,34 @@
    "status": "",
    "out": false,
    "dkId": 1072325
+  },
+  {
+   "name": "Muzzy Donohue",
+   "salary": 6000,
+   "status": "",
+   "out": false,
+   "dkId": 1004600
+  },
+  {
+   "name": "Willie Mack",
+   "salary": 6000,
+   "status": "",
+   "out": false,
+   "dkId": 545961
+  },
+  {
+   "name": "Nicholas Marchese",
+   "salary": 6000,
+   "status": "",
+   "out": false,
+   "dkId": 971558
+  },
+  {
+   "name": "Nathan Tseng",
+   "salary": 6000,
+   "status": "",
+   "out": false,
+   "dkId": 1075441
   }
  ]
 }
