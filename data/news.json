@@ -1,5 +1,5 @@
 {
- "updatedUtc": "2026-11-03T23:25:18Z",
+ "updatedUtc": "2026-11-04T06:26:06Z",
  "slate": "MEXICO_OPEN_2026",
  "event": "",
  "counts": {
@@ -11,9 +11,9 @@
  "sources": [
   {
    "source": "RotoWire Golf",
-   "ok": true,
-   "items": 3,
-   "error": null
+   "ok": false,
+   "items": 0,
+   "error": "no items"
   },
   {
    "source": "RotoBaller Golf",
@@ -108,13 +108,13 @@
   {
    "source": "Google News: PGA DFS",
    "ok": true,
-   "items": 50,
+   "items": 100,
    "error": null
   },
   {
    "source": "Google News: PGA WD",
    "ok": true,
-   "items": 53,
+   "items": 52,
    "error": null
   },
   {
@@ -144,13 +144,13 @@
    "total": 1
   },
   {
-   "name": "Harry Hall",
+   "name": "Danny Walker",
    "news": 1,
    "chatter": 0,
    "total": 1
   },
   {
-   "name": "Danny Walker",
+   "name": "Harry Hall",
    "news": 1,
    "chatter": 0,
    "total": 1
@@ -161,11 +161,22 @@
    "title": "World Wide Technology Championship Best Bets and Golf Odds",
    "link": "https://vsin.com/golf/world-wide-technology-championship-best-bets-and-golf-odds-2/",
    "summary": "World Wide Technology Championship Best Bets and Golf Odds: Andrew Novak shot rounds of 61 and 62 in the second and third rounds to establish a six-shot lead at the VidantaWorld Mexico Open heading into Sunday. Despite some inevitable putting regression, losing four strokes on the greens in Sunday&#8217;s final round after gaining over 12 [&#8230;] The post World Wide Technology Championship Best ",
-   "published": "Tue, 03 Nov 2026 21:56:58 +0000",
+   "published": "Wed, 04 Nov 2026 06:18:00 +0000",
    "source": "VSiN",
    "kind": "news",
    "golfers": [
     "Andrew Novak"
+   ]
+  },
+  {
+   "title": "UFC Vegas 124: Cortes-Acosta vs.Walker Odds, Picks, Predictions and Best Bets",
+   "link": "https://vsin.com/mma/ufc-vegas-124-cortes-acosta-vs-walker-odds-picks-predictions-and-best-bets/",
+   "summary": "UFC Vegas 124 Predictions: Fight fans will be treated to another fight card at the UFC Meta/APEX facility again this week before trucking off to Madison Square Garden for next week\u2019s UFC 334 event, featuring Gane vs. Hokit for the UFC Heavyweight championship.&#160; This week, there are 13 scheduled bouts, six of which are in [&#8230;] The post UFC Vegas 124: Cortes-Acosta vs.Walker Odds, Picks, P",
+   "published": "Wed, 04 Nov 2026 06:13:00 +0000",
+   "source": "VSiN",
+   "kind": "news",
+   "golfers": [
+    "Danny Walker"
    ]
   },
   {
@@ -177,17 +188,6 @@
    "kind": "news",
    "golfers": [
     "Harry Hall"
-   ]
-  },
-  {
-   "title": "UFC Vegas 124: Cortes-Acosta vs.Walker Odds, Picks, Predictions and Best Bets",
-   "link": "https://vsin.com/mma/ufc-vegas-124-cortes-acosta-vs-walker-odds-picks-predictions-and-best-bets/",
-   "summary": "UFC Vegas 124 Predictions: Fight fans will be treated to another fight card at the UFC Meta/APEX facility again this week before trucking off to Madison Square Garden for next week\u2019s UFC 334 event, featuring Gane vs. Hokit for the UFC Heavyweight championship.&#160; This week, there are 13 scheduled bouts, six of which are in [&#8230;] The post UFC Vegas 124: Cortes-Acosta vs.Walker Odds, Picks, P",
-   "published": "Tue, 03 Nov 2026 20:52:35 +0000",
-   "source": "VSiN",
-   "kind": "news",
-   "golfers": [
-    "Danny Walker"
    ]
   }
  ]
