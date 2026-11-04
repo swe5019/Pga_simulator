@@ -1,5 +1,5 @@
 {
- "updatedUtc": "2026-11-03T19:56:49Z",
+ "updatedUtc": "2026-11-04T18:00:43Z",
  "tournament": "EVENT_2026W45",
  "event": "",
  "draftGroupId": "156094",
@@ -29,10 +29,18 @@
    "tiers": null
   },
   {
-   "id": "197444491",
-   "name": "PGA TOUR FREE 10-Player",
+   "id": "197480304",
+   "name": "PGA TOUR FREE 20-Player",
    "fee": 0,
-   "entries": 10,
+   "entries": 20,
+   "prizePool": 1.0,
+   "tiers": null
+  },
+  {
+   "id": "197475583",
+   "name": "PGA TOUR FREE 8-Player",
+   "fee": 0,
+   "entries": 8,
    "prizePool": 1.0,
    "tiers": null
   },
@@ -237,7 +245,7 @@
    "tiers": null
   },
   {
-   "id": "197431711",
+   "id": "197479519",
    "name": "PGA TOUR $20 Winner Take All [$175 to 1st]",
    "fee": 20,
    "entries": 10,
@@ -341,14 +349,6 @@
    "tiers": null
   },
   {
-   "id": "197433162",
-   "name": "PGA TOUR $50 5-Player",
-   "fee": 50,
-   "entries": 5,
-   "prizePool": 225.0,
-   "tiers": null
-  },
-  {
    "id": "197430545",
    "name": "PGA TOUR $4K Up-And-Down [$1K to 1st]",
    "fee": 55,
@@ -357,7 +357,7 @@
    "tiers": null
   },
   {
-   "id": "197431744",
+   "id": "197462458",
    "name": "PGA TOUR $85 Winner Take All [$300 to 1st]",
    "fee": 85,
    "entries": 4,
@@ -509,7 +509,7 @@
    "tiers": null
   },
   {
-   "id": "197456617",
+   "id": "197468934",
    "name": "PGA TOUR $555 Winner Take All [$2K to 1st]",
    "fee": 555,
    "entries": 4,
