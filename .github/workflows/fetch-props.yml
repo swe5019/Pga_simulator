@@ -8,7 +8,21 @@ on:
   schedule:
     - cron: '20 13 * * *'   # daily, mid-morning ET
     - cron: '20 21 * * *'   # daily, evening ET
-    - cron: '20 16 * * 0'   # Sunday late morning, before the main slate locks
+    # Sunday morning, repeatedly, because ONE run before the main slate is not
+    # enough. GitHub's scheduler is best-effort and drifts under load: the
+    # 16:20 run meant to land 100 minutes before a 1pm ET lock actually fired
+    # at 18:27 UTC, after kickoff, by which point the market had pulled the
+    # lines for players already in live games and the slate failed its own
+    # minimum-size check. The last projection standing was therefore from
+    # Saturday evening, which still had Breece Hall as the Jets starter while
+    # the field was 18.5% on Braelon Allen.
+    #
+    # With the daily 13:20 run, that is three Sunday attempts, so a two-hour
+    # delay still leaves a usable build. A run
+    # that lands after kickoff fails the population check and commits nothing,
+    # so the extra attempts cannot overwrite a good build with a broken one.
+    - cron: '20 15 * * 0'   # Sunday 10:20am ET
+    - cron: '20 16 * * 0'   # Sunday 11:20am ET, closest to a 1pm lock
   workflow_dispatch:
 
 permissions:
