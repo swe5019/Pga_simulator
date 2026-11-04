@@ -81,6 +81,42 @@ def log(*a):
     print(*a, flush=True)
 
 
+def build_pool(board, sims):
+    """The playable pool: everyone with a simulated score, a salary and an
+    ownership, joined from the slate board onto the simulation.
+
+    Pulled out of main so the scenario discovery runs on the same pool this
+    does. A second copy would drift, and the drift would be invisible, which
+    is the same reason the simulation itself is shared rather than reimplemented.
+    """
+    want = {}
+    for p in board["players"]:
+        if p.get("proj") is None or not p.get("sal"):
+            continue
+        if (p.get("own") or {}).get("mme") is None:
+            continue
+        want[nrm(p["player"])] = p
+
+    # Defenses are keyed by team in the simulation and by name on the board.
+    alias = {}
+    for p in board["players"]:
+        if p.get("pos") == "DST":
+            alias[f"dst_{p['team']}"] = nrm(p["player"])
+
+    pool = []
+    for key, entry in sims.items():
+        b = want.get(alias.get(key, key))
+        if not b:
+            continue
+        pool.append({
+            "key": key, "name": b["player"], "pos": b["pos"],
+            "team": b["team"], "opp": b.get("opp"),
+            "sal": b["sal"], "own": (b.get("own") or {}).get("mme", 1.0),
+            "fp": entry,
+        })
+    return pool
+
+
 def sample_field(rng, pool, n_lineups):
     """A field of lineups, drawn at projected ownership under the real rules.
 
@@ -150,36 +186,9 @@ def main():
     log("regenerating the joint slate simulation for the contest")
     import build_projections as bp
     bp.TRIALS = TRIALS
-    # Everyone on the board, with their salary and projected ownership.
-    want = {}
-    for p in board["players"]:
-        if p.get("proj") is None or not p.get("sal"):
-            continue
-        own = (p.get("own") or {}).get("mme")
-        if own is None:
-            continue
-        want[nrm(p["player"])] = p
-
     sims, _res = bp.player_scores(TRIALS, "dk")
     log(f"{len(sims)} players simulated at {TRIALS:,} trials")
-
-    # Defenses are keyed by team in the simulation and by name on the board.
-    alias = {}
-    for p in board["players"]:
-        if p.get("pos") == "DST":
-            alias[f"dst_{p['team']}"] = nrm(p["player"])
-
-    pool = []
-    for key, entry in sims.items():
-        b = want.get(alias.get(key, key))
-        if not b:
-            continue
-        pool.append({
-            "key": key, "name": b["player"], "pos": b["pos"],
-            "team": b["team"], "opp": b.get("opp"),
-            "sal": b["sal"], "own": (b.get("own") or {}).get("mme", 1.0),
-            "fp": entry,
-        })
+    pool = build_pool(board, sims)
     log(f"{len(pool)} of them are on the DraftKings slate with a salary "
         f"and an ownership")
     have = defaultdict(int)
