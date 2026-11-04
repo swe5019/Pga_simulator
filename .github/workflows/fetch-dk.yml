@@ -5,7 +5,21 @@ on:
   # next event's contests Mon/Tue, so this picks up salaries on its own with no
   # manual contest id. Runs that find no new slate exit cleanly (no commit).
   schedule:
-    - cron: '0 13,17,21 * * *'   # 3x/day (UTC)
+    # Off the hour on purpose. GitHub runs scheduled workflows best-effort and
+    # drops them under load, and minute 0 is when every cron on the platform
+    # fires. At '0 13,17,21' only about two of the three landed on a normal
+    # day and every one was late, by up to four hours: the 21:00 run arriving
+    # at 00:59 the next morning, the 17:00 at 19:55. The 13:00 slot almost
+    # never appeared at all.
+    - cron: '44 12,16,20 * * *'   # 3x/day, shifted off the congested minute
+    # Golf-specific. DraftKings keeps editing the field after it first posts
+    # the draft group: Harry Higgs was added some time after the overnight
+    # fetch and was missing from the board on Wednesday afternoon, and C.T.
+    # Pan appeared late the week before. These two land either side of the
+    # night before a Thursday first tee, early enough that the usual delay
+    # still leaves them useful.
+    - cron: '44 23 * * 3'         # Wednesday 6:44pm ET, after the pro-am
+    - cron: '44 9 * * 4'          # Thursday 4:44am ET, before the first tee
   workflow_dispatch:
     inputs:
       auto:
