@@ -117,49 +117,179 @@ def build_pool(board, sims):
     return pool
 
 
-def sample_field(rng, pool, n_lineups):
+# How a real mass-entry field is built. These are the rates the sampler aims
+# at, and they are PRIORS, not measurements: a field that drew every slot
+# independently at ownership stacked its quarterback with a team mate 15.6% of
+# the time and brought back 3.5%, which is not a tournament field, it is a
+# raffle. Because the field is the denominator of every leverage number, that
+# understated how heavily real entries concentrate on a few games and made the
+# game-level rankings worse than useless (they correlated -0.24 with what the
+# 1 November Millionaire actually did).
+#
+# Replace these with measured values as soon as a contest export is available:
+# the standings CSV carries every entry's lineup, so all three fall straight
+# out of it.
+STACK_ANY = 0.85       # lineups paring the QB with at least one of his own
+STACK_TWO = 0.40       # of all lineups: QB plus TWO of his pass catchers
+BRING_BACK = 0.60      # given a stack, also take one from the other side
+
+
+def _weighted(rng, idxs, pool, exclude):
+    """One index drawn at ownership, or None when nothing is left."""
+    avail = [i for i in idxs if i not in exclude]
+    if not avail:
+        return None
+    w = np.array([max(pool[i]["own"], 0.01) for i in avail], dtype=np.float64)
+    return int(rng.choice(avail, p=w / w.sum()))
+
+
+def _measure_stacks(field, pool):
+    """Realised structure of a field: (any mate, two mates, bring-back)."""
+    n = max(len(field), 1)
+    st = two = bb = 0
+    for ids in field:
+        qb = next((pool[i] for i in ids if pool[i]["pos"] == "QB"), None)
+        if not qb:
+            continue
+        m = [i for i in ids if pool[i]["pos"] in ("WR", "TE")
+             and pool[i]["team"] == qb["team"]]
+        o = [i for i in ids if pool[i]["team"] == qb.get("opp")]
+        if m:
+            st += 1
+        if len(m) >= 2:
+            two += 1
+        if m and o:
+            bb += 1
+    return st / n, two / n, bb / n
+
+
+def calibrate_stacks(rng, pool, targets=None, rounds=3, probe=1200):
+    """Find the build probabilities that REALISE the requested rates.
+
+    What a builder intends and what a lineup ends up looking like are not the
+    same thing: the slots filled at ownership after the stack is placed keep
+    adding team mates by accident, so intending 40% double stacks produced
+    52% of them. That gap matters because these targets are meant to be
+    replaced by rates measured off a real contest, and a measured rate is a
+    realised one. A sampler that cannot hit the number it is given could not
+    use the measurement.
+
+    So the intended probabilities are nudged by the ratio of target to
+    realised, a few times, on a small probe field.
+    """
+    t_any, t_two, t_bb = targets or (STACK_ANY, STACK_TWO, BRING_BACK)
+    p_any, p_two, p_bb = t_any, t_two, t_bb
+    for _ in range(rounds):
+        f, _a = sample_field(rng, pool, probe, stack=True,
+                             probs=(p_any, p_two, p_bb), calibrate=False)
+        if len(f) < probe * 0.2:
+            break
+        r_any, r_two, r_bb = _measure_stacks(f, pool)
+        # Bring-back is measured over all lineups but rolled only over stacked
+        # ones, so it is compared on the same footing.
+        p_any = min(max(p_any * t_any / max(r_any, 1e-6), 0.0), 1.0)
+        p_two = min(max(p_two * t_two / max(r_two, 1e-6), 0.0), p_any)
+        want_bb = t_bb * t_any
+        p_bb = min(max(p_bb * want_bb / max(r_bb, 1e-6), 0.0), 1.0)
+    return p_any, p_two, p_bb
+
+
+def sample_field(rng, pool, n_lineups, stack=True, probs=None, calibrate=True):
     """A field of lineups, drawn at projected ownership under the real rules.
 
     Sampling at ownership rather than optimising is the whole point: a real
     tournament field is mostly ordinary lineups built around popular players,
     not sixty thousand copies of the optimal one, and measuring leverage
-    against a field of optimal lineups would answer a question nobody is in."""
+    against a field of optimal lineups would answer a question nobody is in.
+
+    But ownership alone does not describe a field either. Real entries are
+    STRUCTURED: a quarterback is chosen and then deliberately paired with his
+    own receivers, and often with somebody from the other side of the same
+    game. Drawing each slot independently produces a field that stacks only by
+    accident, spreads itself evenly across games, and therefore cannot show
+    which games the field is genuinely crowded into. So a lineup is built the
+    way a person builds one: pick the quarterback, decide how deep to go with
+    him, decide whether to bring one back, then fill what is left at ownership.
+    """
     by_pos = defaultdict(list)
     for i, p in enumerate(pool):
         by_pos[p["pos"]].append(i)
     flex_idx = [i for pos in FLEX_OK for i in by_pos.get(pos, [])]
-
-    def weights(idxs):
-        w = np.array([max(pool[i]["own"], 0.01) for i in idxs], dtype=np.float64)
-        return w / w.sum()
-
-    wts = {pos: weights(idxs) for pos, idxs in by_pos.items() if idxs}
-    flex_w = weights(flex_idx) if flex_idx else None
-    need = {"QB": 1, "RB": 2, "WR": 3, "TE": 1, "DST": 1}
-    for pos in need:
-        if pos not in by_pos or len(by_pos[pos]) < need[pos]:
+    need_base = {"QB": 1, "RB": 2, "WR": 3, "TE": 1, "DST": 1}
+    for pos, k in need_base.items():
+        if len(by_pos.get(pos, [])) < k:
             raise SystemExit(f"not enough {pos} on the slate to build a lineup")
+
+    # Pass catchers and opponents, by team, so a stack can be assembled.
+    mates = defaultdict(list)
+    for i, p in enumerate(pool):
+        if p["pos"] in ("WR", "TE"):
+            mates[p["team"]].append(i)
+    others = defaultdict(list)
+    for i, p in enumerate(pool):
+        if p["pos"] in ("WR", "TE", "RB"):
+            others[p["team"]].append(i)
+
+    p_any, p_two, p_bb = probs or (STACK_ANY, STACK_TWO, BRING_BACK)
+    if stack and calibrate and probs is None:
+        p_any, p_two, p_bb = calibrate_stacks(rng, pool)
 
     out = []
     attempts = 0
     while len(out) < n_lineups and attempts < n_lineups * 60:
         attempts += 1
-        picked = []
+        need = dict(need_base)
+        picked, flex_used = [], False
+
+        def place(i):
+            """Put a player in his own slot, else the flex, else refuse."""
+            nonlocal flex_used
+            pos = pool[i]["pos"]
+            if need.get(pos, 0) > 0:
+                need[pos] -= 1
+                picked.append(i)
+                return True
+            if not flex_used and pos in FLEX_OK:
+                flex_used = True
+                picked.append(i)
+                return True
+            return False
+
+        if stack:
+            qb = _weighted(rng, by_pos["QB"], pool, set())
+            if qb is None or not place(qb):
+                continue
+            team, opp = pool[qb]["team"], pool[qb].get("opp")
+            roll = rng.random()
+            depth = 2 if roll < p_two else (1 if roll < p_any else 0)
+            for _ in range(depth):
+                m = _weighted(rng, mates.get(team, []), pool, set(picked))
+                if m is not None:
+                    place(m)
+            if depth and opp and rng.random() < p_bb:
+                b = _weighted(rng, others.get(opp, []), pool, set(picked))
+                if b is not None:
+                    place(b)
+
+        # Everything still open, at ownership.
         ok = True
-        for pos, k in need.items():
-            idxs = by_pos[pos]
-            take = rng.choice(idxs, size=k, replace=False, p=wts[pos])
-            picked.extend(int(x) for x in take)
-        if flex_idx:
-            for _ in range(8):
-                f = int(rng.choice(flex_idx, p=flex_w))
-                if f not in picked:
-                    picked.append(f)
+        for pos in ("QB", "RB", "WR", "TE", "DST"):
+            while need.get(pos, 0) > 0:
+                i = _weighted(rng, by_pos.get(pos, []), pool, set(picked))
+                if i is None or not place(i):
+                    ok = False
                     break
-            else:
-                ok = False
-        if not ok or len(picked) != len(SLOTS):
+            if not ok:
+                break
+        if not ok:
             continue
+        if not flex_used:
+            i = _weighted(rng, flex_idx, pool, set(picked))
+            if i is None or not place(i):
+                continue
+        if len(picked) != len(SLOTS):
+            continue
+
         sal = sum(pool[i]["sal"] for i in picked)
         if sal > CAP or sal < MIN_SALARY:
             continue
