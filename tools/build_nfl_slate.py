@@ -176,10 +176,52 @@ def curve_value(curve, sal):
     return ys[-1]
 
 
+# An entry count this large is DraftKings' way of saying "no cap", not a real
+# field, so it is ignored when measuring how busy a draft group is.
+UNCAPPED_ENTRIES = 1_000_000
+
+
+def contest_volume():
+    """Entries per draft group, from the archived list of open contests.
+
+    This is the only honest measure of which slate people actually play.
+    """
+    path = os.path.join(DATA, "nfl_contests.json")
+    if not os.path.exists(path):
+        return {}
+    try:
+        with open(path, encoding="utf-8") as f:
+            doc = json.load(f)
+    except ValueError:
+        return {}
+    vol = {}
+    for c in (doc.get("contests") or {}).values():
+        dg = c.get("dg")
+        e = c.get("entries") or 0
+        if dg and e < UNCAPPED_ENTRIES:
+            vol[int(dg)] = vol.get(int(dg), 0) + e
+    return vol
+
+
 def pick_slate(doc):
-    """The main slate: the biggest classic one that has not started."""
+    """The main slate: the classic one people are actually entering.
+
+    This used to mean "the most teams", which is wrong in a way that was
+    invisible from inside the data. DraftKings posts a board on Thursday that
+    spans the whole week, all fifteen games and thirty teams, and it beat the
+    Sunday main slate on team count every single time. Nobody plays it: it had
+    ZERO open contests against 1.5 million entries and every major tournament,
+    the Millionaire included, sitting on the Sunday group. So the board, the
+    projections, the ownership, the contest simulation and the scenarios were
+    all being built for a slate with nothing running on it.
+
+    Entry volume is the measure that matters, and the contest archive carries
+    it. Team count stays as the fallback for when the archive has nothing to
+    say, which is how this behaved before.
+    """
     now = datetime.datetime.now(datetime.timezone.utc)
     classics = [s for s in doc["slates"] if s.get("kind") == "classic"]
+    vol = contest_volume()
     future = []
     for s in classics:
         try:
@@ -187,10 +229,23 @@ def pick_slate(doc):
         except (ValueError, KeyError):
             continue
         if st > now:
-            future.append((s["teams"], st, s))
+            future.append((vol.get(int(s.get("dg") or 0), 0), s["teams"], st, s))
     if future:
-        future.sort(key=lambda x: (-x[0], x[1]))
-        return future[0][2]
+        busiest = max(f[0] for f in future)
+        if busiest > 0:
+            future.sort(key=lambda x: (-x[0], x[2]))
+            chosen = future[0]
+            log(f"   slate picked on contest volume: dg={chosen[3].get('dg')} "
+                f"{chosen[3].get('name')!r} with {chosen[0]:,} entries across "
+                f"its open contests")
+            for f in sorted(future, key=lambda x: -x[0])[1:4]:
+                log(f"      runner up dg={f[3].get('dg')} {f[3].get('name')!r} "
+                    f"{f[0]:,} entries")
+            return chosen[3]
+        log("   no contest volume recorded for any open slate; "
+            "falling back to the largest by team count")
+        future.sort(key=lambda x: (-x[1], x[2]))
+        return future[0][3]
     if classics:
         return max(classics, key=lambda s: s.get("teams", 0))
     return None
