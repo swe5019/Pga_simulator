@@ -1,11 +1,11 @@
 {
- "updatedUtc": "2026-11-05T17:25:37Z",
+ "updatedUtc": "2026-11-05T23:39:18Z",
  "slate": "WWT_2026",
  "event": "",
  "counts": {
-  "items": 7,
-  "golfersMentioned": 7,
-  "news": 7,
+  "items": 1,
+  "golfersMentioned": 1,
+  "news": 1,
   "chatter": 0
  },
  "sources": [
@@ -108,13 +108,13 @@
   {
    "source": "Google News: PGA DFS",
    "ok": true,
-   "items": 53,
+   "items": 54,
    "error": null
   },
   {
    "source": "Google News: PGA WD",
    "ok": true,
-   "items": 54,
+   "items": 55,
    "error": null
   },
   {
@@ -138,106 +138,13 @@
  ],
  "mentions": [
   {
-   "name": "Jordan L. Smith",
-   "news": 2,
-   "chatter": 0,
-   "total": 2
-  },
-  {
-   "name": "Blades Brown",
-   "news": 2,
-   "chatter": 0,
-   "total": 2
-  },
-  {
-   "name": "Benjamin James",
-   "news": 1,
-   "chatter": 0,
-   "total": 1
-  },
-  {
-   "name": "Nick Taylor",
-   "news": 1,
-   "chatter": 0,
-   "total": 1
-  },
-  {
-   "name": "Keith Mitchell",
-   "news": 1,
-   "chatter": 0,
-   "total": 1
-  },
-  {
    "name": "Seamus Power",
-   "news": 1,
-   "chatter": 0,
-   "total": 1
-  },
-  {
-   "name": "Justin Lower",
    "news": 1,
    "chatter": 0,
    "total": 1
   }
  ],
  "items": [
-  {
-   "title": "Who Should I Start for Fantasy Football Week 9? Malik Nabers, Justin Jefferson, Amon-Ra St. Brown, Christian McCaffrey, Kyren Williams, Tee Higgins, Jaxon Smith-Njigba, Ja'Marr Chase",
-   "link": "https://www.rotoballer.com/who-should-i-start-for-week-9-malik-nabers-justin-jefferson-amon-ra-st-brown-christian-mccaffrey-kyren-williams-tee-higgins-jaxon-smith-njigba-jamarr-chase/1984594",
-   "summary": "Who Should I Start? Who Should I Sit? Some of the most common Week 9 fantasy football lineup decisions involve [&#8230;]",
-   "published": "Thu, 05 Nov 2026 16:21:40 +0000",
-   "source": "RotoBaller",
-   "kind": "news",
-   "golfers": [
-    "Jordan L. Smith",
-    "Blades Brown"
-   ]
-  },
-  {
-   "title": "Who Should I Start for Fantasy Football Week 9? Keon Coleman, Bam Knight, Chris Bell, Tank Dell, Samaje Perine, Seth McGowan, Kenny Gainwell, Tetairoa McMillan, James Cook, Jonathan Taylor",
-   "link": "https://www.rotoballer.com/who-should-i-start-for-week-9-keon-coleman-bam-knight-chris-bell-tank-dell-samaje-perine-seth-mcgowan-kenny-gainwell-tetairoa-mcmillan-james-cook-jonathan-taylor/1984577",
-   "summary": "Who Should I Start? Who Should I Sit? Some of the most common Week 9 fantasy football lineup decisions involve [&#8230;]",
-   "published": "Thu, 05 Nov 2026 16:14:00 +0000",
-   "source": "RotoBaller",
-   "kind": "news",
-   "golfers": [
-    "Benjamin James",
-    "Nick Taylor"
-   ]
-  },
-  {
-   "title": "Who Should I Start for Fantasy Football Week 9? Denzel Boston, Mike Washington Jr., Antonio Williams, Emmett Johnson, Nico Collins, Elijah Mitchell, Khalil Shakir, Rhamondre Stevenson",
-   "link": "https://www.rotoballer.com/who-should-i-start-for-week-9-denzel-boston-mike-washington-jr-antonio-williams-emmett-johnson-nico-collins-elijah-mitchell-khalil-shakir-rhamondre-stevenson/1984558",
-   "summary": "Who Should I Start? Who Should I Sit? Some of the most common Week 9 fantasy football lineup decisions involve [&#8230;]",
-   "published": "Thu, 05 Nov 2026 15:58:15 +0000",
-   "source": "RotoBaller",
-   "kind": "news",
-   "golfers": [
-    "Keith Mitchell"
-   ]
-  },
-  {
-   "title": "When Is A.J. Brown Coming Back - Week 9 Fantasy Football Injury Return Update (2026)",
-   "link": "https://www.rotoballer.com/when-is-a-j-brown-coming-back-week-9-fantasy-football-injury-return-update-2026/1983942",
-   "summary": "New England Patriots wide receiver A.J. Brown was the centerpiece of a blockbuster deal that gave Drake Maye the weapon [&#8230;]",
-   "published": "Thu, 05 Nov 2026 15:08:15 +0000",
-   "source": "RotoBaller",
-   "kind": "news",
-   "golfers": [
-    "Blades Brown"
-   ]
-  },
-  {
-   "title": "When Is DeVonta Smith Coming Back - Week 9 Fantasy Football Injury Return Update (2026)",
-   "link": "https://www.rotoballer.com/when-is-devonta-smith-coming-back-week-9-fantasy-football-injury-return-update-2026/1983314",
-   "summary": "Philadelphia Eagles wide receiver DeVonta Smith has long been a favorite of the fantasy community, even while splitting opportunities in [&#8230;]",
-   "published": "Thu, 05 Nov 2026 14:37:40 +0000",
-   "source": "RotoBaller",
-   "kind": "news",
-   "golfers": [
-    "Jordan L. Smith"
-   ]
-  },
   {
    "title": "NFL Top Plays Based on Betting Splits, Power Ratings and Trends \u2013 Week 9",
    "link": "https://vsin.com/nfl/nfl-top-plays-based-on-betting-splits-power-ratings-and-trends-for-week-9/",
@@ -247,17 +154,6 @@
    "kind": "news",
    "golfers": [
     "Seamus Power"
-   ]
-  },
-  {
-   "title": "College Basketball Picks for Wednesday, November 4 from Adam Burke",
-   "link": "https://vsin.com/college-basketball/college-basketball-picks-for-wednesday-november-4-from-adam-burke/",
-   "summary": "College Basketball Picks We only have 10 Division I vs. Division I games on Wednesday, as 16 D-I programs play against lower-division opponents. We have 43 games tomorrow, so there will be more to choose from, but we\u2019re going to have some of these schedules as we go forward. There will be some huge days [&#8230;] The post College Basketball Picks for Wednesday, November 4 from Adam Burke appeared ",
-   "published": "Wed, 04 Nov 2026 16:18:45 +0000",
-   "source": "VSiN",
-   "kind": "news",
-   "golfers": [
-    "Justin Lower"
    ]
   }
  ]
