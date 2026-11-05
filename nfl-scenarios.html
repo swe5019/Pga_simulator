@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NFL DFS Game Stack Scenarios — Which Games Win a Tournament | SlateSims</title>
+  <link rel="icon" href="assets/img/favicon.svg?v=20260730v" type="image/svg+xml" />
+  <link rel="canonical" href="https://slatesims.com/nfl-scenarios.html" />
+  <meta name="description" content="Which NFL games can win a DraftKings tournament and how deep to stack them, found by solving the winning lineup in thousands of correlated slate simulations instead of ranking players by projection." />
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="SlateSims" />
+  <meta property="og:url" content="https://slatesims.com/nfl-scenarios.html" />
+  <meta property="og:title" content="NFL DFS Game Stack Scenarios" />
+  <meta property="og:description" content="Which games can win the slate, how deep to stack them, and how crowded each one already is." />
+  <meta property="og:image" content="https://slatesims.com/assets/img/avatar.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="NFL DFS Game Stack Scenarios | SlateSims" />
+  <meta name="twitter:description" content="Which games can win the slate, and how crowded each one already is." />
+  <meta name="twitter:image" content="https://slatesims.com/assets/img/avatar.png" />
+  <link rel="stylesheet" href="assets/css/styles.css?v=20261017a" />
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-13J1816EN4"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-13J1816EN4');
+  </script>
+</head>
+<body>
+  <div class="wrap">
+  <header class="top">
+    <a class="brand" href="index.html">SlateSims</a>
+    <nav class="mainnav" aria-label="Primary">
+      <div class="navitem">
+        <button type="button" class="navbtn" aria-haspopup="true" aria-expanded="false">
+          PGA <span class="navcaret" aria-hidden="true">▼</span>
+        </button>
+        <div class="navmenu" role="menu">
+          <div class="navgroup">DFS</div>
+          <a role="menuitem" href="app.html">Ownership &amp; Projections</a>
+          <a role="menuitem" href="app.html#build">Optimizer</a>
+          <a role="menuitem" href="app.html#contest">Contest Sim</a>
+          <div class="navgroup">Showdown</div>
+          <a role="menuitem" href="app.html#showdown">Ownership &amp; Projections</a>
+          <div class="navgroup">Research</div>
+          <a role="menuitem" href="app.html#news">News &amp; Chatter</a>
+          <a role="menuitem" href="app.html#saved">Saved Lineups</a>
+        </div>
+      </div>
+      <div class="navitem">
+        <button type="button" class="navbtn here" aria-haspopup="true" aria-expanded="false">
+          NFL <span class="navcaret" aria-hidden="true">▼</span>
+        </button>
+        <div class="navmenu" role="menu">
+          <div class="navgroup">DFS</div>
+          <a role="menuitem" href="nfl-slate.html">Slate Board</a>
+          <a role="menuitem" class="current" href="nfl-scenarios.html">Game Stack Scenarios</a>
+          <a role="menuitem" href="nfl-optimizer.html">Optimizer &amp; Contest Sim</a>
+          <a role="menuitem" href="nfl-projections.html">Fantasy Projections</a>
+          <div class="navgroup">Research</div>
+          <a role="menuitem" href="nfl.html">Advanced Stats</a>
+          <a role="menuitem" href="nfl-props.html">Player Props</a>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section id="scenarios" class="panel active">
+      <h1 id="scTitle">NFL Game Stack Scenarios</h1>
+      <p class="sub" id="scMeta"></p>
+
+      <p class="hint">
+        A tournament is not won by nine players each having a nice day. It is won
+        when one game goes off and you own several pieces of it, because players in
+        the same game rise together. So this does not rank players. It plays the
+        slate out thousands of times, solves the lineup that would have won
+        <i>each</i> of those slates, and then asks what those winners had in common.
+        Almost always the answer is a game rather than a player.
+        <b>Deep</b> is how many of your nine come from that one game.
+      </p>
+
+      <p class="hint warnbox" id="scWarn">
+        <b>Half of this is measured and half is a model, and the halves are not
+        equally good.</b> The <b>Wins%</b> column is measured: it is the share of
+        simulated slates whose best possible lineup had that shape, and nothing about
+        the field goes into it. The <b>Field%</b> column is a simulation of what
+        everybody else builds, and it rests on projected ownership that has been
+        checked against one real contest and came back over-dispersed, with 4.15
+        points of average error. <b>Leverage</b> divides one by the other, so it is
+        only as good as the weaker half. Use it to rank games against each other.
+        Do not read 3.0× as "three times the edge".
+      </p>
+
+      <div id="scUnlock" class="unlockbar">
+        <span><strong>Free with your email:</strong> the field and leverage columns.
+          Win rates are free to everyone.</span>
+        <button type="button" id="scUnlockBtn" class="primary small">Unlock free →</button>
+      </div>
+
+      <div class="trim-bar">
+        <input id="scSearch" type="text" placeholder="Filter game or player…" class="filter-text" />
+        <span class="filter-sep">Seen in at least</span>
+        <select id="scMinWins" class="filter-num">
+          <option value="2">2 slates</option>
+          <option value="5" selected>5 slates</option>
+          <option value="10">10 slates</option>
+          <option value="25">25 slates</option>
+        </select>
+      </div>
+
+      <div class="tablewrap">
+        <table id="scTable">
+          <thead><tr></tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+      <p class="hint" id="scCount"></p>
+
+      <h2>Shapes, with the game names removed</h2>
+      <p class="hint">
+        The same winners counted by form rather than by which game it was.
+        <b>4-2</b> means four players from one game and two from another.
+        This is the more stable half of the page, because it does not depend on
+        naming the right game, but it still divides by the same modelled field.
+      </p>
+      <div class="tablewrap" id="scShapes"></div>
+
+      <section class="seo-copy">
+        <h2>How this is built</h2>
+        <h3>It keeps the joint structure instead of averaging it away</h3>
+        <p>
+          The projection build already simulates the whole slate thousands of times
+          with team mates correlated, so that a quarterback and his receiver rise and
+          fall together. It then throws that structure away and reports an average for
+          each player, which is what every projection source does.
+        </p>
+        <p>
+          This page keeps it. For each simulated slate it solves for the lineup that
+          would have won that particular world, then groups those winners by where
+          their points came from. A game only needs a fat enough right tail to show up
+          here. It does not need a high projected total, which is exactly why a board
+          ranked by mean projection cannot see it.
+        </p>
+        <h3>Why the field column is the weak half</h3>
+        <p>
+          To say that nobody else is on a game, you have to know what everybody else is
+          doing. That means simulating a field, and a simulated field is only as good
+          as the ownership it is built from. Ownership here is a model rather than a
+          measurement, and when it was finally checked against a real contest it was
+          systematically over-dispersed: the players it called heavy chalk came in at
+          less than half its number, and the ones it buried came in at nearly three
+          times.
+        </p>
+        <p>
+          The field is also built to stack the way real entries do, with a quarterback
+          deliberately paired with his own receivers and often somebody from the other
+          side. That matters more than it sounds: a field that only stacks by accident
+          makes deep stacks look rare and precious when they are neither. The rates it
+          stacks at are reasonable assumptions, not measurements, and until they are
+          measured from a real contest the shape ranking should be read as provisional.
+        </p>
+        <h3>What to do with it</h3>
+        <p>
+          Read the win column as which games have the fattest tails on this slate, and
+          the leverage column as a rough ordering of which of those the field is least
+          likely to be crowding. Neither column tells you which game will actually go
+          off. Nothing can. What it does tell you is where the payoff is concentrated
+          if one of them does, which is the part that is knowable before kickoff.
+        </p>
+      </section>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <span>SlateSims · free NFL projections, research and DraftKings PGA DFS tools.</span>
+  </footer>
+  </div>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebApplication",
+        "name": "SlateSims NFL Game Stack Scenarios",
+        "url": "https://slatesims.com/nfl-scenarios.html",
+        "applicationCategory": "SportsApplication",
+        "operatingSystem": "Any",
+        "description": "Which NFL games can win a DraftKings tournament and how deep to stack them, from thousands of correlated slate simulations.",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+        "publisher": { "@type": "Organization", "name": "SlateSims", "url": "https://slatesims.com/" }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "SlateSims", "item": "https://slatesims.com/" },
+          { "@type": "ListItem", "position": 2, "name": "NFL Game Stack Scenarios", "item": "https://slatesims.com/nfl-scenarios.html" }
+        ]
+      }
+    ]
+  }
+  </script>
+
+  <script src="assets/js/nav.js?v=20261017a"></script>
+  <script src="assets/js/leadgate.js?v=20261017a"></script>
+  <script src="assets/js/scenarios.js?v=20261017a"></script>
+</body>
+</html>
