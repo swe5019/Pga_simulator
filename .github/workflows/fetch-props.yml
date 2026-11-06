@@ -181,3 +181,38 @@ jobs:
             echo "could not push after 5 attempts"
             exit 1
           fi
+
+      # AFTER the props commit, deliberately. The scenario pass is the slowest
+      # thing here and the least load bearing: it is a reading of the board,
+      # not the board. Running it earlier would put props, projections, the
+      # slate board and the contest simulation behind it, and this pipeline has
+      # already been wedged twice by exactly that shape, once by a churn check
+      # and once by a single unrostered rookie. The core data is published by
+      # the time this runs, so a failure here is visible in the job without
+      # costing anybody their numbers.
+      - name: Discover winning scenarios
+        env:
+          PYTHONUNBUFFERED: '1'
+        run: python tools/discover_scenarios.py --trials 2500 --field 4000 --top 12
+
+      - name: Commit scenarios
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/nfl_scenarios.json
+          if git diff --cached --quiet; then
+            echo "No change in scenarios"
+          else
+            git commit -m "Auto-update NFL game stack scenarios"
+            for i in 1 2 3 4 5; do
+              if git push; then
+                echo "pushed on attempt $i"
+                exit 0
+              fi
+              echo "push rejected, rebasing and retrying ($i)"
+              git pull --rebase origin main || exit 1
+              sleep $((i * 3))
+            done
+            echo "could not push after 5 attempts"
+            exit 1
+          fi
