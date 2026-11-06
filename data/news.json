@@ -1,11 +1,11 @@
 {
- "updatedUtc": "2026-11-06T06:51:00Z",
+ "updatedUtc": "2026-11-06T16:46:49Z",
  "slate": "WWT_2026",
  "event": "",
  "counts": {
-  "items": 2,
-  "golfersMentioned": 1,
-  "news": 2,
+  "items": 5,
+  "golfersMentioned": 5,
+  "news": 5,
   "chatter": 0
  },
  "sources": [
@@ -108,7 +108,7 @@
   {
    "source": "Google News: PGA DFS",
    "ok": true,
-   "items": 53,
+   "items": 54,
    "error": null
   },
   {
@@ -138,29 +138,86 @@
  ],
  "mentions": [
   {
-   "name": "Seamus Power",
-   "news": 2,
+   "name": "Will Gordon",
+   "news": 1,
    "chatter": 0,
-   "total": 2
+   "total": 1
+  },
+  {
+   "name": "Keith Mitchell",
+   "news": 1,
+   "chatter": 0,
+   "total": 1
+  },
+  {
+   "name": "Harry Hall",
+   "news": 1,
+   "chatter": 0,
+   "total": 1
+  },
+  {
+   "name": "Danny Walker",
+   "news": 1,
+   "chatter": 0,
+   "total": 1
+  },
+  {
+   "name": "Seamus Power",
+   "news": 1,
+   "chatter": 0,
+   "total": 1
   }
  ],
  "items": [
+  {
+   "title": "Who Should I Start for Fantasy Football Week 9? DeMario Douglas, Devin Singletary, Dylan Sampson, Christian Watson, Ollie Gordon II, Jordan Mason, Michael Wilson, Tyler Allgeier",
+   "link": "https://www.rotoballer.com/who-should-i-start-for-week-9-demario-douglas-devin-singletary-dylan-sampson-christian-watson-ollie-gordon-ii-jordan-mason-michael-wilson-tyler-allgeier/1985456",
+   "summary": "Who Should I Start? Who Should I Sit? Some of the most common Week 9 fantasy football lineup decisions involve [&#8230;]",
+   "published": "Fri, 06 Nov 2026 16:40:53 +0000",
+   "source": "RotoBaller",
+   "kind": "news",
+   "golfers": [
+    "Will Gordon"
+   ]
+  },
+  {
+   "title": "Who Should I Start for Fantasy Football Week 9? Adonai Mitchell, Blake Corum, Jalen Coker, Aaron Jones Sr., Alvin Kamara, George Pickens, Deebo Samuel, Malik Washington, Garrett Wilson",
+   "link": "https://www.rotoballer.com/who-should-i-start-for-week-9-adonai-mitchell-blake-corum-jalen-coker-aaron-jones-sr-alvin-kamara-george-pickens-deebo-samuel-sr-malik-washington-garrett-wilson/1985431",
+   "summary": "Who Should I Start? Who Should I Sit? Some of the most common Week 9 fantasy football lineup decisions involve [&#8230;]",
+   "published": "Fri, 06 Nov 2026 16:26:35 +0000",
+   "source": "RotoBaller",
+   "kind": "news",
+   "golfers": [
+    "Keith Mitchell"
+   ]
+  },
+  {
+   "title": "Who Should I Start for Fantasy Football Week 9? Braelon Allen, Breece Hall, Jaylen Waddle, DeVaughn Vele, Ashton Jeanty, Keenan Allen, Jameson Williams, Emeka Egbuka, JK Dobbins",
+   "link": "https://www.rotoballer.com/who-should-i-start-for-week-9-braelon-allen-breece-hall-jaylen-waddle-devaughn-vele-ashton-jeanty-keenan-allen-jameson-williams-emeka-egbuka-jk-dobbins/1985416",
+   "summary": "Who Should I Start? Who Should I Sit? Some of the most common Week 9 fantasy football lineup decisions involve [&#8230;]",
+   "published": "Fri, 06 Nov 2026 16:20:43 +0000",
+   "source": "RotoBaller",
+   "kind": "news",
+   "golfers": [
+    "Harry Hall"
+   ]
+  },
+  {
+   "title": "UFC Vegas 124 DFS Breakdown: Model, Preview, Picks for Cortes Acosta vs. Walker, More Saturday Fights",
+   "link": "https://www.fantasylabs.com/articles/ufc-vegas-124-dfs-breakdown-model-preview-picks-for-cortes-acosta-vs-walker-more-saturday-fights/",
+   "summary": "We have one more week of Apex action before the UFC hits the road for a handful of high-profile events starting... The post UFC Vegas 124 DFS Breakdown: Model, Preview, Picks for Cortes Acosta vs. Walker, More Saturday Fights appeared first on FantasyLabs .",
+   "published": "Fri, 06 Nov 2026 14:56:54 +0000",
+   "source": "FantasyLabs",
+   "kind": "news",
+   "golfers": [
+    "Danny Walker"
+   ]
+  },
   {
    "title": "College Football Top Plays Based on Betting Splits, Power Ratings and Trends \u2013 Week 10",
    "link": "https://vsin.com/college-football/college-football-top-plays-based-on-betting-splits-power-ratings-and-trends-week-10-3/",
    "summary": "Week 10 College Football Betting Trends: The following is a collection of analytical data, betting systems and strength ratings featured on VSiN and qualified for the college football games of Week 10. This report emulates the process Steve Makinen and other members of the VSiN Analytics team use to handicap each week\u2019s college football board. [&#8230;] The post College Football Top Plays Based on",
    "published": "Fri, 06 Nov 2026 02:17:00 +0000",
-   "source": "VSiN",
-   "kind": "news",
-   "golfers": [
-    "Seamus Power"
-   ]
-  },
-  {
-   "title": "NFL Top Plays Based on Betting Splits, Power Ratings and Trends \u2013 Week 9",
-   "link": "https://vsin.com/nfl/nfl-top-plays-based-on-betting-splits-power-ratings-and-trends-for-week-9/",
-   "summary": "Week 9 NFL Betting Trends: The following NFL betting trends are a collection of analytical data, betting systems and strength ratings featured on VSiN and qualified for the NFL games of Week 9. This report is meant to emulate the process that Steve Makinen and other members of the VSiN Analytics team undergo when handicapping [&#8230;] The post NFL Top Plays Based on Betting Splits, Power Ratings ",
-   "published": "Thu, 05 Nov 2026 05:05:50 +0000",
    "source": "VSiN",
    "kind": "news",
    "golfers": [
