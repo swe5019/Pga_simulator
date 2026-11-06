@@ -1,11 +1,11 @@
 {
- "updatedUtc": "2026-11-05T23:39:18Z",
+ "updatedUtc": "2026-11-06T06:51:00Z",
  "slate": "WWT_2026",
  "event": "",
  "counts": {
-  "items": 1,
+  "items": 2,
   "golfersMentioned": 1,
-  "news": 1,
+  "news": 2,
   "chatter": 0
  },
  "sources": [
@@ -108,13 +108,13 @@
   {
    "source": "Google News: PGA DFS",
    "ok": true,
-   "items": 54,
+   "items": 53,
    "error": null
   },
   {
    "source": "Google News: PGA WD",
    "ok": true,
-   "items": 55,
+   "items": 56,
    "error": null
   },
   {
@@ -139,12 +139,23 @@
  "mentions": [
   {
    "name": "Seamus Power",
-   "news": 1,
+   "news": 2,
    "chatter": 0,
-   "total": 1
+   "total": 2
   }
  ],
  "items": [
+  {
+   "title": "College Football Top Plays Based on Betting Splits, Power Ratings and Trends \u2013 Week 10",
+   "link": "https://vsin.com/college-football/college-football-top-plays-based-on-betting-splits-power-ratings-and-trends-week-10-3/",
+   "summary": "Week 10 College Football Betting Trends: The following is a collection of analytical data, betting systems and strength ratings featured on VSiN and qualified for the college football games of Week 10. This report emulates the process Steve Makinen and other members of the VSiN Analytics team use to handicap each week\u2019s college football board. [&#8230;] The post College Football Top Plays Based on",
+   "published": "Fri, 06 Nov 2026 02:17:00 +0000",
+   "source": "VSiN",
+   "kind": "news",
+   "golfers": [
+    "Seamus Power"
+   ]
+  },
   {
    "title": "NFL Top Plays Based on Betting Splits, Power Ratings and Trends \u2013 Week 9",
    "link": "https://vsin.com/nfl/nfl-top-plays-based-on-betting-splits-power-ratings-and-trends-for-week-9/",
