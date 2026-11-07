@@ -1,11 +1,11 @@
 {
- "updatedUtc": "2026-11-07T06:00:29Z",
+ "updatedUtc": "2026-11-07T13:05:08Z",
  "slate": "WWT_2026",
  "event": "",
  "counts": {
-  "items": 9,
-  "golfersMentioned": 8,
-  "news": 9,
+  "items": 10,
+  "golfersMentioned": 7,
+  "news": 10,
   "chatter": 0
  },
  "sources": [
@@ -114,7 +114,7 @@
   {
    "source": "Google News: PGA WD",
    "ok": true,
-   "items": 56,
+   "items": 57,
    "error": null
   },
   {
@@ -139,18 +139,30 @@
  "mentions": [
   {
    "name": "Seamus Power",
-   "news": 2,
+   "news": 3,
    "chatter": 0,
-   "total": 2
+   "total": 3
   },
   {
-   "name": "Danny Walker",
+   "name": "Jordan L. Smith",
    "news": 2,
    "chatter": 0,
    "total": 2
   },
   {
    "name": "Chris Kirk",
+   "news": 2,
+   "chatter": 0,
+   "total": 2
+  },
+  {
+   "name": "Benjamin James",
+   "news": 1,
+   "chatter": 0,
+   "total": 1
+  },
+  {
+   "name": "Keith Mitchell",
    "news": 1,
    "chatter": 0,
    "total": 1
@@ -162,31 +174,69 @@
    "total": 1
   },
   {
-   "name": "Taylor Moore",
-   "news": 1,
-   "chatter": 0,
-   "total": 1
-  },
-  {
-   "name": "Mark Hubbard",
-   "news": 1,
-   "chatter": 0,
-   "total": 1
-  },
-  {
-   "name": "Jordan L. Smith",
-   "news": 1,
-   "chatter": 0,
-   "total": 1
-  },
-  {
-   "name": "Will Gordon",
+   "name": "Danny Walker",
    "news": 1,
    "chatter": 0,
    "total": 1
   }
  ],
  "items": [
+  {
+   "title": "Wide Receiver Matchups to Target For Week 9 - Jaxon Smith-Njigba, Chris Olave, Keenan Allen, Malik Washington, more",
+   "link": "https://www.rotoballer.com/nfl-dfs-picks-wide-receivers-to-target-for-week-9-2026/1985225",
+   "summary": "The NFL season approaches the halfway point with a beautiful 11-game slate for the main DFS fantasy football contests on [&#8230;]",
+   "published": "Sat, 07 Nov 2026 12:15:12 +0000",
+   "source": "RotoBaller",
+   "kind": "news",
+   "golfers": [
+    "Jordan L. Smith"
+   ]
+  },
+  {
+   "title": "NHL DFS Lineup Picks for DraftKings: Goalies, Value Plays, Stacks, and Power Plays Picks (11/7/26)",
+   "link": "https://www.rotoballer.com/draftkings-daily-fantasy-hockey-picks-expert-nhl-dfs-lineups-11-7-26/1986133",
+   "summary": "Happy Saturday, RotoBallers! We have a packed nine-game slate tonight, with monster teams like Edmonton, Colorado, and Toronto all on [&#8230;]",
+   "published": "Sat, 07 Nov 2026 11:31:22 +0000",
+   "source": "RotoBaller",
+   "kind": "news",
+   "golfers": [
+    "Seamus Power"
+   ]
+  },
+  {
+   "title": "Who Should I Start for Fantasy Football Week 9? Kirk Cousins, Jayden Daniels, Gardner Minshew, Malik Willis, Dak Prescott, Jared Goff, Bryce Young, Geno Smith, C.J. Stroud, Shedeur Sanders",
+   "link": "https://www.rotoballer.com/who-should-i-start-for-week-9-kirk-cousins-jayden-daniels-gardner-minshew-ii-malik-willis-dak-prescott-jared-goff-bryce-young-geno-smith-c-j-stroud-shedeur-sanders/1986090",
+   "summary": "Who Should I Start? Who Should I Sit? Some of the most common Week 9 fantasy football lineup decisions involve [&#8230;]",
+   "published": "Sat, 07 Nov 2026 11:12:05 +0000",
+   "source": "RotoBaller",
+   "kind": "news",
+   "golfers": [
+    "Chris Kirk",
+    "Jordan L. Smith"
+   ]
+  },
+  {
+   "title": "Who Should I Start for Fantasy Football Week 9? Khalil Shakir, Nico Collins, Austin Ekeler, Matthew Golden, Ryan Flournoy, Stefon Diggs, Malik Nabers, Kendre Miller, James Cook III",
+   "link": "https://www.rotoballer.com/who-should-i-start-for-week-9-khalil-shakir-nico-collins-austin-ekeler-matthew-golden-ryan-flournoy-stefon-diggs-malik-nabers-kendre-miller-james-cook-iii/1986092",
+   "summary": "Who Should I Start? Who Should I Sit? Some of the most common Week 9 fantasy football lineup decisions involve [&#8230;]",
+   "published": "Sat, 07 Nov 2026 11:11:10 +0000",
+   "source": "RotoBaller",
+   "kind": "news",
+   "golfers": [
+    "Benjamin James"
+   ]
+  },
+  {
+   "title": "Who Should I Start for Fantasy Football Week 9? Makai Lemon, Antonio Williams, Quinshon Judkins, Rhamondre Stevenson, Elijah Mitchell, Saquon Barkley, Tetairoa McMillan",
+   "link": "https://www.rotoballer.com/who-should-i-start-for-week-9-makai-lemon-antonio-williams-quinshon-judkins-rhamondre-stevenson-elijah-mitchell-saquon-barkley-tetairoa-mcmillan/1986093",
+   "summary": "Who Should I Start? Who Should I Sit? Some of the most common Week 9 fantasy football lineup decisions involve [&#8230;]",
+   "published": "Sat, 07 Nov 2026 11:08:12 +0000",
+   "source": "RotoBaller",
+   "kind": "news",
+   "golfers": [
+    "Keith Mitchell"
+   ]
+  },
   {
    "title": "Matt Youmans: Week 10 College Football Best Bets",
    "link": "https://vsin.com/college-football/matt-youmans-week-10-college-football-best-bets-and-predictions/",
@@ -240,51 +290,6 @@
    "kind": "news",
    "golfers": [
     "Danny Walker"
-   ]
-  },
-  {
-   "title": "UFC Vegas 124 DraftKings DFS Lineup Picks (Cortes Acosta vs. Walker): Expert Daily Fantasy Strategy",
-   "link": "https://www.rotoballer.com/ufc-vegas-124-dfs-picks-daily-fantasy-lineups-cortes-acosta-vs-walker/1985285",
-   "summary": "Every week, DraftKings Daily Fantasy offers MMA contests featuring the full UFC fight card. The DFS slate for UFC Fight [&#8230;]",
-   "published": "Fri, 06 Nov 2026 19:32:42 +0000",
-   "source": "RotoBaller",
-   "kind": "news",
-   "golfers": [
-    "Danny Walker"
-   ]
-  },
-  {
-   "title": "Who Should I Start for Fantasy Football Week 9? Jordyn Tyson, DJ Moore, Luther Burden III, Omarion Hampton, Josh Jacobs, Chuba Hubbard, Rome Odunze, Rashee Rice, Jordan Watkins",
-   "link": "https://www.rotoballer.com/who-should-i-start-for-week-9-jordyn-tyson-dj-moore-luther-burden-iii-omarion-hampton-josh-jacobs-chuba-hubbard-rome-odunze-rashee-rice-jordan-watkins/1985582",
-   "summary": "Who Should I Start? Who Should I Sit? Some of the most common Week 9 fantasy football lineup decisions involve [&#8230;]",
-   "published": "Fri, 06 Nov 2026 19:21:34 +0000",
-   "source": "RotoBaller",
-   "kind": "news",
-   "golfers": [
-    "Taylor Moore",
-    "Mark Hubbard"
-   ]
-  },
-  {
-   "title": "Who Should I Start for Fantasy Football Week 9? Bo Nix, Drew Lock, C.J. Stroud, Bryce Young, Geno Smith, Jordan Love, Matthew Stafford, Carson Wentz, Joe Burrow, Justin Herbert",
-   "link": "https://www.rotoballer.com/who-should-i-start-for-week-9-bo-nix-drew-lock-c-j-stroud-bryce-young-geno-smith-jordan-love-matthew-stafford-carson-wentz-joe-burrow-justin-herbert/1985581",
-   "summary": "Who Should I Start? Who Should I Sit? Some of the most common Week 9 fantasy football lineup decisions involve [&#8230;]",
-   "published": "Fri, 06 Nov 2026 19:10:07 +0000",
-   "source": "RotoBaller",
-   "kind": "news",
-   "golfers": [
-    "Jordan L. Smith"
-   ]
-  },
-  {
-   "title": "Who Should I Start for Fantasy Football Week 9? DeMario Douglas, Devin Singletary, Dylan Sampson, Christian Watson, Ollie Gordon II, Jordan Mason, Michael Wilson, Tyler Allgeier",
-   "link": "https://www.rotoballer.com/who-should-i-start-for-week-9-demario-douglas-devin-singletary-dylan-sampson-christian-watson-ollie-gordon-ii-jordan-mason-michael-wilson-tyler-allgeier/1985456",
-   "summary": "Who Should I Start? Who Should I Sit? Some of the most common Week 9 fantasy football lineup decisions involve [&#8230;]",
-   "published": "Fri, 06 Nov 2026 16:40:53 +0000",
-   "source": "RotoBaller",
-   "kind": "news",
-   "golfers": [
-    "Will Gordon"
    ]
   }
  ]
