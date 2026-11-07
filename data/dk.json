@@ -1,5 +1,5 @@
 {
- "updatedUtc": "2026-11-07T00:24:32Z",
+ "updatedUtc": "2026-11-07T17:52:52Z",
  "tournament": "EVENT_2026W45",
  "date": "11/7/26",
  "event": "",
@@ -59,14 +59,14 @@
   {
    "name": "Jackson Suber",
    "salary": 9200,
-   "status": "",
+   "status": "MC",
    "out": false,
    "dkId": 632390
   },
   {
    "name": "Marco Penge",
    "salary": 9100,
-   "status": "",
+   "status": "MC",
    "out": false,
    "dkId": 60415
   },
@@ -94,7 +94,7 @@
   {
    "name": "Johnny Keefer",
    "salary": 8700,
-   "status": "",
+   "status": "MC",
    "out": false,
    "dkId": 835972
   },
@@ -115,7 +115,7 @@
   {
    "name": "Mackenzie Hughes",
    "salary": 8400,
-   "status": "",
+   "status": "MC",
    "out": false,
    "dkId": 635
   },
@@ -157,7 +157,7 @@
   {
    "name": "Christiaan Bezuidenhout",
    "salary": 7900,
-   "status": "",
+   "status": "MC",
    "out": false,
    "dkId": 1115
   },
@@ -178,7 +178,7 @@
   {
    "name": "Sami V\u00e4lim\u00e4ki",
    "salary": 7700,
-   "status": "",
+   "status": "MC",
    "out": false,
    "dkId": 60434
   },
@@ -227,8 +227,8 @@
   {
    "name": "Denny McCarthy",
    "salary": 7500,
-   "status": "",
-   "out": false,
+   "status": "O",
+   "out": true,
    "dkId": 631
   },
   {
@@ -248,7 +248,7 @@
   {
    "name": "Taylor Moore",
    "salary": 7400,
-   "status": "",
+   "status": "MC",
    "out": false,
    "dkId": 451638
   },
@@ -269,21 +269,21 @@
   {
    "name": "Billy Horschel",
    "salary": 7300,
-   "status": "",
+   "status": "MC",
    "out": false,
    "dkId": 915
   },
   {
    "name": "Kevin Roy",
    "salary": 7300,
-   "status": "",
+   "status": "MC",
    "out": false,
    "dkId": 525542
   },
   {
    "name": "Karl Vilips",
    "salary": 7300,
-   "status": "",
+   "status": "MC",
    "out": false,
    "dkId": 709867
   },
@@ -297,7 +297,7 @@
   {
    "name": "Taylor Pendrith",
    "salary": 7200,
-   "status": "",
+   "status": "MC",
    "out": false,
    "dkId": 716
   },
@@ -311,7 +311,7 @@
   {
    "name": "Chandler Phillips",
    "salary": 7200,
-   "status": "",
+   "status": "MC",
    "out": false,
    "dkId": 61619
   },
@@ -339,7 +339,7 @@
   {
    "name": "Garrick Higgo",
    "salary": 7100,
-   "status": "",
+   "status": "MC",
    "out": false,
    "dkId": 452113
   },
@@ -374,21 +374,21 @@
   {
    "name": "William Mouw",
    "salary": 7000,
-   "status": "",
+   "status": "MC",
    "out": false,
    "dkId": 645034
   },
   {
    "name": "Lee Hodges",
    "salary": 7000,
-   "status": "",
+   "status": "MC",
    "out": false,
    "dkId": 1003
   },
   {
    "name": "Gordon Sargent",
    "salary": 7000,
-   "status": "",
+   "status": "MC",
    "out": false,
    "dkId": 700747
   },
@@ -423,7 +423,7 @@
   {
    "name": "A.J. Ewart",
    "salary": 6900,
-   "status": "",
+   "status": "MC",
    "out": false,
    "dkId": 644988
   },
@@ -437,7 +437,7 @@
   {
    "name": "Tom Hoge",
    "salary": 6900,
-   "status": "",
+   "status": "MC",
    "out": false,
    "dkId": 648
   },
@@ -458,14 +458,14 @@
   {
    "name": "Zecheng Dou",
    "salary": 6800,
-   "status": "",
+   "status": "MC",
    "out": false,
    "dkId": 450649
   },
   {
    "name": "Patrick Fishburn",
    "salary": 6800,
-   "status": "",
+   "status": "MC",
    "out": false,
    "dkId": 454597
   },
@@ -479,7 +479,7 @@
   {
    "name": "Justin Lower",
    "salary": 6800,
-   "status": "",
+   "status": "MC",
    "out": false,
    "dkId": 450914
   },
@@ -493,7 +493,7 @@
   {
    "name": "Takumi Kanaya",
    "salary": 6700,
-   "status": "",
+   "status": "MC",
    "out": false,
    "dkId": 788
   },
@@ -507,7 +507,7 @@
   {
    "name": "Joel Dahmen",
    "salary": 6700,
-   "status": "",
+   "status": "MC",
    "out": false,
    "dkId": 521
   },
@@ -535,7 +535,7 @@
   {
    "name": "Matt Kuchar",
    "salary": 6600,
-   "status": "",
+   "status": "MC",
    "out": false,
    "dkId": 924
   },
@@ -556,7 +556,7 @@
   {
    "name": "Davis Riley",
    "salary": 6600,
-   "status": "",
+   "status": "MC",
    "out": false,
    "dkId": 1103
   },
@@ -577,7 +577,7 @@
   {
    "name": "Dylan Wu",
    "salary": 6500,
-   "status": "",
+   "status": "MC",
    "out": false,
    "dkId": 69384
   },
@@ -598,7 +598,7 @@
   {
    "name": "Danny Walker",
    "salary": 6500,
-   "status": "",
+   "status": "MC",
    "out": false,
    "dkId": 519887
   },
@@ -633,21 +633,21 @@
   {
    "name": "Joe Highsmith",
    "salary": 6400,
-   "status": "",
+   "status": "MC",
    "out": false,
    "dkId": 572434
   },
   {
    "name": "Vince Whaley",
    "salary": 6400,
-   "status": "",
+   "status": "MC",
    "out": false,
    "dkId": 667
   },
   {
    "name": "Pontus Nyholm",
    "salary": 6400,
-   "status": "",
+   "status": "MC",
    "out": false,
    "dkId": 452219
   },
@@ -668,7 +668,7 @@
   {
    "name": "Davis Chatfield",
    "salary": 6300,
-   "status": "",
+   "status": "MC",
    "out": false,
    "dkId": 693832
   },
@@ -689,7 +689,7 @@
   {
    "name": "Hank Lebioda",
    "salary": 6300,
-   "status": "",
+   "status": "MC",
    "out": false,
    "dkId": 526
   },
@@ -703,7 +703,7 @@
   {
    "name": "Mark Hubbard",
    "salary": 6200,
-   "status": "",
+   "status": "MC",
    "out": false,
    "dkId": 629
   },
@@ -717,7 +717,7 @@
   {
    "name": "Aaron Wise",
    "salary": 6200,
-   "status": "",
+   "status": "MC",
    "out": false,
    "dkId": 850
   },
@@ -731,21 +731,21 @@
   {
    "name": "Jimmy Stanger",
    "salary": 6200,
-   "status": "",
+   "status": "MC",
    "out": false,
    "dkId": 451913
   },
   {
    "name": "Rafael Campos",
    "salary": 6100,
-   "status": "",
+   "status": "MC",
    "out": false,
    "dkId": 570
   },
   {
    "name": "Alejandro Madariaga",
    "salary": 6100,
-   "status": "",
+   "status": "MC",
    "out": false,
    "dkId": 941800
   },
@@ -766,7 +766,7 @@
   {
    "name": "Camilo Villegas",
    "salary": 6100,
-   "status": "",
+   "status": "MC",
    "out": false,
    "dkId": 451478
   },
@@ -787,7 +787,7 @@
   {
    "name": "Harry Higgs",
    "salary": 6100,
-   "status": "",
+   "status": "MC",
    "out": false,
    "dkId": 565
   },
@@ -808,7 +808,7 @@
   {
    "name": "Nicholas Lindheim",
    "salary": 6000,
-   "status": "",
+   "status": "MC",
    "out": false,
    "dkId": 939
   },
@@ -822,21 +822,21 @@
   {
    "name": "Jorge Villar",
    "salary": 6000,
-   "status": "",
+   "status": "MC",
    "out": false,
    "dkId": 643981
   },
   {
    "name": "Lyon Lazare",
    "salary": 6000,
-   "status": "",
+   "status": "MC",
    "out": false,
    "dkId": 1072325
   },
   {
    "name": "Muzzy Donohue",
    "salary": 6000,
-   "status": "",
+   "status": "MC",
    "out": false,
    "dkId": 1004600
   },
@@ -850,14 +850,14 @@
   {
    "name": "Nicholas Marchese",
    "salary": 6000,
-   "status": "",
+   "status": "MC",
    "out": false,
    "dkId": 971558
   },
   {
    "name": "Nathan Tseng",
    "salary": 6000,
-   "status": "",
+   "status": "MC",
    "out": false,
    "dkId": 1075441
   }
