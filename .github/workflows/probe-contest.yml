@@ -1,0 +1,35 @@
+name: Probe DK contest
+
+# Read-only diagnostic. Writes no files and commits nothing — it only reports
+# which DraftKings contest endpoints return real data from this runner, and
+# whether the DK_COOKIE secret is good enough to export full standings.
+#
+# This exists because the agent container cannot reach draftkings.com at all
+# (the proxy refuses the host at CONNECT, before any path is sent), so the
+# question of what is readable can only be answered from a runner.
+on:
+  workflow_dispatch:
+    inputs:
+      contest_id:
+        description: DK contest id (default is the $20 NFL Millionaire)
+        required: false
+        default: '197411852'
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Probe contest
+        env:
+          PYTHONUNBUFFERED: '1'
+          PROBE_CONTEST: ${{ inputs.contest_id }}
+          DK_COOKIE: ${{ secrets.DK_COOKIE }}
+        run: python tools/probe_contest.py
