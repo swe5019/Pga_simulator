@@ -528,6 +528,10 @@ def simulate_slate(trials=None):
         meta_team[nrm(pl["n"])] = pl["t"]
 
     injuries = load_injuries()
+    # Everyone an official report has ruled out, by name, regardless of
+    # whether he has enough of a role to earn a context below.
+    ruled_out = {nrm(p["n"]) for p in (injuries or {}).get("players", [])
+                 if p.get("status") == "out" and p.get("conf") == "ruled"}
     role_ctx = build_role_context(logs, seasons, current, injuries,
                                   meta_pos, meta_team)
 
@@ -612,7 +616,15 @@ def simulate_slate(trials=None):
         # and it put Lamar Jackson on the board at 19.7 points with an ankle
         # injury and not a single line offered on him. With lines posted he is
         # projected and flagged, because then the market does expect him.
-        if ctx and ctx.get("selfOut"):
+        # An official ruling counts whether or not a role context exists for
+        # him. build_role_context only describes players who already hold a
+        # share of the snaps, so a ruled-out backup never gets a context at
+        # all and his injury was invisible here: Bam Knight was officially
+        # out, carried no betting lines, and was projected for 6.5 points
+        # anyway. Reading the ruling straight off the injury report closes
+        # that, and the market still decides for everyone short of a ruling.
+        ruled = key in ruled_out
+        if (ctx and ctx.get("selfOut")) or ruled:
             n_lines = len(props_by_player.get(key) or ())
             if not n_lines:
                 skipped["hurt, and the market has pulled his lines"] += 1
@@ -631,7 +643,8 @@ def simulate_slate(trials=None):
             # so the threshold never reaches him. "Has not practised" still
             # projects on a single line, because that is an inference rather
             # than a ruling and the market is the better judge of it.
-            if ctx.get("selfRuled") and n_lines < MIN_LINES_IF_RULED_OUT:
+            if (ruled or (ctx and ctx.get("selfRuled"))) \
+                    and n_lines < MIN_LINES_IF_RULED_OUT:
                 skipped["ruled out, with only a residual line left"] += 1
                 continue
         # Gone quiet and unpriced: on injured reserve, released, or otherwise
