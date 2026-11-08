@@ -132,6 +132,14 @@ def build_pool(board, sims):
 STACK_ANY = 0.85       # lineups paring the QB with at least one of his own
 STACK_TWO = 0.40       # of all lineups: QB plus TWO of his pass catchers
 BRING_BACK = 0.60      # given a stack, also take one from the other side
+# A defence taken together with its OWN running back. A team that leads runs
+# the ball and sits on the lead, so the back and the defence score from the
+# same game state, and the field plays it knowingly: measured against the
+# 1 November Millionaire, a Denver back with the Denver defence was the second
+# most popular stack on the whole slate at 4.8%, and a model that only knew
+# how to stack a quarterback produced it at 1.9%. Four more of the same shape
+# sat in the top thirty.
+DST_WITH_RB = 0.30
 
 
 def _weighted(rng, idxs, pool, exclude):
@@ -229,6 +237,10 @@ def sample_field(rng, pool, n_lineups, stack=True, probs=None, calibrate=True):
     for i, p in enumerate(pool):
         if p["pos"] in ("WR", "TE", "RB"):
             others[p["team"]].append(i)
+    backs = defaultdict(list)
+    for i, p in enumerate(pool):
+        if p["pos"] == "RB":
+            backs[p["team"]].append(i)
 
     p_any, p_two, p_bb = probs or (STACK_ANY, STACK_TWO, BRING_BACK)
     if stack and calibrate and probs is None:
@@ -270,6 +282,15 @@ def sample_field(rng, pool, n_lineups, stack=True, probs=None, calibrate=True):
                 b = _weighted(rng, others.get(opp, []), pool, set(picked))
                 if b is not None:
                     place(b)
+            # A defence and its own back, placed together while both slots are
+            # still open.
+            if rng.random() < DST_WITH_RB:
+                d = _weighted(rng, by_pos.get("DST", []), pool, set(picked))
+                if d is not None and place(d):
+                    mate = _weighted(rng, backs.get(pool[d]["team"], []),
+                                     pool, set(picked))
+                    if mate is not None:
+                        place(mate)
 
         # Everything still open, at ownership.
         ok = True
