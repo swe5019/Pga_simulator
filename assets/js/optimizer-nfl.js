@@ -172,14 +172,67 @@
     }
     if (salary > CAP) return null;
 
+    // SECOND REPAIR: total ownership. Measured against the 1 November
+    // Millionaire, the lineups that maximise projection are the lineups the
+    // field already built: the top hundred by projection averaged 141% total
+    // ownership, and the six most duplicated entries in the contest sat
+    // between 115% and 179%. The lineup that won sat at 106%.
+    //
+    // The constraint is close to free. On that slate the best projection
+    // available with no cap was 154.8 and the best under a 110% cap was
+    // 150.7, so four points of projection buys leaving the region where
+    // eighty four separate entrants built the same nine players.
+    if (opts.ownCap) {
+      let ownSum = picked.reduce((a, q) => a + (q.own || 0), 0);
+      let oguard = 0;
+      while (ownSum > opts.ownCap && oguard < 40) {
+        oguard += 1;
+        const swaps = picked
+          .map((cur, i) => {
+            if (state.locks.has(cur.id)) return null;
+            // Same position, less owned, and still affordable.
+            const alts = pool.filter((q) => q.pos === cur.pos && !picked.includes(q)
+              && (q.own || 0) < (cur.own || 0)
+              && salary - cur.sal + q.sal <= CAP);
+            if (!alts.length) return null;
+            // Shed the most ownership for the least projection.
+            const rate = (q) => ((cur.own || 0) - (q.own || 0))
+              / Math.max(cur.proj - q.proj, 0.1);
+            alts.sort((a, c) => rate(c) - rate(a));
+            return { i, cur, best: alts[0] };
+          })
+          .filter(Boolean);
+        if (!swaps.length) break;
+        swaps.sort((a, c) =>
+          ((c.cur.own || 0) - (c.best.own || 0)) / Math.max(c.cur.proj - c.best.proj, 0.1)
+          - ((a.cur.own || 0) - (a.best.own || 0)) / Math.max(a.cur.proj - a.best.proj, 0.1));
+        const { i, cur, best } = swaps[0];
+        const t = new Map(byTeam);
+        t.set(cur.team, (t.get(cur.team) || 1) - 1);
+        t.set(best.team, (t.get(best.team) || 0) + 1);
+        if (Math.max(...t.values()) > MAX_PER_TEAM) break;
+        ownSum = ownSum - (cur.own || 0) + (best.own || 0);
+        salary = salary - cur.sal + best.sal;
+        byTeam.set(cur.team, byTeam.get(cur.team) - 1);
+        byTeam.set(best.team, (byTeam.get(best.team) || 0) + 1);
+        picked[i] = best;
+      }
+      if (ownSum > opts.ownCap) return null;
+    }
+
     // One improvement pass: swap any player for a better one at his position
     // that still fits.
     for (let pass = 0; pass < 2; pass += 1) {
       for (let i = 0; i < picked.length; i += 1) {
         const cur = picked[i];
         if (state.locks.has(cur.id)) continue;
+        const ownNow = picked.reduce((a, q) => a + (q.own || 0), 0);
         const alts = pool.filter((p) => p.pos === cur.pos && !picked.includes(p)
           && salary - cur.sal + p.sal <= CAP
+          // Improving must not push the lineup back over the ownership cap
+          // the repair above just brought it under.
+          && (!opts.ownCap
+              || ownNow - (cur.own || 0) + (p.own || 0) <= opts.ownCap)
           && score.get(p.id) > score.get(cur.id));
         if (!alts.length) continue;
         alts.sort((a, b) => score.get(b.id) - score.get(a.id));
@@ -211,6 +264,7 @@
       exp: Math.max(5, Math.min(100, +$('#opExp').value || 60)),
       rand: Math.max(0, Math.min(100, +$('#opRand').value || 25)),
       stack: $('#opStack').checked,
+      ownCap: Math.max(0, +$('#opOwnCap').value || 0),
     };
     const pool = state.pool.filter((p) => !state.excl.has(p.id) && p.proj != null);
     let seed = 12345;
@@ -218,28 +272,58 @@
       seed = (seed * 1103515245 + 12345) & 0x7fffffff;
       return seed / 0x7fffffff;
     };
-    const used = new Map();
-    const out = [];
-    const seen = new Set();
-    let tries = 0;
-    while (out.length < opts.n && tries < opts.n * 40) {
-      tries += 1;
-      const lu = buildOne(rng, pool, opts, used, out.length);
-      if (!lu) continue;
-      const sig = lu.players.map((p) => p.id).sort().join('|');
-      if (seen.has(sig)) continue;
-      seen.add(sig);
-      lu.players.forEach((p) => used.set(p.id, (used.get(p.id) || 0) + 1));
-      out.push(lu);
+    // Build the set twice when a cap is on: once under it and once without,
+    // so the page can say what the constraint actually costs rather than
+    // asking anyone to take it on faith.
+    const buildSet = (o) => {
+      const u = new Map(); const res = []; const sn = new Set();
+      let seed2 = 12345;
+      const r2 = () => { seed2 = (seed2 * 1103515245 + 12345) & 0x7fffffff;
+                         return seed2 / 0x7fffffff; };
+      let t = 0;
+      while (res.length < o.n && t < o.n * 40) {
+        t += 1;
+        const lu = buildOne(r2, pool, o, u, res.length);
+        if (!lu) continue;
+        const sig = lu.players.map((p) => p.id).sort().join('|');
+        if (sn.has(sig)) continue;
+        sn.add(sig);
+        lu.players.forEach((p) => u.set(p.id, (u.get(p.id) || 0) + 1));
+        res.push(lu);
+      }
+      return { res, tries: t };
+    };
+    const built = buildSet(opts);
+    const out = built.res; const tries = built.tries;
+    let uncapped = null;
+    if (opts.ownCap) {
+      uncapped = buildSet(Object.assign({}, opts, { ownCap: 0 })).res;
     }
     state.lineups = out;
-    $('#opStatus').textContent = out.length < opts.n
-      ? `Built ${out.length} distinct lineups from ${tries} attempts. Asking for more `
-        + `than the pool can make distinct, or tight locks and exposure caps, is the `
-        + `usual reason for falling short.`
-      : `${out.length} lineups. Average projection `
-        + `${(out.reduce((a, l) => a + l.proj, 0) / out.length).toFixed(1)}, `
-        + `average salary ${money(Math.round(out.reduce((a, l) => a + l.sal, 0) / out.length))}.`;
+    const avg = (ls, f) => ls.reduce((a, l) => a + f(l), 0) / Math.max(ls.length, 1);
+    let msg;
+    if (!out.length) {
+      msg = `No lineup satisfied every constraint. An ownership cap below about `
+          + `70% is the usual cause: the nine cheapest-owned players rarely make `
+          + `a legal roster.`;
+    } else if (out.length < opts.n) {
+      msg = `Built ${out.length} distinct lineups from ${tries} attempts. Asking for `
+          + `more than the pool can make distinct, or tight locks, exposure or `
+          + `ownership caps, is the usual reason for falling short.`;
+    } else {
+      msg = `${out.length} lineups. Average projection ${avg(out, (l) => l.proj).toFixed(1)}, `
+          + `average salary ${money(Math.round(avg(out, (l) => l.sal)))}, `
+          + `average total ownership ${avg(out, (l) => l.own).toFixed(0)}%.`;
+    }
+    if (uncapped && uncapped.length && out.length) {
+      const cost = avg(uncapped, (l) => l.proj) - avg(out, (l) => l.proj);
+      msg += ` Without the cap the same build averages `
+           + `${avg(uncapped, (l) => l.proj).toFixed(1)} projection at `
+           + `${avg(uncapped, (l) => l.own).toFixed(0)}% ownership, so the cap is `
+           + `costing ${cost.toFixed(1)} points`
+           + (cost <= 0 ? '.' : ` (${(100 * cost / avg(uncapped, (l) => l.proj)).toFixed(1)}%).`);
+    }
+    $('#opStatus').textContent = msg;
     renderLineups();
     renderPool();
   }
