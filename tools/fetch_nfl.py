@@ -533,7 +533,21 @@ def dk_team(p):
     return (p.get("tsa") or p.get("ta") or p.get("teamAbbreviation") or "").upper()
 
 
-def parse_dk_date(s):
+def parse_dk_date(s, eastern=False):
+    """A DraftKings timestamp as naive UTC.
+
+    `eastern=True` says the string is Eastern wall clock, which is what the
+    StartDateEst field carries. Reading one of those as UTC moves a slate five
+    hours earlier in winter and four in summer, and that is not a cosmetic
+    error: the Sunday main slate shows a 1pm Eastern lock, so stamped with a Z
+    it looked finished from 13:00 UTC, which is eight in the morning Eastern.
+    Everything downstream that skips a slate which has already started then
+    skipped the main slate for the whole of Sunday morning, which is exactly
+    when it is wanted, and quietly built the board for a four game late slate
+    instead.
+
+    The epoch form carries an absolute instant already, so it is never shifted.
+    """
     if not s:
         return None
     s = str(s)
@@ -544,9 +558,19 @@ def parse_dk_date(s):
         except Exception:  # noqa: BLE001
             return None
     try:
-        return datetime.datetime.fromisoformat(s.replace("Z", "").split(".")[0])
+        dt = datetime.datetime.fromisoformat(s.replace("Z", "").split(".")[0])
     except Exception:  # noqa: BLE001
         return None
+    if eastern:
+        try:
+            from zoneinfo import ZoneInfo
+            return (dt.replace(tzinfo=ZoneInfo("America/New_York"))
+                    .astimezone(datetime.timezone.utc).replace(tzinfo=None))
+        except Exception:  # noqa: BLE001
+            # No tz database: five hours is right for the back half of the
+            # season and an hour out for the start, which still beats five.
+            return dt + datetime.timedelta(hours=5)
+    return dt
 
 
 # How many of the lobby's open contests to keep a record of. The marquee
@@ -672,7 +696,11 @@ def build_dk():
         kind = ("showdown" if len(teams) <= 2
                 else "classic" if len(teams) >= 6 and len(players) >= 150
                 else "small")
-        start = parse_dk_date(m.get("StartDateEst") or m.get("StartDate"))
+        # StartDate first: it is an absolute instant. StartDateEst is Eastern
+        # wall clock and is only used when there is nothing else, converted
+        # rather than relabelled.
+        start = (parse_dk_date(m.get("StartDate"))
+                 or parse_dk_date(m.get("StartDateEst"), eastern=True))
         day = start.strftime("%a %b %-d") if start else ""
         if kind == "classic":
             name = f"{day} Main · {len(teams) // 2} games" if day else f"Main · {len(teams) // 2} games"
