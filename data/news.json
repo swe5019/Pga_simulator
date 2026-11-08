@@ -1,11 +1,11 @@
 {
- "updatedUtc": "2026-11-08T00:38:39Z",
+ "updatedUtc": "2026-11-08T10:25:37Z",
  "slate": "WWT_2026",
  "event": "",
  "counts": {
-  "items": 8,
+  "items": 7,
   "golfersMentioned": 7,
-  "news": 8,
+  "news": 7,
   "chatter": 0
  },
  "sources": [
@@ -108,7 +108,7 @@
   {
    "source": "Google News: PGA DFS",
    "ok": true,
-   "items": 56,
+   "items": 55,
    "error": null
   },
   {
@@ -139,12 +139,18 @@
  "mentions": [
   {
    "name": "Seamus Power",
-   "news": 2,
+   "news": 1,
    "chatter": 0,
-   "total": 2
+   "total": 1
   },
   {
    "name": "Benjamin James",
+   "news": 1,
+   "chatter": 0,
+   "total": 1
+  },
+  {
+   "name": "Jordan L. Smith",
    "news": 1,
    "chatter": 0,
    "total": 1
@@ -168,12 +174,6 @@
    "total": 1
   },
   {
-   "name": "Alvaro Ortiz",
-   "news": 1,
-   "chatter": 0,
-   "total": 1
-  },
-  {
    "name": "Danny Walker",
    "news": 1,
    "chatter": 0,
@@ -181,6 +181,17 @@
   }
  ],
  "items": [
+  {
+   "title": "NFL Top Plays Based on Betting Splits, Power Ratings and Trends \u2013 Week 9",
+   "link": "https://vsin.com/nfl/nfl-top-plays-based-on-betting-splits-power-ratings-and-trends-for-week-9/",
+   "summary": "Week 9 NFL Betting Trends: The following NFL betting trends are a collection of analytical data, betting systems and strength ratings featured on VSiN and qualified for the NFL games of Week 9. This report is meant to emulate the process that Steve Makinen and other members of the VSiN Analytics team undergo when handicapping [&#8230;] The post NFL Top Plays Based on Betting Splits, Power Ratings ",
+   "published": "Sun, 08 Nov 2026 05:05:50 +0000",
+   "source": "VSiN",
+   "kind": "news",
+   "golfers": [
+    "Seamus Power"
+   ]
+  },
   {
    "title": "Ben James leads by four in Mexico, closes in on first PGA Tour win",
    "link": "https://sports.yahoo.com/articles/ben-james-leads-four-mexico-001844184.html",
@@ -190,6 +201,17 @@
    "kind": "news",
    "golfers": [
     "Benjamin James"
+   ]
+  },
+  {
+   "title": "Wide Receiver Matchups to Target For Week 9 - Jaxon Smith-Njigba, Chris Olave, Keenan Allen, Malik Washington, more",
+   "link": "https://www.rotoballer.com/nfl-dfs-picks-wide-receivers-to-target-for-week-9-2026/1985225",
+   "summary": "The NFL season approaches the halfway point with a beautiful 11-game slate for the main DFS fantasy football contests on [&#8230;]",
+   "published": "Sat, 07 Nov 2026 23:23:12 +0000",
+   "source": "RotoBaller",
+   "kind": "news",
+   "golfers": [
+    "Jordan L. Smith"
    ]
   },
   {
@@ -207,7 +229,7 @@
    "title": "Running Back Start 'Em, Sit 'Em Picks for Fantasy Football Week 9 (2026)",
    "link": "https://www.rotoballer.com/running-back-start-em-sit-em-picks-for-fantasy-football-week-9-2026/1986565",
    "summary": "Chase Brown has not scored a touchdown since Week 1, but I am starting him against the Atlanta Falcons in [&#8230;]",
-   "published": "Sat, 07 Nov 2026 15:37:44 +0000",
+   "published": "Sat, 07 Nov 2026 18:37:44 +0000",
    "source": "RotoBaller",
    "kind": "news",
    "golfers": [
@@ -223,39 +245,6 @@
    "kind": "news",
    "golfers": [
     "Chris Kirk"
-   ]
-  },
-  {
-   "title": "College Football Top Plays Based on Betting Splits, Power Ratings and Trends \u2013 Week 10",
-   "link": "https://vsin.com/college-football/college-football-top-plays-based-on-betting-splits-power-ratings-and-trends-week-10-3/",
-   "summary": "Week 10 College Football Betting Trends: The following is a collection of analytical data, betting systems and strength ratings featured on VSiN and qualified for the college football games of Week 10. This report emulates the process Steve Makinen and other members of the VSiN Analytics team use to handicap each week\u2019s college football board. [&#8230;] The post College Football Top Plays Based on",
-   "published": "Sat, 07 Nov 2026 05:46:00 +0000",
-   "source": "VSiN",
-   "kind": "news",
-   "golfers": [
-    "Seamus Power"
-   ]
-  },
-  {
-   "title": "Week 10 College Football Power Ratings and Projections for Every Game",
-   "link": "https://vsin.com/college-football/week-10-college-football-power-ratings-and-projections-for-every-game/",
-   "summary": "Week 10 College Football Power Ratings As another week of seemingly random college football results came in, I was left once again left thinking about how valuable the power ratings process is. Even with all of the data points I have on these teams, including comparisons between my numbers and the market numbers, it seems [&#8230;] The post Week 10 College Football Power Ratings and Projections fo",
-   "published": "Sat, 07 Nov 2026 05:44:00 +0000",
-   "source": "VSiN",
-   "kind": "news",
-   "golfers": [
-    "Seamus Power"
-   ]
-  },
-  {
-   "title": "Churchill Downs Horse Racing Picks and Predictions Today for Saturday, November 7",
-   "link": "https://vsin.com/horse-racing/churchill-downs-horse-racing-picks-and-predictions-today-for-saturday-november-7/",
-   "summary": "Churchill Downs Picks for November 7: YESTERDAY\u2019S NEWS: 17YO apprentice jockey Yomar Ortiz Jr. stole to show at Churchill Downs as he booted home three winners, including the late Daily Double for Mr. Ed, and the final leg of his late Pick 4 Bonus Bet. Veteran rider Tyler Gaffalione also had a pair of trips [&#8230;] The post Churchill Downs Horse Racing Picks and Predictions Today for Saturday, N",
-   "published": "Sat, 07 Nov 2026 03:49:33 +0000",
-   "source": "VSiN",
-   "kind": "news",
-   "golfers": [
-    "Alvaro Ortiz"
    ]
   },
   {
