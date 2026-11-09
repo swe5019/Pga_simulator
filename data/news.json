@@ -1,19 +1,19 @@
 {
- "updatedUtc": "2026-11-08T22:07:59Z",
+ "updatedUtc": "2026-11-09T06:35:02Z",
  "slate": "WWT_2026",
  "event": "",
  "counts": {
-  "items": 5,
+  "items": 6,
   "golfersMentioned": 4,
-  "news": 5,
+  "news": 6,
   "chatter": 0
  },
  "sources": [
   {
    "source": "RotoWire Golf",
-   "ok": false,
-   "items": 0,
-   "error": "no items"
+   "ok": true,
+   "items": 5,
+   "error": null
   },
   {
    "source": "RotoBaller Golf",
@@ -114,7 +114,7 @@
   {
    "source": "Google News: PGA WD",
    "ok": true,
-   "items": 57,
+   "items": 55,
    "error": null
   },
   {
@@ -139,9 +139,15 @@
  "mentions": [
   {
    "name": "Seamus Power",
-   "news": 2,
+   "news": 3,
    "chatter": 0,
-   "total": 2
+   "total": 3
+  },
+  {
+   "name": "Blades Brown",
+   "news": 1,
+   "chatter": 0,
+   "total": 1
   },
   {
    "name": "Harry Hall",
@@ -154,15 +160,42 @@
    "news": 1,
    "chatter": 0,
    "total": 1
-  },
-  {
-   "name": "Cameron Davis",
-   "news": 1,
-   "chatter": 0,
-   "total": 1
   }
  ],
  "items": [
+  {
+   "title": "NFL Top Plays Based on Betting Splits, Power Ratings and Trends \u2013 Week 9",
+   "link": "https://vsin.com/nfl/nfl-top-plays-based-on-betting-splits-power-ratings-and-trends-for-week-9/",
+   "summary": "Week 9 NFL Betting Trends: The following NFL betting trends are a collection of analytical data, betting systems and strength ratings featured on VSiN and qualified for the NFL games of Week 9. This report is meant to emulate the process that Steve Makinen and other members of the VSiN Analytics team undergo when handicapping [&#8230;] The post NFL Top Plays Based on Betting Splits, Power Ratings ",
+   "published": "Mon, 09 Nov 2026 03:13:53 +0000",
+   "source": "VSiN",
+   "kind": "news",
+   "golfers": [
+    "Seamus Power"
+   ]
+  },
+  {
+   "title": "Week 11 College Football Power Ratings and Projections for Every Game",
+   "link": "https://vsin.com/college-football/week-11-college-football-power-ratings-and-projections-for-every-game/",
+   "summary": "Week 11 College Football Power Ratings The college football regular season is already winding down for some teams and really just ramping up for others. Teams who are going to fall short of goals or expectations are going to be tough to bet on because the players are endlessly thinking about the transfer portal and [&#8230;] The post Week 11 College Football Power Ratings and Projections for Every",
+   "published": "Mon, 09 Nov 2026 03:13:07 +0000",
+   "source": "VSiN",
+   "kind": "news",
+   "golfers": [
+    "Seamus Power"
+   ]
+  },
+  {
+   "title": "The clubs Blades Brown used to win the 2026 World Wide Technology Championship",
+   "link": "https://sports.yahoo.com/articles/clubs-blades-brown-used-win-012327515.html",
+   "summary": "Blades Brown, 19, was lights out with the putter, ranking second in strokes gained/putting. That helped propel him to his first PGA Tour victory, becoming the fourth-youngest in history to win on tour.",
+   "published": "Mon, 09 Nov 2026 01:23:27 +0000",
+   "source": "Yahoo Golf",
+   "kind": "news",
+   "golfers": [
+    "Blades Brown"
+   ]
+  },
   {
    "title": "College Fantasy Football Waiver Wire Pickups: Top Targets for Week 11 (CFB)",
    "link": "https://www.rotoballer.com/college-fantasy-football-waiver-wire-pickups-adds-week-11-2026/1987243",
@@ -186,17 +219,6 @@
    ]
   },
   {
-   "title": "NFL Top Plays Based on Betting Splits, Power Ratings and Trends \u2013 Week 9",
-   "link": "https://vsin.com/nfl/nfl-top-plays-based-on-betting-splits-power-ratings-and-trends-for-week-9/",
-   "summary": "Week 9 NFL Betting Trends: The following NFL betting trends are a collection of analytical data, betting systems and strength ratings featured on VSiN and qualified for the NFL games of Week 9. This report is meant to emulate the process that Steve Makinen and other members of the VSiN Analytics team undergo when handicapping [&#8230;] The post NFL Top Plays Based on Betting Splits, Power Ratings ",
-   "published": "Sun, 08 Nov 2026 05:05:50 +0000",
-   "source": "VSiN",
-   "kind": "news",
-   "golfers": [
-    "Seamus Power"
-   ]
-  },
-  {
    "title": "Wide Receiver Matchups to Target For Week 9 - Jaxon Smith-Njigba, Chris Olave, Keenan Allen, Malik Washington, more",
    "link": "https://www.rotoballer.com/nfl-dfs-picks-wide-receivers-to-target-for-week-9-2026/1985225",
    "summary": "The NFL season approaches the halfway point with a beautiful 11-game slate for the main DFS fantasy football contests on [&#8230;]",
@@ -205,17 +227,6 @@
    "kind": "news",
    "golfers": [
     "Jordan L. Smith"
-   ]
-  },
-  {
-   "title": "NHL Expert Picks and Predictions for Saturday, November 7",
-   "link": "https://vsin.com/nhl/nhl-expert-picks-and-predictions-for-saturday-november-7/",
-   "summary": "Here are today&#8217;s NHL best bets from Jonathan Davis: Montreal Canadiens (-120) at Toronto Maple Leafs (+100) \u2013 Total 6.5 (Over, -120)7 p.m. ET It\u2019s Saturday night, so all eyes will be on the Canadiens\u2019 Cole Caufield, \u201cMr. Saturday Night.\u201d Caufield scored 21 of his 51 goals on Saturdays last season and has had a [&#8230;] The post NHL Expert Picks and Predictions for Saturday, November 7 appea",
-   "published": "Sat, 07 Nov 2026 19:03:28 +0000",
-   "source": "VSiN",
-   "kind": "news",
-   "golfers": [
-    "Cameron Davis"
    ]
   }
  ]
