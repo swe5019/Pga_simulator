@@ -195,15 +195,34 @@ jobs:
           PYTHONUNBUFFERED: '1'
         run: python tools/discover_scenarios.py --trials 2500 --field 4000 --top 12
 
+      # Same placement logic as the classic pass above, and for the same
+      # reason: it is a reading of the board rather than the board.
+      #
+      # A showdown is one game, so the classic signature (which game, how deep)
+      # is degenerate here and this uses captain, team split and game script
+      # instead. It exits 0 with a message when DraftKings has not posted an
+      # upcoming showdown yet, which is the ordinary state early in the week,
+      # so a quiet midweek must not turn the job red.
+      - name: Discover showdown scenarios
+        env:
+          PYTHONUNBUFFERED: '1'
+        run: python tools/discover_showdown.py --trials 2000 --top 14
+
       - name: Commit scenarios
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add data/nfl_scenarios.json
+          # Added individually and only when present. The showdown file is not
+          # written on a week with no upcoming single-game slate, and `git add`
+          # on a missing path is fatal under `bash -e`, which would fail the
+          # job for the one state that is entirely normal.
+          for f in data/nfl_scenarios.json data/nfl_showdown_scenarios.json; do
+            if [ -f "$f" ]; then git add "$f"; fi
+          done
           if git diff --cached --quiet; then
             echo "No change in scenarios"
           else
-            git commit -m "Auto-update NFL game stack scenarios"
+            git commit -m "Auto-update NFL game stack and showdown scenarios"
             for i in 1 2 3 4 5; do
               if git push; then
                 echo "pushed on attempt $i"
