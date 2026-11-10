@@ -1,11 +1,11 @@
 {
- "updatedUtc": "2026-11-09T22:44:23Z",
+ "updatedUtc": "2026-11-10T20:03:11Z",
  "tournament": "EVENT_2026W46",
  "date": "11/12/26",
  "event": "",
  "draftGroupId": "156498",
  "isShowdown": false,
- "count": 116,
+ "count": 124,
  "players": [
   {
    "name": "Jackson Koivun",
@@ -449,6 +449,13 @@
    "dkId": 983
   },
   {
+   "name": "William Sides",
+   "salary": 6900,
+   "status": "",
+   "out": false,
+   "dkId": 974437
+  },
+  {
    "name": "Cole Sherwood",
    "salary": 6800,
    "status": "",
@@ -482,6 +489,13 @@
    "status": "",
    "out": false,
    "dkId": 529768
+  },
+  {
+   "name": "Thomas Rosenmueller",
+   "salary": 6800,
+   "status": "",
+   "out": false,
+   "dkId": 451803
   },
   {
    "name": "Erik Van Rooyen",
@@ -610,6 +624,13 @@
    "dkId": 660
   },
   {
+   "name": "Frankie Harris",
+   "salary": 6500,
+   "status": "",
+   "out": false,
+   "dkId": 900438
+  },
+  {
    "name": "Davis Riley",
    "salary": 6400,
    "status": "",
@@ -694,6 +715,20 @@
    "dkId": 1054
   },
   {
+   "name": "Nick Hardy",
+   "salary": 6300,
+   "status": "",
+   "out": false,
+   "dkId": 1202
+  },
+  {
+   "name": "Paul Peterson",
+   "salary": 6300,
+   "status": "",
+   "out": false,
+   "dkId": 960
+  },
+  {
    "name": "Mark Hubbard",
    "salary": 6200,
    "status": "",
@@ -734,6 +769,20 @@
    "status": "",
    "out": false,
    "dkId": 693832
+  },
+  {
+   "name": "Tyler Duncan",
+   "salary": 6200,
+   "status": "",
+   "out": false,
+   "dkId": 599
+  },
+  {
+   "name": "Ben Martin",
+   "salary": 6200,
+   "status": "",
+   "out": false,
+   "dkId": 1125
   },
   {
    "name": "Aaron Wise",
@@ -818,6 +867,13 @@
    "status": "",
    "out": false,
    "dkId": 698
+  },
+  {
+   "name": "Jimmy Stanger",
+   "salary": 6000,
+   "status": "",
+   "out": false,
+   "dkId": 451913
   }
  ]
 }
