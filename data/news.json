@@ -1,11 +1,11 @@
 {
- "updatedUtc": "2026-11-09T19:51:12Z",
+ "updatedUtc": "2026-11-10T03:35:08Z",
  "slate": "WWT_2026",
  "event": "",
  "counts": {
-  "items": 5,
+  "items": 6,
   "golfersMentioned": 3,
-  "news": 5,
+  "news": 6,
   "chatter": 0
  },
  "sources": [
@@ -138,6 +138,12 @@
  ],
  "mentions": [
   {
+   "name": "Taylor Moore",
+   "news": 2,
+   "chatter": 0,
+   "total": 2
+  },
+  {
    "name": "Keith Mitchell",
    "news": 2,
    "chatter": 0,
@@ -148,15 +154,20 @@
    "news": 2,
    "chatter": 0,
    "total": 2
-  },
-  {
-   "name": "Taylor Moore",
-   "news": 1,
-   "chatter": 0,
-   "total": 1
   }
  ],
  "items": [
+  {
+   "title": "Ping G450 lineup spotted on Tour: First look at drivers, woods, hybrids, irons and the new \u201cMiniMax\u201d",
+   "link": "https://golfwrx.com/789568/ping-g450-lineup-spotted-on-tour-first-look-at-drivers-woods-hybrids-irons-and-the-new-minimax/",
+   "summary": "Fresh off its formal appearance on the USGA and R&#38;A conforming club lists, Ping\u2019s next-generation G450 metalwood family has officially made its way onto the Ping Tour truck out on the PGA Tour. GolfWRX&#8217;s Tour photographer Greg Moore was on-site early at the Austin Championship presented by Compliance Solutions and got the first up-close look [&#8230;]",
+   "published": "Mon, 09 Nov 2026 21:08:50 +0000",
+   "source": "GolfWRX",
+   "kind": "news",
+   "golfers": [
+    "Taylor Moore"
+   ]
+  },
   {
    "title": "Players To Cut Before Week 10 Fantasy Football? Adonai Mitchell, Malik Willis, J.K. Dobbins, TreVeyon Henderson, Devin Singletary, Lamar Jackson, Ladd McConkey, Antonio Williams",
    "link": "https://www.rotoballer.com/cut-list-rankings-fantasy-football-drops-before-week-10-2026/1988480",
