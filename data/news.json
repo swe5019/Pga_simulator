@@ -1,11 +1,11 @@
 {
- "updatedUtc": "2026-11-10T03:35:08Z",
+ "updatedUtc": "2026-11-10T14:55:44Z",
  "slate": "WWT_2026",
  "event": "",
  "counts": {
-  "items": 6,
+  "items": 5,
   "golfersMentioned": 3,
-  "news": 6,
+  "news": 5,
   "chatter": 0
  },
  "sources": [
@@ -55,7 +55,7 @@
    "source": "Pinnacle Golf",
    "ok": false,
    "items": 0,
-   "error": "HTTP 404"
+   "error": "TimeoutError"
   },
   {
    "source": "SportsGrid",
@@ -114,7 +114,7 @@
   {
    "source": "Google News: PGA WD",
    "ok": true,
-   "items": 53,
+   "items": 52,
    "error": null
   },
   {
@@ -138,25 +138,58 @@
  ],
  "mentions": [
   {
-   "name": "Taylor Moore",
-   "news": 2,
-   "chatter": 0,
-   "total": 2
-  },
-  {
-   "name": "Keith Mitchell",
-   "news": 2,
-   "chatter": 0,
-   "total": 2
-  },
-  {
    "name": "Seamus Power",
-   "news": 2,
+   "news": 3,
    "chatter": 0,
-   "total": 2
+   "total": 3
+  },
+  {
+   "name": "Aaron Wise",
+   "news": 1,
+   "chatter": 0,
+   "total": 1
+  },
+  {
+   "name": "Taylor Moore",
+   "news": 1,
+   "chatter": 0,
+   "total": 1
   }
  ],
  "items": [
+  {
+   "title": "NHL DFS Lineup Picks for DraftKings: Goalies, Value Plays, Stacks, and Power Plays Picks (11/10/26)",
+   "link": "https://www.rotoballer.com/draftkings-daily-fantasy-hockey-picks-expert-nhl-dfs-lineups-11-10-26/1989078",
+   "summary": "Even though there are only seven games on the docket, this looks like one of the most challenging slates we\u2019ve [&#8230;]",
+   "published": "Tue, 10 Nov 2026 11:54:10 +0000",
+   "source": "RotoBaller",
+   "kind": "news",
+   "golfers": [
+    "Seamus Power"
+   ]
+  },
+  {
+   "title": "'Pass to Steph!' - Butler issues wise words from bench as Warriors win again",
+   "link": "https://www.skysports.com/nba/news/12040/13610478/nba-jimmy-butler-dresses-up-as-coach-and-says-pass-to-steph-as-golden-state-warriors-win-eighth-straight-match",
+   "summary": "Injured guard Jimmy Butler dressed up as a member of the Golden State Warriors' coaching staff and held up a clipboard with the message 'Pass to Steph' as the team made it eight wins in a row in the NBA.",
+   "published": "Tue, 10 Nov 2026 08:30:00 GMT",
+   "source": "Sky Sports Golf",
+   "kind": "news",
+   "golfers": [
+    "Aaron Wise"
+   ]
+  },
+  {
+   "title": "Week 11 College Football Power Ratings and Projections for Every Game",
+   "link": "https://vsin.com/college-football/week-11-college-football-power-ratings-and-projections-for-every-game/",
+   "summary": "Week 11 College Football Power Ratings The college football regular season is already winding down for some teams and really just ramping up for others. Teams who are going to fall short of goals or expectations are going to be tough to bet on because the players are endlessly thinking about the transfer portal and [&#8230;] The post Week 11 College Football Power Ratings and Projections for Every",
+   "published": "Tue, 10 Nov 2026 03:37:07 +0000",
+   "source": "VSiN",
+   "kind": "news",
+   "golfers": [
+    "Seamus Power"
+   ]
+  },
   {
    "title": "Ping G450 lineup spotted on Tour: First look at drivers, woods, hybrids, irons and the new \u201cMiniMax\u201d",
    "link": "https://golfwrx.com/789568/ping-g450-lineup-spotted-on-tour-first-look-at-drivers-woods-hybrids-irons-and-the-new-minimax/",
@@ -169,54 +202,10 @@
    ]
   },
   {
-   "title": "Players To Cut Before Week 10 Fantasy Football? Adonai Mitchell, Malik Willis, J.K. Dobbins, TreVeyon Henderson, Devin Singletary, Lamar Jackson, Ladd McConkey, Antonio Williams",
-   "link": "https://www.rotoballer.com/cut-list-rankings-fantasy-football-drops-before-week-10-2026/1988480",
-   "summary": "Welcome back, RotoBallers, to our Cut List Rankings for fantasy football Week 10 of the 2026 NFL season. With another [&#8230;]",
-   "published": "Mon, 09 Nov 2026 19:00:09 +0000",
-   "source": "RotoBaller",
-   "kind": "news",
-   "golfers": [
-    "Keith Mitchell"
-   ]
-  },
-  {
-   "title": "Who Should I Drop for Fantasy Football Week 10? Devin Singletary, Adonai Mitchell, Malik Willis, Devaughn Vele, Kendre Miller, Antonio Williams, Emanuel Wilson, Mike Washington, Kyler Murray",
-   "link": "https://www.rotoballer.com/who-should-i-drop-for-week-10-devin-singletary-adonai-mitchell-malik-willis-devaughn-vele-kendre-miller-antonio-williams-emanuel-wilson-mike-washington-jr-kyler-murray/1988414",
-   "summary": "Who Should I Drop? Who Should I Keep? Some of the most common Week 10 fantasy football cut candidates include [&#8230;]",
-   "published": "Mon, 09 Nov 2026 16:07:56 +0000",
-   "source": "RotoBaller",
-   "kind": "news",
-   "golfers": [
-    "Keith Mitchell"
-   ]
-  },
-  {
-   "title": "Who Should I Start for Fantasy Football Week 9? Jordan Addison, Justin Jefferson, Khalil Shakir, DJ Moore, Dalton Kincaid, Jordan Mason, Aaron Jones Sr., T.J. Hockenson, Keon Coleman",
-   "link": "https://www.rotoballer.com/who-should-i-start-for-week-9-jordan-addison-justin-jefferson-khalil-shakir-dj-moore-dalton-kincaid-jordan-mason-aaron-jones-sr-t-j-hockenson-keon-coleman/1988415",
-   "summary": "Who Should I Start? Who Should I Sit? Some of the most common Week 9 fantasy football lineup decisions involve [&#8230;]",
-   "published": "Mon, 09 Nov 2026 15:45:07 +0000",
-   "source": "RotoBaller",
-   "kind": "news",
-   "golfers": [
-    "Taylor Moore"
-   ]
-  },
-  {
    "title": "NFL Top Plays Based on Betting Splits, Power Ratings and Trends \u2013 Week 9",
    "link": "https://vsin.com/nfl/nfl-top-plays-based-on-betting-splits-power-ratings-and-trends-for-week-9/",
    "summary": "Week 9 NFL Betting Trends: The following NFL betting trends are a collection of analytical data, betting systems and strength ratings featured on VSiN and qualified for the NFL games of Week 9. This report is meant to emulate the process that Steve Makinen and other members of the VSiN Analytics team undergo when handicapping [&#8230;] The post NFL Top Plays Based on Betting Splits, Power Ratings ",
    "published": "Mon, 09 Nov 2026 03:13:53 +0000",
-   "source": "VSiN",
-   "kind": "news",
-   "golfers": [
-    "Seamus Power"
-   ]
-  },
-  {
-   "title": "Week 11 College Football Power Ratings and Projections for Every Game",
-   "link": "https://vsin.com/college-football/week-11-college-football-power-ratings-and-projections-for-every-game/",
-   "summary": "Week 11 College Football Power Ratings The college football regular season is already winding down for some teams and really just ramping up for others. Teams who are going to fall short of goals or expectations are going to be tough to bet on because the players are endlessly thinking about the transfer portal and [&#8230;] The post Week 11 College Football Power Ratings and Projections for Every",
-   "published": "Mon, 09 Nov 2026 03:13:07 +0000",
    "source": "VSiN",
    "kind": "news",
    "golfers": [
