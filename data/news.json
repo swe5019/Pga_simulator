@@ -1,19 +1,19 @@
 {
- "updatedUtc": "2026-11-11T11:00:14Z",
+ "updatedUtc": "2026-11-11T19:37:41Z",
  "slate": "WWT_2026",
  "event": "",
  "counts": {
-  "items": 9,
-  "golfersMentioned": 8,
-  "news": 9,
+  "items": 11,
+  "golfersMentioned": 9,
+  "news": 11,
   "chatter": 0
  },
  "sources": [
   {
    "source": "RotoWire Golf",
-   "ok": true,
-   "items": 1,
-   "error": null
+   "ok": false,
+   "items": 0,
+   "error": "no items"
   },
   {
    "source": "RotoBaller Golf",
@@ -108,7 +108,7 @@
   {
    "source": "Google News: PGA DFS",
    "ok": true,
-   "items": 54,
+   "items": 53,
    "error": null
   },
   {
@@ -144,6 +144,24 @@
    "total": 3
   },
   {
+   "name": "Blades Brown",
+   "news": 2,
+   "chatter": 0,
+   "total": 2
+  },
+  {
+   "name": "Harry Hall",
+   "news": 1,
+   "chatter": 0,
+   "total": 1
+  },
+  {
+   "name": "Mark Hubbard",
+   "news": 1,
+   "chatter": 0,
+   "total": 1
+  },
+  {
    "name": "Chris Kirk",
    "news": 1,
    "chatter": 0,
@@ -162,18 +180,6 @@
    "total": 1
   },
   {
-   "name": "Blades Brown",
-   "news": 1,
-   "chatter": 0,
-   "total": 1
-  },
-  {
-   "name": "Jordan L. Smith",
-   "news": 1,
-   "chatter": 0,
-   "total": 1
-  },
-  {
    "name": "Justin Lower",
    "news": 1,
    "chatter": 0,
@@ -187,6 +193,39 @@
   }
  ],
  "items": [
+  {
+   "title": "Who Should I Trade For or Trade Away? Bijan Robinson, Ashton Jeanty, Rashee Rice, Breece Hall, Christian Watson, Tyler Allgeier",
+   "link": "https://www.rotoballer.com/who-should-i-trade-for-in-week-10-bijan-robinson-ashton-jeanty-rashee-rice-breece-hall-christian-watson-tyler-allgeier/1990559",
+   "summary": "Who Should I Trade For? Who Should I Trade Away? Some common Week 10 fantasy football trade decisions are regarding [&#8230;]",
+   "published": "Wed, 11 Nov 2026 17:25:07 +0000",
+   "source": "RotoBaller",
+   "kind": "news",
+   "golfers": [
+    "Harry Hall"
+   ]
+  },
+  {
+   "title": "Who Should I Start for Fantasy Football Week 10? Rashee Rice, Jordan Watkins, Omarion Hampton, Ladd McConkey, DeVaughn Vele, Derrick Henry, Malik Washington, Keon Coleman, Chuba Hubbard",
+   "link": "https://www.rotoballer.com/who-should-i-start-for-week-10-rashee-rice-jordan-watkins-omarion-hampton-ladd-mcconkey-devaughn-vele-derrick-henry-malik-washington-keon-coleman-chuba-hubbard/1990532",
+   "summary": "Who Should I Start? Who Should I Sit? Some of the most common Week 10 fantasy football lineup decisions involve [&#8230;]",
+   "published": "Wed, 11 Nov 2026 16:56:11 +0000",
+   "source": "RotoBaller",
+   "kind": "news",
+   "golfers": [
+    "Mark Hubbard"
+   ]
+  },
+  {
+   "title": "Who Should I Start for Fantasy Football Week 10? Dylan Sampson, Deebo Samuel Sr., Quinshon Judkins, Demarcus Robinson, Konata Mumpfield, Chase Brown, Tyler Allgeier, Tony Pollard",
+   "link": "https://www.rotoballer.com/who-should-i-start-for-week-10-dylan-sampson-deebo-samuel-sr-quinshon-judkins-demarcus-robinson-konata-mumpfield-chase-brown-tyler-allgeier-tony-pollard/1990500",
+   "summary": "Who Should I Start? Who Should I Sit? Some of the most common Week 10 fantasy football lineup decisions involve [&#8230;]",
+   "published": "Wed, 11 Nov 2026 16:40:37 +0000",
+   "source": "RotoBaller",
+   "kind": "news",
+   "golfers": [
+    "Blades Brown"
+   ]
+  },
   {
    "title": "Kirk Cousins Trade Moves NFL Week 10 Odds & Super Bowl Futures",
    "link": "https://vsin.com/the-vsin-daily/kirk-cousins-trade-moves-nfl-week-10-odds-super-bowl-futures/",
@@ -252,17 +291,6 @@
    "kind": "news",
    "golfers": [
     "Seamus Power"
-   ]
-  },
-  {
-   "title": "When Is DeVonta Smith Coming Back - Week 10 Fantasy Football Injury Return Update (2026)",
-   "link": "https://www.rotoballer.com/when-is-devonta-smith-coming-back-week-10-fantasy-football-injury-return-update-2026/1989627",
-   "summary": "2026 was supposed to be the season that DeVonta Smith emerged as an unquestioned WR1 in both real life and [&#8230;]",
-   "published": "Tue, 10 Nov 2026 19:14:59 +0000",
-   "source": "RotoBaller",
-   "kind": "news",
-   "golfers": [
-    "Jordan L. Smith"
    ]
   },
   {
