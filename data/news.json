@@ -1,10 +1,10 @@
 {
- "updatedUtc": "2026-11-10T21:19:02Z",
+ "updatedUtc": "2026-11-11T01:17:34Z",
  "slate": "WWT_2026",
  "event": "",
  "counts": {
   "items": 5,
-  "golfersMentioned": 4,
+  "golfersMentioned": 6,
   "news": 5,
   "chatter": 0
  },
@@ -55,7 +55,7 @@
    "source": "Pinnacle Golf",
    "ok": false,
    "items": 0,
-   "error": "TimeoutError"
+   "error": "HTTP 404"
   },
   {
    "source": "SportsGrid",
@@ -108,7 +108,7 @@
   {
    "source": "Google News: PGA DFS",
    "ok": true,
-   "items": 54,
+   "items": 53,
    "error": null
   },
   {
@@ -138,10 +138,16 @@
  ],
  "mentions": [
   {
-   "name": "Seamus Power",
-   "news": 2,
+   "name": "Benjamin James",
+   "news": 1,
    "chatter": 0,
-   "total": 2
+   "total": 1
+  },
+  {
+   "name": "Blades Brown",
+   "news": 1,
+   "chatter": 0,
+   "total": 1
   },
   {
    "name": "Jordan L. Smith",
@@ -156,6 +162,12 @@
    "total": 1
   },
   {
+   "name": "Seamus Power",
+   "news": 1,
+   "chatter": 0,
+   "total": 1
+  },
+  {
    "name": "Taylor Moore",
    "news": 1,
    "chatter": 0,
@@ -163,6 +175,18 @@
   }
  ],
  "items": [
+  {
+   "title": "Austin Championship Best Bets and Golf Odds",
+   "link": "https://vsin.com/golf/austin-championship-best-bets-and-golf-odds/",
+   "summary": "Austin Championship Best Bets and Golf Odds: Blades Brown, a pre-tournament price of 33-1, became the youngest PGA Tour winner in 95 years on Sunday in Mexico at the World Wide Technology Championship. The 19-year-old Brown started the final round seven strokes back but shot 63 to make the playoff and defeat Ben James on [&#8230;] The post Austin Championship Best Bets and Golf Odds appeared first",
+   "published": "Tue, 10 Nov 2026 22:19:59 +0000",
+   "source": "VSiN",
+   "kind": "news",
+   "golfers": [
+    "Benjamin James",
+    "Blades Brown"
+   ]
+  },
   {
    "title": "When Is DeVonta Smith Coming Back - Week 10 Fantasy Football Injury Return Update (2026)",
    "link": "https://www.rotoballer.com/when-is-devonta-smith-coming-back-week-10-fantasy-football-injury-return-update-2026/1989627",
@@ -205,17 +229,6 @@
    "kind": "news",
    "golfers": [
     "Taylor Moore"
-   ]
-  },
-  {
-   "title": "NFL Top Plays Based on Betting Splits, Power Ratings and Trends \u2013 Week 9",
-   "link": "https://vsin.com/nfl/nfl-top-plays-based-on-betting-splits-power-ratings-and-trends-for-week-9/",
-   "summary": "Week 9 NFL Betting Trends: The following NFL betting trends are a collection of analytical data, betting systems and strength ratings featured on VSiN and qualified for the NFL games of Week 9. This report is meant to emulate the process that Steve Makinen and other members of the VSiN Analytics team undergo when handicapping [&#8230;] The post NFL Top Plays Based on Betting Splits, Power Ratings ",
-   "published": "Mon, 09 Nov 2026 03:13:53 +0000",
-   "source": "VSiN",
-   "kind": "news",
-   "golfers": [
-    "Seamus Power"
    ]
   }
  ]
