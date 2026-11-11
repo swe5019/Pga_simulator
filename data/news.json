@@ -1,18 +1,18 @@
 {
- "updatedUtc": "2026-11-11T01:17:34Z",
+ "updatedUtc": "2026-11-11T11:00:14Z",
  "slate": "WWT_2026",
  "event": "",
  "counts": {
-  "items": 5,
-  "golfersMentioned": 6,
-  "news": 5,
+  "items": 9,
+  "golfersMentioned": 8,
+  "news": 9,
   "chatter": 0
  },
  "sources": [
   {
    "source": "RotoWire Golf",
    "ok": true,
-   "items": 5,
+   "items": 1,
    "error": null
   },
   {
@@ -108,13 +108,13 @@
   {
    "source": "Google News: PGA DFS",
    "ok": true,
-   "items": 53,
+   "items": 54,
    "error": null
   },
   {
    "source": "Google News: PGA WD",
    "ok": true,
-   "items": 53,
+   "items": 55,
    "error": null
   },
   {
@@ -137,6 +137,24 @@
   }
  ],
  "mentions": [
+  {
+   "name": "Seamus Power",
+   "news": 3,
+   "chatter": 0,
+   "total": 3
+  },
+  {
+   "name": "Chris Kirk",
+   "news": 1,
+   "chatter": 0,
+   "total": 1
+  },
+  {
+   "name": "Jackson Koivun",
+   "news": 1,
+   "chatter": 0,
+   "total": 1
+  },
   {
    "name": "Benjamin James",
    "news": 1,
@@ -162,12 +180,6 @@
    "total": 1
   },
   {
-   "name": "Seamus Power",
-   "news": 1,
-   "chatter": 0,
-   "total": 1
-  },
-  {
    "name": "Taylor Moore",
    "news": 1,
    "chatter": 0,
@@ -176,15 +188,70 @@
  ],
  "items": [
   {
+   "title": "Kirk Cousins Trade Moves NFL Week 10 Odds & Super Bowl Futures",
+   "link": "https://vsin.com/the-vsin-daily/kirk-cousins-trade-moves-nfl-week-10-odds-super-bowl-futures/",
+   "summary": "\ud83c\udfc8 The Cousins Trade Shakes Up the Odds The Kirk Cousins trade roiled the betting markets. Market Before After Vikings vs. Packers +6 +3.5 Raiders vs. Seahawks +4 +6.5 Vikings to win Super Bowl 33-1 23-1 Fernando Mendoza: Offensive ROY +1000 +200 Fernando Mendoza&#8217;s first start for Las Vegas is enough to make him the [&#8230;] The post Kirk Cousins Trade Moves NFL Week 10 Odds & Super Bowl Fut",
+   "published": "Wed, 11 Nov 2026 04:11:43 +0000",
+   "source": "VSiN",
+   "kind": "news",
+   "golfers": [
+    "Chris Kirk"
+   ]
+  },
+  {
+   "title": "College Football Week 11 Picks: Memphis vs. South Florida",
+   "link": "https://vsin.com/college-football/college-football-week-11-picks-memphis-vs-south-florida/",
+   "summary": "Memphis vs. South Florida Hugs and hand pounds go out to the MAC for giving us six games across Tuesday and Wednesday. Before we get to power conferences on Friday, we have a game from the American and a game from the Sun Belt on Thursday. Memphis vs. South Florida will draw more eyes and [&#8230;] The post College Football Week 11 Picks: Memphis vs. South Florida appeared first on VSiN .",
+   "published": "Wed, 11 Nov 2026 03:15:44 +0000",
+   "source": "VSiN",
+   "kind": "news",
+   "golfers": [
+    "Seamus Power"
+   ]
+  },
+  {
+   "title": "Austin Championship DFS picks 2026: Will Jackson Koivun get another win?",
+   "link": "https://sports.yahoo.com/articles/austin-championship-dfs-picks-2026-031117290.html",
+   "summary": "Editor's Note: This article is published in partnership with Betsperts Golf, a Golf Digest content partner.",
+   "published": "Wed, 11 Nov 2026 03:11:17 +0000",
+   "source": "Yahoo Golf",
+   "kind": "news",
+   "golfers": [
+    "Jackson Koivun"
+   ]
+  },
+  {
+   "title": "College Football Top Plays Based on Betting Splits, Power Ratings and Trends \u2013 Week 11",
+   "link": "https://vsin.com/college-football/college-football-top-plays-based-on-betting-splits-power-ratings-and-trends-for-week-11/",
+   "summary": "Week 11 College Football Betting Trends: The following is a collection of analytical data, betting systems and strength ratings featured on VSiN and qualified for the college football games of Week 11. This report is meant to emulate the process that Steve Makinen and other members of the VSiN Analytics team undergo when handicapping each [&#8230;] The post College Football Top Plays Based on Bett",
+   "published": "Wed, 11 Nov 2026 02:26:17 +0000",
+   "source": "VSiN",
+   "kind": "news",
+   "golfers": [
+    "Seamus Power"
+   ]
+  },
+  {
    "title": "Austin Championship Best Bets and Golf Odds",
    "link": "https://vsin.com/golf/austin-championship-best-bets-and-golf-odds/",
    "summary": "Austin Championship Best Bets and Golf Odds: Blades Brown, a pre-tournament price of 33-1, became the youngest PGA Tour winner in 95 years on Sunday in Mexico at the World Wide Technology Championship. The 19-year-old Brown started the final round seven strokes back but shot 63 to make the playoff and defeat Ben James on [&#8230;] The post Austin Championship Best Bets and Golf Odds appeared first",
-   "published": "Tue, 10 Nov 2026 22:19:59 +0000",
+   "published": "Wed, 11 Nov 2026 02:24:00 +0000",
    "source": "VSiN",
    "kind": "news",
    "golfers": [
     "Benjamin James",
     "Blades Brown"
+   ]
+  },
+  {
+   "title": "Week 11 College Football Power Ratings and Projections for Every Game",
+   "link": "https://vsin.com/college-football/week-11-college-football-power-ratings-and-projections-for-every-game/",
+   "summary": "Week 11 College Football Power Ratings The college football regular season is already winding down for some teams and really just ramping up for others. Teams who are going to fall short of goals or expectations are going to be tough to bet on because the players are endlessly thinking about the transfer portal and [&#8230;] The post Week 11 College Football Power Ratings and Projections for Every",
+   "published": "Wed, 11 Nov 2026 02:23:00 +0000",
+   "source": "VSiN",
+   "kind": "news",
+   "golfers": [
+    "Seamus Power"
    ]
   },
   {
@@ -207,17 +274,6 @@
    "kind": "news",
    "golfers": [
     "Justin Lower"
-   ]
-  },
-  {
-   "title": "Week 11 College Football Power Ratings and Projections for Every Game",
-   "link": "https://vsin.com/college-football/week-11-college-football-power-ratings-and-projections-for-every-game/",
-   "summary": "Week 11 College Football Power Ratings The college football regular season is already winding down for some teams and really just ramping up for others. Teams who are going to fall short of goals or expectations are going to be tough to bet on because the players are endlessly thinking about the transfer portal and [&#8230;] The post Week 11 College Football Power Ratings and Projections for Every",
-   "published": "Tue, 10 Nov 2026 03:37:07 +0000",
-   "source": "VSiN",
-   "kind": "news",
-   "golfers": [
-    "Seamus Power"
    ]
   },
   {
