@@ -1,10 +1,10 @@
 {
- "updatedUtc": "2026-11-12T11:16:09Z",
+ "updatedUtc": "2026-11-12T19:56:15Z",
  "slate": "WWT_2026",
  "event": "",
  "counts": {
   "items": 6,
-  "golfersMentioned": 5,
+  "golfersMentioned": 4,
   "news": 6,
   "chatter": 0
  },
@@ -47,9 +47,9 @@
   },
   {
    "source": "VSiN",
-   "ok": true,
-   "items": 25,
-   "error": null
+   "ok": false,
+   "items": 0,
+   "error": "HTTP 403"
   },
   {
    "source": "Pinnacle Golf",
@@ -108,7 +108,7 @@
   {
    "source": "Google News: PGA DFS",
    "ok": true,
-   "items": 59,
+   "items": 53,
    "error": null
   },
   {
@@ -138,25 +138,19 @@
  ],
  "mentions": [
   {
-   "name": "Seamus Power",
+   "name": "Denny McCarthy",
    "news": 3,
    "chatter": 0,
    "total": 3
   },
   {
-   "name": "Benjamin James",
+   "name": "Will Gordon",
    "news": 1,
    "chatter": 0,
    "total": 1
   },
   {
    "name": "Blades Brown",
-   "news": 1,
-   "chatter": 0,
-   "total": 1
-  },
-  {
-   "name": "Chris Kirk",
    "news": 1,
    "chatter": 0,
    "total": 1
@@ -170,59 +164,58 @@
  ],
  "items": [
   {
-   "title": "College Football Week 11 Picks: Memphis vs. South Florida",
-   "link": "https://vsin.com/college-football/college-football-week-11-picks-memphis-vs-south-florida/",
-   "summary": "Memphis vs. South Florida Hugs and hand pounds go out to the MAC for giving us six games across Tuesday and Wednesday. Before we get to power conferences on Friday, we have a game from the American and a game from the Sun Belt on Thursday. Memphis vs. South Florida will draw more eyes and [&#8230;] The post College Football Week 11 Picks: Memphis vs. South Florida appeared first on VSiN .",
-   "published": "Thu, 12 Nov 2026 04:04:00 +0000",
-   "source": "VSiN",
+   "title": "Commanders vs. Giants TNF Start 'Em, Sit 'Em: Stefon Diggs, Chig Okonkwo, J.J. McCarthy, Cam Skattebo, Malik Nabers, Isaiah Likely, more",
+   "link": "https://www.rotoballer.com/fantasy-football-start-em-sit-em-thursday-commanders-vs-giants-week-10-2026/1990122",
+   "summary": "The Washington Commanders and New York Giants kick off Week 10 on Thursday Night Football in an NFC East showdown [&#8230;]",
+   "published": "Thu, 12 Nov 2026 18:05:31 +0000",
+   "source": "RotoBaller",
    "kind": "news",
    "golfers": [
-    "Seamus Power"
+    "Denny McCarthy"
    ]
   },
   {
-   "title": "NFL Top Plays Based on Betting Splits, Power Ratings and Trends \u2013 Week 10",
-   "link": "https://vsin.com/nfl/nfl-top-plays-based-on-betting-splits-power-ratings-and-trends-for-week-10/",
-   "summary": "Week 10 NFL Betting Trends: The following NFL betting trends are a collection of analytical data, betting systems and strength ratings featured on VSiN and qualified for the NFL games of Week 10. This report is meant to emulate the process that Steve Makinen and other members of the VSiN Analytics team undergo when handicapping [&#8230;] The post NFL Top Plays Based on Betting Splits, Power Rating",
-   "published": "Thu, 12 Nov 2026 04:04:00 +0000",
-   "source": "VSiN",
+   "title": "JJ McCarthy Player Props: Best Kalshi Picks for Commanders vs. Giants on TNF",
+   "link": "https://www.fantasylabs.com/articles/jj-mccarthy-player-props-commanders-giants-tnf-kalshi/",
+   "summary": "Our JJ McCarthy player props for Commanders vs. Giants on Thursday Night Football are priced on Kalshi, and the Kalshi promo... The post JJ McCarthy Player Props: Best Kalshi Picks for Commanders vs. Giants on TNF appeared first on FantasyLabs .",
+   "published": "Thu, 12 Nov 2026 17:55:58 +0000",
+   "source": "FantasyLabs",
    "kind": "news",
    "golfers": [
-    "Seamus Power"
+    "Denny McCarthy"
    ]
   },
   {
-   "title": "Austin Championship Best Bets and Golf Odds",
-   "link": "https://vsin.com/golf/austin-championship-best-bets-and-golf-odds/",
-   "summary": "Austin Championship Best Bets and Golf Odds: Blades Brown, a pre-tournament price of 33-1, became the youngest PGA Tour winner in 95 years on Sunday in Mexico at the World Wide Technology Championship. The 19-year-old Brown started the final round seven strokes back but shot 63 to make the playoff and defeat Ben James on [&#8230;] The post Austin Championship Best Bets and Golf Odds appeared first",
-   "published": "Thu, 12 Nov 2026 04:00:00 +0000",
-   "source": "VSiN",
+   "title": "Who Should I Start for Fantasy Football Week 10? Ollie Gordon II, Ryan Flournoy, David Montgomery, Bhayshul Tuten, Christian Watson, Justice Hill, Savion Williams, Reggie Virgil",
+   "link": "https://www.rotoballer.com/who-should-i-start-for-week-10-ollie-gordon-ii-ryan-flournoy-david-montgomery-bhayshul-tuten-christian-watson-justice-hill-savion-williams-reggie-virgil/1991502",
+   "summary": "Who Should I Start? Who Should I Sit? Some of the most common Week 10 fantasy football lineup decisions involve [&#8230;]",
+   "published": "Thu, 12 Nov 2026 17:52:10 +0000",
+   "source": "RotoBaller",
    "kind": "news",
    "golfers": [
-    "Benjamin James",
+    "Will Gordon"
+   ]
+  },
+  {
+   "title": "Who Should I Start for Fantasy Football Week 10? Germie Bernard, Denzel Boston, Jordyn Tyson, Carnell Tate, Omar Cooper Jr., Tutu Atwell, Garrett Wilson, A.J. Brown, Chris Rodriguez Jr.",
+   "link": "https://www.rotoballer.com/who-should-i-start-for-week-10-germie-bernard-denzel-boston-jordyn-tyson-carnell-tate-omar-cooper-jr-tutu-atwell-garrett-wilson-a-j-brown-chris-rodriguez-jr/1991490",
+   "summary": "Who Should I Start? Who Should I Sit? Some of the most common Week 10 fantasy football lineup decisions involve [&#8230;]",
+   "published": "Thu, 12 Nov 2026 17:46:03 +0000",
+   "source": "RotoBaller",
+   "kind": "news",
+   "golfers": [
     "Blades Brown"
    ]
   },
   {
-   "title": "College Football Top Plays Based on Betting Splits, Power Ratings and Trends \u2013 Week 11",
-   "link": "https://vsin.com/college-football/college-football-top-plays-based-on-betting-splits-power-ratings-and-trends-for-week-11/",
-   "summary": "Week 11 College Football Betting Trends: The following is a collection of analytical data, betting systems and strength ratings featured on VSiN and qualified for the college football games of Week 11. This report is meant to emulate the process that Steve Makinen and other members of the VSiN Analytics team undergo when handicapping each [&#8230;] The post College Football Top Plays Based on Bett",
-   "published": "Thu, 12 Nov 2026 04:00:00 +0000",
-   "source": "VSiN",
+   "title": "JJ McCarthy Player Props | Best NFL Prop Bets Today | Commanders vs Giants Prediction: Best NFL Player Props, Anytime TD Scorer (TNF Best Bets)",
+   "link": "https://www.fantasylabs.com/articles/j-j-mccarthy-player-props-best-nfl-prop-bets-today-commanders-vs-giants-prediction-best-nfl-player-props-anytime-td-scorer-tnf-best-bets/",
+   "summary": "The Kalshi promo code () is perfect to use on Thursday Night Football, and these JJ McCarthy player props round up... The post JJ McCarthy Player Props | Best NFL Prop Bets Today | Commanders vs Giants Prediction: Best NFL Player Props, Anytime TD Scorer (TNF Best Bets) appeared first on FantasyLabs .",
+   "published": "Thu, 12 Nov 2026 16:48:47 +0000",
+   "source": "FantasyLabs",
    "kind": "news",
    "golfers": [
-    "Seamus Power"
-   ]
-  },
-  {
-   "title": "Kirk Cousins Trade Moves NFL Week 10 Odds & Super Bowl Futures",
-   "link": "https://vsin.com/the-vsin-daily/kirk-cousins-trade-moves-nfl-week-10-odds-super-bowl-futures/",
-   "summary": "\ud83c\udfc8 The Cousins Trade Shakes Up the Odds The Kirk Cousins trade roiled the betting markets. Market Before After Vikings vs. Packers +6 +3.5 Raiders vs. Seahawks +4 +6.5 Vikings to win Super Bowl 33-1 23-1 Fernando Mendoza: Offensive ROY +1000 +200 Fernando Mendoza&#8217;s first start for Las Vegas is enough to make him the [&#8230;] The post Kirk Cousins Trade Moves NFL Week 10 Odds & Super Bowl Fut",
-   "published": "Wed, 11 Nov 2026 04:11:43 +0000",
-   "source": "VSiN",
-   "kind": "news",
-   "golfers": [
-    "Chris Kirk"
+    "Denny McCarthy"
    ]
   },
   {
