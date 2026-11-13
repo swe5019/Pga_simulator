@@ -1,10 +1,10 @@
 {
- "updatedUtc": "2026-11-13T11:01:39Z",
+ "updatedUtc": "2026-11-13T19:44:11Z",
  "slate": "WWT_2026",
  "event": "",
  "counts": {
   "items": 10,
-  "golfersMentioned": 4,
+  "golfersMentioned": 8,
   "news": 10,
   "chatter": 0
  },
@@ -108,13 +108,13 @@
   {
    "source": "Google News: PGA DFS",
    "ok": true,
-   "items": 53,
+   "items": 56,
    "error": null
   },
   {
    "source": "Google News: PGA WD",
    "ok": true,
-   "items": 58,
+   "items": 57,
    "error": null
   },
   {
@@ -144,13 +144,19 @@
    "total": 5
   },
   {
-   "name": "Denny McCarthy",
-   "news": 3,
+   "name": "Chris Kirk",
+   "news": 1,
    "chatter": 0,
-   "total": 3
+   "total": 1
   },
   {
-   "name": "Will Gordon",
+   "name": "Blades Brown",
+   "news": 1,
+   "chatter": 0,
+   "total": 1
+  },
+  {
+   "name": "Harry Hall",
    "news": 1,
    "chatter": 0,
    "total": 1
@@ -160,9 +166,73 @@
    "news": 1,
    "chatter": 0,
    "total": 1
+  },
+  {
+   "name": "Keith Mitchell",
+   "news": 1,
+   "chatter": 0,
+   "total": 1
+  },
+  {
+   "name": "Willie Mack",
+   "news": 1,
+   "chatter": 0,
+   "total": 1
+  },
+  {
+   "name": "Denny McCarthy",
+   "news": 1,
+   "chatter": 0,
+   "total": 1
   }
  ],
  "items": [
+  {
+   "title": "Who Should I Start for Fantasy Football Week 10? Jared Goff, Kirk Cousins, Brock Purdy, Drake Maye, Matthew Stafford, C.J. Stroud, Kyle McCord, Jordan Love, Dak Prescott",
+   "link": "https://www.rotoballer.com/who-should-i-start-for-week-10-jared-goff-kirk-cousins-brock-purdy-drake-maye-matthew-stafford-c-j-stroud-kyle-mccord-jordan-love-dak-prescott/1992615",
+   "summary": "Who Should I Start? Who Should I Sit? Some of the most common Week 10 fantasy football lineup decisions involve [&#8230;]",
+   "published": "Fri, 13 Nov 2026 19:16:26 +0000",
+   "source": "RotoBaller",
+   "kind": "news",
+   "golfers": [
+    "Chris Kirk"
+   ]
+  },
+  {
+   "title": "Who Should I Start for Fantasy Football Week 10? Braelon Allen, Blake Corum, Alvin Kamara, Jakobi Meyers, Aaron Jones Sr., Demarcus Robinson, Quinshon Judkins, Chase Brown",
+   "link": "https://www.rotoballer.com/who-should-i-start-for-week-10-braelon-allen-blake-corum-alvin-kamara-jakobi-meyers-aaron-jones-sr-demarcus-robinson-quinshon-judkins-chase-brown/1992550",
+   "summary": "Who Should I Start? Who Should I Sit? Some of the most common Week 10 fantasy football lineup decisions involve [&#8230;]",
+   "published": "Fri, 13 Nov 2026 18:22:22 +0000",
+   "source": "RotoBaller",
+   "kind": "news",
+   "golfers": [
+    "Blades Brown"
+   ]
+  },
+  {
+   "title": "Who Should I Start for Fantasy Football Week 10? Corey Kiner, Jalen Coker, Breece Hall, Keenan Allen, DJ Moore, Konata Mumpfield, Dylan Sampson, Ashton Jeanty, Jameson Williams",
+   "link": "https://www.rotoballer.com/who-should-i-start-for-week-10-corey-kiner-jalen-coker-breece-hall-keenan-allen-dj-moore-konata-mumpfield-dylan-sampson-ashton-jeanty-jameson-williams/1992536",
+   "summary": "Who Should I Start? Who Should I Sit? Some of the most common Week 10 fantasy football lineup decisions involve [&#8230;]",
+   "published": "Fri, 13 Nov 2026 18:15:38 +0000",
+   "source": "RotoBaller",
+   "kind": "news",
+   "golfers": [
+    "Harry Hall",
+    "Taylor Moore"
+   ]
+  },
+  {
+   "title": "Who Should I Start for Fantasy Football Week 10? Audric Estime, DeMario Douglas, Adonai Mitchell, DK Metcalf, Jordan Addison, Deebo Samuel Sr., Josh Downs, Tank Dell, Mack Hollins",
+   "link": "https://www.rotoballer.com/who-should-i-start-for-week-10-audric-estime-demario-douglas-adonai-mitchell-dk-metcalf-jordan-addison-deebo-samuel-sr-josh-downs-tank-dell-mack-hollins/1992524",
+   "summary": "Who Should I Start? Who Should I Sit? Some of the most common Week 10 fantasy football lineup decisions involve [&#8230;]",
+   "published": "Fri, 13 Nov 2026 18:09:35 +0000",
+   "source": "RotoBaller",
+   "kind": "news",
+   "golfers": [
+    "Keith Mitchell",
+    "Willie Mack"
+   ]
+  },
   {
    "title": "College Football Week 11 Picks: Florida State vs. Pitt",
    "link": "https://vsin.com/college-football/college-football-week-11-picks-florida-state-vs-pitt/",
@@ -197,17 +267,6 @@
    ]
   },
   {
-   "title": "Commanders vs. Giants TNF Start 'Em, Sit 'Em: Stefon Diggs, Chig Okonkwo, J.J. McCarthy, Cam Skattebo, Malik Nabers, Isaiah Likely, more",
-   "link": "https://www.rotoballer.com/fantasy-football-start-em-sit-em-thursday-commanders-vs-giants-week-10-2026/1990122",
-   "summary": "The Washington Commanders and New York Giants kick off Week 10 on Thursday Night Football in an NFC East showdown [&#8230;]",
-   "published": "Thu, 12 Nov 2026 22:42:31 +0000",
-   "source": "RotoBaller",
-   "kind": "news",
-   "golfers": [
-    "Denny McCarthy"
-   ]
-  },
-  {
    "title": "S\u00e9amus Power withdraws from Austin Championship in Texas - Irish Independent",
    "link": "https://news.google.com/rss/articles/CBMisAFBVV95cUxQdkdHRzFLQTRUNGxCZnBIc1l6c21NcWVRLXNtYk1zMnJDd2h1ZE5QamU5WHVNc1hoSkFOY08zb1BhMzZ3T2gtLVpNdFlKVTk3bzlSMF8tUVhXYWk1ankxdWNPcmR4MUZVcU96Tjd2SnV3TWVwcWI2c3JtYTFRSWdXM2VYckpLbDEwZ2FXZmpxOVBENVlnNDF2OU1HVl9oOTNuUW5ZanZCMU1CSk9SdkhiVA?oc=5",
    "summary": "S\u00e9amus Power withdraws from Austin Championship in Texas Irish Independent",
@@ -238,39 +297,6 @@
    "kind": "news",
    "golfers": [
     "Denny McCarthy"
-   ]
-  },
-  {
-   "title": "Who Should I Start for Fantasy Football Week 10? Ollie Gordon II, Ryan Flournoy, David Montgomery, Bhayshul Tuten, Christian Watson, Justice Hill, Savion Williams, Reggie Virgil",
-   "link": "https://www.rotoballer.com/who-should-i-start-for-week-10-ollie-gordon-ii-ryan-flournoy-david-montgomery-bhayshul-tuten-christian-watson-justice-hill-savion-williams-reggie-virgil/1991502",
-   "summary": "Who Should I Start? Who Should I Sit? Some of the most common Week 10 fantasy football lineup decisions involve [&#8230;]",
-   "published": "Thu, 12 Nov 2026 17:52:10 +0000",
-   "source": "RotoBaller",
-   "kind": "news",
-   "golfers": [
-    "Will Gordon"
-   ]
-  },
-  {
-   "title": "JJ McCarthy Player Props | Best NFL Prop Bets Today | Commanders vs Giants Prediction: Best NFL Player Props, Anytime TD Scorer (TNF Best Bets)",
-   "link": "https://www.fantasylabs.com/articles/j-j-mccarthy-player-props-best-nfl-prop-bets-today-commanders-vs-giants-prediction-best-nfl-player-props-anytime-td-scorer-tnf-best-bets/",
-   "summary": "The Kalshi promo code () is perfect to use on Thursday Night Football, and these JJ McCarthy player props round up... The post JJ McCarthy Player Props | Best NFL Prop Bets Today | Commanders vs Giants Prediction: Best NFL Player Props, Anytime TD Scorer (TNF Best Bets) appeared first on FantasyLabs .",
-   "published": "Thu, 12 Nov 2026 16:48:47 +0000",
-   "source": "FantasyLabs",
-   "kind": "news",
-   "golfers": [
-    "Denny McCarthy"
-   ]
-  },
-  {
-   "title": "Ping G450 lineup spotted on Tour: First look at drivers, woods, hybrids, irons and the new \u201cMiniMax\u201d",
-   "link": "https://golfwrx.com/789568/ping-g450-lineup-spotted-on-tour-first-look-at-drivers-woods-hybrids-irons-and-the-new-minimax/",
-   "summary": "Fresh off its formal appearance on the USGA and R&#38;A conforming club lists, Ping\u2019s next-generation G450 metalwood family has officially made its way onto the Ping Tour truck out on the PGA Tour. GolfWRX&#8217;s Tour photographer Greg Moore was on-site early at the Austin Championship presented by Compliance Solutions and got the first up-close look [&#8230;]",
-   "published": "Mon, 09 Nov 2026 21:08:50 +0000",
-   "source": "GolfWRX",
-   "kind": "news",
-   "golfers": [
-    "Taylor Moore"
    ]
   }
  ]
