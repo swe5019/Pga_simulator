@@ -1,7 +1,7 @@
 {
- "updatedUtc": "2026-11-13T01:29:59Z",
+ "updatedUtc": "2026-11-13T20:05:46Z",
  "tournament": "EVENT_2026W46",
- "date": "11/12/26",
+ "date": "11/14/26",
  "event": "",
  "draftGroupId": "156498",
  "isShowdown": false,
@@ -325,8 +325,8 @@
   {
    "name": "Karl Vilips",
    "salary": 7200,
-   "status": "",
-   "out": false,
+   "status": "WD",
+   "out": true,
    "dkId": 709867
   },
   {
@@ -794,8 +794,8 @@
   {
    "name": "C.T. Pan",
    "salary": 6100,
-   "status": "",
-   "out": false,
+   "status": "WD",
+   "out": true,
    "dkId": 1219
   },
   {
