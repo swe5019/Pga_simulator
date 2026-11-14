@@ -1,11 +1,11 @@
 {
- "updatedUtc": "2026-11-14T18:05:29Z",
+ "updatedUtc": "2026-11-14T22:26:47Z",
  "slate": "WWT_2026",
  "event": "",
  "counts": {
-  "items": 5,
-  "golfersMentioned": 4,
-  "news": 5,
+  "items": 4,
+  "golfersMentioned": 3,
+  "news": 4,
   "chatter": 0
  },
  "sources": [
@@ -43,7 +43,7 @@
    "source": "Action Network",
    "ok": false,
    "items": 0,
-   "error": "no items"
+   "error": "HTTP 404"
   },
   {
    "source": "VSiN",
@@ -108,7 +108,7 @@
   {
    "source": "Google News: PGA DFS",
    "ok": true,
-   "items": 54,
+   "items": 53,
    "error": null
   },
   {
@@ -154,12 +154,6 @@
    "news": 1,
    "chatter": 0,
    "total": 1
-  },
-  {
-   "name": "Alvaro Ortiz",
-   "news": 1,
-   "chatter": 0,
-   "total": 1
   }
  ],
  "items": [
@@ -194,17 +188,6 @@
    "kind": "news",
    "golfers": [
     "Seamus Power"
-   ]
-  },
-  {
-   "title": "Churchill Downs Horse Racing Picks and Predictions Today for Saturday, November 14",
-   "link": "https://vsin.com/horse-racing/churchill-downs-horse-racing-picks-and-predictions-today-for-saturday-november-14/",
-   "summary": "Churchill Downs Picks for November 14: YESTERDAY\u2019S SNOOZE: While Mr. Ed mentioned a few winners, unfortunately they failed to earn any return as they were only a part of exotic bets. Several jockeys, including hot-shot Yomar Ortiz Jr., as well as Jamie Torres, overdue Edgar Morales, Tyler Gaffalione, Luis Saez and young Keith Asmussen, all [&#8230;] The post Churchill Downs Horse Racing Picks and ",
-   "published": "Fri, 13 Nov 2026 22:35:25 +0000",
-   "source": "VSiN",
-   "kind": "news",
-   "golfers": [
-    "Alvaro Ortiz"
    ]
   },
   {
