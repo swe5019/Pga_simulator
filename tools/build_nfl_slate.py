@@ -62,6 +62,36 @@ HIST = os.path.join(DATA, "ownership_history")
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from enrich_props import nrm  # noqa: E402
+from fetch_props import TEAM_ALIAS  # noqa: E402
+
+
+def dk_team(code):
+    """DraftKings' team code in the nflverse spelling the projections use.
+
+    This board is the one file that mixes the two namespaces: `team` arrives
+    from the DraftKings pool and `opp` from the projection build, which is
+    keyed to nflverse. Only the Rams actually differ, and the cost of not
+    translating was larger than it looks:
+
+      - The defence join is `proj_dst[d["tm"]]`, so "LAR" never found the "LA"
+        projection and the Rams defence came through with proj None. It was the
+        most expensive defence on the 15 November slate at $3,800 and it was
+        invisible to the optimiser, the contest simulation and the scenario
+        pool, with nothing in any output saying so.
+      - A Rams player read team LAR / opp ARI while an Arizona player read team
+        ARI / opp LA, so one game produced two scenario names. Its win share
+        split in half across ARI/LAR and ARI/LA, and because the field share
+        split too and is floored at one lineup in the sample, both halves
+        surfaced at the TOP of the leverage table at 14.4x and 6.4x. The two
+        most leveraged scenarios on the board were an artifact of a team code.
+
+    Normalising toward nflverse rather than DraftKings because TEAM_ALIAS is
+    already the spine every statistic here joins on. The front end does the
+    opposite translation for display (TEAM_FIX in nfl.js maps LA to LAR), so
+    it is unaffected.
+    """
+    c = (code or "").upper()
+    return TEAM_ALIAS.get(c, c)
 
 # DraftKings NFL classic: QB, RB, RB, WR, WR, WR, TE, FLEX, DST.
 # The flex is shared out roughly as it is used in practice, which is mostly
@@ -354,8 +384,9 @@ def main():
     players, matched, unmatched = [], 0, defaultdict(int)
     for d in slate["players"]:
         key = nrm(d["n"])
-        pp = proj_dst.get(d["tm"]) if d["pos"] == "DST" else proj.get(key)
-        row = {"player": d["n"], "pos": d["pos"], "team": d["tm"],
+        tm = dk_team(d["tm"])
+        pp = proj_dst.get(tm) if d["pos"] == "DST" else proj.get(key)
+        row = {"player": d["n"], "pos": d["pos"], "team": tm,
                "sal": d["sal"]}
         if pp:
             sc = pp.get(scoring) or {}
