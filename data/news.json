@@ -1,11 +1,11 @@
 {
- "updatedUtc": "2026-11-13T19:44:11Z",
+ "updatedUtc": "2026-11-14T01:27:31Z",
  "slate": "WWT_2026",
  "event": "",
  "counts": {
-  "items": 10,
-  "golfersMentioned": 8,
-  "news": 10,
+  "items": 8,
+  "golfersMentioned": 7,
+  "news": 8,
   "chatter": 0
  },
  "sources": [
@@ -108,7 +108,7 @@
   {
    "source": "Google News: PGA DFS",
    "ok": true,
-   "items": 56,
+   "items": 55,
    "error": null
   },
   {
@@ -139,9 +139,15 @@
  "mentions": [
   {
    "name": "Seamus Power",
-   "news": 5,
+   "news": 3,
    "chatter": 0,
-   "total": 5
+   "total": 3
+  },
+  {
+   "name": "Alvaro Ortiz",
+   "news": 1,
+   "chatter": 0,
+   "total": 1
   },
   {
    "name": "Chris Kirk",
@@ -168,18 +174,6 @@
    "total": 1
   },
   {
-   "name": "Keith Mitchell",
-   "news": 1,
-   "chatter": 0,
-   "total": 1
-  },
-  {
-   "name": "Willie Mack",
-   "news": 1,
-   "chatter": 0,
-   "total": 1
-  },
-  {
    "name": "Denny McCarthy",
    "news": 1,
    "chatter": 0,
@@ -187,6 +181,17 @@
   }
  ],
  "items": [
+  {
+   "title": "Churchill Downs Horse Racing Picks and Predictions Today for Saturday, November 14",
+   "link": "https://vsin.com/horse-racing/churchill-downs-horse-racing-picks-and-predictions-today-for-saturday-november-14/",
+   "summary": "Churchill Downs Picks for November 14: YESTERDAY\u2019S SNOOZE: While Mr. Ed mentioned a few winners, unfortunately they failed to earn any return as they were only a part of exotic bets. Several jockeys, including hot-shot Yomar Ortiz Jr., as well as Jamie Torres, overdue Edgar Morales, Tyler Gaffalione, Luis Saez and young Keith Asmussen, all [&#8230;] The post Churchill Downs Horse Racing Picks and ",
+   "published": "Fri, 13 Nov 2026 22:35:25 +0000",
+   "source": "VSiN",
+   "kind": "news",
+   "golfers": [
+    "Alvaro Ortiz"
+   ]
+  },
   {
    "title": "Who Should I Start for Fantasy Football Week 10? Jared Goff, Kirk Cousins, Brock Purdy, Drake Maye, Matthew Stafford, C.J. Stroud, Kyle McCord, Jordan Love, Dak Prescott",
    "link": "https://www.rotoballer.com/who-should-i-start-for-week-10-jared-goff-kirk-cousins-brock-purdy-drake-maye-matthew-stafford-c-j-stroud-kyle-mccord-jordan-love-dak-prescott/1992615",
@@ -222,44 +227,10 @@
    ]
   },
   {
-   "title": "Who Should I Start for Fantasy Football Week 10? Audric Estime, DeMario Douglas, Adonai Mitchell, DK Metcalf, Jordan Addison, Deebo Samuel Sr., Josh Downs, Tank Dell, Mack Hollins",
-   "link": "https://www.rotoballer.com/who-should-i-start-for-week-10-audric-estime-demario-douglas-adonai-mitchell-dk-metcalf-jordan-addison-deebo-samuel-sr-josh-downs-tank-dell-mack-hollins/1992524",
-   "summary": "Who Should I Start? Who Should I Sit? Some of the most common Week 10 fantasy football lineup decisions involve [&#8230;]",
-   "published": "Fri, 13 Nov 2026 18:09:35 +0000",
-   "source": "RotoBaller",
-   "kind": "news",
-   "golfers": [
-    "Keith Mitchell",
-    "Willie Mack"
-   ]
-  },
-  {
    "title": "College Football Week 11 Picks: Florida State vs. Pitt",
    "link": "https://vsin.com/college-football/college-football-week-11-picks-florida-state-vs-pitt/",
    "summary": "Florida State vs. Pitt There may only be three games on Friday, but there\u2019s a lot of power, if you know what I mean. And what I mean is that all three games come from the power conferences and are our first of the week, with Florida State vs. Pitt from the ACC, Illinois vs. [&#8230;] The post College Football Week 11 Picks: Florida State vs. Pitt appeared first on VSiN .",
    "published": "Fri, 13 Nov 2026 02:13:57 +0000",
-   "source": "VSiN",
-   "kind": "news",
-   "golfers": [
-    "Seamus Power"
-   ]
-  },
-  {
-   "title": "College Football Top Plays Based on Betting Splits, Power Ratings and Trends \u2013 Week 11",
-   "link": "https://vsin.com/college-football/college-football-top-plays-based-on-betting-splits-power-ratings-and-trends-for-week-11/",
-   "summary": "Week 11 College Football Betting Trends: The following is a collection of analytical data, betting systems and strength ratings featured on VSiN and qualified for the college football games of Week 11. This report is meant to emulate the process that Steve Makinen and other members of the VSiN Analytics team undergo when handicapping each [&#8230;] The post College Football Top Plays Based on Bett",
-   "published": "Fri, 13 Nov 2026 02:00:00 +0000",
-   "source": "VSiN",
-   "kind": "news",
-   "golfers": [
-    "Seamus Power"
-   ]
-  },
-  {
-   "title": "NFL Top Plays Based on Betting Splits, Power Ratings and Trends \u2013 Week 10",
-   "link": "https://vsin.com/nfl/nfl-top-plays-based-on-betting-splits-power-ratings-and-trends-for-week-10/",
-   "summary": "Week 10 NFL Betting Trends: The following NFL betting trends are a collection of analytical data, betting systems and strength ratings featured on VSiN and qualified for the NFL games of Week 10. This report is meant to emulate the process that Steve Makinen and other members of the VSiN Analytics team undergo when handicapping [&#8230;] The post NFL Top Plays Based on Betting Splits, Power Rating",
-   "published": "Fri, 13 Nov 2026 02:00:00 +0000",
    "source": "VSiN",
    "kind": "news",
    "golfers": [
