@@ -1,11 +1,11 @@
 {
- "updatedUtc": "2026-11-14T10:29:12Z",
+ "updatedUtc": "2026-11-14T18:05:29Z",
  "slate": "WWT_2026",
  "event": "",
  "counts": {
-  "items": 8,
-  "golfersMentioned": 6,
-  "news": 8,
+  "items": 5,
+  "golfersMentioned": 4,
+  "news": 5,
   "chatter": 0
  },
  "sources": [
@@ -108,13 +108,13 @@
   {
    "source": "Google News: PGA DFS",
    "ok": true,
-   "items": 56,
+   "items": 54,
    "error": null
   },
   {
    "source": "Google News: PGA WD",
    "ok": true,
-   "items": 54,
+   "items": 55,
    "error": null
   },
   {
@@ -139,9 +139,15 @@
  "mentions": [
   {
    "name": "Seamus Power",
-   "news": 3,
+   "news": 2,
    "chatter": 0,
-   "total": 3
+   "total": 2
+  },
+  {
+   "name": "Jordan L. Smith",
+   "news": 1,
+   "chatter": 0,
+   "total": 1
   },
   {
    "name": "Cameron Davis",
@@ -154,27 +160,20 @@
    "news": 1,
    "chatter": 0,
    "total": 1
-  },
-  {
-   "name": "Chris Kirk",
-   "news": 1,
-   "chatter": 0,
-   "total": 1
-  },
-  {
-   "name": "Blades Brown",
-   "news": 1,
-   "chatter": 0,
-   "total": 1
-  },
-  {
-   "name": "Denny McCarthy",
-   "news": 1,
-   "chatter": 0,
-   "total": 1
   }
  ],
  "items": [
+  {
+   "title": "Wide Receiver Matchups to Target For Week 10 - Jaxon Smith-Njigba, Parker Washington, Omar Cooper Jr., Savion Williams, more",
+   "link": "https://www.rotoballer.com/nfl-dfs-picks-wide-receivers-to-target-for-week-10-2026/1993025",
+   "summary": "We've reached Week 10 of the NFL season, setting up another great week of fantasy football options from all across [&#8230;]",
+   "published": "Sat, 14 Nov 2026 15:55:36 +0000",
+   "source": "RotoBaller",
+   "kind": "news",
+   "golfers": [
+    "Jordan L. Smith"
+   ]
+  },
   {
    "title": "College Football Week 11 Best Bets: FAA Flight Delays, USC\u2013Indiana Picks and Circa Selections",
    "link": "https://vsin.com/the-vsin-daily/college-football-week-11-best-bets-faa-flight-delays-usc-indiana-picks-and-circa-selections/",
@@ -209,39 +208,6 @@
    ]
   },
   {
-   "title": "Who Should I Start for Fantasy Football Week 10? Jared Goff, Kirk Cousins, Brock Purdy, Drake Maye, Matthew Stafford, C.J. Stroud, Kyle McCord, Jordan Love, Dak Prescott",
-   "link": "https://www.rotoballer.com/who-should-i-start-for-week-10-jared-goff-kirk-cousins-brock-purdy-drake-maye-matthew-stafford-c-j-stroud-kyle-mccord-jordan-love-dak-prescott/1992615",
-   "summary": "Who Should I Start? Who Should I Sit? Some of the most common Week 10 fantasy football lineup decisions involve [&#8230;]",
-   "published": "Fri, 13 Nov 2026 19:16:26 +0000",
-   "source": "RotoBaller",
-   "kind": "news",
-   "golfers": [
-    "Chris Kirk"
-   ]
-  },
-  {
-   "title": "Who Should I Start for Fantasy Football Week 10? Braelon Allen, Blake Corum, Alvin Kamara, Jakobi Meyers, Aaron Jones Sr., Demarcus Robinson, Quinshon Judkins, Chase Brown",
-   "link": "https://www.rotoballer.com/who-should-i-start-for-week-10-braelon-allen-blake-corum-alvin-kamara-jakobi-meyers-aaron-jones-sr-demarcus-robinson-quinshon-judkins-chase-brown/1992550",
-   "summary": "Who Should I Start? Who Should I Sit? Some of the most common Week 10 fantasy football lineup decisions involve [&#8230;]",
-   "published": "Fri, 13 Nov 2026 18:22:22 +0000",
-   "source": "RotoBaller",
-   "kind": "news",
-   "golfers": [
-    "Blades Brown"
-   ]
-  },
-  {
-   "title": "College Football Week 11 Picks: Florida State vs. Pitt",
-   "link": "https://vsin.com/college-football/college-football-week-11-picks-florida-state-vs-pitt/",
-   "summary": "Florida State vs. Pitt There may only be three games on Friday, but there\u2019s a lot of power, if you know what I mean. And what I mean is that all three games come from the power conferences and are our first of the week, with Florida State vs. Pitt from the ACC, Illinois vs. [&#8230;] The post College Football Week 11 Picks: Florida State vs. Pitt appeared first on VSiN .",
-   "published": "Fri, 13 Nov 2026 02:13:57 +0000",
-   "source": "VSiN",
-   "kind": "news",
-   "golfers": [
-    "Seamus Power"
-   ]
-  },
-  {
    "title": "Seamus Power withdraws injured after opening round in Texas - RTE.ie",
    "link": "https://news.google.com/rss/articles/CBMiowFBVV95cUxNNWJpbDdvMjlXTHJ4eF9DNExxOWdhNm1WSXhndE85VEJVVTA3MlZRV195QU5HeHo4UGNtbHpxSDlyTmc1RnVVSERTVkxucXd5eG1md3ZiOGhSMHRobVZGNGN3ZjQ4TThVa0NuaTlMdzFFRnlvTEZIY1pEbGEybVRlS1N6YVdhdFN1aEJ6bkk4MzdCcmY5cWF2YjNjRDdKZmYtZjVv?oc=5",
    "summary": "Seamus Power withdraws injured after opening round in Texas RTE.ie",
@@ -250,17 +216,6 @@
    "kind": "news",
    "golfers": [
     "Seamus Power"
-   ]
-  },
-  {
-   "title": "JJ McCarthy Player Props: Best Kalshi Picks for Commanders vs. Giants on TNF",
-   "link": "https://www.fantasylabs.com/articles/jj-mccarthy-player-props-commanders-giants-tnf-kalshi/",
-   "summary": "Our JJ McCarthy player props for Commanders vs. Giants on Thursday Night Football are priced on Kalshi, and the Kalshi promo... The post JJ McCarthy Player Props: Best Kalshi Picks for Commanders vs. Giants on TNF appeared first on FantasyLabs .",
-   "published": "Thu, 12 Nov 2026 17:55:58 +0000",
-   "source": "FantasyLabs",
-   "kind": "news",
-   "golfers": [
-    "Denny McCarthy"
    ]
   }
  ]
