@@ -404,10 +404,14 @@ def main():
              "companions": dict(sig_companion[r["scenario"]].most_common(3))}
             for r in rows if max(r["wins"], r["winsField"]) >= 2
         ],
-        "shapes": [{"shape": s, "wins": w, "pWin": w / solved,
+        # The combined counter ORDERS the rows; the values are read back
+        # separately. Taking `w` from the sum made pWin the two definitions
+        # added together, and the shape column summed to 192%.
+        "shapes": [{"shape": s, "wins": win_shape.get(s, 0),
+                    "pWin": win_shape.get(s, 0) / solved,
                     "pWinField": fwin_shape.get(s, 0) / solved,
                     "field": field_shape.get(s, 0) / nf}
-                   for s, w in (win_shape + fwin_shape).most_common()],
+                   for s, _ in (win_shape + fwin_shape).most_common()],
     }
     path = os.path.join(DATA, "nfl_scenarios.json")
     with open(path, "w", encoding="utf-8") as f:
