@@ -273,9 +273,23 @@ def main():
     ap.add_argument("--top", type=int, default=5)
     ap.add_argument("--iters", type=int, default=600)
     ap.add_argument("--seed", type=int, default=20261115)
+    ap.add_argument("--avoid", default="",
+                    help="comma separated players to leave out, for building a "
+                         "PORTFOLIO rather than one lineup. Each build is solved "
+                         "independently, so they converge on the same best value "
+                         "plays and end up sharing them; if the same two players "
+                         "are in every lineup and both bust, every lineup dies "
+                         "together, which is the one risk entering several "
+                         "lineups is supposed to remove.")
     args = ap.parse_args()
 
     board, pool = load_pool()
+    avoid = {a.strip().lower() for a in args.avoid.split(",") if a.strip()}
+    if avoid:
+        before = len(pool)
+        pool = [p for p in pool
+                if not any(a in p["player"].lower() for a in avoid)]
+        log(f"avoiding {len(avoid)} player(s): {before - len(pool)} removed")
     log(f"slate: {board['slate']['name']}   built {board['built']}")
     log(f"{len(pool)} players with a projection, an ownership and an opponent")
     log(f"structure: {args.stack} deep in one game, "
