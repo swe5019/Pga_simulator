@@ -76,8 +76,16 @@ def log(*a):
 
 
 def read_csv(path):
+    # Leading '#' lines are skipped so a capture can carry its own provenance:
+    # which contest, when, and what is missing from it. That matters more here
+    # than in most data files, because every one of these is transcribed by
+    # hand from a screenshot and is usually partial, and a reader six weeks
+    # later cannot tell a partial capture from a complete one by looking.
+    # Without this, DictReader silently takes the first comment as the header
+    # and every row comes back misaligned.
     with open(path, encoding="utf-8-sig") as f:
-        rows = list(csv.DictReader(f))
+        lines = [ln for ln in f if not ln.lstrip().startswith("#")]
+    rows = list(csv.DictReader(lines))
     out = []
     for r in rows:
         r = { (k or "").strip().lower(): (v or "").strip() for k, v in r.items() }

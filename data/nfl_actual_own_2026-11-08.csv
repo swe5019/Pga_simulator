@@ -1,0 +1,75 @@
+# Actual contest ownership, $20 NFL $2.5M Fantasy Football Millionaire,
+# 8 November 2026, 147,058 entries. Transcribed from FantasyLabs Field Exposure.
+#
+# PARTIAL BY CONSTRUCTION. These are the leaders at QB, RB and WR only, as far
+# as the panel scrolled: no TE, no DST, and the long tail of each position is
+# missing. Ownership therefore does NOT sum to 900%, and the completeness check
+# in ingest_actual_ownership.py will say so. That is correct and expected; the
+# missing rows are the low-owned ones, which is exactly where the model's
+# over-projections live, so read the error figures as a floor rather than a
+# verdict.
+#
+# `all` is ownership across the whole field. top20/top10/top1 are ownership
+# WITHIN the top 20%, 10% and 1% of lineups by score, so top1/all is measured
+# winner leverage: what the projected-ownership leverage column is trying to
+# predict, but observed rather than modelled.
+#
+# Team is left blank where the crest was not legible in the capture rather than
+# guessed, since nothing here joins on it.
+pos,player,team,salary,points,all,top20,top10,top1
+QB,Drew Lock,SEA,4000,12.60,15.9,9.4,7.5,1.8
+QB,Malik Willis,,5100,4.82,14.3,4.8,2.8,0.8
+QB,Brock Purdy,SF,6800,26.28,8.0,9.3,8.1,3.6
+QB,Dak Prescott,DAL,6500,23.50,8.0,14.2,14.2,6.5
+QB,Patrick Mahomes,KC,6100,17.48,6.3,5.2,3.8,1.2
+QB,Jared Goff,DET,6600,6.30,5.3,0.4,0.2,0.0
+QB,Jayden Daniels,WAS,6000,15.56,5.1,4.8,3.8,0.6
+QB,Shedeur Sanders,CLE,4000,22.68,4.7,13.0,16.7,22.5
+QB,Joe Milton,PHI,4100,14.16,4.5,4.9,4.6,2.8
+QB,J.J. McCarthy,NYG,4800,7.28,3.8,1.4,0.9,0.1
+QB,Matthew Stafford,LAR,6200,12.22,3.5,2.9,2.3,0.6
+QB,Kirk Cousins,LV,5300,15.64,3.1,2.7,2.3,0.7
+QB,Jordan Love,GB,6300,39.18,2.8,10.6,16.6,48.4
+QB,Daniel Jones,IND,4700,11.30,2.7,2.4,1.8,0.5
+QB,Tyler Shough,NO,5700,19.70,2.4,2.5,2.1,0.4
+QB,C.J. Stroud,HOU,5900,39.36,2.0,4.9,6.0,7.1
+QB,Drake Maye,NE,7000,21.26,1.9,2.9,3.2,1.7
+QB,Bo Nix,DEN,5400,16.68,1.7,1.5,1.4,0.4
+QB,Geno Smith,,4900,7.40,1.3,0.7,0.5,0.1
+QB,Bryce Young,CAR,5500,22.34,0.9,0.9,0.8,0.5
+QB,Justin Herbert,LAC,5000,11.42,0.9,0.4,0.2,0.1
+QB,Gardner Minshew,ARI,4500,7.04,0.9,0.2,0.1,0.0
+RB,Jonah Coleman,DEN,5300,18.80,33.8,51.3,53.5,59.0
+RB,Jahmyr Gibbs,DET,10000,13.40,26.0,8.9,6.6,2.6
+RB,Devin Singletary,NYG,4600,5.90,22.6,27.9,27.4,24.6
+RB,Christian McCaffrey,SF,8000,22.70,22.1,33.5,31.4,27.8
+RB,Chuba Hubbard,CAR,6500,13.60,11.1,10.9,10.4,8.4
+RB,Kenneth Walker,KC,9000,39.30,10.8,22.9,26.1,31.8
+RB,Rhamondre Stevenson,NE,6100,15.80,9.5,16.4,17.9,25.1
+RB,Javonte Williams,DAL,7300,25.40,9.0,13.7,14.4,15.6
+RB,Quinshon Judkins,CLE,5400,5.50,8.7,7.1,6.3,5.8
+RB,Jonathan Taylor,IND,7500,10.40,8.3,5.3,4.2,3.1
+RB,Woody Marks,HOU,5700,8.40,6.1,6.2,6.1,4.2
+WR,Puka Nacua,LAR,8800,39.00,27.3,45.3,46.5,41.1
+WR,Jaxon Smith-Njigba,SEA,9300,12.10,20.2,8.7,5.4,0.3
+WR,CeeDee Lamb,DAL,8300,37.50,19.1,39.4,41.2,36.9
+WR,Ryan Flournoy,DAL,4800,7.30,16.6,16.2,14.3,7.1
+WR,Malik Nabers,NYG,7300,9.30,16.1,7.6,6.1,3.1
+WR,Adonai Mitchell,,4500,0.00,13.3,7.2,5.8,2.8
+WR,Caleb Douglas,MIA,4200,13.00,12.3,11.8,11.6,8.4
+WR,Malik Washington,MIA,4700,4.10,10.6,4.7,3.6,1.6
+WR,Jameson Williams,DET,6100,5.00,9.8,3.6,2.8,0.8
+WR,Rashee Rice,KC,6400,9.90,9.8,6.1,4.4,1.6
+WR,Matthew Golden,GB,7000,35.40,8.5,22.9,29.6,59.0
+WR,Omar Cooper,,4900,13.80,8.4,10.3,10.1,9.5
+WR,DeMario Douglas,NE,4800,18.20,8.3,13.0,14.6,19.7
+WR,Keenan Allen,IND,4900,6.60,6.4,5.0,4.0,1.9
+WR,Ladd McConkey,LAC,5500,0.00,6.2,2.3,1.7,0.8
+WR,Chris Olave,NO,7400,16.80,6.1,7.3,7.5,4.6
+WR,KC Concepcion,CLE,4600,18.80,5.8,14.0,17.3,22.2
+WR,Demarcus Robinson,SF,4300,5.20,5.8,5.1,4.4,2.8
+WR,Amon-Ra St. Brown,DET,8100,16.60,5.7,2.8,2.2,1.4
+WR,Makai Lemon,PHI,4700,12.10,5.5,5.5,5.1,3.5
+WR,Stefon Diggs,WAS,5600,8.10,5.1,3.6,2.8,0.7
+WR,Nico Collins,HOU,7200,15.50,3.8,5.2,5.5,3.7
+WR,Christian Watson,GB,7500,33.10,3.8,10.8,15.2,38.6
