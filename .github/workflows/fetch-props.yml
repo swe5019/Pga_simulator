@@ -22,7 +22,21 @@ on:
     # that lands after kickoff fails the population check and commits nothing,
     # so the extra attempts cannot overwrite a good build with a broken one.
     - cron: '20 15 * * 0'   # Sunday 10:20am ET
-    - cron: '20 16 * * 0'   # Sunday 11:20am ET, closest to a 1pm lock
+    - cron: '20 16 * * 0'   # Sunday 11:20am ET
+    # 12:40pm ET, twenty minutes before a 1pm lock. The 16:20 run leaves a
+    # hundred-minute blind window, and the most valuable news of the week
+    # lands inside it: inactives are published ninety minutes out, and the
+    # repricing that follows comes later still.
+    #
+    # On 15 November the last build before lock was 16:42. In the seventy-eight
+    # minutes after it, Minnesota changed quarterback and Jordan Addison was
+    # ruled out, and we held neither: the injury file still read Addison as
+    # questionable at lock. The books had already responded by pulling Justin
+    # Jefferson's receiving markets to reprice him, which left him with zero
+    # anchors, a role-prior projection, and a modelled 3.1% ownership. He was
+    # 40.0% owned. The blind window did not merely cost freshness, it inverted
+    # the read on the single most-owned pivot of the slate.
+    - cron: '40 17 * * 0'   # Sunday 12:40pm ET, inside the inactive window
   workflow_dispatch:
 
 permissions:
