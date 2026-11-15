@@ -402,6 +402,20 @@ def main():
                 "super": sc.get("super"),
                 "curve": sc.get("curve"),
                 "thin": pp.get("thin"), "anchors": len(pp.get("anchors") or []),
+                # No betting market on this player at all, so his projection is
+                # a role prior and nothing else. The number is not merely
+                # uncertain, it is biased LOW, because the prior is
+                # conservative and the ownership model then reads the poor
+                # value and buries him.
+                #
+                # On 15 November Justin Jefferson came through with zero
+                # anchors at $6,800. The prior gave him 12.55 points, the
+                # ownership model called him 3.1%, and the field owned him
+                # 40.0%. A 36.9 point miss, the largest this model has made,
+                # and it read as a leverage play to anyone who trusted it.
+                # Flagged so nothing downstream can mistake an absent market
+                # for an unpopular player.
+                "noMarket": not (pp.get("anchors") or []),
             })
             for k in ("outAhead", "outBasis", "roleCtx", "roleCtxN",
                       "selfOut", "selfBasis", "selfInjury", "roleUnknown"):
@@ -508,6 +522,25 @@ def main():
         "ownershipCalibrated": False,
         "players": players,
     }
+    # Said out loud every run. A priced-up player with no market behind him is
+    # the one failure this board cannot detect on its own: the projection looks
+    # ordinary, the ownership looks low, and the two together look like a
+    # leverage play. Jefferson at $6,800 with zero anchors read as 3.1% owned
+    # and came in at 40.0%.
+    blind = sorted((p for p in players
+                    if p.get("noMarket") and p.get("proj") is not None
+                    and p.get("sal", 0) >= 5000),
+                   key=lambda p: -p["sal"])
+    if blind:
+        log(f"\n   WARNING: {len(blind)} player(s) priced $5,000 or more carry "
+            f"NO betting market, so their projection is a role prior and their "
+            f"ownership is a guess biased low. Do not read them as contrarian:")
+        for p in blind:
+            own = (p.get("own") or {}).get("mme")
+            log(f"      {p['pos']:4}{p['player'][:22]:24}${p['sal']:<6} "
+                f"proj {p['proj']:>5.1f}  own {own if own is None else f'{own:.1f}%':>6}"
+                f"{'  (also thin on games)' if p.get('thin') else ''}")
+
     out = os.path.join(DATA, "nfl_slate_board.json")
     with open(out, "w", encoding="utf-8") as f:
         json.dump(payload, f, separators=(",", ":"))

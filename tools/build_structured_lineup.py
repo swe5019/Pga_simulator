@@ -72,6 +72,9 @@ def load_pool():
             "opp": p["opp"], "sal": p["sal"], "own": own,
             "proj": p["proj"], "ceil": p.get("ceil") or p["proj"],
             "game": game_of(p),
+            # No market behind him, so his low ownership is an artifact of the
+            # role prior rather than a fact about the crowd.
+            "noMarket": bool(p.get("noMarket")),
         })
     return board, pool
 
@@ -88,6 +91,11 @@ MAX_OPPOSING_SKILL_WITH_DST = 1
 # negatively correlated and cannot both go off. A builder that only reads means
 # will happily take a whole backfield, because nothing in a mean forbids it.
 MAX_RB_PER_TEAM = 1
+
+# Ownership to assume for a player with no betting market, in place of the
+# number the model produced. High enough that he is never selected FOR being
+# unowned, low enough that he can still be chosen on ceiling alone.
+NO_MARKET_OWN_FLOOR = 15.0
 
 
 def legal(ids, pool, own_cap):
@@ -152,7 +160,15 @@ def build_for_game(pool, game, own_cap, stack, rng, iters):
         # the build onto the unowned pieces of the game rather than its chalk.
         def weight(i):
             p = pool[i]
-            return (p["ceil"] / max(p["own"], 1.0)) * rng.uniform(0.6, 1.4)
+            # A player with no betting market is NOT cheap ownership. His
+            # number is a guess biased low, so dividing by it manufactures
+            # leverage that does not exist. Jefferson scored 23.5 ceiling at a
+            # projected 3.1%, which this ratio would have rated above every
+            # genuine low-owned piece on the slate, and he was 40% owned.
+            own = max(p["own"], 1.0)
+            if p["noMarket"]:
+                own = max(own, NO_MARKET_OWN_FLOOR)
+            return (p["ceil"] / own) * rng.uniform(0.6, 1.4)
 
         # A game stack is a QUARTERBACK and the players he throws to, plus
         # somebody from the other side. Without that it was choosing whichever
