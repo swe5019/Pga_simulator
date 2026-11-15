@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NFL Showdown Scenarios — Which Captain Wins a Single Game | SlateSims</title>
+  <link rel="icon" href="assets/img/favicon.svg?v=20260730v" type="image/svg+xml" />
+  <link rel="canonical" href="https://slatesims.com/nfl-showdown.html" />
+  <meta name="description" content="Which captain and which team split win a DraftKings NFL Showdown, found by solving the winning six-man lineup exactly in thousands of correlated simulations of one game, then grouping the winners by game script." />
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="SlateSims" />
+  <meta property="og:url" content="https://slatesims.com/nfl-showdown.html" />
+  <meta property="og:title" content="NFL Showdown Scenarios" />
+  <meta property="og:description" content="Which captain wins, how deep to go on one side, and what changes if the game turns into a blowout instead of a shootout." />
+  <meta property="og:image" content="https://slatesims.com/assets/img/avatar.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="NFL Showdown Scenarios | SlateSims" />
+  <meta name="twitter:description" content="Which captain wins a single-game slate, and what changes with the game script." />
+  <meta name="twitter:image" content="https://slatesims.com/assets/img/avatar.png" />
+  <link rel="stylesheet" href="assets/css/styles.css?v=20261017a" />
+  <style>
+    /* Page-local only. Everything else reuses the shared sheet so this page
+       cannot drift from the other NFL tabs. */
+    .slatebtn { display:inline-flex; flex-direction:column; gap:2px;
+      padding:8px 12px; margin:0 6px 6px 0; border-radius:8px; cursor:pointer;
+      border:1px solid var(--line, #2a2f3a); background:transparent;
+      color:inherit; font:inherit; text-align:left; }
+    .slatebtn.on { border-color:var(--accent, #6ea8fe);
+      background:rgba(110,168,254,.10); }
+    .slatebtn .muted { font-size:.82em; }
+    .chip { display:inline-block; padding:4px 10px; margin:0 6px 6px 0;
+      border-radius:999px; border:1px solid var(--line, #2a2f3a); }
+    .scriptcard { border:1px solid var(--line, #2a2f3a); border-radius:10px;
+      padding:12px 14px; margin:0 0 12px; }
+    .scriptcard h3 { margin:0 0 8px; font-size:1rem; }
+    .scriptcard ul { margin:0 0 8px; padding-left:20px; }
+    .scriptcard p { margin:0; }
+    .scriptgrid { display:grid; gap:12px;
+      grid-template-columns:repeat(auto-fit, minmax(260px, 1fr)); }
+  </style>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-13J1816EN4"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-13J1816EN4');
+  </script>
+</head>
+<body>
+  <div class="wrap">
+  <header class="top">
+    <a class="brand" href="index.html">SlateSims</a>
+    <nav class="mainnav" aria-label="Primary">
+      <div class="navitem">
+        <button type="button" class="navbtn" aria-haspopup="true" aria-expanded="false">
+          PGA <span class="navcaret" aria-hidden="true">▼</span>
+        </button>
+        <div class="navmenu" role="menu">
+          <div class="navgroup">DFS</div>
+          <a role="menuitem" href="app.html">Ownership &amp; Projections</a>
+          <a role="menuitem" href="app.html#build">Optimizer</a>
+          <a role="menuitem" href="app.html#contest">Contest Sim</a>
+          <div class="navgroup">Showdown</div>
+          <a role="menuitem" href="app.html#showdown">Ownership &amp; Projections</a>
+          <div class="navgroup">Research</div>
+          <a role="menuitem" href="app.html#news">News &amp; Chatter</a>
+          <a role="menuitem" href="app.html#saved">Saved Lineups</a>
+        </div>
+      </div>
+      <div class="navitem">
+        <button type="button" class="navbtn here" aria-haspopup="true" aria-expanded="false">
+          NFL <span class="navcaret" aria-hidden="true">▼</span>
+        </button>
+        <div class="navmenu" role="menu">
+          <div class="navgroup">DFS</div>
+          <a role="menuitem" href="nfl-slate.html">Slate Board</a>
+          <a role="menuitem" href="nfl-scenarios.html">Game Stack Scenarios</a>
+          <a role="menuitem" class="current" href="nfl-showdown.html">Showdown Scenarios</a>
+          <a role="menuitem" href="nfl-optimizer.html">Optimizer &amp; Contest Sim</a>
+          <a role="menuitem" href="nfl-projections.html">Fantasy Projections</a>
+          <div class="navgroup">Research</div>
+          <a role="menuitem" href="nfl.html">Advanced Stats</a>
+          <a role="menuitem" href="nfl-props.html">Player Props</a>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section id="showdown" class="panel active">
+      <h1 id="sdTitle">NFL Showdown Scenarios</h1>
+      <p class="sub" id="sdMeta"></p>
+
+      <div id="sdPicker"></div>
+
+      <p class="hint">
+        A showdown is six players from one game, one of them a captain who
+        scores and costs one and a half times. Because every lineup is in the
+        same game, asking <i>which</i> game to stack is meaningless here. The
+        questions that actually separate two lineups are <b>who captains</b>,
+        <b>how the six split across the two sides</b>, and <b>what kind of game
+        it turns into</b>. So that is what this measures: it plays the game out
+        thousands of times with players correlated, solves the lineup that would
+        have won each one, and groups those winners.
+      </p>
+
+      <p class="hint" id="sdSolve"></p>
+
+      <p class="hint warnbox" id="sdWarn">
+        <b>These are win rates, not leverage.</b> Every number here is measured
+        from the simulation: the share of games whose best possible lineup had
+        that shape. There is deliberately <b>no field or leverage column</b>,
+        because a showdown field needs a model of <i>captain</i> ownership,
+        which sums to 100% across the slate while flex ownership sums to 500%,
+        and no such model exists here yet. Your payoff in a tournament depends
+        on how many other people built the same thing, so until that denominator
+        is measured rather than guessed it is left out instead of filled in.
+        Read this page as which constructions win, not as which are uncrowded.
+      </p>
+
+      <div id="sdUnlock" class="unlockbar">
+        <span><strong>Free with your email:</strong> the game script breakdown
+          and who each captain is most often paired with. Win rates are free to
+          everyone.</span>
+        <button type="button" id="sdUnlockBtn" class="primary small">Unlock free →</button>
+      </div>
+
+      <h2>Captains</h2>
+      <p class="hint">
+        The captain slot is the one real lever in this format. A leveraged
+        captain compounds, because you get one and a half times his score inside
+        a small slice of the field, and no slot in a classic lineup does that.
+      </p>
+      <div class="tablewrap">
+        <table id="sdCapTable">
+          <thead><tr id="sdCapHead"></tr></thead>
+          <tbody id="sdCapBody"></tbody>
+        </table>
+      </div>
+
+      <h2>Shapes</h2>
+      <p class="hint">
+        The captain's position together with the team split. <b>4-2</b> means
+        four players from the captain's own side and two from the other.
+        DraftKings requires at least one from each team, so 6-0 cannot be built.
+      </p>
+      <div class="tablewrap" id="sdShapes"></div>
+      <p class="hint">Team split on its own, ignoring who captained:</p>
+      <p id="sdSplits"></p>
+
+      <h2>Game script</h2>
+      <p class="hint">
+        With one game you cannot ask which game goes off, so you ask <i>how</i>
+        this one goes off. Each simulated game is bucketed by how much the two
+        sides produced and how far apart they finished, using this game's own
+        distribution rather than fixed point totals, and the winning shapes are
+        reported inside each bucket. This is the part that should change what you
+        build.
+      </p>
+      <div class="scriptgrid" id="sdScripts"></div>
+
+      <section class="seo-copy">
+        <h2>How this is built</h2>
+        <h3>The solve is exact, which matters more here than on a main slate</h3>
+        <p>
+          A single-game pool is about two dozen players once the unprojectable
+          deep roster is set aside, and a lineup is six slots. That is small
+          enough to solve properly: every player is tried as captain, and every
+          legal way of filling the other five slots is scored against the cap.
+          Nothing is left to a greedy search.
+        </p>
+        <p>
+          That is not a detail. A captain is decided by a single point of score,
+          so an approximate fill would hand the slot to the wrong player while
+          still producing a plausible-looking table. The solver is checked against
+          an independently written brute force over random games and agrees to
+          within a rounding error, and it is separately checked to never break the
+          salary cap, never duplicate the captain into a flex slot, and never
+          return a lineup missing one of the two teams.
+        </p>
+        <h3>Why a showdown suits this method better than a main slate</h3>
+        <p>
+          On a twelve-game slate, saying a construction is uncrowded requires
+          modelling what several hundred thousand entries look like across nearly
+          six hundred players, and that model is only as good as its ownership
+          projections. Here the pool is the game. All the correlation that matters
+          is inside it, which is exactly what the simulation models best, and
+          there are no cross-game independence assumptions left to get wrong.
+        </p>
+        <h3>What it does not tell you</h3>
+        <p>
+          It does not say which way the game will go. Nothing can. It says which
+          six-man constructions win if the game breaks a particular way, and how
+          often each way happens in the simulation, which is the part that is
+          knowable before kickoff. It also does not yet say how many other people
+          built the same thing, and that gap is stated on the page rather than
+          papered over with a number.
+        </p>
+      </section>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <span>SlateSims · free NFL projections, research and DraftKings PGA DFS tools.</span>
+  </footer>
+  </div>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebApplication",
+        "name": "SlateSims NFL Showdown Scenarios",
+        "url": "https://slatesims.com/nfl-showdown.html",
+        "applicationCategory": "SportsApplication",
+        "operatingSystem": "Any",
+        "description": "Which captain and which team split win a DraftKings NFL Showdown, from thousands of correlated single-game simulations solved exactly.",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+        "publisher": { "@type": "Organization", "name": "SlateSims", "url": "https://slatesims.com/" }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "SlateSims", "item": "https://slatesims.com/" },
+          { "@type": "ListItem", "position": 2, "name": "NFL Showdown Scenarios", "item": "https://slatesims.com/nfl-showdown.html" }
+        ]
+      }
+    ]
+  }
+  </script>
+
+  <script src="assets/js/nav.js?v=20261017a"></script>
+  <script src="assets/js/leadgate.js?v=20261017a"></script>
+  <script src="assets/js/showdown.js?v=20261115a"></script>
+</body>
+</html>
