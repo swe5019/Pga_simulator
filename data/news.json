@@ -1,19 +1,19 @@
 {
- "updatedUtc": "2026-11-15T06:35:59Z",
+ "updatedUtc": "2026-11-15T16:22:54Z",
  "slate": "WWT_2026",
  "event": "",
  "counts": {
-  "items": 4,
+  "items": 5,
   "golfersMentioned": 3,
-  "news": 4,
+  "news": 5,
   "chatter": 0
  },
  "sources": [
   {
    "source": "RotoWire Golf",
-   "ok": false,
-   "items": 0,
-   "error": "no items"
+   "ok": true,
+   "items": 5,
+   "error": null
   },
   {
    "source": "RotoBaller Golf",
@@ -108,13 +108,13 @@
   {
    "source": "Google News: PGA DFS",
    "ok": true,
-   "items": 54,
+   "items": 53,
    "error": null
   },
   {
    "source": "Google News: PGA WD",
    "ok": true,
-   "items": 55,
+   "items": 57,
    "error": null
   },
   {
@@ -139,12 +139,12 @@
  "mentions": [
   {
    "name": "Seamus Power",
-   "news": 2,
+   "news": 3,
    "chatter": 0,
-   "total": 2
+   "total": 3
   },
   {
-   "name": "Jordan L. Smith",
+   "name": "Chris Kirk",
    "news": 1,
    "chatter": 0,
    "total": 1
@@ -158,6 +158,17 @@
  ],
  "items": [
   {
+   "title": "NFL Week 10 Best Bets and Circa Contest Selections",
+   "link": "https://vsin.com/the-vsin-daily/nfl-week-10-best-bets-and-circa-contest-selections/",
+   "summary": "\ud83c\udfc8 Two Quarterbacks, Two Big Questions Kirk Cousins and Fernando Mendoza are on the clock today. Does Cousins make the Vikings a Super Bowl contender? Matt Youmans is at least considering the possibility. \u201cMy only Super Bowl futures wager is on the Chiefs at 15-1 odds from the preseason, and I\u2019m considering adding the Vikings.\u201d [&#8230;] The post NFL Week 10 Best Bets and Circa Contest Selections a",
+   "published": "Sun, 15 Nov 2026 08:44:12 +0000",
+   "source": "VSiN",
+   "kind": "news",
+   "golfers": [
+    "Chris Kirk"
+   ]
+  },
+  {
    "title": "NFL Top Plays Based on Betting Splits, Power Ratings and Trends \u2013 Week 10",
    "link": "https://vsin.com/nfl/nfl-top-plays-based-on-betting-splits-power-ratings-and-trends-for-week-10/",
    "summary": "Week 10 NFL Betting Trends: The following NFL betting trends are a collection of analytical data, betting systems and strength ratings featured on VSiN and qualified for the NFL games of Week 10. This report is meant to emulate the process that Steve Makinen and other members of the VSiN Analytics team undergo when handicapping [&#8230;] The post NFL Top Plays Based on Betting Splits, Power Rating",
@@ -169,17 +180,6 @@
    ]
   },
   {
-   "title": "Wide Receiver Matchups to Target For Week 10 - Jaxon Smith-Njigba, Parker Washington, Omar Cooper Jr., Savion Williams, more",
-   "link": "https://www.rotoballer.com/nfl-dfs-picks-wide-receivers-to-target-for-week-10-2026/1993025",
-   "summary": "We've reached Week 10 of the NFL season, setting up another great week of fantasy football options from all across [&#8230;]",
-   "published": "Sat, 14 Nov 2026 15:55:36 +0000",
-   "source": "RotoBaller",
-   "kind": "news",
-   "golfers": [
-    "Jordan L. Smith"
-   ]
-  },
-  {
    "title": "College Football Week 11 Best Bets: FAA Flight Delays, USC\u2013Indiana Picks and Circa Selections",
    "link": "https://vsin.com/the-vsin-daily/college-football-week-11-best-bets-faa-flight-delays-usc-indiana-picks-and-circa-selections/",
    "summary": "\ud83c\udfc8 Delay of Games Circa oddsmaker Jeff Davis called it \u201ca unique situation.\u201d Indeed. When the FAA grounded flights Friday, roughly 1.5 million people were affected \u2014 including college football players. Naturally, bettors jumped on the angle, betting home teams. (I&#8217;m sure they checked on their traveling loved ones first . . . maybe, probably.) [&#8230;] The post College Football Week 11 Best B",
@@ -188,6 +188,17 @@
    "kind": "news",
    "golfers": [
     "Cameron Davis"
+   ]
+  },
+  {
+   "title": "Seamus Power withdraws due to hip injury - Irish Golfer Magazine",
+   "link": "https://news.google.com/rss/articles/CBMilwFBVV95cUxQYmx4aWdReVRtSWpQUkNKTTVvX2ZLUDk0aXh5RzA2LTk4NHp4eHREU1lTdWpQUFdoeEhIY0V5SGxBRVdCTEVQR1NBdjFhLVpvWUtYMlNKRmFsQU5lSVFxQjE1YVZFRURUVFU3MmRpUWNDeWVKODdrVnZIbHE3c2FiTWgyRGRFaEVJNVVDamMzZE1NOUp6RU1F?oc=5",
+   "summary": "Seamus Power withdraws due to hip injury Irish Golfer Magazine",
+   "published": "Thu, 12 Nov 2026 21:40:33 GMT",
+   "source": "Google News: PGA WD",
+   "kind": "news",
+   "golfers": [
+    "Seamus Power"
    ]
   },
   {
