@@ -1,0 +1,32 @@
+# Game stacks, $20 NFL $2.5M Fantasy Football Millionaire, 8 November 2026,
+# 147,058 entries. Transcribed from the FantasyLabs Game Stacks panel, sorted
+# by Top 1%, so this is the TOP OF THAT RANKING and not every stack played.
+#
+# `field` is the share of all entries containing that exact combination;
+# top20/top10/top1 are the share within the top 20%, 10% and 1% of lineups by
+# score. top1/field is measured stack leverage.
+#
+# This is the direct test of the four-deep rule. The field built the four-man
+# Green Bay stack in 0.1% of its entries and it appeared in 4.3% of the top 1%.
+# The deep stacks are not merely good, they are close to unbuilt.
+game,stack,players,salary,field,top20,top10,top1
+GB @ NE,QB Jordan Love / RB Rhamondre Stevenson / WR Christian Watson / WR Matthew Golden,4,26900,0.1,0.5,1.0,4.3
+GB @ NE,QB Jordan Love / WR Christian Watson / WR Matthew Golden / WR DeMario Douglas,4,25600,0.1,0.3,0.5,3.4
+LA @ WAS,TE Chig Okonkwo / WR Puka Nacua,2,12400,0.6,1.6,1.9,3.4
+DEN @ CAR,RB Chuba Hubbard / RB Jonah Coleman,2,11800,2.0,2.5,2.6,3.2
+NYJ @ KC,RB Kenneth Walker / WR Omar Cooper,2,13900,0.8,2.1,2.5,3.1
+DAL @ IND,TE Tyler Warren / WR CeeDee Lamb,2,12900,0.8,1.7,1.9,2.0
+GB @ NE,WR Matthew Golden / WR DeMario Douglas,2,11800,0.5,1.3,1.5,1.8
+GB @ NE,QB Jordan Love / WR Matthew Golden / WR DeMario Douglas,3,18100,0.1,0.3,0.5,1.6
+GB @ NE,QB Jordan Love / RB Rhamondre Stevenson / WR Christian Watson / WR Matthew Golden / +1,5,31700,0.0,0.1,0.2,1.5
+GB @ NE,RB Rhamondre Stevenson / WR Matthew Golden,2,13100,0.8,1.6,1.8,1.4
+CLE @ NO,QB Shedeur Sanders / TE Harold Fannin / WR Chris Olave / WR KC Concepcion,4,20700,0.2,0.8,1.1,1.4
+GB @ NE,QB Jordan Love / RB Rhamondre Stevenson / WR Matthew Golden,3,19400,0.1,0.3,0.5,1.1
+GB @ NE,RB Rhamondre Stevenson / QB Jordan Love / WR Christian Watson / WR Matthew Golden,4,26900,0.0,0.2,0.3,1.1
+DEN @ CAR,RB Jonah Coleman / TE Darren Waller,2,8600,0.1,0.3,0.5,1.0
+DAL @ IND,RB Javonte Williams / TE Tyler Warren,2,11900,0.5,0.6,0.6,0.9
+NYJ @ KC,RB Kenneth Walker / WR Adonai Mitchell,2,13500,1.2,1.4,1.3,0.8
+GB @ NE,QB Jordan Love / WR Christian Watson / WR DeMario Douglas,3,18600,0.1,0.3,0.4,0.8
+DAL @ IND,RB Jonathan Taylor / WR CeeDee Lamb,2,15800,0.7,0.9,0.8,0.8
+GB @ NE,QB Jordan Love / WR Christian Watson / WR Matthew Golden / WR Mack Hollins,4,24600,0.0,0.1,0.1,0.8
+DET @ MIA,RB Jahmyr Gibbs / TE Greg Dulcich,2,13100,2.7,1.3,1.1,0.8
