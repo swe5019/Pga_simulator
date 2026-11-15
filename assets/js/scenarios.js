@@ -61,14 +61,27 @@
     ['depth', 'Deep', 'num', 'How many of the nine roster spots come from that game. '
       + 'Four deep means four of your players are in one game, so they rise and '
       + 'fall together.'],
-    ['pWin', 'Wins%', 'num', 'Share of simulated slates where the best possible lineup '
-      + 'had this shape. This half is measured, not assumed.'],
+    ['pWin', 'Optimal%', 'num', 'Share of simulated slates where the BEST POSSIBLE '
+      + 'lineup had this shape. Measured against the simulation alone: nothing about '
+      + 'the crowd goes into it, which is why it is the one column here that owes '
+      + 'the ownership model nothing.'],
+    ['pWinField', 'Contest%', 'num', 'Share of simulated slates where the best lineup '
+      + 'IN A SIMULATED FIELD had this shape. A tournament is won by the best entry '
+      + 'somebody actually submitted, not by the best entry that could exist, and the '
+      + 'two are far apart: four-deep stacks are 10% of optimal wins and 41% of contest '
+      + 'wins. Closer to what a contest pays, but it is built on the ownership model, '
+      + 'so it is only as good as that.'],
     ['field', 'Field%', 'num', 'Share of a simulated field of 4,000 entries built this '
       + 'way. A MODEL of the crowd, resting on projected ownership that is known to be '
       + 'over-dispersed, so treat it as a rough guide.'],
-    ['leverage', 'Lev', 'num', 'Wins divided by field. Above 1 means the shape wins more '
-      + 'often than entries are built that way. It inherits every weakness of the field '
-      + 'column, so use it to rank, not to size a bet.'],
+    ['leverage', 'Lev opt', 'num', 'Optimal% divided by Field%. Above 1 means the shape '
+      + 'wins more often than entries are built that way.'],
+    ['leverageField', 'Lev con', 'num', 'Contest% divided by Field%. The same ratio '
+      + 'against the winner a contest actually pays. It runs lower than Lev opt, '
+      + 'because the shapes that win a real contest are the stacked ones the field is '
+      + 'already building. Measured against the 8 November Millionaire, the ORDERING '
+      + 'of these columns was good (+0.72 rank correlation) while the levels were not, '
+      + 'so rank with them and do not size a bet on them.'],
     ['cheap', 'Cheap correlation', '', 'The player in that game who carries the most '
       + 'ceiling per point of ownership, among those with a real role and a real '
       + 'ceiling rather than a wide one. Takes almost '
@@ -78,13 +91,16 @@
     ['wins', 'Trials', 'num', 'How many simulated slates this is counted from. Small '
       + 'counts are noisy.'],
   ];
-  const LOCKED = new Set(['field', 'leverage', 'cheap']);
+  // Everything that leans on the ownership model gates together. Optimal% is
+  // free because it owes that model nothing.
+  const LOCKED = new Set(['pWinField', 'field', 'leverage', 'leverageField', 'cheap']);
   const visibleCols = () => (unlocked() ? COLS : COLS.filter((c) => !LOCKED.has(c[0])));
 
   function cell(r, k) {
     switch (k) {
-      case 'pWin': case 'field': return pct(r[k]);
-      case 'leverage': return r.leverage == null ? '—' : r.leverage.toFixed(2) + '×';
+      case 'pWin': case 'pWinField': case 'field': return pct(r[k]);
+      case 'leverage': case 'leverageField':
+        return r[k] == null ? '—' : r[k].toFixed(2) + '×';
       case 'depth': return 'x' + r.depth;
       case 'cheap': {
         const c = (r.cheapList || [])[0];
@@ -157,13 +173,17 @@
     $('#scShapes').innerHTML = '<table><thead><tr>'
       + '<th title="How many players come from one game, then the second game. '
       + '&quot;4-2&quot; is four from one game and two from another.">Shape</th>'
-      + '<th class="num">Wins%</th>'
-      + (locked ? '' : '<th class="num">Field%</th><th class="num">Lev</th>')
+      + '<th class="num" title="Share of slates whose BEST POSSIBLE lineup had '
+      + 'this shape.">Optimal%</th>'
+      + (locked ? '' : '<th class="num" title="Share of slates whose best lineup '
+        + 'IN A SIMULATED FIELD had this shape, which is nearer what a contest pays.">'
+        + 'Contest%</th><th class="num">Field%</th><th class="num">Lev opt</th>')
       + '</tr></thead><tbody>'
       + state.shapes.map((s) => {
         const lev = s.field ? s.pWin / s.field : null;
         return `<tr><td>${esc(s.shape)}</td><td class="num">${pct(s.pWin)}</td>`
-          + (locked ? '' : `<td class="num">${pct(s.field)}</td>`
+          + (locked ? '' : `<td class="num">${pct(s.pWinField)}</td>`
+            + `<td class="num">${pct(s.field)}</td>`
             + `<td class="num">${lev == null ? '—' : lev.toFixed(2) + '×'}</td>`)
           + '</tr>';
       }).join('')

@@ -284,12 +284,31 @@ def main():
     idx_by_pos = {k: np.asarray(v) for k, v in idx_by_pos.items()}
     meta = (idx_by_pos, sal, teams)
 
-    # ---- 1-3. what wins, trial by trial
+    # The field is drawn BEFORE the trial loop now, because each trial needs it
+    # to find the best entry in it, and from its own generator so that the
+    # optimum column below is bit-for-bit what it was before this was added.
     rng = np.random.default_rng(bc.SEED)
+    rng_field = np.random.default_rng(bc.SEED + 1)
+    log(f"\nbuilding a field of {args.field:,} lineups at projected ownership")
+    field, attempts = bc.sample_field(rng_field, pool, args.field)
+    log(f"   {len(field):,} legal lineups from {attempts:,} attempts")
+    fidx = np.array([sorted(ids) for ids in field], dtype=np.int32)
+
+    # ---- 1-3. what wins, trial by trial
     n = scores.shape[1]
     log(f"\nsolving the winning lineup in each of {n:,} simulated slates")
     win_sig = Counter()
     win_shape = Counter()
+    # The second definition of winning. The optimum is the best lineup that
+    # COULD be built; this is the best lineup anybody DID build, which is what
+    # a contest actually pays. They are not close: measured by
+    # compare_winner_shapes.py, four-deep stacks are 10.2% of optimum wins and
+    # 40.5% of field wins, and the two agree on which game to stack only 39.6%
+    # of the time. Both are reported rather than one replacing the other,
+    # because the optimum owes nothing to the ownership model while this owes
+    # it everything, and that difference is worth seeing on the page.
+    fwin_sig = Counter()
+    fwin_shape = Counter()
     sig_players = defaultdict(Counter)
     sig_companion = defaultdict(Counter)
     solved = 0
@@ -298,6 +317,10 @@ def main():
         if not ids:
             continue
         solved += 1
+        best = fidx[int(np.argmax(scores[:, t][fidx].sum(axis=1)))]
+        fname, fparts, _fc = signature(list(best), pool)
+        fwin_sig[fname] += 1
+        fwin_shape[shape_of(fparts)] += 1
         name, parts, companion = signature(ids, pool)
         win_sig[name] += 1
         win_shape[shape_of(parts)] += 1
@@ -318,9 +341,6 @@ def main():
         return 1
 
     # ---- 4. where the field already is
-    log(f"\nbuilding a field of {args.field:,} lineups at projected ownership")
-    field, attempts = bc.sample_field(rng, pool, args.field)
-    log(f"   {len(field):,} legal lineups from {attempts:,} attempts")
     field_sig = Counter()
     field_shape = Counter()
     for ids in field:
@@ -331,25 +351,32 @@ def main():
     # ---- 5. leverage
     nf = max(len(field), 1)
     rows = []
-    for name, wins in win_sig.items():
+    for name in set(win_sig) | set(fwin_sig):
+        wins = win_sig.get(name, 0)
+        fwins = fwin_sig.get(name, 0)
         pw = wins / solved
+        pwf = fwins / solved
         pf = field_sig.get(name, 0) / nf
         # A scenario the sampled field never produced is not infinitely good,
         # it is merely rarer than one lineup in the sample, so it is floored
         # there rather than reported as a divide by zero.
         pf_eff = max(pf, 1.0 / nf)
-        rows.append({"scenario": name, "pWin": pw, "field": pf,
-                     "leverage": pw / pf_eff, "wins": wins})
+        rows.append({"scenario": name, "pWin": pw, "pWinField": pwf,
+                     "field": pf, "leverage": pw / pf_eff,
+                     "leverageField": pwf / pf_eff,
+                     "wins": wins, "winsField": fwins})
     rows.sort(key=lambda r: -r["leverage"])
 
     log("\n" + "=" * 78)
     log("SCENARIOS BY LEVERAGE — how often it wins against how crowded it is")
     log("=" * 78)
-    log(f"{'scenario':42}{'wins%':>8}{'field%':>8}{'lev':>8}")
-    shown = [r for r in rows if r["wins"] >= max(3, solved * 0.004)][:args.top]
+    log(f"{'scenario':38}{'opt%':>7}{'cont%':>7}{'field%':>8}{'lev':>7}{'levC':>7}")
+    shown = [r for r in rows
+             if max(r["wins"], r["winsField"]) >= max(3, solved * 0.004)
+             ][:args.top]
     for r in shown:
-        log(f"{r['scenario'][:41]:42}{100*r['pWin']:>7.1f}%{100*r['field']:>7.1f}%"
-            f"{r['leverage']:>8.1f}")
+        log(f"{r['scenario'][:37]:38}{100*r['pWin']:>6.1f}%{100*r['pWinField']:>6.1f}%"
+            f"{100*r['field']:>7.1f}%{r['leverage']:>7.1f}{r['leverageField']:>7.1f}")
         top = ", ".join(f"{n} ({100*c/r['wins']:.0f}%)"
                         for n, c in sig_players[r["scenario"]].most_common(4))
         log(f"   from that game: {top}")
@@ -359,26 +386,28 @@ def main():
                 f"{k} ({100*v/r['wins']:.0f}%)" for k, v in comp))
 
     log("\nby abstract shape, ignoring which game it was:")
-    log(f"{'shape':14}{'wins%':>8}{'field%':>8}{'lev':>8}")
+    log(f"{'shape':14}{'opt%':>8}{'cont%':>8}{'field%':>8}")
     for shape, wins in win_shape.most_common(8):
-        pw = wins / solved
-        pf = max(field_shape.get(shape, 0) / nf, 1.0 / nf)
-        log(f"{shape:14}{100*pw:>7.1f}%{100*field_shape.get(shape,0)/nf:>7.1f}%"
-            f"{pw/pf:>8.1f}")
+        log(f"{shape:14}{100*wins/solved:>7.1f}%"
+            f"{100*fwin_shape.get(shape,0)/solved:>7.1f}%"
+            f"{100*field_shape.get(shape,0)/nf:>7.1f}%")
 
     out = {
         "built": __import__("datetime").datetime.now(
             __import__("datetime").timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
         "slate": board.get("slate"),
         "trials": solved, "field": int(len(field)),
+        # Flags the page reads so it cannot render a column that is not here.
+        "hasContestWin": True,
         "scenarios": [
             {**r, "players": [n for n, _ in sig_players[r["scenario"]].most_common(9)],
              "companions": dict(sig_companion[r["scenario"]].most_common(3))}
-            for r in rows if r["wins"] >= 2
+            for r in rows if max(r["wins"], r["winsField"]) >= 2
         ],
         "shapes": [{"shape": s, "wins": w, "pWin": w / solved,
+                    "pWinField": fwin_shape.get(s, 0) / solved,
                     "field": field_shape.get(s, 0) / nf}
-                   for s, w in win_shape.most_common()],
+                   for s, w in (win_shape + fwin_shape).most_common()],
     }
     path = os.path.join(DATA, "nfl_scenarios.json")
     with open(path, "w", encoding="utf-8") as f:

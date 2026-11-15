@@ -98,16 +98,30 @@
         stack rather than the $5,800 running back everyone else used.
       </p>
 
+      <p class="hint">
+        <b>There are two win columns, and they disagree.</b> <b>Optimal%</b> is the
+        share of simulated slates whose best <i>possible</i> lineup had that shape.
+        <b>Contest%</b> is the share whose best lineup <i>inside a simulated field</i>
+        had it. A tournament is won by the best entry somebody actually submitted, not
+        by the best entry that could exist, and those are far apart: four-deep stacks
+        are 10% of optimal wins and 41% of contest wins, and the two definitions agree
+        on which game to stack only 40% of the time. Contest% is nearer what a contest
+        pays. Optimal% is the only column here that owes the ownership model nothing.
+        Both are shown rather than one replacing the other, because where they disagree
+        is itself the information.
+      </p>
+
       <p class="hint warnbox" id="scWarn">
-        <b>Half of this is measured and half is a model, and the halves are not
-        equally good.</b> The <b>Wins%</b> column is measured: it is the share of
-        simulated slates whose best possible lineup had that shape, and nothing about
-        the field goes into it. The <b>Field%</b> column is a simulation of what
-        everybody else builds, and it rests on projected ownership that has been
-        checked against one real contest and came back over-dispersed, with 4.15
-        points of average error. <b>Leverage</b> divides one by the other, so it is
-        only as good as the weaker half. Use it to rank games against each other.
-        Do not read 3.0× as "three times the edge".
+        <b>One column is measured and the rest lean on a model of the crowd.</b>
+        <b>Optimal%</b> comes from the simulation alone. <b>Field%</b>, <b>Contest%</b>
+        and both leverage columns rest on projected ownership, which carries about four
+        points of average error against the two real contests it has been checked on.
+        Scored against the 8 November Millionaire, the <i>ordering</i> of the leverage
+        column held up well, at +0.72 rank correlation across twelve games, and the
+        <i>levels</i> did not: it rated every game above 1.2×, while half the slate
+        actually came in under 1.0×, so it never told you what to fade. It also ranked
+        the game that won 5th rather than 1st. Rank with these columns. Do not read
+        3.0× as "three times the edge".
       </p>
 
       <div id="scUnlock" class="unlockbar">
@@ -222,6 +236,6 @@
 
   <script src="assets/js/nav.js?v=20261017a"></script>
   <script src="assets/js/leadgate.js?v=20261017a"></script>
-  <script src="assets/js/scenarios.js?v=20261017a"></script>
+  <script src="assets/js/scenarios.js?v=20261115b"></script>
 </body>
 </html>
