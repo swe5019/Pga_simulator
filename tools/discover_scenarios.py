@@ -212,8 +212,28 @@ def main():
     ap.add_argument("--top", type=int, default=20)
     ap.add_argument("--calibrate", type=float, default=0.0,
                     help="compress projected ownership by this exponent before "
-                         "sampling the field (0 = off; 0.71 was fitted on the "
-                         "1 November Millionaire)")
+                         "sampling the field (0 = off; LEAVE IT OFF, see below)")
+    # DO NOT TURN THIS ON WITHOUT REFITTING IT.
+    #
+    # The 0.71 exponent was fitted on the 1 November Millionaire, where the
+    # ownership model was badly over-dispersed at quarterback: it had Malik
+    # Willis at 18.8% against an actual 1.8%. Tested against the 8 November
+    # contest, where the quarterback capture is complete on both sides (the
+    # projection sums to 98.4% and the actual to 100.0%, against the 100% of
+    # one roster slot), compression makes it strictly WORSE:
+    #
+    #     exponent 1.00 (off)   mean absolute error 1.26
+    #     exponent 0.85                             1.36
+    #     exponent 0.71                             1.58
+    #     exponent 0.50                             1.96
+    #
+    # Monotone, with no minimum anywhere below 1.0. The same model that missed
+    # Willis by tenfold in one week had him at 15.0% against an actual 14.3%
+    # the next. So the over-dispersion that 0.71 corrects for is not a standing
+    # property of the model, it was one bad slate, and the correction would
+    # have damaged a good one. Two slates is still a small sample; the point is
+    # only that the evidence for compressing is now weaker than the evidence
+    # against it.
     args = ap.parse_args()
 
     bpath = os.path.join(DATA, "nfl_slate_board.json")
