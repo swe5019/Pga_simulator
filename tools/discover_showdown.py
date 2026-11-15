@@ -87,48 +87,66 @@ def log(*a):
     print(*a, flush=True)
 
 
-def load_slate(dg=None):
-    """The showdown slate to solve, from the archived DK draft groups.
+def _start_of(s):
+    try:
+        return datetime.datetime.strptime(
+            s.get("start") or "", "%Y-%m-%dT%H:%M:%SZ"
+        ).replace(tzinfo=datetime.timezone.utc)
+    except ValueError:
+        return None
 
-    Returns (slate, status). Status separates "nothing to solve right now",
-    which is the ordinary state midweek before DraftKings posts the weekend,
-    from "something is broken". The scheduled job must not fail on the former,
-    and must not pass silently on the latter.
+
+def load_slates(dg=None, want=2):
+    """The showdown slates to solve, from the archived DK draft groups.
+
+    Returns (slates, status), SOONEST FIRST. Status separates "nothing to solve
+    right now", which is the ordinary state midweek before DraftKings posts the
+    weekend, from "something is broken". The scheduled job must not fail on the
+    former, and must not pass silently on the latter.
+
+    Two things this gets right that solving a single slate did not.
+
+    Upcoming games only. Ranking by entry count alone silently solved a game
+    that had already been played, because run on a Monday, Sunday night's
+    showdown still carries the most entries in the archive.
+
+    And the biggest upcoming showdown is not the next one. A Sunday posts a
+    dozen single-game slates, and on 15 November the largest was Monday night's
+    LAC/BAL at 639,260 entries while Sunday night's PIT/CIN at 491,902 locked
+    thirteen hours earlier. Picking the largest meant the Sunday game, the one
+    actually in front of the player, was never solved. So the `want` largest
+    are taken, then ORDERED BY KICKOFF, which puts the game you have to decide
+    first at the top without dropping the bigger one later in the week.
+
+    The small slates are deliberately not solved. The same Sunday carried seven
+    showdowns between 8,400 and 40,000 entries against two near half a million;
+    they are a different product, and solving all twelve would spend the runtime
+    on games nobody is entering.
     """
     path = os.path.join(DATA, "nfl_dk.json")
     if not os.path.exists(path):
         log("no data/nfl_dk.json; run tools/fetch_nfl.py first")
-        return None, "error"
+        return [], "error"
     with open(path, encoding="utf-8") as f:
         doc = json.load(f)
     sd = [s for s in doc.get("slates", []) if s.get("kind") == "showdown"]
     if not sd:
         log("no showdown slates in data/nfl_dk.json; nothing to solve")
-        return None, "empty"
+        return [], "empty"
+
     if dg:
         hit = [s for s in sd if str(s["dg"]) == str(dg)]
         if not hit:
             log(f"dg {dg} is not a showdown slate in the archive. Available:")
-            for s in sd:
-                log(f"   dg={s['dg']:<8} {s['entries']:>8,} entries  {s['name']}")
-            return None, "error"
-        slate = hit[0]
+            for s in sorted(sd, key=lambda x: x.get("start") or ""):
+                log(f"   dg={s['dg']:<8} {s['entries']:>8,} entries  "
+                    f"starts {s.get('start','?')}  {s['name']}")
+            return [], "error"
+        chosen = hit[:1]
     else:
-        # Upcoming games only, THEN by entry count. Ranking by entries alone
-        # silently solved a game that had already been played: run on a Monday,
-        # Sunday night's showdown still carries the most entries in the archive
-        # and would win the comparison every time.
         now = datetime.datetime.now(datetime.timezone.utc)
-        upcoming = []
-        for s in sd:
-            try:
-                st = datetime.datetime.strptime(
-                    s.get("start") or "", "%Y-%m-%dT%H:%M:%SZ"
-                ).replace(tzinfo=datetime.timezone.utc)
-            except ValueError:
-                continue
-            if st > now:
-                upcoming.append(s)
+        upcoming = [s for s in sd
+                    if (_start_of(s) or now) > now and _start_of(s)]
         if not upcoming:
             log("no showdown in the archive has a future start time; every one "
                 "of these has already locked. Refresh data/nfl_dk.json, or pass "
@@ -136,13 +154,25 @@ def load_slate(dg=None):
             for s in sorted(sd, key=lambda x: x.get("start") or ""):
                 log(f"   dg={s['dg']:<8} {s['entries']:>8,} entries  "
                     f"starts {s.get('start','?')}  {s['name']}")
-            return None, "empty"
-        slate = max(upcoming, key=lambda s: s.get("entries") or 0)
+            return [], "empty"
         if len(upcoming) < len(sd):
             log(f"{len(sd) - len(upcoming)} showdown slate(s) ignored as "
                 f"already started")
-    slate["_built"] = doc.get("built")
-    return slate, "ok"
+        biggest = sorted(upcoming, key=lambda s: -(s.get("entries") or 0))
+        chosen = sorted(biggest[:max(1, want)], key=lambda s: _start_of(s))
+        skipped = biggest[max(1, want):]
+        if skipped:
+            log(f"{len(skipped)} smaller upcoming showdown(s) not solved "
+                f"(largest of them {max(x.get('entries') or 0 for x in skipped):,} "
+                f"entries); pass --dg to solve one")
+
+    for s in chosen:
+        s["_built"] = doc.get("built")
+    log(f"solving {len(chosen)} showdown slate(s), soonest first:")
+    for s in chosen:
+        log(f"   dg={s['dg']:<8} {s['entries']:>8,} entries  "
+            f"starts {s.get('start','?')}  {s['name']}")
+    return chosen, "ok"
 
 
 def build_pool(slate, sims):
@@ -278,36 +308,27 @@ def script_of(total, margin, t_lo, t_hi, m_hi):
     return "ordinary (nothing extreme)"
 
 
-def main():
-    ap = argparse.ArgumentParser()
-    ap.add_argument("--trials", type=int, default=1500)
-    ap.add_argument("--dg", default="", help="showdown draft group to solve")
-    ap.add_argument("--top", type=int, default=14)
-    ap.add_argument("--out", default="nfl_showdown_scenarios.json")
-    args = ap.parse_args()
+def solve_slate(slate, sims, args):
+    """Everything for ONE showdown slate. Returns its result dict, or None.
 
-    slate, status = load_slate(args.dg)
-    if not slate:
-        # "empty" is a normal midweek state, so the scheduled job must not go
-        # red for it. Only a genuine problem returns non-zero.
-        return 0 if status == "empty" else 1
-    log(f"slate: {slate['name']}  (dg={slate['dg']}, "
-        f"{slate['entries']:,} entries, starts {slate.get('start','?')})")
-    log(f"draft groups archived {slate.get('_built')}")
-
-    log(f"\nregenerating the joint simulation at {args.trials:,} trials")
-    import build_projections as bp
-    sims, _res = bp.player_scores(args.trials, "dk")
+    Separated from main so the joint simulation, which is the expensive part
+    and is league-wide rather than slate-specific, is drawn once and reused
+    across every slate solved in a run.
+    """
+    log("\n" + "#" * 76)
+    log(f"# {slate['name']}  (dg={slate['dg']}, {slate['entries']:,} entries, "
+        f"starts {slate.get('start','?')})")
+    log("#" * 76)
 
     pool, teams = build_pool(slate, sims)
     if not pool or len(pool) < ROSTER:
         log("not enough projectable players to fill a lineup")
-        return 1
+        return None
     team_a = teams[0]
     if not any(p["team"] == teams[1] for p in pool):
         log(f"every projectable player is on {team_a}; "
             f"DraftKings requires both sides")
-        return 1
+        return None
 
     scores = np.vstack([p["fp"] for p in pool])        # players x trials
     sal = np.array([p["sal"] for p in pool], dtype=np.int64)
@@ -388,7 +409,7 @@ def main():
 
     if not solved:
         log("no trial produced a legal lineup")
-        return 1
+        return None
     log(f"   {solved:,} games produced a legal winner")
     if illegal:
         log(f"   WARNING: {illegal:,} solved lineups broke a roster rule "
@@ -431,9 +452,7 @@ def main():
                         for nm, c in cpt_by_script[scr].most_common(3))
         log(f"   usual captain: {top}")
 
-    out = {
-        "built": datetime.datetime.now(datetime.timezone.utc)
-                 .strftime("%Y-%m-%dT%H:%M:%SZ"),
+    return {
         "slate": {"dg": slate["dg"], "name": slate["name"],
                   "entries": slate.get("entries"), "start": slate.get("start"),
                   "teams": teams},
@@ -441,10 +460,6 @@ def main():
         "exactSolve": bool(exact),
         "poolSize": n,
         "priced": len(slate["players"]),
-        "stage": 1,
-        # Named so the page cannot accidentally render an absent denominator as
-        # if it were a measurement. Stage two adds captain ownership.
-        "hasFieldModel": False,
         "captains": [
             {"player": nm, "pos": meta[nm]["pos"], "team": meta[nm]["team"],
              "sal": meta[nm]["sal"],
@@ -466,10 +481,58 @@ def main():
             for s, w in script_wins.most_common()
         ],
     }
+
+
+def main():
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--trials", type=int, default=1500)
+    ap.add_argument("--dg", default="", help="solve this showdown draft group "
+                                             "only, ignoring the usual choice")
+    ap.add_argument("--slates", type=int, default=2,
+                    help="how many of the biggest upcoming showdowns to solve; "
+                         "they are reported soonest first")
+    ap.add_argument("--top", type=int, default=14)
+    ap.add_argument("--out", default="nfl_showdown_scenarios.json")
+    args = ap.parse_args()
+
+    slates, status = load_slates(args.dg, args.slates)
+    if not slates:
+        # "empty" is a normal midweek state, so the scheduled job must not go
+        # red for it. Only a genuine problem returns non-zero.
+        return 0 if status == "empty" else 1
+    log(f"draft groups archived {slates[0].get('_built')}")
+
+    # Drawn once for the whole run: the simulation is league-wide, so solving a
+    # second showdown costs only its own solve, not another twenty seconds of
+    # correlated sampling.
+    log(f"\nregenerating the joint simulation at {args.trials:,} trials")
+    import build_projections as bp
+    sims, _res = bp.player_scores(args.trials, "dk")
+
+    results = []
+    for slate in slates:
+        r = solve_slate(slate, sims, args)
+        if r:
+            results.append(r)
+    if not results:
+        log("\nno showdown slate could be solved")
+        return 1
+
+    out = {
+        "built": datetime.datetime.now(datetime.timezone.utc)
+                 .strftime("%Y-%m-%dT%H:%M:%SZ"),
+        "stage": 1,
+        # Named so a page cannot accidentally render an absent denominator as
+        # if it were a measurement. Stage two adds captain ownership.
+        "hasFieldModel": False,
+        # Soonest first, so index 0 is the game that has to be decided next.
+        "slates": results,
+    }
     path = os.path.join(DATA, args.out)
     with open(path, "w", encoding="utf-8") as f:
         json.dump(out, f, separators=(",", ":"))
-    log(f"\nwrote {path}")
+    log(f"\nwrote {path} ({len(results)} slate(s), soonest first: "
+        + ", ".join(r["slate"]["name"] for r in results) + ")")
     return 0
 
 
