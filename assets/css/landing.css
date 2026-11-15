@@ -46,7 +46,13 @@ a { color: inherit; text-decoration: none; }
 .logo { width: 26px; height: 26px; flex-shrink: 0; display: block; }
 .bname { font-size: 21px; font-weight: 900; letter-spacing: -.4px; }
 .bname .accent { color: var(--green2); }
-.navlinks { display: flex; gap: 22px; margin-left: 18px; }
+/* Wraps and shrinks rather than overflowing. As a non-shrinking flex child
+   this pushed .navcta past the right edge: the page scrolled sideways at
+   1100px with the original nine links, and adding two more widened that
+   broken band to about 1330px. min-width:0 lets it shrink below its content
+   width and flex-wrap gives the links somewhere to go. */
+.navlinks { display: flex; flex-wrap: wrap; min-width: 0;
+  column-gap: 22px; row-gap: 6px; margin-left: 18px; }
 .navlinks a { color: var(--dim); font-size: 14px; }
 .navlinks a:hover { color: var(--text); }
 .navcta { margin-left: auto; display: flex; gap: 10px; }
