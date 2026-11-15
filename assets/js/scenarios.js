@@ -79,9 +79,10 @@
     ['leverageField', 'Lev con', 'num', 'Contest% divided by Field%. The same ratio '
       + 'against the winner a contest actually pays. It runs lower than Lev opt, '
       + 'because the shapes that win a real contest are the stacked ones the field is '
-      + 'already building. Measured against the 8 November Millionaire, the ORDERING '
-      + 'of these columns was good (+0.72 rank correlation) while the levels were not, '
-      + 'so rank with them and do not size a bet on them.'],
+      + 'already building. Scored against the 8 November Millionaire the leverage '
+      + 'ordering showed no measurable skill on that slate, at -0.01 rank correlation '
+      + 'across twelve games. One slate is not a verdict, but do not size a bet on '
+      + 'these numbers.'],
     ['cheap', 'Cheap correlation', '', 'The player in that game who carries the most '
       + 'ceiling per point of ownership, among those with a real role and a real '
       + 'ceiling rather than a wide one. Takes almost '
