@@ -1,11 +1,11 @@
 {
- "updatedUtc": "2026-11-16T06:33:03Z",
+ "updatedUtc": "2026-11-16T19:37:45Z",
  "slate": "WWT_2026",
  "event": "",
  "counts": {
-  "items": 3,
-  "golfersMentioned": 2,
-  "news": 3,
+  "items": 6,
+  "golfersMentioned": 5,
+  "news": 6,
   "chatter": 0
  },
  "sources": [
@@ -108,7 +108,7 @@
   {
    "source": "Google News: PGA DFS",
    "ok": true,
-   "items": 53,
+   "items": 52,
    "error": null
   },
   {
@@ -138,19 +138,82 @@
  ],
  "mentions": [
   {
-   "name": "Seamus Power",
+   "name": "Keith Mitchell",
    "news": 2,
    "chatter": 0,
    "total": 2
   },
   {
    "name": "Chris Kirk",
+   "news": 2,
+   "chatter": 0,
+   "total": 2
+  },
+  {
+   "name": "Jordan L. Smith",
+   "news": 1,
+   "chatter": 0,
+   "total": 1
+  },
+  {
+   "name": "Blades Brown",
+   "news": 1,
+   "chatter": 0,
+   "total": 1
+  },
+  {
+   "name": "Seamus Power",
    "news": 1,
    "chatter": 0,
    "total": 1
   }
  ],
  "items": [
+  {
+   "title": "Who Should I Pickup for Fantasy Football Week 11? Jordyn Tyson, Ryan Flournoy, Antonio Williams, Seth McGowan, Pat Bryant, Adonai Mitchell, Elic Ayomanor, Chig Okonkwo",
+   "link": "https://www.rotoballer.com/who-should-i-pickup-for-week-11-jordyn-tyson-ryan-flournoy-antonio-williams-seth-mcgowan-pat-bryant-adonai-mitchell-elic-ayomanor-chig-okonkwo/1994746",
+   "summary": "Who Should I Pickup? Some of the most common Week 11 fantasy football waiver wire decisions involve players like Jordyn [&#8230;]",
+   "published": "Mon, 16 Nov 2026 17:55:45 +0000",
+   "source": "RotoBaller",
+   "kind": "news",
+   "golfers": [
+    "Keith Mitchell"
+   ]
+  },
+  {
+   "title": "Who Should I Drop for Fantasy Football Week 11? Corey Kiner, Germie Bernard, Tutu Atwell, Audric Estime, Drake Maye, Omar Cooper Jr., Geno Smith, Denzel Boston, Ladd McConkey, A.J. Brown",
+   "link": "https://www.rotoballer.com/who-should-i-drop-for-week-11-corey-kiner-germie-bernard-tutu-atwell-audric-estime-drake-maye-omar-cooper-jr-geno-smith-denzel-boston-ladd-mcconkey-a-j-brown/1994747",
+   "summary": "Who Should I Drop? Who Should I Keep? Some of the most common Week 11 fantasy football cut candidates include [&#8230;]",
+   "published": "Mon, 16 Nov 2026 17:43:40 +0000",
+   "source": "RotoBaller",
+   "kind": "news",
+   "golfers": [
+    "Jordan L. Smith",
+    "Blades Brown"
+   ]
+  },
+  {
+   "title": "Wide Receiver Waiver Wire Pickups - Top Fantasy Football WR Adds for Week 11 Include Elic Ayomanor, Antonio Williams, Adonai Mitchell",
+   "link": "https://www.rotoballer.com/wr-waiver-wire-pickups-fantasy-football-week-11-2026/1995300",
+   "summary": "We're back with another edition of Waiver Wire Wide Receivers, this time getting you ready for Week 11. This is [&#8230;]",
+   "published": "Mon, 16 Nov 2026 16:00:25 +0000",
+   "source": "RotoBaller",
+   "kind": "news",
+   "golfers": [
+    "Keith Mitchell"
+   ]
+  },
+  {
+   "title": "Quarterback Fantasy Football Waiver Wire Pickups - Top QB Adds for Week 11 Include Kirk Cousins, Jacoby Brissett, Cam Ward, and more",
+   "link": "https://www.rotoballer.com/quarterback-qb-waiver-wire-pickups-week-11-fantasy-football-2026/1994894",
+   "summary": "There were truly some special performances from the quarterback position in Week 10. Three quarterbacks scored over 34 fantasy points, [&#8230;]",
+   "published": "Mon, 16 Nov 2026 12:30:21 +0000",
+   "source": "RotoBaller",
+   "kind": "news",
+   "golfers": [
+    "Chris Kirk"
+   ]
+  },
   {
    "title": "Week 12 College Football Power Ratings and Projections for Every Game",
    "link": "https://vsin.com/college-football/week-12-college-football-power-ratings-and-projections-for-every-game/",
@@ -171,17 +234,6 @@
    "kind": "news",
    "golfers": [
     "Chris Kirk"
-   ]
-  },
-  {
-   "title": "NFL Top Plays Based on Betting Splits, Power Ratings and Trends \u2013 Week 10",
-   "link": "https://vsin.com/nfl/nfl-top-plays-based-on-betting-splits-power-ratings-and-trends-for-week-10/",
-   "summary": "Week 10 NFL Betting Trends: The following NFL betting trends are a collection of analytical data, betting systems and strength ratings featured on VSiN and qualified for the NFL games of Week 10. This report is meant to emulate the process that Steve Makinen and other members of the VSiN Analytics team undergo when handicapping [&#8230;] The post NFL Top Plays Based on Betting Splits, Power Rating",
-   "published": "Sun, 15 Nov 2026 00:35:00 +0000",
-   "source": "VSiN",
-   "kind": "news",
-   "golfers": [
-    "Seamus Power"
    ]
   }
  ]
