@@ -1,11 +1,11 @@
 {
- "updatedUtc": "2026-11-16T22:34:01Z",
+ "updatedUtc": "2026-11-17T21:23:17Z",
  "tournament": "EVENT_2026W47",
  "date": "11/19/26",
  "event": "",
  "draftGroupId": "156862",
  "isShowdown": false,
- "count": 139,
+ "count": 151,
  "players": [
   {
    "name": "Benjamin James",
@@ -325,8 +325,8 @@
   {
    "name": "Sudarshan Yellamaraju",
    "salary": 7200,
-   "status": "",
-   "out": false,
+   "status": "O",
+   "out": true,
    "dkId": 706283
   },
   {
@@ -388,8 +388,8 @@
   {
    "name": "Kevin Yu",
    "salary": 7000,
-   "status": "",
-   "out": false,
+   "status": "O",
+   "out": true,
    "dkId": 681
   },
   {
@@ -470,6 +470,13 @@
    "dkId": 645032
   },
   {
+   "name": "Carson Young",
+   "salary": 6900,
+   "status": "",
+   "out": false,
+   "dkId": 549842
+  },
+  {
    "name": "Jesper Svensson",
    "salary": 6800,
    "status": "",
@@ -517,6 +524,13 @@
    "status": "",
    "out": false,
    "dkId": 644988
+  },
+  {
+   "name": "Michael Johnson",
+   "salary": 6800,
+   "status": "",
+   "out": false,
+   "dkId": 451627
   },
   {
    "name": "Patrick Fishburn",
@@ -584,8 +598,8 @@
   {
    "name": "William Mouw",
    "salary": 6600,
-   "status": "",
-   "out": false,
+   "status": "O",
+   "out": true,
    "dkId": 645034
   },
   {
@@ -696,8 +710,8 @@
   {
    "name": "Emilio Gonzalez",
    "salary": 6400,
-   "status": "",
-   "out": false,
+   "status": "O",
+   "out": true,
    "dkId": 693839
   },
   {
@@ -734,6 +748,13 @@
    "status": "",
    "out": false,
    "dkId": 1103
+  },
+  {
+   "name": "Jonathan Byrd",
+   "salary": 6400,
+   "status": "",
+   "out": false,
+   "dkId": 567
   },
   {
    "name": "Cameron Davis",
@@ -855,6 +876,13 @@
    "dkId": 1150
   },
   {
+   "name": "Henrik Norlander",
+   "salary": 6200,
+   "status": "",
+   "out": false,
+   "dkId": 633
+  },
+  {
    "name": "Rafael Campos",
    "salary": 6100,
    "status": "",
@@ -871,8 +899,8 @@
   {
    "name": "Kyoung-Hoon Lee",
    "salary": 6100,
-   "status": "",
-   "out": false,
+   "status": "O",
+   "out": true,
    "dkId": 625
   },
   {
@@ -916,6 +944,34 @@
    "status": "",
    "out": false,
    "dkId": 982174
+  },
+  {
+   "name": "Matt Atkins",
+   "salary": 6100,
+   "status": "",
+   "out": false,
+   "dkId": 450513
+  },
+  {
+   "name": "Cameron Champ",
+   "salary": 6100,
+   "status": "",
+   "out": false,
+   "dkId": 1001
+  },
+  {
+   "name": "Shad Tuten",
+   "salary": 6100,
+   "status": "",
+   "out": false,
+   "dkId": 525750
+  },
+  {
+   "name": "Camilo Villegas",
+   "salary": 6100,
+   "status": "",
+   "out": false,
+   "dkId": 451478
   },
   {
    "name": "Harry Higgs",
@@ -979,6 +1035,34 @@
    "status": "",
    "out": false,
    "dkId": 549844
+  },
+  {
+   "name": "Ryan Brehm",
+   "salary": 6000,
+   "status": "",
+   "out": false,
+   "dkId": 564
+  },
+  {
+   "name": "Muzzy Donohue",
+   "salary": 6000,
+   "status": "",
+   "out": false,
+   "dkId": 1004600
+  },
+  {
+   "name": "Martin Laird",
+   "salary": 6000,
+   "status": "",
+   "out": false,
+   "dkId": 616
+  },
+  {
+   "name": "Jeff Overton",
+   "salary": 6000,
+   "status": "",
+   "out": false,
+   "dkId": 450809
   }
  ]
 }
