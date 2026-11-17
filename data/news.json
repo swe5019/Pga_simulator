@@ -1,11 +1,11 @@
 {
- "updatedUtc": "2026-11-17T03:55:26Z",
+ "updatedUtc": "2026-11-17T16:02:09Z",
  "slate": "WWT_2026",
  "event": "",
  "counts": {
-  "items": 5,
-  "golfersMentioned": 5,
-  "news": 5,
+  "items": 1,
+  "golfersMentioned": 1,
+  "news": 1,
   "chatter": 0
  },
  "sources": [
@@ -108,14 +108,14 @@
   {
    "source": "Google News: PGA DFS",
    "ok": true,
-   "items": 53,
+   "items": 51,
    "error": null
   },
   {
    "source": "Google News: PGA WD",
-   "ok": false,
-   "items": 0,
-   "error": "HTTP 429"
+   "ok": true,
+   "items": 57,
+   "error": null
   },
   {
    "source": "r/dfsports",
@@ -138,31 +138,7 @@
  ],
  "mentions": [
   {
-   "name": "Keith Mitchell",
-   "news": 2,
-   "chatter": 0,
-   "total": 2
-  },
-  {
    "name": "Seamus Power",
-   "news": 1,
-   "chatter": 0,
-   "total": 1
-  },
-  {
-   "name": "Jordan L. Smith",
-   "news": 1,
-   "chatter": 0,
-   "total": 1
-  },
-  {
-   "name": "Blades Brown",
-   "news": 1,
-   "chatter": 0,
-   "total": 1
-  },
-  {
-   "name": "Chris Kirk",
    "news": 1,
    "chatter": 0,
    "total": 1
@@ -178,51 +154,6 @@
    "kind": "news",
    "golfers": [
     "Seamus Power"
-   ]
-  },
-  {
-   "title": "Who Should I Pickup for Fantasy Football Week 11? Jordyn Tyson, Ryan Flournoy, Antonio Williams, Seth McGowan, Pat Bryant, Adonai Mitchell, Elic Ayomanor, Chig Okonkwo",
-   "link": "https://www.rotoballer.com/who-should-i-pickup-for-week-11-jordyn-tyson-ryan-flournoy-antonio-williams-seth-mcgowan-pat-bryant-adonai-mitchell-elic-ayomanor-chig-okonkwo/1994746",
-   "summary": "Who Should I Pickup? Some of the most common Week 11 fantasy football waiver wire decisions involve players like Jordyn [&#8230;]",
-   "published": "Mon, 16 Nov 2026 17:55:45 +0000",
-   "source": "RotoBaller",
-   "kind": "news",
-   "golfers": [
-    "Keith Mitchell"
-   ]
-  },
-  {
-   "title": "Who Should I Drop for Fantasy Football Week 11? Corey Kiner, Germie Bernard, Tutu Atwell, Audric Estime, Drake Maye, Omar Cooper Jr., Geno Smith, Denzel Boston, Ladd McConkey, A.J. Brown",
-   "link": "https://www.rotoballer.com/who-should-i-drop-for-week-11-corey-kiner-germie-bernard-tutu-atwell-audric-estime-drake-maye-omar-cooper-jr-geno-smith-denzel-boston-ladd-mcconkey-a-j-brown/1994747",
-   "summary": "Who Should I Drop? Who Should I Keep? Some of the most common Week 11 fantasy football cut candidates include [&#8230;]",
-   "published": "Mon, 16 Nov 2026 17:43:40 +0000",
-   "source": "RotoBaller",
-   "kind": "news",
-   "golfers": [
-    "Jordan L. Smith",
-    "Blades Brown"
-   ]
-  },
-  {
-   "title": "Wide Receiver Waiver Wire Pickups - Top Fantasy Football WR Adds for Week 11 Include Elic Ayomanor, Antonio Williams, Adonai Mitchell",
-   "link": "https://www.rotoballer.com/wr-waiver-wire-pickups-fantasy-football-week-11-2026/1995300",
-   "summary": "We're back with another edition of Waiver Wire Wide Receivers, this time getting you ready for Week 11. This is [&#8230;]",
-   "published": "Mon, 16 Nov 2026 16:00:25 +0000",
-   "source": "RotoBaller",
-   "kind": "news",
-   "golfers": [
-    "Keith Mitchell"
-   ]
-  },
-  {
-   "title": "NFL Week 10 Best Bets and Circa Contest Selections",
-   "link": "https://vsin.com/the-vsin-daily/nfl-week-10-best-bets-and-circa-contest-selections/",
-   "summary": "\ud83c\udfc8 Two Quarterbacks, Two Big Questions Kirk Cousins and Fernando Mendoza are on the clock today. Does Cousins make the Vikings a Super Bowl contender? Matt Youmans is at least considering the possibility. \u201cMy only Super Bowl futures wager is on the Chiefs at 15-1 odds from the preseason, and I\u2019m considering adding the Vikings.\u201d [&#8230;] The post NFL Week 10 Best Bets and Circa Contest Selections a",
-   "published": "Sun, 15 Nov 2026 08:44:12 +0000",
-   "source": "VSiN",
-   "kind": "news",
-   "golfers": [
-    "Chris Kirk"
    ]
   }
  ]
