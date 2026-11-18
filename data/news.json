@@ -1,11 +1,11 @@
 {
- "updatedUtc": "2026-11-18T00:58:28Z",
- "slate": "WWT_2026",
+ "updatedUtc": "2026-11-18T11:45:26Z",
+ "slate": "RSM_2026",
  "event": "",
  "counts": {
-  "items": 3,
-  "golfersMentioned": 3,
-  "news": 3,
+  "items": 5,
+  "golfersMentioned": 5,
+  "news": 5,
   "chatter": 0
  },
  "sources": [
@@ -43,7 +43,7 @@
    "source": "Action Network",
    "ok": false,
    "items": 0,
-   "error": "HTTP 404"
+   "error": "no items"
   },
   {
    "source": "VSiN",
@@ -114,7 +114,7 @@
   {
    "source": "Google News: PGA WD",
    "ok": true,
-   "items": 57,
+   "items": 59,
    "error": null
   },
   {
@@ -138,19 +138,31 @@
  ],
  "mentions": [
   {
+   "name": "Sam Stevens",
+   "news": 1,
+   "chatter": 0,
+   "total": 1
+  },
+  {
+   "name": "Luke List",
+   "news": 1,
+   "chatter": 0,
+   "total": 1
+  },
+  {
+   "name": "Michael Johnson",
+   "news": 1,
+   "chatter": 0,
+   "total": 1
+  },
+  {
+   "name": "Keith Mitchell",
+   "news": 1,
+   "chatter": 0,
+   "total": 1
+  },
+  {
    "name": "Chad Ramey",
-   "news": 1,
-   "chatter": 0,
-   "total": 1
-  },
-  {
-   "name": "Jordan L. Smith",
-   "news": 1,
-   "chatter": 0,
-   "total": 1
-  },
-  {
-   "name": "Seamus Power",
    "news": 1,
    "chatter": 0,
    "total": 1
@@ -158,36 +170,58 @@
  ],
  "items": [
   {
+   "title": "NFL Week 12 Betting Lines: Are Sportsbooks Shading Favorites After Two Rough Weeks?",
+   "link": "https://vsin.com/the-vsin-daily/nfl-week-12-betting-lines-are-sportsbooks-shading-favorites-after-two-rough-weeks/",
+   "summary": "After two weeks dominated by NFL favorites, the board features five double-digit favorites. Are oddsmakers reacting to the beating they\u2019ve taken? \u201cWe got murdered two weekends in a row,\u201d Circa owner Derek Stevens told Mitch Moss and Pauly Howard on Follow The Money Tuesday. But Circa risk manager Jamey Pileggi says the short-term results aren&#8217;t [&#8230;] The post NFL Week 12 Betting Lines: A",
+   "published": "Wed, 18 Nov 2026 05:53:22 +0000",
+   "source": "VSiN",
+   "kind": "news",
+   "golfers": [
+    "Sam Stevens"
+   ]
+  },
+  {
+   "title": "The Cut List - Time to Let Go? Who to Drop for Fantasy Football Week 11",
+   "link": "https://www.rotoballer.com/who-to-drop-for-fantasy-football-week-11-2026/1995889",
+   "summary": "This may as well be called the New England Patriots edition. With the recent news that Drake Maye is likely [&#8230;]",
+   "published": "Wed, 18 Nov 2026 04:42:30 +0000",
+   "source": "RotoBaller",
+   "kind": "news",
+   "golfers": [
+    "Luke List"
+   ]
+  },
+  {
+   "title": "Running Back Fantasy Football Waiver Wire Pickups for Week 11 - Kaelon Black, Seth McGowan, Kaleb Johnson, Dylan Sampson",
+   "link": "https://www.rotoballer.com/running-back-waiver-wire-pickups-fantasy-football-week-11-2026/1990178",
+   "summary": "We have now entered the planning process for Week 11 as the fantasy postseason continues its rapid approach. Congratulations to [&#8230;]",
+   "published": "Wed, 18 Nov 2026 03:56:00 +0000",
+   "source": "RotoBaller",
+   "kind": "news",
+   "golfers": [
+    "Michael Johnson"
+   ]
+  },
+  {
+   "title": "Wide Receiver Waiver Wire Pickups - Top Fantasy Football WR Adds for Week 11 Include Elic Ayomanor, Antonio Williams, Adonai Mitchell",
+   "link": "https://www.rotoballer.com/wr-waiver-wire-pickups-fantasy-football-week-11-2026/1995300",
+   "summary": "We're back with another edition of Waiver Wire Wide Receivers, this time getting you ready for Week 11. This is [&#8230;]",
+   "published": "Wed, 18 Nov 2026 03:55:25 +0000",
+   "source": "RotoBaller",
+   "kind": "news",
+   "golfers": [
+    "Keith Mitchell"
+   ]
+  },
+  {
    "title": "The RSM Classic Best Bets and Golf Odds",
    "link": "https://vsin.com/golf/the-rsm-classic-best-bets-and-golf-odds/",
    "summary": "The RSM Classic Best Bets and Golf Odds: Chad Ramey, a 100-1 pre-tournament price, birdied three of the first five holes and closed with a 7-under 65 for a two-shot victory Monday in the rain-delayed Austin Championship, capping a five-day span that took him from the prospect of losing his PGA Tour card to a [&#8230;] The post The RSM Classic Best Bets and Golf Odds appeared first on VSiN .",
-   "published": "Tue, 17 Nov 2026 22:45:20 +0000",
+   "published": "Wed, 18 Nov 2026 02:50:10 +0000",
    "source": "VSiN",
    "kind": "news",
    "golfers": [
     "Chad Ramey"
-   ]
-  },
-  {
-   "title": "When Is DeVonta Smith Coming Back - Week 11 Fantasy Football Injury Return Update (2026)",
-   "link": "https://www.rotoballer.com/when-is-puka-nacua-coming-back-week-11-fantasy-football-injury-return-update-2026-2/1996454",
-   "summary": "Philadelphia Eagles wide receiver DeVonta Smith had a ton of hype around him heading into the 2026 fantasy football season. [&#8230;]",
-   "published": "Tue, 17 Nov 2026 19:55:23 +0000",
-   "source": "RotoBaller",
-   "kind": "news",
-   "golfers": [
-    "Jordan L. Smith"
-   ]
-  },
-  {
-   "title": "Week 12 College Football Power Ratings and Projections for Every Game",
-   "link": "https://vsin.com/college-football/week-12-college-football-power-ratings-and-projections-for-every-game/",
-   "summary": "Week 12 College Football Power Ratings As we head into Week 12, there are only two undefeated teams in the country and only six teams \u2013 Miami, Utah, UCLA, Boise State, Liberty, and Louisiana Tech \u2013 are unblemished in conference play. Along with the two undefeateds, there are only eight teams with just one loss. [&#8230;] The post Week 12 College Football Power Ratings and Projections for Every Gam",
-   "published": "Tue, 17 Nov 2026 01:30:00 +0000",
-   "source": "VSiN",
-   "kind": "news",
-   "golfers": [
-    "Seamus Power"
    ]
   }
  ]
