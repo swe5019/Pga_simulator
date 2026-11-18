@@ -1,11 +1,11 @@
 {
- "updatedUtc": "2026-11-17T21:23:17Z",
+ "updatedUtc": "2026-11-18T20:56:24Z",
  "tournament": "EVENT_2026W47",
  "date": "11/19/26",
  "event": "",
  "draftGroupId": "156862",
  "isShowdown": false,
- "count": 151,
+ "count": 153,
  "players": [
   {
    "name": "Benjamin James",
@@ -813,6 +813,13 @@
    "dkId": 519887
   },
   {
+   "name": "Austin Cook",
+   "salary": 6300,
+   "status": "",
+   "out": false,
+   "dkId": 603
+  },
+  {
    "name": "Mark Hubbard",
    "salary": 6200,
    "status": "",
@@ -1063,6 +1070,13 @@
    "status": "",
    "out": false,
    "dkId": 450809
+  },
+  {
+   "name": "Robert Streb",
+   "salary": 6000,
+   "status": "",
+   "out": false,
+   "dkId": 634
   }
  ]
 }
