@@ -1,11 +1,11 @@
 {
- "updatedUtc": "2026-11-18T11:45:26Z",
+ "updatedUtc": "2026-11-18T20:33:56Z",
  "slate": "RSM_2026",
  "event": "",
  "counts": {
-  "items": 5,
-  "golfersMentioned": 5,
-  "news": 5,
+  "items": 6,
+  "golfersMentioned": 11,
+  "news": 6,
   "chatter": 0
  },
  "sources": [
@@ -108,13 +108,13 @@
   {
    "source": "Google News: PGA DFS",
    "ok": true,
-   "items": 51,
+   "items": 53,
    "error": null
   },
   {
    "source": "Google News: PGA WD",
    "ok": true,
-   "items": 59,
+   "items": 58,
    "error": null
   },
   {
@@ -138,25 +138,61 @@
  ],
  "mentions": [
   {
+   "name": "Benjamin James",
+   "news": 1,
+   "chatter": 0,
+   "total": 1
+  },
+  {
+   "name": "Shad Tuten",
+   "news": 1,
+   "chatter": 0,
+   "total": 1
+  },
+  {
+   "name": "Blades Brown",
+   "news": 1,
+   "chatter": 0,
+   "total": 1
+  },
+  {
+   "name": "Jordan L. Smith",
+   "news": 1,
+   "chatter": 0,
+   "total": 1
+  },
+  {
+   "name": "Mark Hubbard",
+   "news": 1,
+   "chatter": 0,
+   "total": 1
+  },
+  {
+   "name": "Chris Kirk",
+   "news": 1,
+   "chatter": 0,
+   "total": 1
+  },
+  {
+   "name": "Denny McCarthy",
+   "news": 1,
+   "chatter": 0,
+   "total": 1
+  },
+  {
+   "name": "Carson Young",
+   "news": 1,
+   "chatter": 0,
+   "total": 1
+  },
+  {
+   "name": "Patrick Rodgers",
+   "news": 1,
+   "chatter": 0,
+   "total": 1
+  },
+  {
    "name": "Sam Stevens",
-   "news": 1,
-   "chatter": 0,
-   "total": 1
-  },
-  {
-   "name": "Luke List",
-   "news": 1,
-   "chatter": 0,
-   "total": 1
-  },
-  {
-   "name": "Michael Johnson",
-   "news": 1,
-   "chatter": 0,
-   "total": 1
-  },
-  {
-   "name": "Keith Mitchell",
    "news": 1,
    "chatter": 0,
    "total": 1
@@ -170,6 +206,55 @@
  ],
  "items": [
   {
+   "title": "Who Should I Start for Fantasy Football Week 11? Rachaad White, Pat Bryant, Omarion Hampton, Bhayshul Tuten, James Cook III, Kyle Monangai, Rome Odunze, Devin Singletary, Rashee Rice",
+   "link": "https://www.rotoballer.com/who-should-i-start-for-week-11-rachaad-white-pat-bryant-omarion-hampton-bhayshul-tuten-james-cook-iii-kyle-monangai-rome-odunze-devin-singletary-rashee-rice/1997256",
+   "summary": "Who Should I Start? Who Should I Sit? Some of the most common Week 11 fantasy football lineup decisions involve [&#8230;]",
+   "published": "Wed, 18 Nov 2026 19:24:40 +0000",
+   "source": "RotoBaller",
+   "kind": "news",
+   "golfers": [
+    "Benjamin James",
+    "Shad Tuten"
+   ]
+  },
+  {
+   "title": "Who Should I Start for Fantasy Football Week 11? Josh Downs, Emeka Egbuka, Jameson Williams, Aaron Jones Sr., Ashton Jeanty, J.K. Dobbins, Khalil Shakir, Chase Brown, Ladd McConkey",
+   "link": "https://www.rotoballer.com/who-should-i-start-for-week-11-josh-downs-emeka-egbuka-jameson-williams-aaron-jones-sr-ashton-jeanty-j-k-dobbins-khalil-shakir-chase-brown-ladd-mcconkey/1997257",
+   "summary": "Who Should I Start? Who Should I Sit? Some of the most common Week 11 fantasy football lineup decisions involve [&#8230;]",
+   "published": "Wed, 18 Nov 2026 19:17:07 +0000",
+   "source": "RotoBaller",
+   "kind": "news",
+   "golfers": [
+    "Blades Brown"
+   ]
+  },
+  {
+   "title": "Who Should I Start for Fantasy Football Week 11? Chris Olave, Courtland Sutton, Elic Ayomanor, Chuba Hubbard, DeVonta Smith, DK Metcalf, Braelon Allen, Jakobi Meyers, Keenan Allen",
+   "link": "https://www.rotoballer.com/who-should-i-start-for-week-11-chris-olave-courtland-sutton-elic-ayomanor-chuba-hubbard-devonta-smith-dk-metcalf-braelon-allen-jakobi-meyers-keenan-allen/1997086",
+   "summary": "Who Should I Start? Who Should I Sit? Some of the most common Week 11 fantasy football lineup decisions involve [&#8230;]",
+   "published": "Wed, 18 Nov 2026 15:25:45 +0000",
+   "source": "RotoBaller",
+   "kind": "news",
+   "golfers": [
+    "Jordan L. Smith",
+    "Mark Hubbard"
+   ]
+  },
+  {
+   "title": "Who Should I Start for Fantasy Football Week 11? Bo Nix, Cam Ward, Patrick Mahomes, Aaron Rodgers, Bryce Young, Kirk Cousins, Brock Purdy, Jared Goff, J.J. McCarthy, Dak Prescott",
+   "link": "https://www.rotoballer.com/who-should-i-start-for-week-11-bo-nix-cam-ward-patrick-mahomes-aaron-rodgers-bryce-young-kirk-cousins-brock-purdy-jared-goff-j-j-mccarthy-dak-prescott/1997072",
+   "summary": "Who Should I Start? Who Should I Sit? Some of the most common Week 11 fantasy football lineup decisions involve [&#8230;]",
+   "published": "Wed, 18 Nov 2026 15:19:55 +0000",
+   "source": "RotoBaller",
+   "kind": "news",
+   "golfers": [
+    "Chris Kirk",
+    "Denny McCarthy",
+    "Carson Young",
+    "Patrick Rodgers"
+   ]
+  },
+  {
    "title": "NFL Week 12 Betting Lines: Are Sportsbooks Shading Favorites After Two Rough Weeks?",
    "link": "https://vsin.com/the-vsin-daily/nfl-week-12-betting-lines-are-sportsbooks-shading-favorites-after-two-rough-weeks/",
    "summary": "After two weeks dominated by NFL favorites, the board features five double-digit favorites. Are oddsmakers reacting to the beating they\u2019ve taken? \u201cWe got murdered two weekends in a row,\u201d Circa owner Derek Stevens told Mitch Moss and Pauly Howard on Follow The Money Tuesday. But Circa risk manager Jamey Pileggi says the short-term results aren&#8217;t [&#8230;] The post NFL Week 12 Betting Lines: A",
@@ -178,39 +263,6 @@
    "kind": "news",
    "golfers": [
     "Sam Stevens"
-   ]
-  },
-  {
-   "title": "The Cut List - Time to Let Go? Who to Drop for Fantasy Football Week 11",
-   "link": "https://www.rotoballer.com/who-to-drop-for-fantasy-football-week-11-2026/1995889",
-   "summary": "This may as well be called the New England Patriots edition. With the recent news that Drake Maye is likely [&#8230;]",
-   "published": "Wed, 18 Nov 2026 04:42:30 +0000",
-   "source": "RotoBaller",
-   "kind": "news",
-   "golfers": [
-    "Luke List"
-   ]
-  },
-  {
-   "title": "Running Back Fantasy Football Waiver Wire Pickups for Week 11 - Kaelon Black, Seth McGowan, Kaleb Johnson, Dylan Sampson",
-   "link": "https://www.rotoballer.com/running-back-waiver-wire-pickups-fantasy-football-week-11-2026/1990178",
-   "summary": "We have now entered the planning process for Week 11 as the fantasy postseason continues its rapid approach. Congratulations to [&#8230;]",
-   "published": "Wed, 18 Nov 2026 03:56:00 +0000",
-   "source": "RotoBaller",
-   "kind": "news",
-   "golfers": [
-    "Michael Johnson"
-   ]
-  },
-  {
-   "title": "Wide Receiver Waiver Wire Pickups - Top Fantasy Football WR Adds for Week 11 Include Elic Ayomanor, Antonio Williams, Adonai Mitchell",
-   "link": "https://www.rotoballer.com/wr-waiver-wire-pickups-fantasy-football-week-11-2026/1995300",
-   "summary": "We're back with another edition of Waiver Wire Wide Receivers, this time getting you ready for Week 11. This is [&#8230;]",
-   "published": "Wed, 18 Nov 2026 03:55:25 +0000",
-   "source": "RotoBaller",
-   "kind": "news",
-   "golfers": [
-    "Keith Mitchell"
    ]
   },
   {
