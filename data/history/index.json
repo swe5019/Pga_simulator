@@ -1,6 +1,6 @@
 {
- "updatedUtc": "2026-11-17T19:31:04Z",
- "count": 36,
+ "updatedUtc": "2026-11-18T03:59:57Z",
+ "count": 37,
  "events": [
   {
    "tournament": "3M_OPEN_2025",
@@ -267,6 +267,17 @@
    "updatedUtc": "2026-08-03T17:05:54Z"
   },
   {
+   "tournament": "RSM_2026",
+   "file": "history/RSM_2026.json",
+   "date": "2026-11-19 00:00:00",
+   "hasPredicted": true,
+   "hasActual": false,
+   "maePct": null,
+   "colabMaePct": null,
+   "comparedPlayers": null,
+   "updatedUtc": "2026-11-18T03:59:57Z"
+  },
+  {
    "tournament": "Scottish_Open_2025",
    "file": "history/Scottish_Open_2025.json",
    "date": "2025-07-10 00:00:00",
@@ -308,7 +319,7 @@
    "maePct": 2.958,
    "colabMaePct": 2.928,
    "comparedPlayers": 72,
-   "updatedUtc": "2026-11-17T19:31:04Z"
+   "updatedUtc": "2026-11-18T03:59:57Z"
   },
   {
    "tournament": "TRUIST_2026",
