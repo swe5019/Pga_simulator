@@ -1,11 +1,11 @@
 {
- "updatedUtc": "2026-11-17T16:02:09Z",
+ "updatedUtc": "2026-11-18T00:58:28Z",
  "slate": "WWT_2026",
  "event": "",
  "counts": {
-  "items": 1,
-  "golfersMentioned": 1,
-  "news": 1,
+  "items": 3,
+  "golfersMentioned": 3,
+  "news": 3,
   "chatter": 0
  },
  "sources": [
@@ -43,7 +43,7 @@
    "source": "Action Network",
    "ok": false,
    "items": 0,
-   "error": "no items"
+   "error": "HTTP 404"
   },
   {
    "source": "VSiN",
@@ -138,6 +138,18 @@
  ],
  "mentions": [
   {
+   "name": "Chad Ramey",
+   "news": 1,
+   "chatter": 0,
+   "total": 1
+  },
+  {
+   "name": "Jordan L. Smith",
+   "news": 1,
+   "chatter": 0,
+   "total": 1
+  },
+  {
    "name": "Seamus Power",
    "news": 1,
    "chatter": 0,
@@ -145,6 +157,28 @@
   }
  ],
  "items": [
+  {
+   "title": "The RSM Classic Best Bets and Golf Odds",
+   "link": "https://vsin.com/golf/the-rsm-classic-best-bets-and-golf-odds/",
+   "summary": "The RSM Classic Best Bets and Golf Odds: Chad Ramey, a 100-1 pre-tournament price, birdied three of the first five holes and closed with a 7-under 65 for a two-shot victory Monday in the rain-delayed Austin Championship, capping a five-day span that took him from the prospect of losing his PGA Tour card to a [&#8230;] The post The RSM Classic Best Bets and Golf Odds appeared first on VSiN .",
+   "published": "Tue, 17 Nov 2026 22:45:20 +0000",
+   "source": "VSiN",
+   "kind": "news",
+   "golfers": [
+    "Chad Ramey"
+   ]
+  },
+  {
+   "title": "When Is DeVonta Smith Coming Back - Week 11 Fantasy Football Injury Return Update (2026)",
+   "link": "https://www.rotoballer.com/when-is-puka-nacua-coming-back-week-11-fantasy-football-injury-return-update-2026-2/1996454",
+   "summary": "Philadelphia Eagles wide receiver DeVonta Smith had a ton of hype around him heading into the 2026 fantasy football season. [&#8230;]",
+   "published": "Tue, 17 Nov 2026 19:55:23 +0000",
+   "source": "RotoBaller",
+   "kind": "news",
+   "golfers": [
+    "Jordan L. Smith"
+   ]
+  },
   {
    "title": "Week 12 College Football Power Ratings and Projections for Every Game",
    "link": "https://vsin.com/college-football/week-12-college-football-power-ratings-and-projections-for-every-game/",
