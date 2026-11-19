@@ -1,18 +1,18 @@
 {
- "updatedUtc": "2026-11-18T20:33:56Z",
+ "updatedUtc": "2026-11-19T02:35:17Z",
  "slate": "RSM_2026",
  "event": "",
  "counts": {
-  "items": 6,
-  "golfersMentioned": 11,
-  "news": 6,
+  "items": 5,
+  "golfersMentioned": 7,
+  "news": 5,
   "chatter": 0
  },
  "sources": [
   {
    "source": "RotoWire Golf",
    "ok": true,
-   "items": 5,
+   "items": 2,
    "error": null
   },
   {
@@ -108,7 +108,7 @@
   {
    "source": "Google News: PGA DFS",
    "ok": true,
-   "items": 53,
+   "items": 55,
    "error": null
   },
   {
@@ -137,6 +137,12 @@
   }
  ],
  "mentions": [
+  {
+   "name": "Chad Ramey",
+   "news": 1,
+   "chatter": 0,
+   "total": 1
+  },
   {
    "name": "Benjamin James",
    "news": 1,
@@ -168,43 +174,24 @@
    "total": 1
   },
   {
-   "name": "Chris Kirk",
-   "news": 1,
-   "chatter": 0,
-   "total": 1
-  },
-  {
-   "name": "Denny McCarthy",
-   "news": 1,
-   "chatter": 0,
-   "total": 1
-  },
-  {
-   "name": "Carson Young",
-   "news": 1,
-   "chatter": 0,
-   "total": 1
-  },
-  {
-   "name": "Patrick Rodgers",
-   "news": 1,
-   "chatter": 0,
-   "total": 1
-  },
-  {
    "name": "Sam Stevens",
-   "news": 1,
-   "chatter": 0,
-   "total": 1
-  },
-  {
-   "name": "Chad Ramey",
    "news": 1,
    "chatter": 0,
    "total": 1
   }
  ],
  "items": [
+  {
+   "title": "The RSM Classic Best Bets and Golf Odds",
+   "link": "https://vsin.com/golf/the-rsm-classic-best-bets-and-golf-odds/",
+   "summary": "The RSM Classic Best Bets and Golf Odds: Chad Ramey, a 100-1 pre-tournament price, birdied three of the first five holes and closed with a 7-under 65 for a two-shot victory Monday in the rain-delayed Austin Championship, capping a five-day span that took him from the prospect of losing his PGA Tour card to a [&#8230;] The post The RSM Classic Best Bets and Golf Odds appeared first on VSiN .",
+   "published": "Thu, 19 Nov 2026 02:08:00 +0000",
+   "source": "VSiN",
+   "kind": "news",
+   "golfers": [
+    "Chad Ramey"
+   ]
+  },
   {
    "title": "Who Should I Start for Fantasy Football Week 11? Rachaad White, Pat Bryant, Omarion Hampton, Bhayshul Tuten, James Cook III, Kyle Monangai, Rome Odunze, Devin Singletary, Rashee Rice",
    "link": "https://www.rotoballer.com/who-should-i-start-for-week-11-rachaad-white-pat-bryant-omarion-hampton-bhayshul-tuten-james-cook-iii-kyle-monangai-rome-odunze-devin-singletary-rashee-rice/1997256",
@@ -241,20 +228,6 @@
    ]
   },
   {
-   "title": "Who Should I Start for Fantasy Football Week 11? Bo Nix, Cam Ward, Patrick Mahomes, Aaron Rodgers, Bryce Young, Kirk Cousins, Brock Purdy, Jared Goff, J.J. McCarthy, Dak Prescott",
-   "link": "https://www.rotoballer.com/who-should-i-start-for-week-11-bo-nix-cam-ward-patrick-mahomes-aaron-rodgers-bryce-young-kirk-cousins-brock-purdy-jared-goff-j-j-mccarthy-dak-prescott/1997072",
-   "summary": "Who Should I Start? Who Should I Sit? Some of the most common Week 11 fantasy football lineup decisions involve [&#8230;]",
-   "published": "Wed, 18 Nov 2026 15:19:55 +0000",
-   "source": "RotoBaller",
-   "kind": "news",
-   "golfers": [
-    "Chris Kirk",
-    "Denny McCarthy",
-    "Carson Young",
-    "Patrick Rodgers"
-   ]
-  },
-  {
    "title": "NFL Week 12 Betting Lines: Are Sportsbooks Shading Favorites After Two Rough Weeks?",
    "link": "https://vsin.com/the-vsin-daily/nfl-week-12-betting-lines-are-sportsbooks-shading-favorites-after-two-rough-weeks/",
    "summary": "After two weeks dominated by NFL favorites, the board features five double-digit favorites. Are oddsmakers reacting to the beating they\u2019ve taken? \u201cWe got murdered two weekends in a row,\u201d Circa owner Derek Stevens told Mitch Moss and Pauly Howard on Follow The Money Tuesday. But Circa risk manager Jamey Pileggi says the short-term results aren&#8217;t [&#8230;] The post NFL Week 12 Betting Lines: A",
@@ -263,17 +236,6 @@
    "kind": "news",
    "golfers": [
     "Sam Stevens"
-   ]
-  },
-  {
-   "title": "The RSM Classic Best Bets and Golf Odds",
-   "link": "https://vsin.com/golf/the-rsm-classic-best-bets-and-golf-odds/",
-   "summary": "The RSM Classic Best Bets and Golf Odds: Chad Ramey, a 100-1 pre-tournament price, birdied three of the first five holes and closed with a 7-under 65 for a two-shot victory Monday in the rain-delayed Austin Championship, capping a five-day span that took him from the prospect of losing his PGA Tour card to a [&#8230;] The post The RSM Classic Best Bets and Golf Odds appeared first on VSiN .",
-   "published": "Wed, 18 Nov 2026 02:50:10 +0000",
-   "source": "VSiN",
-   "kind": "news",
-   "golfers": [
-    "Chad Ramey"
    ]
   }
  ]
