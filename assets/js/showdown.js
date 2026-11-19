@@ -108,6 +108,16 @@
       ['pWin', 'Wins%', 'num',
         'Share of simulated games whose best possible lineup captained him. '
         + 'Measured, with nothing about the field in it.'],
+      ['cptOwn', 'Field%', 'num',
+        'Modelled share of the field that captains him. Captain ownership sums '
+        + 'to 100% across the slate, so one popular choice swallows a huge part '
+        + 'of it: Derrick Henry was captained by 33.3% of 642,122 entries on '
+        + '16 November, and when he finished second among captains by two '
+        + 'points every one of them lost together. Modelled from salary alone, '
+        + 'because that is what the field captains on. Read it beside the win '
+        + 'rate, not divided into it: dividing ranked the actual winning '
+        + 'captain 12th of 21 and 20th of 23 on the two contests it has been '
+        + 'checked against, against 1st and 10th for the win rate by itself.'],
     ];
     $('#sdCapHead').innerHTML = cols.map(([k, label, cls, tip]) =>
       `<th class="${cls} sortable${key === k ? ' sorted' : ''}" data-k="${k}"
@@ -128,7 +138,9 @@
         + `<td>${esc(c.player)}</td><td>${esc(c.pos)}</td><td>${esc(c.team)}</td>`
         + `<td class="num">${money(c.sal)}</td>`
         + `<td class="num">${money(c.cptSal)}</td>`
-        + `<td class="num">${pct(c.pWin)}</td></tr>` + detail;
+        + `<td class="num">${pct(c.pWin)}</td>`
+        + `<td class="num">${c.cptOwn == null ? '—' : c.cptOwn.toFixed(1) + '%'}</td>`
+        + '</tr>' + detail;
     }).join('');
   }
 

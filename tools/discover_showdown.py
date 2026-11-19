@@ -63,6 +63,7 @@ DATA = os.path.join(ROOT, "data")
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
 from enrich_props import nrm  # noqa: E402
+from captain_ownership import captain_ownership, describe as cpt_own_note  # noqa: E402
 
 # DraftKings showdown captain mode.
 CAP = 50_000
@@ -416,15 +417,26 @@ def solve_slate(slate, sims, args):
             f"and were discarded; the solver has a bug")
 
     meta = {p["name"]: p for p in pool}
+    # How crowded each captain choice is. Reported BESIDE the win rate and
+    # never divided into it: tested on both measured contests, win rate over
+    # modelled ownership ranked the actual winning captain 12th of 21 and 20th
+    # of 23, against 1st and 10th for the raw win rate. The model is monotone
+    # in salary, so the ratio is close to win rate per dollar and simply
+    # promotes cheap players.
+    cpt_own = captain_ownership([{"player": p["name"], "sal": p["sal"]}
+                                 for p in pool])
 
     log("\n" + "=" * 76)
     log("CAPTAINS — share of simulated games whose best lineup captained him")
     log("=" * 76)
-    log(f"{'captain':24}{'pos':5}{'team':6}{'salary':>8}{'cpt cost':>10}{'wins%':>8}")
+    log(f"   {cpt_own_note()}")
+    log(f"{'captain':24}{'pos':5}{'team':6}{'salary':>8}{'cpt cost':>10}"
+        f"{'wins%':>8}{'field%':>8}")
     for name, w in cpt_wins.most_common(args.top):
         p = meta[name]
         log(f"{name[:23]:24}{p['pos']:5}{p['team']:6}${p['sal']:>7,}"
-            f"${int(round(p['sal']*CPT_MULT)):>9,}{100*w/solved:>7.1f}%")
+            f"${int(round(p['sal']*CPT_MULT)):>9,}{100*w/solved:>7.1f}%"
+            f"{cpt_own.get(name, 0):>7.1f}%")
         mates = ", ".join(f"{m} ({100*c/w:.0f}%)"
                           for m, c in partners[name].most_common(4))
         log(f"   most often with: {mates}")
@@ -465,6 +477,7 @@ def solve_slate(slate, sims, args):
              "sal": meta[nm]["sal"],
              "cptSal": int(round(meta[nm]["sal"] * CPT_MULT)),
              "wins": w, "pWin": w / solved,
+             "cptOwn": round(cpt_own.get(nm, 0.0), 2),
              "partners": dict(partners[nm].most_common(5))}
             for nm, w in cpt_wins.most_common()
         ],
@@ -524,7 +537,12 @@ def main():
         "stage": 1,
         # Named so a page cannot accidentally render an absent denominator as
         # if it were a measurement. Stage two adds captain ownership.
+        # Captain ownership is now modelled, so the page may show how crowded
+        # a captain is. There is still no model of whole showdown LINEUPS, so
+        # no field share or leverage for a build as a whole.
         "hasFieldModel": False,
+        "hasCaptainOwnership": True,
+        "captainOwnershipNote": cpt_own_note(),
         # Soonest first, so index 0 is the game that has to be decided next.
         "slates": results,
     }
