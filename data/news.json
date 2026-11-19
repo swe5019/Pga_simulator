@@ -1,11 +1,11 @@
 {
- "updatedUtc": "2026-11-19T02:35:17Z",
+ "updatedUtc": "2026-11-19T11:43:10Z",
  "slate": "RSM_2026",
  "event": "",
  "counts": {
-  "items": 5,
-  "golfersMentioned": 7,
-  "news": 5,
+  "items": 3,
+  "golfersMentioned": 4,
+  "news": 3,
   "chatter": 0
  },
  "sources": [
@@ -108,13 +108,13 @@
   {
    "source": "Google News: PGA DFS",
    "ok": true,
-   "items": 55,
+   "items": 56,
    "error": null
   },
   {
    "source": "Google News: PGA WD",
    "ok": true,
-   "items": 58,
+   "items": 60,
    "error": null
   },
   {
@@ -160,24 +160,6 @@
    "news": 1,
    "chatter": 0,
    "total": 1
-  },
-  {
-   "name": "Jordan L. Smith",
-   "news": 1,
-   "chatter": 0,
-   "total": 1
-  },
-  {
-   "name": "Mark Hubbard",
-   "news": 1,
-   "chatter": 0,
-   "total": 1
-  },
-  {
-   "name": "Sam Stevens",
-   "news": 1,
-   "chatter": 0,
-   "total": 1
   }
  ],
  "items": [
@@ -213,29 +195,6 @@
    "kind": "news",
    "golfers": [
     "Blades Brown"
-   ]
-  },
-  {
-   "title": "Who Should I Start for Fantasy Football Week 11? Chris Olave, Courtland Sutton, Elic Ayomanor, Chuba Hubbard, DeVonta Smith, DK Metcalf, Braelon Allen, Jakobi Meyers, Keenan Allen",
-   "link": "https://www.rotoballer.com/who-should-i-start-for-week-11-chris-olave-courtland-sutton-elic-ayomanor-chuba-hubbard-devonta-smith-dk-metcalf-braelon-allen-jakobi-meyers-keenan-allen/1997086",
-   "summary": "Who Should I Start? Who Should I Sit? Some of the most common Week 11 fantasy football lineup decisions involve [&#8230;]",
-   "published": "Wed, 18 Nov 2026 15:25:45 +0000",
-   "source": "RotoBaller",
-   "kind": "news",
-   "golfers": [
-    "Jordan L. Smith",
-    "Mark Hubbard"
-   ]
-  },
-  {
-   "title": "NFL Week 12 Betting Lines: Are Sportsbooks Shading Favorites After Two Rough Weeks?",
-   "link": "https://vsin.com/the-vsin-daily/nfl-week-12-betting-lines-are-sportsbooks-shading-favorites-after-two-rough-weeks/",
-   "summary": "After two weeks dominated by NFL favorites, the board features five double-digit favorites. Are oddsmakers reacting to the beating they\u2019ve taken? \u201cWe got murdered two weekends in a row,\u201d Circa owner Derek Stevens told Mitch Moss and Pauly Howard on Follow The Money Tuesday. But Circa risk manager Jamey Pileggi says the short-term results aren&#8217;t [&#8230;] The post NFL Week 12 Betting Lines: A",
-   "published": "Wed, 18 Nov 2026 05:53:22 +0000",
-   "source": "VSiN",
-   "kind": "news",
-   "golfers": [
-    "Sam Stevens"
    ]
   }
  ]
