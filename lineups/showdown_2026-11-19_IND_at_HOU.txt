@@ -1,0 +1,50 @@
+==============================================================================
+WHY THESE THREE, AND WHAT WOULD MAKE THEM WRONG
+==============================================================================
+
+The shared structure. Every one of the five showdown winners scored so far was
+CHALK IN FIVE SLOTS and different in exactly one: the captain. Their total
+ownerships were 149.6%, 151.3%, 166.1%, 169.6% and 175.0%, and their duplicate
+counts were 1, 8, 11, 13 and 32. Not one was a unique lineup. So these builds
+do not try to be strange everywhere. C.J. Stroud is in all three flexes and
+will be in most of the field's, which is the point: he is the best player in
+the game and he costs the same whoever rosters him.
+
+The quarterback is in the FLEX in all three. Five of five winners did that, and
+none captained a quarterback. That record alone is thin, about a one in seven
+coincidence if the simulation's own 33% rate is right, so the real reason is
+mechanical: the captain slot multiplies salary as well as score, so it buys
+concentration rather than value, and you want concentration on the widest right
+tail. Stroud's 90th percentile is 1.59x his mean, the narrowest of any serious
+option here, against 1.92x for Collins and 1.84x for Montgomery. A quarterback's
+worth is his floor, and a floor wins nothing in a 643,587-entry tournament.
+
+Jonathan Taylor is deliberately not a captain in any of these. He is the most
+owned captain on the board at a modelled 20.2% and the simulation ranks him
+fourth at a 6.5% win rate. He is also the most expensive captain at $15,900,
+which strands the rest of the roster: the field's natural Taylor build tested
+at a 163.7 ninety-ninth percentile, the lowest of anything considered here,
+while carrying the highest captain ownership. Most owned and worst ceiling is
+the trade that has punished the field in four of the five contests measured.
+He is still in lineup 3's flex, where his price is fair.
+
+WHAT WOULD MAKE THIS WRONG
+
+Alec Pierce, $8,000, has no projection here because he has had ZERO prop lines
+in every snapshot since 16 November, while Treadwell has had 18 to 22 in the
+same window. He is not on the injury list either. The most likely reading is
+that he is out and the book knows it, which is why Treadwell and Dulin carry
+the Indianapolis receiving work in these builds. CONFIRM IT. If Pierce plays,
+Treadwell and Dulin are badly overstated, lineup 3 is void, and lineups 1 and 2
+need Treadwell replaced.
+
+Neither kicker is modelled. Fairbairn at $5,400 and Shrader at $5,200 are
+invisible to this project, and that is not a small gap in showdown: the field
+rostered kickers at 26% and 33% in the two most recent contests, and the 9
+November winner carried two of them. Their absence from these lineups is an
+admission of ignorance, not a fade.
+
+Captain ownership is modelled from salary alone, at roughly 3.4 points of mean
+error out of sample. Read it as how crowded a choice is, not as a number to
+divide a win rate by; that division ranked the actual winning captain 12th of
+21 and 20th of 23 on the two contests where it could be checked.
