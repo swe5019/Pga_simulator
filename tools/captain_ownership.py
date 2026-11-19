@@ -22,40 +22,68 @@ So the model is deliberately almost trivial:
 
     captain ownership  proportional to  salary ** EXPONENT,  normalised to 100%
 
-VALIDATION, and why nothing more elaborate is used
-Seventeen captains across two slates. Fitting on one slate and scoring the
-other, which is the only honest test available:
+VALIDATION
+Twenty six captains across three slates, holding each slate out in turn and
+fitting the exponent on the other two:
 
-    salary only              3.67 and 2.87   mean 3.27 points of error
-    simulated win rate only  3.90 and 3.61   mean 3.76
-    salary times win rate    3.90 and 5.53   mean 4.72
-    spreading evenly         6.49 and 5.03   mean 5.76
+    hold out 13 Nov   fit 3.45   MAE 4.62   against a 5.91 baseline
+    hold out 15 Nov   fit 3.50   MAE 2.00   against 5.03
+    hold out 16 Nov   fit 2.70   MAE 4.04   against 6.49
+    pooled                       MAE 3.61   against about 5.8
 
 Adding this project's own simulated captain win rate makes it WORSE out of
-sample, even though it looks better in sample. The field is not simulating. It
-is reading the price, and a second parameter fitted on seventeen points is
-fitting noise. The exponent itself is unstable, 3.3 when fitted on one slate
-and 4.5 on the other, so the midpoint is used and should be refitted as
-contests accumulate.
+sample even though it looks better in sample. The field is not simulating, it
+is reading the price, and a second parameter on this little data fits noise.
+
+THE EXPONENT IS THE WEAK POINT, and more data made that clearer rather than
+better. Fitted per slate it comes out 1.45, 3.30 and 7.95. That five-fold
+range is not noise in the fit: it is the exponent absorbing how CONCENTRATED
+each captain market happened to be. On 16 November one captain took a third of
+the market and the curve has to be steep; on 13 November the top nine captains
+ran 23.3% down to 2.9% and it has to be shallow. Salary says nothing about
+which of those a slate will be, so a single fixed exponent is a compromise
+between slates that genuinely disagree.
+
+The honest out of sample error therefore ROSE from 3.27 on two slates to 3.61
+on three. The two-slate figure was luck, not skill, and this is the better
+estimate.
 
 WHAT THIS IS NOT FOR
 Do NOT divide a captain's win rate by this to make a leverage column. That was
-the intended use and it fails: tested on both contests it ranked the winning
-captain 12th of 21 and 20th of 23, against 1st and 10th for the raw win rate.
+the intended use and it fails: on the two contests where this project had
+archived a prediction beforehand, it ranked the winning captain 12th of 21 and
+20th of 23, against 1st and 10th for the raw win rate on its own. (The
+13 November contest predates the showdown tool's first live run, so it cannot
+be scored this way.)
 Because the model is monotone in salary, the ratio is close to "win rate per
 dollar", which promotes cheap players who mostly do not win. The model's job is
 to say how crowded a choice is, not to pick one.
 
 KNOWN FAILURE
-It under-predicts a dominant captain. Henry came through at 18.0% modelled
+It under-predicts a dominant captain. Henry came through at 18.5% modelled
 against 33.3% actual. When one captain is obvious to everybody the real field
-concentrates harder than a salary curve can.
+concentrates harder than a salary curve can, and nothing available before lock
+says which slate that will be.
+
+WHAT THE THREE CONTESTS DO AGREE ON, which this model does not try to capture:
+leverage goes to whoever captained the TOP SCORER, and being popular costs
+nothing if you are also right.
+
+    13 Nov  most owned Jayden Daniels 23.3%, scored 34.14, second best   0.01x
+            top scorer Isaiah Likely  14.3%, scored 46.05                5.08x
+    15 Nov  most owned Ja'Marr Chase  20.1%, scored 55.65, best          3.39x
+    16 Nov  most owned Derrick Henry  33.3%, scored 28.50, second best   0.78x
+            top scorer Omarion Hampton 2.2%, scored 30.75               11.18x
+
+Three for three: the most owned captain is only punished when he is not the
+best one. "Fade the chalk captain" remains wrong.
 """
 
-# Fitted on 17 captains across the 15 and 16 November 2026 showdowns. The two
-# slates independently want 3.3 and 4.5, so this is the midpoint and carries
-# real uncertainty.
-EXPONENT = 3.8
+# Best single value across 26 captains and three contests (13, 15 and 16
+# November 2026). The slates individually want 1.45, 3.30 and 7.95, so this is
+# a compromise and not a measurement. Refit it as contests accumulate, and do
+# not read precision into the third significant figure.
+EXPONENT = 3.3
 
 # Captain ownership below this is not meaningfully distinguishable from zero
 # given about 3 points of error, so it is reported as a floor rather than a
@@ -83,5 +111,7 @@ def captain_ownership(players, exponent=EXPONENT):
 
 def describe():
     return (f"captain ownership modelled as salary^{EXPONENT} normalised to "
-            f"100%, fitted on 17 captains over 2 contests, about 3.3 points of "
-            f"mean error out of sample against 5.8 for spreading evenly")
+            f"100%, fitted on 26 captains over 3 contests: about 3.6 points of "
+            f"mean error out of sample against 5.8 for spreading evenly. The "
+            f"exponent varies 1.5 to 8.0 by slate, so read the ordering rather "
+            f"than the level")
