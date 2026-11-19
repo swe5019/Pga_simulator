@@ -1,19 +1,19 @@
 {
- "updatedUtc": "2026-11-19T11:43:10Z",
+ "updatedUtc": "2026-11-19T20:39:43Z",
  "slate": "RSM_2026",
  "event": "",
  "counts": {
-  "items": 3,
+  "items": 6,
   "golfersMentioned": 4,
-  "news": 3,
+  "news": 6,
   "chatter": 0
  },
  "sources": [
   {
    "source": "RotoWire Golf",
-   "ok": true,
-   "items": 2,
-   "error": null
+   "ok": false,
+   "items": 0,
+   "error": "no items"
   },
   {
    "source": "RotoBaller Golf",
@@ -108,13 +108,13 @@
   {
    "source": "Google News: PGA DFS",
    "ok": true,
-   "items": 56,
+   "items": 53,
    "error": null
   },
   {
    "source": "Google News: PGA WD",
    "ok": true,
-   "items": 60,
+   "items": 64,
    "error": null
   },
   {
@@ -138,31 +138,87 @@
  ],
  "mentions": [
   {
+   "name": "Erik Van Rooyen",
+   "news": 4,
+   "chatter": 0,
+   "total": 4
+  },
+  {
+   "name": "Keith Mitchell",
+   "news": 1,
+   "chatter": 0,
+   "total": 1
+  },
+  {
+   "name": "Michael Johnson",
+   "news": 1,
+   "chatter": 0,
+   "total": 1
+  },
+  {
    "name": "Chad Ramey",
-   "news": 1,
-   "chatter": 0,
-   "total": 1
-  },
-  {
-   "name": "Benjamin James",
-   "news": 1,
-   "chatter": 0,
-   "total": 1
-  },
-  {
-   "name": "Shad Tuten",
-   "news": 1,
-   "chatter": 0,
-   "total": 1
-  },
-  {
-   "name": "Blades Brown",
    "news": 1,
    "chatter": 0,
    "total": 1
   }
  ],
  "items": [
+  {
+   "title": "2026 Fantasy Football Rankings - Week 11 Start, Sit",
+   "link": "https://www.rotoballer.com/2026-fantasy-football-rankings-week-11-start-sit/1997990",
+   "summary": "Ahead of Week 11, Jordyn Tyson, Jalen Coker, Chig Okonkwo, Adonai Mitchell, Caleb Douglas, Emmett Johnson, and Deebo Samuel Sr. [&#8230;]",
+   "published": "Thu, 19 Nov 2026 20:15:54 +0000",
+   "source": "RotoBaller",
+   "kind": "news",
+   "golfers": [
+    "Keith Mitchell",
+    "Michael Johnson"
+   ]
+  },
+  {
+   "title": "Van Rooyen Loses 2027 PGA Tour Status Chance After Injury - bsinews.id",
+   "link": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE1XQ1RWaFFlN0tQMnZ6NVY0Z1Fvdk5yTF9UWVEyXzBKTzFTU1VaN2NoQ1V0VFB3WXpTQlItT2g3V0lTMXJqSlRWNlpTRE1hTGRuS2s4ODd4YTU0SlFCRG5MOQ?oc=5",
+   "summary": "Van Rooyen Loses 2027 PGA Tour Status Chance After Injury bsinews.id",
+   "published": "Thu, 19 Nov 2026 18:38:00 GMT",
+   "source": "Google News: PGA WD",
+   "kind": "news",
+   "golfers": [
+    "Erik Van Rooyen"
+   ]
+  },
+  {
+   "title": "With PGA Tour privileges on the line, this former winner had to WD from RSM Classic",
+   "link": "https://sports.yahoo.com/articles/pga-tour-privileges-line-former-181121257.html",
+   "summary": "Erik van Rooyen withdrew from the RSM Classic with a rib injury, jeopardizing his PGA Tour status for next season.",
+   "published": "Thu, 19 Nov 2026 18:11:21 +0000",
+   "source": "Yahoo Golf",
+   "kind": "news",
+   "golfers": [
+    "Erik Van Rooyen"
+   ]
+  },
+  {
+   "title": "Van Rooyen withdraws from RSM Classic, won\u2019t earn 2027 PGA Tour conditional status",
+   "link": "https://sports.yahoo.com/articles/van-rooyen-withdraws-rsm-classic-165630786.html",
+   "summary": "The RSM Classic is underway at Seaside Golf Course in St. Simons, Georgia and the final event of the FedExCup Fall season will be without Erik van Rooyen.",
+   "published": "Thu, 19 Nov 2026 16:56:30 +0000",
+   "source": "Yahoo Golf",
+   "kind": "news",
+   "golfers": [
+    "Erik Van Rooyen"
+   ]
+  },
+  {
+   "title": "Van Rooyen withdraws from RSM Classic, won\u2019t earn 2027 PGA Tour conditional status - Yahoo Sports",
+   "link": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxPbklmM2RLUnRSX09ZY3dTN0g0UFlOQmVUUDZ5bUdYRkxBTWJSQURORE5IVUlZZ3VTbDlac2gtbHVKT2JSb2VwdXZDN1EzY1ZFbXY1N1JaaXB6OEdqRmx6OERtaTRFcVpCWXp5RDBxTjNFajRGX3lpODMtdVd0S05yQXVrZm14MElX?oc=5",
+   "summary": "Van Rooyen withdraws from RSM Classic, won\u2019t earn 2027 PGA Tour conditional status Yahoo Sports",
+   "published": "Thu, 19 Nov 2026 16:56:30 GMT",
+   "source": "Google News: PGA WD",
+   "kind": "news",
+   "golfers": [
+    "Erik Van Rooyen"
+   ]
+  },
   {
    "title": "The RSM Classic Best Bets and Golf Odds",
    "link": "https://vsin.com/golf/the-rsm-classic-best-bets-and-golf-odds/",
@@ -172,29 +228,6 @@
    "kind": "news",
    "golfers": [
     "Chad Ramey"
-   ]
-  },
-  {
-   "title": "Who Should I Start for Fantasy Football Week 11? Rachaad White, Pat Bryant, Omarion Hampton, Bhayshul Tuten, James Cook III, Kyle Monangai, Rome Odunze, Devin Singletary, Rashee Rice",
-   "link": "https://www.rotoballer.com/who-should-i-start-for-week-11-rachaad-white-pat-bryant-omarion-hampton-bhayshul-tuten-james-cook-iii-kyle-monangai-rome-odunze-devin-singletary-rashee-rice/1997256",
-   "summary": "Who Should I Start? Who Should I Sit? Some of the most common Week 11 fantasy football lineup decisions involve [&#8230;]",
-   "published": "Wed, 18 Nov 2026 19:24:40 +0000",
-   "source": "RotoBaller",
-   "kind": "news",
-   "golfers": [
-    "Benjamin James",
-    "Shad Tuten"
-   ]
-  },
-  {
-   "title": "Who Should I Start for Fantasy Football Week 11? Josh Downs, Emeka Egbuka, Jameson Williams, Aaron Jones Sr., Ashton Jeanty, J.K. Dobbins, Khalil Shakir, Chase Brown, Ladd McConkey",
-   "link": "https://www.rotoballer.com/who-should-i-start-for-week-11-josh-downs-emeka-egbuka-jameson-williams-aaron-jones-sr-ashton-jeanty-j-k-dobbins-khalil-shakir-chase-brown-ladd-mcconkey/1997257",
-   "summary": "Who Should I Start? Who Should I Sit? Some of the most common Week 11 fantasy football lineup decisions involve [&#8230;]",
-   "published": "Wed, 18 Nov 2026 19:17:07 +0000",
-   "source": "RotoBaller",
-   "kind": "news",
-   "golfers": [
-    "Blades Brown"
    ]
   }
  ]
