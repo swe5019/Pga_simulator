@@ -64,6 +64,7 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
 from enrich_props import nrm  # noqa: E402
 from captain_ownership import captain_ownership, describe as cpt_own_note  # noqa: E402
+from flex_ownership import flex_ownership, describe as flex_own_note  # noqa: E402
 
 # DraftKings showdown captain mode.
 CAP = 50_000
@@ -369,8 +370,20 @@ def solve_slate(slate, sims, args):
     cpt_by_script = defaultdict(Counter)
     split_wins = Counter()
     partners = defaultdict(Counter)
+    flex_wins = Counter()
+    own_sums = []
     solved = 0
     illegal = 0
+
+    # Both ownership models depend only on price and position, so they are
+    # built once here and are available inside the solve loop. Captain and
+    # flex are SEPARATE markets, summing to 100% and 500%: on the five
+    # captured contests the ratio between a player's two shares ran from 1.4
+    # to 32, so neither can be derived from the other.
+    cpt_own = captain_ownership([{"player": p["name"], "sal": p["sal"]}
+                                 for p in pool])
+    flex_own = flex_ownership([{"player": p["name"], "sal": p["sal"],
+                                "pos": p["pos"]} for p in pool])
 
     log(f"\nsolving the winning lineup in each of {n_trials:,} simulated games")
     for t in range(n_trials):
@@ -405,6 +418,16 @@ def solve_slate(slate, sims, args):
         cpt_by_script[scr][c["name"]] += 1
         for i in ids[1:]:
             partners[c["name"]][pool[i]["name"]] += 1
+            flex_wins[pool[i]["name"]] += 1
+        # What this winning lineup would have cost in field share, in the units
+        # FantasyLabs reports and the five scored winners were measured in:
+        # the captain's captain-market share plus each flex player's flex
+        # share. Those five came in between 149.6% and 175.0%, so a solved
+        # winner landing in that band is evidence the simulation is finding
+        # the same kind of lineup the contests actually paid.
+        own_sums.append(cpt_own.get(c["name"], 0.0)
+                        + sum(flex_own.get(pool[i]["name"], 0.0)
+                              for i in ids[1:]))
         if solved % 500 == 0:
             log(f"   {solved:,} solved")
 
@@ -417,14 +440,21 @@ def solve_slate(slate, sims, args):
             f"and were discarded; the solver has a bug")
 
     meta = {p["name"]: p for p in pool}
-    # How crowded each captain choice is. Reported BESIDE the win rate and
-    # never divided into it: tested on both measured contests, win rate over
-    # modelled ownership ranked the actual winning captain 12th of 21 and 20th
-    # of 23, against 1st and 10th for the raw win rate. The model is monotone
-    # in salary, so the ratio is close to win rate per dollar and simply
-    # promotes cheap players.
-    cpt_own = captain_ownership([{"player": p["name"], "sal": p["sal"]}
-                                 for p in pool])
+    # Both ownership models are reported BESIDE the win rates and never
+    # divided into them: tested on both measured contests, win rate over
+    # modelled captain ownership ranked the actual winning captain 12th of 21
+    # and 20th of 23, against 1st and 10th for the raw win rate. The models
+    # are monotone in salary, so the ratio is close to win rate per dollar and
+    # simply promotes cheap players.
+    if own_sums:
+        own_sums.sort()
+        mid = own_sums[len(own_sums) // 2]
+        lo = own_sums[int(0.1 * len(own_sums))]
+        hi = own_sums[int(0.9 * len(own_sums))]
+        log(f"\nfield share of the solved winners: median {mid:.0f}%, "
+            f"10th to 90th percentile {lo:.0f}% to {hi:.0f}%")
+        log("   the five scored contests were won at 149.6%, 151.3%, 166.1%, "
+            "169.6% and 175.0%")
 
     log("\n" + "=" * 76)
     log("CAPTAINS — share of simulated games whose best lineup captained him")
@@ -478,9 +508,28 @@ def solve_slate(slate, sims, args):
              "cptSal": int(round(meta[nm]["sal"] * CPT_MULT)),
              "wins": w, "pWin": w / solved,
              "cptOwn": round(cpt_own.get(nm, 0.0), 2),
+             "flexOwn": round(flex_own.get(nm, 0.0), 2),
              "partners": dict(partners[nm].most_common(5))}
             for nm, w in cpt_wins.most_common()
         ],
+        # The flex slot's own version of the captain table: how often a winning
+        # lineup carried the player in a NON-captain slot, beside how much of
+        # the field is expected to. Five slots, so pFlex is out of five and
+        # flexOwn sums to 500% across the pool, not 100%.
+        "flex": [
+            {"player": p["name"], "pos": p["pos"], "team": p["team"],
+             "sal": p["sal"],
+             "wins": flex_wins.get(p["name"], 0),
+             "pFlex": flex_wins.get(p["name"], 0) / solved,
+             "flexOwn": round(flex_own.get(p["name"], 0.0), 2),
+             "cptOwn": round(cpt_own.get(p["name"], 0.0), 2)}
+            for p in sorted(pool, key=lambda q: -flex_wins.get(q["name"], 0))
+        ],
+        "ownSum": ({"p10": round(own_sums[int(0.1 * len(own_sums))], 1),
+                    "median": round(own_sums[len(own_sums) // 2], 1),
+                    "p90": round(own_sums[int(0.9 * len(own_sums))], 1),
+                    "scoredWinners": [149.6, 151.3, 166.1, 169.6, 175.0]}
+                   if own_sums else None),
         "shapes": [{"shape": s, "wins": w, "pWin": w / solved}
                    for s, w in shape_wins.most_common()],
         "splits": [{"split": s, "wins": w, "pWin": w / solved}
@@ -535,14 +584,24 @@ def main():
         "built": datetime.datetime.now(datetime.timezone.utc)
                  .strftime("%Y-%m-%dT%H:%M:%SZ"),
         "stage": 1,
-        # Named so a page cannot accidentally render an absent denominator as
-        # if it were a measurement. Stage two adds captain ownership.
-        # Captain ownership is now modelled, so the page may show how crowded
-        # a captain is. There is still no model of whole showdown LINEUPS, so
-        # no field share or leverage for a build as a whole.
+        # Named so a page cannot render an absent denominator as if it were a
+        # measurement. BOTH SLOT MARKETS ARE NOW MODELLED: captain ownership
+        # summing to 100% and flex ownership to 500%.
+        #
+        # hasFieldModel stays FALSE on purpose, and does not mean "no
+        # ownership". It means there is no model of whole LINEUPS. Summing the
+        # two marginals gives a lineup's field share, which is what the
+        # contests report and what ownSum carries, but it does NOT give the
+        # probability that anyone built that exact six, because entries are
+        # not assembled by drawing six independent players: stacking makes the
+        # slots strongly dependent. Duplicate counts and true lineup-level
+        # leverage need a model of how entries are constructed, and this is
+        # not one.
         "hasFieldModel": False,
         "hasCaptainOwnership": True,
+        "hasFlexOwnership": True,
         "captainOwnershipNote": cpt_own_note(),
+        "flexOwnershipNote": flex_own_note(),
         # Soonest first, so index 0 is the game that has to be decided next.
         "slates": results,
     }

@@ -24,7 +24,8 @@
 (function () {
   const $ = (s) => document.querySelector(s);
 
-  const state = { doc: null, idx: 0, sort: { key: 'pWin', dir: -1 } };
+  const state = { doc: null, idx: 0, sort: { key: 'pWin', dir: -1 },
+                fsort: { key: 'pFlex', dir: -1 } };
 
   const unlocked = () => !window.LeadGate || window.LeadGate.granted();
   const esc = (v) => String(v == null ? '' : v)
@@ -144,6 +145,96 @@
     }).join('');
   }
 
+  /* The flex market, beside the captain market, never divided into it. The
+   * two columns are measured in different units on purpose: Used% and Field%
+   * are both out of five slots here, where the captain table's are out of one.
+   */
+  function renderFlex() {
+    const r = cur();
+    const rows = (r.flex || []).slice();
+    if (!rows.length) {
+      $('#sdFlexHead').innerHTML = '';
+      $('#sdFlexBody').innerHTML = '<tr><td>This build carries no flex '
+        + 'ownership model.</td></tr>';
+      return;
+    }
+    const { key, dir } = state.fsort;
+    rows.sort((a, b) => {
+      const x = a[key], y = b[key];
+      if (typeof x === 'string' || typeof y === 'string') {
+        return -dir * String(x || '').localeCompare(String(y || ''));
+      }
+      return dir * ((x || 0) - (y || 0));
+    });
+    const cols = [
+      ['player', 'Player', '', 'The player in a non-captain slot.'],
+      ['pos', 'Pos', '', 'Position. The field flexes quarterbacks far more '
+        + 'than any other position: across five captured contests a flexed '
+        + 'quarterback averaged 50.8% ownership against 16% to 23% for every '
+        + 'other position at comparable money.'],
+      ['team', 'Team', '', 'Which side he is on.'],
+      ['sal', 'Flex $', 'num', 'What he costs in a normal slot.'],
+      ['pFlex', 'Used%', 'num',
+        'Share of simulated games whose best possible lineup carried him in '
+        + 'one of the five flex slots. Measured, with nothing about the field '
+        + 'in it.'],
+      ['flexOwn', 'Field%', 'num',
+        'Modelled share of entries that flex him. Flex ownership sums to 500% '
+        + 'across the slate because there are five such slots. Carries about '
+        + 'six points of mean error, roughly a quarter of a typical value, so '
+        + 'read it in bands: it will separate a 50% player from a 15% one and '
+        + 'will not tell you 18% from 24%.'],
+      ['cptOwn', 'Cpt%', 'num',
+        'His share of the separate captain market, for comparison. A low '
+        + 'number here beside a high Field% is the ordinary case: most of the '
+        + 'field flexes a player they would never captain.'],
+    ];
+    $('#sdFlexHead').innerHTML = cols.map(([k, label, cls, tip]) =>
+      `<th class="${cls} sortable${key === k ? ' sorted' : ''}" data-k="${k}"
+        title="${esc(tip)}">${label}${key === k ? (dir === -1 ? ' ↓' : ' ↑') : ''}</th>`
+    ).join('');
+    $('#sdFlexBody').innerHTML = rows.map((c) => '<tr>'
+      + `<td>${esc(c.player)}</td><td>${esc(c.pos)}</td><td>${esc(c.team)}</td>`
+      + `<td class="num">${money(c.sal)}</td>`
+      + `<td class="num">${pct(c.pFlex)}</td>`
+      + `<td class="num">${c.flexOwn == null ? '—' : c.flexOwn.toFixed(1) + '%'}</td>`
+      + `<td class="num">${c.cptOwn == null ? '—' : c.cptOwn.toFixed(1) + '%'}</td>`
+      + '</tr>').join('');
+
+    const note = $('#sdFlexNote');
+    if (note) {
+      note.textContent = state.doc.hasFlexOwnership
+        ? 'Field% is ' + (state.doc.flexOwnershipNote || 'modelled from salary '
+          + 'and position') + '.'
+        : 'Field% is not available in this build.';
+    }
+  }
+
+  /* A lineup's field share is the sum of its six slot shares, which is the
+   * unit the contests themselves report. It is NOT the chance anyone built
+   * that exact lineup: slots are strongly dependent because people stack, so
+   * nothing here is multiplied. */
+  function renderOwnSum() {
+    const r = cur();
+    const box = $('#sdOwnSum');
+    if (!box) return;
+    const o = r.ownSum;
+    if (!o) { box.textContent = ''; return; }
+    const w = (o.scoredWinners || []);
+    box.innerHTML = 'Adding up the six slot shares, the lineups that won the '
+      + `simulated games here cost a median of <b>${o.median}%</b> of field `
+      + `share, with the middle eighty per cent between ${o.p10}% and `
+      + `${o.p90}%. For comparison, the real showdown contests scored so far `
+      + 'were won at '
+      + w.map((x) => x.toFixed(1) + '%').join(', ')
+      + '. <b>Winning lineups are not contrarian lineups.</b> Every one of '
+      + 'those five was chalk-heavy and carried between 1 and 32 duplicates. '
+      + 'What separated them was one slot, not six. This is a sum of two '
+      + 'marginal models and not the chance that anybody built the exact six: '
+      + 'entries are stacked rather than drawn independently, so the slots are '
+      + 'dependent and nothing here is multiplied together.';
+  }
+
   function renderShapes() {
     const r = cur();
     $('#sdShapes').innerHTML = '<table><thead><tr>'
@@ -191,6 +282,8 @@
     renderPicker();
     renderMeta();
     renderCaptains();
+    renderFlex();
+    renderOwnSum();
     renderShapes();
     renderScripts();
     syncLock();
@@ -255,6 +348,14 @@
       state.sort = state.sort.key === k
         ? { key: k, dir: -state.sort.dir } : { key: k, dir: -1 };
       renderCaptains();
+    });
+    $('#sdFlexHead').addEventListener('click', (e) => {
+      const th = e.target.closest('th[data-k]');
+      if (!th) return;
+      const k = th.dataset.k;
+      state.fsort = state.fsort.key === k
+        ? { key: k, dir: -state.fsort.dir } : { key: k, dir: -1 };
+      renderFlex();
     });
     const btn = $('#sdUnlockBtn');
     if (btn) {

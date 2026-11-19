@@ -32,32 +32,32 @@
 # defence still scored 11.00. A defence opposite a stacked offence is the
 # conflict this project's lineup builder guards against, and this winner took
 # that conflict on deliberately in a close game.
-slot,player,team,salary,points,all,top20,top10,top1
-FLEX,Caleb Williams,CHI,10800,16.76,61.4,63.9,73.4,100.0
-FLEX,D'Andre Swift,CHI,10000,3.10,40.4,20.0,8.6,0.0
-FLEX,Luther Burden,CHI,9000,21.70,39.0,52.7,58.8,69.3
-FLEX,Colston Loveland,CHI,7800,9.40,37.6,37.1,36.8,1.5
-FLEX,Bucky Irving,TB,9800,28.50,35.3,60.8,63.0,57.8
-FLEX,Baker Mayfield,TB,9600,9.72,31.6,16.3,11.1,1.9
-FLEX,Cairo Santos,CHI,5400,9.00,27.2,26.2,25.9,21.3
-FLEX,Rome Odunze,CHI,6800,16.00,27.0,37.5,34.9,74.1
-FLEX,Chase McLaughlin,TB,5000,10.00,26.0,35.3,34.9,45.7
-FLEX,Cade Otton,TB,4000,6.50,24.9,16.4,16.8,2.2
-FLEX,Emeka Egbuka,TB,8400,6.90,21.8,11.0,8.3,0.2
-FLEX,Kenneth Gainwell,TB,4800,10.60,21.6,25.2,27.6,35.8
-FLEX,Chicago Defense,CHI,5200,14.00,18.2,21.1,22.5,30.8
-CPT,D'Andre Swift,CHI,15000,4.65,17.6,0.5,0.0,0.0
-FLEX,Chris Godwin,TB,6400,4.80,16.8,7.8,7.4,0.0
-FLEX,Kalif Raymond,TB,3800,7.20,16.0,16.0,19.5,24.2
-CPT,Caleb Williams,CHI,16200,25.14,14.8,15.6,11.0,1.4
-CPT,Colston Loveland,CHI,11700,14.10,12.6,8.9,9.5,0.0
-CPT,Luther Burden,CHI,13500,32.55,12.6,22.7,25.8,35.1
-FLEX,Ted Hurst,CHI,3400,0.00,12.2,5.3,2.8,0.5
-FLEX,Tampa Bay Defense,TB,3600,11.00,10.9,20.1,23.9,40.9
-FLEX,Tez Johnson,TB,3200,9.60,9.8,11.5,13.8,14.1
-CPT,Bucky Irving,TB,14700,42.75,9.7,28.8,36.7,46.7
-FLEX,Roschon Johnson,CHI,4400,0.00,6.4,3.0,3.2,0.0
-CPT,Rome Odunze,CHI,10200,24.00,6.2,8.8,7.9,15.2
-CPT,Emeka Egbuka,TB,12600,10.35,6.0,1.1,0.0,0.0
-CPT,Baker Mayfield,TB,14400,14.58,4.9,0.9,0.1,0.0
-FLEX,Sam Roush,CHI,2400,4.30,3.9,3.6,4.0,0.8
+slot,player,pos,team,salary,points,all,top20,top10,top1
+FLEX,Caleb Williams,QB,CHI,10800,16.76,61.4,63.9,73.4,100.0
+FLEX,D'Andre Swift,RB,CHI,10000,3.10,40.4,20.0,8.6,0.0
+FLEX,Luther Burden,WR,CHI,9000,21.70,39.0,52.7,58.8,69.3
+FLEX,Colston Loveland,TE,CHI,7800,9.40,37.6,37.1,36.8,1.5
+FLEX,Bucky Irving,RB,TB,9800,28.50,35.3,60.8,63.0,57.8
+FLEX,Baker Mayfield,QB,TB,9600,9.72,31.6,16.3,11.1,1.9
+FLEX,Cairo Santos,K,CHI,5400,9.00,27.2,26.2,25.9,21.3
+FLEX,Rome Odunze,WR,CHI,6800,16.00,27.0,37.5,34.9,74.1
+FLEX,Chase McLaughlin,K,TB,5000,10.00,26.0,35.3,34.9,45.7
+FLEX,Cade Otton,TE,TB,4000,6.50,24.9,16.4,16.8,2.2
+FLEX,Emeka Egbuka,WR,TB,8400,6.90,21.8,11.0,8.3,0.2
+FLEX,Kenneth Gainwell,RB,TB,4800,10.60,21.6,25.2,27.6,35.8
+FLEX,Chicago Defense,DST,CHI,5200,14.00,18.2,21.1,22.5,30.8
+CPT,D'Andre Swift,RB,CHI,15000,4.65,17.6,0.5,0.0,0.0
+FLEX,Chris Godwin,WR,TB,6400,4.80,16.8,7.8,7.4,0.0
+FLEX,Kalif Raymond,WR,TB,3800,7.20,16.0,16.0,19.5,24.2
+CPT,Caleb Williams,QB,CHI,16200,25.14,14.8,15.6,11.0,1.4
+CPT,Colston Loveland,TE,CHI,11700,14.10,12.6,8.9,9.5,0.0
+CPT,Luther Burden,WR,CHI,13500,32.55,12.6,22.7,25.8,35.1
+FLEX,Ted Hurst,WR,CHI,3400,0.00,12.2,5.3,2.8,0.5
+FLEX,Tampa Bay Defense,DST,TB,3600,11.00,10.9,20.1,23.9,40.9
+FLEX,Tez Johnson,WR,TB,3200,9.60,9.8,11.5,13.8,14.1
+CPT,Bucky Irving,RB,TB,14700,42.75,9.7,28.8,36.7,46.7
+FLEX,Roschon Johnson,RB,CHI,4400,0.00,6.4,3.0,3.2,0.0
+CPT,Rome Odunze,WR,CHI,10200,24.00,6.2,8.8,7.9,15.2
+CPT,Emeka Egbuka,WR,TB,12600,10.35,6.0,1.1,0.0,0.0
+CPT,Baker Mayfield,QB,TB,14400,14.58,4.9,0.9,0.1,0.0
+FLEX,Sam Roush,TE,CHI,2400,4.30,3.9,3.6,4.0,0.8

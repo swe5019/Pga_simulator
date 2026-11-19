@@ -14,32 +14,32 @@
 #   FLEX Drew Sample     CIN  $ 1,600   5.8%        10.50
 #   $49,100 spent, 149.6% total ownership, 157.51 points, 8 DUPLICATES.
 #   Split 4-2 with the captain on the Cincinnati side.
-slot,player,team,salary,points,all,top20,top10,top1
-FLEX,Joe Burrow,CIN,10600,36.16,64.7,71.7,71.4,83.1
-FLEX,Ja'Marr Chase,CIN,11000,37.10,49.0,53.9,53.6,32.7
-FLEX,Darnell Washington,PIT,3600,1.50,38.0,33.3,35.0,19.8
-FLEX,Tee Higgins,CIN,10400,11.60,35.2,20.1,14.2,0.0
-FLEX,Jaylen Warren,PIT,9600,9.10,34.9,19.9,13.6,9.0
-FLEX,Aaron Rodgers,PIT,9000,15.62,32.9,28.9,24.2,20.8
-FLEX,Chris Boswell,PIT,5000,5.00,23.1,16.8,13.1,3.2
-FLEX,Chase Brown,CIN,8400,28.30,22.9,40.6,59.4,84.7
-FLEX,Germie Bernard,PIT,7000,1.00,22.3,9.0,7.3,0.0
-FLEX,Mike Gesicki,CIN,4800,1.90,22.1,12.0,10.0,1.2
-FLEX,Rico Dowdle,PIT,5600,5.40,21.7,20.5,19.4,4.8
-FLEX,Evan McPherson,CIN,5200,8.00,20.5,23.4,22.7,15.5
-FLEX,Dohnte Meyers,CIN,3000,10.00,20.1,29.6,28.7,49.2
-CPT,Ja'Marr Chase,CIN,16500,55.65,20.1,44.3,45.7,68.1
-FLEX,DK Metcalf,PIT,7400,15.40,19.9,24.9,27.2,56.0
-FLEX,Pat Freiermuth,PIT,4600,11.50,16.1,24.3,23.3,28.1
-CPT,Joe Burrow,CIN,15900,54.24,15.9,27.1,28.2,17.7
-CPT,Jaylen Warren,PIT,14400,13.65,15.0,1.4,0.1,0.0
-FLEX,Cincinnati Defense,CIN,4000,4.00,11.8,16.1,19.7,28.3
-CPT,Tee Higgins,CIN,15600,17.40,11.3,0.9,0.1,0.0
-FLEX,Pittsburgh Defense,PIT,3800,-3.00,9.8,2.6,1.4,0.0
-FLEX,Jack Endries,CIN,600,1.40,7.3,10.8,13.6,7.0
-CPT,Chase Brown,CIN,12600,42.45,7.0,13.7,18.1,14.0
-FLEX,Samaje Perine,CIN,4400,13.90,6.9,12.9,13.7,24.0
-FLEX,Drew Sample,CIN,1600,10.50,5.8,13.8,12.4,32.7
-CPT,DK Metcalf,PIT,11100,23.10,5.3,5.2,2.9,0.2
-CPT,Germie Bernard,PIT,10500,1.50,5.1,0.1,0.0,0.0
-CPT,Darnell Washington,PIT,5400,2.25,4.7,1.8,0.2,0.0
+slot,player,pos,team,salary,points,all,top20,top10,top1
+FLEX,Joe Burrow,QB,CIN,10600,36.16,64.7,71.7,71.4,83.1
+FLEX,Ja'Marr Chase,WR,CIN,11000,37.10,49.0,53.9,53.6,32.7
+FLEX,Darnell Washington,TE,PIT,3600,1.50,38.0,33.3,35.0,19.8
+FLEX,Tee Higgins,WR,CIN,10400,11.60,35.2,20.1,14.2,0.0
+FLEX,Jaylen Warren,RB,PIT,9600,9.10,34.9,19.9,13.6,9.0
+FLEX,Aaron Rodgers,QB,PIT,9000,15.62,32.9,28.9,24.2,20.8
+FLEX,Chris Boswell,K,PIT,5000,5.00,23.1,16.8,13.1,3.2
+FLEX,Chase Brown,RB,CIN,8400,28.30,22.9,40.6,59.4,84.7
+FLEX,Germie Bernard,WR,PIT,7000,1.00,22.3,9.0,7.3,0.0
+FLEX,Mike Gesicki,TE,CIN,4800,1.90,22.1,12.0,10.0,1.2
+FLEX,Rico Dowdle,RB,PIT,5600,5.40,21.7,20.5,19.4,4.8
+FLEX,Evan McPherson,K,CIN,5200,8.00,20.5,23.4,22.7,15.5
+FLEX,Dohnte Meyers,WR,CIN,3000,10.00,20.1,29.6,28.7,49.2
+CPT,Ja'Marr Chase,WR,CIN,16500,55.65,20.1,44.3,45.7,68.1
+FLEX,DK Metcalf,WR,PIT,7400,15.40,19.9,24.9,27.2,56.0
+FLEX,Pat Freiermuth,TE,PIT,4600,11.50,16.1,24.3,23.3,28.1
+CPT,Joe Burrow,QB,CIN,15900,54.24,15.9,27.1,28.2,17.7
+CPT,Jaylen Warren,RB,PIT,14400,13.65,15.0,1.4,0.1,0.0
+FLEX,Cincinnati Defense,DST,CIN,4000,4.00,11.8,16.1,19.7,28.3
+CPT,Tee Higgins,WR,CIN,15600,17.40,11.3,0.9,0.1,0.0
+FLEX,Pittsburgh Defense,DST,PIT,3800,-3.00,9.8,2.6,1.4,0.0
+FLEX,Jack Endries,TE,CIN,600,1.40,7.3,10.8,13.6,7.0
+CPT,Chase Brown,RB,CIN,12600,42.45,7.0,13.7,18.1,14.0
+FLEX,Samaje Perine,RB,CIN,4400,13.90,6.9,12.9,13.7,24.0
+FLEX,Drew Sample,TE,CIN,1600,10.50,5.8,13.8,12.4,32.7
+CPT,DK Metcalf,WR,PIT,11100,23.10,5.3,5.2,2.9,0.2
+CPT,Germie Bernard,WR,PIT,10500,1.50,5.1,0.1,0.0,0.0
+CPT,Darnell Washington,TE,PIT,5400,2.25,4.7,1.8,0.2,0.0
