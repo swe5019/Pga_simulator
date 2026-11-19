@@ -1,109 +1,121 @@
 DraftKings NFL Showdown — Showdown (IND @ HOU)
 Locks 2026-11-20T01:15:00Z UTC · 643,587 entries
-Built 2026-11-19 21:25 UTC from 8,000 correlated simulations of this game.
+Revised 2026-11-19 21:46 UTC, 8,000 correlated simulations. Alec Pierce confirmed OUT.
 
-The five showdowns scored so far were won with 90.2, 106.8, 118.8, 136.7, 157.5 points.
-P(win band) below is the share of simulations in which the lineup clears 120,
-which is the median of those five.
-
-==============================================================================
-LINEUP 1   Main build — Houston blowout
-==============================================================================
-slot  player                pos  tm      salary  sim mean  sim p90  P(top)
-CPT   David Montgomery      RB   HOU  $  12,300      22.3     41.4   10.8%
-FLEX  C.J. Stroud           QB   HOU  $  10,000      22.7     36.1   28.3%
-FLEX  Nico Collins          WR   HOU  $  10,200      18.9     36.4   20.6%
-FLEX  Tank Dell             WR   HOU  $   6,400      10.0     21.4    3.9%
-FLEX  Xavier Hutchinson     WR   HOU  $   6,200      10.7     23.2    4.7%
-FLEX  Laquon Treadwell      WR   IND  $   4,000       8.7     21.8    4.2%
-                                      $  49,100   $900 left
-
-  team split      5-1 toward HOU
-  captain owned   7.8% of the field (modelled from salary)
-  lineup score    mean 93.4 · p90 135.9 · p99 179.2
-  P(win band)     19.8% clear 120 · 8.4% clear 140
+Field share is the sum of the six slot shares, the unit the contests
+report. The five scored showdown winners came in at 149.6, 151.3, 166.1, 169.6, 175.0%,
+and were won with 90.2, 106.8, 118.8, 136.7, 157.5 points.
 
 ==============================================================================
-LINEUP 2   Ceiling build — Collins captain
+LINEUP 1   Primary — best at the score a winner needs
 ==============================================================================
-slot  player                pos  tm      salary  sim mean  sim p90  P(top)
-CPT   Nico Collins          WR   HOU  $  15,300      28.3     54.7   20.6%
-FLEX  C.J. Stroud           QB   HOU  $  10,000      22.7     36.1   28.3%
-FLEX  David Montgomery      RB   HOU  $   8,200      14.9     27.6   10.8%
-FLEX  Dalton Schultz        TE   HOU  $   4,800       9.9     20.2    2.4%
-FLEX  Xavier Hutchinson     WR   HOU  $   6,200      10.7     23.2    4.7%
-FLEX  Laquon Treadwell      WR   IND  $   4,000       8.7     21.8    4.2%
-                                      $  48,500   $1,500 left
+slot  player              pos  tm      salary   mean    p90  field%
+CPT   Nico Collins        WR   HOU  $  15,300   28.1   54.0   16.0%
+FLEX  C.J. Stroud         QB   HOU  $  10,000   22.4   35.6   56.2%
+FLEX  David Montgomery    RB   HOU  $   8,200   15.8   29.1   29.1%
+FLEX  Tank Dell           WR   HOU  $   6,400   10.7   22.4   22.5%
+FLEX  Xavier Hutchinson   WR   HOU  $   6,200   10.4   22.9   21.5%
+FLEX  Ashton Dulin        WR   IND  $   3,600    7.1   21.0    9.7%
+                                    $  49,700                155.0%
 
-  team split      5-1 toward HOU
-  captain owned   16.0% of the field (modelled from salary)
-  lineup score    mean 95.3 · p90 140.9 · p99 185.6
-  P(win band)     22.2% clear 120 · 10.3% clear 140
-
-==============================================================================
-LINEUP 3   Shootout dart — Indianapolis side
-==============================================================================
-slot  player                pos  tm      salary  sim mean  sim p90  P(top)
-CPT   Ashton Dulin          WR   IND  $   5,400      10.1     30.9    4.7%
-FLEX  C.J. Stroud           QB   HOU  $  10,000      22.7     36.1   28.3%
-FLEX  Nico Collins          WR   HOU  $  10,200      18.9     36.4   20.6%
-FLEX  Jonathan Taylor       RB   IND  $  10,600      15.2     25.3    8.4%
-FLEX  Tyler Warren          TE   IND  $   8,400      11.5     20.1    3.2%
-FLEX  Laquon Treadwell      WR   IND  $   4,000       8.7     21.8    4.2%
-                                      $  48,600   $1,400 left
-
-  team split      4-2 toward IND
-  captain owned   0.5% of the field (modelled from salary)
-  lineup score    mean 87.1 · p90 128.2 · p99 174.5
-  P(win band)     14.0% clear 120 · 5.8% clear 140
+  team split     5-1 toward HOU   · $300 unspent
+  lineup score   mean 94.5 · p90 139.1 · p99 186.0
+  P(clears)      140: 9.6%   160: 4.1%   180: 1.51%
 
 ==============================================================================
-WHY THESE THREE, AND WHAT WOULD MAKE THEM WRONG
+LINEUP 2   Alternative captain — the under-owned non-quarterback
+==============================================================================
+slot  player              pos  tm      salary   mean    p90  field%
+CPT   David Montgomery    RB   HOU  $  12,300   23.7   43.6    7.8%
+FLEX  C.J. Stroud         QB   HOU  $  10,000   22.4   35.6   56.2%
+FLEX  Nico Collins        WR   HOU  $  10,200   18.7   36.0   44.5%
+FLEX  Tank Dell           WR   HOU  $   6,400   10.7   22.4   22.5%
+FLEX  Xavier Hutchinson   WR   HOU  $   6,200   10.4   22.9   21.5%
+FLEX  Laquon Treadwell    WR   IND  $   4,000    8.8   22.3   11.3%
+                                    $  49,100                163.8%
+
+  team split     5-1 toward HOU   · $900 unspent
+  lineup score   mean 94.7 · p90 136.6 · p99 181.8
+  P(clears)      140: 8.6%   160: 3.2%   180: 1.15%
+
+==============================================================================
+LINEUP 3   Shootout dart — Indianapolis captain
+==============================================================================
+slot  player              pos  tm      salary   mean    p90  field%
+CPT   Ashton Dulin        WR   IND  $   5,400   10.6   31.4    0.5%
+FLEX  Nico Collins        WR   HOU  $  10,200   18.7   36.0   44.5%
+FLEX  C.J. Stroud         QB   HOU  $  10,000   22.4   35.6   56.2%
+FLEX  David Montgomery    RB   HOU  $   8,200   15.8   29.1   29.1%
+FLEX  Xavier Hutchinson   WR   HOU  $   6,200   10.4   22.9   21.5%
+FLEX  Laquon Treadwell    WR   IND  $   4,000    8.8   22.3   11.3%
+                                    $  44,000                163.1%
+
+  team split     2-4 toward IND   · $6,000 unspent
+  lineup score   mean 86.8 · p90 130.3 · p99 182.5
+  P(clears)      140: 6.5%   160: 2.9%   180: 1.06%
+
+==============================================================================
+WHAT CHANGED FROM THE FIRST VERSION, AND WHY
 ==============================================================================
 
-The shared structure. Every one of the five showdown winners scored so far was
-CHALK IN FIVE SLOTS and different in exactly one: the captain. Their total
-ownerships were 149.6%, 151.3%, 166.1%, 169.6% and 175.0%, and their duplicate
-counts were 1, 8, 11, 13 and 32. Not one was a unique lineup. So these builds
-do not try to be strange everywhere. C.J. Stroud is in all three flexes and
-will be in most of the field's, which is the point: he is the best player in
-the game and he costs the same whoever rosters him.
+A flex ownership model now exists, and it overturned the earlier lineup 3.
 
-The quarterback is in the FLEX in all three. Five of five winners did that, and
-none captained a quarterback. That record alone is thin, about a one in seven
-coincidence if the simulation's own 33% rate is right, so the real reason is
-mechanical: the captain slot multiplies salary as well as score, so it buys
-concentration rather than value, and you want concentration on the widest right
-tail. Stroud's 90th percentile is 1.59x his mean, the narrowest of any serious
-option here, against 1.92x for Collins and 1.84x for Montgomery. A quarterback's
-worth is his floor, and a floor wins nothing in a 643,587-entry tournament.
+That build looked like the contrarian one because its captain was owned 0.5%.
+Priced across all six slots it came to 198.3% of field share, ABOVE all five
+scored winners and above the 90th percentile of the winners this simulation
+found for tonight. The captain was lonely and the other five slots were the
+most crowded in the game: Tyler Warren is modelled at 43.5% of the field while
+appearing in only 28.7% of winning lineups, the second largest such gap on the
+board. Warren is gone. The rebuilt dart sits at 163.1%.
 
-Jonathan Taylor is deliberately not a captain in any of these. He is the most
-owned captain on the board at a modelled 18.2% and the simulation ranks him
-fourth at a 6.5% win rate. He is also the most expensive captain at $15,900,
-which strands the rest of the roster: the field's natural Taylor build tested
-at a 163.7 ninety-ninth percentile, the lowest of anything considered here,
-while carrying the highest captain ownership. Most owned and worst ceiling is
-the trade that has punished the field in four of the five contests measured.
-He is still in lineup 3's flex, where his price is fair.
+This is the whole case for modelling the flex slot. A captain-only view said
+that lineup was different from the field. It was not.
 
-WHAT WOULD MAKE THIS WRONG
+THE CAPTAIN QUESTION, RESOLVED RATHER THAN ASSERTED
 
-Alec Pierce, $8,000, has no projection here because he has had ZERO prop lines
-in every snapshot since 16 November, while Treadwell has had 18 to 22 in the
-same window. He is not on the injury list either. The most likely reading is
-that he is out and the book knows it, which is why Treadwell and Dulin carry
-the Indianapolis receiving work in these builds. CONFIRM IT. If Pierce plays,
-Treadwell and Dulin are badly overstated, lineup 3 is void, and lineups 1 and 2
-need Treadwell replaced.
+The simulation prefers C.J. Stroud as captain and the five scored contests
+have never once been won by a captained quarterback. Both are true, and they
+agree once the target score is named. Searching all 220,932 legal lineups for
+the one most likely to clear a given score:
+
+    clear 140 points    Stroud captain wins, 10.82% against Collins 10.38%
+    clear 160 points    Stroud captain wins, 4.17% against Collins 4.10%
+    clear 180 points    COLLINS wins, 1.43% against Stroud 1.38%
+    clear 200 points    COLLINS wins, 0.60% against Stroud 0.55%
+
+The crossover is near 170. Below it you want the quarterback's floor; above it
+you want a receiver's tail. A 643,587-entry tournament is won well above that
+line, which is why none of these three captains a quarterback, and why the
+record of five contests is not a coincidence. If you were playing a small
+field or a double-up, Stroud captain is the better build and lineup 1 is not.
+
+WHAT THE OWNERSHIP BUDGET DID NOT DO
+
+It barely bound. The highest-ceiling lineups on this slate already sit at 140%
+to 155% of field share, comfortably under every scored winner. The reason is
+that the field's overpriced players are ones you did not want anyway: Davis
+Mills is modelled at 26.6% of the field and appears in 1.2% of winning
+lineups, Daniel Jones at 46.6% against 32.5%, Emari Demercado at 25.0% against
+13.3%. Avoiding them costs nothing. There is no trade-off to manage here, and
+a slate where the chalk is also correct would look very different.
+
+THE $6,000 UNSPENT IN LINEUP 3 IS DELIBERATE and was chosen by the search, not
+left by accident. Every way of spending it runs through Jonathan Taylor, Tyler
+Warren or Daniel Jones, and each lowers the lineup's chance of clearing 180.
+
+STANDING CAVEATS
 
 Neither kicker is modelled. Fairbairn at $5,400 and Shrader at $5,200 are
-invisible to this project, and that is not a small gap in showdown: the field
-rostered kickers at 26% and 33% in the two most recent contests, and the 9
-November winner carried two of them. Their absence from these lineups is an
-admission of ignorance, not a fade.
+invisible to this project. The field rostered kickers at 26% and 33% in the
+two most recent showdowns and the 9 November winner carried two of them. Their
+absence here is ignorance, not a fade.
 
-Captain ownership is modelled from salary alone, at roughly 3.4 points of mean
-error out of sample. Read it as how crowded a choice is, not as a number to
-divide a win rate by; that division ranked the actual winning captain 12th of
-21 and 20th of 23 on the two contests where it could be checked.
+Flex ownership carries about six points of mean error, roughly a quarter of a
+typical value, and it cannot push low enough: the sub-10% group came in at
+6.4% actual against 9.7% modelled. Read the field% column in bands. Do not
+divide it into anything.
+
+Field share is the SUM of six marginal shares. It is not the chance anybody
+built the exact six. Entries are stacked rather than drawn independently, so
+the slots are dependent, and duplicate counts need a model of how lineups get
+constructed, which this is not.
