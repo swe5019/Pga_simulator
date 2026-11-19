@@ -214,10 +214,31 @@
     }
     state.doc = doc;
 
-    // The flag is read rather than assumed, so that the day a field model does
-    // exist this warning stops appearing on its own.
+    // Two separate denominators, and the page must not claim either one it
+    // does not have. CAPTAIN ownership is modelled; FLEX ownership is not, so
+    // hasFieldModel staying false is correct and must not hide this warning.
+    // Written as a flag check rather than an assumption so that the day a flex
+    // model does exist, the sentence about it goes away on its own.
     const warn = $('#sdWarn');
-    if (warn && doc.hasFieldModel) warn.style.display = 'none';
+    if (warn) {
+      if (!doc.hasCaptainOwnership) {
+        // Nothing is modelled at all: the stronger, older warning applies.
+        warn.innerHTML = '<b>These are win rates, not leverage.</b> Every '
+          + 'number here is measured from the simulation. There is no field '
+          + 'or leverage column in this build, because a showdown field needs '
+          + 'a model of <i>captain</i> ownership and this file carries none. '
+          + 'Read it as which constructions win, not as which are uncrowded.';
+      } else if (doc.hasFieldModel) {
+        warn.querySelectorAll('[data-noflex]').forEach((n) => n.remove());
+      }
+    }
+    const note = $('#sdOwnNote');
+    if (note) {
+      note.textContent = doc.hasCaptainOwnership
+        ? 'Field% is ' + (doc.captainOwnershipNote || 'modelled from salary')
+          + '. It says how crowded a captain is, not which one to pick.'
+        : 'Field% is not available in this build.';
+    }
 
     renderAll();
 

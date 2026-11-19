@@ -108,15 +108,20 @@
       <p class="hint" id="sdSolve"></p>
 
       <p class="hint warnbox" id="sdWarn">
-        <b>These are win rates, not leverage.</b> Every number here is measured
-        from the simulation: the share of games whose best possible lineup had
-        that shape. There is deliberately <b>no field or leverage column</b>,
-        because a showdown field needs a model of <i>captain</i> ownership,
-        which sums to 100% across the slate while flex ownership sums to 500%,
-        and no such model exists here yet. Your payoff in a tournament depends
-        on how many other people built the same thing, so until that denominator
-        is measured rather than guessed it is left out instead of filled in.
-        Read this page as which constructions win, not as which are uncrowded.
+        <b>Wins% and Field% are two different things, shown side by side and
+        never divided.</b> <b>Wins%</b> is measured from the simulation: the
+        share of games whose best possible lineup captained that player.
+        <b>Field%</b> is the modelled share of entries that captain him, which
+        is a separate thing you are not told before lock. Captain ownership
+        sums to 100% across the slate while flex ownership sums to 500%, so one
+        popular captain swallows an enormous part of it.
+        <span data-noflex><b>There is still no flex ownership here</b>, and so
+        no whole-lineup leverage number: only the captain slot has a measured
+        denominator.</span>
+        Dividing one column into the other is specifically a mistake. On the
+        two contests where it could be checked it ranked the actual winning
+        captain 12th of 21 and 20th of 23, against 1st and 10th for the win
+        rate on its own.
       </p>
 
       <div id="sdUnlock" class="unlockbar">
@@ -138,6 +143,7 @@
           <tbody id="sdCapBody"></tbody>
         </table>
       </div>
+      <p class="hint" id="sdOwnNote"></p>
 
       <h2>Shapes</h2>
       <p class="hint">
@@ -233,6 +239,6 @@
 
   <script src="assets/js/nav.js?v=20261017a"></script>
   <script src="assets/js/leadgate.js?v=20261017a"></script>
-  <script src="assets/js/showdown.js?v=20261119a"></script>
+  <script src="assets/js/showdown.js?v=20261119b"></script>
 </body>
 </html>
