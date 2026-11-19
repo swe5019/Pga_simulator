@@ -14,39 +14,48 @@ many people were already there.
 
 WHAT THE FIELD ACTUALLY DOES
 It captains by price. Measured across the two contests available, captain
-ownership correlates +0.73 with the player's flex salary and only +0.62 with
-his flex ownership, and the relationship is a power law: the log of captain
-ownership against the log of salary correlates +0.78 to +0.88.
+ownership correlates about +0.73 with the player's flex salary and more weakly
+with his flex ownership, and the relationship is a power law: the log of
+captain ownership against the log of salary correlates +0.78 to +0.88.
 
 So the model is deliberately almost trivial:
 
     captain ownership  proportional to  salary ** EXPONENT,  normalised to 100%
 
 VALIDATION
-Twenty six captains across three slates, holding each slate out in turn and
-fitting the exponent on the other two:
+Thirty seven captains across four contests, holding each slate out in turn and
+fitting the exponent on the other three:
 
-    hold out 13 Nov   fit 3.45   MAE 4.62   against a 5.91 baseline
-    hold out 15 Nov   fit 3.50   MAE 2.00   against 5.03
-    hold out 16 Nov   fit 2.70   MAE 4.04   against 6.49
-    pooled                       MAE 3.61   against about 5.8
+    hold out  9 Nov   fit 3.30   MAE 2.69   against a 6.56 baseline
+    hold out 13 Nov   fit 3.25   MAE 4.54   against 5.91
+    hold out 15 Nov   fit 3.25   MAE 1.93   against 5.03
+    hold out 16 Nov   fit 2.85   MAE 3.94   against 6.49
+    pooled                       MAE 3.28   against about 6.0
 
 Adding this project's own simulated captain win rate makes it WORSE out of
 sample even though it looks better in sample. The field is not simulating, it
 is reading the price, and a second parameter on this little data fits noise.
 
-THE EXPONENT IS THE WEAK POINT, and more data made that clearer rather than
-better. Fitted per slate it comes out 1.45, 3.30 and 7.95. That five-fold
-range is not noise in the fit: it is the exponent absorbing how CONCENTRATED
-each captain market happened to be. On 16 November one captain took a third of
-the market and the curve has to be steep; on 13 November the top nine captains
-ran 23.3% down to 2.9% and it has to be shallow. Salary says nothing about
-which of those a slate will be, so a single fixed exponent is a compromise
-between slates that genuinely disagree.
+THE EXPONENT TRACKS HOW CONCENTRATED EACH CAPTAIN MARKET IS, which is the
+thing nothing available before lock predicts. Per slate:
 
-The honest out of sample error therefore ROSE from 3.27 on two slates to 3.61
-on three. The two-slate figure was luck, not skill, and this is the better
-estimate.
+    slate     top captain's share of the market   best exponent
+     9 Nov                 29%                        3.20
+    13 Nov                 27%                        1.45
+    15 Nov                 24%                        3.30
+    16 Nov                 53%                        9.95
+
+Three of the four cluster between 24% and 29% concentration and want an
+exponent near 3.2, which is why the fixed value works as well as it does. The
+16 November slate is the outlier in both columns: one captain took over half
+the market and the curve has to be far steeper to reproduce that.
+
+A CONFOUND WORTH NAMING: 16 November is also the least complete capture, 63.0%
+of the captain market against 84 to 87% for the other three. The rows that are
+missing are the low-owned ones, and leaving them out makes any distribution
+look more concentrated than it is, so some of that 9.95 is probably an artifact
+of the capture rather than a fact about the slate. It is not all of it: the
+13 November capture is 85.1% complete and still wants 1.45.
 
 WHAT THIS IS NOT FOR
 Do NOT divide a captain's win rate by this to make a leverage column. That was
@@ -69,20 +78,24 @@ WHAT THE THREE CONTESTS DO AGREE ON, which this model does not try to capture:
 leverage goes to whoever captained the TOP SCORER, and being popular costs
 nothing if you are also right.
 
+     9 Nov  most owned Josh Allen     24.7%, scored 20.79, third best   0.63x
+            top scorer James Cook     13.0%, scored 29.55                4.91x
     13 Nov  most owned Jayden Daniels 23.3%, scored 34.14, second best   0.01x
             top scorer Isaiah Likely  14.3%, scored 46.05                5.08x
     15 Nov  most owned Ja'Marr Chase  20.1%, scored 55.65, best          3.39x
     16 Nov  most owned Derrick Henry  33.3%, scored 28.50, second best   0.78x
             top scorer Omarion Hampton 2.2%, scored 30.75               11.18x
 
-Three for three: the most owned captain is only punished when he is not the
-best one. "Fade the chalk captain" remains wrong.
+Four for four: whoever captained the top scorer was paid, between 3.4x and
+11.2x, and the most owned captain was punished every time he was not that
+player. Being popular costs nothing if you are also right, which is why
+"fade the chalk captain" stays withdrawn.
 """
 
-# Best single value across 26 captains and three contests (13, 15 and 16
-# November 2026). The slates individually want 1.45, 3.30 and 7.95, so this is
-# a compromise and not a measurement. Refit it as contests accumulate, and do
-# not read precision into the third significant figure.
+# Best single value across 37 captains and four contests (9, 13, 15 and
+# 16 November 2026), where the all-slate optimum is 3.25. Three of the four
+# slates independently want 3.2 to 3.3, which is why this holds up; the fourth
+# wants 9.95 and is discussed above. Refit as contests accumulate.
 EXPONENT = 3.3
 
 # Captain ownership below this is not meaningfully distinguishable from zero
@@ -111,7 +124,7 @@ def captain_ownership(players, exponent=EXPONENT):
 
 def describe():
     return (f"captain ownership modelled as salary^{EXPONENT} normalised to "
-            f"100%, fitted on 26 captains over 3 contests: about 3.6 points of "
+            f"100%, fitted on 37 captains over 4 contests: about 3.3 points of "
             f"mean error out of sample against 5.8 for spreading evenly. The "
-            f"exponent varies 1.5 to 8.0 by slate, so read the ordering rather "
+            f"exponent varies 1.5 to 10 by slate, so read the ordering rather "
             f"than the level")
