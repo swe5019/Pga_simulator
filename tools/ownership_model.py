@@ -449,6 +449,14 @@ def build_from_workbook(raw, suffix):
     cut_probs = make_cut_probs(raw, suffix)
     if cut_probs:
         print(f"Make Cut tab: {len(cut_probs)} make-cut probabilities")
+    # Which priced golfers never reach a slate row. The tab priced 120 for the
+    # RSM and only 97 came through, and nothing said so: Cut% was simply blank
+    # for a third of the board, including the two most-owned golfers on it.
+    # A name that is priced but never joined is either a spelling the
+    # normaliser cannot reconcile or a golfer who is not in this field, and
+    # those need different fixes, so the names are printed rather than the
+    # count alone.
+    cut_unmatched = dict(cut_probs)
     golfers = []
     for _, r in slate.iterrows():
         name = str(r["Name"]).strip()
@@ -491,7 +499,25 @@ def build_from_workbook(raw, suffix):
         mc = next((cut_probs[k] for k in _norm_keys(name) if k in cut_probs), None)
         if mc is not None:
             rec["makeCutPct"] = mc
+            for k in _norm_keys(name):
+                cut_unmatched.pop(k, None)
         golfers.append(rec)
+
+    if cut_probs:
+        have = sum(1 for g in golfers if g.get("makeCutPct") is not None)
+        print(f"Make Cut join: {have} of {len(golfers)} slate golfers carry a "
+              f"cut price")
+        # Each golfer contributes up to two keys, so collapse back to people.
+        left = sorted({v: k for k, v in cut_unmatched.items()}.items(),
+                      key=lambda kv: -kv[0])
+        if left:
+            print(f"   {len(left)} priced name(s) on the Make Cut tab never "
+                  f"matched a slate golfer, highest cut price first:")
+            for prob, key in left[:25]:
+                print(f"      {key:28} {prob:5.1f}%")
+            print("   A real name here is a join failure worth fixing. A name "
+                  "that is not in\n   this field is expected and can be "
+                  "ignored.")
 
     meta = {"slate": slate_name, "trainRows": int(len(train)),
             "trainEvents": int(train["Tournament_Name"].nunique()),
