@@ -6,10 +6,22 @@
 # is more complete on the captain side than the two that preceded it (63.0% and
 # 84.4%), but the low-owned tail is still short.
 #
-# NOTE: the second screenshot accompanying this capture was one user's exposure
-# page (littlelis), not the winning lineup, so no winner is recorded for this
-# slate. FantasyLabs' own "Leverage" column there is simply exposure minus
-# field share, which is not the quantity this project means by leverage.
+# WINNING LINEUP (littlelis, rank 1, $200,000). Final score WAS 24, NYG 21:
+#   CPT  Isaiah Likely   NYG  $12,300  14.3% owned  46.05
+#   FLEX Jayden Daniels  WAS  $10,000  56.3%        22.76
+#   FLEX Stefon Diggs    WAS  $ 9,200  20.1%        20.30
+#   FLEX Cam Skattebo    NYG  $ 9,000  33.1%        27.20
+#   FLEX Rachaad White   WAS  $ 7,600  26.9%         6.20
+#   FLEX Ben Sinnott     WAS  $ 1,600   0.6%        14.20
+#   $49,700 spent, 151.3% total ownership, 136.71 points, 1 DUPLICATE.
+#
+# Four Washington and two New York, so 4-2 by team as in the other two
+# contests, but THE CAPTAIN IS ON THE TWO SIDE. Likely is a bring-back, not a
+# team mate of the quarterback in the flex. That breaks the shape claimed after
+# the first two slates, and the correction is recorded in the commit.
+#
+# FantasyLabs' own "Leverage" column on that page is exposure minus field
+# share, which is not the quantity this project means by leverage.
 slot,player,team,salary,points,all,top20,top10,top1
 FLEX,Jayden Daniels,WAS,10000,22.76,56.3,64.7,76.0,99.2
 FLEX,Malik Nabers,NYG,11000,8.40,46.7,18.4,5.6,0.4
