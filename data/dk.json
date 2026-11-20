@@ -1,7 +1,7 @@
 {
- "updatedUtc": "2026-11-19T21:00:22Z",
+ "updatedUtc": "2026-11-20T20:47:20Z",
  "tournament": "EVENT_2026W47",
- "date": "11/19/26",
+ "date": "11/21/26",
  "event": "",
  "draftGroupId": "156862",
  "isShowdown": false,
@@ -962,8 +962,8 @@
   {
    "name": "Cameron Champ",
    "salary": 6100,
-   "status": "",
-   "out": false,
+   "status": "WD",
+   "out": true,
    "dkId": 1001
   },
   {
@@ -976,8 +976,8 @@
   {
    "name": "Camilo Villegas",
    "salary": 6100,
-   "status": "",
-   "out": false,
+   "status": "O",
+   "out": true,
    "dkId": 451478
   },
   {
