@@ -1,11 +1,11 @@
 {
- "updatedUtc": "2026-11-20T11:43:06Z",
+ "updatedUtc": "2026-11-20T20:24:06Z",
  "slate": "RSM_2026",
  "event": "",
  "counts": {
-  "items": 6,
-  "golfersMentioned": 6,
-  "news": 6,
+  "items": 8,
+  "golfersMentioned": 11,
+  "news": 8,
   "chatter": 0
  },
  "sources": [
@@ -108,13 +108,13 @@
   {
    "source": "Google News: PGA DFS",
    "ok": true,
-   "items": 54,
+   "items": 53,
    "error": null
   },
   {
    "source": "Google News: PGA WD",
    "ok": true,
-   "items": 100,
+   "items": 66,
    "error": null
   },
   {
@@ -139,9 +139,51 @@
  "mentions": [
   {
    "name": "Erik Van Rooyen",
-   "news": 4,
+   "news": 3,
    "chatter": 0,
-   "total": 4
+   "total": 3
+  },
+  {
+   "name": "Mark Hubbard",
+   "news": 1,
+   "chatter": 0,
+   "total": 1
+  },
+  {
+   "name": "Chris Kirk",
+   "news": 1,
+   "chatter": 0,
+   "total": 1
+  },
+  {
+   "name": "Denny McCarthy",
+   "news": 1,
+   "chatter": 0,
+   "total": 1
+  },
+  {
+   "name": "Carson Young",
+   "news": 1,
+   "chatter": 0,
+   "total": 1
+  },
+  {
+   "name": "Patrick Rodgers",
+   "news": 1,
+   "chatter": 0,
+   "total": 1
+  },
+  {
+   "name": "Harris English",
+   "news": 1,
+   "chatter": 0,
+   "total": 1
+  },
+  {
+   "name": "Benjamin James",
+   "news": 1,
+   "chatter": 0,
+   "total": 1
   },
   {
    "name": "Blades Brown",
@@ -160,21 +202,56 @@
    "news": 1,
    "chatter": 0,
    "total": 1
-  },
-  {
-   "name": "Keith Mitchell",
-   "news": 1,
-   "chatter": 0,
-   "total": 1
-  },
-  {
-   "name": "Michael Johnson",
-   "news": 1,
-   "chatter": 0,
-   "total": 1
   }
  ],
  "items": [
+  {
+   "title": "Who Should I Start for Fantasy Football Week 11? Justice Hill, Rome Odunze, Chuba Hubbard, Bam Knight, Jaylen Warren, Rashee Rice, Rico Dowdle, Javonte Williams, Mike Washington Jr.",
+   "link": "https://www.rotoballer.com/who-should-i-start-for-week-11-justice-hill-rome-odunze-chuba-hubbard-bam-knight-jaylen-warren-rashee-rice-rico-dowdle-javonte-williams-mike-washington-jr/1999163",
+   "summary": "Who Should I Start? Who Should I Sit? Some of the most common Week 11 fantasy football lineup decisions involve [&#8230;]",
+   "published": "Fri, 20 Nov 2026 19:12:12 +0000",
+   "source": "RotoBaller",
+   "kind": "news",
+   "golfers": [
+    "Mark Hubbard"
+   ]
+  },
+  {
+   "title": "Who Should I Start for Fantasy Football Week 11? Cam Ward, Bo Nix, Aaron Rodgers, Kirk Cousins, Bryce Young, Brock Purdy, Jared Goff, Jayden Daniels, Fernando Mendoza, J.J. McCarthy",
+   "link": "https://www.rotoballer.com/who-should-i-start-for-week-11-cam-ward-bo-nix-aaron-rodgers-kirk-cousins-bryce-young-brock-purdy-jared-goff-jayden-daniels-fernando-mendoza-j-j-mccarthy/1999162",
+   "summary": "Who Should I Start? Who Should I Sit? Some of the most common Week 11 fantasy football lineup decisions involve [&#8230;]",
+   "published": "Fri, 20 Nov 2026 18:59:20 +0000",
+   "source": "RotoBaller",
+   "kind": "news",
+   "golfers": [
+    "Chris Kirk",
+    "Denny McCarthy",
+    "Carson Young",
+    "Patrick Rodgers"
+   ]
+  },
+  {
+   "title": "EPL DFS Lineup Picks for DraftKings And FanDuel (11/21/26) - English Premier League Soccer Matchweek 11",
+   "link": "https://www.rotoballer.com/epl-dfs-lineup-picks-for-draftkings-and-fanduel-matchweek-11-english-premier-league-soccer-2/1999144",
+   "summary": "Welcome back to \"The Kick-Off!\" and welcome to the 2026-27 season! European play returns next week with the Champions League, [&#8230;]",
+   "published": "Fri, 20 Nov 2026 18:51:01 +0000",
+   "source": "RotoBaller",
+   "kind": "news",
+   "golfers": [
+    "Harris English"
+   ]
+  },
+  {
+   "title": "James Bowen latest jockey to reveal death threat incident",
+   "link": "https://www.skysports.com/racing/news/12040/13614321/james-bowen-received-death-threat-from-disgruntled-punter-as-jockey-speaks-out-following-similar-nico-de-boinville-incident",
+   "summary": "James Bowen has become the latest jockey to reveal he has been subjected to death threats from disgruntled punters, with the 25-year-old disclosing that he and champion jockey brother Sean required security protection following an incident last year.",
+   "published": "Fri, 20 Nov 2026 11:29:00 GMT",
+   "source": "Sky Sports Golf",
+   "kind": "news",
+   "golfers": [
+    "Benjamin James"
+   ]
+  },
   {
    "title": "RSM Classic Field 2026: Full Player List, How to Watch",
    "link": "https://sports.yahoo.com/articles/rsm-classic-field-2026-full-084257516.html",
@@ -200,18 +277,6 @@
    ]
   },
   {
-   "title": "2026 Fantasy Football Rankings - Week 11 Start, Sit",
-   "link": "https://www.rotoballer.com/2026-fantasy-football-rankings-week-11-start-sit/1997990",
-   "summary": "Ahead of Week 11, Jordyn Tyson, Jalen Coker, Chig Okonkwo, Adonai Mitchell, Caleb Douglas, Emmett Johnson, and Deebo Samuel Sr. [&#8230;]",
-   "published": "Thu, 19 Nov 2026 20:15:54 +0000",
-   "source": "RotoBaller",
-   "kind": "news",
-   "golfers": [
-    "Keith Mitchell",
-    "Michael Johnson"
-   ]
-  },
-  {
    "title": "Van Rooyen withdraws from RSM Classic, won\u2019t earn 2027 PGA Tour conditional status - Golf Channel",
    "link": "https://news.google.com/rss/articles/CBMivwFBVV95cUxPYW1jemw5b3RZVmxCNHhxY0x6MVBkQzhYYnFQcFhXTnZocmhsQ0RubTNTdnU2RlVNcFBucHZQVGFJbllES3J3S2RXQWFRS0huSUlVbkNubDI2cWYxMUR1ZjI2RlZpWVNsTlUyUWFwUlFXMGVkUGJidkFHNkhiN25KSDNLYUNlMlRnajRKam1pdXlIOEhWRE9lQVlJdW5XRTF0d0luaUVkbVlacm9SMk1OeVhVcXVXLTd1NzFSVnBrRQ?oc=5",
    "summary": "Van Rooyen withdraws from RSM Classic, won\u2019t earn 2027 PGA Tour conditional status Golf Channel",
@@ -228,17 +293,6 @@
    "summary": "Van Rooyen Loses 2027 PGA Tour Status Chance After Injury bsinews.id",
    "published": "Thu, 19 Nov 2026 18:38:00 GMT",
    "source": "Google News: PGA WD",
-   "kind": "news",
-   "golfers": [
-    "Erik Van Rooyen"
-   ]
-  },
-  {
-   "title": "With PGA Tour privileges on the line, this former winner had to WD from RSM Classic",
-   "link": "https://sports.yahoo.com/articles/pga-tour-privileges-line-former-181121257.html",
-   "summary": "Erik van Rooyen withdrew from the RSM Classic with a rib injury, jeopardizing his PGA Tour status for next season.",
-   "published": "Thu, 19 Nov 2026 18:11:21 +0000",
-   "source": "Yahoo Golf",
    "kind": "news",
    "golfers": [
     "Erik Van Rooyen"
