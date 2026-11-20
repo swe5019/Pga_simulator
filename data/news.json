@@ -1,10 +1,10 @@
 {
- "updatedUtc": "2026-11-19T20:39:43Z",
+ "updatedUtc": "2026-11-20T02:20:38Z",
  "slate": "RSM_2026",
  "event": "",
  "counts": {
   "items": 6,
-  "golfersMentioned": 4,
+  "golfersMentioned": 3,
   "news": 6,
   "chatter": 0
  },
@@ -108,13 +108,13 @@
   {
    "source": "Google News: PGA DFS",
    "ok": true,
-   "items": 53,
+   "items": 52,
    "error": null
   },
   {
    "source": "Google News: PGA WD",
    "ok": true,
-   "items": 64,
+   "items": 65,
    "error": null
   },
   {
@@ -139,9 +139,9 @@
  "mentions": [
   {
    "name": "Erik Van Rooyen",
-   "news": 4,
+   "news": 5,
    "chatter": 0,
-   "total": 4
+   "total": 5
   },
   {
    "name": "Keith Mitchell",
@@ -151,12 +151,6 @@
   },
   {
    "name": "Michael Johnson",
-   "news": 1,
-   "chatter": 0,
-   "total": 1
-  },
-  {
-   "name": "Chad Ramey",
    "news": 1,
    "chatter": 0,
    "total": 1
@@ -173,6 +167,28 @@
    "golfers": [
     "Keith Mitchell",
     "Michael Johnson"
+   ]
+  },
+  {
+   "title": "Injury ends Erik van Rooyen's bid for conditional PGA Tour status - Miami Herald",
+   "link": "https://news.google.com/rss/articles/CBMibkFVX3lxTE5vY2JkcmtWX2NXN3dUc3lTTUZtV3RCc1lkUk9ULTduM2RFU1dZWXVxZDBxeHJyQzBkekhLd28yQW42cWUtV3JHTGFaNDlqLThpMjIxM1oxX1V6SEtCQ2VVZDlOUTRmWWl1X2NNMWpn?oc=5",
+   "summary": "Injury ends Erik van Rooyen's bid for conditional PGA Tour status Miami Herald",
+   "published": "Thu, 19 Nov 2026 19:50:07 GMT",
+   "source": "Google News: PGA WD",
+   "kind": "news",
+   "golfers": [
+    "Erik Van Rooyen"
+   ]
+  },
+  {
+   "title": "Van Rooyen withdraws from RSM Classic, won\u2019t earn 2027 PGA Tour conditional status - Golf Channel",
+   "link": "https://news.google.com/rss/articles/CBMivwFBVV95cUxPYW1jemw5b3RZVmxCNHhxY0x6MVBkQzhYYnFQcFhXTnZocmhsQ0RubTNTdnU2RlVNcFBucHZQVGFJbllES3J3S2RXQWFRS0huSUlVbkNubDI2cWYxMUR1ZjI2RlZpWVNsTlUyUWFwUlFXMGVkUGJidkFHNkhiN25KSDNLYUNlMlRnajRKam1pdXlIOEhWRE9lQVlJdW5XRTF0d0luaUVkbVlacm9SMk1OeVhVcXVXLTd1NzFSVnBrRQ?oc=5",
+   "summary": "Van Rooyen withdraws from RSM Classic, won\u2019t earn 2027 PGA Tour conditional status Golf Channel",
+   "published": "Thu, 19 Nov 2026 18:50:12 GMT",
+   "source": "Google News: PGA WD",
+   "kind": "news",
+   "golfers": [
+    "Erik Van Rooyen"
    ]
   },
   {
@@ -198,7 +214,7 @@
    ]
   },
   {
-   "title": "Van Rooyen withdraws from RSM Classic, won\u2019t earn 2027 PGA Tour conditional status",
+   "title": "Van Rooyen withdraws from RSM Classic, won't earn 2027 PGA Tour conditional status",
    "link": "https://sports.yahoo.com/articles/van-rooyen-withdraws-rsm-classic-165630786.html",
    "summary": "The RSM Classic is underway at Seaside Golf Course in St. Simons, Georgia and the final event of the FedExCup Fall season will be without Erik van Rooyen.",
    "published": "Thu, 19 Nov 2026 16:56:30 +0000",
@@ -206,28 +222,6 @@
    "kind": "news",
    "golfers": [
     "Erik Van Rooyen"
-   ]
-  },
-  {
-   "title": "Van Rooyen withdraws from RSM Classic, won\u2019t earn 2027 PGA Tour conditional status - Yahoo Sports",
-   "link": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxPbklmM2RLUnRSX09ZY3dTN0g0UFlOQmVUUDZ5bUdYRkxBTWJSQURORE5IVUlZZ3VTbDlac2gtbHVKT2JSb2VwdXZDN1EzY1ZFbXY1N1JaaXB6OEdqRmx6OERtaTRFcVpCWXp5RDBxTjNFajRGX3lpODMtdVd0S05yQXVrZm14MElX?oc=5",
-   "summary": "Van Rooyen withdraws from RSM Classic, won\u2019t earn 2027 PGA Tour conditional status Yahoo Sports",
-   "published": "Thu, 19 Nov 2026 16:56:30 GMT",
-   "source": "Google News: PGA WD",
-   "kind": "news",
-   "golfers": [
-    "Erik Van Rooyen"
-   ]
-  },
-  {
-   "title": "The RSM Classic Best Bets and Golf Odds",
-   "link": "https://vsin.com/golf/the-rsm-classic-best-bets-and-golf-odds/",
-   "summary": "The RSM Classic Best Bets and Golf Odds: Chad Ramey, a 100-1 pre-tournament price, birdied three of the first five holes and closed with a 7-under 65 for a two-shot victory Monday in the rain-delayed Austin Championship, capping a five-day span that took him from the prospect of losing his PGA Tour card to a [&#8230;] The post The RSM Classic Best Bets and Golf Odds appeared first on VSiN .",
-   "published": "Thu, 19 Nov 2026 02:08:00 +0000",
-   "source": "VSiN",
-   "kind": "news",
-   "golfers": [
-    "Chad Ramey"
    ]
   }
  ]
