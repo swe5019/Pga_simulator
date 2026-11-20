@@ -1,10 +1,10 @@
 {
- "updatedUtc": "2026-11-20T02:20:38Z",
+ "updatedUtc": "2026-11-20T11:43:06Z",
  "slate": "RSM_2026",
  "event": "",
  "counts": {
   "items": 6,
-  "golfersMentioned": 3,
+  "golfersMentioned": 6,
   "news": 6,
   "chatter": 0
  },
@@ -108,13 +108,13 @@
   {
    "source": "Google News: PGA DFS",
    "ok": true,
-   "items": 52,
+   "items": 54,
    "error": null
   },
   {
    "source": "Google News: PGA WD",
    "ok": true,
-   "items": 65,
+   "items": 100,
    "error": null
   },
   {
@@ -139,9 +139,27 @@
  "mentions": [
   {
    "name": "Erik Van Rooyen",
-   "news": 5,
+   "news": 4,
    "chatter": 0,
-   "total": 5
+   "total": 4
+  },
+  {
+   "name": "Blades Brown",
+   "news": 1,
+   "chatter": 0,
+   "total": 1
+  },
+  {
+   "name": "Brooks Koepka",
+   "news": 1,
+   "chatter": 0,
+   "total": 1
+  },
+  {
+   "name": "Luke List",
+   "news": 1,
+   "chatter": 0,
+   "total": 1
   },
   {
    "name": "Keith Mitchell",
@@ -158,6 +176,30 @@
  ],
  "items": [
   {
+   "title": "RSM Classic Field 2026: Full Player List, How to Watch",
+   "link": "https://sports.yahoo.com/articles/rsm-classic-field-2026-full-084257516.html",
+   "summary": "Explore the 2026 RSM Classic field, featuring Brooks Koepka and Blades Brown, plus Day 1 results, TV schedule and how to watch. The post RSM Classic Field 2026: Full Player List, How to Watch appeared first on HEAVY.",
+   "published": "Fri, 20 Nov 2026 08:42:57 +0000",
+   "source": "Yahoo Golf",
+   "kind": "news",
+   "golfers": [
+    "Blades Brown",
+    "Brooks Koepka",
+    "Luke List"
+   ]
+  },
+  {
+   "title": "Injury ends Erik van Rooyen\u2019s bid for conditional PGA Tour status - Bilyonaryo Business",
+   "link": "https://news.google.com/rss/articles/CBMikgFBVV95cUxQN3RQQUlnUENCcXhxY1h2YTJPRy15cTJWcHlBdmd4OWVmWXdNTmhOM3FnQm05VlVBUWJRS3NnZXh0VGduM01KZkNTVDFKM0VGRVplSjVWdjFuNTBLX0lJVHVqZGNXSGUtLXNFTWJCUDBHNGhrbGtHSld4bnBuV0J4ZGtJdWZnckp5NGQ2RXp1V1BzQQ?oc=5",
+   "summary": "Injury ends Erik van Rooyen\u2019s bid for conditional PGA Tour status Bilyonaryo Business",
+   "published": "Fri, 20 Nov 2026 01:06:57 GMT",
+   "source": "Google News: PGA WD",
+   "kind": "news",
+   "golfers": [
+    "Erik Van Rooyen"
+   ]
+  },
+  {
    "title": "2026 Fantasy Football Rankings - Week 11 Start, Sit",
    "link": "https://www.rotoballer.com/2026-fantasy-football-rankings-week-11-start-sit/1997990",
    "summary": "Ahead of Week 11, Jordyn Tyson, Jalen Coker, Chig Okonkwo, Adonai Mitchell, Caleb Douglas, Emmett Johnson, and Deebo Samuel Sr. [&#8230;]",
@@ -167,17 +209,6 @@
    "golfers": [
     "Keith Mitchell",
     "Michael Johnson"
-   ]
-  },
-  {
-   "title": "Injury ends Erik van Rooyen's bid for conditional PGA Tour status - Miami Herald",
-   "link": "https://news.google.com/rss/articles/CBMibkFVX3lxTE5vY2JkcmtWX2NXN3dUc3lTTUZtV3RCc1lkUk9ULTduM2RFU1dZWXVxZDBxeHJyQzBkekhLd28yQW42cWUtV3JHTGFaNDlqLThpMjIxM1oxX1V6SEtCQ2VVZDlOUTRmWWl1X2NNMWpn?oc=5",
-   "summary": "Injury ends Erik van Rooyen's bid for conditional PGA Tour status Miami Herald",
-   "published": "Thu, 19 Nov 2026 19:50:07 GMT",
-   "source": "Google News: PGA WD",
-   "kind": "news",
-   "golfers": [
-    "Erik Van Rooyen"
    ]
   },
   {
@@ -207,17 +238,6 @@
    "link": "https://sports.yahoo.com/articles/pga-tour-privileges-line-former-181121257.html",
    "summary": "Erik van Rooyen withdrew from the RSM Classic with a rib injury, jeopardizing his PGA Tour status for next season.",
    "published": "Thu, 19 Nov 2026 18:11:21 +0000",
-   "source": "Yahoo Golf",
-   "kind": "news",
-   "golfers": [
-    "Erik Van Rooyen"
-   ]
-  },
-  {
-   "title": "Van Rooyen withdraws from RSM Classic, won't earn 2027 PGA Tour conditional status",
-   "link": "https://sports.yahoo.com/articles/van-rooyen-withdraws-rsm-classic-165630786.html",
-   "summary": "The RSM Classic is underway at Seaside Golf Course in St. Simons, Georgia and the final event of the FedExCup Fall season will be without Erik van Rooyen.",
-   "published": "Thu, 19 Nov 2026 16:56:30 +0000",
    "source": "Yahoo Golf",
    "kind": "news",
    "golfers": [
