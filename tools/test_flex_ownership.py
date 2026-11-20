@@ -118,6 +118,38 @@ ok(min(tiny.values()) >= MIN_REPORTABLE - 1e-9,
    f"the smallest reported share is {min(tiny.values()):.2f}%, "
    f"at or above the {MIN_REPORTABLE}% floor")
 
+print("\nthe no-markets guard, which is the thing most likely to misfire")
+guarded = [{"player": "starter", "sal": 10000, "pos": "QB", "anchors": 7},
+           {"player": "backup", "sal": 6000, "pos": "QB", "anchors": 0},
+           {"player": "wr", "sal": 8000, "pos": "WR", "anchors": 4},
+           {"player": "te", "sal": 5000, "pos": "TE", "anchors": 3},
+           {"player": "rb", "sal": 7000, "pos": "RB", "anchors": 5},
+           {"player": "dst", "sal": 4000, "pos": "DST", "anchors": 0}]
+g = flex_ownership(guarded)
+ok(g["backup"] <= MIN_REPORTABLE + 1e-9,
+   f"a quarterback with no prop markets drops to {g['backup']:.2f}%")
+ok(g["dst"] > 5.0,
+   f"a DEFENCE with no prop markets is NOT excluded, at {g['dst']:.1f}%: "
+   f"defences never carry player props, and two of six in the sample were "
+   f"rostered at 19.3% and 11.1%")
+ok(abs(sum(g.values()) - (TOTAL + MIN_REPORTABLE)) < 1e-6,
+   "the excluded player keeps his floor and the rest still sum to 500%")
+ok(set(g) == {p["player"] for p in guarded},
+   "an excluded player is still returned, so no caller loses a row silently")
+
+print("\nthe guard is off unless the caller supplies the evidence")
+blind = flex_ownership([{k: v for k, v in p.items() if k != "anchors"}
+                        for p in guarded])
+ok(blind["backup"] > 5.0,
+   f"without anchors the same backup is modelled at {blind['backup']:.1f}%, "
+   f"because a model that cannot see the evidence must not act on it")
+
+print("\nthe captain model applies the same guard")
+cg = captain_ownership(guarded)
+ok(cg["backup"] <= 1.0,
+   f"a quarterback with no prop markets is captained at {cg['backup']:.2f}%")
+ok(cg["dst"] > 0.5, f"a defence is still captainable, at {cg['dst']:.1f}%")
+
 print("\nposition multipliers are ordered the way the captures are")
 ok(POS["K"] > POS["WR"] and POS["QB"] > POS["RB"],
    "kickers are lifted above receivers and quarterbacks above running backs")

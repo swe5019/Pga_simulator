@@ -181,9 +181,13 @@
       ['flexOwn', 'Field%', 'num',
         'Modelled share of entries that flex him. Flex ownership sums to 500% '
         + 'across the slate because there are five such slots. Carries about '
-        + 'six points of mean error, roughly a quarter of a typical value, so '
-        + 'read it in bands: it will separate a 50% player from a 15% one and '
-        + 'will not tell you 18% from 24%.'],
+        + 'seven and a half points of mean error against a full slate pool, '
+        + 'roughly a third of a typical value, so read it in bands: it will '
+        + 'separate a 50% player from a 15% one and will not tell you 18% '
+        + 'from 24%. A player the bookmakers post no markets for is shown at '
+        + 'the floor rather than modelled, because the field does not roster '
+        + 'who the book will not price: 23 of 23 such players went unrostered '
+        + 'in the sample. Defences are exempt, having no player props at all.'],
       ['cptOwn', 'Cpt%', 'num',
         'His share of the separate captain market, for comparison. A low '
         + 'number here beside a high Field% is the ordinary case: most of the '

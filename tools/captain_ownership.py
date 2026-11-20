@@ -78,6 +78,15 @@ of the capture rather than a fact about the slate. Expressing concentration as
 a share of what was captured, as the table above does, controls for part of
 this but not for the shape of the missing tail.
 
+THE GUARD IT SHARES WITH THE FLEX MODEL
+A showdown pool carries every backup quarterback on both rosters, priced at
+the format's minimum. A pure salary curve hands them ownership, and the field
+gives them none: across the three contests where the full DraftKings pool and
+a pre-kickoff props snapshot could both be recovered, 23 of 23 non-defence
+players priced at $4,000 or more with NO prop markets went unrostered, against
+93% of the 43 who had markets. See is_rostered in flex_ownership.py. Pass
+`pos` and `anchors` to switch it on; without them nobody is excluded.
+
 WHAT THIS IS NOT FOR
 Do NOT divide a captain's win rate by this to make a leverage column. That was
 the intended use and it fails: on the two contests where this project had
@@ -122,6 +131,8 @@ the top scorer once in five.
 # them, so this is left alone. Revisit only on a much larger sample.
 EXPONENT = 3.3
 
+from flex_ownership import is_rostered  # noqa: E402  (shared guard)
+
 # Captain ownership below this is not meaningfully distinguishable from zero
 # given about 3 points of error, so it is reported as a floor rather than a
 # number that invites division.
@@ -129,21 +140,35 @@ MIN_REPORTABLE = 0.2
 
 
 def captain_ownership(players, exponent=EXPONENT):
-    """players: [{'player': name, 'sal': flex salary}] -> {name: percent}.
+    """players: [{'player': name, 'sal': flex salary, 'pos': position,
+                  'anchors': how many prop markets back his projection}]
+    -> {name: percent}.
 
     `sal` is the FLEX salary. DraftKings prices the captain at 1.5x, but the
     multiplier is constant across the slate and so cancels in the normalisation;
     passing captain salaries instead gives the same answer.
+
+    `pos` and `anchors` are optional and feed the same guard the flex model
+    uses: the field does not captain a player the book will not price, and a
+    showdown pool is full of backup quarterbacks priced at the minimum who
+    would otherwise collect ownership here. Omitting them excludes nobody.
     """
     pool = [p for p in players if (p.get("sal") or 0) > 0]
     if not pool:
         return {}
-    weights = {p["player"]: float(p["sal"]) ** exponent for p in pool}
+    weights, unrostered = {}, {}
+    for p in pool:
+        if not is_rostered(p):
+            unrostered[p["player"]] = MIN_REPORTABLE
+            continue
+        weights[p["player"]] = float(p["sal"]) ** exponent
     total = sum(weights.values())
     if total <= 0:
-        return {}
-    return {n: max(100.0 * w / total, MIN_REPORTABLE)
-            for n, w in weights.items()}
+        return dict(unrostered)
+    out = {n: max(100.0 * w / total, MIN_REPORTABLE)
+           for n, w in weights.items()}
+    out.update(unrostered)
+    return out
 
 
 def describe():

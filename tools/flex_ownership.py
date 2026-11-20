@@ -41,9 +41,25 @@ VALIDATION
 Using salary relative to the slate's most expensive player instead of absolute
 dollars scores 6.31 as well, so the simpler absolute form is kept.
 
-THIS IS A COARSE MODEL AND THE NUMBER TO REMEMBER IS SIX POINTS. Flex
-ownership averages about 22%, so roughly six points of mean error is around a
-quarter of the typical value. It is half the error of assuming everyone is
+THAT 6.31 IS MEASURED IN AN EASIER SETTING THAN PRODUCTION, and the honest
+number is worse. It is fitted and scored over the captured rows only, which
+are by construction the players the field actually rostered. Production runs
+the model over the WHOLE DraftKings pool, backup quarterbacks included, and
+they absorb ownership that then goes missing from everyone else. Scoring the
+full pool and then comparing only the players the capture lists, over the
+three contests where both the pool and a pre-kickoff props snapshot could be
+recovered:
+
+    no guard                                  MAE 10.20
+    with the no-markets guard                 MAE  7.21
+    with the guard, holding each slate out    MAE  7.48   <- the real number
+
+Quote 7.5 points, not 6.3. The exponent survives the move: 1.46 scores 7.21
+against a best-in-setting 1.52 at 7.14, which is noise, so it is left alone.
+
+THIS IS A COARSE MODEL AND THE NUMBER TO REMEMBER IS SEVEN AND A HALF POINTS.
+Flex ownership averages about 22%, so that is roughly a third of the typical
+value. It is half the error of assuming everyone is
 equally owned, and it is enough to separate a 50% player from a 15% one, but
 it will not tell you that someone is 18% rather than 24%. Read it in bands,
 not as a figure.
@@ -99,25 +115,65 @@ TOTAL = 500.0
 MIN_REPORTABLE = 0.5
 
 
+def is_rostered(p):
+    """Will the field put this player in a lineup at all?
+
+    THE FIELD DOES NOT ROSTER A PLAYER THE BOOK WILL NOT PRICE. Over the three
+    contests where the full DraftKings pool and a pre-kickoff props snapshot
+    could both be recovered, of the players priced at $4,000 or more:
+
+        with prop markets      43 players, 93.0% owned enough to be listed
+        with no prop markets   23 players,  0.0%
+
+    Not one of the 23. They were backup quarterbacks priced at the showdown
+    minimum, ruled-out starters, and two kickers. The salary curve on its own
+    had them at 17.5% each.
+
+    DEFENCES ARE EXEMPT, because they never carry player props by
+    construction, so absence of markets says nothing about them. Two of the
+    six defences in that sample were rostered at 19.3% and 11.1%.
+
+    `anchors` is the count of de-vigged volume markets behind the player's
+    projection, which data/nfl_projections.json already carries. When the
+    caller does not supply it, nothing is excluded: a model that cannot see
+    the evidence must not act as though it has.
+    """
+    if p.get("pos") == "DST":
+        return True
+    a = p.get("anchors")
+    if a is None:
+        return True
+    return a > 0
+
+
 def flex_ownership(players, exponent=EXPONENT, pos_mult=None, total=TOTAL):
-    """players: [{'player': name, 'sal': flex salary, 'pos': position}]
+    """players: [{'player': name, 'sal': flex salary, 'pos': position,
+                  'anchors': how many prop markets back his projection}]
     -> {name: percent of entries rostering him in a flex slot}.
 
     `sal` is the FLEX salary, not the captain price. A player not matched to a
     position is treated as a wide receiver, the neutral multiplier, rather than
     dropped: a missing position should cost accuracy, not remove a player from
     the field's roster entirely.
+
+    `anchors` is optional and omitting it only loses the guard described in
+    is_rostered. A player the guard excludes is still RETURNED, at the floor,
+    rather than dropped, so a caller cannot silently lose a row.
     """
     mult = POS if pos_mult is None else pos_mult
     pool = [p for p in players if (p.get("sal") or 0) > 0]
     if not pool:
         return {}
     weights = {}
+    unrostered = {}
     for p in pool:
+        if not is_rostered(p):
+            unrostered[p["player"]] = MIN_REPORTABLE
+            continue
         w = (float(p["sal"]) / 1000.0) ** exponent
         weights[p["player"]] = w * mult.get(p.get("pos"), 1.0)
     if sum(weights.values()) <= 0:
-        return {}
+        return dict(unrostered)
 
     # A player occupies at most one flex slot per lineup, so he cannot be in
     # more than 100% of entries however the weights fall. A raw normalisation
@@ -140,13 +196,16 @@ def flex_ownership(players, exponent=EXPONENT, pos_mult=None, total=TOTAL):
             out[n] = cap
             free.pop(n)
         budget -= cap * len(over)
-    return {n: max(v, MIN_REPORTABLE) for n, v in out.items()}
+    out = {n: max(v, MIN_REPORTABLE) for n, v in out.items()}
+    out.update(unrostered)
+    return out
 
 
 def describe():
     return (f"flex ownership modelled as (salary/1000)^{EXPONENT} times a "
             f"position multiplier, normalised to 500%, fitted on 98 players "
-            f"over 5 contests: about 6.3 points of mean error out of sample "
-            f"against 12.2 for spreading evenly. That is roughly a quarter of "
-            f"a typical flex ownership, so read it in bands rather than as a "
-            f"figure")
+            f"over 5 contests: about 7.5 points of mean error out of sample "
+            f"against a full slate pool, which is roughly a third of a typical "
+            f"flex ownership, so read it in bands rather than as a figure. "
+            f"Players the book posts no markets for are treated as unrostered: "
+            f"23 of 23 such players went unrostered in the sample")

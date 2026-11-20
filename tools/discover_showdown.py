@@ -64,7 +64,8 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
 from enrich_props import nrm  # noqa: E402
 from captain_ownership import captain_ownership, describe as cpt_own_note  # noqa: E402
-from flex_ownership import flex_ownership, describe as flex_own_note  # noqa: E402
+from flex_ownership import (flex_ownership, is_rostered,  # noqa: E402
+                            describe as flex_own_note)
 
 # DraftKings showdown captain mode.
 CAP = 50_000
@@ -177,13 +178,35 @@ def load_slates(dg=None, want=2):
     return chosen, "ok"
 
 
-def build_pool(slate, sims):
+def anchor_counts():
+    """How many de-vigged prop markets back each player's projection.
+
+    The ownership models use this to tell a priced-up starter from a backup
+    quarterback carrying the showdown minimum: the field does not roster a
+    player the book will not price, 23 times out of 23 in the sample behind
+    flex_ownership.is_rostered. Keyed by the same normalised name the
+    simulation uses. An empty mapping disables the guard rather than excluding
+    everyone, which is the safe direction to fail.
+    """
+    path = os.path.join(DATA, "nfl_projections.json")
+    if not os.path.exists(path):
+        log("no data/nfl_projections.json; ownership guards are OFF and "
+            "backup quarterbacks will collect modelled ownership")
+        return {}
+    with open(path, encoding="utf-8") as f:
+        doc = json.load(f)
+    return {nrm(p["player"]): len(p.get("anchors") or [])
+            for p in doc.get("players", [])}
+
+
+def build_pool(slate, sims, anchors=None):
     """Join the showdown's priced players onto the correlated simulation.
 
     The DK rows carry their own team code, so a defence is keyed straight to
     `dst_<TEAM>` rather than matched on DraftKings' nickname for it ("Bears"),
     which never had to be a name-matching problem at all.
     """
+    anchors = {} if anchors is None else anchors
     teams = sorted({p["tm"] for p in slate["players"] if p["tm"]})
     if len(teams) != 2:
         log(f"expected two teams, found {teams}")
@@ -200,6 +223,7 @@ def build_pool(slate, sims):
         pool.append({
             "key": key, "name": p["n"], "pos": p["pos"], "team": p["tm"],
             "opp": other.get(p["tm"]), "sal": int(p["sal"]), "fp": np.asarray(fp),
+            "anchors": anchors.get(key),
         })
 
     log(f"\npool: {len(pool)} of {len(slate['players'])} priced players have a "
@@ -310,7 +334,7 @@ def script_of(total, margin, t_lo, t_hi, m_hi):
     return "ordinary (nothing extreme)"
 
 
-def solve_slate(slate, sims, args):
+def solve_slate(slate, sims, args, anchors=None):
     """Everything for ONE showdown slate. Returns its result dict, or None.
 
     Separated from main so the joint simulation, which is the expensive part
@@ -322,7 +346,7 @@ def solve_slate(slate, sims, args):
         f"starts {slate.get('start','?')})")
     log("#" * 76)
 
-    pool, teams = build_pool(slate, sims)
+    pool, teams = build_pool(slate, sims, anchors)
     if not pool or len(pool) < ROSTER:
         log("not enough projectable players to fill a lineup")
         return None
@@ -380,10 +404,17 @@ def solve_slate(slate, sims, args):
     # flex are SEPARATE markets, summing to 100% and 500%: on the five
     # captured contests the ratio between a player's two shares ran from 1.4
     # to 32, so neither can be derived from the other.
-    cpt_own = captain_ownership([{"player": p["name"], "sal": p["sal"]}
-                                 for p in pool])
-    flex_own = flex_ownership([{"player": p["name"], "sal": p["sal"],
-                                "pos": p["pos"]} for p in pool])
+    own_in = [{"player": p["name"], "sal": p["sal"], "pos": p["pos"],
+               "anchors": p.get("anchors")} for p in pool]
+    cpt_own = captain_ownership(own_in)
+    flex_own = flex_ownership(own_in)
+    skipped = [p for p in pool if not is_rostered(
+        {"pos": p["pos"], "anchors": p.get("anchors")})]
+    if skipped:
+        log(f"\n{len(skipped)} priced player(s) carry no prop markets and are "
+            f"treated as unrostered by the field:")
+        for p in sorted(skipped, key=lambda q: -q["sal"]):
+            log(f"   {p['pos']:4} {p['name']:24} ${p['sal']:<7} {p['team']}")
 
     log(f"\nsolving the winning lineup in each of {n_trials:,} simulated games")
     for t in range(n_trials):
@@ -570,10 +601,11 @@ def main():
     log(f"\nregenerating the joint simulation at {args.trials:,} trials")
     import build_projections as bp
     sims, _res = bp.player_scores(args.trials, "dk")
+    anchors = anchor_counts()
 
     results = []
     for slate in slates:
-        r = solve_slate(slate, sims, args)
+        r = solve_slate(slate, sims, args, anchors)
         if r:
             results.append(r)
     if not results:
