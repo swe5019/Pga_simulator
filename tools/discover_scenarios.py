@@ -189,7 +189,24 @@ def signature(ids, pool):
     The companion game is reported underneath as a breakdown.
     """
     g = Counter(game_of(pool[i]) for i in ids)
-    stacks = sorted(((c, k) for k, c in g.items() if c >= MIN_STACK), reverse=True)
+    # TIES MUST NOT BE BROKEN BY NAME. Sorting (count, game) descending looks
+    # harmless and is not: a quarter of a sampled field has two games at equal
+    # depth, a 2-2 or a 3-3, and the alphabetically last game then collects
+    # every one of those lineups. On 22 November that was PHI/PIT, which took
+    # 25.9% of the field's lineups as its own and came out the most crowded
+    # game on the board while having the second lowest projected total. Its
+    # leverage was understated and every alphabetically earlier game's was
+    # overstated, which is the whole output of this tool.
+    #
+    # Ties break on the SALARY committed to the stack instead: the game a
+    # lineup is really about is the one it spent more on. Deterministic, and
+    # with no relationship to the spelling of a team's abbreviation.
+    spend = Counter()
+    for i in ids:
+        spend[game_of(pool[i])] += pool[i]["sal"]
+    stacks = sorted(((c, spend[k], k) for k, c in g.items() if c >= MIN_STACK),
+                    reverse=True)
+    stacks = [(c, k) for c, _s, k in stacks]
     if not stacks:
         return "spread (no game with two players)", (), None
     top_c, top_k = stacks[0]
