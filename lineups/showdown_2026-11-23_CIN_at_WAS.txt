@@ -1,0 +1,105 @@
+DraftKings NFL Showdown — CIN at WAS, Monday 23 November 2026
+Locks 2026-11-24T01:15:00Z · 646,012 entries
+Built from props refreshed at 21:21 UTC, 8,000 correlated simulations.
+
+THE TARGET SCORE IS 151.8, read off the simulation's own distribution of
+winning lineups for THIS game (25th percentile 130.3, 75th 174.3). It is not
+assumed from the size of the field. That mistake cost 19 November, when a
+643,587-entry contest was won with 99.49 points.
+
+==============================================================================
+LINEUP 1   Highest win chance — Burrow captain
+==============================================================================
+slot  player                pos  tm   salary    field%
+CPT   Joe Burrow            QB   CIN  $16,500    17.2%
+FLEX  Ja'Marr Chase         WR   CIN  $11,600    51.3%
+FLEX  Tee Higgins           WR   CIN  $10,600    45.0%
+FLEX  Jayden Daniels        QB   WAS  $10,000    53.7%
+FLEX  Jack Endries          TE   CIN  $   600     0.9%
+FLEX  Cam Grandy            TE   CIN  $   200     0.5%
+      $49,500 spent · 168.4% total ownership · 5-1 toward CIN
+      P(clear 151.8) = 15.94%   P(Burrow is the game's top scorer) = 26.9%
+
+==============================================================================
+LINEUP 2   Most differentiated — Daniels captain, Washington side
+==============================================================================
+slot  player                pos  tm   salary    field%
+CPT   Jayden Daniels        QB   WAS  $15,000    12.5%
+FLEX  Ja'Marr Chase         WR   CIN  $11,600    51.3%
+FLEX  Joe Burrow            QB   CIN  $11,000    61.7%
+FLEX  Tee Higgins           WR   CIN  $10,600    45.0%
+FLEX  Drew Sample           TE   CIN  $ 1,600     3.7%
+FLEX  Cam Grandy            TE   CIN  $   200     0.5%
+      $50,000 spent exactly · 174.6% total ownership · 1-5 toward WAS
+      P(clear 151.8) = 14.09%   P(Daniels is the game's top scorer) = 15.3%
+
+==============================================================================
+LINEUP 3   Non-quarterback captain — Higgins
+==============================================================================
+slot  player                pos  tm   salary    field%
+CPT   Tee Higgins           WR   CIN  $15,900    15.2%
+FLEX  Ja'Marr Chase         WR   CIN  $11,600    51.3%
+FLEX  Joe Burrow            QB   CIN  $11,000    61.7%
+FLEX  Jayden Daniels        QB   WAS  $10,000    53.7%
+FLEX  Jack Endries          TE   CIN  $   600     0.9%
+FLEX  Cam Grandy            TE   CIN  $   200     0.5%
+      $49,300 spent · 183.2% total ownership · 5-1 toward CIN
+      P(clear 151.8) = 13.45%   P(Higgins is the game's top scorer) = 11.3%
+
+==============================================================================
+WHY THESE, FROM SEVEN SCORED SHOWDOWNS
+==============================================================================
+
+THE CHEAP PIECE IS NOT A SACRIFICE, IT IS THE WHOLE STRUCTURE. Forcing every
+flex slot to be 20%-plus owned caps the best achievable lineup at a 4.22%
+chance of clearing 151.8. Allowing one piece under 3% raises it to 15.94%.
+Being hard to duplicate is not a cost here, it is four times better, because
+the salary a 200-dollar tight end frees is what pays for Chase, Higgins and
+both quarterbacks. Cam Grandy at 0.5% can be in at most 3,230 of 646,012
+entries, and realistically in far fewer once the other five slots are fixed.
+
+That is also what every low-duplicate winner has looked like. The 13 November
+winner had ONE duplicate and carried Ben Sinnott at 0.6%. The 22 November
+winner had four and carried Tai Felton at 7.8%. Chalk in the expensive slots,
+one piece nobody has.
+
+THE REST IS CHALK ON PURPOSE. All seven winners so far sat between 146.5% and
+189.4% of summed ownership and NOT ONE was a unique lineup; duplicates ran
+from 1 to 32. These three sit at 168.4%, 174.6% and 183.2%. A lineup nobody
+else would build in six slots is not a differentiated lineup, it is a bad one.
+
+THE CAPTAIN IS THE ONE REAL DECISION, so the three spread it rather than
+spreading the roster. Leverage has gone to whoever captained the game's TOP
+SCORER in all seven contests, between 3.4x and 11.2x, so the captain is chosen
+on the chance of being the best player in the game and not on being cheap.
+Burrow 26.9%, Daniels 15.3%, Higgins 11.3%.
+
+JA'MARR CHASE IS DELIBERATELY NOT CAPTAINED, and it is close. He has the
+highest chance of being the top scorer at 29.2%, and captaining him scores
+15.83%, within noise of Burrow's 15.94%. He is also the most-owned captain on
+the board at 20.5%. On 15 November the most-owned showdown captain was Chase
+himself and he returned 3.39x, so this is not a fade on principle; it is
+taking the same win probability at three points less ownership. He is in the
+flex of all three lineups, where you get his points either way.
+
+TWO QUARTERBACK CAPTAINS, WHICH THE HISTORY ARGUES AGAINST AND THE GAME
+ARGUES FOR. Six of seven winners did not captain a quarterback. But the
+crossover measured on 19 November put a quarterback captain ahead below about
+170 points and a receiver ahead above it, and this game's own target is 151.8,
+under that line. On 19 November the record said no quarterback, the script
+bucket said quarterback, and the script bucket was right. Lineup 3 is the
+hedge if this turns into the shootout the 75th percentile allows for.
+
+WHAT COULD STILL BE WRONG
+
+Kickers are now modelled but only to the point of being unbiased, and they
+are uncorrelated with the rest of the pool, so their upside in a field-goal
+game is understated. Neither kicker made these builds; that is a judgement,
+not a measurement.
+
+The flex ownership model carries about 7.5 points of mean error, roughly a
+third of a typical value. Read every field% above as a band.
+
+There is still no lineup-level field model, so nothing here predicts
+duplicates. The 3,230-entry figure for Cam Grandy is a ceiling from his
+marginal ownership, not a forecast.
