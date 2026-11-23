@@ -1,11 +1,11 @@
 {
- "updatedUtc": "2026-11-22T11:28:13Z",
+ "updatedUtc": "2026-11-23T12:48:38Z",
  "slate": "RSM_2026",
  "event": "",
  "counts": {
-  "items": 5,
-  "golfersMentioned": 4,
-  "news": 5,
+  "items": 7,
+  "golfersMentioned": 7,
+  "news": 7,
   "chatter": 0
  },
  "sources": [
@@ -108,13 +108,13 @@
   {
    "source": "Google News: PGA DFS",
    "ok": true,
-   "items": 100,
+   "items": 49,
    "error": null
   },
   {
    "source": "Google News: PGA WD",
    "ok": true,
-   "items": 63,
+   "items": 64,
    "error": null
   },
   {
@@ -144,13 +144,19 @@
    "total": 2
   },
   {
-   "name": "Chris Kirk",
+   "name": "Neal Shipley",
    "news": 1,
    "chatter": 0,
    "total": 1
   },
   {
-   "name": "Troy Merritt",
+   "name": "Michael Johnson",
+   "news": 1,
+   "chatter": 0,
+   "total": 1
+  },
+  {
+   "name": "Luke List",
    "news": 1,
    "chatter": 0,
    "total": 1
@@ -160,9 +166,66 @@
    "news": 1,
    "chatter": 0,
    "total": 1
+  },
+  {
+   "name": "Keegan Bradley",
+   "news": 1,
+   "chatter": 0,
+   "total": 1
+  },
+  {
+   "name": "Chris Kirk",
+   "news": 1,
+   "chatter": 0,
+   "total": 1
   }
  ],
  "items": [
+  {
+   "title": "Week 12 Waiver Wire Rankings - Fantasy Football Pickups Include Will Shipley, Justice Hill, Kaleb Johnson, Konata Mumpfield, Elic Ayomanor, Jack Bech, Michael Mayer, more",
+   "link": "https://www.rotoballer.com/waiver-wire-rankings-fantasy-football-week-12-2026/2001432",
+   "summary": "Week 12 is here! It's Thanksgiving week; the NFL will have games from Wednesday through Monday, with Tuesday and Saturday [&#8230;]",
+   "published": "Mon, 23 Nov 2026 11:17:08 +0000",
+   "source": "RotoBaller",
+   "kind": "news",
+   "golfers": [
+    "Neal Shipley",
+    "Michael Johnson"
+   ]
+  },
+  {
+   "title": "Jeeno Thitikul, Nelly Korda pass Annika Sorenstam to stand alone at the top of this career list",
+   "link": "https://sports.yahoo.com/articles/jeeno-thitikul-nelly-korda-pass-213300277.html",
+   "summary": "Thitikul's latest $4 million check propelled her to the top of the LPGA career money list after winning for the 12th time.",
+   "published": "Sun, 22 Nov 2026 21:33:00 +0000",
+   "source": "Yahoo Golf",
+   "kind": "news",
+   "golfers": [
+    "Luke List"
+   ]
+  },
+  {
+   "title": "Wide Receiver Matchups to Target For Week 11 - DeVonta Smith, Parker Washington, Pat Bryant, Caleb Douglas, more",
+   "link": "https://www.rotoballer.com/nfl-dfs-picks-wide-receivers-to-target-for-week-11/1999615",
+   "summary": "With injuries and bye weeks, Week 11 is a challenging one for fantasy football managers in season-long leagues. For DFS, [&#8230;]",
+   "published": "Sun, 22 Nov 2026 15:35:08 +0000",
+   "source": "RotoBaller",
+   "kind": "news",
+   "golfers": [
+    "Jordan L. Smith"
+   ]
+  },
+  {
+   "title": "Gary Woodland Withdraws From Tiger Woods' Hero World Challenge",
+   "link": "https://www.golfmonthly.com/news/gary-woodland-withdraws-from-tiger-woods-hero-world-challenge",
+   "summary": "Gary Woodland has undergone knee surgery and will be replaced by Keegan Bradley at next month's tournament in the Bahamas",
+   "published": "Sun, 22 Nov 2026 15:20:21 +0000",
+   "source": "Golf Monthly",
+   "kind": "news",
+   "golfers": [
+    "Keegan Bradley"
+   ]
+  },
   {
    "title": "49ers vs. Vikings Mexico City Preview: NFL Week 11 Picks, Odds and Circa Contest Consensus",
    "link": "https://vsin.com/the-vsin-daily/49ers-vs-vikings-mexico-city-preview-nfl-week-11-picks-odds-and-circa-contest-consensus/",
@@ -175,32 +238,10 @@
    ]
   },
   {
-   "title": "When Is Jacory Croskey-Merritt Coming Back - Week 11 Fantasy Football Injury Return Update (2026)",
-   "link": "https://www.rotoballer.com/when-is-jacory-croskey-merritt-coming-back-week-11-fantasy-football-injury-return-update-2026/2000273",
-   "summary": "Jacory Croskey-Merritt was not dominant when he suffered an injury in Week 5, but he is the best running back [&#8230;]",
-   "published": "Sun, 22 Nov 2026 01:52:30 +0000",
-   "source": "RotoBaller",
-   "kind": "news",
-   "golfers": [
-    "Troy Merritt"
-   ]
-  },
-  {
-   "title": "Wide Receiver Matchups to Target For Week 11 - DeVonta Smith, Parker Washington, Pat Bryant, Caleb Douglas, more",
-   "link": "https://www.rotoballer.com/wide-receiver-matchups-to-target-for-week-10-jaxon-smith-njigba-parker-washington-omar-cooper-jr-savion-williams-more/1999615",
-   "summary": "With injuries and bye weeks, Week 11 is a challenging one for fantasy football managers in season-long leagues. For DFS, [&#8230;]",
-   "published": "Sun, 22 Nov 2026 01:40:08 +0000",
-   "source": "RotoBaller",
-   "kind": "news",
-   "golfers": [
-    "Jordan L. Smith"
-   ]
-  },
-  {
-   "title": "Injury ends Erik van Rooyen\u2019s bid for conditional PGA Tour status - Bilyonaryo Business",
-   "link": "https://news.google.com/rss/articles/CBMikgFBVV95cUxQN3RQQUlnUENCcXhxY1h2YTJPRy15cTJWcHlBdmd4OWVmWXdNTmhOM3FnQm05VlVBUWJRS3NnZXh0VGduM01KZkNTVDFKM0VGRVplSjVWdjFuNTBLX0lJVHVqZGNXSGUtLXNFTWJCUDBHNGhrbGtHSld4bnBuV0J4ZGtJdWZnckp5NGQ2RXp1V1BzQQ?oc=5",
-   "summary": "Injury ends Erik van Rooyen\u2019s bid for conditional PGA Tour status Bilyonaryo Business",
-   "published": "Fri, 20 Nov 2026 01:06:57 GMT",
+   "title": "Injury ends Erik van Rooyen\u2019s bid for conditional PGA Tour status - Arab News",
+   "link": "https://news.google.com/rss/articles/CBMipAFBVV95cUxQZHNOVWU2ZlN2RHUxODFwMGozU1psc3FNa3JWM0RaN2stYW8zZ2ZxTFZxaHNkUFRyNEx4WXA0NlhFclZ2aVhzM2plY2JRTTNXd2ZpYlVFRzBWNkU4M1JfeXFrRE9mcTQ2YWtoV3lsRE55eFA4cHlGTE1yb1dYT19pNV9XNmhKRGdzMFpNTHRqZkpYVGdyc3ZsbDBPZlVLZ2xVVGRIRQ?oc=5",
+   "summary": "Injury ends Erik van Rooyen\u2019s bid for conditional PGA Tour status Arab News",
+   "published": "Thu, 19 Nov 2026 19:41:37 GMT",
    "source": "Google News: PGA WD",
    "kind": "news",
    "golfers": [
