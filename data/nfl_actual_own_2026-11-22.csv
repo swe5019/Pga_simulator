@@ -1,0 +1,126 @@
+# WHAT THIS SLATE SETTLED
+#
+# The pre-lock field model called PHI/PIT the most crowded game on the board.
+# It was the LEAST owned game of the ten: 8.4% of summed ownership against
+# DAL/TEN's 191.5%, and 1.0% of the top 1% against DAL/TEN's 407.0%. The call
+# was not merely wrong, it was inverted, and the user spotted it from the game
+# total before the slate locked.
+#
+# Cause, traced: Joe Milton III was projected 28.5 points at $4,700 off two
+# effective games of history, and the softmax turned that into 56.8% projected
+# ownership. He is a quarterback, the field sampler stacks quarterbacks with
+# team mates, so PHI/PIT was manufactured as the chalk game. The field had
+# Milton at 1.7% and he scored 6.34.
+#
+# TWO FIXES WERE TRIED AND BOTH FAILED, so neither shipped:
+#   shrinking THIN projections toward the position mean: Emmett Johnson is
+#   equally thin (27.6 proj, two games) and was genuinely 62.5% owned, the
+#   chalk of the slate. Shrinking fixed Milton and destroyed Johnson. Mean
+#   error 4.92 -> 4.75 at the mildest setting but correlation +0.68 -> +0.66,
+#   and worse at every stronger setting.
+#
+#   scoring the projection against the player's OWN market lines: Milton's
+#   projection sits 15.1 points above what his anchors imply, the largest gap
+#   on the slate. But that gap correlates only +0.12 with actual ownership
+#   across 79 players, and Johnson has the second largest gap at +8.8 while
+#   being the chalk. It diagnoses the projection, not the ownership.
+#
+# So this file is archived as training data rather than used to patch a model
+# on one slate. The ownership model excluding Milton scores 4.19 mean error
+# against a 6.11 baseline with +0.82 correlation, which is sound; including
+# him it is 4.92 and +0.68. One player is the whole defect.
+#
+# Calibration, which IS consistent and is the thing to fix with more slates:
+#   actual 30%+      n=3    modelled 44.4 vs actual 42.1   bias  +2.3
+#   actual 15 to 30% n=7    modelled  9.3 vs actual 20.0   bias -10.7
+#   actual 5 to 15%  n=33   modelled  7.4 vs actual  8.8   bias  -1.4
+#   actual under 5%  n=38   modelled  4.1 vs actual  2.2   bias  +1.9
+# The middle of the board is hollowed out: the model pushes mass to the top
+# and the tail and under-fills the 15 to 30% band by eleven points.
+#
+# Actual contest ownership, DraftKings NFL Sunday main slate, 22 November 2026.
+# Transcribed from FantasyLabs Field Exposure, each position sorted by All.
+# Columns: all = share of entries, top20/top10/top1 = share within that tier.
+# This is the TOP of each position's list, not every player on the slate.
+player,pos,team,salary,points,all,top20,top10,top1
+Dak Prescott,QB,DAL,6700,38.90,21.7,55.5,67.3,90.8
+Cam Ward,QB,TEN,5500,23.22,14.5,18.3,15.5,4.1
+Patrick Mahomes,QB,KC,6500,27.96,10.2,11.3,9.7,4.6
+Caleb Williams,QB,CHI,6300,15.34,9.1,1.2,0.4,0.1
+Josh Allen,QB,BUF,7700,17.16,6.7,2.0,0.9,0.0
+Trevor Lawrence,QB,JAX,6600,17.74,6.1,1.7,0.8,0.0
+Bo Nix,QB,DEN,5600,12.50,6.0,1.6,0.8,0.0
+Jared Goff,QB,DET,6100,20.36,5.2,1.3,0.6,0.0
+Jacoby Brissett,QB,ARI,5200,14.74,3.4,1.3,0.8,0.1
+J.J. McCarthy,QB,NYG,4800,14.22,3.2,1.2,0.5,0.1
+Bryce Young,QB,CAR,5700,16.96,2.4,0.8,0.3,0.0
+Tyler Shough,QB,NO,5800,15.28,2.2,0.3,0.1,0.0
+Geno Smith,QB,LV,4900,19.44,2.2,0.8,0.3,0.1
+Baker Mayfield,QB,TB,5300,19.08,2.0,0.4,0.2,0.0
+Joe Milton,QB,PHI,4700,6.34,1.7,0.2,0.0,0.0
+Justin Herbert,QB,LAC,5100,22.44,1.7,1.6,1.4,0.4
+Aaron Rodgers,QB,PIT,5400,15.98,0.5,0.1,0.1,0.0
+Emmett Johnson,RB,KC,6000,27.30,62.5,89.0,91.4,97.4
+Tony Pollard,RB,TEN,6500,14.00,30.8,37.3,35.0,22.2
+Jonah Coleman,RB,DEN,6300,37.90,19.6,74.2,84.5,97.5
+James Cook,RB,BUF,7900,17.20,13.6,6.2,4.7,1.2
+Javonte Williams,RB,DAL,7300,24.10,10.3,10.3,9.3,6.3
+Omarion Hampton,RB,LAC,5200,10.30,9.2,11.7,10.5,10.1
+D'Andre Swift,RB,CHI,6900,12.90,8.7,3.8,2.7,1.0
+Chuba Hubbard,RB,CAR,7500,29.00,7.1,7.7,7.1,5.7
+Jahmyr Gibbs,RB,DET,10000,27.80,6.4,2.7,2.0,1.2
+Derrick Henry,RB,BAL,6700,20.10,5.2,3.5,3.0,1.4
+Bucky Irving,RB,TB,7000,19.00,4.7,2.4,1.7,0.5
+Kyle Monangai,RB,CHI,5400,1.80,4.1,1.8,1.1,0.5
+Jaylen Warren,RB,PIT,6600,4.90,3.9,0.8,0.5,0.3
+Cam Skattebo,RB,NYG,5800,6.80,2.8,2.1,1.4,0.4
+Bhayshul Tuten,RB,JAX,6800,8.30,2.5,0.8,0.4,0.1
+Ollie Gordon,RB,MIA,5600,8.70,2.5,1.7,1.4,0.7
+Breece Hall,RB,NYJ,5900,19.00,2.1,2.4,2.3,2.2
+Ashton Jeanty,RB,LV,5500,27.90,1.1,2.2,2.3,2.6
+Justice Hill,RB,BAL,4700,18.60,0.3,0.5,0.4,0.6
+CeeDee Lamb,WR,DAL,8800,33.20,33.1,64.0,70.6,87.5
+George Pickens,WR,DAL,6800,26.80,24.8,46.7,51.3,78.6
+Carnell Tate,WR,TEN,5500,13.80,22.1,35.4,37.5,36.8
+Elic Ayomanor,WR,TEN,3700,5.70,17.7,33.5,37.6,42.7
+Jordyn Tyson,WR,NO,5200,2.00,15.5,9.1,6.5,1.8
+Amon-Ra St. Brown,WR,DET,8200,14.70,13.6,5.7,4.1,0.7
+Garrett Wilson,WR,NYJ,6400,6.90,12.9,7.1,4.7,1.0
+Parker Washington,WR,JAX,6700,21.30,12.8,9.5,8.0,4.7
+Luther Burden,WR,CHI,6300,3.30,12.6,3.4,2.2,0.2
+Emeka Egbuka,WR,TB,5200,3.80,10.0,5.0,4.1,0.9
+Rome Odunze,WR,CHI,4600,8.50,9.8,9.0,8.9,7.8
+Josh Downs,WR,KC,5100,9.90,8.1,6.9,6.0,2.6
+Caleb Douglas,WR,JAX,4400,5.00,7.8,7.9,7.5,5.0
+Adonai Mitchell,WR,LAC,4900,5.00,6.8,5.3,4.7,1.1
+Malik Nabers,WR,NYG,7100,18.50,6.2,3.8,2.7,1.2
+Ryan Flournoy,WR,DAL,5300,2.10,6.1,4.6,3.8,0.8
+Ja'Kobi Lane,WR,BAL,3400,0.00,5.8,5.5,5.4,2.5
+Chimere Dike,WR,TEN,3500,13.30,3.3,8.1,10.2,19.8
+D.J. Moore,WR,BUF,6000,23.10,5.3,5.3,4.8,4.9
+Rashod Bateman,WR,BAL,3200,14.70,0.9,1.8,2.1,4.0
+Tre' Harris,WR,LAC,4000,4.80,3.9,5.0,5.2,3.7
+Jakobi Meyers,WR,JAX,4500,12.50,3.0,3.3,3.4,3.2
+Jack Bech,WR,LV,3000,22.80,0.2,0.6,0.8,2.6
+Pat Bryant,WR,DEN,4200,6.20,3.3,3.0,2.7,2.5
+Khalil Shakir,WR,BUF,5100,18.30,2.1,1.9,1.9,2.2
+Mark Andrews,TE,BAL,3500,3.40,18.7,23.4,22.7,17.7
+Colston Loveland,TE,CHI,5100,11.90,14.0,12.4,11.8,5.8
+Dawson Knox,TE,BUF,2800,5.10,12.7,18.3,19.0,26.7
+Isaiah Likely,TE,NYG,5600,4.50,8.7,3.5,2.2,0.2
+Travis Kelce,TE,KC,4700,25.40,6.7,14.1,16.4,23.6
+Cade Otton,TE,TB,3300,1.80,6.3,6.5,6.0,2.7
+Sam LaPorta,TE,DET,4400,9.20,5.0,3.8,3.4,2.6
+Gunnar Helm,TE,TEN,3300,3.40,4.1,6.2,6.0,5.2
+Michael Mayer,TE,LV,4300,1.40,3.7,2.4,1.8,0.4
+Brevyn Spann-Ford,TE,DAL,3100,8.50,3.0,6.4,7.8,12.2
+Brenton Strange,TE,JAX,4100,4.60,2.3,1.3,1.0,0.4
+Darren Waller,TE,CAR,3400,7.20,2.1,2.5,2.6,2.2
+Kenyon Sadiq,TE,NYJ,2900,6.00,2.0,3.0,3.5,6.8
+Trey McBride,TE,ARI,6600,14.80,2.0,1.2,0.9,0.3
+Dallas Goedert,TE,PHI,4600,4.80,1.2,0.4,0.3,0.3
+Pat Freiermuth,TE,PIT,3900,9.00,1.1,0.8,0.6,0.4
+Evan Engram,TE,DEN,3000,13.40,1.1,1.7,1.9,3.5
+Tommy Tremble,TE,CAR,2900,2.80,0.7,0.9,0.9,0.9
+Greg Dulcich,TE,MIA,3200,3.20,0.7,0.7,0.7,0.6
+Mason Taylor,TE,NYJ,3100,4.50,0.7,1.1,0.8,0.5
