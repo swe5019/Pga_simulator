@@ -1,0 +1,44 @@
+# Field exposure, DraftKings NFL Showdown, IND at HOU, Thursday 19 November 2026.
+# Transcribed from the FantasyLabs Field Exposure panel. Final HOU 26, IND 3.
+# A 29-point game: the lowest-scoring of the six captured so far.
+#
+# WINNING LINEUP (shedalot, rank 1, $41,750, 11 DUPLICATES / 12 users):
+#   CPT  C.J. Stroud        HOU  $15,000  28.2% owned  32.19
+#   FLEX Jonathan Taylor    IND  $10,600  38.6%         6.70
+#   FLEX Nico Collins       HOU  $10,200  54.3%        14.80
+#   FLEX David Montgomery   HOU  $ 8,200  39.8%        18.40
+#   FLEX Houston Defense    HOU  $ 5,800  28.1%        15.00
+#   FLEX Marlin Klein       HOU  $   200   0.3%        12.40
+#   $50,000 spent exactly, 189.4% total ownership, 99.49 points.
+#
+# THE CAPTAIN IS A QUARTERBACK. That ends the "quarterback never captains"
+# run at five of six. It is also exactly what this project's own simulation
+# said would win IF the game were a blowout: the blowout bucket, 33.2% of
+# trials, had "CPT QB, 5-1 HOU" as its top shape at 22% and Stroud as its
+# captain in 41% of those games. The game was a blowout, and the winner is
+# 5-1 Houston with Stroud captained. The tool was right and the five-contest
+# pattern I overlaid on it was wrong.
+#
+# Marlin Klein at $200 and 0.3% owned scored 12.40 and is the whole margin.
+slot,player,pos,team,salary,points,all,top20,top10,top1
+FLEX,C.J. Stroud,QB,HOU,10000,21.46,61.1,62.7,61.8,47.4
+FLEX,Nico Collins,WR,HOU,10200,14.80,54.3,65.3,77.8,100.0
+FLEX,David Montgomery,RB,HOU,8200,18.40,39.8,64.1,64.8,100.0
+FLEX,Jonathan Taylor,RB,IND,10600,6.70,38.6,19.7,11.3,15.4
+FLEX,Ka'imi Fairbairn,K,HOU,5400,6.00,35.1,40.4,40.2,100.0
+FLEX,Xavier Hutchinson,WR,HOU,6200,3.30,28.3,17.5,19.9,2.6
+CPT,C.J. Stroud,QB,HOU,15000,32.19,28.2,37.0,39.2,100.0
+FLEX,Houston Defense,DST,HOU,5800,15.00,28.1,67.7,83.7,100.0
+FLEX,Tank Dell,WR,HOU,6400,5.70,27.8,26.6,20.5,16.6
+FLEX,Spencer Shrader,K,IND,5200,3.00,24.4,23.6,32.3,80.2
+FLEX,Tyler Warren,TE,IND,8400,3.20,23.1,10.0,5.0,0.8
+FLEX,Dalton Schultz,TE,HOU,4800,2.10,22.7,11.0,3.6,0.0
+FLEX,Laquon Treadwell,WR,IND,4000,0.00,21.9,16.1,12.8,4.0
+FLEX,Daniel Jones,QB,IND,8800,5.06,21.3,5.9,2.5,0.1
+CPT,Nico Collins,WR,HOU,15300,22.20,17.4,18.4,17.3,18.6
+FLEX,Seth McGowan,RB,IND,4600,1.80,16.8,16.5,21.6,6.0
+CPT,David Montgomery,RB,HOU,12300,27.60,16.6,29.9,33.8,25.1
+FLEX,Kayshon Boutte,WR,HOU,5000,12.00,9.6,16.8,16.7,41.2
+FLEX,Anthony Gould,WR,IND,3000,6.80,8.8,12.7,9.9,35.2
+FLEX,Ashton Dulin,WR,IND,3600,5.00,6.3,5.4,5.6,15.2
+FLEX,Marlin Klein,TE,HOU,200,12.40,0.3,1.1,1.9,7.5

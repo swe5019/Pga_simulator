@@ -4,8 +4,8 @@ What eight scored contests actually support, what they do not, and the order
 to do things in. Every number here comes from a file in `data/`. Where the
 evidence is thin it says so.
 
-Scored so far: **five showdowns** (8, 9, 13, 15, 16 November) and **three main
-slates** (8, 15, 22 November). That is not a lot. Treat a finding backed by
+Scored so far: **six showdowns** (8, 9, 13, 15, 16, 19 November) and **three
+main slates** (8, 15, 22 November). That is not a lot. Treat a finding backed by
 five contests as a lean, not a law.
 
 ---
@@ -85,30 +85,47 @@ So the rule is not "avoid the crowd". It is: **the crowd costs you nothing
 when it is right, and everything when it is wrong.** You are not paid for
 being different, you are paid for being correct in a place few others were.
 
-### Showdown: five contests, five identical patterns
+### Showdown: six contests
 
-| | 8 Nov | 9 Nov | 13 Nov | 15 Nov | 16 Nov |
-|---|---|---|---|---|---|
-| Captain | Irving (RB) | Cook (RB) | Likely (TE) | Chase (WR) | Hampton (RB) |
-| Total ownership | 169.6% | 166.1% | 151.3% | 149.6% | 175.0% |
-| Duplicates | 32 | 13 | 1 | 8 | 11 |
-| Team split | 3-3 | 5-1 | 4-2 | 4-2 | 4-2 |
+| | 8 Nov | 9 Nov | 13 Nov | 15 Nov | 16 Nov | 19 Nov |
+|---|---|---|---|---|---|---|
+| Captain | Irving (RB) | Cook (RB) | Likely (TE) | Chase (WR) | Hampton (RB) | **Stroud (QB)** |
+| Total ownership | 169.6% | 166.1% | 151.3% | 149.6% | 175.0% | **189.4%** |
+| Duplicates | 32 | 13 | 1 | 8 | 11 | 11 |
+| Team split | 3-3 | 5-1 | 4-2 | 4-2 | 4-2 | 5-1 |
 
-1. **The quarterback goes in the FLEX and is never the captain. 5 for 5.** The
-   captain has never been a quarterback either. The mechanical reason is
-   better than the record: a captain multiplies salary as well as score, so it
-   buys concentration rather than value, and you want concentration on the
-   widest tail. A quarterback's 90th percentile is typically about 1.6x his
-   mean against 1.9x for a top receiver. His worth is his floor, and a floor
-   wins nothing in a 600,000-entry field. Searching every legal lineup on
-   19 November, a quarterback captain was likeliest to clear 140 and 160
-   points and a receiver captain likeliest to clear 180 and 200 — the
-   crossover sits near 170, and tournaments are won above it.
-2. **Leverage goes to whoever captained the top scorer. 5 for 5**, between
-   3.4x and 11.2x.
-3. **Winners are chalk-heavy and duplicated.** 149.6% to 175.0% of summed
+1. **The quarterback usually goes in the FLEX, but not always: 5 of 6.** On
+   19 November C.J. Stroud was captained and won. The mechanism still holds
+   and it explains the exception. A captain multiplies salary as well as
+   score, so it buys concentration rather than value, and you want
+   concentration on the widest tail; a quarterback's 90th percentile is about
+   1.6x his mean against 1.9x for a top receiver. Searching every legal
+   lineup on that slate beforehand, a quarterback captain was likeliest to
+   clear 140 and 160 points and a receiver captain likeliest to clear 180 and
+   200.
+
+   **I read that crossover wrong and it cost all three recommended lineups.**
+   I assumed a 643,587-entry field meant the target was 180-plus, so I ruled
+   out the quarterback. The game finished 26-3 and the winning lineup scored
+   **99.49**. The target score is set by the GAME, not by the size of the
+   field:
+
+   | Showdown | Real game total | Winning lineup |
+   |---|---|---|
+   | 9 Nov | 29 | 90.21 |
+   | 19 Nov | 29 | 99.49 |
+   | 13 Nov | 45 | 136.71 |
+   | 8 Nov | 51 | 118.81 |
+
+   So: take the target off the simulation's own distribution of winning
+   scores, then pick the captain for that target. Below about 170 you want the
+   quarterback's floor; above it you want a receiver's tail.
+2. **Leverage goes to whoever captained the top scorer. 6 for 6.**
+3. **Winners are chalk-heavy and duplicated.** 149.6% to **189.4%** of summed
    ownership, 1 to 32 duplicates. Not one was a unique lineup.
-4. **The team split is not a rule.** 4-2 three times, 5-1 once, 3-3 once.
+4. **The team split is not a rule.** 4-2 three times, 5-1 twice, 3-3 once.
+5. **In a blowout the winning side's defence is close to mandatory.** Houston
+   Defense was 28.1% owned and appeared in **100% of the top 1%**.
 
 ### Main-slate winners are NOT reliably chalky, unlike showdown winners
 
@@ -156,9 +173,12 @@ win.
 
 Be honest about these; several have already cost real money.
 
-- **No kicker model at all.** The field rostered kickers at 26% and 33% in two
-  recent showdowns and the 9 November winner carried two of them. Their
-  absence from any build here is ignorance, not a fade.
+- **No kicker model at all, and it has now cost a slate.** On 19 November
+  Ka'imi Fairbairn was 35.1% owned and appeared in **100% of the top 1%**,
+  and the other kicker, Spencer Shrader, was in 80.2% of it. The project
+  cannot see either. The 9 November winner carried two kickers. Their absence
+  from any build here is ignorance, not a fade, and it is the single most
+  valuable gap left to close.
 - **No lineup-level field model.** Summing the slot ownerships gives a
   lineup's field share, which is the unit contests report. It does **not** give
   the chance anybody built that exact lineup, because entries are stacked, not
@@ -265,6 +285,24 @@ correlation hands you, chalk or not.** Prescott at 21.7% and Lamb at 33.1%
 were both chalk on 22 November and both correct. The decision that carries
 information is which game; the players inside it are mostly determined once
 you have chosen.
+
+### Step 3b. Do not override the tool's script-conditional output with a pattern
+
+This is the mistake that lost 19 November, and it is worth its own step.
+
+The showdown page splits its results by game script. For IND at HOU its
+blowout bucket, 33.2% of simulated games, had **"CPT QB, 5-1 HOU"** as the
+top shape at 22%, with Stroud as the captain in 41% of those games. The game
+was a blowout. The winner was 5-1 Houston with Stroud captained. The tool
+named the winning construction before lock.
+
+I discarded it because five previous contests had never seen a quarterback
+captained, and built three lineups that scored 76.06, 72.86 and 65.46 against
+the winner's 99.49.
+
+A cross-contest pattern is a prior over all game scripts. The script-bucket
+output is conditional on the one in front of you. When they disagree, the
+conditional one is the one that knows something.
 
 ### Step 4. Spend your differentiation on ONE decision
 
