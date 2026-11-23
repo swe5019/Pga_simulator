@@ -109,15 +109,44 @@ W_CEILING = 0.35    # upside, which matters more the larger the field
 
 # Contest behaviour. Temperature is how concentrated the field is: lower means
 # more of the money piles onto the same few players.
+# TEMPERATURES WERE RAISED 40% ON 23 NOVEMBER, from 0.78 / 1.00 / 1.25.
+#
+# The original values were a guess made before any labelled data existed, and
+# they ran the softmax too cold. Measured against three contests' actual
+# exposures, 270 players over 8, 15 and 22 November, the model was
+# OVER-DISPERSED: what it called 40%+ came in at 36.2%, what it called 25 to
+# 40% came in at 15.1%, and everything it put below 15% came in HIGHER than
+# predicted. Predictions too extreme in both directions is the signature of a
+# softmax whose temperature is too low, and the cure is temperature, not a
+# post-hoc squeeze, because temperature preserves both the ordering and the
+# arithmetic constraint that a position's ownership sums to its roster slots.
+#
+# Holding each slate out and fitting on the other two returned x1.40 on all
+# three folds independently, which is why this is shipped as a measurement
+# rather than a tuning. Pooled out-of-sample mean error falls from 3.97 to
+# 3.25 and every slate improves: 3.76 to 3.04, 3.38 to 2.95, 4.92 to 3.87.
+# Correlation with actual ownership rises from +0.70 to +0.75.
+#
+# After the change, by what the model SAID (n, modelled, actual):
+#     40%+        2   67.6%  59.5%      was 5 at 60.0% against 36.2%
+#     25 to 40    4   28.6%  22.0%      was 9 at 30.5% against 15.1%
+#     15 to 25   12   18.2%  14.6%
+#     8 to 15    45   10.4%  12.7%
+#     3 to 8    133    4.9%   6.2%
+#     under 3    74    1.8%   1.7%
+#
+# The relative spacing between the three contest types is unchanged, because
+# nothing has been measured about how they differ from each other: only their
+# common scale was wrong. Refit the multiplier as more contests land.
 CONTESTS = {
     # Casual, one lineup, picks the obvious plays.
-    "se": {"temp": 0.78, "ceil": 0.20,
+    "se": {"temp": 1.09, "ceil": 0.20,
            "label": "Single entry: concentrated on obvious value"},
     # Sharp money, aware of what the field is doing, actively avoids it.
-    "hs": {"temp": 1.00, "ceil": 0.45,
+    "hs": {"temp": 1.40, "ceil": 0.45,
            "label": "High stakes: flatter, pays for upside"},
     # Two hundred lineups each, so the same player cannot be in all of them.
-    "mme": {"temp": 1.25, "ceil": 0.60,
+    "mme": {"temp": 1.75, "ceil": 0.60,
             "label": "Mass multi entry: flattest, chases ceiling"},
 }
 
