@@ -201,8 +201,9 @@ This step has caught more money than any model in the project.
 ### Step 1. Pick the game
 
 Use the **optimum column** on the scenarios page, which is pure simulation and
-does not touch the field model. Cross-check it against summed projected
-scoring by game. On 22 November DAL/TEN had the highest summed projection on
+does not touch the field model, together with summed projected scoring by
+game, which is the one quantity measured to predict a game's top-1% share
+(+0.41, see step 3). On 22 November DAL/TEN had the highest summed projection on
 the slate (253.9) and the top two entries in the optimum column, and it took
 407% of the top 1%.
 
@@ -219,11 +220,51 @@ Get the correlation right, not just the count: quarterback plus his own pass
 catchers plus a bring-back from the other side. Prescott + Lamb + Pickens
 returned 9.4x; Prescott + Spann-Ford + Lamb returned 3.7x. Same depth.
 
-### Step 3. Take the chalk where the chalk is correct
+### Step 3. Do not try to out-pick the field one player at a time
 
-Do not fade a player because he is popular. Fade him when the simulation
-disagrees with his price. The question is never "how owned is he" but "is the
-field right about him".
+An earlier version of this step said "fade a player when the simulation
+disagrees with his price". That is not executable and the data does not
+support it. Tested across all 270 labelled players, against how much more
+represented a player was in the top 1% than in the field overall:
+
+| Pre-lock quantity | Correlation |
+|---|---|
+| points per $1,000, which is what the field prices on | +0.08 |
+| **ceiling** per $1,000 | +0.07 |
+| ceiling divided by mean, the shape of the upside | −0.01 |
+| the board's boom rate | +0.13 |
+| salary | +0.05 |
+
+Nothing. Splitting each ownership band by ceiling per dollar separates the
+halves by about a point, and in two of three bands it points the wrong way.
+There is no measurable signal here, and the reason is partly structural: the
+ownership model is itself built from projection over salary, so comparing the
+simulation to the price is close to comparing the model to itself.
+
+**The same question at the GAME level does have an answer.** Summed projected
+scoring for a game correlates **+0.41** with that game's share of the top 1%,
+five times the best player-level number:
+
+| | Captured share of all top-1% | A random pick would get |
+|---|---|---|
+| Top game by projection | 34.5% | 9% |
+| Top 2 games | 37.9% | 18% |
+| **Top 3 games** | **47.7%** | 27% |
+| Top 4 games | 53.6% | 36% |
+
+And the single best game of the slate was inside the top three by projection
+**all three times**: GB/NE ranked 3rd, DAL/SF 1st, DAL/TEN 1st.
+
+Note the top-1 row is unreliable: on 8 November the highest-projected game
+returned 7% while the third-ranked one returned 150%. Three is the robust
+number, one is a coin flip.
+
+So the practical rule is the opposite of player picking. **Choose two or three
+games from the top of the projection list, then take whoever that game's
+correlation hands you, chalk or not.** Prescott at 21.7% and Lamb at 33.1%
+were both chalk on 22 November and both correct. The decision that carries
+information is which game; the players inside it are mostly determined once
+you have chosen.
 
 ### Step 4. Spend your differentiation on ONE decision
 
@@ -263,6 +304,9 @@ highest-value things to capture, in order:
 
 ## The short version
 
-Pick the game from the simulation. Go three deep with real correlation. Take
-the chalk when the chalk is right. Be different in one place, not six. Add up
-the ownership before you lock. Check the data first, every time.
+Check the data first, every time. Pick two or three games off the top of the
+projection list, because that is the only decision with measurable signal in
+it: +0.41 at game level against +0.13 for the best player-level number anyone
+here has found. Go three deep with real correlation. Take whoever those games
+hand you, chalk included. Be different in one place, not six. Add up the
+ownership before you lock.
