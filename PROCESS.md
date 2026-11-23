@@ -173,12 +173,22 @@ win.
 
 Be honest about these; several have already cost real money.
 
-- **No kicker model at all, and it has now cost a slate.** On 19 November
-  Ka'imi Fairbairn was 35.1% owned and appeared in **100% of the top 1%**,
-  and the other kicker, Spencer Shrader, was in 80.2% of it. The project
-  cannot see either. The 9 November winner carried two kickers. Their absence
-  from any build here is ignorance, not a fade, and it is the single most
-  valuable gap left to close.
+- **Kickers are now modelled, but only to the extent of being unbiased.**
+  This gap cost 19 November, when Ka'imi Fairbairn was 35.1% owned and in
+  **100% of the top 1%** while the project could not see the slot at all.
+  `tools/kicker_model.py` now prices them from the book's own kicking points
+  market. Over the nine kickers on file it is unbiased, projecting 7.67
+  against an actual 7.67. It is NOT shown to rank kickers better than a flat
+  average, and nine observations have no power to show that either way: real
+  kicker scores carry about 2.3 points of noise against 1.1 of genuine spread,
+  so a perfect model would average 1.83 points of error and a flat average
+  2.03. Treat a kicker projection as "roughly this many points", never as a
+  reason to prefer one kicker over another by half a point.
+- **Kickers are uncorrelated with everything else in the simulation**, because
+  they are priced from their own markets rather than simulated jointly. That
+  understates their upside in a field-goal game and their downside in a
+  shootout, since a touchdown costs a kicker three points and pays him one.
+  This is the next thing to fix.
 - **No lineup-level field model.** Summing the slot ownerships gives a
   lineup's field share, which is the unit contests report. It does **not** give
   the chance anybody built that exact lineup, because entries are stacked, not

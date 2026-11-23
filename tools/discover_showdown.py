@@ -66,6 +66,7 @@ from enrich_props import nrm  # noqa: E402
 from captain_ownership import captain_ownership, describe as cpt_own_note  # noqa: E402
 from flex_ownership import (flex_ownership, is_rostered,  # noqa: E402
                             describe as flex_own_note)
+import kicker_model as kick  # noqa: E402
 
 # DraftKings showdown captain mode.
 CAP = 50_000
@@ -199,24 +200,61 @@ def anchor_counts():
             for p in doc.get("players", [])}
 
 
-def build_pool(slate, sims, anchors=None):
+def kicker_markets():
+    """Every kicker's de-viggable lines, keyed by normalised name.
+
+    Kickers are not in the joint simulation because no kicker history has ever
+    been ingested, so their scores come from their own markets instead. See
+    kicker_model.py. Leaving them out entirely was worse: on 19 November the
+    slate's kicker was in 100% of the top 1% of entries and this project could
+    not see the slot at all.
+    """
+    path = os.path.join(DATA, "nfl_props.json")
+    if not os.path.exists(path):
+        return {}
+    with open(path, encoding="utf-8") as f:
+        doc = json.load(f)
+    rows = doc.get("props") if isinstance(doc, dict) else doc
+    out = defaultdict(lambda: defaultdict(dict))
+    for r in rows or []:
+        if r.get("pos") == "K" and r.get("stat") in (
+                "FG Made", "XP Made", "Kicking Points"):
+            out[nrm(r["player"])][r["stat"]][r.get("side", "")] = {
+                "line": r.get("line"), "decimal": r.get("decimal")}
+    return {k: dict(v) for k, v in out.items()}
+
+
+def build_pool(slate, sims, anchors=None, kickers=None, trials=None):
     """Join the showdown's priced players onto the correlated simulation.
 
     The DK rows carry their own team code, so a defence is keyed straight to
     `dst_<TEAM>` rather than matched on DraftKings' nickname for it ("Bears"),
     which never had to be a name-matching problem at all.
+
+    Kickers are joined from their OWN markets rather than from the simulation,
+    because no kicker history exists to simulate from. They are therefore
+    uncorrelated with everything else in the pool, which is wrong and is
+    stated in the log rather than hidden: a kicker's points come from drives
+    that stall, so he is positively correlated with his offence getting the
+    ball and negatively with it reaching the end zone.
     """
     anchors = {} if anchors is None else anchors
+    kickers = {} if kickers is None else kickers
+    rng_k = np.random.default_rng(90210)
     teams = sorted({p["tm"] for p in slate["players"] if p["tm"]})
     if len(teams) != 2:
         log(f"expected two teams, found {teams}")
         return None, None
     other = {teams[0]: teams[1], teams[1]: teams[0]}
 
-    pool, missing = [], []
+    pool, missing, n_kick = [], [], 0
     for p in slate["players"]:
         key = f"dst_{p['tm']}" if p["pos"] == "DST" else nrm(p["n"])
         fp = sims.get(key)
+        if fp is None and p["pos"] == "K" and trials:
+            fp = kick.sample_points(rng_k, kickers.get(key, {}), trials)
+            if fp is not None:
+                n_kick += 1
         if fp is None:
             missing.append(p)
             continue
@@ -228,6 +266,11 @@ def build_pool(slate, sims, anchors=None):
 
     log(f"\npool: {len(pool)} of {len(slate['players'])} priced players have a "
         f"simulated score")
+    if n_kick:
+        log(f"   {n_kick} of those are kickers priced from their own markets "
+            f"({kick.describe()}); they are UNCORRELATED with the rest of the "
+            f"pool, which understates both their upside in a field-goal game "
+            f"and their downside in a shootout")
     if missing:
         by_pos = Counter(m["pos"] for m in missing)
         log(f"   excluded {len(missing)}: {dict(by_pos)}")
@@ -239,7 +282,8 @@ def build_pool(slate, sims, anchors=None):
         if notable:
             log("   of those, priced at $4,000 or more, so worth checking:")
             for m in notable:
-                why = ("no kicker model exists" if m["pos"] == "K"
+                why = ("kicker, and the book posts no lines for him, which "
+                       "usually means he is not playing" if m["pos"] == "K"
                        else "not in the projection build")
                 log(f"      {m['pos']:4} {m['n']:24} ${m['sal']:<7} {m['tm']}  ({why})")
     return pool, teams
@@ -334,7 +378,7 @@ def script_of(total, margin, t_lo, t_hi, m_hi):
     return "ordinary (nothing extreme)"
 
 
-def solve_slate(slate, sims, args, anchors=None):
+def solve_slate(slate, sims, args, anchors=None, kickers=None):
     """Everything for ONE showdown slate. Returns its result dict, or None.
 
     Separated from main so the joint simulation, which is the expensive part
@@ -346,7 +390,8 @@ def solve_slate(slate, sims, args, anchors=None):
         f"starts {slate.get('start','?')})")
     log("#" * 76)
 
-    pool, teams = build_pool(slate, sims, anchors)
+    pool, teams = build_pool(slate, sims, anchors, kickers,
+                             trials=len(next(iter(sims.values()))) if sims else None)
     if not pool or len(pool) < ROSTER:
         log("not enough projectable players to fill a lineup")
         return None
@@ -602,10 +647,12 @@ def main():
     import build_projections as bp
     sims, _res = bp.player_scores(args.trials, "dk")
     anchors = anchor_counts()
+    kickers = kicker_markets()
+    log(f"kicker markets found for {len(kickers)} kicker(s)")
 
     results = []
     for slate in slates:
-        r = solve_slate(slate, sims, args, anchors)
+        r = solve_slate(slate, sims, args, anchors, kickers)
         if r:
             results.append(r)
     if not results:
