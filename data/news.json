@@ -1,11 +1,11 @@
 {
- "updatedUtc": "2026-11-23T01:45:14Z",
+ "updatedUtc": "2026-11-23T12:48:38Z",
  "slate": "RSM_2026",
  "event": "",
  "counts": {
-  "items": 5,
-  "golfersMentioned": 5,
-  "news": 5,
+  "items": 7,
+  "golfersMentioned": 7,
+  "news": 7,
   "chatter": 0
  },
  "sources": [
@@ -108,13 +108,13 @@
   {
    "source": "Google News: PGA DFS",
    "ok": true,
-   "items": 50,
+   "items": 49,
    "error": null
   },
   {
    "source": "Google News: PGA WD",
    "ok": true,
-   "items": 63,
+   "items": 64,
    "error": null
   },
   {
@@ -138,6 +138,24 @@
  ],
  "mentions": [
   {
+   "name": "Erik Van Rooyen",
+   "news": 2,
+   "chatter": 0,
+   "total": 2
+  },
+  {
+   "name": "Neal Shipley",
+   "news": 1,
+   "chatter": 0,
+   "total": 1
+  },
+  {
+   "name": "Michael Johnson",
+   "news": 1,
+   "chatter": 0,
+   "total": 1
+  },
+  {
    "name": "Luke List",
    "news": 1,
    "chatter": 0,
@@ -160,15 +178,21 @@
    "news": 1,
    "chatter": 0,
    "total": 1
-  },
-  {
-   "name": "Erik Van Rooyen",
-   "news": 1,
-   "chatter": 0,
-   "total": 1
   }
  ],
  "items": [
+  {
+   "title": "Week 12 Waiver Wire Rankings - Fantasy Football Pickups Include Will Shipley, Justice Hill, Kaleb Johnson, Konata Mumpfield, Elic Ayomanor, Jack Bech, Michael Mayer, more",
+   "link": "https://www.rotoballer.com/waiver-wire-rankings-fantasy-football-week-12-2026/2001432",
+   "summary": "Week 12 is here! It's Thanksgiving week; the NFL will have games from Wednesday through Monday, with Tuesday and Saturday [&#8230;]",
+   "published": "Mon, 23 Nov 2026 11:17:08 +0000",
+   "source": "RotoBaller",
+   "kind": "news",
+   "golfers": [
+    "Neal Shipley",
+    "Michael Johnson"
+   ]
+  },
   {
    "title": "Jeeno Thitikul, Nelly Korda pass Annika Sorenstam to stand alone at the top of this career list",
    "link": "https://sports.yahoo.com/articles/jeeno-thitikul-nelly-korda-pass-213300277.html",
@@ -211,6 +235,17 @@
    "kind": "news",
    "golfers": [
     "Chris Kirk"
+   ]
+  },
+  {
+   "title": "Injury ends Erik van Rooyen\u2019s bid for conditional PGA Tour status - Arab News",
+   "link": "https://news.google.com/rss/articles/CBMipAFBVV95cUxQZHNOVWU2ZlN2RHUxODFwMGozU1psc3FNa3JWM0RaN2stYW8zZ2ZxTFZxaHNkUFRyNEx4WXA0NlhFclZ2aVhzM2plY2JRTTNXd2ZpYlVFRzBWNkU4M1JfeXFrRE9mcTQ2YWtoV3lsRE55eFA4cHlGTE1yb1dYT19pNV9XNmhKRGdzMFpNTHRqZkpYVGdyc3ZsbDBPZlVLZ2xVVGRIRQ?oc=5",
+   "summary": "Injury ends Erik van Rooyen\u2019s bid for conditional PGA Tour status Arab News",
+   "published": "Thu, 19 Nov 2026 19:41:37 GMT",
+   "source": "Google News: PGA WD",
+   "kind": "news",
+   "golfers": [
+    "Erik Van Rooyen"
    ]
   },
   {
