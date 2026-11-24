@@ -1,19 +1,19 @@
 {
- "updatedUtc": "2026-11-23T12:48:38Z",
+ "updatedUtc": "2026-11-24T02:14:07Z",
  "slate": "RSM_2026",
  "event": "",
  "counts": {
-  "items": 7,
-  "golfersMentioned": 7,
-  "news": 7,
+  "items": 11,
+  "golfersMentioned": 10,
+  "news": 11,
   "chatter": 0
  },
  "sources": [
   {
    "source": "RotoWire Golf",
-   "ok": false,
-   "items": 0,
-   "error": "no items"
+   "ok": true,
+   "items": 5,
+   "error": null
   },
   {
    "source": "RotoBaller Golf",
@@ -108,13 +108,13 @@
   {
    "source": "Google News: PGA DFS",
    "ok": true,
-   "items": 49,
+   "items": 100,
    "error": null
   },
   {
    "source": "Google News: PGA WD",
    "ok": true,
-   "items": 64,
+   "items": 100,
    "error": null
   },
   {
@@ -138,31 +138,43 @@
  ],
  "mentions": [
   {
-   "name": "Erik Van Rooyen",
+   "name": "Michael Johnson",
    "news": 2,
    "chatter": 0,
    "total": 2
   },
   {
-   "name": "Neal Shipley",
-   "news": 1,
-   "chatter": 0,
-   "total": 1
-  },
-  {
-   "name": "Michael Johnson",
-   "news": 1,
-   "chatter": 0,
-   "total": 1
-  },
-  {
    "name": "Luke List",
+   "news": 2,
+   "chatter": 0,
+   "total": 2
+  },
+  {
+   "name": "Blades Brown",
+   "news": 2,
+   "chatter": 0,
+   "total": 2
+  },
+  {
+   "name": "Marco Penge",
    "news": 1,
    "chatter": 0,
    "total": 1
   },
   {
-   "name": "Jordan L. Smith",
+   "name": "Troy Merritt",
+   "news": 1,
+   "chatter": 0,
+   "total": 1
+  },
+  {
+   "name": "Keith Mitchell",
+   "news": 1,
+   "chatter": 0,
+   "total": 1
+  },
+  {
+   "name": "Neal Shipley",
    "news": 1,
    "chatter": 0,
    "total": 1
@@ -178,14 +190,87 @@
    "news": 1,
    "chatter": 0,
    "total": 1
+  },
+  {
+   "name": "Erik Van Rooyen",
+   "news": 1,
+   "chatter": 0,
+   "total": 1
   }
  ],
  "items": [
   {
+   "title": "Marco Penge shows his class to claim first PGA Tour win and secure future",
+   "link": "https://sports.yahoo.com/articles/marco-penge-shows-class-claim-211558911.html",
+   "summary": "It is fair to say that Marco Penge picks his moments. Two years after he shrugged off a betting scandal to rescue his DP World Tour card on the final day of the season, he repeated the trick with incredible bravado for his first US win.",
+   "published": "Mon, 23 Nov 2026 21:15:58 +0000",
+   "source": "Yahoo Golf",
+   "kind": "news",
+   "golfers": [
+    "Marco Penge"
+   ]
+  },
+  {
+   "title": "Who Should I Pickup for Fantasy Football Week 12? Justice Hill, Chris Rodriguez Jr., Kaleb Johnson, Caleb Douglas, Konata Mumpfield, Kaelon Black, Chimere Dike, Samaje Perine",
+   "link": "https://www.rotoballer.com/who-should-i-pickup-for-week-12-justice-hill-chris-rodriguez-jr-kaleb-johnson-caleb-douglas-konata-mumpfield-kaelon-black-chimere-dike-samaje-perine/2001576",
+   "summary": "Who Should I Pickup? Some of the most common Week 12 fantasy football waiver wire decisions involve players like Justice [&#8230;]",
+   "published": "Mon, 23 Nov 2026 21:15:43 +0000",
+   "source": "RotoBaller",
+   "kind": "news",
+   "golfers": [
+    "Michael Johnson"
+   ]
+  },
+  {
+   "title": "Top 100 Courses in the U.S. for 2026-27: The ultimate bucket list for American golf",
+   "link": "https://golf.com/travel/top-100-golf-courses-us/",
+   "summary": "GOLF's latest ranking of the 100 best golf courses in the U.S. is a thrilling blend of old and new. Here are our raters' top picks. The post Top 100 Courses in the U.S. for 2026-27: The ultimate bucket list for American golf appeared first on Golf .",
+   "published": "Mon, 23 Nov 2026 20:06:30 +0000",
+   "source": "Golf.com",
+   "kind": "news",
+   "golfers": [
+    "Luke List"
+   ]
+  },
+  {
+   "title": "Players To Cut Before Week 12 Fantasy Football? Jalen Coker, Omar Cooper Jr., Courtland Sutton, Michael Mayer, Makai Lemon, Jordan Addison",
+   "link": "https://www.rotoballer.com/cut-list-rankings-fantasy-football-drops-before-week-12-2026/2001611",
+   "summary": "Welcome back, RotoBallers, to our Cut List Rankings for fantasy football Week 12 of the 2026 NFL season. As the [&#8230;]",
+   "published": "Mon, 23 Nov 2026 19:00:17 +0000",
+   "source": "RotoBaller",
+   "kind": "news",
+   "golfers": [
+    "Luke List"
+   ]
+  },
+  {
+   "title": "Who Should I Start for Fantasy Football Week 11? Stefon Diggs, Antonio Williams, Jacory Croskey-Merritt, Rachaad White, Chase Brown, Mike Gesicki, Chig Okonkwo, Tee Higgins, Treylon Burks",
+   "link": "https://www.rotoballer.com/who-should-i-start-for-week-11-stefon-diggs-antonio-williams-jacory-croskey-merritt-rachaad-white-chase-brown-mike-gesicki-chig-okonkwo-tee-higgins-treylon-burks/2001819",
+   "summary": "Who Should I Start? Who Should I Sit? Some of the most common Week 11 fantasy football lineup decisions involve [&#8230;]",
+   "published": "Mon, 23 Nov 2026 18:27:59 +0000",
+   "source": "RotoBaller",
+   "kind": "news",
+   "golfers": [
+    "Blades Brown",
+    "Troy Merritt"
+   ]
+  },
+  {
+   "title": "Wide Receiver Waiver Wire Pickups - Top Fantasy Football WR Adds for Week 12 Include Elic Ayomanor, Antonio Williams, Adonai Mitchell",
+   "link": "https://www.rotoballer.com/wr-waiver-wire-pickups-fantasy-football-week-12-2026/2001683",
+   "summary": "We're back with another edition of Waiver Wire Wide Receivers, this time getting you ready for Week 12. This is [&#8230;]",
+   "published": "Mon, 23 Nov 2026 17:00:11 +0000",
+   "source": "RotoBaller",
+   "kind": "news",
+   "golfers": [
+    "Keith Mitchell"
+   ]
+  },
+  {
    "title": "Week 12 Waiver Wire Rankings - Fantasy Football Pickups Include Will Shipley, Justice Hill, Kaleb Johnson, Konata Mumpfield, Elic Ayomanor, Jack Bech, Michael Mayer, more",
    "link": "https://www.rotoballer.com/waiver-wire-rankings-fantasy-football-week-12-2026/2001432",
    "summary": "Week 12 is here! It's Thanksgiving week; the NFL will have games from Wednesday through Monday, with Tuesday and Saturday [&#8230;]",
-   "published": "Mon, 23 Nov 2026 11:17:08 +0000",
+   "published": "Mon, 23 Nov 2026 16:10:08 +0000",
    "source": "RotoBaller",
    "kind": "news",
    "golfers": [
@@ -194,25 +279,14 @@
    ]
   },
   {
-   "title": "Jeeno Thitikul, Nelly Korda pass Annika Sorenstam to stand alone at the top of this career list",
-   "link": "https://sports.yahoo.com/articles/jeeno-thitikul-nelly-korda-pass-213300277.html",
-   "summary": "Thitikul's latest $4 million check propelled her to the top of the LPGA career money list after winning for the 12th time.",
-   "published": "Sun, 22 Nov 2026 21:33:00 +0000",
-   "source": "Yahoo Golf",
-   "kind": "news",
-   "golfers": [
-    "Luke List"
-   ]
-  },
-  {
-   "title": "Wide Receiver Matchups to Target For Week 11 - DeVonta Smith, Parker Washington, Pat Bryant, Caleb Douglas, more",
-   "link": "https://www.rotoballer.com/nfl-dfs-picks-wide-receivers-to-target-for-week-11/1999615",
-   "summary": "With injuries and bye weeks, Week 11 is a challenging one for fantasy football managers in season-long leagues. For DFS, [&#8230;]",
-   "published": "Sun, 22 Nov 2026 15:35:08 +0000",
+   "title": "Bengals vs. Commanders Start 'Em, Sit 'Em: Monday Night Football - Joe Burrow, Jayden Daniels, Chase Brown, Ja'Marr Chase, Stefon Diggs, Tee Higgins, Antonio Williams, and more",
+   "link": "https://www.rotoballer.com/fantasy-football-start-em-sit-em-monday-bengals-vs-commanders-week-11-mnf-2026/2000741",
+   "summary": "Week 11 of the NFL season closes with a Monday night meeting that could produce fantasy fireworks. The red-hot Bengals [&#8230;]",
+   "published": "Mon, 23 Nov 2026 16:03:23 +0000",
    "source": "RotoBaller",
    "kind": "news",
    "golfers": [
-    "Jordan L. Smith"
+    "Blades Brown"
    ]
   },
   {
@@ -242,17 +316,6 @@
    "link": "https://news.google.com/rss/articles/CBMipAFBVV95cUxQZHNOVWU2ZlN2RHUxODFwMGozU1psc3FNa3JWM0RaN2stYW8zZ2ZxTFZxaHNkUFRyNEx4WXA0NlhFclZ2aVhzM2plY2JRTTNXd2ZpYlVFRzBWNkU4M1JfeXFrRE9mcTQ2YWtoV3lsRE55eFA4cHlGTE1yb1dYT19pNV9XNmhKRGdzMFpNTHRqZkpYVGdyc3ZsbDBPZlVLZ2xVVGRIRQ?oc=5",
    "summary": "Injury ends Erik van Rooyen\u2019s bid for conditional PGA Tour status Arab News",
    "published": "Thu, 19 Nov 2026 19:41:37 GMT",
-   "source": "Google News: PGA WD",
-   "kind": "news",
-   "golfers": [
-    "Erik Van Rooyen"
-   ]
-  },
-  {
-   "title": "Van Rooyen withdraws from RSM Classic, won\u2019t earn 2027 PGA Tour conditional status - Golf Channel",
-   "link": "https://news.google.com/rss/articles/CBMivwFBVV95cUxPYW1jemw5b3RZVmxCNHhxY0x6MVBkQzhYYnFQcFhXTnZocmhsQ0RubTNTdnU2RlVNcFBucHZQVGFJbllES3J3S2RXQWFRS0huSUlVbkNubDI2cWYxMUR1ZjI2RlZpWVNsTlUyUWFwUlFXMGVkUGJidkFHNkhiN25KSDNLYUNlMlRnajRKam1pdXlIOEhWRE9lQVlJdW5XRTF0d0luaUVkbVlacm9SMk1OeVhVcXVXLTd1NzFSVnBrRQ?oc=5",
-   "summary": "Van Rooyen withdraws from RSM Classic, won\u2019t earn 2027 PGA Tour conditional status Golf Channel",
-   "published": "Thu, 19 Nov 2026 18:50:12 GMT",
    "source": "Google News: PGA WD",
    "kind": "news",
    "golfers": [
