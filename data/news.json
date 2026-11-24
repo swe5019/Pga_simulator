@@ -1,11 +1,11 @@
 {
- "updatedUtc": "2026-11-24T02:14:07Z",
+ "updatedUtc": "2026-11-24T13:46:14Z",
  "slate": "RSM_2026",
  "event": "",
  "counts": {
-  "items": 11,
-  "golfersMentioned": 10,
-  "news": 11,
+  "items": 5,
+  "golfersMentioned": 5,
+  "news": 5,
   "chatter": 0
  },
  "sources": [
@@ -43,7 +43,7 @@
    "source": "Action Network",
    "ok": false,
    "items": 0,
-   "error": "no items"
+   "error": "HTTP 404"
   },
   {
    "source": "VSiN",
@@ -113,9 +113,9 @@
   },
   {
    "source": "Google News: PGA WD",
-   "ok": true,
-   "items": 100,
-   "error": null
+   "ok": false,
+   "items": 0,
+   "error": "HTTP 429"
   },
   {
    "source": "r/dfsports",
@@ -138,43 +138,25 @@
  ],
  "mentions": [
   {
-   "name": "Michael Johnson",
-   "news": 2,
-   "chatter": 0,
-   "total": 2
-  },
-  {
    "name": "Luke List",
    "news": 2,
    "chatter": 0,
    "total": 2
   },
   {
-   "name": "Blades Brown",
-   "news": 2,
+   "name": "Neal Shipley",
+   "news": 1,
    "chatter": 0,
-   "total": 2
+   "total": 1
+  },
+  {
+   "name": "Michael Johnson",
+   "news": 1,
+   "chatter": 0,
+   "total": 1
   },
   {
    "name": "Marco Penge",
-   "news": 1,
-   "chatter": 0,
-   "total": 1
-  },
-  {
-   "name": "Troy Merritt",
-   "news": 1,
-   "chatter": 0,
-   "total": 1
-  },
-  {
-   "name": "Keith Mitchell",
-   "news": 1,
-   "chatter": 0,
-   "total": 1
-  },
-  {
-   "name": "Neal Shipley",
    "news": 1,
    "chatter": 0,
    "total": 1
@@ -184,41 +166,41 @@
    "news": 1,
    "chatter": 0,
    "total": 1
-  },
-  {
-   "name": "Chris Kirk",
-   "news": 1,
-   "chatter": 0,
-   "total": 1
-  },
-  {
-   "name": "Erik Van Rooyen",
-   "news": 1,
-   "chatter": 0,
-   "total": 1
   }
  ],
  "items": [
   {
+   "title": "The Cut List - Time to Let Go? Who to Drop for Fantasy Football Week 12",
+   "link": "https://www.rotoballer.com/who-to-drop-for-fantasy-football-week-12-2026/2002344",
+   "summary": "We have only a few weeks left in the fantasy football regular season. We're well past the point of players [&#8230;]",
+   "published": "Tue, 24 Nov 2026 11:49:37 +0000",
+   "source": "RotoBaller",
+   "kind": "news",
+   "golfers": [
+    "Luke List"
+   ]
+  },
+  {
+   "title": "Week 12 Waiver Wire Rankings - Fantasy Football Pickups Include Will Shipley, Justice Hill, Kaleb Johnson, Konata Mumpfield, Elic Ayomanor, Jack Bech, Michael Mayer, more",
+   "link": "https://www.rotoballer.com/waiver-wire-rankings-fantasy-football-week-12-2026/2001432",
+   "summary": "Week 12 is here! It's Thanksgiving week; the NFL will have games from Wednesday through Monday, with Tuesday and Saturday [&#8230;]",
+   "published": "Tue, 24 Nov 2026 11:49:08 +0000",
+   "source": "RotoBaller",
+   "kind": "news",
+   "golfers": [
+    "Neal Shipley",
+    "Michael Johnson"
+   ]
+  },
+  {
    "title": "Marco Penge shows his class to claim first PGA Tour win and secure future",
    "link": "https://sports.yahoo.com/articles/marco-penge-shows-class-claim-211558911.html",
-   "summary": "It is fair to say that Marco Penge picks his moments. Two years after he shrugged off a betting scandal to rescue his DP World Tour card on the final day of the season, he repeated the trick with incredible bravado for his first US win.",
+   "summary": "It is fair to say that Marco Penge picks his moments. Two years after he shrugged off a betting scandal to rescue his DP World Tour card on the final day of the season, he repeated the trick with incredible bravado for his first win on US soil.",
    "published": "Mon, 23 Nov 2026 21:15:58 +0000",
    "source": "Yahoo Golf",
    "kind": "news",
    "golfers": [
     "Marco Penge"
-   ]
-  },
-  {
-   "title": "Who Should I Pickup for Fantasy Football Week 12? Justice Hill, Chris Rodriguez Jr., Kaleb Johnson, Caleb Douglas, Konata Mumpfield, Kaelon Black, Chimere Dike, Samaje Perine",
-   "link": "https://www.rotoballer.com/who-should-i-pickup-for-week-12-justice-hill-chris-rodriguez-jr-kaleb-johnson-caleb-douglas-konata-mumpfield-kaelon-black-chimere-dike-samaje-perine/2001576",
-   "summary": "Who Should I Pickup? Some of the most common Week 12 fantasy football waiver wire decisions involve players like Justice [&#8230;]",
-   "published": "Mon, 23 Nov 2026 21:15:43 +0000",
-   "source": "RotoBaller",
-   "kind": "news",
-   "golfers": [
-    "Michael Johnson"
    ]
   },
   {
@@ -233,63 +215,6 @@
    ]
   },
   {
-   "title": "Players To Cut Before Week 12 Fantasy Football? Jalen Coker, Omar Cooper Jr., Courtland Sutton, Michael Mayer, Makai Lemon, Jordan Addison",
-   "link": "https://www.rotoballer.com/cut-list-rankings-fantasy-football-drops-before-week-12-2026/2001611",
-   "summary": "Welcome back, RotoBallers, to our Cut List Rankings for fantasy football Week 12 of the 2026 NFL season. As the [&#8230;]",
-   "published": "Mon, 23 Nov 2026 19:00:17 +0000",
-   "source": "RotoBaller",
-   "kind": "news",
-   "golfers": [
-    "Luke List"
-   ]
-  },
-  {
-   "title": "Who Should I Start for Fantasy Football Week 11? Stefon Diggs, Antonio Williams, Jacory Croskey-Merritt, Rachaad White, Chase Brown, Mike Gesicki, Chig Okonkwo, Tee Higgins, Treylon Burks",
-   "link": "https://www.rotoballer.com/who-should-i-start-for-week-11-stefon-diggs-antonio-williams-jacory-croskey-merritt-rachaad-white-chase-brown-mike-gesicki-chig-okonkwo-tee-higgins-treylon-burks/2001819",
-   "summary": "Who Should I Start? Who Should I Sit? Some of the most common Week 11 fantasy football lineup decisions involve [&#8230;]",
-   "published": "Mon, 23 Nov 2026 18:27:59 +0000",
-   "source": "RotoBaller",
-   "kind": "news",
-   "golfers": [
-    "Blades Brown",
-    "Troy Merritt"
-   ]
-  },
-  {
-   "title": "Wide Receiver Waiver Wire Pickups - Top Fantasy Football WR Adds for Week 12 Include Elic Ayomanor, Antonio Williams, Adonai Mitchell",
-   "link": "https://www.rotoballer.com/wr-waiver-wire-pickups-fantasy-football-week-12-2026/2001683",
-   "summary": "We're back with another edition of Waiver Wire Wide Receivers, this time getting you ready for Week 12. This is [&#8230;]",
-   "published": "Mon, 23 Nov 2026 17:00:11 +0000",
-   "source": "RotoBaller",
-   "kind": "news",
-   "golfers": [
-    "Keith Mitchell"
-   ]
-  },
-  {
-   "title": "Week 12 Waiver Wire Rankings - Fantasy Football Pickups Include Will Shipley, Justice Hill, Kaleb Johnson, Konata Mumpfield, Elic Ayomanor, Jack Bech, Michael Mayer, more",
-   "link": "https://www.rotoballer.com/waiver-wire-rankings-fantasy-football-week-12-2026/2001432",
-   "summary": "Week 12 is here! It's Thanksgiving week; the NFL will have games from Wednesday through Monday, with Tuesday and Saturday [&#8230;]",
-   "published": "Mon, 23 Nov 2026 16:10:08 +0000",
-   "source": "RotoBaller",
-   "kind": "news",
-   "golfers": [
-    "Neal Shipley",
-    "Michael Johnson"
-   ]
-  },
-  {
-   "title": "Bengals vs. Commanders Start 'Em, Sit 'Em: Monday Night Football - Joe Burrow, Jayden Daniels, Chase Brown, Ja'Marr Chase, Stefon Diggs, Tee Higgins, Antonio Williams, and more",
-   "link": "https://www.rotoballer.com/fantasy-football-start-em-sit-em-monday-bengals-vs-commanders-week-11-mnf-2026/2000741",
-   "summary": "Week 11 of the NFL season closes with a Monday night meeting that could produce fantasy fireworks. The red-hot Bengals [&#8230;]",
-   "published": "Mon, 23 Nov 2026 16:03:23 +0000",
-   "source": "RotoBaller",
-   "kind": "news",
-   "golfers": [
-    "Blades Brown"
-   ]
-  },
-  {
    "title": "Gary Woodland Withdraws From Tiger Woods' Hero World Challenge",
    "link": "https://www.golfmonthly.com/news/gary-woodland-withdraws-from-tiger-woods-hero-world-challenge",
    "summary": "Gary Woodland has undergone knee surgery and will be replaced by Keegan Bradley at next month's tournament in the Bahamas",
@@ -298,28 +223,6 @@
    "kind": "news",
    "golfers": [
     "Keegan Bradley"
-   ]
-  },
-  {
-   "title": "49ers vs. Vikings Mexico City Preview: NFL Week 11 Picks, Odds and Circa Contest Consensus",
-   "link": "https://vsin.com/the-vsin-daily/49ers-vs-vikings-mexico-city-preview-nfl-week-11-picks-odds-and-circa-contest-consensus/",
-   "summary": "A Mile-High Challenge \u2014 and Then Some The NFL\u2019s marquee game Sunday night is in Mexico City, where the 49ers (-3,5) face the Kirk Cousins-rejuvenated Vikings \u2014 and both teams face the 7,352-foot elevation at Estadio Azteca. San Francisco, which already survived a trip to Australia this season, has been preparing in Colorado Springs (7,258 [&#8230;] The post 49ers vs. Vikings Mexico City Preview: N",
-   "published": "Sun, 22 Nov 2026 08:16:27 +0000",
-   "source": "VSiN",
-   "kind": "news",
-   "golfers": [
-    "Chris Kirk"
-   ]
-  },
-  {
-   "title": "Injury ends Erik van Rooyen\u2019s bid for conditional PGA Tour status - Arab News",
-   "link": "https://news.google.com/rss/articles/CBMipAFBVV95cUxQZHNOVWU2ZlN2RHUxODFwMGozU1psc3FNa3JWM0RaN2stYW8zZ2ZxTFZxaHNkUFRyNEx4WXA0NlhFclZ2aVhzM2plY2JRTTNXd2ZpYlVFRzBWNkU4M1JfeXFrRE9mcTQ2YWtoV3lsRE55eFA4cHlGTE1yb1dYT19pNV9XNmhKRGdzMFpNTHRqZkpYVGdyc3ZsbDBPZlVLZ2xVVGRIRQ?oc=5",
-   "summary": "Injury ends Erik van Rooyen\u2019s bid for conditional PGA Tour status Arab News",
-   "published": "Thu, 19 Nov 2026 19:41:37 GMT",
-   "source": "Google News: PGA WD",
-   "kind": "news",
-   "golfers": [
-    "Erik Van Rooyen"
    ]
   }
  ]
