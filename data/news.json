@@ -1,11 +1,11 @@
 {
- "updatedUtc": "2026-11-24T13:46:14Z",
+ "updatedUtc": "2026-11-24T23:54:49Z",
  "slate": "RSM_2026",
  "event": "",
  "counts": {
-  "items": 5,
-  "golfersMentioned": 5,
-  "news": 5,
+  "items": 6,
+  "golfersMentioned": 6,
+  "news": 6,
   "chatter": 0
  },
  "sources": [
@@ -43,7 +43,7 @@
    "source": "Action Network",
    "ok": false,
    "items": 0,
-   "error": "HTTP 404"
+   "error": "no items"
   },
   {
    "source": "VSiN",
@@ -108,14 +108,14 @@
   {
    "source": "Google News: PGA DFS",
    "ok": true,
-   "items": 100,
+   "items": 50,
    "error": null
   },
   {
    "source": "Google News: PGA WD",
-   "ok": false,
-   "items": 0,
-   "error": "HTTP 429"
+   "ok": true,
+   "items": 100,
+   "error": null
   },
   {
    "source": "r/dfsports",
@@ -138,10 +138,16 @@
  ],
  "mentions": [
   {
-   "name": "Luke List",
+   "name": "Brooks Koepka",
    "news": 2,
    "chatter": 0,
    "total": 2
+  },
+  {
+   "name": "Luke List",
+   "news": 1,
+   "chatter": 0,
+   "total": 1
   },
   {
    "name": "Neal Shipley",
@@ -156,13 +162,13 @@
    "total": 1
   },
   {
-   "name": "Marco Penge",
+   "name": "Keegan Bradley",
    "news": 1,
    "chatter": 0,
    "total": 1
   },
   {
-   "name": "Keegan Bradley",
+   "name": "Erik Van Rooyen",
    "news": 1,
    "chatter": 0,
    "total": 1
@@ -170,10 +176,21 @@
  ],
  "items": [
   {
+   "title": "Brooks Koepka Aims Yet Another Dig At Bryson DeChambeau",
+   "link": "https://www.golfmonthly.com/news/brooks-koepka-feud-bryson-dechambeau-skins-game",
+   "summary": "Brooks Koepka can't help himself when it comes to having a dig at Bryson DeChambeau, this time taking a swipe at his old sparring partner for his performance in The Showdown two years ago",
+   "published": "Tue, 24 Nov 2026 23:12:02 +0000",
+   "source": "Golf Monthly",
+   "kind": "news",
+   "golfers": [
+    "Brooks Koepka"
+   ]
+  },
+  {
    "title": "The Cut List - Time to Let Go? Who to Drop for Fantasy Football Week 12",
    "link": "https://www.rotoballer.com/who-to-drop-for-fantasy-football-week-12-2026/2002344",
    "summary": "We have only a few weeks left in the fantasy football regular season. We're well past the point of players [&#8230;]",
-   "published": "Tue, 24 Nov 2026 11:49:37 +0000",
+   "published": "Tue, 24 Nov 2026 21:58:37 +0000",
    "source": "RotoBaller",
    "kind": "news",
    "golfers": [
@@ -184,7 +201,7 @@
    "title": "Week 12 Waiver Wire Rankings - Fantasy Football Pickups Include Will Shipley, Justice Hill, Kaleb Johnson, Konata Mumpfield, Elic Ayomanor, Jack Bech, Michael Mayer, more",
    "link": "https://www.rotoballer.com/waiver-wire-rankings-fantasy-football-week-12-2026/2001432",
    "summary": "Week 12 is here! It's Thanksgiving week; the NFL will have games from Wednesday through Monday, with Tuesday and Saturday [&#8230;]",
-   "published": "Tue, 24 Nov 2026 11:49:08 +0000",
+   "published": "Tue, 24 Nov 2026 21:50:08 +0000",
    "source": "RotoBaller",
    "kind": "news",
    "golfers": [
@@ -193,25 +210,14 @@
    ]
   },
   {
-   "title": "Marco Penge shows his class to claim first PGA Tour win and secure future",
-   "link": "https://sports.yahoo.com/articles/marco-penge-shows-class-claim-211558911.html",
-   "summary": "It is fair to say that Marco Penge picks his moments. Two years after he shrugged off a betting scandal to rescue his DP World Tour card on the final day of the season, he repeated the trick with incredible bravado for his first win on US soil.",
-   "published": "Mon, 23 Nov 2026 21:15:58 +0000",
+   "title": "Brooks Koepka Reveals Frustration With Former Teammate Ahead of The Skins Game",
+   "link": "https://sports.yahoo.com/articles/brooks-koepka-reveals-frustration-former-184158286.html",
+   "summary": "Brooks Koepka has looked back at his experience playing alongside Bryson DeChambeau in the 2024 Crypto.com Showdown. The five-time major champion admitted that he was not happy with how things went during the team competition, especially after his partner struggled on the greens. Koepka and DeChambeau faced Rory McIlroy and Scottie Scheffler in the event, \u2026",
+   "published": "Tue, 24 Nov 2026 18:41:58 +0000",
    "source": "Yahoo Golf",
    "kind": "news",
    "golfers": [
-    "Marco Penge"
-   ]
-  },
-  {
-   "title": "Top 100 Courses in the U.S. for 2026-27: The ultimate bucket list for American golf",
-   "link": "https://golf.com/travel/top-100-golf-courses-us/",
-   "summary": "GOLF's latest ranking of the 100 best golf courses in the U.S. is a thrilling blend of old and new. Here are our raters' top picks. The post Top 100 Courses in the U.S. for 2026-27: The ultimate bucket list for American golf appeared first on Golf .",
-   "published": "Mon, 23 Nov 2026 20:06:30 +0000",
-   "source": "Golf.com",
-   "kind": "news",
-   "golfers": [
-    "Luke List"
+    "Brooks Koepka"
    ]
   },
   {
@@ -223,6 +229,17 @@
    "kind": "news",
    "golfers": [
     "Keegan Bradley"
+   ]
+  },
+  {
+   "title": "Injury ends Erik van Rooyen\u2019s bid for conditional PGA Tour status - Arab News",
+   "link": "https://news.google.com/rss/articles/CBMipAFBVV95cUxQZHNOVWU2ZlN2RHUxODFwMGozU1psc3FNa3JWM0RaN2stYW8zZ2ZxTFZxaHNkUFRyNEx4WXA0NlhFclZ2aVhzM2plY2JRTTNXd2ZpYlVFRzBWNkU4M1JfeXFrRE9mcTQ2YWtoV3lsRE55eFA4cHlGTE1yb1dYT19pNV9XNmhKRGdzMFpNTHRqZkpYVGdyc3ZsbDBPZlVLZ2xVVGRIRQ?oc=5",
+   "summary": "Injury ends Erik van Rooyen\u2019s bid for conditional PGA Tour status Arab News",
+   "published": "Thu, 19 Nov 2026 19:41:37 GMT",
+   "source": "Google News: PGA WD",
+   "kind": "news",
+   "golfers": [
+    "Erik Van Rooyen"
    ]
   }
  ]
