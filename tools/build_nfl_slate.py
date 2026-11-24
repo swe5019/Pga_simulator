@@ -305,8 +305,24 @@ def pick_slate(doc):
             "falling back to the largest by team count")
         future.sort(key=lambda x: (-x[1], x[2]))
         return future[0][3]
+
+    # NOTHING UPCOMING. This used to fall through to the largest classic slate
+    # by team count whatever its date, which silently built a board, a field
+    # and a full set of scenarios for a game that had already been played. It
+    # happened on 24 November: the archive in the running job's checkout was
+    # two days stale, held no future slate, and the tool solved "Sun Nov 22
+    # Main, 3 games" without a word of complaint. A board for a finished slate
+    # is worse than no board, because nothing downstream can tell the
+    # difference.
     if classics:
-        return max(classics, key=lambda s: s.get("teams", 0))
+        newest = max(classics, key=lambda s: s.get("start") or "")
+        log("   NO UPCOMING CLASSIC SLATE in data/nfl_dk.json. The newest it "
+            f"holds is {newest.get('name')!r}, which started "
+            f"{newest.get('start')}. Refusing to build a board for a slate "
+            f"that has already played; refresh the DraftKings archive "
+            f"(fetch-nfl.yml) and run this again.")
+    else:
+        log("   no classic slates at all in data/nfl_dk.json")
     return None
 
 
