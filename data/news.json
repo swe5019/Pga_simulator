@@ -1,11 +1,11 @@
 {
- "updatedUtc": "2026-11-24T23:54:49Z",
+ "updatedUtc": "2026-11-25T08:38:41Z",
  "slate": "RSM_2026",
  "event": "",
  "counts": {
-  "items": 6,
-  "golfersMentioned": 6,
-  "news": 6,
+  "items": 3,
+  "golfersMentioned": 2,
+  "news": 3,
   "chatter": 0
  },
  "sources": [
@@ -114,7 +114,7 @@
   {
    "source": "Google News: PGA WD",
    "ok": true,
-   "items": 100,
+   "items": 52,
    "error": null
   },
   {
@@ -144,31 +144,7 @@
    "total": 2
   },
   {
-   "name": "Luke List",
-   "news": 1,
-   "chatter": 0,
-   "total": 1
-  },
-  {
-   "name": "Neal Shipley",
-   "news": 1,
-   "chatter": 0,
-   "total": 1
-  },
-  {
-   "name": "Michael Johnson",
-   "news": 1,
-   "chatter": 0,
-   "total": 1
-  },
-  {
    "name": "Keegan Bradley",
-   "news": 1,
-   "chatter": 0,
-   "total": 1
-  },
-  {
-   "name": "Erik Van Rooyen",
    "news": 1,
    "chatter": 0,
    "total": 1
@@ -184,29 +160,6 @@
    "kind": "news",
    "golfers": [
     "Brooks Koepka"
-   ]
-  },
-  {
-   "title": "The Cut List - Time to Let Go? Who to Drop for Fantasy Football Week 12",
-   "link": "https://www.rotoballer.com/who-to-drop-for-fantasy-football-week-12-2026/2002344",
-   "summary": "We have only a few weeks left in the fantasy football regular season. We're well past the point of players [&#8230;]",
-   "published": "Tue, 24 Nov 2026 21:58:37 +0000",
-   "source": "RotoBaller",
-   "kind": "news",
-   "golfers": [
-    "Luke List"
-   ]
-  },
-  {
-   "title": "Week 12 Waiver Wire Rankings - Fantasy Football Pickups Include Will Shipley, Justice Hill, Kaleb Johnson, Konata Mumpfield, Elic Ayomanor, Jack Bech, Michael Mayer, more",
-   "link": "https://www.rotoballer.com/waiver-wire-rankings-fantasy-football-week-12-2026/2001432",
-   "summary": "Week 12 is here! It's Thanksgiving week; the NFL will have games from Wednesday through Monday, with Tuesday and Saturday [&#8230;]",
-   "published": "Tue, 24 Nov 2026 21:50:08 +0000",
-   "source": "RotoBaller",
-   "kind": "news",
-   "golfers": [
-    "Neal Shipley",
-    "Michael Johnson"
    ]
   },
   {
@@ -229,17 +182,6 @@
    "kind": "news",
    "golfers": [
     "Keegan Bradley"
-   ]
-  },
-  {
-   "title": "Injury ends Erik van Rooyen\u2019s bid for conditional PGA Tour status - Arab News",
-   "link": "https://news.google.com/rss/articles/CBMipAFBVV95cUxQZHNOVWU2ZlN2RHUxODFwMGozU1psc3FNa3JWM0RaN2stYW8zZ2ZxTFZxaHNkUFRyNEx4WXA0NlhFclZ2aVhzM2plY2JRTTNXd2ZpYlVFRzBWNkU4M1JfeXFrRE9mcTQ2YWtoV3lsRE55eFA4cHlGTE1yb1dYT19pNV9XNmhKRGdzMFpNTHRqZkpYVGdyc3ZsbDBPZlVLZ2xVVGRIRQ?oc=5",
-   "summary": "Injury ends Erik van Rooyen\u2019s bid for conditional PGA Tour status Arab News",
-   "published": "Thu, 19 Nov 2026 19:41:37 GMT",
-   "source": "Google News: PGA WD",
-   "kind": "news",
-   "golfers": [
-    "Erik Van Rooyen"
    ]
   }
  ]
