@@ -1,11 +1,11 @@
 {
- "updatedUtc": "2026-11-25T08:38:41Z",
+ "updatedUtc": "2026-11-25T19:18:38Z",
  "slate": "RSM_2026",
  "event": "",
  "counts": {
-  "items": 3,
-  "golfersMentioned": 2,
-  "news": 3,
+  "items": 6,
+  "golfersMentioned": 5,
+  "news": 6,
   "chatter": 0
  },
  "sources": [
@@ -114,7 +114,7 @@
   {
    "source": "Google News: PGA WD",
    "ok": true,
-   "items": 52,
+   "items": 51,
    "error": null
   },
   {
@@ -138,10 +138,28 @@
  ],
  "mentions": [
   {
-   "name": "Brooks Koepka",
+   "name": "Michael Johnson",
    "news": 2,
    "chatter": 0,
    "total": 2
+  },
+  {
+   "name": "Mark Hubbard",
+   "news": 1,
+   "chatter": 0,
+   "total": 1
+  },
+  {
+   "name": "Jordan L. Smith",
+   "news": 1,
+   "chatter": 0,
+   "total": 1
+  },
+  {
+   "name": "Brooks Koepka",
+   "news": 1,
+   "chatter": 0,
+   "total": 1
   },
   {
    "name": "Keegan Bradley",
@@ -152,22 +170,55 @@
  ],
  "items": [
   {
+   "title": "Who Should I Start for Week 12? Jalen Coker, Josh Downs, Emeka Egbuka, Rhamondre Stevenson, Chuba Hubbard, Mike Evans, Jaylen Waddle, Nate Carter, Jordan Mason, Tre Tucker",
+   "link": "https://www.rotoballer.com/who-should-i-start-for-week-12-jalen-coker-josh-downs-emeka-egbuka-rhamondre-stevenson-chuba-hubbard-mike-evans-jaylen-waddle-nate-carter-jordan-mason-tre-tucker/2004292",
+   "summary": "Who Should I Start? Who Should I Sit? Some of the most common Week 12 fantasy football lineup decisions involve [&#8230;]",
+   "published": "Wed, 25 Nov 2026 18:54:26 +0000",
+   "source": "RotoBaller",
+   "kind": "news",
+   "golfers": [
+    "Mark Hubbard"
+   ]
+  },
+  {
+   "title": "Who Should I Start for Week 12? Matthew Stafford, Jordan Love, Kyren Williams, Blake Corum, Josh Jacobs, Kaleb Johnson, Konata Mumpfield, Matthew Golden, Tucker Kraft",
+   "link": "https://www.rotoballer.com/who-should-i-start-for-week-12-matthew-stafford-jordan-love-kyren-williams-blake-corum-josh-jacobs-kaleb-johnson-konata-mumpfield-matthew-golden-tucker-kraft/2004089",
+   "summary": "Who Should I Start? Who Should I Sit? Some of the most common Week 12 fantasy football lineup decisions involve [&#8230;]",
+   "published": "Wed, 25 Nov 2026 17:53:02 +0000",
+   "source": "RotoBaller",
+   "kind": "news",
+   "golfers": [
+    "Michael Johnson"
+   ]
+  },
+  {
+   "title": "Mid-Week Waiver Wire Rankings for Week 12 (2026): Fantasy Football Pickups for Ted Hurst, Jack Bech, Tyler Higbee, Kaleb Johnson, Jonathon Brooks, Chris Rodriguez Jr., more",
+   "link": "https://www.rotoballer.com/mid-week-waiver-wire-rankings-fantasy-football-week-12-2026/2003727",
+   "summary": "Hey RotoBallers! Happy Thanksgiving! Week 12 will be unique, with football games on Wednesday, Thursday, Friday, Sunday, and Monday. Most [&#8230;]",
+   "published": "Wed, 25 Nov 2026 16:19:18 +0000",
+   "source": "RotoBaller",
+   "kind": "news",
+   "golfers": [
+    "Michael Johnson"
+   ]
+  },
+  {
+   "title": "Wide Receiver Matchups to Target For Thanksgiving - CeeDee Lamb, DeVonta Smith, Cyrus Allen, More",
+   "link": "https://www.rotoballer.com/nfl-dfs-picks-wide-receivers-to-target-for-thanksgiving-2026/2002366",
+   "summary": "Happy Thanksgiving! Hopefully, you're ready to celebrate with a feast of fantasy football goodness along with your typical festivities. In [&#8230;]",
+   "published": "Wed, 25 Nov 2026 16:17:30 +0000",
+   "source": "RotoBaller",
+   "kind": "news",
+   "golfers": [
+    "Jordan L. Smith"
+   ]
+  },
+  {
    "title": "Brooks Koepka Aims Yet Another Dig At Bryson DeChambeau",
    "link": "https://www.golfmonthly.com/news/brooks-koepka-feud-bryson-dechambeau-skins-game",
    "summary": "Brooks Koepka can't help himself when it comes to having a dig at Bryson DeChambeau, this time taking a swipe at his old sparring partner for his performance in The Showdown two years ago",
    "published": "Tue, 24 Nov 2026 23:12:02 +0000",
    "source": "Golf Monthly",
-   "kind": "news",
-   "golfers": [
-    "Brooks Koepka"
-   ]
-  },
-  {
-   "title": "Brooks Koepka Reveals Frustration With Former Teammate Ahead of The Skins Game",
-   "link": "https://sports.yahoo.com/articles/brooks-koepka-reveals-frustration-former-184158286.html",
-   "summary": "Brooks Koepka has looked back at his experience playing alongside Bryson DeChambeau in the 2024 Crypto.com Showdown. The five-time major champion admitted that he was not happy with how things went during the team competition, especially after his partner struggled on the greens. Koepka and DeChambeau faced Rory McIlroy and Scottie Scheffler in the event, \u2026",
-   "published": "Tue, 24 Nov 2026 18:41:58 +0000",
-   "source": "Yahoo Golf",
    "kind": "news",
    "golfers": [
     "Brooks Koepka"
