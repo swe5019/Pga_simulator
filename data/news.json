@@ -1,11 +1,11 @@
 {
- "updatedUtc": "2026-11-26T03:35:26Z",
+ "updatedUtc": "2026-11-26T16:56:28Z",
  "slate": "RSM_2026",
  "event": "",
  "counts": {
-  "items": 7,
-  "golfersMentioned": 6,
-  "news": 7,
+  "items": 8,
+  "golfersMentioned": 8,
+  "news": 8,
   "chatter": 0
  },
  "sources": [
@@ -43,7 +43,7 @@
    "source": "Action Network",
    "ok": false,
    "items": 0,
-   "error": "HTTP 404"
+   "error": "no items"
   },
   {
    "source": "VSiN",
@@ -108,13 +108,13 @@
   {
    "source": "Google News: PGA DFS",
    "ok": true,
-   "items": 52,
+   "items": 53,
    "error": null
   },
   {
    "source": "Google News: PGA WD",
    "ok": true,
-   "items": 50,
+   "items": 52,
    "error": null
   },
   {
@@ -144,19 +144,31 @@
    "total": 2
   },
   {
+   "name": "Jordan L. Smith",
+   "news": 2,
+   "chatter": 0,
+   "total": 2
+  },
+  {
+   "name": "Benjamin James",
+   "news": 1,
+   "chatter": 0,
+   "total": 1
+  },
+  {
+   "name": "Taylor Moore",
+   "news": 1,
+   "chatter": 0,
+   "total": 1
+  },
+  {
+   "name": "Blades Brown",
+   "news": 1,
+   "chatter": 0,
+   "total": 1
+  },
+  {
    "name": "Patrick Rodgers",
-   "news": 1,
-   "chatter": 0,
-   "total": 1
-  },
-  {
-   "name": "Keith Mitchell",
-   "news": 1,
-   "chatter": 0,
-   "total": 1
-  },
-  {
-   "name": "Mark Hubbard",
    "news": 1,
    "chatter": 0,
    "total": 1
@@ -176,6 +188,63 @@
  ],
  "items": [
   {
+   "title": "Who Should I Start for Week 12? Patrick Mahomes, Cyrus Allen, Emmett Johnson, James Cook III, Rashee Rice, DJ Moore, Khalil Shakir, Xavier Worthy, Travis Kelce, Dalton Kincaid",
+   "link": "https://www.rotoballer.com/who-should-i-start-for-week-12-patrick-mahomes-cyrus-allen-emmett-johnson-james-cook-iii-rashee-rice-dj-moore-khalil-shakir-xavier-worthy-travis-kelce-dalton-kincaid/2005016",
+   "summary": "Who Should I Start? Who Should I Sit? Some of the most common Week 12 fantasy football lineup decisions involve [&#8230;]",
+   "published": "Thu, 26 Nov 2026 14:28:45 +0000",
+   "source": "RotoBaller",
+   "kind": "news",
+   "golfers": [
+    "Benjamin James",
+    "Taylor Moore",
+    "Michael Johnson"
+   ]
+  },
+  {
+   "title": "Who Should I Start for Week 12? Dak Prescott, Joe Milton III, Saquon Barkley, Javonte Williams, CeeDee Lamb, George Pickens, DeVonta Smith, Ryan Flournoy, Makai Lemon, Dallas Goedert",
+   "link": "https://www.rotoballer.com/who-should-i-start-for-week-12-dak-prescott-joe-milton-iii-saquon-barkley-javonte-williams-ceedee-lamb-george-pickens-devonta-smith-ryan-flournoy-makai-lemon-dallas-goedert-2/2004990",
+   "summary": "Who Should I Start? Who Should I Sit? Some of the most common Week 12 fantasy football lineup decisions involve [&#8230;]",
+   "published": "Thu, 26 Nov 2026 14:23:00 +0000",
+   "source": "RotoBaller",
+   "kind": "news",
+   "golfers": [
+    "Jordan L. Smith"
+   ]
+  },
+  {
+   "title": "When Is A.J. Brown Coming Back - Week 12 Fantasy Football Injury Return Update (2026)",
+   "link": "https://www.rotoballer.com/when-is-a-j-brown-coming-back-week-12-fantasy-football-injury-return-update-2026/2002853",
+   "summary": "The 2026 season has not gone to plan for New England Patriots wide receiver A.J. Brown. After being traded from [&#8230;]",
+   "published": "Thu, 26 Nov 2026 14:09:56 +0000",
+   "source": "RotoBaller",
+   "kind": "news",
+   "golfers": [
+    "Blades Brown"
+   ]
+  },
+  {
+   "title": "Thanksgiving Thursday Start 'Em, Sit 'Em - Caleb Williams, Luther Burden III, Jared Goff, Saquon Barkley, Dak Prescott, George Pickens, Patrick Mahomes, Emmett Johnson, Khalil Shakir, more",
+   "link": "https://www.rotoballer.com/fantasy-football-start-em-sit-em-thanksgiving-thursday-week-12-2026/2002722",
+   "summary": "Happy Thanksgiving, and welcome to the RotoBaller Thanksgiving Thursday start 'em, sit 'em picks for Week 12! Thanksgiving remains one [&#8230;]",
+   "published": "Thu, 26 Nov 2026 13:49:46 +0000",
+   "source": "RotoBaller",
+   "kind": "news",
+   "golfers": [
+    "Michael Johnson"
+   ]
+  },
+  {
+   "title": "Wide Receiver Matchups to Target For Thanksgiving - CeeDee Lamb, DeVonta Smith, Cyrus Allen, More",
+   "link": "https://www.rotoballer.com/nfl-dfs-picks-wide-receivers-to-target-for-thanksgiving-2026/2002366",
+   "summary": "Happy Thanksgiving! Hopefully, you're ready to celebrate with a feast of fantasy football goodness along with your typical festivities. In [&#8230;]",
+   "published": "Thu, 26 Nov 2026 13:46:30 +0000",
+   "source": "RotoBaller",
+   "kind": "news",
+   "golfers": [
+    "Jordan L. Smith"
+   ]
+  },
+  {
    "title": "Broncos vs. Steelers Predictions: Week 12 Black Friday odds, picks, and player props",
    "link": "https://vsin.com/nfl/broncos-vs-steelers-predictions-week-12-black-friday-odds-picks-and-player-props/",
    "summary": "The 2026 season&#8217;s Black Friday NFL game features the Pittsburgh Steelers hosting the Denver Broncos. The team will be doing that fresh off the decision to bench \u2014 and release \u2014 Aaron Rodgers. Keep reading for betting odds, picks, and player props for this exciting showdown. Also, make sure you head over to our Week 12 [&#8230;] The post Broncos vs. Steelers Predictions: Week 12 Black Friday ",
@@ -184,50 +253,6 @@
    "kind": "news",
    "golfers": [
     "Patrick Rodgers"
-   ]
-  },
-  {
-   "title": "Who Should I Start for Week 12? Parker Washington, Elic Ayomanor, Adonai Mitchell, Tank Dell, Ladd McConkey, Tetairoa McMillan, Courtland Sutton, Jack Bech, Pat Bryant",
-   "link": "https://www.rotoballer.com/who-should-i-start-for-week-12-parker-washington-elic-ayomanor-adonai-mitchell-tank-dell-ladd-mcconkey-tetairoa-mcmillan-courtland-sutton-jack-bech-pat-bryant/2004526",
-   "summary": "Who Should I Start? Who Should I Sit? Some of the most common Week 12 fantasy football lineup decisions involve [&#8230;]",
-   "published": "Wed, 25 Nov 2026 21:53:31 +0000",
-   "source": "RotoBaller",
-   "kind": "news",
-   "golfers": [
-    "Keith Mitchell"
-   ]
-  },
-  {
-   "title": "Who Should I Start for Week 12? Jalen Coker, Josh Downs, Emeka Egbuka, Rhamondre Stevenson, Chuba Hubbard, Mike Evans, Jaylen Waddle, Nate Carter, Jordan Mason, Tre Tucker",
-   "link": "https://www.rotoballer.com/who-should-i-start-for-week-12-jalen-coker-josh-downs-emeka-egbuka-rhamondre-stevenson-chuba-hubbard-mike-evans-jaylen-waddle-nate-carter-jordan-mason-tre-tucker/2004292",
-   "summary": "Who Should I Start? Who Should I Sit? Some of the most common Week 12 fantasy football lineup decisions involve [&#8230;]",
-   "published": "Wed, 25 Nov 2026 18:54:26 +0000",
-   "source": "RotoBaller",
-   "kind": "news",
-   "golfers": [
-    "Mark Hubbard"
-   ]
-  },
-  {
-   "title": "Who Should I Start for Week 12? Matthew Stafford, Jordan Love, Kyren Williams, Blake Corum, Josh Jacobs, Kaleb Johnson, Konata Mumpfield, Matthew Golden, Tucker Kraft",
-   "link": "https://www.rotoballer.com/who-should-i-start-for-week-12-matthew-stafford-jordan-love-kyren-williams-blake-corum-josh-jacobs-kaleb-johnson-konata-mumpfield-matthew-golden-tucker-kraft/2004089",
-   "summary": "Who Should I Start? Who Should I Sit? Some of the most common Week 12 fantasy football lineup decisions involve [&#8230;]",
-   "published": "Wed, 25 Nov 2026 17:53:02 +0000",
-   "source": "RotoBaller",
-   "kind": "news",
-   "golfers": [
-    "Michael Johnson"
-   ]
-  },
-  {
-   "title": "Mid-Week Waiver Wire Rankings for Week 12 (2026): Fantasy Football Pickups for Ted Hurst, Jack Bech, Tyler Higbee, Kaleb Johnson, Jonathon Brooks, Chris Rodriguez Jr., more",
-   "link": "https://www.rotoballer.com/mid-week-waiver-wire-rankings-fantasy-football-week-12-2026/2003727",
-   "summary": "Hey RotoBallers! Happy Thanksgiving! Week 12 will be unique, with football games on Wednesday, Thursday, Friday, Sunday, and Monday. Most [&#8230;]",
-   "published": "Wed, 25 Nov 2026 16:19:18 +0000",
-   "source": "RotoBaller",
-   "kind": "news",
-   "golfers": [
-    "Michael Johnson"
    ]
   },
   {
