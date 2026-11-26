@@ -1,19 +1,19 @@
 {
- "updatedUtc": "2026-11-25T19:18:38Z",
+ "updatedUtc": "2026-11-26T03:35:26Z",
  "slate": "RSM_2026",
  "event": "",
  "counts": {
-  "items": 6,
-  "golfersMentioned": 5,
-  "news": 6,
+  "items": 7,
+  "golfersMentioned": 6,
+  "news": 7,
   "chatter": 0
  },
  "sources": [
   {
    "source": "RotoWire Golf",
-   "ok": true,
-   "items": 5,
-   "error": null
+   "ok": false,
+   "items": 0,
+   "error": "no items"
   },
   {
    "source": "RotoBaller Golf",
@@ -43,7 +43,7 @@
    "source": "Action Network",
    "ok": false,
    "items": 0,
-   "error": "no items"
+   "error": "HTTP 404"
   },
   {
    "source": "VSiN",
@@ -108,13 +108,13 @@
   {
    "source": "Google News: PGA DFS",
    "ok": true,
-   "items": 50,
+   "items": 52,
    "error": null
   },
   {
    "source": "Google News: PGA WD",
    "ok": true,
-   "items": 51,
+   "items": 50,
    "error": null
   },
   {
@@ -144,13 +144,19 @@
    "total": 2
   },
   {
-   "name": "Mark Hubbard",
+   "name": "Patrick Rodgers",
    "news": 1,
    "chatter": 0,
    "total": 1
   },
   {
-   "name": "Jordan L. Smith",
+   "name": "Keith Mitchell",
+   "news": 1,
+   "chatter": 0,
+   "total": 1
+  },
+  {
+   "name": "Mark Hubbard",
    "news": 1,
    "chatter": 0,
    "total": 1
@@ -169,6 +175,28 @@
   }
  ],
  "items": [
+  {
+   "title": "Broncos vs. Steelers Predictions: Week 12 Black Friday odds, picks, and player props",
+   "link": "https://vsin.com/nfl/broncos-vs-steelers-predictions-week-12-black-friday-odds-picks-and-player-props/",
+   "summary": "The 2026 season&#8217;s Black Friday NFL game features the Pittsburgh Steelers hosting the Denver Broncos. The team will be doing that fresh off the decision to bench \u2014 and release \u2014 Aaron Rodgers. Keep reading for betting odds, picks, and player props for this exciting showdown. Also, make sure you head over to our Week 12 [&#8230;] The post Broncos vs. Steelers Predictions: Week 12 Black Friday ",
+   "published": "Thu, 26 Nov 2026 00:20:00 +0000",
+   "source": "VSiN",
+   "kind": "news",
+   "golfers": [
+    "Patrick Rodgers"
+   ]
+  },
+  {
+   "title": "Who Should I Start for Week 12? Parker Washington, Elic Ayomanor, Adonai Mitchell, Tank Dell, Ladd McConkey, Tetairoa McMillan, Courtland Sutton, Jack Bech, Pat Bryant",
+   "link": "https://www.rotoballer.com/who-should-i-start-for-week-12-parker-washington-elic-ayomanor-adonai-mitchell-tank-dell-ladd-mcconkey-tetairoa-mcmillan-courtland-sutton-jack-bech-pat-bryant/2004526",
+   "summary": "Who Should I Start? Who Should I Sit? Some of the most common Week 12 fantasy football lineup decisions involve [&#8230;]",
+   "published": "Wed, 25 Nov 2026 21:53:31 +0000",
+   "source": "RotoBaller",
+   "kind": "news",
+   "golfers": [
+    "Keith Mitchell"
+   ]
+  },
   {
    "title": "Who Should I Start for Week 12? Jalen Coker, Josh Downs, Emeka Egbuka, Rhamondre Stevenson, Chuba Hubbard, Mike Evans, Jaylen Waddle, Nate Carter, Jordan Mason, Tre Tucker",
    "link": "https://www.rotoballer.com/who-should-i-start-for-week-12-jalen-coker-josh-downs-emeka-egbuka-rhamondre-stevenson-chuba-hubbard-mike-evans-jaylen-waddle-nate-carter-jordan-mason-tre-tucker/2004292",
@@ -200,17 +228,6 @@
    "kind": "news",
    "golfers": [
     "Michael Johnson"
-   ]
-  },
-  {
-   "title": "Wide Receiver Matchups to Target For Thanksgiving - CeeDee Lamb, DeVonta Smith, Cyrus Allen, More",
-   "link": "https://www.rotoballer.com/nfl-dfs-picks-wide-receivers-to-target-for-thanksgiving-2026/2002366",
-   "summary": "Happy Thanksgiving! Hopefully, you're ready to celebrate with a feast of fantasy football goodness along with your typical festivities. In [&#8230;]",
-   "published": "Wed, 25 Nov 2026 16:17:30 +0000",
-   "source": "RotoBaller",
-   "kind": "news",
-   "golfers": [
-    "Jordan L. Smith"
    ]
   },
   {
