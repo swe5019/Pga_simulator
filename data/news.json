@@ -1,11 +1,11 @@
 {
- "updatedUtc": "2026-11-27T12:25:33Z",
+ "updatedUtc": "2026-11-27T23:28:39Z",
  "slate": "RSM_2026",
  "event": "",
  "counts": {
-  "items": 9,
-  "golfersMentioned": 10,
-  "news": 9,
+  "items": 6,
+  "golfersMentioned": 5,
+  "news": 6,
   "chatter": 0
  },
  "sources": [
@@ -43,7 +43,7 @@
    "source": "Action Network",
    "ok": false,
    "items": 0,
-   "error": "no items"
+   "error": "HTTP 404"
   },
   {
    "source": "VSiN",
@@ -107,15 +107,15 @@
   },
   {
    "source": "Google News: PGA DFS",
-   "ok": false,
-   "items": 0,
-   "error": "HTTP 503"
+   "ok": true,
+   "items": 52,
+   "error": null
   },
   {
    "source": "Google News: PGA WD",
-   "ok": false,
-   "items": 0,
-   "error": "HTTP 503"
+   "ok": true,
+   "items": 100,
+   "error": null
   },
   {
    "source": "r/dfsports",
@@ -138,31 +138,19 @@
  ],
  "mentions": [
   {
+   "name": "Brooks Koepka",
+   "news": 2,
+   "chatter": 0,
+   "total": 2
+  },
+  {
    "name": "Patrick Rodgers",
    "news": 2,
    "chatter": 0,
    "total": 2
   },
   {
-   "name": "Jeremy Paul",
-   "news": 1,
-   "chatter": 0,
-   "total": 1
-  },
-  {
-   "name": "Ben Martin",
-   "news": 1,
-   "chatter": 0,
-   "total": 1
-  },
-  {
-   "name": "Benjamin James",
-   "news": 1,
-   "chatter": 0,
-   "total": 1
-  },
-  {
-   "name": "Taylor Moore",
+   "name": "Jackson Koivun",
    "news": 1,
    "chatter": 0,
    "total": 1
@@ -174,25 +162,7 @@
    "total": 1
   },
   {
-   "name": "Jordan L. Smith",
-   "news": 1,
-   "chatter": 0,
-   "total": 1
-  },
-  {
-   "name": "Blades Brown",
-   "news": 1,
-   "chatter": 0,
-   "total": 1
-  },
-  {
-   "name": "Brooks Koepka",
-   "news": 1,
-   "chatter": 0,
-   "total": 1
-  },
-  {
-   "name": "Keegan Bradley",
+   "name": "Erik Van Rooyen",
    "news": 1,
    "chatter": 0,
    "total": 1
@@ -200,14 +170,26 @@
  ],
  "items": [
   {
-   "title": "'Man Utd being relegated would be biggest shock in history... but it won't happen'",
-   "link": "https://www.skysports.com/football/news/12040/13616882/man-utd-being-relegated-would-be-the-biggest-shock-in-history-but-it-wont-happen-says-paul-merson",
-   "summary": "In his latest Sky Sports column, Paul Merson previews a big weekend for Manchester United, before Arsenal take on Manchester City in a huge game live this Sunday.",
-   "published": "Fri, 27 Nov 2026 09:00:00 GMT",
-   "source": "Sky Sports Golf",
+   "title": "Jackson Koivun wins playoff for final skin and picks up $2 million",
+   "link": "https://sports.yahoo.com/golf/articles/jackson-koivun-wins-playoff-final-205016436.html",
+   "summary": "Jackson Koivun was closest-to-the-pin in a playoff for the final skin and edged out Brooks Koepka in a hole worth $2 million, allowing the 21-year-old PGA Tour rookie to win the Skins Game on Friday.",
+   "published": "Fri, 27 Nov 2026 20:50:16 +0000",
+   "source": "Yahoo Golf",
    "kind": "news",
    "golfers": [
-    "Jeremy Paul"
+    "Jackson Koivun",
+    "Brooks Koepka"
+   ]
+  },
+  {
+   "title": "Mid-Week Waiver Wire Rankings for Week 12 (2026): Fantasy Football Pickups for Ted Hurst, Jack Bech, Tyler Higbee, Kaleb Johnson, Jonathon Brooks, Chris Rodriguez Jr., more",
+   "link": "https://www.rotoballer.com/mid-week-waiver-wire-rankings-fantasy-football-week-12-2026/2003727",
+   "summary": "Hey RotoBallers! Happy Thanksgiving! Week 12 will be unique, with football games on Wednesday, Thursday, Friday, Sunday, and Monday. Most [&#8230;]",
+   "published": "Fri, 27 Nov 2026 16:15:18 +0000",
+   "source": "RotoBaller",
+   "kind": "news",
+   "golfers": [
+    "Michael Johnson"
    ]
   },
   {
@@ -233,52 +215,6 @@
    ]
   },
   {
-   "title": "Bakole: Late-notice Wilder fight not like Parker | 'I like danger!'",
-   "link": "https://www.skysports.com/boxing/news/12040/13617000/fury-vs-joshua-undercard-martin-bakole-insists-late-notice-deontay-wilder-fight-wont-be-like-joseph-parker-loss",
-   "summary": "Martin Bakole explained his decision to step in as a replacement opponent for Deontay Wilder on the Tyson Fury vs Anthony Joshua undercard next month.",
-   "published": "Thu, 26 Nov 2026 21:36:00 GMT",
-   "source": "Sky Sports Golf",
-   "kind": "news",
-   "golfers": [
-    "Ben Martin"
-   ]
-  },
-  {
-   "title": "Who Should I Start for Week 12? Patrick Mahomes, Cyrus Allen, Emmett Johnson, James Cook III, Rashee Rice, DJ Moore, Khalil Shakir, Xavier Worthy, Travis Kelce, Dalton Kincaid",
-   "link": "https://www.rotoballer.com/who-should-i-start-for-week-12-patrick-mahomes-cyrus-allen-emmett-johnson-james-cook-iii-rashee-rice-dj-moore-khalil-shakir-xavier-worthy-travis-kelce-dalton-kincaid/2005016",
-   "summary": "Who Should I Start? Who Should I Sit? Some of the most common Week 12 fantasy football lineup decisions involve [&#8230;]",
-   "published": "Thu, 26 Nov 2026 14:28:45 +0000",
-   "source": "RotoBaller",
-   "kind": "news",
-   "golfers": [
-    "Benjamin James",
-    "Taylor Moore",
-    "Michael Johnson"
-   ]
-  },
-  {
-   "title": "Who Should I Start for Week 12? Dak Prescott, Joe Milton III, Saquon Barkley, Javonte Williams, CeeDee Lamb, George Pickens, DeVonta Smith, Ryan Flournoy, Makai Lemon, Dallas Goedert",
-   "link": "https://www.rotoballer.com/who-should-i-start-for-week-12-dak-prescott-joe-milton-iii-saquon-barkley-javonte-williams-ceedee-lamb-george-pickens-devonta-smith-ryan-flournoy-makai-lemon-dallas-goedert-2/2004990",
-   "summary": "Who Should I Start? Who Should I Sit? Some of the most common Week 12 fantasy football lineup decisions involve [&#8230;]",
-   "published": "Thu, 26 Nov 2026 14:23:00 +0000",
-   "source": "RotoBaller",
-   "kind": "news",
-   "golfers": [
-    "Jordan L. Smith"
-   ]
-  },
-  {
-   "title": "When Is A.J. Brown Coming Back - Week 12 Fantasy Football Injury Return Update (2026)",
-   "link": "https://www.rotoballer.com/when-is-a-j-brown-coming-back-week-12-fantasy-football-injury-return-update-2026/2002853",
-   "summary": "The 2026 season has not gone to plan for New England Patriots wide receiver A.J. Brown. After being traded from [&#8230;]",
-   "published": "Thu, 26 Nov 2026 14:09:56 +0000",
-   "source": "RotoBaller",
-   "kind": "news",
-   "golfers": [
-    "Blades Brown"
-   ]
-  },
-  {
    "title": "Brooks Koepka Aims Yet Another Dig At Bryson DeChambeau",
    "link": "https://www.golfmonthly.com/news/brooks-koepka-feud-bryson-dechambeau-skins-game",
    "summary": "Brooks Koepka can't help himself when it comes to having a dig at Bryson DeChambeau, this time taking a swipe at his old sparring partner for his performance in The Showdown two years ago",
@@ -290,14 +226,14 @@
    ]
   },
   {
-   "title": "Gary Woodland Withdraws From Tiger Woods' Hero World Challenge",
-   "link": "https://www.golfmonthly.com/news/gary-woodland-withdraws-from-tiger-woods-hero-world-challenge",
-   "summary": "Gary Woodland has undergone knee surgery and will be replaced by Keegan Bradley at next month's tournament in the Bahamas",
-   "published": "Sun, 22 Nov 2026 15:20:21 +0000",
-   "source": "Golf Monthly",
+   "title": "Injury ends Erik van Rooyen\u2019s bid for conditional PGA Tour status - Arab News",
+   "link": "https://news.google.com/rss/articles/CBMipAFBVV95cUxQZHNOVWU2ZlN2RHUxODFwMGozU1psc3FNa3JWM0RaN2stYW8zZ2ZxTFZxaHNkUFRyNEx4WXA0NlhFclZ2aVhzM2plY2JRTTNXd2ZpYlVFRzBWNkU4M1JfeXFrRE9mcTQ2YWtoV3lsRE55eFA4cHlGTE1yb1dYT19pNV9XNmhKRGdzMFpNTHRqZkpYVGdyc3ZsbDBPZlVLZ2xVVGRIRQ?oc=5",
+   "summary": "Injury ends Erik van Rooyen\u2019s bid for conditional PGA Tour status Arab News",
+   "published": "Thu, 19 Nov 2026 08:00:00 GMT",
+   "source": "Google News: PGA WD",
    "kind": "news",
    "golfers": [
-    "Keegan Bradley"
+    "Erik Van Rooyen"
    ]
   }
  ]
