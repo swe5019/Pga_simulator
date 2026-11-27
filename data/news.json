@@ -1,11 +1,11 @@
 {
- "updatedUtc": "2026-11-27T01:44:59Z",
+ "updatedUtc": "2026-11-27T12:25:33Z",
  "slate": "RSM_2026",
  "event": "",
  "counts": {
-  "items": 10,
+  "items": 9,
   "golfersMentioned": 10,
-  "news": 10,
+  "news": 9,
   "chatter": 0
  },
  "sources": [
@@ -43,7 +43,7 @@
    "source": "Action Network",
    "ok": false,
    "items": 0,
-   "error": "HTTP 404"
+   "error": "no items"
   },
   {
    "source": "VSiN",
@@ -107,15 +107,15 @@
   },
   {
    "source": "Google News: PGA DFS",
-   "ok": true,
-   "items": 100,
-   "error": null
+   "ok": false,
+   "items": 0,
+   "error": "HTTP 503"
   },
   {
    "source": "Google News: PGA WD",
-   "ok": true,
-   "items": 100,
-   "error": null
+   "ok": false,
+   "items": 0,
+   "error": "HTTP 503"
   },
   {
    "source": "r/dfsports",
@@ -138,16 +138,16 @@
  ],
  "mentions": [
   {
-   "name": "Michael Johnson",
+   "name": "Patrick Rodgers",
    "news": 2,
    "chatter": 0,
    "total": 2
   },
   {
-   "name": "Jordan L. Smith",
-   "news": 2,
+   "name": "Jeremy Paul",
+   "news": 1,
    "chatter": 0,
-   "total": 2
+   "total": 1
   },
   {
    "name": "Ben Martin",
@@ -168,13 +168,19 @@
    "total": 1
   },
   {
-   "name": "Blades Brown",
+   "name": "Michael Johnson",
    "news": 1,
    "chatter": 0,
    "total": 1
   },
   {
-   "name": "Patrick Rodgers",
+   "name": "Jordan L. Smith",
+   "news": 1,
+   "chatter": 0,
+   "total": 1
+  },
+  {
+   "name": "Blades Brown",
    "news": 1,
    "chatter": 0,
    "total": 1
@@ -190,15 +196,42 @@
    "news": 1,
    "chatter": 0,
    "total": 1
-  },
-  {
-   "name": "Erik Van Rooyen",
-   "news": 1,
-   "chatter": 0,
-   "total": 1
   }
  ],
  "items": [
+  {
+   "title": "'Man Utd being relegated would be biggest shock in history... but it won't happen'",
+   "link": "https://www.skysports.com/football/news/12040/13616882/man-utd-being-relegated-would-be-the-biggest-shock-in-history-but-it-wont-happen-says-paul-merson",
+   "summary": "In his latest Sky Sports column, Paul Merson previews a big weekend for Manchester United, before Arsenal take on Manchester City in a huge game live this Sunday.",
+   "published": "Fri, 27 Nov 2026 09:00:00 GMT",
+   "source": "Sky Sports Golf",
+   "kind": "news",
+   "golfers": [
+    "Jeremy Paul"
+   ]
+  },
+  {
+   "title": "Black Friday NFL and College Football Best Bets, Predictions",
+   "link": "https://vsin.com/the-vsin-daily/black-friday-nfl-and-college-football-best-bets-predictions/",
+   "summary": "Best Thanksgiving NFL menu ever? Three games with a combined margin of victory of eight points. Three go-ahead scores with a combined five seconds left. Well, maybe not the best if you had the Cowboys in Circa Survivor. Rodgers Is Out. Money Is Coming In. While Aaron Rodgers enjoys free agency, bookmakers are busy taking [&#8230;] The post Black Friday NFL and College Football Best Bets, Predictio",
+   "published": "Fri, 27 Nov 2026 05:53:13 +0000",
+   "source": "VSiN",
+   "kind": "news",
+   "golfers": [
+    "Patrick Rodgers"
+   ]
+  },
+  {
+   "title": "Broncos vs. Steelers Predictions: Week 12 Black Friday odds, picks, and player props",
+   "link": "https://vsin.com/nfl/broncos-vs-steelers-predictions-week-12-black-friday-odds-picks-and-player-props/",
+   "summary": "The 2026 season&#8217;s Black Friday NFL game features the Pittsburgh Steelers hosting the Denver Broncos. The team will be doing that fresh off the decision to bench \u2014 and release \u2014 Aaron Rodgers. Keep reading for betting odds, picks, and player props for this exciting showdown. Also, make sure you head over to our Week 12 [&#8230;] The post Broncos vs. Steelers Predictions: Week 12 Black Friday ",
+   "published": "Fri, 27 Nov 2026 03:37:27 +0000",
+   "source": "VSiN",
+   "kind": "news",
+   "golfers": [
+    "Patrick Rodgers"
+   ]
+  },
   {
    "title": "Bakole: Late-notice Wilder fight not like Parker | 'I like danger!'",
    "link": "https://www.skysports.com/boxing/news/12040/13617000/fury-vs-joshua-undercard-martin-bakole-insists-late-notice-deontay-wilder-fight-wont-be-like-joseph-parker-loss",
@@ -246,39 +279,6 @@
    ]
   },
   {
-   "title": "Thanksgiving Thursday Start 'Em, Sit 'Em - Caleb Williams, Luther Burden III, Jared Goff, Saquon Barkley, Dak Prescott, George Pickens, Patrick Mahomes, Emmett Johnson, Khalil Shakir, more",
-   "link": "https://www.rotoballer.com/fantasy-football-start-em-sit-em-thanksgiving-thursday-week-12-2026/2002722",
-   "summary": "Happy Thanksgiving, and welcome to the RotoBaller Thanksgiving Thursday start 'em, sit 'em picks for Week 12! Thanksgiving remains one [&#8230;]",
-   "published": "Thu, 26 Nov 2026 13:49:46 +0000",
-   "source": "RotoBaller",
-   "kind": "news",
-   "golfers": [
-    "Michael Johnson"
-   ]
-  },
-  {
-   "title": "Wide Receiver Matchups to Target For Thanksgiving - CeeDee Lamb, DeVonta Smith, Cyrus Allen, More",
-   "link": "https://www.rotoballer.com/nfl-dfs-picks-wide-receivers-to-target-for-thanksgiving-2026/2002366",
-   "summary": "Happy Thanksgiving! Hopefully, you're ready to celebrate with a feast of fantasy football goodness along with your typical festivities. In [&#8230;]",
-   "published": "Thu, 26 Nov 2026 13:46:30 +0000",
-   "source": "RotoBaller",
-   "kind": "news",
-   "golfers": [
-    "Jordan L. Smith"
-   ]
-  },
-  {
-   "title": "Broncos vs. Steelers Predictions: Week 12 Black Friday odds, picks, and player props",
-   "link": "https://vsin.com/nfl/broncos-vs-steelers-predictions-week-12-black-friday-odds-picks-and-player-props/",
-   "summary": "The 2026 season&#8217;s Black Friday NFL game features the Pittsburgh Steelers hosting the Denver Broncos. The team will be doing that fresh off the decision to bench \u2014 and release \u2014 Aaron Rodgers. Keep reading for betting odds, picks, and player props for this exciting showdown. Also, make sure you head over to our Week 12 [&#8230;] The post Broncos vs. Steelers Predictions: Week 12 Black Friday ",
-   "published": "Thu, 26 Nov 2026 00:20:00 +0000",
-   "source": "VSiN",
-   "kind": "news",
-   "golfers": [
-    "Patrick Rodgers"
-   ]
-  },
-  {
    "title": "Brooks Koepka Aims Yet Another Dig At Bryson DeChambeau",
    "link": "https://www.golfmonthly.com/news/brooks-koepka-feud-bryson-dechambeau-skins-game",
    "summary": "Brooks Koepka can't help himself when it comes to having a dig at Bryson DeChambeau, this time taking a swipe at his old sparring partner for his performance in The Showdown two years ago",
@@ -298,17 +298,6 @@
    "kind": "news",
    "golfers": [
     "Keegan Bradley"
-   ]
-  },
-  {
-   "title": "Injury ends Erik van Rooyen\u2019s bid for conditional PGA Tour status - Arab News",
-   "link": "https://news.google.com/rss/articles/CBMipAFBVV95cUxQZHNOVWU2ZlN2RHUxODFwMGozU1psc3FNa3JWM0RaN2stYW8zZ2ZxTFZxaHNkUFRyNEx4WXA0NlhFclZ2aVhzM2plY2JRTTNXd2ZpYlVFRzBWNkU4M1JfeXFrRE9mcTQ2YWtoV3lsRE55eFA4cHlGTE1yb1dYT19pNV9XNmhKRGdzMFpNTHRqZkpYVGdyc3ZsbDBPZlVLZ2xVVGRIRQ?oc=5",
-   "summary": "Injury ends Erik van Rooyen\u2019s bid for conditional PGA Tour status Arab News",
-   "published": "Thu, 19 Nov 2026 19:41:37 GMT",
-   "source": "Google News: PGA WD",
-   "kind": "news",
-   "golfers": [
-    "Erik Van Rooyen"
    ]
   }
  ]
