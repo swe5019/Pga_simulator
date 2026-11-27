@@ -1,11 +1,11 @@
 {
- "updatedUtc": "2026-11-26T16:56:28Z",
+ "updatedUtc": "2026-11-27T01:44:59Z",
  "slate": "RSM_2026",
  "event": "",
  "counts": {
-  "items": 8,
-  "golfersMentioned": 8,
-  "news": 8,
+  "items": 10,
+  "golfersMentioned": 10,
+  "news": 10,
   "chatter": 0
  },
  "sources": [
@@ -43,7 +43,7 @@
    "source": "Action Network",
    "ok": false,
    "items": 0,
-   "error": "no items"
+   "error": "HTTP 404"
   },
   {
    "source": "VSiN",
@@ -108,13 +108,13 @@
   {
    "source": "Google News: PGA DFS",
    "ok": true,
-   "items": 53,
+   "items": 100,
    "error": null
   },
   {
    "source": "Google News: PGA WD",
    "ok": true,
-   "items": 52,
+   "items": 100,
    "error": null
   },
   {
@@ -148,6 +148,12 @@
    "news": 2,
    "chatter": 0,
    "total": 2
+  },
+  {
+   "name": "Ben Martin",
+   "news": 1,
+   "chatter": 0,
+   "total": 1
   },
   {
    "name": "Benjamin James",
@@ -184,9 +190,26 @@
    "news": 1,
    "chatter": 0,
    "total": 1
+  },
+  {
+   "name": "Erik Van Rooyen",
+   "news": 1,
+   "chatter": 0,
+   "total": 1
   }
  ],
  "items": [
+  {
+   "title": "Bakole: Late-notice Wilder fight not like Parker | 'I like danger!'",
+   "link": "https://www.skysports.com/boxing/news/12040/13617000/fury-vs-joshua-undercard-martin-bakole-insists-late-notice-deontay-wilder-fight-wont-be-like-joseph-parker-loss",
+   "summary": "Martin Bakole explained his decision to step in as a replacement opponent for Deontay Wilder on the Tyson Fury vs Anthony Joshua undercard next month.",
+   "published": "Thu, 26 Nov 2026 21:36:00 GMT",
+   "source": "Sky Sports Golf",
+   "kind": "news",
+   "golfers": [
+    "Ben Martin"
+   ]
+  },
   {
    "title": "Who Should I Start for Week 12? Patrick Mahomes, Cyrus Allen, Emmett Johnson, James Cook III, Rashee Rice, DJ Moore, Khalil Shakir, Xavier Worthy, Travis Kelce, Dalton Kincaid",
    "link": "https://www.rotoballer.com/who-should-i-start-for-week-12-patrick-mahomes-cyrus-allen-emmett-johnson-james-cook-iii-rashee-rice-dj-moore-khalil-shakir-xavier-worthy-travis-kelce-dalton-kincaid/2005016",
@@ -275,6 +298,17 @@
    "kind": "news",
    "golfers": [
     "Keegan Bradley"
+   ]
+  },
+  {
+   "title": "Injury ends Erik van Rooyen\u2019s bid for conditional PGA Tour status - Arab News",
+   "link": "https://news.google.com/rss/articles/CBMipAFBVV95cUxQZHNOVWU2ZlN2RHUxODFwMGozU1psc3FNa3JWM0RaN2stYW8zZ2ZxTFZxaHNkUFRyNEx4WXA0NlhFclZ2aVhzM2plY2JRTTNXd2ZpYlVFRzBWNkU4M1JfeXFrRE9mcTQ2YWtoV3lsRE55eFA4cHlGTE1yb1dYT19pNV9XNmhKRGdzMFpNTHRqZkpYVGdyc3ZsbDBPZlVLZ2xVVGRIRQ?oc=5",
+   "summary": "Injury ends Erik van Rooyen\u2019s bid for conditional PGA Tour status Arab News",
+   "published": "Thu, 19 Nov 2026 19:41:37 GMT",
+   "source": "Google News: PGA WD",
+   "kind": "news",
+   "golfers": [
+    "Erik Van Rooyen"
    ]
   }
  ]
