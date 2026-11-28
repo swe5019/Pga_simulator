@@ -1,11 +1,11 @@
 {
- "updatedUtc": "2026-11-27T23:28:39Z",
+ "updatedUtc": "2026-11-28T07:52:21Z",
  "slate": "RSM_2026",
  "event": "",
  "counts": {
-  "items": 6,
-  "golfersMentioned": 5,
-  "news": 6,
+  "items": 5,
+  "golfersMentioned": 4,
+  "news": 5,
   "chatter": 0
  },
  "sources": [
@@ -114,7 +114,7 @@
   {
    "source": "Google News: PGA WD",
    "ok": true,
-   "items": 100,
+   "items": 52,
    "error": null
   },
   {
@@ -157,12 +157,6 @@
   },
   {
    "name": "Michael Johnson",
-   "news": 1,
-   "chatter": 0,
-   "total": 1
-  },
-  {
-   "name": "Erik Van Rooyen",
    "news": 1,
    "chatter": 0,
    "total": 1
@@ -223,17 +217,6 @@
    "kind": "news",
    "golfers": [
     "Brooks Koepka"
-   ]
-  },
-  {
-   "title": "Injury ends Erik van Rooyen\u2019s bid for conditional PGA Tour status - Arab News",
-   "link": "https://news.google.com/rss/articles/CBMipAFBVV95cUxQZHNOVWU2ZlN2RHUxODFwMGozU1psc3FNa3JWM0RaN2stYW8zZ2ZxTFZxaHNkUFRyNEx4WXA0NlhFclZ2aVhzM2plY2JRTTNXd2ZpYlVFRzBWNkU4M1JfeXFrRE9mcTQ2YWtoV3lsRE55eFA4cHlGTE1yb1dYT19pNV9XNmhKRGdzMFpNTHRqZkpYVGdyc3ZsbDBPZlVLZ2xVVGRIRQ?oc=5",
-   "summary": "Injury ends Erik van Rooyen\u2019s bid for conditional PGA Tour status Arab News",
-   "published": "Thu, 19 Nov 2026 08:00:00 GMT",
-   "source": "Google News: PGA WD",
-   "kind": "news",
-   "golfers": [
-    "Erik Van Rooyen"
    ]
   }
  ]
